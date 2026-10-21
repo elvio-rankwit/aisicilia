@@ -1,0 +1,29 @@
+{
+  "name": "SicurAI",
+  "slug": "sicurai",
+  "type": "startup",
+  "description": "Società con sede legale a Palermo che sta progettando un'infrastruttura di calcolo dedicata all'AI in Sicilia. Il primo impianto, il campus di Muxaro a Bivona (AG), prevede un cluster di GPU NVIDIA di ultima generazione da vendere come capacità privata per addestramento, messa a punto e inferenza di modelli, alimentato da energia solare e accumulo di proprietà, con recupero del calore per serre ed essiccazione. La disponibilità è indicata per primavera 2027.",
+  "ai_areas": [
+    "machine learning"
+  ],
+  "sectors_served": [
+    "energia",
+    "agricoltura"
+  ],
+  "province": "palermo",
+  "city": "Palermo",
+  "lat": 38.11123,
+  "lng": 13.35244,
+  "geo_precision": "città",
+  "website": "https://www.sicurai.com/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://www.sicurai.com/",
+    "https://www.sicurai.com/about/",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "Servizio ancora pianificato (disponibilità prevista 2027); il sito non indica sede legale né anno di fondazione (città dal registro); l'infrastruttura di calcolo non rientra con chiarezza nelle aree AI del vocabolario."
+}

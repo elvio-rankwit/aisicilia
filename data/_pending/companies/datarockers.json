@@ -1,0 +1,29 @@
+{
+  "name": "DataRockers",
+  "slug": "datarockers",
+  "type": "startup",
+  "description": "Società con sede legale a Sciacca (AG) e ufficio a Milano che offre ingegneria dei dati, analytics e sviluppo software. Tra i servizi c'è l'integrazione di modelli linguistici nei processi aziendali con RAG e automazione. Il prodotto principale è EDORAS, una piattaforma per chi gestisce affitti brevi, con conto economico per unità, indicatori di ospitalità, flussi di cassa e previsioni di ricavi e occupazione.",
+  "ai_areas": [
+    "dati e analytics",
+    "AI generativa"
+  ],
+  "sectors_served": [
+    "turismo e ospitalità"
+  ],
+  "province": "agrigento",
+  "city": "Sciacca",
+  "address": "Via Arenella 26, Sciacca AG",
+  "lat": 37.50029,
+  "lng": 13.02779,
+  "geo_precision": "indirizzo",
+  "website": "https://www.datarockers.it/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://www.datarockers.it/",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "L'AI è una delle tre linee di servizio (con analytics e web); il prodotto di punta EDORAS è business intelligence senza AI dichiarata. Nome sul sito: 'Data Intelligence & AI'."
+}

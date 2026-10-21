@@ -1,0 +1,29 @@
+{
+  "name": "Nigesa",
+  "slug": "nigesa",
+  "type": "startup",
+  "description": "Società di Palermo attiva in ricerca e sviluppo software, nata come startup innovativa. Sta sviluppando con altre aziende italiane una soluzione di telemedicina basata su un cerotto indossabile che rileva elettrocardiogramma, temperatura, respirazione e saturazione dell'ossigeno, da combinare con tecniche di machine learning e AI per il monitoraggio continuo dei pazienti. Lavora anche su soluzioni a misura con dispositivi medici di classe II.",
+  "ai_areas": [
+    "machine learning",
+    "IoT ed edge AI"
+  ],
+  "sectors_served": [
+    "sanità"
+  ],
+  "province": "palermo",
+  "city": "Palermo",
+  "address": "Via Ludovico Ariosto 16C, 90144 Palermo PA",
+  "lat": 38.13337,
+  "lng": 13.34324,
+  "geo_precision": "indirizzo",
+  "website": "https://www.nigesa.it/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://www.nigesa.it/",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "L'AI compare nella mission ma il prodotto è in sviluppo e il sito parla genericamente di 'algoritmi intelligenti'; non risulta un prodotto AI operativo."
+}

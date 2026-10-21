@@ -1,0 +1,28 @@
+{
+  "name": "MedsendX Italia",
+  "slug": "medsendx-italia",
+  "type": "startup",
+  "description": "Società con sedi a Naro (AG) e Palermo che offre un servizio cloud per condividere in modo sicuro le immagini diagnostiche, in alternativa a CD e DVD, compatibile con i sistemi PACS e RIS esistenti. Il sito si presenta con lo slogan 'AI applied to TeleHealth' e parla di servizi di imaging medicale che usano l'AI, senza però descrivere quali funzioni usino modelli di intelligenza artificiale.",
+  "ai_areas": [
+    "computer vision"
+  ],
+  "sectors_served": [
+    "sanità"
+  ],
+  "province": "agrigento",
+  "city": "Naro",
+  "address": "Via Vittorio Emanuele 113, 92028 Naro AG",
+  "lat": 37.29535,
+  "lng": 13.79342,
+  "geo_precision": "indirizzo",
+  "website": "https://www.medsend-x.com/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://www.medsend-x.com/",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "Il servizio descritto è il trasferimento di immagini mediche; il ruolo dell'AI è dichiarato (slogan) ma non spiegato nelle pagine consultate. Area AI 'computer vision' indicata in via provvisoria."
+}

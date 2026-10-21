@@ -91,6 +91,8 @@ main { padding-bottom: var(--space-6); }
 .card h2 a, .card h3 a, .card h4 a { color: var(--c-text); text-decoration: none; display: inline-block; padding-block: 2px; }
 .card h2 a:hover, .card h3 a:hover, .card h4 a:hover { color: var(--c-primary); text-decoration: underline; }
 .card p { margin: 0; font-size: var(--fs-sm); }
+.card.featured { border-color: var(--c-ochre); }
+.card .disc { font-size: var(--fs-xs); color: var(--c-text-muted); margin-top: var(--space-1); }
 .card .meta { color: var(--c-text-muted); font-size: var(--fs-sm); }
 .card .kv { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); margin: var(--space-1) 0 0; font-size: var(--fs-sm); border-top: 1px solid var(--c-border); }
 .card .kv dt, .card .kv dd { margin: 0; padding: var(--space-1) 0; border-bottom: 1px solid var(--c-border); }

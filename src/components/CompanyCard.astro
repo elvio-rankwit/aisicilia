@@ -9,14 +9,14 @@ const H = `h${level}` as 'h2' | 'h3' | 'h4';
 const kicker = [PROVINCES[d.province].sigla, d.type.toUpperCase(), d.founded_year].filter(Boolean).join(' · ');
 ---
 <li
-  class="card company"
+  class:list={["card company", { featured: d.featured }]}
   data-id={c.id}
   data-provincia={d.province}
   data-tipo={slugify(d.type)}
   data-aree={d.ai_areas.map(slugify).join(' ')}
   data-settori={d.sectors_served.map(slugify).join(' ')}
 >
-  <p class="kicker">{kicker}</p>
+  <p class="kicker">{kicker}{d.featured && <> · <b>IN EVIDENZA</b></>}</p>
   <H><a href={`/aziende/${c.id}/`}>{d.name}</a></H>
   <p class="meta">{d.city}{d.is_innovative_startup ? ' · startup innovativa' : ''}</p>
   <p>{clip(d.description, 150)}</p>
@@ -24,4 +24,5 @@ const kicker = [PROVINCES[d.province].sigla, d.type.toUpperCase(), d.founded_yea
     <dt>Ambiti</dt><dd>{d.ai_areas.slice(0, 3).join(', ')}{d.ai_areas.length > 3 ? ` +${d.ai_areas.length - 3}` : ''}</dd>
     <dt>Settori</dt><dd>{d.sectors_served.slice(0, 2).join(', ')}{d.sectors_served.length > 2 ? ` +${d.sectors_served.length - 2}` : ''}</dd>
   </dl>
+  {d.featured && d.disclosure && <p class="disc">{d.disclosure}</p>}
 </li>

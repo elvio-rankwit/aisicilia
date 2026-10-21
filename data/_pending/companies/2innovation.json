@@ -1,0 +1,29 @@
+{
+  "name": "2Innovation",
+  "slug": "2innovation",
+  "type": "startup",
+  "description": "Società di Palermo che si presenta come partner tecnologico per la customer experience. Propone soluzioni omnicanale, sistemi di risposta automatica che prelavorano i contatti, analisi di testo e voce per sentiment, tendenze e concorrenza, e automazione dei processi con AI, oltre a consulenza di innovazione e system integration. Si rivolge ad aziende con volumi alti di contatti con i clienti.",
+  "ai_areas": [
+    "NLP",
+    "voce e speech",
+    "agenti e automazione"
+  ],
+  "sectors_served": [
+    "trasversale"
+  ],
+  "province": "palermo",
+  "city": "Palermo",
+  "lat": 38.11123,
+  "lng": 13.35244,
+  "geo_precision": "città",
+  "website": "https://www.2innovation.it/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://www.2innovation.it/",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "Società di consulenza e system integration: solo due delle quattro soluzioni usano l'AI in modo esplicito; indirizzo non verificato (città dal registro)."
+}

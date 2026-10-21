@@ -1,0 +1,29 @@
+{
+  "name": "Legal-Riskipedia",
+  "slug": "legal-riskipedia",
+  "type": "startup",
+  "description": "Società di Palermo che pubblica rAisk, un dominio dedicato alla gestione del rischio legale e alla responsabilità degli enti secondo il D.lgs. 231/2001. Offre la piattaforma rAisk 231 con scenari di rischio per aggiornare il Modello 231, un server MCP che porta questi dati dentro gli agenti AI e rAisk Anonymizer, un'applicazione desktop per anonimizzare i documenti. Si rivolge a professionisti, aziende e organi di controllo.",
+  "ai_areas": [
+    "NLP",
+    "agenti e automazione"
+  ],
+  "sectors_served": [
+    "legale e professioni"
+  ],
+  "province": "palermo",
+  "city": "Palermo",
+  "address": "Via dei Tigli 2, 90149 Palermo PA",
+  "lat": 38.19218,
+  "lng": 13.33539,
+  "geo_precision": "indirizzo",
+  "website": "https://www.raisk.it/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://www.raisk.it/",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "Il sito dichiara che l'AI cura la formulazione degli scenari e che l'estrazione non dipende dall'AI generativa: centralità dell'AI non chiara; il server MCP per agenti AI è l'elemento più AI. Il dominio legal-riskipedia.legal reindirizza a raisk.it."
+}

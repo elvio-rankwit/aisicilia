@@ -1,0 +1,30 @@
+{
+  "name": "Agarinto",
+  "slug": "agarinto",
+  "type": "startup",
+  "description": "Software house e agenzia di marketing digitale di Monreale (PA). Realizza siti, e-commerce, app e CRM, gestisce social e campagne pubblicitarie, produce video e modelli 3D e ha un catalogo di prodotti propri chiamato Into (menu QR, casella WhatsApp condivisa, widget per recensioni). Tra le aree tecniche dichiara anche l'AI: modelli linguistici, RAG, agenti con chiamata di strumenti, modelli locali e AI generativa multimodale, proposti come IntoAI.",
+  "ai_areas": [
+    "AI generativa",
+    "agenti e automazione"
+  ],
+  "sectors_served": [
+    "trasversale"
+  ],
+  "province": "palermo",
+  "city": "Monreale",
+  "address": "Via Duca degli Abruzzi 16, Monreale PA",
+  "lat": 38.08027,
+  "lng": 13.28957,
+  "geo_precision": "indirizzo",
+  "website": "https://www.agarinto.it/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://www.agarinto.it/",
+    "https://www.agarinto.it/contatti",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "Agenzia/software house con servizi molto ampi (web, social, 3D, video, eventi): l'AI è una delle quattro aree tecniche, non l'unico focus. Da valutare se il peso di IntoAI/IntoTwin basta a includerla."
+}

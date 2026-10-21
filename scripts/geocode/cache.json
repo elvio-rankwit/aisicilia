@@ -490,5 +490,59 @@
     "lng": 13.79342,
     "display_name": "Via Vittorio Emanuele, Naro, Agrigento, Sicilia, 92028, Italia",
     "precision": "indirizzo"
+  },
+  "addr:via alcide de gasperi 27, 98066 patti me": {
+    "lat": 38.13794,
+    "lng": 14.96913,
+    "display_name": "Via Alcide De Gasperi, Segreto, Marina di Patti, Case Nuove Russo, Patti, Messina, Sicilia, 98066, Italia",
+    "precision": "indirizzo"
+  },
+  "city:san gregorio di catania": {
+    "lat": 37.56525,
+    "lng": 15.11179,
+    "display_name": "San Gregorio di Catania, Catania, Sicilia, 95027, Italia",
+    "precision": "città"
+  },
+  "city:siracusa": {
+    "lat": 37.03158,
+    "lng": 15.21243,
+    "display_name": "Siracusa, Sicilia, 96100, Italia",
+    "precision": "città"
+  },
+  "city:san giovanni la punta": {
+    "lat": 37.57741,
+    "lng": 15.09422,
+    "display_name": "San Giovanni la Punta, Catania, Sicilia, 95037, Italia",
+    "precision": "città"
+  },
+  "addr:via trinacria 11, 95030 tremestieri etneo ct": {
+    "lat": 37.54141,
+    "lng": 15.09734,
+    "display_name": "Via Trinacria, Canalicchio, Tremestieri Etneo, Catania, Sicilia, 95030, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via vincenzo giuffrida 203/a, 95128 catania ct": {
+    "lat": 37.5184,
+    "lng": 15.09162,
+    "display_name": "Via Vincenzo Giuffrida, Chiuse della Carvana, Borgo, Borgo-Sanzio, Catania, Sicilia, 95128, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via fleming, aci sant'antonio ct": {
+    "lat": 37.62154,
+    "lng": 15.13324,
+    "display_name": "Via Alexander Fleming, Aisa, Santa Maria la Stella, Aci Sant'Antonio, Catania, Sicilia, 95025, Italia",
+    "precision": "indirizzo"
+  },
+  "city:aci sant'antonio": {
+    "lat": 37.60639,
+    "lng": 15.12689,
+    "display_name": "Aci Sant'Antonio, Catania, Sicilia, 95025, Italia",
+    "precision": "città"
+  },
+  "addr:via artale alagona 39, 95126 catania ct": {
+    "lat": 37.82341,
+    "lng": 15.228,
+    "display_name": "Via Artale Alagona, Lapide Pasteria, Calatabiano, Catania, Sicilia, 95011, Italia",
+    "precision": "indirizzo"
   }
 }
