@@ -253,7 +253,8 @@ export const profilePageNodes = (): JsonLdNode[] => {
       familyName: 'Leonardi',
       url: abs(path),
       jobTitle: 'Consulente SEO, GEO e Google Ads',
-      description: 'Consulente freelance di SEO, GEO e Google Ads a Palermo. Ha ideato AI Sicilia e lo gestisce.',
+      description: 'Consulente freelance di SEO, GEO e Google Ads a Palermo, SEO & AI Search Specialist in RankWit Hotel e docente di AI e Digital Marketing per Confesercenti. Ha ideato AI Sicilia e lo gestisce.',
+      alumniOf: { '@type': 'CollegeOrUniversity', name: 'Università di Parma' },
       knowsAbout: [
         'SEO',
         'Generative Engine Optimization',
@@ -265,8 +266,8 @@ export const profilePageNodes = (): JsonLdNode[] => {
       address: { '@type': 'PostalAddress', addressLocality: 'Palermo', addressRegion: 'PA', addressCountry: 'IT' },
       // Profili ufficiali (LinkedIn, ecc.): da completare quando l'utente li fornisce.
       sameAs: [],
-      // Dalla pagina Chi siamo: collabora con RankWit come SEO & AI Search Specialist.
-      affiliation: { '@type': 'Organization', name: 'RankWit' },
+      // Dalla pagina Chi siamo: SEO & AI Search Specialist in RankWit Hotel da maggio 2026.
+      affiliation: { '@type': 'Organization', name: 'RankWit', url: 'https://www.rankwit.ai/' },
     },
   ];
 };
