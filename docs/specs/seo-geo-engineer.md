@@ -19,7 +19,7 @@ Riscrivi i template di title e description. Vincoli: title ≤ 60, description 7
 ## 2. SeoHead (`src/lib/seo/SeoHead.astro`)
 - title, description, canonical assoluto (minuscolo, slash finale, senza parametri), `robots` (beta: `noindex, nofollow` ovunque; production: `index, follow, max-image-preview:large`; `noindex` per `seo.noindex`)
 - Open Graph completi (`og:type`, `og:title`, `og:description`, `og:url`, `og:image` 1200×630 con `width`/`height`/`alt`, `og:locale` it_IT, `og:site_name`), `article:published_time`/`modified_time` per gli articoli; Twitter Card `summary_large_image`
-- `<link rel="alternate" type="application/rss+xml">` per i feed; `hreflang` predisposto come struttura (oggi solo `it` + `x-default` verso la stessa URL) — attivabile da una costante
+- `<link rel="alternate" type="application/rss+xml">` per i feed. **Il sito è SOLO in italiano**: nessuna versione in altre lingue, nessuna traduzione. `hreflang` va solo predisposto nel codice come struttura **disattivata** (costante `HREFLANG_ENABLED = false`): nelle pagine non si emette alcun tag hreflang
 - `<link rel="sitemap">` solo in production
 - **Un unico `<script type="application/ld+json">`** con `@graph`: nodi globali + `WebPage` (o sottotipo) + `BreadcrumbList` (se `seo.breadcrumbs`) + nodi della pagina (`seo.jsonld`). Deduplica per `@id`.
 
