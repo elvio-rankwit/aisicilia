@@ -40,7 +40,7 @@ const answer = [
 ].join(' ');
 const where = d.format === 'online'
   ? `Online, organizzato da una realtà di ${d.city}`
-  : [d.venue_name, d.venue_address, d.city].filter(Boolean).join(', ');
+  : [d.venue_name, d.venue_address, d.venue_address?.toLowerCase().includes(d.city.toLowerCase()) ? '' : d.city].filter(Boolean).join(', ');
 ---
 <BaseLayout
   seo={{

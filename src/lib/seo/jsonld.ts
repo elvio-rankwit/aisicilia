@@ -3,7 +3,8 @@
 // e scrive un unico @graph, deduplicato per @id (in `graph.ts`).
 //
 // Scelte (vedi anche il report):
-// - Company: sempre `Organization` (non `LocalBusiness`): i dati non dicono se l'indirizzo è una sede aperta al pubblico.
+// - Company: sempre `Organization` (non `LocalBusiness`: i dati non dicono se l'indirizzo è una sede aperta al pubblico);
+//   indirizzo e geo vanno in `location: Place`, perché `geo` non è valido su Organization.
 // - Event: `geo` solo se c'è `venue_address` (le coordinate degli eventi possono essere al centro della città).
 // - Prompt: `CreativeWork` e non `HowTo`: HowTo non dà più rich result e i passaggi andrebbero ricavati da un paragrafo.
 import type { Article, Company, Event, Prompt } from '../data';
@@ -30,13 +31,15 @@ const provinceAddressBits = (province: keyof typeof PROVINCES) => ({
   addressCountry: 'IT',
 });
 
-/** Separa "Via X 1, 90100 Palermo PA" in via e CAP; se il formato è diverso, la stringa resta intera nella via. */
+/** Separa via e CAP e toglie dalla via la coda con la città ("Via X 1, 90100 Palermo PA" → via + CAP; "Via X 1, Palermo" → "Via X 1"). */
 function postalAddress(raw: string, city: string, province: keyof typeof PROVINCES): JsonLdNode {
-  const m = raw.match(/^(.*?),?\s*(\d{5})\s+[^\d]+$/);
+  const withCap = raw.match(/^(.*?),?\s*(\d{5})\s+.+$/);
+  const escaped = city.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const street = withCap ? withCap[1] : raw.replace(new RegExp(`,?\\s*${escaped}(\\s+[A-Z]{2})?$`, 'i'), '');
   return {
     '@type': 'PostalAddress',
-    streetAddress: m && m[1] ? m[1].trim() : raw,
-    ...(m ? { postalCode: m[2] } : {}),
+    streetAddress: street.trim() || raw,
+    ...(withCap ? { postalCode: withCap[2] } : {}),
     addressLocality: city,
     ...provinceAddressBits(province),
   };
@@ -60,8 +63,12 @@ export const companyNodes = (c: Company): JsonLdNode[] => {
     },
     knowsAbout: d.ai_areas,
     ...(d.founded_year ? { foundingDate: String(d.founded_year) } : {}),
-    sameAs: [...new Set([...d.same_as, d.website])],
-    ...(precise ? { address: postalAddress(d.address!, d.city, d.province), geo: { '@type': 'GeoCoordinates', latitude: d.lat, longitude: d.lng } } : {}),
+    // Solo profili esterni verificati: il sito ufficiale è già in `url`.
+    ...(d.same_as.length ? { sameAs: d.same_as.filter((u) => u !== d.website) } : {}),
+    // `geo` non esiste su Organization (dominio Place): indirizzo e coordinate stanno in `location`, solo con precisione "indirizzo".
+    ...(precise
+      ? { location: { '@type': 'Place', address: postalAddress(d.address!, d.city, d.province), geo: { '@type': 'GeoCoordinates', latitude: d.lat, longitude: d.lng } } }
+      : {}),
     mainEntityOfPage: { '@id': ID.webpage(path) },
   };
   return [node];

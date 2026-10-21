@@ -60,6 +60,7 @@ hr { border: 0; border-top: 1px solid var(--c-border); margin: var(--space-6) 0;
 /* ---------- Componenti condivisi ---------- */
 .js-only { display: none; }
 .js .js-only { display: block; }
+html:not(.js) .js-only { display: none !important; }
 .js .js-only.inline { display: inline-flex; }
 main { padding-bottom: var(--space-6); }
 .page-head { margin-block: var(--space-5) var(--space-6); }

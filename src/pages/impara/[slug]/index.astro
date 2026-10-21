@@ -20,6 +20,8 @@ const articles = await getArticles();
 const a = articles.find((x) => x.id === Astro.props.id)!;
 const d = a.data;
 const { Content, headings } = await render(a);
+// Il box "In pratica" è un <aside> nel Markdown: con role="note" non diventa un landmark annidato.
+const bodyHtml = a.rendered?.html?.replace(/<aside(\s+class="in-pratica")/g, '<aside role="note"$1');
 const toc = headings.filter((h) => h.depth === 2);
 const prompts = promptsForArticle(a, await getPrompts(), 4);
 const next = nextArticle(a, articles);
@@ -61,7 +63,7 @@ const sameDay = d.updated_at.getTime() === d.published_at.getTime();
       </nav>
     )}
 
-    <div class="prose-body"><Content /></div>
+    <div class="prose-body">{bodyHtml ? <Fragment set:html={bodyHtml} /> : <Content />}</div>
 
     <section class="section" aria-labelledby="h-faq">
       <h2 id="h-faq">Domande frequenti</h2>

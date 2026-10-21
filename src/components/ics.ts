@@ -26,7 +26,7 @@ export function fold(line: string): string {
   return out.join(CRLF);
 }
 
-const esc = (s: string) => s.replace(/\\/g, '\\\\').replace(/;/g, '\;').replace(/,/g, '\\,').replace(/\r?\n/g, '\\n');
+const esc = (s: string) => s.replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,').replace(/\r?\n/g, '\\n');
 const ymd = (d: Date) => d.toISOString().slice(0, 10).replace(/-/g, '');
 const hms = (t: string) => t.replace(':', '') + '00';
 const addDays = (d: Date, n: number) => new Date(d.getTime() + n * 86400000);
@@ -82,7 +82,8 @@ export function buildIcs(e: Event, siteUrl: string): string {
     'Controlla date e orari sul sito dell\'organizzatore prima di partire.',
   ].filter(Boolean);
   lines.push(`DESCRIPTION:${esc(d.description + '\n\n' + extra.join('\n'))}`);
-  const where = d.format === 'online' ? 'Online' : [d.venue_name, d.venue_address, d.city].filter(Boolean).join(', ');
+  const cityInAddress = d.venue_address ? d.venue_address.toLowerCase().includes(d.city.toLowerCase()) : false;
+  const where = d.format === 'online' ? 'Online' : [d.venue_name, d.venue_address, cityInAddress ? '' : d.city].filter(Boolean).join(', ');
   if (where) lines.push(`LOCATION:${esc(where)}`);
   lines.push(`URL:${d.event_url}`);
   lines.push(`STATUS:${d.status === 'annullato' ? 'CANCELLED' : 'CONFIRMED'}`);

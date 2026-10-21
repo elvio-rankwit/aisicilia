@@ -20,7 +20,10 @@ const m = {
 </BaseLayout>
 <style>
   .box { min-height: 7rem; }
-  .results { min-height: 4rem; margin-top: var(--space-5); }
+  .results { min-height: 4rem; margin-top: var(--space-5);
+    --pagefind-ui-scale: 1; --pagefind-ui-primary: var(--c-primary); --pagefind-ui-text: var(--c-text); --pagefind-ui-background: var(--c-surface);
+    --pagefind-ui-border: var(--c-text-muted); --pagefind-ui-tag: var(--c-surface-2); --pagefind-ui-border-width: 1px; --pagefind-ui-border-radius: 4px;
+    --pagefind-ui-image-border-radius: 4px; --pagefind-ui-font: var(--font-sans); color: var(--c-text); }
 </style>
 <script>
   // La UI di Pagefind (JS e CSS) si scarica solo qui e solo quando serve: ?q= nell'indirizzo, focus o invio nel campo.
@@ -45,12 +48,13 @@ const m = {
       if (!mounted) {
         mounted = loadAssets().then(() => {
           const PagefindUI = (window as unknown as { PagefindUI: new (o: Record<string, unknown>) => unknown }).PagefindUI;
-          new PagefindUI({ element: host, showImages: false, showSubResults: false, resetStyles: false, autofocus: false });
+          new PagefindUI({ element: host, showImages: false, showSubResults: false, resetStyles: false, autofocus: false, translations: { placeholder: 'Cerca nel sito', search_label: 'Cerca nel sito' } });
         });
       }
       return mounted.then(() => {
         const ui = host.querySelector<HTMLInputElement>('input');
         if (ui) {
+          ui.setAttribute('aria-label', 'Cerca nel sito');
           if (q && ui.value !== q) { ui.value = q; ui.dispatchEvent(new Event('input', { bubbles: true })); }
           form.hidden = true;
           ui.focus();

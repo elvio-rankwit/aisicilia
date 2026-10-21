@@ -26,3 +26,5 @@
 .imap-pop { min-width: 10rem; max-width: 16rem; }
 .imap-pop-title { display: block; font-weight: 700; font-size: var(--fs-base); margin: 0 0 var(--space-1); }
 .imap-pop p { margin: 0; font-size: var(--fs-sm); color: var(--c-text-muted); }
+
+.imap-sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }

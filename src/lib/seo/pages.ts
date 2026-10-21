@@ -46,6 +46,8 @@ async function build(): Promise<SitePage[]> {
     getCompanies(), getAllEvents(), getUpcomingEvents(), getPastEvents(), getArticles(), getPrompts(),
   ]);
   const pages: SitePage[] = [];
+  const hasEvents = (p: string) => allEvents.some((e) => e.data.province === p);
+  const hasCompanies = (p: string) => companies.some((c) => c.data.province === p);
   const add = (p: Omit<SitePage, 'path'> & { path: string }) => pages.push({ ...p, path: normalizePath(p.path) });
 
   const cDate = (list: typeof companies) => latestDate(list.map((c) => c.data.last_verified));
@@ -71,7 +73,8 @@ async function build(): Promise<SitePage[]> {
   }
   for (const p of PROVINCE_SLUGS) {
     const inProv = companies.filter((c) => c.data.province === p);
-    add({ path: `/aziende/provincia/${p}/`, kind: 'province', segment: 'pagine', indexable: true, lastmod: cDate(inProv),
+    // Stessa condizione delle pagine: senza aziende né eventi della provincia → noindex → fuori sitemap.
+    add({ path: `/aziende/provincia/${p}/`, kind: 'province', segment: 'pagine', indexable: inProv.length > 0 || hasEvents(p), lastmod: cDate(inProv),
       og: { eyebrow: 'Aziende', title: `Aziende AI in provincia di ${PROVINCES[p].name}`, subtitle: `${inProv.length} schede verificate` } });
   }
   for (const c of companies.filter((x) => !RESERVED_SLUGS.includes(x.id))) {
@@ -84,7 +87,7 @@ async function build(): Promise<SitePage[]> {
     og: { eyebrow: 'Eventi', title: 'Eventi AI in Sicilia', subtitle: 'Calendario per provincia, con mappa' } });
   for (const p of PROVINCE_SLUGS) {
     const inProv = upcoming.filter((e) => e.data.province === p);
-    add({ path: `/eventi/provincia/${p}/`, kind: 'province', segment: 'pagine', indexable: true, lastmod: eDate(inProv),
+    add({ path: `/eventi/provincia/${p}/`, kind: 'province', segment: 'pagine', indexable: inProv.length > 0 || hasEvents(p) || hasCompanies(p), lastmod: eDate(inProv),
       og: { eyebrow: 'Eventi', title: `Eventi AI in provincia di ${PROVINCES[p].name}`, subtitle: 'Date, luoghi e iscrizioni' } });
   }
   add({ path: '/eventi/archivio/', kind: 'hub', segment: 'pagine', indexable: true, lastmod: eDate(past),

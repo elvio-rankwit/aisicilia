@@ -77,7 +77,11 @@ export async function mount(root: HTMLElement, state: MapState): Promise<MapApi>
     showCoverageOnHover: false,
     maxClusterRadius: 48,
     iconCreateFunction: (c: any) =>
-      L.divIcon({ className: 'imap-cluster', html: `<span>${c.getChildCount()}</span>`, iconSize: [40, 40] }),
+      L.divIcon({
+        className: 'imap-cluster',
+        html: `<span aria-hidden="true">${c.getChildCount()}</span><span class="imap-sr">${c.getChildCount()} schede in quest'area, premi Invio per ingrandire</span>`,
+        iconSize: [40, 40],
+      }),
   });
   map.addLayer(cluster);
 
@@ -111,6 +115,21 @@ export async function mount(root: HTMLElement, state: MapState): Promise<MapApi>
       void drawOutline(slug!);
     },
   };
+
+  // Popup: testi in italiano e Esc che chiude restituendo il focus al marker (il gestore di Leaflet
+  // vale solo con il focus sul riquadro della mappa).
+  let lastMarker: any = null;
+  map.on('popupopen', (e: any) => {
+    lastMarker = e.popup._source ?? null;
+    const close: HTMLElement | undefined = e.popup._closeButton;
+    close?.setAttribute('aria-label', 'Chiudi');
+    close?.setAttribute('title', 'Chiudi');
+  });
+  map.getContainer().addEventListener('keydown', (e: KeyboardEvent) => {
+    if (e.key !== 'Escape' || !map._popup) return;
+    map.closePopup();
+    lastMarker?.getElement?.()?.focus();
+  });
 
   const el = map.getContainer();
   el.setAttribute('role', 'group');

@@ -17,7 +17,7 @@ const lngs = [12, 13, 14, 15];
   <svg viewBox={VIEWBOX} width={VIEWBOX_W} height={VIEWBOX_H} role="img" aria-label={`${label}: ${companies.length} aziende e ${events.length} eventi in programma`} focusable="false">
     <g class="graticule">
       {lats.map((l) => { const y = project(l, 12)[1]; return <><line x1="0" x2={VIEWBOX_W} y1={y} y2={y} /><text x="2" y={y - 3}>{l}°N</text></>; })}
-      {lngs.map((g) => { const x = project(38, g)[0]; return <><line y1="0" y2={VIEWBOX_H} x1={x} x2={x} /><text x={x + 3} y={VIEWBOX_H - 3}>{g}°E</text></>; })}
+      {lngs.map((g) => { const x = project(38, g)[0]; return <><line y1="0" y2={VIEWBOX_H} x1={x} x2={x} /><text x={x} y={VIEWBOX_H + 10} text-anchor="middle">{g}°E</text></>; })}
     </g>
     <g class="outline">
       {PROVINCE_SLUGS.map((s) => <path d={PROVINCE_PATHS[s].d} />)}
@@ -38,7 +38,7 @@ const lngs = [12, 13, 14, 15];
   .outline path { fill: var(--c-lava-2); stroke: var(--c-lava-ochre); stroke-width: 0.7; stroke-linejoin: round; }
   .co circle { fill: var(--c-lava-accent); stroke: var(--c-lava); stroke-width: 1; }
   .ev rect { fill: var(--c-lava-blue); stroke: var(--c-lava); stroke-width: 1; }
-  figcaption { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-4); margin-top: var(--space-2); font-size: var(--fs-xs); color: var(--c-on-lava-muted); font-family: var(--font-mono); font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; }
+  figcaption { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-4); margin-top: var(--space-4); font-size: var(--fs-xs); color: var(--c-on-lava-muted); font-family: var(--font-mono); font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; }
   .k { display: inline-flex; align-items: center; gap: var(--space-2); }
   .k .mono { color: var(--c-on-lava); }
   i { display: inline-block; width: 10px; height: 10px; }
