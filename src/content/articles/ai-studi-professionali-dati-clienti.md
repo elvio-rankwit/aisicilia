@@ -7,7 +7,7 @@ answer: "In uno studio professionale l'AI va usata per attività di supporto e i
 sectors:
   - studi-professionali
 level: intermedio
-reading_time: 8
+reading_time: 7
 order: 5
 published_at: 2026-10-21
 updated_at: 2026-10-21

@@ -2,7 +2,7 @@
 title: "AI Act e GDPR: cosa deve sapere un'impresa che usa strumenti di AI"
 seo_title: "AI Act e GDPR: cosa deve sapere un'impresa che usa l'AI"
 slug: ai-act-gdpr-cosa-deve-sapere-impresa
-description: "Calendario dell'AI Act aggiornato a ottobre 2026, obblighi di una PMI che usa strumenti AI, GDPR e legge italiana 132/2025: fonti ufficiali e date verificate."
+description: "Calendario dell'AI Act aggiornato a ottobre 2026, obblighi per una PMI che usa l'AI, GDPR e legge italiana 132/2025, con fonti ufficiali e date verificate."
 answer: "L'AI Act (Reg. UE 2024/1689) distingue chi sviluppa sistemi di AI da chi li usa. Una PMI che usa ChatGPT o strumenti simili ha pochi obblighi diretti: alfabetizzazione del personale, divieti, trasparenza in casi precisi dal 2 agosto 2026. Il GDPR resta pienamente in vigore. Date verificate il 21 ottobre 2026."
 sectors:
   - tutti
