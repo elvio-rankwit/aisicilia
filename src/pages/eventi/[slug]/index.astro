@@ -91,6 +91,7 @@ const where = d.format === 'online'
     </section>
 
     <SourceBox urls={[d.source_url]} verified={d.last_verified} what="evento" />
+    <p><a href={`/rimozione/?scheda=eventi/${e.id}`}>Richiedi modifica o rimozione di questa scheda</a></p>
 
     {hasGeo && (
       <section class="section" aria-labelledby="h-mappa">
