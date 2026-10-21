@@ -34,7 +34,7 @@ faq:
 related_prompts: []
 ---
 
-Quando lo spiego in aula, c'è sempre qualcuno che alza la mano e dice: "Io ci ho provato, ma mi risponde cose generiche". Gli chiedo di mostrarmi cosa ha scritto. Quasi sempre è una riga: "scrivi una descrizione per la mia cantina". Se la scrivi a un copywriter che non ti conosce, ottieni la stessa cosa: una pagina che potrebbe andare bene per qualsiasi cantina del mondo.
+In aula c'è sempre qualcuno che alza la mano e dice: "Io ci ho provato, ma mi risponde cose generiche". Gli chiedo di mostrarmi cosa ha scritto. Quasi sempre è una riga: "scrivi una descrizione per la mia cantina". Se la scrivi a un copywriter che non ti conosce, ottieni la stessa cosa: una pagina che potrebbe andare bene per qualsiasi cantina del mondo.
 
 Il problema non è l'assistente, e non è nemmeno la tua capacità tecnica. È che ti manca un metodo per dare le informazioni giuste, nell'ordine giusto. Si impara in una sera. In questo articolo trovi il metodo in cinque pezzi, due esempi siciliani, e gli errori che vedo più spesso. Se parti da zero, prima leggi [da dove cominciare con l'AI in una PMI siciliana](/impara/ai-pmi-siciliane-da-dove-cominciare/).
 
@@ -70,7 +70,7 @@ Prompt scritto con il metodo:
 
 > Gestisco un B&B con quattro camere a Ortigia. Clientela internazionale, tono caldo e sobrio, do del lei. Scrivi la risposta pubblica a questa recensione da tre stelle: "{testo_recensione}". Riconosci il problema del rumore senza difenderti e senza scuse eccessive. Non promettere sconti o rimborsi. Menziona che le camere sul cortile sono più silenziose e che le consigliamo a chi ha il sonno leggero. Massimo 90 parole, in italiano. Dammi due versioni, una più breve e una più calda.
 
-La seconda richiesta richiede due minuti in più. La risposta che ottieni è utilizzabile con ritocchi, e la prima quasi mai. Resta una bozza: la rileggi, controlli che il fatto sul cortile sia vero (l'assistente non lo sa, glielo hai detto tu), e la pubblichi con la tua firma. Se ti serve di rifarlo ogni settimana, nella [prompt library per l'ospitalità](/prompt/ospitalita/) trovi testi pronti, tra cui quelli per rispondere alle recensioni negative.
+La seconda richiesta costa due minuti in più. La risposta che ottieni è utilizzabile con ritocchi, e la prima quasi mai. Resta una bozza: la rileggi, controlli che il fatto sul cortile sia vero (l'assistente non lo sa, glielo hai detto tu), e la pubblichi con la tua firma. Se lo rifai ogni settimana, nella [prompt library per l'ospitalità](/prompt/ospitalita/) trovi testi pronti, tra cui quelli per rispondere alle recensioni negative.
 
 ## Mostra un esempio: vale più di dieci spiegazioni
 

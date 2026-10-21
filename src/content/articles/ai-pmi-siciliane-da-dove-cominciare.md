@@ -49,7 +49,7 @@ Secondo l'Istat, nel 2025 il 16,4% delle imprese italiane con almeno 10 addetti 
 
 Due avvertenze, perché i numeri vanno letti con cautela. Primo: queste rilevazioni contano le imprese con almeno 10 addetti. Il B&B di famiglia, la bottega, lo studio con due persone non ci sono. Secondo: nel comunicato Istat non ho trovato un dato specifico per la Sicilia, quindi non te lo do. Scrivere "in Sicilia l'AI è al X%" senza una fonte sarebbe inventare.
 
-Un dato, però, si capisce anche senza il dettaglio regionale. Tra le imprese che avevano valutato l'AI senza adottarla, il 58,6% citava la mancanza di competenze adeguate (stessa fonte Istat). Le competenze si costruiscono, e si può cominciare senza grandi spese.
+Un dato, però, si capisce anche senza il dettaglio regionale. Tra le imprese che avevano valutato l'AI senza adottarla, il 58,6% citava la mancanza di competenze adeguate (stessa fonte Istat). Più di metà di chi ha rinunciato, cioè, non sapeva da dove cominciare. Quello si risolve imparando, e per la prima prova non servono grandi spese.
 
 ## Prima di scegliere lo strumento, scegli il compito
 
@@ -110,12 +110,12 @@ Poi c'è l'AI Act, il regolamento europeo sull'intelligenza artificiale. L'art. 
 
 Le Camere di Commercio, tramite i Punti Impresa Digitale, offrono strumenti di autovalutazione sull'uso del digitale e attività di formazione ([PID](https://www.puntoimpresadigitale.camcom.it)). Prima di iscriverti verifica sul sito della tua Camera cosa è attivo, perché le offerte cambiano da territorio a territorio.
 
-Un altro modo è vedere come lo fanno gli altri: sulla pagina degli [eventi in Sicilia](/eventi/) trovi seminari e incontri: alcuni gratuiti, altri a pagamento. E per capire chi in Sicilia lavora con l'AI, c'è la [directory delle aziende](/aziende/).
+Un altro modo è vedere come lo fanno gli altri: sulla pagina degli [eventi in Sicilia](/eventi/) trovi seminari e incontri, alcuni gratuiti e altri a pagamento. E per capire chi in Sicilia lavora con l'AI, c'è la [directory delle aziende](/aziende/).
 
 ## Quando non conviene
 
 Ci sono casi in cui è meglio aspettare. Se non hai ancora un compito ripetitivo ben definito, non c'è niente da migliorare. Se il tuo processo è disordinato (listini in tre file diversi, nessuno sa dove sono le informazioni giuste), l'AI amplifica il disordine. Se tratti dati sensibili, per esempio di salute, e non hai chiarito le regole, fermati. E se nessuno in azienda ha tempo di controllare cosa produce l'assistente, è meglio non usarlo: una bozza non controllata è peggio di nessuna bozza.
 
-Dopo la prova di due settimane avrai tre strade: smettere, perché non ti serve, continuare sullo stesso compito, oppure passare a un secondo compito simile. Tutte e tre vanno bene, purché la decisione la prendi sui tuoi numeri e non su quello che racconta chi vende corsi.
+Dopo la prova di due settimane avrai tre strade: smettere, perché non ti serve, continuare sullo stesso compito, oppure passare a un secondo compito simile. Vanno bene tutte e tre, purché la decisione la prenda tu sui tuoi numeri e non su quello che racconta chi vende corsi.
 
 Da qui, se vuoi andare oltre la singola bozza, c'è l'articolo su come [automatizzare le attività ripetitive](/impara/automatizzare-attivita-ripetitive/). Se invece ti interessa farti trovare dagli assistenti AI quando un cliente chiede "dove mangio a Siracusa", leggi quello su [come farsi trovare da ChatGPT, Gemini e Perplexity](/impara/geo-farsi-trovare-chatgpt-gemini-perplexity/).

@@ -56,13 +56,13 @@ related_prompts: []
 
 Questo articolo riguarda temi in cui un errore costa: lo scrivo con fonti ufficiali e dichiaro la data di verifica, che è il **21 ottobre 2026**. Non è consulenza legale. Le norme sull'AI cambiano in fretta: quest'anno le date dell'AI Act sono già state spostate una volta, a luglio. Prima di prendere una decisione che ha conseguenze, controlla la fonte e, se serve, senti un professionista.
 
-Quando lo spiego in aula, i titolari di PMI mi chiedono quasi sempre due cose. «Devo preoccuparmi dell'AI Act se non costruisco intelligenza artificiale?» E: «Il GDPR vale anche quando uso ChatGPT?». Le risposte sono: un po', e sì. Vediamo quanto e perché.
+In aula i titolari di PMI mi fanno quasi sempre due domande. «Devo preoccuparmi dell'AI Act se non costruisco intelligenza artificiale?» E: «Il GDPR vale anche quando uso ChatGPT?». Le risposte sono: un po', e sì. Vediamo quanto e perché.
 
 ## Chi è chi: fornitore e utilizzatore
 
 Il [Regolamento (UE) 2024/1689](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/ita), noto come AI Act, divide i soggetti per ruolo. Il fornitore (provider) sviluppa un sistema di AI e lo mette sul mercato. L'utilizzatore (deployer) lo usa sotto la propria responsabilità nell'attività professionale o d'impresa.
 
-Un B&B di Ortigia che usa un assistente AI per rispondere alle email degli ospiti è un utilizzatore. Una software house di Catania che costruisce quell'assistente è un fornitore. Gli obblighi più pesanti pesano sul secondo. Attenzione al caso intermedio: se fai sviluppare o personalizzi uno strumento e lo offri a nome tuo, chiedi per iscritto al fornitore chi risponde di cosa. Non trovi la risposta in un articolo, la trovi nel contratto.
+Un B&B di Ortigia che usa un assistente AI per rispondere alle email degli ospiti è un utilizzatore. Una software house di Catania che costruisce quell'assistente è un fornitore. Gli obblighi più pesanti gravano sul secondo. Attenzione al caso intermedio: se fai sviluppare o personalizzi uno strumento e lo offri a nome tuo, chiedi per iscritto al fornitore chi risponde di cosa. Non trovi la risposta in un articolo, la trovi nel contratto.
 
 ## Il calendario, verificato il 21 ottobre 2026
 

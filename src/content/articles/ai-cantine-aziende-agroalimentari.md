@@ -42,7 +42,7 @@ related_prompts: []
 
 Una cantina sull'Etna, dodici etichette, un sito in italiano e un catalogo in inglese che risale a tre vendemmie fa. Un importatore tedesco chiede le schede aggiornate in una settimana. Chi si occupa di tutto, in azienda, è il titolare con una collaboratrice part-time. Questo è il tipo di situazione in cui l'AI fa risparmiare ore, a patto di sapere cosa chiederle e cosa no.
 
-L'esempio è inventato, non è un cliente. Gli strumenti che cito (ChatGPT, Claude, Gemini, Copilot) valgono come esempi e le funzioni cambiano spesso: quanto scrivo è aggiornato a ottobre 2026. Se parti da zero, leggi prima l'articolo su [da dove cominciare con l'AI](/impara/ai-pmi-siciliane-da-dove-cominciare/).
+Anche questa cantina è un'invenzione, non un cliente. ChatGPT, Claude, Gemini e Copilot sono citati come esempi: le funzioni cambiano di continuo e quello che leggi vale per ottobre 2026. Se parti da zero, leggi prima l'articolo su [da dove cominciare con l'AI](/impara/ai-pmi-siciliane-da-dove-cominciare/).
 
 ## Schede prodotto: l'AI scrive, i dati sono tuoi
 
@@ -106,6 +106,6 @@ Un secondo costo è la formazione di chi usa gli strumenti. L'art. 4 dell'AI Act
 
 ## Quando non conviene
 
-Se i tuoi prodotti sono pochi e la tua forza è il racconto personale del produttore, lascia quel racconto alla tua voce. Se i dati di prodotto sono sparsi tra fogli e documenti diversi, sistema prima quelli: l'AI non ripara una base dati confusa. E se ti serve una traduzione con valore legale o contrattuale, serve un traduttore professionale, non un assistente.
+Se i tuoi prodotti sono pochi e la tua forza è il racconto personale del produttore, lascia quel racconto alla tua voce. Se i dati di prodotto sono sparsi tra fogli e documenti diversi, sistema prima quelli: davanti a una base dati confusa l'AI produce solo confusione in bella copia. E se ti serve una traduzione con valore legale o contrattuale, serve un traduttore professionale, non un assistente.
 
 Per sapere come gli assistenti AI scelgono quali cantine e quali produttori consigliare quando un turista o un buyer chiede "vini dell'Etna da provare", leggi l'articolo su [come farsi trovare da ChatGPT, Gemini e Perplexity](/impara/geo-farsi-trovare-chatgpt-gemini-perplexity/). Per vedere chi lavora con l'AI nella zona, c'è l'elenco delle [aziende di Catania](/aziende/provincia/catania/), e per seminari e fiere la pagina degli [eventi](/eventi/). Quando avrai le basi, l'articolo sull'[automatizzare le attività ripetitive](/impara/automatizzare-attivita-ripetitive/) spiega come far lavorare insieme tabella, schede ed email.

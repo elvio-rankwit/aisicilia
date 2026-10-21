@@ -39,7 +39,7 @@ related_prompts: []
 
 Prendiamo una trattoria a Catania, quaranta coperti a pranzo, un cuoco-proprietario e due ragazzi in sala. Le ore libere sono poche, i turisti stranieri aumentano e il menu esiste solo in italiano e in dialetto. Nessuno ha tempo di sedersi a scrivere. È qui che l'AI può togliere un po' di lavoro, a condizioni precise.
 
-L'esempio è inventato per spiegare, non è un cliente. Gli strumenti che cito (ChatGPT, Claude, Gemini, Copilot) sono esempi, e le funzioni cambiano spesso: quanto scrivo è aggiornato a ottobre 2026. Se ti manca il quadro generale, parti da [come cominciare con l'AI in una piccola impresa](/impara/ai-pmi-siciliane-da-dove-cominciare/).
+La trattoria è inventata, non è un cliente. ChatGPT, Claude, Gemini e Copilot li nomino solo come esempi: le funzioni cambiano in fretta e il quadro è quello di ottobre 2026. Se ti manca il quadro generale, parti da [come cominciare con l'AI in una piccola impresa](/impara/ai-pmi-siciliane-da-dove-cominciare/).
 
 ## Il menu: traduzioni e descrizioni
 
@@ -93,12 +93,12 @@ Non ci mettere i dati del personale: nomi, contratti e assenze sono dati persona
 
 ## Cosa costa davvero
 
-In denaro, poco: gli assistenti generalisti hanno versioni gratuite con limiti e piani a pagamento, con prezzi che cambiano spesso (controlla il sito del fornitore il giorno in cui decidi). In tempo, di più: qualche ora per scrivere i primi modelli e un controllo su ogni testo. In alta stagione quel tempo non c'è, e allora conviene preparare i modelli fuori stagione.
+Di soldi ne servono pochi: gli assistenti generalisti hanno versioni gratuite con limiti e piani a pagamento, con prezzi che cambiano spesso (controlla il sito del fornitore il giorno in cui decidi). Di tempo di più: qualche ora per scrivere i primi modelli e un controllo su ogni testo. In alta stagione quel tempo non c'è, quindi i modelli si preparano fuori stagione.
 
 Chi in sala o in cucina usa questi strumenti dovrebbe anche sapere cosa fa e cosa no. L'art. 4 dell'AI Act, riscritto dal Digital Omnibus in vigore dal 27 luglio 2026 ([testo PE-CONS 30/26](https://data.consilium.europa.eu/doc/document/PE-30-2026-INIT/en/pdf)), chiede a chi usa strumenti AI di prendere misure per sostenere l'alfabetizzazione del personale, senza imporre un livello specifico a ogni persona. La Commissione fa l'esempio di chi usa ChatGPT per testi o traduzioni ([domande e risposte](https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers)). Dettagli in [AI Act e GDPR: cosa deve sapere un'impresa](/impara/ai-act-gdpr-cosa-deve-sapere-impresa/).
 
 ## Dove l'AI non serve
 
-Se servi venti coperti con un menu di sei piatti che non cambia, probabilmente non ti serve. Il lavoro che conta in un locale (il sapore, il ritmo del servizio, l'accoglienza) resta fuori dalla portata di un assistente. E se il tuo punto di forza è la voce personale del titolare, non delegare i testi che la esprimono.
+Se servi venti coperti con un menu di sei piatti che non cambia, probabilmente non ti serve. Il sapore e il ritmo del servizio non passano da un assistente, e nemmeno il sorriso con cui si accoglie un tavolo di sconosciuti. Se il tuo punto di forza è la voce personale del titolare, i testi che la esprimono scrivili tu.
 
 Per capire come vengono scelti i locali quando qualcuno chiede a un assistente "dove mangio bene a Trapani stasera", leggi l'articolo su [come farsi trovare da ChatGPT, Gemini e Perplexity](/impara/geo-farsi-trovare-chatgpt-gemini-perplexity/). Per vedere chi in provincia lavora con l'AI c'è l'elenco delle [aziende di Catania](/aziende/provincia/catania/), e per incontri e corsi la pagina degli [eventi](/eventi/). Se vuoi passare dalle prove ai flussi stabili, l'articolo successivo è sull'[automatizzare le attività ripetitive](/impara/automatizzare-attivita-ripetitive/).

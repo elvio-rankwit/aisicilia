@@ -66,8 +66,6 @@ Una premessa che vale quanto il resto: i bandi cambiano, si chiudono per esaurim
 | Smart&Start Italia | Invitalia | Startup innovative | Attivo, sportello senza scadenza |
 | Digit Imprese, Azioni 1.2.2 e 1.1.2 | Regione Siciliana, PR FESR 2021-2027 | MPMI siciliane | Chiusi |
 
-Qui sotto il dettaglio, con quello che conta davvero.
-
 ## Aperto: il voucher della Camera di Commercio del Sud Est Sicilia
 
 Il bando «Doppia Transizione Digitale ed Ecologica, regime de minimis, anno 2026» è stato approvato con la delibera n. 53 del 2 luglio 2026 ([Camera di Commercio del Sud Est Sicilia](https://ctrgsr.camcom.gov.it/it/blog/bando-doppia-transizione-digitale-ed-ecologica-regime-de-minimis-anno-2026), verificato il 21 ottobre 2026). Riguarda le micro, piccole e medie imprese con sede legale o unità locale nel territorio della Camera, cioè Catania, Ragusa e Siracusa. Se la tua attività è a Palermo o a Trapani, questo bando non è per te.

@@ -46,7 +46,7 @@ related_prompts: []
 
 Prendiamo uno studio di commercialisti a Caltanissetta. Ogni mattina arrivano decine di email: richieste di documenti, scadenze, clienti che chiedono se una spesa si deduce. Un collaboratore prova a incollarle in un chatbot per avere bozze di risposta. Funziona benissimo. Il problema è quello che c'è dentro quelle email: nomi, codici fiscali, importi, a volte il certificato medico allegato a una pratica.
 
-Quando lo spiego in aula a commercialisti, avvocati e consulenti del lavoro, la domanda arriva sempre uguale: «posso incollare questo in ChatGPT?». La risposta onesta è: dipende da cosa incolli, dove lo incolli e con quale contratto alle spalle. Qui trovi gli elementi per rispondere da solo, caso per caso. Non è una consulenza legale, e il tuo Ordine resta il riferimento per la deontologia.
+Commercialisti, avvocati e consulenti del lavoro mi fanno tutti la stessa domanda: «posso incollare questo in ChatGPT?». La risposta onesta è: dipende da cosa incolli, dove lo incolli e con quale contratto alle spalle. Qui trovi gli elementi per rispondere da solo, caso per caso. Non è una consulenza legale, e il tuo Ordine resta il riferimento per la deontologia.
 
 ## Cosa dice la legge italiana ai professionisti
 
@@ -62,7 +62,7 @@ La legge non riscrive la deontologia. Riservatezza, diligenza e responsabilità 
 
 Appena un dato personale entra in un chatbot, hai fatto un trattamento. Valgono le regole di sempre, scritte nel [testo del GDPR](https://www.garanteprivacy.it/regolamentoue/il-testo-del-regolamento). Prima di incollare, passa queste verifiche.
 
-Sulla base giuridica e la finalità, la questione è semplice da enunciare. Di solito i dati del cliente li tratti già per eseguire l'incarico. Usare un nuovo strumento per la stessa finalità non è per forza un trattamento nuovo, ma dipende da cosa fa il fornitore con quei dati: se li riusa per addestrare i suoi modelli, il discorso cambia. Leggi le condizioni del piano che hai, perché cambiano spesso tra versione gratuita e versione aziendale.
+Base giuridica e finalità. Di solito i dati del cliente li tratti già per eseguire l'incarico. Usare un nuovo strumento per la stessa finalità non è per forza un trattamento nuovo, ma dipende da cosa fa il fornitore con quei dati: se li riusa per addestrare i suoi modelli, il discorso cambia. Leggi le condizioni del piano che hai, perché cambiano spesso tra versione gratuita e versione aziendale.
 
 Il fornitore, poi, è un tuo responsabile del trattamento? Se sì, serve il contratto previsto dall'art. 28. Con un account personale gratuito, di norma, quel contratto non c'è.
 

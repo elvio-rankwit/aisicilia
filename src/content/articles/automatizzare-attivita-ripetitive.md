@@ -30,7 +30,7 @@ faq:
 related_prompts: []
 ---
 
-Un artigiano di Caltagirone mi ha raccontato che passa il venerdì pomeriggio a rispondere sempre alle stesse sette domande: spedite fuori Italia? quanto costa l'imballaggio? potete personalizzare? tempi di consegna? Ha detto: "Vorrei che lo facesse l'intelligenza artificiale". Gli ho chiesto cosa intendesse per "lo facesse". Non lo sapeva. Ed è lì che quasi tutti si fermano.
+Immagina un artigiano di Caltagirone che passa il venerdì pomeriggio a rispondere sempre alle stesse domande: spedite fuori Italia? quanto costa l'imballaggio? potete personalizzare? quando arriva? A un certo punto sbotta: "Vorrei che lo facesse l'intelligenza artificiale". Provi a chiedergli cosa intenda per "lo facesse". Non lo sa. Ed è lì che quasi tutti si fermano.
 
 Automatizzare è decidere in anticipo chi fa cosa, quando e con quale controllo. L'AI è una parte possibile del meccanismo, non tutto il meccanismo. Questo articolo ti dà un criterio per scegliere, quattro livelli di complessità e quattro esempi concreti: email, preventivi, documenti, social. Se non hai ancora provato l'AI su un compito singolo, comincia da [questo articolo di partenza](/impara/ai-pmi-siciliane-da-dove-cominciare/) e dal metodo per [scrivere prompt efficaci](/impara/scrivere-prompt-efficaci-senza-essere-tecnici/): un'automazione è quasi sempre un prompt che gira da solo.
 
@@ -38,7 +38,7 @@ Automatizzare è decidere in anticipo chi fa cosa, quando e con quale controllo.
 
 Una regola dice: "quando arriva un modulo dal sito, crea una riga nel foglio e avvisami". Non ha niente di intelligente, funziona sempre allo stesso modo e si spiega in una frase. L'intelligenza artificiale serve quando c'è un testo da capire o da scrivere: capire se un'email è una richiesta di preventivo o un reclamo, riassumere un verbale, preparare la bozza di una risposta.
 
-Il consiglio che do sempre è partire dalla regola. Una buona metà dei compiti che le imprese vorrebbero "far fare all'AI" si risolve con un modello di risposta salvato, un filtro nella posta o un modulo con campi obbligatori. Costa poco, non si inventa niente e si controlla in un attimo. L'AI la aggiungi nel punto preciso in cui una regola non basta.
+Il consiglio che do sempre è partire dalla regola. Molti dei compiti che le imprese vorrebbero "far fare all'AI" si risolvono con un modello di risposta salvato, un filtro nella posta o un modulo con campi obbligatori. Costa poco, non si inventa niente e si controlla in un attimo. L'AI la aggiungi nel punto preciso in cui una regola non basta.
 
 ## Cosa conviene automatizzare
 
@@ -68,9 +68,9 @@ L'invio automatico di risposte scritte dall'AI lo sconsiglio. Una bozza che aspe
 
 Prendiamo una piccola struttura ricettiva, o un negozio di ceramiche, che riceve richieste via modulo. Il flusso sensato è questo: il modulo raccoglie i dati essenziali (date, numero di persone, richieste particolari, oppure prodotto e quantità); una regola li inserisce in una tabella; un passaggio con l'AI prepara il testo della risposta usando un tuo modello e i prezzi del tuo listino; tu leggi, correggi e invii.
 
-Il punto delicato sono i numeri. L'assistente non deve calcolare né ricordare i prezzi: glieli passi tu dal listino, e il totale lo fai fare a un foglio di calcolo, che non sbaglia le addizioni. Dalla mia esperienza, la parte di AI migliora il testo, il tono e le versioni in altre lingue. La parte economica la tieni sotto controllo con strumenti normali.
+Il punto delicato sono i numeri. L'assistente non deve calcolare né ricordare i prezzi: glieli passi tu dal listino, e il totale lo fai fare a un foglio di calcolo, che non sbaglia le addizioni. La parte di AI migliora il testo, il tono e le versioni in altre lingue. La parte economica la tieni sotto controllo con strumenti normali.
 
-Se questi testi ti servono davvero, nella [prompt library per commercio e retail](/prompt/commercio-retail/) trovi schede per le comunicazioni con i clienti, da adattare alla tua attività.
+Per le comunicazioni con i clienti, nella [prompt library per commercio e retail](/prompt/commercio-retail/) trovi schede per le comunicazioni con i clienti, da adattare alla tua attività.
 
 ## Documenti: riassumere, confrontare, preparare
 
@@ -100,7 +100,7 @@ Lascerei fuori l'automazione dei commenti e dei messaggi privati. Una risposta a
 
 Le automazioni si rompono in modo silenzioso. Il modulo cambia un campo, il fornitore modifica una funzione, una password scade, e il flusso smette di funzionare senza avvisare nessuno. Per questo ogni flusso ha un responsabile e un controllo periodico: una volta al mese guardi che sia partito quello che doveva partire.
 
-I costi sono tre voci diverse, e le imprese ne contano una sola. Gli abbonamenti ai servizi, che di solito crescono con l'uso. Il tempo di chi imposta e prova, che nella mia esperienza è il doppio di quanto si immagina. E la manutenzione, che nessuno mette a budget e che prima o poi serve. Prezzi e limiti dei piani cambiano spesso, e per questo non te li riporto: ottieni sempre il costo annuale, non solo quello della prima prova.
+I costi sono tre voci diverse, e le imprese ne contano una sola. Gli abbonamenti ai servizi, che di solito crescono con l'uso. Il tempo di chi imposta e prova, che quasi sempre supera quanto si immagina. E la manutenzione, che nessuno mette a budget e che prima o poi serve. Prezzi e limiti dei piani cambiano spesso, e per questo non te li riporto: ottieni sempre il costo annuale, non solo quello della prima prova.
 
 C'è poi un rischio organizzativo. Se il flusso lo conosce una persona sola, quando quella persona se ne va il flusso diventa una scatola nera. Scrivi i passaggi, in modo che chiunque possa spegnere l'automazione e tornare al lavoro manuale.
 

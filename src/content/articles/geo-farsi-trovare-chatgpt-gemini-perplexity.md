@@ -100,7 +100,7 @@ Se il sito lo gestisce un'agenzia, chiedi per iscritto cosa è consentito e cosa
 
 ### Essere citati anche da altri
 
-Quando provi le domande, guarda se le fonti sono siti terzi: portali di settore, directory, giornali locali, associazioni. Se è così, esserci lì pesa quanto sistemare il tuo sito. Una scheda corretta in una directory, una menzione in un articolo di settore, un'iscrizione nell'associazione di categoria. Se la tua azienda lavora con l'AI, c'è anche l'[elenco delle aziende AI siciliane](/aziende/) o la pagina della [tua provincia](/aziende/provincia/catania/), per esempio quella di Catania.
+Quando provi le domande, guarda se le fonti sono siti terzi: portali di settore, directory, giornali locali, associazioni. Se è così, esserci lì pesa quanto sistemare il tuo sito. Una scheda corretta in una directory di settore, per esempio, o l'iscrizione all'associazione di categoria quando ha un elenco soci online. Se la tua azienda lavora con l'AI, c'è anche l'[elenco delle aziende AI siciliane](/aziende/) o la pagina della [tua provincia](/aziende/provincia/catania/), per esempio quella di Catania.
 
 ## Come misurare, con onestà
 
