@@ -244,5 +244,11 @@
     "lng": 15.08737,
     "display_name": "Catania, Sicilia, Italia",
     "precision": "città"
+  },
+  "city:bagheria": {
+    "lat": 38.07935,
+    "lng": 13.50935,
+    "display_name": "Bagheria, Palermo, Sicilia, 90011, Italia",
+    "precision": "città"
   }
 }

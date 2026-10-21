@@ -1,0 +1,32 @@
+{
+  "title": "Sovranità digitale e intelligenza artificiale: nuovo Data Center a Unipa",
+  "slug": "sovranita-digitale-ia-data-center-palermo-2026-07",
+  "description": "Conferenza per l'inaugurazione del nuovo Data Center dell'Università di Palermo e dell'infrastruttura HPE Private Cloud AI, realizzata con HPE e Sistemi HS. La mattina è iniziata con la visita al Data Center, poi la conferenza: saluti istituzionali, un intervento su sovranità digitale e infrastrutture strategiche, tre casi d'uso di AI (analisi di testi sacri, un sistema di bike sharing, un avatar «sommelier digitale») e una tavola rotonda con domande. Un incontro tra istituzioni, università e imprese, tenuto il 20 luglio 2026.",
+  "start_date": "2026-07-20",
+  "start_time": "09:30",
+  "format": "in presenza",
+  "venue_name": "Aula Magna Antonino Buttitta, Dipartimento di Scienze umanistiche (edificio 12)",
+  "venue_address": "Viale delle Scienze, Palermo",
+  "city": "Palermo",
+  "province": "palermo",
+  "lat": 38.10455,
+  "lng": 13.34951,
+  "organizer": "Università degli Studi di Palermo, con HPE e Sistemi HS",
+  "organizer_url": "https://www.unipa.it/",
+  "event_url": "https://www.unipa.it/Conferenza-Sovranit-digitale-e-intelligenza-artificiale-inaugurazione-del-nuovo-Data-Center-e-dellinfrastruttura-HPE-Private-Cloud-AI/",
+  "price": "non indicato",
+  "audience": [
+    "imprese",
+    "ricercatori",
+    "pubblica amministrazione"
+  ],
+  "topics": [
+    "infrastrutture AI",
+    "sovranità digitale",
+    "AI per la ricerca"
+  ],
+  "source_url": "https://www.unipa.it/Conferenza-Sovranit-digitale-e-intelligenza-artificiale-inaugurazione-del-nuovo-Data-Center-e-dellinfrastruttura-HPE-Private-Cloud-AI/",
+  "status": "programmato",
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

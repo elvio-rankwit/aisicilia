@@ -1,0 +1,30 @@
+{
+  "title": "Seminario: sicurezza delle informazioni e intelligenza artificiale",
+  "slug": "sicurezza-informazioni-ia-palermo-2026-10",
+  "description": "Seminario di quattro ore sul rapporto tra sicurezza delle informazioni e intelligenza artificiale, nell'Aula Magna di un istituto tecnico di Palermo. Fa parte del festival nazionale DIGITALmeet 2026 (19-24 ottobre) ed è organizzato dall'Ordine degli Ingegneri con il Dipartimento di Ingegneria dell'Università di Palermo e la scuola ospitante. Aperto a 40 ingegneri iscritti all'albo, con 5 euro di diritti di segreteria e 3 crediti formativi per chi partecipa all'intero seminario.",
+  "start_date": "2026-10-23",
+  "start_time": "09:00",
+  "end_time": "13:00",
+  "format": "in presenza",
+  "venue_name": "Aula Magna, ITS settore tecnologico Vittorio Emanuele III",
+  "venue_address": "Via Duca della Verdura 48, Palermo",
+  "city": "Palermo",
+  "province": "palermo",
+  "lat": 38.13538,
+  "lng": 13.35398,
+  "organizer": "Ordine degli Ingegneri della Provincia di Palermo",
+  "organizer_url": "https://palermo.ordingegneri.it/",
+  "event_url": "https://palermo.ordingegneri.it/eventi/seminario-connubio-critico-tra-sicurezza-delle-informazioni-ed-intelligenza-artificiale/",
+  "price": "a pagamento",
+  "audience": [
+    "professionisti"
+  ],
+  "topics": [
+    "AI per la sicurezza informatica",
+    "formazione professionale"
+  ],
+  "source_url": "https://palermo.ordingegneri.it/eventi/seminario-connubio-critico-tra-sicurezza-delle-informazioni-ed-intelligenza-artificiale/",
+  "status": "programmato",
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

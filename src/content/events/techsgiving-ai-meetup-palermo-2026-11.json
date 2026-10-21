@@ -1,0 +1,31 @@
+{
+  "title": "Techsgiving: Artificial Intelligence Meetup",
+  "slug": "techsgiving-ai-meetup-palermo-2026-11",
+  "description": "Meetup in italiano sul lato pratico dell'AI, lasciando da parte le mode: esperienze reali, architetture, strumenti e scelte tecniche. Tra i temi previsti ci sono quando conviene usare l'AI, come progettare workflow a più passaggi, tool calling, RAG, agenti, memoria e orchestrazione, e gli errori da evitare nel passaggio da una demo a un caso d'uso vero. Si tiene al Magnisi Studio di Palermo, con ingresso gratuito e iscrizione tramite Meetup. La call for papers per gli interventi è aperta fino all'8 novembre.",
+  "start_date": "2026-11-17",
+  "start_time": "18:00",
+  "format": "in presenza",
+  "venue_name": "Magnisi Studio",
+  "venue_address": "Via Emerico Amari 148, Palermo",
+  "city": "Palermo",
+  "province": "palermo",
+  "lat": 38.12446,
+  "lng": 13.35744,
+  "organizer": "Panormus Tech",
+  "organizer_url": "https://panormus.tech/",
+  "event_url": "https://www.meetup.com/panormus-tech/events/317057597/",
+  "price": "gratuito",
+  "audience": [
+    "sviluppatori",
+    "professionisti"
+  ],
+  "topics": [
+    "AI generativa",
+    "agenti AI",
+    "RAG"
+  ],
+  "source_url": "https://panormus.tech/",
+  "status": "programmato",
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

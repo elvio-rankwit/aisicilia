@@ -1,0 +1,30 @@
+{
+  "title": "Seminario: intelligenza artificiale e cybersicurezza",
+  "slug": "ia-cybersicurezza-seminario-palermo-2026-06",
+  "description": "Seminario dell'Ordine degli Ingegneri della Provincia di Palermo, intitolato «Intelligenza Artificiale e Cybersicurezza: connubio critico per la trasformazione digitale». Si è svolto il 22 giugno 2026, nel pomeriggio, nell'Aula Savagnone del Dipartimento di Ingegneria dell'Università di Palermo, con più relatori. Riservato a 80 ingegneri iscritti all'albo, con 5 euro di diritti di segreteria e 3 crediti formativi per chi ha seguito l'intero seminario.",
+  "start_date": "2026-06-22",
+  "start_time": "14:30",
+  "end_time": "18:30",
+  "format": "in presenza",
+  "venue_name": "Aula Savagnone, edificio 9, Dipartimento di Ingegneria",
+  "venue_address": "Viale delle Scienze, Palermo",
+  "city": "Palermo",
+  "province": "palermo",
+  "lat": 38.10455,
+  "lng": 13.34951,
+  "organizer": "Ordine degli Ingegneri della Provincia di Palermo",
+  "organizer_url": "https://palermo.ordingegneri.it/",
+  "event_url": "https://palermo.ordingegneri.it/eventi/seminario-intelligenza-artificiale-e-cybersicurezza-connubio-critico-per-la-trasformazione-digitale/",
+  "price": "a pagamento",
+  "audience": [
+    "professionisti"
+  ],
+  "topics": [
+    "AI per la sicurezza informatica",
+    "formazione professionale"
+  ],
+  "source_url": "https://palermo.ordingegneri.it/eventi/seminario-intelligenza-artificiale-e-cybersicurezza-connubio-critico-per-la-trasformazione-digitale/",
+  "status": "programmato",
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

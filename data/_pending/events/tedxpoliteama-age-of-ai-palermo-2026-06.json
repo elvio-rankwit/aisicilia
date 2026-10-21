@@ -1,0 +1,30 @@
+{
+  "title": "TEDxPoliteama: The Age of AI",
+  "slug": "tedxpoliteama-age-of-ai-palermo-2026-06",
+  "description": "Evento TEDx a Palermo sul tema «The Age of AI»: sei interventi di circa quindici minuti su tecnologia, etica, business, scienza, società e creatività, con pausa caffè e aperitivo di networking finale. Posti limitati a un massimo di cento partecipanti, biglietti online. L'evento risulta concluso. Le fonti consultate non concordano sulla data: la pagina TED indica il 19 giugno 2026, Balarm ed Eventbrite il sabato 20 giugno.",
+  "start_date": "2026-06-20",
+  "start_time": "16:00",
+  "end_time": "20:00",
+  "format": "in presenza",
+  "venue_name": "Magnisi Studio",
+  "venue_address": "Via Emerico Amari 148, Palermo",
+  "city": "Palermo",
+  "province": "palermo",
+  "lat": 38.12446,
+  "lng": 13.35744,
+  "organizer": "TEDxPoliteama",
+  "event_url": "https://www.ted.com/tedx/events/65990",
+  "price": "a pagamento",
+  "audience": [
+    "tutti"
+  ],
+  "topics": [
+    "AI e società",
+    "AI generativa"
+  ],
+  "source_url": "https://www.balarm.it/eventi/l-intelligenza-artificiale-al-tedx-politeama-sei-speaker-al-magnisi-studio-di-palermo-145957",
+  "pending_reason": "Data contraddittoria tra fonti (TED.com: 19 giugno 2026; Balarm ed Eventbrite: sabato 20 giugno 2026); la pagina organizzatore TED non indica orario né prezzo. Da confermare con l'organizzatore.",
+  "status": "programmato",
+  "last_verified": "2026-10-21",
+  "verification_status": "pending"
+}
