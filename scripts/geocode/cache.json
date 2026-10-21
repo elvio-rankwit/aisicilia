@@ -250,5 +250,23 @@
     "lng": 13.50935,
     "display_name": "Bagheria, Palermo, Sicilia, 90011, Italia",
     "precision": "città"
+  },
+  "city:comiso": {
+    "lat": 36.95073,
+    "lng": 14.60746,
+    "display_name": "Comiso, Ragusa, Sicilia, 97013, Italia",
+    "precision": "città"
+  },
+  "city:ragusa": {
+    "lat": 36.92571,
+    "lng": 14.73075,
+    "display_name": "Ragusa, Sicilia, 97100, Italia",
+    "precision": "città"
+  },
+  "city:tremestieri etneo": {
+    "lat": 37.57649,
+    "lng": 15.07322,
+    "display_name": "Tremestieri Etneo, Catania, Sicilia, 95030, Italia",
+    "precision": "città"
   }
 }

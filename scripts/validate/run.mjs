@@ -80,7 +80,8 @@ function validateContent() {
       const raw = JSON.stringify(data) + body;
       if (/esempio-|\[FITTIZIO\]|\.example\b/.test(raw)) err(where, 'contiene dati fittizi (fixture) nei contenuti reali');
       if (/\b[\w.+-]+@[\w-]+\.[\w.]+\b/.test(raw) && c !== 'prompts') err(where, 'contiene un indirizzo email: niente dati di contatto personali');
-      if (/(\+39[\s.]?)?\b3\d{2}[\s.]?\d{6,7}\b/.test(raw)) err(where, 'sembra contenere un numero di cellulare');
+      // Gli URL contengono spesso ID numerici: si escludono dal controllo sui numeri di telefono.
+      if (/(\+39[\s.]?)?\b3\d{2}[\s.]?\d{6,7}\b/.test(raw.replace(/https?:\/\/[^\s"')]+/g, ''))) err(where, 'sembra contenere un numero di cellulare');
       for (const k of ['last_verified', 'published_at', 'updated_at', 'tested_at']) {
         if (data[k] && String(data[k]).slice(0, 10) > today) err(where, `${k} nel futuro`);
       }
