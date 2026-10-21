@@ -3,7 +3,7 @@
   "slug": "preventivo-menu-gruppo-ristorante",
   "sector": "ristorazione",
   "use_case": "vendite e preventivi",
-  "goal": "Ottieni un'email di risposta a una richiesta di gruppo con menu, totale calcolato e condizioni, senza voci o promesse che non hai scritto tu.",
+  "goal": "Un'email di risposta a una richiesta di gruppo con menu, totale calcolato e condizioni, senza voci o promesse che non hai scritto tu.",
   "prompt_text": "Sei il titolare di {nome_locale}. Scrivi l'email di risposta a una richiesta di preventivo per un gruppo.\n\nRichiesta del cliente:\n{richiesta_cliente}\n\nDati della nostra offerta:\n- Menu proposto: {menu_proposto}\n- Numero di ospiti: {numero_ospiti}\n- Prezzo a persona e cosa comprende: {prezzo_a_persona}\n- Condizioni (acconto, disdetta): {condizioni}\n- Conferma richiesta entro: {scadenza_conferma}\n\nScrivi un'email in italiano di massimo 180 parole, escluso l'elenco del menu, con tono cordiale e concreto. Mostra il calcolo del totale (ospiti per prezzo a persona) e, se ho indicato una percentuale di acconto, anche l'importo dell'acconto. Chiudi con una domanda precisa per avanzare (per esempio conferma del numero di ospiti entro la data).\nRegole: non aggiungere voci, sconti, servizi o orari che non ho scritto. Non dire che IVA, servizio o coperto sono inclusi o esclusi se non è scritto in \"prezzo a persona\". Non indicare allergie o intolleranze: chiedi al cliente di segnalarle. Se la richiesta contiene qualcosa a cui non so rispondere (menu per bambini, torta, musica), non rispondere e mettilo in una lista \"Da chiarire\" sotto l'email. Se non conosci il nome del cliente, apri con \"Buongiorno\".",
   "variables": [
     {

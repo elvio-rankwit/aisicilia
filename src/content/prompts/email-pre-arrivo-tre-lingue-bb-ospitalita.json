@@ -3,7 +3,7 @@
   "slug": "email-pre-arrivo-tre-lingue-bb-ospitalita",
   "sector": "ospitalita",
   "use_case": "traduzioni",
-  "goal": "Ottieni in un solo passaggio l'email da inviare prima dell'arrivo in italiano, inglese e tedesco, con orari e istruzioni identici nelle tre versioni.",
+  "goal": "In un solo passaggio, l'email da inviare prima dell'arrivo in italiano, inglese e tedesco, con orari e istruzioni identici nelle tre versioni.",
   "prompt_text": "Sei il referente dell'accoglienza di {nome_struttura} a {localita}. Scrivi l'email di pre-arrivo da inviare tre giorni prima, in tre versioni consecutive: italiano, inglese, tedesco. Ogni versione ha oggetto e testo.\n\nDati da usare:\n- Arrivo: {data_arrivo}\n- Check-in: {orario_checkin}\n- Come arrivare ed entrare: {istruzioni_arrivo}\n- Regole da ricordare: {regole_essenziali}\n- Come contattarci all'arrivo: {contatto_arrivo}\n\nVincoli: massimo 130 parole per versione. Tono caldo e concreto, senza formule da catena alberghiera. Usa il \"tu\" in italiano, \"you\" in inglese, \"Sie\" in tedesco. Non tradurre parola per parola: adatta le espressioni a ciascuna lingua, ma date, orari, numeri civici e nomi di vie restano identici, con gli orari sempre in formato 24 ore (15:00, non 3 pm). Scrivi la data per esteso secondo l'uso di ogni lingua.\nNon aggiungere servizi, orari o prezzi che non ho scritto. Se manca qualcosa di necessario (per esempio come si ritirano le chiavi), chiedimelo prima di scrivere.\nIn fondo, sotto il titolo \"Da controllare\", elenca gli eventuali punti in cui le versioni inglese e tedesca si allontanano dall'originale italiano.",
   "variables": [
     {

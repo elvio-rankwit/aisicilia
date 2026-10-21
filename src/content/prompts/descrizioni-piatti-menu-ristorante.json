@@ -3,7 +3,7 @@
   "slug": "descrizioni-piatti-menu-ristorante",
   "sector": "ristorazione",
   "use_case": "marketing",
-  "goal": "Ottieni descrizioni brevi dei piatti, fedeli agli ingredienti che elenchi, con gli allergeni riportati come li ha dichiarati la cucina e le incongruenze segnalate.",
+  "goal": "Descrizioni brevi dei piatti, fedeli agli ingredienti che elenchi, con gli allergeni riportati come li ha dichiarati la cucina e le incongruenze segnalate.",
   "prompt_text": "Scrivi le descrizioni dei piatti per il menu di {nome_locale} ({tipo_cucina}).\n\nPiatti con gli ingredienti reali:\n{piatti_e_ingredienti}\n\nAllergeni dichiarati dalla cucina per ciascun piatto:\n{allergeni_dichiarati}\n\nPer ogni piatto scrivi una descrizione di massimo 18 parole che dica cosa c'è nel piatto e, solo se l'ho scritto, come è cucinato. Niente aggettivi vuoti (delizioso, ricercato, goloso). Usa solo gli ingredienti elencati: non aggiungere ingredienti, metodi, origini o denominazioni (DOP, IGP, \"a km zero\") che non ho scritto.\nSotto ogni descrizione riporta gli allergeni esattamente come li ho dichiarati, con i nomi dell'elenco dei 14 allergeni del Regolamento UE 1169/2011. Se per un piatto non ho dichiarato nulla, scrivi \"ALLERGENI DA CONFERMARE\" e non dedurli.\nIn fondo, sotto il titolo \"Incongruenze\", elenca i piatti in cui gli ingredienti fanno pensare a un allergene non dichiarato (per esempio una cialda e nessun glutine). Qui puoi indicare allergeni probabili, ma non inserirli nella scheda del piatto.",
   "variables": [
     {

@@ -3,7 +3,7 @@
   "slug": "piano-social-settimana-ristorante",
   "sector": "ristorazione",
   "use_case": "social media",
-  "goal": "Ottieni sette giorni di post per Instagram e Facebook con testi pronti, formato e idee di foto, calibrati su apertura, piatti e novità reali del locale.",
+  "goal": "Sette giorni di post per Instagram e Facebook con testi pronti, formato e idee di foto, calibrati su apertura, piatti e novità reali del locale.",
   "prompt_text": "Sei il social media manager di un ristorante piccolo. Prepara il piano dei post di una settimana per Instagram e Facebook di {nome_locale} ({localita}).\n\nDati reali:\n- Giorni e orari di apertura: {giorni_apertura}\n- Piatti della settimana: {piatti_della_settimana}\n- Novità o eventi: {novita_o_eventi}\n- Foto che ho già: {foto_disponibili}\n- Tono: {tono}\n\nOutput: una tabella con sette righe (lunedì-domenica) e le colonne giorno, formato (foto, storia, reel breve), testo del post (massimo 60 parole), hashtag (massimo 5), cosa fotografare se non ho già la foto (qualcosa che si fa con lo smartphone in 5 minuti).\nRegole: nei giorni di chiusura nessun invito a venire a mangiare: usa un contenuto dietro le quinte o di riposo. Al massimo due post con invito diretto a prenotare. Non inventare offerte, prezzi, eventi, ricette, fornitori o provenienza degli ingredienti. Non suggerire orari di pubblicazione basati su statistiche; se indichi un orario, motivalo con l'apertura del locale. Se un dato che serve manca, chiedimelo prima.",
   "variables": [
     {
@@ -42,7 +42,7 @@
       "example": "Diretto, un po' ironico, niente slang."
     }
   ],
-  "how_to_use": "Compila i dati con quello che è vero questa settimana. Incolla il prompt e copia il piano in un foglio o nell'app di programmazione dei post. Riscrivi ogni testo nella tua voce prima di pubblicare e scatta le foto proposte il giorno stesso.",
+  "how_to_use": "Compila i dati con quello che è vero questa settimana. Poi lancia il prompt e copia il piano in un foglio o nell'app di programmazione dei post. Riscrivi ogni testo nella tua voce prima di pubblicare e scatta le foto proposte il giorno stesso.",
   "example_input": "nome_locale: Osteria Fico d'India\nlocalita: Noto\ngiorni_apertura: Martedì-domenica, pranzo 12:30-15:00 e cena 19:30-23:00. Chiuso il lunedì.\npiatti_della_settimana: Busiate al pesto trapanese, pesce spada alla ghiotta, cannolo scomposto.\nnovita_o_eventi: Giovedì sera musica dal vivo dalle 21:00, ingresso libero.\nfoto_disponibili: Foto di busiate e cannolo scattate a luglio. Nessuna foto della sala.\ntono: Diretto, un po' ironico, niente slang.",
   "expected_output_description": "Una tabella di sette righe con formato, testo di massimo 60 parole, fino a cinque hashtag e un'idea di foto dove manca. Il lunedì (chiusura) non invita a venire. Al massimo due post con invito a prenotare.",
   "limits_and_warnings": "L'AI può inventare piatti, offerte o orari: controlla ogni dato. Non pubblicare foto con clienti riconoscibili senza il loro consenso. Se scrivi di eventi con musica, verifica di avere le autorizzazioni necessarie. Le regole delle piattaforme cambiano: rivedi hashtag e formati.",

@@ -3,7 +3,7 @@
   "slug": "traduzione-programma-tour-inglese-francese-agenzia",
   "sector": "turismo-agenzie",
   "use_case": "traduzioni",
-  "goal": "Ottieni il programma di un tour tradotto in inglese e francese con nomi dei luoghi corretti, piatti spiegati in poche parole e un elenco di dubbi per il revisore madrelingua.",
+  "goal": "Il programma di un tour tradotto in inglese e francese con nomi dei luoghi corretti, piatti spiegati in poche parole e un elenco di dubbi per il revisore madrelingua.",
   "prompt_text": "Sei un traduttore specializzato in turismo, con esperienza di Sicilia. Traduci il testo qui sotto per i clienti stranieri di {nome_agenzia}, nelle lingue: {lingue_destinazione}.\n\nTesto italiano:\n{testo_italiano}\n\nTermini da lasciare in italiano, se ce ne sono: {termini_da_non_tradurre}\nPubblico: {pubblico}\n\nConsegna una versione per ciascuna lingua, una dopo l'altra.\nRegole: traduci il senso, non parola per parola, con il tono del testo originale. Per i luoghi usa la forma corrente nella lingua (per esempio Syracuse per Siracusa in inglese) solo se esiste ed è di uso comune; altrimenti lascia il nome italiano. Alla prima occorrenza di un piatto o di un prodotto tipico lascia il nome italiano e aggiungi una spiegazione di al massimo quattro parole tra parentesi. Non cambiare nessun numero, orario o importo: orari sempre in formato 24 ore, separatori di migliaia e decimali secondo l'uso della lingua, prezzi con il simbolo dell'euro nella posizione corretta. Non aggiungere informazioni, consigli o promesse che non sono nel testo originale.\nIn fondo, sotto il titolo \"Per il revisore madrelingua\", elenca le scelte di traduzione che ti sembrano più incerte.",
   "variables": [
     {

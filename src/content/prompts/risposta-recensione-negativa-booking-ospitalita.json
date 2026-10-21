@@ -3,7 +3,7 @@
   "slug": "risposta-recensione-negativa-booking-ospitalita",
   "sector": "ospitalita",
   "use_case": "recensioni",
-  "goal": "Ottieni una risposta pubblica di 80-120 parole, cordiale e basata solo sui fatti che hai verificato, da incollare sotto una recensione negativa.",
+  "goal": "Una risposta pubblica di 80-120 parole, cordiale e basata solo sui fatti che hai verificato, da incollare sotto una recensione negativa.",
   "prompt_text": "Sei il responsabile dell'accoglienza di {nome_struttura}, una struttura ricettiva a {localita}. Devi scrivere la risposta pubblica a una recensione negativa lasciata su {piattaforma}.\n\nRecensione dell'ospite, testo integrale:\n{testo_recensione}\n\nFatti che ho verificato io (non aggiungerne altri):\n{fatti_verificati}\n\nCosa siamo disposti a fare, in concreto:\n{azione_proposta}\n\nScrivi la risposta in italiano, da 80 a 120 parole, in prima persona plurale, con tono cordiale e asciutto. Struttura: ringrazia per aver scritto senza formule di rito, riconosci il disagio con le parole dell'ospite, spiega cosa è successo solo se emerge dai fatti verificati, dichiara l'azione concreta, invita a proseguire in privato dai canali della piattaforma.\nVincoli: i fatti servono a spiegare, non a difenderci o a dare torto all'ospite. Non confermare circostanze che non compaiono tra i fatti verificati (per esempio che nessuno ha avvisato l'ospite). Non dare colpa a terzi, non citare nomi di persone, non offrire sconti o rimborsi che non compaiono nell'azione proposta. Se un'informazione manca o i fatti contraddicono la recensione, non inventare: prima di scrivere elencami le domande che ti servono.\nDopo la risposta aggiungi due varianti alternative dell'ultima frase, massimo 15 parole ciascuna.",
   "variables": [
     {

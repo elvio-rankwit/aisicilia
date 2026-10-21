@@ -1,9 +1,9 @@
 {
-  "title": "Avvisare i clienti che un'escursione è annullata per maltempo, senza creare conflitti",
+  "title": "Avvisare i clienti che un'escursione è annullata per maltempo, proponendo alternative",
   "slug": "comunicazione-escursione-annullata-maltempo-agenzia",
   "sector": "turismo-agenzie",
   "use_case": "customer care",
-  "goal": "Ottieni un messaggio breve per WhatsApp o email che spiega l'annullamento, offre le alternative e cita il rimborso solo come lo hai scritto tu.",
+  "goal": "Un messaggio breve per WhatsApp o email che spiega l'annullamento, offre le alternative e cita il rimborso solo come lo hai scritto tu.",
   "prompt_text": "Sei il referente clienti di {nome_agenzia}. Devi avvisare i partecipanti che un'escursione è stata annullata.\n\nFatti:\n- Escursione: {escursione}\n- Data: {data_escursione}\n- Motivo dell'annullamento, come è stato deciso: {motivo}\n- Alternative che possiamo offrire: {alternative}\n- Politica di rimborso, testo esatto: {politica_rimborso}\n- Entro quando il cliente deve rispondere: {scadenza_risposta}\n- Canale: {canale}\n\nScrivi in italiano un solo messaggio adatto al canale: se è WhatsApp o SMS, massimo 70 parole; se è email, massimo 120. Struttura: cosa è successo e che l'escursione di quel giorno non si fa, perché, cosa può scegliere il cliente con la scadenza, come rispondere. Tono cordiale e diretto, senza scuse esagerate e senza dare la colpa a nessuno.\nRegole: usa solo le alternative e la politica di rimborso che ho scritto, senza cambiarne le parole sui numeri e sui tempi. Non promettere posti, orari o rimborsi diversi. Non fissare scadenze che non ho indicato. Se la politica di rimborso è vuota o ambigua, non scrivere nulla sul rimborso e chiedimi cosa dire. Non inserire nomi di clienti.",
   "variables": [
     {
@@ -47,7 +47,7 @@
       "example": "WhatsApp"
     }
   ],
-  "how_to_use": "Decidi prima le alternative e la scadenza, poi compila le variabili. Incolla il prompt, leggi il messaggio come se lo ricevessi tu la sera prima e inviane una copia a un collega. Mandalo ai partecipanti dall'utenza dell'agenzia, uno per uno o con una lista broadcast.",
+  "how_to_use": "Decidi prima le alternative e la scadenza, poi compila le variabili. Usa il prompt, leggi il messaggio come se lo ricevessi tu la sera prima e inviane una copia a un collega. Mandalo ai partecipanti dall'utenza dell'agenzia, uno per uno o con una lista broadcast.",
   "example_input": "nome_agenzia: Gelsomino Viaggi\nescursione: Giro in barca alle isole Egadi da Trapani\ndata_escursione: domenica 9 agosto\nmotivo: Mare mosso e vento forte; il comandante ha deciso di non uscire.\nalternative: Spostare l'escursione a lunedì 10 agosto con partenza all'orario previsto, se c'è posto (12 posti liberi); oppure un buono valido fino al 31 ottobre.\npolitica_rimborso: Rimborso integrale entro 10 giorni lavorativi se il cliente non accetta una alternativa.\nscadenza_risposta: entro le 18:00 di oggi\ncanale: WhatsApp",
   "expected_output_description": "Un messaggio unico di massimo 70 parole su WhatsApp o 120 su email, che dice cosa è successo, perché, quali alternative ci sono, entro quando rispondere e come. Il rimborso compare solo con le parole della politica indicata.",
   "limits_and_warnings": "Se l'annullamento è deciso dall'organizzatore, il cliente può avere diritti previsti dalla legge o dal contratto di viaggio: controlla con l'associazione di categoria o con un consulente cosa devi garantire, prima di inviare. Non inserire nomi o recapiti dei clienti. Verifica sempre posti, date e scadenze.",

@@ -3,7 +3,7 @@
   "slug": "post-lavorazione-artigiano-social",
   "sector": "artigianato-manifattura",
   "use_case": "social media",
-  "goal": "Ottieni tre versioni del post (breve, media, lunga) e uno schema di storia in quattro schermate partendo dalle foto o dai video che hai già fatto in laboratorio.",
+  "goal": "Tre versioni del post (breve, media, lunga) e uno schema di storia in quattro schermate partendo dalle foto o dai video che hai già fatto in laboratorio.",
   "prompt_text": "Sei il social media manager di una bottega artigiana di {mestiere} a {citta}. Ho fatto queste foto o video di un lavoro in corso e voglio pubblicarli su {piattaforma}.\n\nCosa si vede nelle foto o nei video: {materiale_disponibile}\nIl lavoro: {lavoro}\nCosa voglio che chi guarda capisca: {messaggio}\nCosa non voglio dire o mostrare: {da_evitare}\nCome contattarci (solo se lo indico): {contatto}\n\nScrivi tre versioni del testo del post, diverse tra loro: una breve (massimo 40 parole), una media (massimo 80) e una lunga (massimo 120) con un piccolo racconto del lavoro; l'invito all'azione rientra nel conteggio delle parole. Per ciascuna: una prima riga che funzioni da sola (su Instagram è l'unica che si legge senza aprire il testo), un solo invito all'azione e al massimo 5 hashtag. Poi uno schema di una storia in 4 schermate: cosa inquadrare e che frase scrivere su ognuna, massimo 10 parole.\n\nVincoli: usa solo i fatti che ti ho dato; niente prezzi, tempi di consegna, nomi di clienti o promesse. Niente emoji, niente punti esclamativi in serie. Non descrivere nulla che non c'è nelle foto o nei video. Se per un post serve un dato che manca, scrivi [da inserire].",
   "variables": [
     {

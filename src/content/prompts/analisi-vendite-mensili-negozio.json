@@ -3,7 +3,7 @@
   "slug": "analisi-vendite-mensili-negozio",
   "sector": "commercio-retail",
   "use_case": "analisi",
-  "goal": "Ottieni una relazione breve con totali, variazioni per categoria, cose che saltano all'occhio, ipotesi da verificare e tre azioni per il mese dopo, con i calcoli visibili.",
+  "goal": "Una relazione breve con totali, variazioni per categoria, cose che saltano all'occhio, ipotesi da verificare e tre azioni per il mese dopo, con i calcoli visibili.",
   "prompt_text": "Sei un analista che lavora per il titolare di un negozio di {tipo_negozio}. Analizza le vendite del mese di {mese} confrontandole con il mese precedente.\n\nDati (incollati dal gestionale o dal foglio di calcolo):\n{dati_vendite}\n\nContesto che conosco: {contesto}\nObiettivo di incasso del mese: {obiettivo_incasso}\n\nRispondi in quattro parti.\n1. Numeri: incasso totale dei due mesi, variazione assoluta e percentuale, e la variazione per ogni categoria. Per ogni percentuale scrivi i due numeri da cui deriva, così posso controllarla. Usa la virgola decimale e arrotonda a una cifra.\n2. Cosa salta all'occhio: massimo 3 osservazioni, ognuna con il dato che la sostiene.\n3. Ipotesi: spiegazioni possibili, ognuna etichettata \"Ipotesi da verificare\" e con il dato che servirebbe per confermarla. Non presentare mai una causa come certa.\n4. Azioni: massimo 3 cose da provare il mese prossimo, concrete e a basso costo.\n\nUsa solo i dati che ti ho dato. Se una colonna è ambigua o mancano righe, dimmelo prima di calcolare. Stile da relazione per un imprenditore, senza gergo.",
   "variables": [
     {

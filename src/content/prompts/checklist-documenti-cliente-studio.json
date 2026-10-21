@@ -3,7 +3,7 @@
   "slug": "checklist-documenti-cliente-studio",
   "sector": "studi-professionali",
   "use_case": "amministrazione",
-  "goal": "Ottieni un'email con checklist dei documenti da consegnare, scadenza ben visibile e modalità di consegna, senza documenti in più rispetto all'elenco del tuo studio.",
+  "goal": "Un'email con checklist dei documenti da consegnare, scadenza ben visibile e modalità di consegna, senza documenti in più rispetto all'elenco del tuo studio.",
   "prompt_text": "Sei la segreteria di uno studio di {tipo_studio}. Scrivi un'email a un cliente per chiedergli i documenti che ci servono per {pratica}.\n\nTipo di cliente: {tipo_cliente}\nDocumenti da richiedere (elenco dello studio, non aggiungerne): {elenco_documenti}\nEntro quando ci servono: {scadenza_interna}\nCome possono consegnarli: {modalita_consegna}\nFirma: {firma}\n\nFormato: oggetto chiaro; due righe di apertura che spiegano a cosa servono i documenti; una checklist con una riga per documento da spuntare e, accanto, in poche parole, a cosa serve, solo se è evidente dal nome del documento; la scadenza in evidenza; come consegnare; cosa fare se un documento non si trova (avvisare la segreteria, senza promettere che lo studio lo recupererà).\n\nVincoli: non aggiungere documenti oltre l'elenco. Se ritieni che ne manchi uno, mettilo in una nota finale per me, separata dall'email, con la dicitura \"da verificare con il professionista\". Non scrivere importi, norme o scadenze di legge. Chiedi di consegnare i documenti solo con la modalità indicata sopra. Linguaggio semplice, massimo 200 parole.",
   "variables": [
     {
@@ -42,7 +42,7 @@
       "example": "Segreteria, Studio Meridiana"
     }
   ],
-  "how_to_use": "Scrivi l'elenco dei documenti una volta sola, nel modo in cui lo usa il tuo studio, e riusalo per ogni cliente cambiando solo tipo di cliente e scadenza. Incolla il prompt, controlla l'email e invia. La nota finale con eventuali documenti mancanti va letta dal professionista, non inoltrata al cliente.",
+  "how_to_use": "Scrivi l'elenco dei documenti una volta sola, nel modo in cui lo usa il tuo studio, e riusalo per ogni cliente cambiando solo tipo di cliente e scadenza. Fai girare il prompt, controlla l'email e invia. La nota finale con eventuali documenti mancanti va letta dal professionista, non inoltrata al cliente.",
   "example_input": "tipo_studio: commercialisti\npratica: la raccolta dei dati per la dichiarazione dei redditi di una ditta individuale\ntipo_cliente: ditta individuale, titolare poco esperto di contabilità\nelenco_documenti: estratti conto bancari dell'anno; fatture di acquisto non ancora inviate; ricevute di pagamento delle imposte già versate; quietanze dei contributi\nscadenza_interna: venerdì 13 novembre 2026\nmodalita_consegna: portale riservato dello studio oppure a mano in segreteria\nfirma: Segreteria, Studio Meridiana",
   "expected_output_description": "Un'email breve con oggetto, due righe di contesto, checklist di una riga per documento, scadenza evidente, modalità di consegna e cosa fare se un documento non si trova. Se l'AI pensa che manchi qualcosa, lo scrive in una nota separata.",
   "limits_and_warnings": "Per scadenze, importi e norme serve il professionista: il prompt non li tratta. Evita di far arrivare documenti sensibili per email semplice se lo studio ha un canale più sicuro. Controlla che l'elenco corrisponda a ciò che serve davvero per quella pratica e per quell'anno.",

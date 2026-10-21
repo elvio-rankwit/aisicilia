@@ -7,7 +7,7 @@ const off = !action;
 ---
 {off && (
   <div class="callout warn" role="status">
-    <p><strong>Modulo in attivazione.</strong> Non è ancora possibile inviare da qui: il servizio che riceve i messaggi non è stato collegato. Passa a trovarci tra qualche giorno, oppure guarda la pagina <a href="/contatti/">Contatti</a>.</p>
+    <p><strong>Modulo in attivazione.</strong> Non è ancora possibile inviare da qui: il servizio che riceve i messaggi non è stato collegato. Riprova tra qualche giorno, oppure guarda la pagina <a href="/contatti/">Contatti</a>.</p>
   </div>
 )}
 {off && <Fragment set:html={`<!-- TODO: impostare ${envName} (endpoint Formspree o simile) per attivare il form. Finché è vuota, il form resta disabilitato. -->`} />}

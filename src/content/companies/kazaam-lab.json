@@ -2,7 +2,7 @@
   "name": "Kazaam Lab",
   "slug": "kazaam-lab",
   "type": "startup",
-  "description": "Società con sede a Palermo attiva nella sanità digitale, che costruisce strumenti di supporto alle decisioni per i medici, per esempio nella scelta delle terapie per malattie gravi. Il lavoro parte dall'integrazione di dati molecolari, clinici e fenotipici in reti complesse, analizzate con machine learning e algoritmi di clustering. Offre servizi software in cloud con analisi dei dati in tempo reale, nel campo della medicina di precisione.",
+  "description": "Società palermitana attiva nella sanità digitale, che costruisce strumenti di supporto alle decisioni per i medici, per esempio nella scelta delle terapie per malattie gravi. Il lavoro parte dall'integrazione di dati molecolari, clinici e fenotipici in reti complesse, analizzate con machine learning e algoritmi di clustering. Offre servizi software in cloud con analisi dei dati in tempo reale, nel campo della medicina di precisione.",
   "ai_areas": [
     "machine learning",
     "dati e analytics"

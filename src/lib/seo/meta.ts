@@ -122,7 +122,7 @@ export const meta = {
   learnIndex: (): Meta => ({
     title: "Impara l'AI: guide pratiche per le imprese siciliane",
     description:
-      "Guide sull'intelligenza artificiale per PMI, hotel, ristoranti, cantine e studi professionali: casi d'uso concreti, limiti e cosa fare subito.",
+      "Guide sull'intelligenza artificiale per PMI, hotel, ristoranti, cantine e studi professionali: cosa può fare l'AI, cosa no e da dove partire.",
   }),
 
   article: (a: Article): Meta => ({

@@ -1,9 +1,9 @@
 {
-  "title": "Rispondere a una recensione negativa del tuo negozio senza sembrare sulla difensiva",
+  "title": "Rispondere a una recensione negativa del negozio pensando a chi la leggerà dopo",
   "slug": "risposta-recensione-negativa-negozio",
   "sector": "commercio-retail",
   "use_case": "recensioni",
-  "goal": "Ottieni una risposta pubblica di meno di 90 parole a una recensione negativa su Google o altre piattaforme, pensata per chi la leggerà dopo di te e senza promesse che non puoi mantenere.",
+  "goal": "Una risposta pubblica di meno di 90 parole a una recensione negativa su Google o altre piattaforme, pensata per chi la leggerà dopo di te e senza promesse che non puoi mantenere.",
   "prompt_text": "Sei il titolare di un negozio di {tipo_negozio} e devi rispondere in pubblico a una recensione negativa su {piattaforma}.\n\nRecensione ({stelle} stelle):\n{testo_recensione}\n\nCosa risulta a noi, verificato: {fatti_verificati}\nCosa possiamo offrire: {cosa_offriamo}\nCome può contattarci: {come_contattarci}\nFirma: {firma}\n\nScrivi una risposta in italiano di massimo 90 parole. Tieni presente che la leggeranno anche i futuri clienti, non solo chi ha scritto la recensione. Regole:\n- apri riconoscendo il disagio, senza formule da modulo;\n- non contraddire il cliente e non accusarlo di nulla;\n- puoi aggiungere una sola frase di contesto, e solo se compare in \"cosa risulta a noi\"; scrivila come un fatto neutro, senza \"ma\", senza \"per spiegare\" e senza formule come \"non è una scusa\", così non suona come una giustificazione;\n- offri solo ciò che è scritto in \"cosa possiamo offrire\" e invita a continuare in privato;\n- non promettere interventi o miglioramenti che non compaiono sopra;\n- non scrivere nomi, numeri d'ordine o altri dati personali e non dire se la persona è davvero stata nostra cliente.\nSe la recensione contiene accuse gravi (truffa, merce contraffatta, discriminazione) o ti mancano informazioni, non rispondere: dimmi cosa ti manca e consigliami di sentire prima un consulente.",
   "variables": [
     {
@@ -50,7 +50,7 @@
   "how_to_use": "Prima di usare il prompt controlla cosa è successo davvero: chiedi ai dipendenti, guarda i registri di cassa. Compila \"cosa risulta a noi\" con soli fatti. Incolla il risultato nel campo di risposta della piattaforma solo dopo averlo letto ad alta voce: se suona come un modulo, riscrivi la prima frase con parole tue.",
   "example_input": "tipo_negozio: calzature\npiattaforma: Google\nstelle: 2\ntesto_recensione: Sabato pomeriggio ho aspettato più di venti minuti e nessuno mi ha servito. Commessa poco gentile, non tornerò.\nfatti_verificati: Sabato pomeriggio c'era un solo addetto in negozio e il negozio era pieno.\ncosa_offriamo: Un incontro con il titolare per capire cosa è successo; nessun buono o sconto.\ncome_contattarci: scrivendo in privato dal profilo Google o passando in negozio\nfirma: Il titolare, Calzature Bellavista",
   "expected_output_description": "Una risposta di 50-90 parole, calma, che riconosce il disagio, aggiunge al massimo una frase di contesto, offre solo ciò che hai scritto e porta la conversazione fuori dalla pagina pubblica. Niente toni da difesa d'ufficio.",
-  "limits_and_warnings": "Non rispondere a caldo e non inserire dati personali di chi ha scritto. L'AI non sa cosa è successo: se i \"fatti verificati\" sono incompleti, la risposta può risultare falsa. Le recensioni con accuse gravi o false si gestiscono con la piattaforma e, se serve, con un legale. Rileggi sempre prima di pubblicare.",
+  "limits_and_warnings": "Non rispondere a caldo e non inserire dati personali di chi ha scritto. L'AI non sa cosa è successo: se i \"fatti verificati\" sono incompleti, la risposta può risultare falsa. Le recensioni con accuse gravi o false si gestiscono con la piattaforma e, se serve, con un legale.",
   "compatible_tools": [
     "ChatGPT",
     "Claude",

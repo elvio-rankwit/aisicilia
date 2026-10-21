@@ -3,7 +3,7 @@
   "slug": "bozza-preventivo-parcella-studio",
   "sector": "studi-professionali",
   "use_case": "vendite e preventivi",
-  "goal": "Ottieni una email di preventivo ordinata, che riformula la richiesta, elenca prestazioni incluse ed escluse e riporta compenso e tempi esattamente come li hai decisi tu.",
+  "goal": "Una email di preventivo ordinata, che riformula la richiesta, elenca prestazioni incluse ed escluse e riporta compenso e tempi esattamente come li hai decisi tu.",
   "prompt_text": "Sei il collaboratore di un professionista che gestisce uno studio di {tipo_studio}. Prepara la bozza di una email di preventivo da inviare a un potenziale cliente. La bozza la rileggerà e la firmerà il professionista.\n\nRichiesta del cliente: {richiesta_cliente}\nPrestazioni incluse: {prestazioni_incluse}\nPrestazioni escluse: {prestazioni_escluse}\nCompenso deciso dal professionista: {compenso}\nModalità di pagamento: {pagamento}\nTempi di consegna: {tempi}\nCosa serve dal cliente: {cosa_serve}\nValidità del preventivo: {validita}\nFirma: {firma}\n\nScrivi: oggetto; un'apertura che mostra di aver capito la richiesta riformulandola in una frase; cosa facciamo, in elenco; cosa non è compreso; compenso e pagamento, riportati identici a come li scrivo; tempi; cosa ci serve; validità; invito a rispondere per confermare o per fare domande. Massimo 250 parole, linguaggio chiaro.\n\nVincoli: non calcolare né modificare importi, non citare tariffari o minimi, non aggiungere IVA o contributi se non li ho scritti. Non aggiungere prestazioni. Se un campo è vuoto, lascia \"[da completare]\" e segnalamelo in una nota finale, invece di inventarlo.",
   "variables": [
     {

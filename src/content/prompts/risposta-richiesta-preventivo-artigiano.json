@@ -3,7 +3,7 @@
   "slug": "risposta-richiesta-preventivo-artigiano",
   "sector": "artigianato-manifattura",
   "use_case": "vendite e preventivi",
-  "goal": "Ottieni una risposta cortese e concreta a chi chiede un lavoro su misura, con intervallo di prezzo preso dai tuoi riferimenti, tempi, condizioni e le domande che ti servono davvero.",
+  "goal": "Una risposta cortese e concreta a chi chiede un lavoro su misura, con intervallo di prezzo preso dai tuoi riferimenti, tempi, condizioni e le domande che ti servono davvero.",
   "prompt_text": "Sei il titolare di una bottega di {mestiere} in Sicilia. Ti è arrivata questa richiesta di preventivo:\n\n{richiesta_cliente}\n\nI miei prezzi di riferimento (usa solo questi): {prezzi}\nTempi di realizzazione: {tempi}\nCondizioni (acconto, consegna, posa): {condizioni}\nCosa mi serve sapere dal cliente prima di dare un prezzo preciso: {informazioni_mancanti}\nFirma: {firma}\n\nScrivi la risposta in italiano, tono diretto e cortese, massimo 170 parole. Struttura: ringrazia in una frase e mostra di aver capito cosa vuole; dì cosa puoi fare; riporta il prezzo come intervallo solo se rientra nei prezzi di riferimento, mostrando il calcolo e spiegando da cosa dipende; indica tempi e condizioni; fai al massimo tre domande tra quelle che mi servono; proponi un sopralluogo o una telefonata, senza indicare giorni o orari che non conosci.\n\nVincoli: non inventare prezzi, sconti, tempi o materiali. Se la richiesta non rientra nei prezzi di riferimento, non dare cifre: dillo e chiedi i dettagli. Non scrivere se i prezzi sono con o senza IVA se non lo dico io. Se la richiesta è fuori da ciò che facciamo, rispondi con garbo che non possiamo.",
   "variables": [
     {

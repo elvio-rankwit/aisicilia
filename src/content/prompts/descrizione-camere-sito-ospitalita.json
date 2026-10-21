@@ -3,7 +3,7 @@
   "slug": "descrizione-camere-sito-ospitalita",
   "sector": "ospitalita",
   "use_case": "marketing",
-  "goal": "Ottieni la scheda di una camera per il sito (titolo, testo di circa 100 parole, meta description) fedele ai dati che fornisci, difetti compresi.",
+  "goal": "La scheda di una camera per il sito (titolo, testo di circa 100 parole, meta description) fedele ai dati che fornisci, difetti compresi.",
   "prompt_text": "Scrivi per il sito di {nome_struttura} ({localita}) la scheda della camera \"{tipologia_camera}\".\n\nCaratteristiche verificate, usa solo queste:\n{caratteristiche_verificate}\n\nDa dire con onestà:\n{difetti_da_dichiarare}\n\nOspite tipo: {tipo_ospite}\n\nConsegna, in italiano:\n1. Titolo di massimo 50 caratteri.\n2. Descrizione di 90-110 parole.\n3. Meta description di massimo 150 caratteri.\n\nStile: frasi concrete, ritmo vario, niente aggettivi vuoti (incantevole, unico, esclusivo, suggestivo) e niente \"oasi di pace\". Descrivi ciò che l'ospite vede, sente e usa. Inserisci i difetti dichiarati in modo schietto, senza scusarti e senza trasformarli in pregi finti. Non inventare vista, metrature, tipo di letti, servizi e non dedurre silenzio, luminosità o comodità che non ho scritto (una finestra sul cortile non significa che la camera sia tranquilla). Se mancano dati essenziali (letti, bagno, climatizzazione), chiedimeli prima di scrivere.",
   "variables": [
     {
@@ -37,10 +37,10 @@
       "example": "Coppie che restano due o tre notti, spesso a piedi."
     }
   ],
-  "how_to_use": "Misura davvero la camera e controlla cosa c'è dentro prima di compilare. Incolla il prompt, scegli il titolo che ti convince e confronta il testo con la camera: ogni frase deve poter essere verificata dall'ospite appena entra. Poi copia testo e meta description nel sito.",
+  "how_to_use": "Misura davvero la camera e controlla cosa c'è dentro prima di compilare. Lancia il prompt, scegli il titolo che ti convince e confronta il testo con la camera: ogni frase deve poter essere verificata dall'ospite appena entra. Poi copia testo e meta description nel sito.",
   "example_input": "nome_struttura: B&B Il Cortile\nlocalita: Ortigia, Siracusa\ntipologia_camera: Camera doppia sul cortile\ncaratteristiche_verificate: 14 metri quadri, letto matrimoniale (si può dividere in due singoli), bagno con doccia, aria condizionata, finestra sul cortile interno, soffitto con travi in legno, bollitore e tè.\ndifetti_da_dichiarare: Niente ascensore: la camera è al secondo piano per una scala ripida. Non c'è la scrivania.\ntipo_ospite: Coppie che restano due o tre notti, spesso a piedi.",
   "expected_output_description": "Un titolo breve, una descrizione di 90-110 parole in frasi di lunghezza diversa, che nomina i limiti (scala, niente scrivania) e una meta description sotto i 150 caratteri. Nessun aggettivo da brochure.",
-  "limits_and_warnings": "L'AI abbellisce: controlla che non abbia aggiunto vista, arredi o servizi che non hai scritto. Se dichiari lo stesso testo su più portali, aggiornalo ovunque quando cambi la camera. Non inserire foto o dati personali. Verifica che la descrizione coincida con quanto mostrano le foto.",
+  "limits_and_warnings": "L'AI abbellisce: controlla che non abbia aggiunto vista, arredi o servizi che non hai scritto. Se pubblichi lo stesso testo su più portali, aggiornalo ovunque quando cambi la camera. Non inserire foto o dati personali. Verifica che la descrizione coincida con quanto mostrano le foto.",
   "compatible_tools": [
     "ChatGPT",
     "Claude",

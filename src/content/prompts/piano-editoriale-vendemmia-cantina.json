@@ -3,7 +3,7 @@
   "slug": "piano-editoriale-vendemmia-cantina",
   "sector": "agroalimentare-vino",
   "use_case": "social media",
-  "goal": "Ottieni un piano di quattro settimane per la vendemmia con contenuti sostenibili per il tuo tempo, tre bozze complete e le avvertenze sulla comunicazione del vino.",
+  "goal": "Un piano di quattro settimane per la vendemmia con contenuti sostenibili per il tuo tempo, tre bozze complete e le avvertenze sulla comunicazione del vino.",
   "prompt_text": "Sei un consulente di comunicazione per cantine piccole. Prepara il piano editoriale della vendemmia di {nome_cantina} ({zona}) per quattro settimane.\n\nDati reali:\n- Periodo di vendemmia: {periodo_vendemmia}\n- Uve in raccolta: {varieta_in_raccolta}\n- Cosa possiamo mostrare: {cosa_si_puo_mostrare}\n- Canali che usiamo: {canali}\n- Tempo che posso dedicare: {ore_a_settimana} ore a settimana\n- Vincoli: {vincoli}\n\nOutput:\n1. Una tabella con le quattro settimane (prima della raccolta, raccolta, cantina, dopo), l'obiettivo di ciascuna e i contenuti. Per ogni contenuto: canale, formato, idea, cosa registrare, bozza di testo di massimo 40 parole.\n2. Tre bozze complete di post tra quelli proposti.\nConta circa un'ora per contenuto: non proporre più contenuti a settimana delle ore che ho indicato.\nRegole: non indicare date precise di raccolta, imbottigliamento o uscita dei vini: usa formule come \"quando il meteo lo permette\". Non inventare dati su quantità, rese o qualità dell'annata. Non rivolgerti a minorenni, non associare il vino a guida, sport, successo o salute, non incitare a bere. Se manca un dato, chiedimelo prima di costruire il piano.",
   "variables": [
     {

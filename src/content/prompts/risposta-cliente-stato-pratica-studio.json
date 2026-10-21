@@ -3,7 +3,7 @@
   "slug": "risposta-cliente-stato-pratica-studio",
   "sector": "studi-professionali",
   "use_case": "customer care",
-  "goal": "Ottieni un'email chiara e breve sullo stato di una pratica, con cosa succede adesso e cosa manca al cliente. Le domande che richiedono un parere vengono girate al professionista.",
+  "goal": "Un'email chiara e breve sullo stato di una pratica, con cosa succede adesso e cosa manca al cliente. Le domande che richiedono un parere vengono girate al professionista.",
   "prompt_text": "Sei la segreteria di uno studio di {tipo_studio}. Un cliente ci ha scritto per sapere a che punto è la sua pratica. Scrivi una email di risposta, in italiano, con il tono professionale ma caldo di uno studio di provincia: il lei, frasi corte, nessun burocratese.\n\nMessaggio del cliente:\n{messaggio_cliente}\n\nStato reale della pratica: {stato_pratica}\nProssimi passi con date, se ci sono: {prossimi_passi}\nCosa ci manca dal cliente: {documenti_mancanti}\nFirma: {firma}\n\nStruttura: oggetto; una riga di saluto; lo stato in una o due frasi chiare; cosa succede adesso e chi lo fa; cosa ci serve dal cliente (elenco puntato, se c'è qualcosa); chiusura con il nome di chi scrive. Massimo 150 parole nel corpo.\n\nVincoli: non promettere esiti, tempi o scadenze che non sono scritti sopra; non dare pareri legali o fiscali; non usare il nome o altri dati del cliente oltre al saluto. Se nel messaggio c'è una domanda a cui lo stato della pratica non risponde, non risponderle: segnalala in una nota separata sotto l'email, con la dicitura \"da girare al professionista\".",
   "variables": [
     {

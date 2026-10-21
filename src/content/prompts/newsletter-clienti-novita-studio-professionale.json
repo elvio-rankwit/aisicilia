@@ -3,7 +3,7 @@
   "slug": "newsletter-clienti-novita-studio-professionale",
   "sector": "studi-professionali",
   "use_case": "marketing",
-  "goal": "Ottieni una newsletter di meno di 220 parole che riassume solo ciò che dice il testo ufficiale, con fonte e data, e una nota con i punti dubbi da far valutare al professionista.",
+  "goal": "Una newsletter di meno di 220 parole che riassume solo ciò che dice il testo ufficiale, con fonte e data, e una nota con i punti dubbi da far valutare al professionista.",
   "prompt_text": "Sei il responsabile comunicazione di uno studio di {tipo_studio}. Scrivi la newsletter ai clienti su una novità, partendo dal testo ufficiale che ti incollo.\n\nTesto ufficiale (unica fonte che puoi usare):\n{testo_fonte}\n\nChi la riceve: {destinatari}\nFonte e data da citare: {fonte_e_data}\nCosa vogliamo che il lettore faccia: {azione_richiesta}\nForma di cortesia: {forma_di_cortesia}\nFirma: {firma}\n\nFormato: oggetto di massimo 60 caratteri; apertura di due frasi che dice subito cosa cambia e per chi; \"Cosa cambia\" in non più di 4 punti; \"Cosa devi fare\" in 2-3 righe; una riga con la fonte e la data; invito a contattare lo studio. Massimo 220 parole. Tono diretto.\n\nVincoli: usa solo ciò che c'è nel testo ufficiale. Non aggiungere importi, scadenze, soglie o eccezioni che non vi compaiono, e non dire a chi si applica più di quanto dica il testo. Se il testo è ambiguo, non interpretarlo: elencami le frasi dubbie in una nota separata intitolata \"da far valutare al professionista\". Niente titoli allarmistici, niente \"imperdibile\" o \"ultima chiamata\".",
   "variables": [
     {

@@ -3,7 +3,7 @@
   "slug": "verbale-riunione-cantiere",
   "sector": "edilizia-immobiliare",
   "use_case": "organizzazione",
-  "goal": "Ottieni un verbale con decisioni, azioni assegnate (chi, cosa, entro quando), questioni aperte e un elenco dei punti degli appunti che non sono chiari, senza dati inventati.",
+  "goal": "Un verbale con decisioni, azioni assegnate (chi, cosa, entro quando), questioni aperte e un elenco dei punti degli appunti che non sono chiari, senza dati inventati.",
   "prompt_text": "Sei il segretario di una riunione di cantiere. Trasforma i miei appunti in un verbale chiaro e utile a chi era presente e a chi doveva esserci.\n\nCantiere: {cantiere}\nData e luogo: {data_luogo}\nPresenti (ruoli, non servono i cognomi): {presenti}\nAppunti (disordinati, anche abbreviati):\n{appunti}\n\nScrivi:\n1. Intestazione con cantiere, data, luogo e presenti.\n2. Decisioni prese: elenco numerato, una per riga.\n3. Azioni da fare: per ognuna scrivi cosa, chi (ruolo) ed entro quando. Se chi o quando non risulta dagli appunti, scrivi \"da assegnare\" o \"data da fissare\": non indovinare.\n4. Questioni aperte: cose emerse ma non decise.\n5. Punti che non ho capito: le frasi degli appunti ambigue, ciascuna con la domanda da farmi.\n6. Data della prossima riunione, solo se negli appunti.\n\nVincoli: non aggiungere decisioni, importi o date non presenti negli appunti. Riporta i numeri come scritti. Se negli appunti un'informazione ha un punto interrogativo, trattala come non confermata e mettila nei punti da chiarire. Non attribuire frasi o responsabilità a una persona se gli appunti non lo dicono. Stile sintetico, frasi brevi.",
   "variables": [
     {

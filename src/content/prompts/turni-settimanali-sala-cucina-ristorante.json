@@ -3,7 +3,7 @@
   "slug": "turni-settimanali-sala-cucina-ristorante",
   "sector": "ristorazione",
   "use_case": "organizzazione",
-  "goal": "Ottieni una bozza dei turni della settimana in tabella, con le ore per persona ricalcolate e l'elenco dei vincoli che non riesci a rispettare.",
+  "goal": "Una bozza dei turni della settimana in tabella, con le ore per persona ricalcolate e l'elenco dei vincoli che non riesci a rispettare.",
   "prompt_text": "Costruisci la bozza dei turni della settimana per il ristorante {nome_locale}. Indico il personale solo con sigle, mai con nomi.\n\nServizi e durata: {servizi_e_durata}\nPersone necessarie per servizio: {fabbisogno_per_servizio}\nPersonale e disponibilità: {personale_e_disponibilita}\nOre massime per persona nella settimana: {ore_massime}\nAltri vincoli: {altri_vincoli}\n\nOutput:\n1. Una tabella giorno per servizio con le sigle assegnate.\n2. Una tabella con il totale delle ore di ciascuna persona. Prima di mostrarla, ricalcola le ore sommando turno per turno e controlla che nessuno superi il massimo.\n3. Un elenco \"Da risolvere\" con i turni scoperti o i vincoli che non si riescono a rispettare, e perché.\n\nRegole: usa solo le sigle indicate, rispetta indisponibilità e ore massime, distribuisci i giorni liberi e bilancia le ore tra persone dello stesso ruolo, quando le indisponibilità lo permettono. Questa è una bozza. Non applicare tu regole di legge o del contratto collettivo (riposi, straordinari, festivi): se i turni ti sembrano critici, scrivilo e indica che vanno verificati con il consulente del lavoro. Se un dato manca, chiedimelo prima di costruire la tabella.",
   "variables": [
     {
