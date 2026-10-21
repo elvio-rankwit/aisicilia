@@ -1,0 +1,1481 @@
+[
+ {
+  "url": "https://24oreventi.ilsole24ore.com/trasformare-idee-in-valore/",
+  "status": 200,
+  "final": "https://24oreventi.ilsole24ore.com/trasformare-idee-in-valore/",
+  "redirects": 0,
+  "where": [
+   "events/trasformare-idee-valore-startup-ai-palermo-2026-11.json#event_url",
+   "events/trasformare-idee-valore-startup-ai-palermo-2026-11.json#source_url"
+  ]
+ },
+ {
+  "url": "https://agriculture.ec.europa.eu/media/news/new-rules-wine-labelling-enter-application-2023-12-07_en",
+  "status": 200,
+  "final": "https://agriculture.ec.europa.eu/media/news/new-rules-wine-labelling-enter-application-2023-12-07_en",
+  "redirects": 0,
+  "where": [
+   "articles/ai-cantine-aziende-agroalimentari.md#sources",
+   "articles/ai-cantine-aziende-agroalimentari.md#corpo"
+  ]
+ },
+ {
+  "url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26",
+  "status": 200,
+  "final": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26",
+  "redirects": 0,
+  "where": [
+   "articles/ai-act-gdpr-cosa-deve-sapere-impresa.md#sources",
+   "articles/ai-act-gdpr-cosa-deve-sapere-impresa.md#corpo"
+  ]
+ },
+ {
+  "url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-5",
+  "status": 200,
+  "final": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-5",
+  "redirects": 0,
+  "where": [
+   "articles/ai-act-gdpr-cosa-deve-sapere-impresa.md#sources",
+   "articles/ai-act-gdpr-cosa-deve-sapere-impresa.md#corpo"
+  ]
+ },
+ {
+  "url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50",
+  "status": 200,
+  "final": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50",
+  "redirects": 0,
+  "where": [
+   "articles/ai-act-gdpr-cosa-deve-sapere-impresa.md#sources",
+   "articles/ai-act-gdpr-cosa-deve-sapere-impresa.md#corpo"
+  ]
+ },
+ {
+  "url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act",
+  "status": 200,
+  "final": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act",
+  "redirects": 0,
+  "where": [
+   "articles/ai-act-gdpr-cosa-deve-sapere-impresa.md#sources",
+   "articles/ai-act-gdpr-cosa-deve-sapere-impresa.md#corpo",
+   "articles/ai-hotel-bb-strutture-ricettive.md#sources",
+   "articles/ai-hotel-bb-strutture-ricettive.md#corpo",
+   "articles/ai-pmi-siciliane-da-dove-cominciare.md#sources",
+   "articles/ai-pmi-siciliane-da-dove-cominciare.md#corpo",
+   "articles/automatizzare-attivita-ripetitive.md#sources",
+   "articles/automatizzare-attivita-ripetitive.md#corpo"
+  ]
+ },
+ {
+  "url": "https://ai.google.dev/gemini-api/docs/prompting-strategies",
+  "status": 200,
+  "final": "https://ai.google.dev/gemini-api/docs/prompting-strategies",
+  "redirects": 0,
+  "where": [
+   "articles/scrivere-prompt-efficaci-senza-essere-tecnici.md#sources",
+   "articles/scrivere-prompt-efficaci-senza-essere-tecnici.md#corpo"
+  ]
+ },
+ {
+  "url": "https://aimsolutions.it/",
+  "status": 200,
+  "final": "https://aimsolutions.it/",
+  "redirects": 0,
+  "where": [
+   "companies/aim-solutions.json#website",
+   "companies/aim-solutions.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://aimsolutions.it/privacy-policy",
+  "status": 200,
+  "final": "https://aimsolutions.it/privacy-policy",
+  "redirects": 0,
+  "where": [
+   "companies/aim-solutions.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://canonity.com",
+  "status": 200,
+  "final": "https://www.canonity.com/",
+  "redirects": 1,
+  "where": [
+   "companies/canonity.json#website",
+   "companies/canonity.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://canonity.com/contatti",
+  "status": 200,
+  "final": "https://www.canonity.com/contatti",
+  "redirects": 1,
+  "where": [
+   "companies/canonity.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://centri.unipa.it/laboratori/",
+  "status": 200,
+  "final": "https://centri.unipa.it/laboratori/",
+  "redirects": 0,
+  "where": [
+   "companies/laboratorio-intelligenza-artificiale-unipa.json#source_urls",
+   "companies/laboratorio-visione-artificiale-unipa.json#source_urls",
+   "companies/roboticslab-unipa.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://collegiogeometrimessina.it/corso-di-deontologia-quando-e-come-usare-lintelligenza-artificiale-nel-rispetto-della-deontologia/",
+  "status": 200,
+  "final": "https://collegiogeometrimessina.it/corso-di-deontologia-quando-e-come-usare-lintelligenza-artificiale-nel-rispetto-della-deontologia/",
+  "redirects": 0,
+  "where": [
+   "events/corso-deontologia-ai-geometri-messina-2026-10.json#event_url",
+   "events/corso-deontologia-ai-geometri-messina-2026-10.json#source_url"
+  ]
+ },
+ {
+  "url": "https://commercialisti.it/commercialisti-lia-entra-nel-codice-deontologico/",
+  "status": 200,
+  "final": "https://commercialisti.it/commercialisti-lia-entra-nel-codice-deontologico/",
+  "redirects": 0,
+  "where": [
+   "articles/ai-studi-professionali-dati-clienti.md#sources",
+   "articles/ai-studi-professionali-dati-clienti.md#corpo"
+  ]
+ },
+ {
+  "url": "https://commercialisti.it/ia-pubblicata-la-clausola-contrattuale-tipo-per-linformativa-ai-clienti/",
+  "status": 200,
+  "final": "https://commercialisti.it/ia-pubblicata-la-clausola-contrattuale-tipo-per-linformativa-ai-clienti/",
+  "redirects": 0,
+  "where": [
+   "articles/ai-studi-professionali-dati-clienti.md#sources",
+   "articles/ai-studi-professionali-dati-clienti.md#corpo"
+  ]
+ },
+ {
+  "url": "https://ctrgsr.camcom.gov.it/it/blog/bando-doppia-transizione-digitale-ed-ecologica-regime-de-minimis-anno-2026",
+  "status": 200,
+  "final": "https://ctrgsr.camcom.gov.it/it/blog/bando-doppia-transizione-digitale-ed-ecologica-regime-de-minimis-anno-2026",
+  "redirects": 0,
+  "where": [
+   "articles/incentivi-finanziamenti-digitalizzazione-ai-sicilia.md#sources",
+   "articles/incentivi-finanziamenti-digitalizzazione-ai-sicilia.md#corpo"
+  ]
+ },
+ {
+  "url": "https://ctrgsr.camcom.gov.it/sites/default/files/amm_trasparente/controbuti_sovvenzioni/determina%20segretario%20generale%20n.%2095-2026.pdf",
+  "status": 200,
+  "final": "https://ctrgsr.camcom.gov.it/sites/default/files/amm_trasparente/controbuti_sovvenzioni/determina%20segretario%20generale%20n.%2095-2026.pdf",
+  "redirects": 0,
+  "where": [
+   "articles/incentivi-finanziamenti-digitalizzazione-ai-sicilia.md#sources",
+   "articles/incentivi-finanziamenti-digitalizzazione-ai-sicilia.md#corpo"
+  ]
+ },
+ {
+  "url": "https://ctrgsr.camcom.gov.it/sites/default/files/PID/53%20All.%20BANDO%20DOPPIA%20TRANSIZIONE%20REGIME%20DE%20MINIMIS%20ANNO%202026.pdf",
+  "status": 200,
+  "final": "https://ctrgsr.camcom.gov.it/sites/default/files/PID/53%20All.%20BANDO%20DOPPIA%20TRANSIZIONE%20REGIME%20DE%20MINIMIS%20ANNO%202026.pdf",
+  "redirects": 0,
+  "where": [
+   "articles/incentivi-finanziamenti-digitalizzazione-ai-sicilia.md#sources",
+   "articles/incentivi-finanziamenti-digitalizzazione-ai-sicilia.md#corpo"
+  ]
+ },
+ {
+  "url": "https://ctrgsr.camcom.gov.it/sites/default/files/PID/53%20DELIBERA%20approvazione%20bando%20DOPPIA%20TRANSIZIONE%20digitale%20ed%20ecologica.%20Regime%20de%20minimis.%20Anno%202026.pdf",
+  "status": 200,
+  "final": "https://ctrgsr.camcom.gov.it/sites/default/files/PID/53%20DELIBERA%20approvazione%20bando%20DOPPIA%20TRANSIZIONE%20digitale%20ed%20ecologica.%20Regime%20de%20minimis.%20Anno%202026.pdf",
+  "redirects": 0,
+  "where": [
+   "articles/incentivi-finanziamenti-digitalizzazione-ai-sicilia.md#sources"
+  ]
+ },
+ {
+  "url": "https://data.consilium.europa.eu/doc/document/PE-30-2026-INIT/en/pdf",
+  "status": 200,
+  "final": "https://data.consilium.europa.eu/doc/document/PE-30-2026-INIT/en/pdf",
+  "redirects": 0,
+  "where": [
+   "articles/ai-act-gdpr-cosa-deve-sapere-impresa.md#sources",
+   "articles/ai-act-gdpr-cosa-deve-sapere-impresa.md#corpo",
+   "articles/ai-cantine-aziende-agroalimentari.md#sources",
+   "articles/ai-cantine-aziende-agroalimentari.md#corpo",
+   "articles/ai-hotel-bb-strutture-ricettive.md#sources",
+   "articles/ai-hotel-bb-strutture-ricettive.md#corpo",
+   "articles/ai-pmi-siciliane-da-dove-cominciare.md#sources",
+   "articles/ai-pmi-siciliane-da-dove-cominciare.md#corpo",
+   "articles/ai-ristoranti-bar-locali.md#sources",
+   "articles/ai-ristoranti-bar-locali.md#corpo",
+   "articles/ai-studi-professionali-dati-clienti.md#sources",
+   "articles/ai-studi-professionali-dati-clienti.md#corpo"
+  ]
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/ai-features",
+  "status": 200,
+  "final": "https://developers.google.com/search/docs/appearance/ai-features",
+  "redirects": 0,
+  "where": [
+   "articles/geo-farsi-trovare-chatgpt-gemini-perplexity.md#sources",
+   "articles/geo-farsi-trovare-chatgpt-gemini-perplexity.md#corpo"
+  ]
+ },
+ {
+  "url": "https://developers.google.com/search/docs/appearance/structured-data/local-business",
+  "status": 200,
+  "final": "https://developers.google.com/search/docs/appearance/structured-data/local-business",
+  "redirects": 0,
+  "where": [
+   "articles/geo-farsi-trovare-chatgpt-gemini-perplexity.md#sources",
+   "articles/geo-farsi-trovare-chatgpt-gemini-perplexity.md#corpo"
+  ]
+ },
+ {
+  "url": "https://developers.openai.com/api/docs/bots",
+  "status": 200,
+  "final": "https://developers.openai.com/api/docs/bots",
+  "redirects": 0,
+  "where": [
+   "articles/geo-farsi-trovare-chatgpt-gemini-perplexity.md#sources",
+   "articles/geo-farsi-trovare-chatgpt-gemini-perplexity.md#corpo"
+  ]
+ },
+ {
+  "url": "https://developers.openai.com/api/docs/guides/prompt-engineering",
+  "status": 200,
+  "final": "https://developers.openai.com/api/docs/guides/prompt-engineering",
+  "redirects": 0,
+  "where": [
+   "articles/scrivere-prompt-efficaci-senza-essere-tecnici.md#sources",
+   "articles/scrivere-prompt-efficaci-senza-essere-tecnici.md#corpo"
+  ]
+ },
+ {
+  "url": "https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers",
+  "status": 200,
+  "final": "https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers",
+  "redirects": 0,
+  "where": [
+   "articles/ai-cantine-aziende-agroalimentari.md#sources",
+   "articles/ai-cantine-aziende-agroalimentari.md#corpo",
+   "articles/ai-hotel-bb-strutture-ricettive.md#sources",
+   "articles/ai-hotel-bb-strutture-ricettive.md#corpo",
+   "articles/ai-pmi-siciliane-da-dove-cominciare.md#sources",
+   "articles/ai-pmi-siciliane-da-dove-cominciare.md#corpo",
+   "articles/ai-ristoranti-bar-locali.md#sources",
+   "articles/ai-ristoranti-bar-locali.md#corpo"
+  ]
+ },
+ {
+  "url": "https://digital-strategy.ec.europa.eu/it/policies/regulatory-framework-ai",
+  "status": 200,
+  "final": "https://digital-strategy.ec.europa.eu/it/policies/regulatory-framework-ai",
+  "redirects": 0,
+  "where": [
+   "articles/ai-act-gdpr-cosa-deve-sapere-impresa.md#sources",
+   "articles/ai-act-gdpr-cosa-deve-sapere-impresa.md#corpo"
+  ]
+ },
+ {
+  "url": "https://docs.perplexity.ai/guides/bots",
+  "status": 200,
+  "final": "https://docs.perplexity.ai/docs/resources/perplexity-crawlers",
+  "redirects": 1,
+  "where": [
+   "articles/geo-farsi-trovare-chatgpt-gemini-perplexity.md#sources",
+   "articles/geo-farsi-trovare-chatgpt-gemini-perplexity.md#corpo"
+  ]
+ },
+ {
+  "url": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Use_of_artificial_intelligence_in_enterprises",
+  "status": 200,
+  "final": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Use_of_artificial_intelligence_in_enterprises",
+  "redirects": 0,
+  "where": [
+   "articles/ai-cantine-aziende-agroalimentari.md#sources",
+   "articles/ai-hotel-bb-strutture-ricettive.md#sources",
+   "articles/ai-hotel-bb-strutture-ricettive.md#corpo",
+   "articles/ai-pmi-siciliane-da-dove-cominciare.md#sources",
+   "articles/ai-pmi-siciliane-da-dove-cominciare.md#corpo",
+   "articles/ai-ristoranti-bar-locali.md#sources"
+  ]
+ },
+ {
+  "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/ita",
+  "status": 202,
+  "final": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/ita",
+  "redirects": 0,
+  "where": [
+   "articles/ai-act-gdpr-cosa-deve-sapere-impresa.md#sources",
+   "articles/ai-act-gdpr-cosa-deve-sapere-impresa.md#corpo"
+  ]
+ },
+ {
+  "url": "https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng",
+  "status": 202,
+  "final": "https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng",
+  "redirects": 0,
+  "where": [
+   "articles/ai-act-gdpr-cosa-deve-sapere-impresa.md#sources",
+   "articles/ai-act-gdpr-cosa-deve-sapere-impresa.md#corpo"
+  ]
+ },
+ {
+  "url": "https://euroinfosicilia.it/bandi/",
+  "status": 200,
+  "final": "https://euroinfosicilia.it/bandi-e-avvisi-aperti/",
+  "redirects": 1,
+  "where": [
+   "articles/incentivi-finanziamenti-digitalizzazione-ai-sicilia.md#sources",
+   "articles/incentivi-finanziamenti-digitalizzazione-ai-sicilia.md#corpo"
+  ]
+ },
+ {
+  "url": "https://faiddatechlab.com/",
+  "status": 200,
+  "final": "https://faiddatechlab.com/",
+  "redirects": 0,
+  "where": [
+   "events/marinai-intelligenza-artificiale-palermo-2026-08.json#organizer_url"
+  ]
+ },
+ {
+  "url": "https://faiddatechlab.com/eventi/marinai-faidda-alla-lega-navale-26",
+  "status": 200,
+  "final": "https://faiddatechlab.com/eventi/marinai-faidda-alla-lega-navale-26",
+  "redirects": 0,
+  "where": [
+   "events/marinai-intelligenza-artificiale-palermo-2026-08.json#event_url",
+   "events/marinai-intelligenza-artificiale-palermo-2026-08.json#source_url"
+  ]
+ },
+ {
+  "url": "https://fcrlab.unime.it/",
+  "status": 200,
+  "final": "https://fcrlab.unime.it/",
+  "redirects": 0,
+  "where": [
+   "companies/fcrlab-future-computing-research-laboratory.json#website",
+   "companies/fcrlab-future-computing-research-laboratory.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://food.ec.europa.eu/food-safety/campaign-2026/allergies_en",
+  "status": 200,
+  "final": "https://food.ec.europa.eu/food-safety/campaign-2026/allergies_en",
+  "redirects": 0,
+  "where": [
+   "articles/ai-cantine-aziende-agroalimentari.md#sources",
+   "articles/ai-cantine-aziende-agroalimentari.md#corpo",
+   "articles/ai-ristoranti-bar-locali.md#sources",
+   "articles/ai-ristoranti-bar-locali.md#corpo"
+  ]
+ },
+ {
+  "url": "https://food.ec.europa.eu/food-safety/labelling-and-nutrition/food-information-consumers-legislation/mandatory-food-information_en",
+  "status": 200,
+  "final": "https://food.ec.europa.eu/food-safety/labelling-and-nutrition/food-information-consumers-legislation/mandatory-food-information_en",
+  "redirects": 0,
+  "where": [
+   "articles/ai-cantine-aziende-agroalimentari.md#sources",
+   "articles/ai-cantine-aziende-agroalimentari.md#corpo",
+   "articles/ai-ristoranti-bar-locali.md#sources",
+   "articles/ai-ristoranti-bar-locali.md#corpo"
+  ]
+ },
+ {
+  "url": "https://generazionidigitali.develhope.co/zen",
+  "status": 200,
+  "final": "https://generazionidigitali.develhope.co/it/zen",
+  "redirects": 1,
+  "where": [
+   "events/generazioni-digitali-zen-ai-palermo-2026-10.json#event_url"
+  ]
+ },
+ {
+  "url": "https://globalai.community/agentcamp/catania",
+  "status": 200,
+  "final": "https://globalai.community/e/6f3okoy6",
+  "redirects": 1,
+  "where": [
+   "events/agentcamp-catania-2026-05.json#event_url",
+   "events/agentcamp-catania-2026-05.json#source_url"
+  ]
+ },
+ {
+  "url": "https://globalai.community/chapters/catania/",
+  "status": 200,
+  "final": "https://globalai.community/chapters/catania/",
+  "redirects": 0,
+  "where": [
+   "companies/global-ai-catania.json#website",
+   "companies/global-ai-catania.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://innovationisland.it/generazioni-digitali-2026-zen-intelligenza-artificiale/",
+  "status": 200,
+  "final": "https://innovationisland.it/generazioni-digitali-2026-zen-intelligenza-artificiale/",
+  "redirects": 0,
+  "where": [
+   "events/generazioni-digitali-zen-ai-palermo-2026-10.json#source_url"
+  ]
+ },
+ {
+  "url": "https://innovationisland.it/linux-day-2026-sputnix-palermo/",
+  "status": 200,
+  "final": "https://innovationisland.it/linux-day-2026-sputnix-palermo/",
+  "redirects": 0,
+  "where": [
+   "events/linux-day-open-source-agenti-palermo-2026-10.json#source_url"
+  ]
+ },
+ {
+  "url": "https://iplab.dmi.unict.it",
+  "status": 200,
+  "final": "https://iplab.dmi.unict.it/",
+  "redirects": 0,
+  "where": [
+   "companies/iplab-image-processing-laboratory.json#website"
+  ]
+ },
+ {
+  "url": "https://iplab.dmi.unict.it/",
+  "status": 200,
+  "final": "https://iplab.dmi.unict.it/",
+  "redirects": 0,
+  "where": [
+   "companies/iplab-image-processing-laboratory.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://iplab.dmi.unict.it/about/",
+  "status": 200,
+  "final": "https://iplab.dmi.unict.it/about/",
+  "redirects": 0,
+  "where": [
+   "companies/iplab-image-processing-laboratory.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://iplab.dmi.unict.it/contacts/",
+  "status": 200,
+  "final": "https://iplab.dmi.unict.it/contacts/",
+  "redirects": 0,
+  "where": [
+   "companies/iplab-image-processing-laboratory.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://keplera.it",
+  "status": 200,
+  "final": "https://www.keplera.it/",
+  "redirects": 1,
+  "where": [
+   "companies/keplera.json#website",
+   "companies/keplera.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://keplera.it/contatti",
+  "status": 200,
+  "final": "https://www.keplera.it/contatti",
+  "redirects": 1,
+  "where": [
+   "companies/keplera.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://lexhero.com",
+  "status": 200,
+  "final": "https://lexhero.com/",
+  "redirects": 0,
+  "where": [
+   "companies/keplera.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://lexhero.com/privacy-policy",
+  "status": 200,
+  "final": "https://lexhero.com/privacy-policy/",
+  "redirects": 1,
+  "where": [
+   "companies/keplera.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://luma.com/catan.ia2026",
+  "status": 200,
+  "final": "https://luma.com/catan.ia2026",
+  "redirects": 0,
+  "where": [
+   "events/catan-ia-2026-catania-2026-05.json#event_url",
+   "events/catan-ia-2026-catania-2026-05.json#source_url"
+  ]
+ },
+ {
+  "url": "https://palermo.gds.it/articoli/tecnologia/2026/10/13/intelligenza-artificiale-e-sfide-per-lumanita-a-palermo-il-confronto-tra-esperti-imprese-e-universita-919f8886-5f81-45b4-abf3-1122ddec91e3/",
+  "status": 200,
+  "final": "https://palermo.gds.it/articoli/tecnologia/2026/10/13/intelligenza-artificiale-e-sfide-per-lumanita-a-palermo-il-confronto-tra-esperti-imprese-e-universita-919f8886-5f81-45b4-abf3-1122ddec91e3/",
+  "redirects": 0,
+  "where": [
+   "events/sfide-intelligenze-contemporanee-lumsa-palermo-2026-10.json#event_url",
+   "events/sfide-intelligenze-contemporanee-lumsa-palermo-2026-10.json#source_url"
+  ]
+ },
+ {
+  "url": "https://palermo.ordingegneri.it/",
+  "status": 200,
+  "final": "https://palermo.ordingegneri.it/",
+  "redirects": 0,
+  "where": [
+   "events/alfabetizzazione-digitale-ia-palermo-2026-10.json#organizer_url",
+   "events/ia-cybersicurezza-seminario-palermo-2026-06.json#organizer_url",
+   "events/sicurezza-informazioni-ia-palermo-2026-10.json#organizer_url"
+  ]
+ },
+ {
+  "url": "https://palermo.ordingegneri.it/eventi/seminario-alfabetizzazione-digitale-allintelligenza-artificiale/",
+  "status": 200,
+  "final": "https://palermo.ordingegneri.it/eventi/seminario-alfabetizzazione-digitale-allintelligenza-artificiale/",
+  "redirects": 0,
+  "where": [
+   "events/alfabetizzazione-digitale-ia-palermo-2026-10.json#event_url",
+   "events/alfabetizzazione-digitale-ia-palermo-2026-10.json#source_url"
+  ]
+ },
+ {
+  "url": "https://palermo.ordingegneri.it/eventi/seminario-connubio-critico-tra-sicurezza-delle-informazioni-ed-intelligenza-artificiale/",
+  "status": 200,
+  "final": "https://palermo.ordingegneri.it/eventi/seminario-connubio-critico-tra-sicurezza-delle-informazioni-ed-intelligenza-artificiale/",
+  "redirects": 0,
+  "where": [
+   "events/sicurezza-informazioni-ia-palermo-2026-10.json#event_url",
+   "events/sicurezza-informazioni-ia-palermo-2026-10.json#source_url"
+  ]
+ },
+ {
+  "url": "https://palermo.ordingegneri.it/eventi/seminario-intelligenza-artificiale-e-cybersicurezza-connubio-critico-per-la-trasformazione-digitale/",
+  "status": 200,
+  "final": "https://palermo.ordingegneri.it/eventi/seminario-intelligenza-artificiale-e-cybersicurezza-connubio-critico-per-la-trasformazione-digitale/",
+  "redirects": 0,
+  "where": [
+   "events/ia-cybersicurezza-seminario-palermo-2026-06.json#event_url",
+   "events/ia-cybersicurezza-seminario-palermo-2026-06.json#source_url"
+  ]
+ },
+ {
+  "url": "https://panormus.tech/",
+  "status": 200,
+  "final": "https://panormus.tech/",
+  "redirects": 0,
+  "where": [
+   "events/techsgiving-ai-meetup-palermo-2026-11.json#organizer_url",
+   "events/techsgiving-ai-meetup-palermo-2026-11.json#event_url",
+   "events/techsgiving-ai-meetup-palermo-2026-11.json#source_url"
+  ]
+ },
+ {
+  "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview",
+  "status": 200,
+  "final": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview",
+  "redirects": 0,
+  "where": [
+   "articles/scrivere-prompt-efficaci-senza-essere-tecnici.md#sources",
+   "articles/scrivere-prompt-efficaci-senza-essere-tecnici.md#corpo"
+  ]
+ },
+ {
+  "url": "https://qds.it/unict-intelligenza-artificiale-made-in-sicily-presentata-a-barcellona/",
+  "status": 200,
+  "final": "https://qds.it/unict-intelligenza-artificiale-made-in-sicily-presentata-a-barcellona/",
+  "redirects": 0,
+  "where": [
+   "companies/next-vision.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-digit-imprese-azione-122-sostegno-digitalizzazione-imprese-azioni-sistema-digitale",
+  "status": 200,
+  "final": "https://regione.sicilia.it/istituzioni/servizi-informativi/bandi/avviso-digit-imprese-azione-122-sostegno-digitalizzazione-imprese-azioni-sistema-digitale",
+  "redirects": 0,
+  "where": [
+   "articles/incentivi-finanziamenti-digitalizzazione-ai-sicilia.md#sources",
+   "articles/incentivi-finanziamenti-digitalizzazione-ai-sicilia.md#corpo"
+  ]
+ },
+ {
+  "url": "https://sicilia.ance.it/",
+  "status": 200,
+  "final": "https://sicilia.ance.it/",
+  "redirects": 0,
+  "where": [
+   "events/webinar-ance-strumenti-ai-palermo-2026-05.json#organizer_url"
+  ]
+ },
+ {
+  "url": "https://sicilia.ance.it/2026/05/11/ance-webinar-come-sfruttare-al-meglio-gli-strumenti-ai-comprendere-il-cambiamento-e-cogliere-le-opportunita/",
+  "status": 200,
+  "final": "https://sicilia.ance.it/2026/05/11/ance-webinar-come-sfruttare-al-meglio-gli-strumenti-ai-comprendere-il-cambiamento-e-cogliere-le-opportunita/",
+  "redirects": 0,
+  "where": [
+   "events/webinar-ance-strumenti-ai-palermo-2026-05.json#event_url",
+   "events/webinar-ance-strumenti-ai-palermo-2026-05.json#source_url"
+  ]
+ },
+ {
+  "url": "https://smartme.io",
+  "status": 200,
+  "final": "https://smartme.io/",
+  "redirects": 0,
+  "where": [
+   "companies/smartme-io.json#website",
+   "companies/smartme-io.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://smartme.io/azienda/chi-siamo/",
+  "status": 200,
+  "final": "https://smartme.io/azienda/chi-siamo/",
+  "redirects": 0,
+  "where": [
+   "companies/smartme-io.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://smartme.io/azienda/contatti/",
+  "status": 200,
+  "final": "https://smartme.io/azienda/contatti/",
+  "redirects": 0,
+  "where": [
+   "companies/smartme-io.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://support.google.com/business/answer/7091",
+  "status": 200,
+  "final": "https://support.google.com/business/answer/7091",
+  "redirects": 0,
+  "where": [
+   "articles/geo-farsi-trovare-chatgpt-gemini-perplexity.md#sources",
+   "articles/geo-farsi-trovare-chatgpt-gemini-perplexity.md#corpo"
+  ]
+ },
+ {
+  "url": "https://unipa.it/persone/tecnico-amministrativi/m/mario.minacapilli/.content/pdf/14.pdf",
+  "status": 200,
+  "final": "https://www.unipa.it/persone/tecnico-amministrativi/m/mario.minacapilli/.content/pdf/14.pdf",
+  "redirects": 1,
+  "where": [
+   "companies/laboratorio-visione-artificiale-unipa.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://unipa.it/persone/tecnico-amministrativi/m/mario.minacapilli/.content/pdf/31.pdf",
+  "status": 200,
+  "final": "https://www.unipa.it/persone/tecnico-amministrativi/m/mario.minacapilli/.content/pdf/31.pdf",
+  "redirects": 1,
+  "where": [
+   "companies/laboratorio-intelligenza-artificiale-unipa.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://unipa.it/persone/tecnico-amministrativi/m/mario.minacapilli/.content/pdf/57.pdf",
+  "status": 200,
+  "final": "https://www.unipa.it/persone/tecnico-amministrativi/m/mario.minacapilli/.content/pdf/57.pdf",
+  "redirects": 1,
+  "where": [
+   "companies/roboticslab-unipa.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://web.dmi.unict.it/",
+  "status": 200,
+  "final": "https://web.dmi.unict.it/",
+  "redirects": 0,
+  "where": [
+   "events/ciclo-seminari-ai-computer-vision-catania-2026-04.json#organizer_url",
+   "events/nvidia-ai-developers-day-catania-2026-11.json#organizer_url",
+   "events/seminario-robot-emozioni-ai-catania-2026-10.json#organizer_url"
+  ]
+ },
+ {
+  "url": "https://web.dmi.unict.it/it/notizie/ciclo-di-seminari-2026-su-ai-multimedia-forensics-e-computer-vision",
+  "status": 200,
+  "final": "https://web.dmi.unict.it/it/notizie/ciclo-di-seminari-2026-su-ai-multimedia-forensics-e-computer-vision",
+  "redirects": 0,
+  "where": [
+   "events/ciclo-seminari-ai-computer-vision-catania-2026-04.json#event_url",
+   "events/ciclo-seminari-ai-computer-vision-catania-2026-04.json#source_url"
+  ]
+ },
+ {
+  "url": "https://web.dmi.unict.it/it/notizie/nvidia-ai-developers-day-11-novembre-2026",
+  "status": 200,
+  "final": "https://web.dmi.unict.it/it/notizie/nvidia-ai-developers-day-11-novembre-2026",
+  "redirects": 0,
+  "where": [
+   "events/nvidia-ai-developers-day-catania-2026-11.json#event_url",
+   "events/nvidia-ai-developers-day-catania-2026-11.json#source_url"
+  ]
+ },
+ {
+  "url": "https://web.dmi.unict.it/it/notizie/seminario-del-prof-antonio-chella-26-ottobre-2026",
+  "status": 200,
+  "final": "https://web.dmi.unict.it/it/notizie/seminario-del-prof-antonio-chella-26-ottobre-2026",
+  "redirects": 0,
+  "where": [
+   "events/seminario-robot-emozioni-ai-catania-2026-10.json#event_url",
+   "events/seminario-robot-emozioni-ai-catania-2026-10.json#source_url"
+  ]
+ },
+ {
+  "url": "https://www.agrigentoweb.it/2026/10/08/intelligenza-artificiale-e-teologia-ad-agrigento-una-riflessione-sul-rapporto-tra-ai-chiesa-e-ricerca/",
+  "status": 200,
+  "final": "https://www.agrigentoweb.it/2026/10/08/intelligenza-artificiale-e-teologia-ad-agrigento-una-riflessione-sul-rapporto-tra-ai-chiesa-e-ricerca/",
+  "redirects": 0,
+  "where": [
+   "events/ia-teologia-prolusione-agrigento-2026-10.json#event_url",
+   "events/ia-teologia-prolusione-agrigento-2026-10.json#source_url"
+  ]
+ },
+ {
+  "url": "https://www.aitho.it",
+  "status": 200,
+  "final": "https://aitho.it/",
+  "redirects": 1,
+  "where": [
+   "companies/aitho.json#website"
+  ]
+ },
+ {
+  "url": "https://www.aitho.it/chi-siamo/",
+  "status": 200,
+  "final": "https://aitho.it/chi-siamo/",
+  "redirects": 1,
+  "where": [
+   "companies/aitho.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://www.aitho.it/cosa-facciamo/",
+  "status": 200,
+  "final": "https://aitho.it/cosa-facciamo/",
+  "redirects": 1,
+  "where": [
+   "companies/aitho.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://www.blogsicilia.it/catania/in-sicily-accelerator-fondazione-emblema-startup-selezionate-50mila-euro/1315100/",
+  "status": 200,
+  "final": "https://www.blogsicilia.it/catania/in-sicily-accelerator-fondazione-emblema-startup-selezionate-50mila-euro/1315100/",
+  "redirects": 0,
+  "where": [
+   "companies/welldigit.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://www.blogsicilia.it/comunicati-stampa/intelligenza-artificiale-tecnologia-e-regolamentazione-csaia-alla-scuola-della-fondazione-ettore-majorana-di-erice/1252782/",
+  "status": 200,
+  "final": "https://www.blogsicilia.it/comunicati-stampa/intelligenza-artificiale-tecnologia-e-regolamentazione-csaia-alla-scuola-della-fondazione-ettore-majorana-di-erice/1252782/",
+  "redirects": 0,
+  "where": [
+   "events/scuola-internazionale-ai-tecnologia-diritto-erice-2026-09.json#source_url"
+  ]
+ },
+ {
+  "url": "https://www.camminosiracusa.it/2026/09/intelligenza-artificiale-pace-e-futuro-umano-a-siracusa-un-nuovo-percorso-di-riflessione/",
+  "status": 200,
+  "final": "https://www.camminosiracusa.it/2026/09/intelligenza-artificiale-pace-e-futuro-umano-a-siracusa-un-nuovo-percorso-di-riflessione/",
+  "redirects": 0,
+  "where": [
+   "events/custodire-umano-ai-lavoro-siracusa-2026-09.json#source_url"
+  ]
+ },
+ {
+  "url": "https://www.consiglionazionaleforense.it/documents/20182/0/Comunicazione+ai+COA+-+Schema+informativa+IA.pdf",
+  "status": 200,
+  "final": "https://www.consiglionazionaleforense.it/documents/20182/0/Comunicazione+ai+COA+-+Schema+informativa+IA.pdf",
+  "redirects": 0,
+  "where": [
+   "articles/ai-studi-professionali-dati-clienti.md#sources",
+   "articles/ai-studi-professionali-dati-clienti.md#corpo"
+  ]
+ },
+ {
+  "url": "https://www.develhope.co/",
+  "status": 200,
+  "final": "https://www.develhope.co/",
+  "redirects": 0,
+  "where": [
+   "events/generazioni-digitali-zen-ai-palermo-2026-10.json#organizer_url"
+  ]
+ },
+ {
+  "url": "https://www.dieci.media/2026/06/una-startup-ai-tutta-palermitana/",
+  "status": 200,
+  "final": "https://www.dieci.media/2026/06/una-startup-ai-tutta-palermitana/",
+  "redirects": 0,
+  "where": [
+   "companies/canonity.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://www.dirittogiustiziaecostituzione.it/le-nuove-tecnologie-lintelligenza-artificiale-e-limpatto-sulla-giurisdizione-una-tavola-rotonda-catania-12-giugno-2026/",
+  "status": 200,
+  "final": "https://www.dirittogiustiziaecostituzione.it/le-nuove-tecnologie-lintelligenza-artificiale-e-limpatto-sulla-giurisdizione-una-tavola-rotonda-catania-12-giugno-2026/",
+  "redirects": 0,
+  "where": [
+   "events/tavola-rotonda-ai-giurisdizione-catania-2026-06.json#event_url",
+   "events/tavola-rotonda-ai-giurisdizione-catania-2026-06.json#source_url"
+  ]
+ },
+ {
+  "url": "https://www.edpb.europa.eu/news/edpb-opinion-on-ai-models-gdpr-principles-support-responsible-ai_en",
+  "status": 200,
+  "final": "https://www.edpb.europa.eu/news/edpb-opinion-on-ai-models-gdpr-principles-support-responsible-ai_en",
+  "redirects": 0,
+  "where": [
+   "articles/ai-act-gdpr-cosa-deve-sapere-impresa.md#sources",
+   "articles/ai-act-gdpr-cosa-deve-sapere-impresa.md#corpo"
+  ]
+ },
+ {
+  "url": "https://www.eng.it/en/insights/events/2026/06/coderful-2026",
+  "status": 200,
+  "final": "https://www.eng.it/en/insights/events/2026/06/coderful-2026",
+  "redirects": 0,
+  "where": [
+   "events/coderful-2026-catania-2026-06.json#event_url",
+   "events/coderful-2026-catania-2026-06.json#source_url"
+  ]
+ },
+ {
+  "url": "https://www.garanteprivacy.it/regolamentoue/il-testo-del-regolamento",
+  "status": 200,
+  "final": "https://www.garanteprivacy.it/il-testo-del-regolamento",
+  "redirects": 1,
+  "where": [
+   "articles/ai-act-gdpr-cosa-deve-sapere-impresa.md#sources",
+   "articles/ai-act-gdpr-cosa-deve-sapere-impresa.md#corpo",
+   "articles/ai-studi-professionali-dati-clienti.md#sources",
+   "articles/ai-studi-professionali-dati-clienti.md#corpo"
+  ]
+ },
+ {
+  "url": "https://www.garanteprivacy.it/temi/intelligenza-artificiale",
+  "status": 200,
+  "final": "https://www.garanteprivacy.it/temi/intelligenza-artificiale",
+  "redirects": 0,
+  "where": [
+   "articles/ai-cantine-aziende-agroalimentari.md#sources",
+   "articles/ai-cantine-aziende-agroalimentari.md#corpo",
+   "articles/ai-hotel-bb-strutture-ricettive.md#sources",
+   "articles/ai-hotel-bb-strutture-ricettive.md#corpo",
+   "articles/ai-pmi-siciliane-da-dove-cominciare.md#sources",
+   "articles/ai-pmi-siciliane-da-dove-cominciare.md#corpo",
+   "articles/ai-ristoranti-bar-locali.md#sources",
+   "articles/ai-ristoranti-bar-locali.md#corpo",
+   "articles/automatizzare-attivita-ripetitive.md#sources",
+   "articles/automatizzare-attivita-ripetitive.md#corpo",
+   "articles/scrivere-prompt-efficaci-senza-essere-tecnici.md#sources",
+   "articles/scrivere-prompt-efficaci-senza-essere-tecnici.md#corpo"
+  ]
+ },
+ {
+  "url": "https://www.garanteprivacy.it/temi/trasferimento-di-dati-all-estero",
+  "status": 200,
+  "final": "https://www.garanteprivacy.it/temi/trasferimento-di-dati-all-estero",
+  "redirects": 0,
+  "where": [
+   "articles/ai-act-gdpr-cosa-deve-sapere-impresa.md#sources",
+   "articles/ai-act-gdpr-cosa-deve-sapere-impresa.md#corpo",
+   "articles/ai-studi-professionali-dati-clienti.md#sources",
+   "articles/ai-studi-professionali-dati-clienti.md#corpo"
+  ]
+ },
+ {
+  "url": "https://www.garanteprivacy.it/valutazione-d-impatto-della-protezione-dei-dati-dpia-",
+  "status": 200,
+  "final": "https://www.garanteprivacy.it/valutazione-d-impatto-della-protezione-dei-dati-dpia-",
+  "redirects": 0,
+  "where": [
+   "articles/ai-act-gdpr-cosa-deve-sapere-impresa.md#sources",
+   "articles/ai-act-gdpr-cosa-deve-sapere-impresa.md#corpo",
+   "articles/ai-studi-professionali-dati-clienti.md#sources",
+   "articles/ai-studi-professionali-dati-clienti.md#corpo"
+  ]
+ },
+ {
+  "url": "https://www.gazzettaufficiale.it/eli/gu/2025/09/25/223/sg/pdf",
+  "status": 200,
+  "final": "https://www.gazzettaufficiale.it/eli/gu/2025/09/25/223/sg/pdf",
+  "redirects": 0,
+  "where": [
+   "articles/ai-act-gdpr-cosa-deve-sapere-impresa.md#sources",
+   "articles/ai-act-gdpr-cosa-deve-sapere-impresa.md#corpo",
+   "articles/ai-studi-professionali-dati-clienti.md#sources",
+   "articles/ai-studi-professionali-dati-clienti.md#corpo"
+  ]
+ },
+ {
+  "url": "https://www.i3p.it/en/news/aim-solutions-closes-500-000-euro-preseed-round-accelerates-development-aida-platform",
+  "status": 200,
+  "final": "https://www.i3p.it/en/news/aim-solutions-closes-500-000-euro-preseed-round-accelerates-development-aida-platform",
+  "redirects": 0,
+  "where": [
+   "companies/aim-solutions.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://www.i3p.it/en/startup/aida",
+  "status": 200,
+  "final": "https://www.i3p.it/en/startup/aida",
+  "redirects": 0,
+  "where": [
+   "companies/aim-solutions.json#same_as",
+   "companies/aim-solutions.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://www.icar.cnr.it/",
+  "status": 200,
+  "final": "https://www.icar.cnr.it/",
+  "redirects": 0,
+  "where": [
+   "companies/cnr-icar-sede-di-palermo.json#website"
+  ]
+ },
+ {
+  "url": "https://www.icar.cnr.it/artificial-intelligence-and-data-science/",
+  "status": 200,
+  "final": "https://www.icar.cnr.it/artificial-intelligence-and-data-science/",
+  "redirects": 0,
+  "where": [
+   "companies/cnr-icar-sede-di-palermo.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://www.icar.cnr.it/laboratori-icar/bioinformatica-traslazionale-tb-lab/",
+  "status": 200,
+  "final": "https://www.icar.cnr.it/laboratori-icar/bioinformatica-traslazionale-tb-lab/",
+  "redirects": 0,
+  "where": [
+   "companies/cnr-icar-sede-di-palermo.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://www.icar.cnr.it/laboratori-icar/robotica-cognitiva-e-social-sensing/",
+  "status": 200,
+  "final": "https://www.icar.cnr.it/laboratori-icar/robotica-cognitiva-e-social-sensing/",
+  "redirects": 0,
+  "where": [
+   "companies/cnr-icar-sede-di-palermo.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://www.icar.cnr.it/sedi/",
+  "status": 200,
+  "final": "https://www.icar.cnr.it/sedi/",
+  "redirects": 0,
+  "where": [
+   "companies/cnr-icar-sede-di-palermo.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://www.ilfattonisseno.it/2026/06/imprese-al-centro-sicindustria-caltanissetta-punta-su-formazione-e-innovazione-con-il-workshop-lai-centro-del-business/",
+  "status": 200,
+  "final": "https://www.ilfattonisseno.it/2026/06/imprese-al-centro-sicindustria-caltanissetta-punta-su-formazione-e-innovazione-con-il-workshop-lai-centro-del-business/",
+  "redirects": 0,
+  "where": [
+   "events/workshop-ai-centro-business-butera-2026-06.json#event_url",
+   "events/workshop-ai-centro-business-butera-2026-06.json#source_url"
+  ]
+ },
+ {
+  "url": "https://www.invitalia.it/incentivi-e-strumenti/digital-transformation",
+  "status": 200,
+  "final": "https://www.invitalia.it/incentivi-e-strumenti/digital-transformation",
+  "redirects": 0,
+  "where": [
+   "articles/incentivi-finanziamenti-digitalizzazione-ai-sicilia.md#sources",
+   "articles/incentivi-finanziamenti-digitalizzazione-ai-sicilia.md#corpo"
+  ]
+ },
+ {
+  "url": "https://www.invitalia.it/incentivi-e-strumenti/smartstart-italia",
+  "status": 200,
+  "final": "https://www.invitalia.it/incentivi-e-strumenti/smartstart-italia",
+  "redirects": 0,
+  "where": [
+   "articles/incentivi-finanziamenti-digitalizzazione-ai-sicilia.md#sources",
+   "articles/incentivi-finanziamenti-digitalizzazione-ai-sicilia.md#corpo"
+  ]
+ },
+ {
+  "url": "https://www.invitalia.it/incentivi-e-strumenti/sviluppo-competenze-specialistiche-delle-pmi",
+  "status": 200,
+  "final": "https://www.invitalia.it/incentivi-e-strumenti/sviluppo-competenze-specialistiche-delle-pmi",
+  "redirects": 0,
+  "where": [
+   "articles/incentivi-finanziamenti-digitalizzazione-ai-sicilia.md#sources",
+   "articles/incentivi-finanziamenti-digitalizzazione-ai-sicilia.md#corpo"
+  ]
+ },
+ {
+  "url": "https://www.invitalia.it/incentivi-e-strumenti/voucher-cloud-e-cybersecurity",
+  "status": 200,
+  "final": "https://www.invitalia.it/incentivi-e-strumenti/voucher-cloud-e-cybersecurity",
+  "redirects": 0,
+  "where": [
+   "articles/incentivi-finanziamenti-digitalizzazione-ai-sicilia.md#sources",
+   "articles/incentivi-finanziamenti-digitalizzazione-ai-sicilia.md#corpo"
+  ]
+ },
+ {
+  "url": "https://www.istat.it/comunicato-stampa/imprese-e-ict-anno-2025/",
+  "status": 200,
+  "final": "https://www.istat.it/comunicato-stampa/imprese-e-ict-anno-2025/",
+  "redirects": 0,
+  "where": [
+   "articles/ai-pmi-siciliane-da-dove-cominciare.md#sources",
+   "articles/ai-pmi-siciliane-da-dove-cominciare.md#corpo"
+  ]
+ },
+ {
+  "url": "https://www.italpress.com/?p=675606",
+  "status": 200,
+  "final": "https://www.italpress.com/intelligenza-artificiale-emergenza-urgenza-sottoscritta-carta-di-catania/",
+  "redirects": 1,
+  "where": [
+   "events/sanitaria-ai-emergenza-urgenza-catania-2026-04.json#event_url",
+   "events/sanitaria-ai-emergenza-urgenza-catania-2026-04.json#source_url"
+  ]
+ },
+ {
+  "url": "https://www.kazaamlab.com",
+  "status": 200,
+  "final": "https://www.kazaamlab.com/",
+  "redirects": 0,
+  "where": [
+   "companies/kazaam-lab.json#website",
+   "companies/kazaam-lab.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://www.kazaamlab.com/contact-us",
+  "status": 200,
+  "final": "https://www.kazaamlab.com/contact-us",
+  "redirects": 0,
+  "where": [
+   "companies/kazaam-lab.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://www.lumsa.it/",
+  "status": 200,
+  "final": "https://lumsa.it/it/home",
+  "redirects": 2,
+  "where": [
+   "events/sfide-intelligenze-contemporanee-lumsa-palermo-2026-10.json#organizer_url"
+  ]
+ },
+ {
+  "url": "https://www.me.camcom.it",
+  "status": 200,
+  "final": "https://www.me.camcom.it/",
+  "redirects": 0,
+  "where": [
+   "articles/incentivi-finanziamenti-digitalizzazione-ai-sicilia.md#sources",
+   "articles/incentivi-finanziamenti-digitalizzazione-ai-sicilia.md#corpo"
+  ]
+ },
+ {
+  "url": "https://www.nextvisionlab.it",
+  "status": 200,
+  "final": "https://www.nextvisionlab.it/",
+  "redirects": 0,
+  "where": [
+   "companies/next-vision.json#website"
+  ]
+ },
+ {
+  "url": "https://www.nextvisionlab.it/about-us",
+  "status": 200,
+  "final": "https://www.nextvisionlab.it/about-us",
+  "redirects": 0,
+  "where": [
+   "companies/next-vision.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://www.nextvisionlab.it/contacts",
+  "status": 200,
+  "final": "https://www.nextvisionlab.it/contacts",
+  "redirects": 0,
+  "where": [
+   "companies/next-vision.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://www.ordinearchitettipalermo.it/",
+  "status": 200,
+  "final": "https://www.ordinearchitettipalermo.it/",
+  "redirects": 0,
+  "where": [
+   "events/intelligenza-aliena-ia-architetti-palermo-2026-06.json#organizer_url"
+  ]
+ },
+ {
+  "url": "https://www.ordinearchitettipalermo.it/01-06-2026-intelligenza-aliena-unintroduzione-allintelligenza-artificiale-per-architetti/",
+  "status": 200,
+  "final": "https://www.ordinearchitettipalermo.it/01-06-2026-intelligenza-aliena-unintroduzione-allintelligenza-artificiale-per-architetti/",
+  "redirects": 0,
+  "where": [
+   "events/intelligenza-aliena-ia-architetti-palermo-2026-06.json#event_url",
+   "events/intelligenza-aliena-ia-architetti-palermo-2026-06.json#source_url"
+  ]
+ },
+ {
+  "url": "https://www.ordineavvocaticatania.it/l-ordine/eventi/default.aspx?evento=15394",
+  "status": 200,
+  "final": "https://www.ordineavvocaticatania.it/l-ordine/eventi/default.aspx?evento=15394",
+  "redirects": 0,
+  "where": [
+   "events/ia-protezione-dati-identita-ue-brasile-catania-2026-10.json#event_url",
+   "events/ia-protezione-dati-identita-ue-brasile-catania-2026-10.json#source_url"
+  ]
+ },
+ {
+  "url": "https://www.ordineavvocaticatania.it/l-ordine/eventi/default.aspx?evento=15417",
+  "status": 200,
+  "final": "https://www.ordineavvocaticatania.it/l-ordine/eventi/default.aspx?evento=15417",
+  "redirects": 0,
+  "where": [
+   "events/giustizia-intelligenza-artificiale-catania-2026-10.json#event_url",
+   "events/giustizia-intelligenza-artificiale-catania-2026-10.json#source_url"
+  ]
+ },
+ {
+  "url": "https://www.palermotoday.it/economia/canonity-piattaforma-dialogare-9-intelligenze-artificiali-aziende.html",
+  "status": 200,
+  "final": "https://www.palermotoday.it/economia/canonity-piattaforma-dialogare-9-intelligenze-artificiali-aziende.html",
+  "redirects": 0,
+  "where": [
+   "companies/canonity.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://www.perceivelab.com",
+  "status": 200,
+  "final": "https://www.perceivelab.com/",
+  "redirects": 0,
+  "where": [
+   "companies/perceive-ai-lab.json#website"
+  ]
+ },
+ {
+  "url": "https://www.perceivelab.com/",
+  "status": 200,
+  "final": "https://www.perceivelab.com/",
+  "redirects": 0,
+  "where": [
+   "companies/perceive-ai-lab.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://www.perceivelab.com/contacts",
+  "status": 200,
+  "final": "https://www.perceivelab.com/contacts",
+  "redirects": 0,
+  "where": [
+   "companies/perceive-ai-lab.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://www.puntoimpresadigitale.camcom.it",
+  "status": 200,
+  "final": "https://www.puntoimpresadigitale.camcom.it/",
+  "redirects": 0,
+  "where": [
+   "articles/ai-pmi-siciliane-da-dove-cominciare.md#sources",
+   "articles/ai-pmi-siciliane-da-dove-cominciare.md#corpo"
+  ]
+ },
+ {
+  "url": "https://www.ragusaoggi.it/la-questione-casa-tra-catasto-e-nuovi-strumenti-convegno-internazionale-dei-geometri-a-ragusa/",
+  "status": 200,
+  "final": "https://www.ragusaoggi.it/la-questione-casa-tra-catasto-e-nuovi-strumenti-convegno-internazionale-dei-geometri-a-ragusa/",
+  "redirects": 0,
+  "where": [
+   "events/fig-commission-9-ai-immobiliare-ragusa-2026-10.json#event_url",
+   "events/fig-commission-9-ai-immobiliare-ragusa-2026-10.json#source_url"
+  ]
+ },
+ {
+  "url": "https://www.regione.sicilia.it/index%2Ephp/la-regione-informa/avviso-digit-imprese-azione-112-sostegno-all-innovazione-imprese-pr-fesr-20212027",
+  "status": 200,
+  "final": "https://www.regione.sicilia.it/index%2Ephp/la-regione-informa/avviso-digit-imprese-azione-112-sostegno-all-innovazione-imprese-pr-fesr-20212027",
+  "redirects": 0,
+  "where": [
+   "articles/incentivi-finanziamenti-digitalizzazione-ai-sicilia.md#sources",
+   "articles/incentivi-finanziamenti-digitalizzazione-ai-sicilia.md#corpo"
+  ]
+ },
+ {
+  "url": "https://www.regione.sicilia.it/la-regione-informa/pr-fesr-202127-avviso-digit-imprese-azione-122-decreto-chiusura-piattaforma",
+  "status": 200,
+  "final": "https://www.regione.sicilia.it/la-regione-informa/pr-fesr-202127-avviso-digit-imprese-azione-122-decreto-chiusura-piattaforma",
+  "redirects": 0,
+  "where": [
+   "articles/incentivi-finanziamenti-digitalizzazione-ai-sicilia.md#sources",
+   "articles/incentivi-finanziamenti-digitalizzazione-ai-sicilia.md#corpo"
+  ]
+ },
+ {
+  "url": "https://www.selfmotion.it",
+  "status": 200,
+  "final": "https://www.selfmotion.it/",
+  "redirects": 0,
+  "where": [
+   "companies/selfmotion.json#website",
+   "companies/selfmotion.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://www.selfmotion.it/note-legali",
+  "status": 200,
+  "final": "https://www.selfmotion.it/note-legali",
+  "redirects": 0,
+  "where": [
+   "companies/selfmotion.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://www.siracusanews.it/siracusa-custodire-lumano-convegno-sullintelligenza-artificiale-alla-cisl/",
+  "status": 200,
+  "final": "https://www.siracusanews.it/siracusa-custodire-lumano-convegno-sullintelligenza-artificiale-alla-cisl/",
+  "redirects": 0,
+  "where": [
+   "events/custodire-umano-ai-lavoro-siracusa-2026-09.json#event_url"
+  ]
+ },
+ {
+  "url": "https://www.sputnix.it/jit/index.php",
+  "status": 200,
+  "final": "https://www.sputnix.it/jit/index.php",
+  "redirects": 0,
+  "where": [
+   "events/linux-day-open-source-agenti-palermo-2026-10.json#organizer_url",
+   "events/linux-day-open-source-agenti-palermo-2026-10.json#event_url"
+  ]
+ },
+ {
+  "url": "https://www.trapanisi.it/intelligenza-artificiale-ad-erice-scienziati-da-tutto-il-mondo-per-un-nuovo-codice-etico-globale/",
+  "status": 200,
+  "final": "https://www.trapanisi.it/intelligenza-artificiale-ad-erice-scienziati-da-tutto-il-mondo-per-un-nuovo-codice-etico-globale/",
+  "redirects": 0,
+  "where": [
+   "events/scuola-internazionale-ai-tecnologia-diritto-erice-2026-09.json#event_url"
+  ]
+ },
+ {
+  "url": "https://www.trapanisi.it/intelligenza-artificiale-educazione-e-salute-a-trapani-un-confronto-sulle-nuove-sfide/",
+  "status": 200,
+  "final": "https://www.trapanisi.it/intelligenza-artificiale-educazione-e-salute-a-trapani-un-confronto-sulle-nuove-sfide/",
+  "redirects": 0,
+  "where": [
+   "events/vivere-era-algoritmi-ai-educazione-salute-trapani-2026-09.json#event_url",
+   "events/vivere-era-algoritmi-ai-educazione-salute-trapani-2026-09.json#source_url"
+  ]
+ },
+ {
+  "url": "https://www.unime.it/eventi/convegno-archivi-e-biblioteche-la-ricostruzione-del-passato-la-fruizione-dellutenza-le-sfide",
+  "status": 200,
+  "final": "https://www.unime.it/eventi/convegno-archivi-e-biblioteche-la-ricostruzione-del-passato-la-fruizione-dellutenza-le-sfide",
+  "redirects": 0,
+  "where": [
+   "events/convegno-archivi-biblioteche-ai-messina-2026-05.json#event_url",
+   "events/convegno-archivi-biblioteche-ai-messina-2026-05.json#source_url"
+  ]
+ },
+ {
+  "url": "https://www.unipa.it/",
+  "status": 200,
+  "final": "https://www.unipa.it/",
+  "redirects": 0,
+  "where": [
+   "events/sovranita-digitale-ia-data-center-palermo-2026-07.json#organizer_url"
+  ]
+ },
+ {
+  "url": "https://www.unipa.it/AIRH-Lab--Artificial-Intelligence-and-Robotics-for-Humanities-Lab-Dipartimento-di-Scienze-Umanistiche-Universit-di-Palermo/",
+  "status": 200,
+  "final": "https://www.unipa.it/AIRH-Lab--Artificial-Intelligence-and-Robotics-for-Humanities-Lab-Dipartimento-di-Scienze-Umanistiche-Universit-di-Palermo/",
+  "redirects": 0,
+  "where": [
+   "companies/airh-lab-unipa.json#website",
+   "companies/airh-lab-unipa.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://www.unipa.it/Conferenza-Sovranit-digitale-e-intelligenza-artificiale-inaugurazione-del-nuovo-Data-Center-e-dellinfrastruttura-HPE-Private-Cloud-AI/",
+  "status": 200,
+  "final": "https://www.unipa.it/Conferenza-Sovranit-digitale-e-intelligenza-artificiale-inaugurazione-del-nuovo-Data-Center-e-dellinfrastruttura-HPE-Private-Cloud-AI/",
+  "redirects": 0,
+  "where": [
+   "events/sovranita-digitale-ia-data-center-palermo-2026-07.json#event_url",
+   "events/sovranita-digitale-ia-data-center-palermo-2026-07.json#source_url"
+  ]
+ },
+ {
+  "url": "https://www.unipa.it/dipartimenti/difc/Lab/Analisi-di-Immagini-Biomedicali/",
+  "status": 200,
+  "final": "https://www.unipa.it/dipartimenti/difc/Lab/Analisi-di-Immagini-Biomedicali/",
+  "redirects": 0,
+  "where": [
+   "companies/laboratorio-analisi-immagini-biomedicali-unipa.json#website",
+   "companies/laboratorio-analisi-immagini-biomedicali-unipa.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://www.unipa.it/dipartimenti/ingegneria/",
+  "status": 200,
+  "final": "https://www.unipa.it/dipartimenti/ingegneria/",
+  "redirects": 0,
+  "where": [
+   "companies/laboratorio-intelligenza-artificiale-unipa.json#website",
+   "companies/laboratorio-visione-artificiale-unipa.json#website",
+   "companies/roboticslab-unipa.json#website"
+  ]
+ },
+ {
+  "url": "https://www.unipa.it/dipartimenti/ingegneria/Laboratori/",
+  "status": 200,
+  "final": "https://www.unipa.it/dipartimenti/ingegneria/Laboratori/",
+  "redirects": 0,
+  "where": [
+   "companies/laboratorio-intelligenza-artificiale-unipa.json#source_urls",
+   "companies/laboratorio-visione-artificiale-unipa.json#source_urls",
+   "companies/roboticslab-unipa.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://www.unipa.it/dipartimenti/matematicaeinformatica/cds/computerscienceandartificialintelligence2323/Eventi-di-incontro-con-il-mondo-del-lavoro-00004/",
+  "status": 200,
+  "final": "https://www.unipa.it/dipartimenti/matematicaeinformatica/cds/computerscienceandartificialintelligence2323/Eventi-di-incontro-con-il-mondo-del-lavoro-00004/",
+  "redirects": 0,
+  "where": [
+   "events/explainable-ai-decisioni-ia-palermo-2026-05.json#event_url"
+  ]
+ },
+ {
+  "url": "https://www.unipa.it/dipartimenti/matematicaeinformatica/cds/informatica2460/.content/documenti/News/locandina_seminario_Explainable_AI_27052026.pdf",
+  "status": 200,
+  "final": "https://www.unipa.it/dipartimenti/matematicaeinformatica/cds/informatica2460/.content/documenti/News/locandina_seminario_Explainable_AI_27052026.pdf",
+  "redirects": 0,
+  "where": [
+   "events/explainable-ai-decisioni-ia-palermo-2026-05.json#source_url"
+  ]
+ },
+ {
+  "url": "https://www.unipa.it/dipartimenti/seas/cds/tourismsystemsandhospitalitymanagement2338/",
+  "status": 200,
+  "final": "https://www.unipa.it/dipartimenti/seas/cds/tourismsystemsandhospitalitymanagement2338/",
+  "redirects": 0,
+  "where": [
+   "events/world-tourism-day-ia-turismo-palermo-2026-09.json#organizer_url"
+  ]
+ },
+ {
+  "url": "https://www.unipa.it/dipartimenti/seas/cds/tourismsystemsandhospitalitymanagement2338/World-Tourism-Day-Conference-2026-intelligenza-artificiale-e-tecnologie-applicate-al-turismo/",
+  "status": 200,
+  "final": "https://www.unipa.it/dipartimenti/seas/cds/tourismsystemsandhospitalitymanagement2338/World-Tourism-Day-Conference-2026-intelligenza-artificiale-e-tecnologie-applicate-al-turismo/",
+  "redirects": 0,
+  "where": [
+   "events/world-tourism-day-ia-turismo-palermo-2026-09.json#event_url",
+   "events/world-tourism-day-ia-turismo-palermo-2026-09.json#source_url"
+  ]
+ },
+ {
+  "url": "https://www.unipa.it/strutture/cimdu/",
+  "status": 200,
+  "final": "https://www.unipa.it/strutture/cimdu/",
+  "redirects": 0,
+  "where": [
+   "events/ia-per-la-didattica-keynote-workshop-palermo-2026-05.json#organizer_url",
+   "events/strumenti-base-didattica-ia-palermo-2026-04.json#organizer_url"
+  ]
+ },
+ {
+  "url": "https://www.unipa.it/strutture/cimdu/Intelligenza-Artificiale-per-la-didattica-06-05-2026/",
+  "status": 200,
+  "final": "https://www.unipa.it/strutture/cimdu/Intelligenza-Artificiale-per-la-didattica-06-05-2026/",
+  "redirects": 0,
+  "where": [
+   "events/ia-per-la-didattica-keynote-workshop-palermo-2026-05.json#event_url",
+   "events/ia-per-la-didattica-keynote-workshop-palermo-2026-05.json#source_url"
+  ]
+ },
+ {
+  "url": "https://www.unipa.it/strutture/cimdu/Stumenti-di-base-per-la-didattica-con-lutilizzo-dellIA-23-04-2026/",
+  "status": 200,
+  "final": "https://www.unipa.it/strutture/cimdu/Stumenti-di-base-per-la-didattica-con-lutilizzo-dellIA-23-04-2026/",
+  "redirects": 0,
+  "where": [
+   "events/strumenti-base-didattica-ia-palermo-2026-04.json#event_url",
+   "events/strumenti-base-didattica-ia-palermo-2026-04.json#source_url"
+  ]
+ },
+ {
+  "url": "https://www.unipa.it/Un-nuovo-laboratorio-di-ricerca-su-IA-e-Robotica-al-Dipartimento-di-Scienze-Umanistiche-dellUniversit-di-Palermo/",
+  "status": 200,
+  "final": "https://www.unipa.it/Un-nuovo-laboratorio-di-ricerca-su-IA-e-Robotica-al-Dipartimento-di-Scienze-Umanistiche-dellUniversit-di-Palermo/",
+  "redirects": 0,
+  "where": [
+   "companies/airh-lab-unipa.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://www.welldigit.it",
+  "status": 200,
+  "final": "https://www.welldigit.it/",
+  "redirects": 0,
+  "where": [
+   "companies/welldigit.json#website",
+   "companies/welldigit.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://www.welldigit.it/trasparenza.html",
+  "status": 200,
+  "final": "https://www.welldigit.it/trasparenza.html",
+  "redirects": 0,
+  "where": [
+   "companies/welldigit.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://www.zaiera.net",
+  "status": 200,
+  "final": "https://www.zaiera.net/",
+  "redirects": 0,
+  "where": [
+   "companies/zaiera.json#website",
+   "companies/zaiera.json#source_urls"
+  ]
+ },
+ {
+  "url": "https://www.zaiera.net/trasparenza",
+  "status": 200,
+  "final": "https://www.zaiera.net/trasparenza",
+  "redirects": 0,
+  "where": [
+   "companies/zaiera.json#source_urls"
+  ]
+ }
+]

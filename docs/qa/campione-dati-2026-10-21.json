@@ -1,0 +1,31 @@
+{
+ "seed": 20261021,
+ "companies": {
+  "total": 20,
+  "n": 6,
+  "sample": [
+   "aitho",
+   "fcrlab-future-computing-research-laboratory",
+   "keplera",
+   "laboratorio-analisi-immagini-biomedicali-unipa",
+   "perceive-ai-lab",
+   "roboticslab-unipa"
+  ]
+ },
+ "events": {
+  "total": 34,
+  "n": 10,
+  "sample": [
+   "custodire-umano-ai-lavoro-siracusa-2026-09",
+   "fig-commission-9-ai-immobiliare-ragusa-2026-10",
+   "ia-per-la-didattica-keynote-workshop-palermo-2026-05",
+   "ia-teologia-prolusione-agrigento-2026-10",
+   "intelligenza-aliena-ia-architetti-palermo-2026-06",
+   "marinai-intelligenza-artificiale-palermo-2026-08",
+   "seminario-robot-emozioni-ai-catania-2026-10",
+   "sicurezza-informazioni-ia-palermo-2026-10",
+   "strumenti-base-didattica-ia-palermo-2026-04",
+   "vivere-era-algoritmi-ai-educazione-salute-trapani-2026-09"
+  ]
+ }
+}

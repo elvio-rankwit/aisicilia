@@ -1,0 +1,62 @@
+[
+  {
+    "url": "http://localhost:37093/eventi/techsgiving-ai-meetup-palermo-2026-11/",
+    "isRepresentativeRun": true,
+    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop-extra/localhost-eventi_techsgiving_ai_meetup_palermo_2026_11_-2026_10_21_13_01_25.report.html",
+    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop-extra/localhost-eventi_techsgiving_ai_meetup_palermo_2026_11_-2026_10_21_13_01_25.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:37093/eventi/agentcamp-catania-2026-05/",
+    "isRepresentativeRun": true,
+    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop-extra/localhost-eventi_agentcamp_catania_2026_05_-2026_10_21_13_01_37.report.html",
+    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop-extra/localhost-eventi_agentcamp_catania_2026_05_-2026_10_21_13_01_37.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:37093/eventi/archivio/",
+    "isRepresentativeRun": true,
+    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop-extra/localhost-eventi_archivio_-2026_10_21_13_01_49.report.html",
+    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop-extra/localhost-eventi_archivio_-2026_10_21_13_01_49.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:37093/eventi/provincia/palermo/",
+    "isRepresentativeRun": true,
+    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop-extra/localhost-eventi_provincia_palermo_-2026_10_21_13_02_00.report.html",
+    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop-extra/localhost-eventi_provincia_palermo_-2026_10_21_13_02_00.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:37093/metodologia/",
+    "isRepresentativeRun": true,
+    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop-extra/localhost-metodologia_-2026_10_21_13_02_12.report.html",
+    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop-extra/localhost-metodologia_-2026_10_21_13_02_12.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    }
+  }
+]
