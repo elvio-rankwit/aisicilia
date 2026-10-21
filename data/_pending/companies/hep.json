@@ -1,0 +1,24 @@
+{
+  "name": "Hep",
+  "slug": "hep",
+  "type": "startup",
+  "description": "Società con sede a Tremestieri Etneo (CT) che sviluppa software per assicurazioni, previdenza e fintech con componenti di AI, per automatizzare polizze, fondi pensione e sinistri. Selezionata tra le startup di In.Sicily Accelerator di Fondazione Emblema.",
+  "ai_areas": [
+    "machine learning"
+  ],
+  "sectors_served": [
+    "finanza e assicurazioni"
+  ],
+  "province": "catania",
+  "city": "Tremestieri Etneo",
+  "lat": 37.57649,
+  "lng": 15.07322,
+  "geo_precision": "città",
+  "same_as": [],
+  "source_urls": [
+    "https://www.blogsicilia.it/catania/in-sicily-accelerator-fondazione-emblema-startup-selezionate-50mila-euro/1315100/"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "Unica fonte è un articolo di stampa; sito ufficiale e indirizzo non trovati, impossibile confermare nome esatto, attività AI e sede."
+}

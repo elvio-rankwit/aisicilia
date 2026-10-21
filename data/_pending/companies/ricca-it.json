@@ -1,0 +1,30 @@
+{
+  "name": "Ricca IT",
+  "slug": "ricca-it",
+  "type": "azienda",
+  "description": "Azienda IT con sede a Ragusa (Ricca Innovation Center), attiva dal 1998 secondo la stampa, specializzata in sistemi informativi, data center, cybersicurezza e supercalcolo. Nel 2025 ha lanciato Arianna, assistente di AI generativa multi-agente installato on-premise presso il cliente.",
+  "ai_areas": [
+    "AI generativa",
+    "agenti e automazione"
+  ],
+  "sectors_served": [
+    "sanità",
+    "manifattura",
+    "finanza e assicurazioni",
+    "pubblica amministrazione"
+  ],
+  "province": "ragusa",
+  "city": "Ragusa",
+  "lat": 36.92571,
+  "lng": 14.73075,
+  "geo_precision": "città",
+  "founded_year": 1998,
+  "same_as": [],
+  "source_urls": [
+    "https://forbes.it/2025/10/22/arianna-intelligenza-artificiale-lavora-collega-reale/",
+    "https://en.ilsole24ore.com/art/rich-launches-arianna-ragusa-the-artificial-intelligence-that-protects-data-AHvGcX5C"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "Sito ufficiale non individuato (nessun dominio citato dalla stampa); l'AI è un prodotto recente accanto a un'attività IT più ampia, quindi la centralità va verificata sul sito aziendale."
+}

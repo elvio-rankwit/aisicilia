@@ -1,0 +1,27 @@
+{
+  "name": "Lualtek",
+  "slug": "lualtek",
+  "type": "startup",
+  "description": "Startup agritech con sede a Comiso (RG), attiva dal 2021: sensori e reti LoRaWAN che non richiedono internet né corrente elettrica, con modelli previsionali e di machine learning per le colture (malattie fungine, mosca dell'olivo, irrigazione). Partecipa al progetto SPIDAP con Agrigeos per una piattaforma di agrumicoltura di precisione basata su AI.",
+  "ai_areas": [
+    "machine learning",
+    "IoT ed edge AI"
+  ],
+  "sectors_served": [
+    "agricoltura"
+  ],
+  "province": "ragusa",
+  "city": "Comiso",
+  "lat": 36.95073,
+  "lng": 14.60746,
+  "geo_precision": "città",
+  "founded_year": 2021,
+  "same_as": [],
+  "source_urls": [
+    "https://innovationisland.it/sicilia-spidap-intelligenza-artificiale-agrumicoltura/",
+    "https://www.quotidianodiragusa.it/2023/05/02/economia/agricoltura-un-sistema-di-intelligenza-artificiale-a-comiso-foto/"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "Sito ufficiale non trovato (lualtek.com non risolve, lualtek.it ha certificato non valido); dati solo da stampa, senza indirizzo né fonte aziendale. Il campo website è obbligatorio."
+}

@@ -1,0 +1,27 @@
+{
+  "name": "iCTLab",
+  "slug": "ictlab",
+  "type": "spin-off universitario",
+  "description": "Spin-off dell'Università di Catania con sede in viale Andrea Doria, attivo in due aree: digital forensics (analisi di dispositivi, ricostruzione di eventi, recupero dati) e multimedia analytics (machine vision, elaborazione audio, analisi di immagini). Nato dal gruppo di elaborazione delle immagini dell'ateneo. Il sito non dichiara in modo esplicito l'uso di intelligenza artificiale.",
+  "ai_areas": [
+    "computer vision"
+  ],
+  "sectors_served": [
+    "legale e professioni"
+  ],
+  "province": "catania",
+  "city": "Catania",
+  "address": "Viale Andrea Doria 6, 95125 Catania CT",
+  "lat": 37.52667,
+  "lng": 15.07779,
+  "geo_precision": "indirizzo",
+  "website": "https://www.ictlab.srl",
+  "same_as": [],
+  "source_urls": [
+    "https://www.ictlab.srl/",
+    "https://iplab.dmi.unict.it/about/"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "L'AI non è dichiarata esplicitamente sul sito (solo machine vision e analisi multimediale per digital forensics); decidere se il criterio di centralità AI è soddisfatto."
+}
