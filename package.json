@@ -1,0 +1,31 @@
+{
+  "name": "aisicilia",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && pagefind --site dist",
+    "preview": "astro preview",
+    "check": "astro check",
+    "validate": "node scripts/validate/run.mjs",
+    "lhci": "lhci autorun"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.11",
+    "@astrojs/preact": "^6.1.0",
+    "astro": "^7.4.1",
+    "leaflet": "^1.9.4",
+    "leaflet.markercluster": "^1.5.3",
+    "preact": "^11.0.1",
+    "typescript": "^6.0.3"
+  },
+  "devDependencies": {
+    "@lhci/cli": "^0.15.1",
+    "pagefind": "^1.5.2",
+    "sharp": "^0.35.5"
+  }
+}
