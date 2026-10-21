@@ -1,0 +1,110 @@
+[
+  {
+    "url": "http://localhost:46695/",
+    "isRepresentativeRun": true,
+    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/mobile/localhost--2026_10_21_12_56_42.report.html",
+    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/mobile/localhost--2026_10_21_12_56_42.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:46695/aziende/",
+    "isRepresentativeRun": true,
+    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/mobile/localhost-aziende_-2026_10_21_12_56_55.report.html",
+    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/mobile/localhost-aziende_-2026_10_21_12_56_55.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:46695/aziende/aim-solutions/",
+    "isRepresentativeRun": true,
+    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/mobile/localhost-aziende_aim_solutions_-2026_10_21_12_57_07.report.html",
+    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/mobile/localhost-aziende_aim_solutions_-2026_10_21_12_57_07.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:46695/aziende/provincia/palermo/",
+    "isRepresentativeRun": true,
+    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/mobile/localhost-aziende_provincia_palermo_-2026_10_21_12_57_19.report.html",
+    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/mobile/localhost-aziende_provincia_palermo_-2026_10_21_12_57_19.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:46695/eventi/",
+    "isRepresentativeRun": true,
+    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/mobile/localhost-eventi_-2026_10_21_12_57_30.report.html",
+    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/mobile/localhost-eventi_-2026_10_21_12_57_30.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:46695/impara/ai-cantine-aziende-agroalimentari/",
+    "isRepresentativeRun": true,
+    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/mobile/localhost-impara_ai_cantine_aziende_agroalimentari_-2026_10_21_12_57_41.report.html",
+    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/mobile/localhost-impara_ai_cantine_aziende_agroalimentari_-2026_10_21_12_57_41.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:46695/prompt/",
+    "isRepresentativeRun": true,
+    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/mobile/localhost-prompt_-2026_10_21_12_57_53.report.html",
+    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/mobile/localhost-prompt_-2026_10_21_12_57_53.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:46695/prompt/agroalimentare-vino/controllo-etichetta-claim-agroalimentare/",
+    "isRepresentativeRun": true,
+    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/mobile/localhost-prompt_agroalimentare_vino_controllo_etichetta_claim_agroalimentare_-2026_10_21_12_58_05.report.html",
+    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/mobile/localhost-prompt_agroalimentare_vino_controllo_etichetta_claim_agroalimentare_-2026_10_21_12_58_05.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:46695/chi-siamo/",
+    "isRepresentativeRun": true,
+    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/mobile/localhost-chi_siamo_-2026_10_21_12_58_16.report.html",
+    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/mobile/localhost-chi_siamo_-2026_10_21_12_58_16.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    }
+  }
+]
