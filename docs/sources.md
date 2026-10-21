@@ -23,12 +23,12 @@ Regole (brief §3.4): niente scraping di LinkedIn, Crunchbase o siti che lo viet
 
 | Fonte | Tipo | Ingresso | Note | Stato |
 |---|---|---|---|---|
-| Eventbrite | pagine evento pubbliche | https://www.eventbrite.it | Ricerca "intelligenza artificiale" per città siciliane. Rispettare rate limit (risponde 429 se si esagera). | da verificare |
-| Meetup | pagine gruppo/evento pubbliche | https://www.meetup.com | Gruppi tech di Palermo, Catania, Messina | da verificare |
-| GDG (Google Developer Groups) | pagine pubbliche | https://gdg.community.dev | Capitoli siciliani | da verificare |
-| Università siciliane | sezioni eventi | siti istituzionali | Convegni, seminari aperti | da verificare |
-| Camere di Commercio e Punti Impresa Digitale (PID) | sezioni eventi | siti istituzionali | Webinar e seminari su AI per le imprese | da verificare |
-| Associazioni di categoria | sezioni eventi | siti ufficiali | Confesercenti, Confcommercio, Confartigianato, CNA, Sicindustria (sedi siciliane) | da verificare |
+| Eventbrite | pagine evento pubbliche | https://www.eventbrite.it | Ricerca "intelligenza artificiale" per città siciliane. Rispettare rate limit (risponde 429 se si esagera). | parziale 2026-10-21 (CT/ME/SR/RG): pagine evento ok ma povere di dettagli, elenchi di ricerca non leggibili (405) |
+| Meetup | pagine gruppo/evento pubbliche | https://www.meetup.com | Gruppi tech di Palermo, Catania, Messina | non pertinente 2026-10-21 (CT/ME/SR/RG): nessun gruppo AI con eventi trovato; community catanesi usano Luma, Eventbrite e globalai.community |
+| GDG (Google Developer Groups) | pagine pubbliche | https://gdg.community.dev | Capitoli siciliani | ok 2026-10-21 (GDG Catania: DevFest 2026 in `_pending`, programma non ancora pubblicato) |
+| Università siciliane | sezioni eventi | siti istituzionali | Convegni, seminari aperti | ok 2026-10-21 (Unict: DMI, Ordine Avvocati/Lex; Unime: eventi; web.dmi.unict.it a volte risponde 503) |
+| Camere di Commercio e Punti Impresa Digitale (PID) | sezioni eventi | siti istituzionali | Webinar e seminari su AI per le imprese | ok 2026-10-21 (CT/ME/SR/RG): Camera di Commercio di Messina senza eventi AI; sito Sud Est Sicilia (ctrgsr.camcom.gov.it) non raggiungibile (503) |
+| Associazioni di categoria | sezioni eventi | siti ufficiali | Confesercenti, Confcommercio, Confartigianato, CNA, Sicindustria (sedi siciliane) | ok 2026-10-21 (CT/ME/SR/RG): nessun evento AI futuro trovato; solo edizioni passate |
 | Incubatori, coworking, DIH/EDIH | sezioni eventi | siti ufficiali | | da verificare |
 
 ## Fonti ufficiali per gli articoli (YMYL e dati)

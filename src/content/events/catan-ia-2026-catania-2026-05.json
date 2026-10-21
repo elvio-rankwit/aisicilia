@@ -1,0 +1,31 @@
+{
+  "title": "CATAN.IA 2026",
+  "slug": "catan-ia-2026-catania-2026-05",
+  "description": "Seconda edizione di una giornata sull'intelligenza artificiale applicata, organizzata da Aitho con Datapizza alla Vecchia Dogana di Catania. Sul palco principale talk e panel su AI e lavoro, rapporto tra università e imprese, coding agent e opportunità per le aziende italiane all'estero. In parallelo workshop tecnici, incontri tra talenti e team, un'area di abbinamento tra competenze e aziende e una sfida di sviluppo web per studenti dell'ultimo anno delle superiori siciliane. Ingresso gratuito con registrazione.",
+  "start_date": "2026-05-22",
+  "format": "in presenza",
+  "venue_name": "Vecchia Dogana",
+  "venue_address": "Via Cardinale Dusmet 2, 95121 Catania",
+  "city": "Catania",
+  "province": "catania",
+  "lat": 37.50082,
+  "lng": 15.0927,
+  "organizer": "Aitho e Datapizza",
+  "event_url": "https://luma.com/catan.ia2026",
+  "price": "gratuito",
+  "audience": [
+    "imprese",
+    "professionisti",
+    "studenti",
+    "startup"
+  ],
+  "topics": [
+    "AI per le imprese",
+    "AI e lavoro",
+    "agenti AI"
+  ],
+  "source_url": "https://luma.com/catan.ia2026",
+  "status": "programmato",
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

@@ -1,0 +1,44 @@
+{
+  "title": "Adattare l'annuncio di una casa in Sicilia per acquirenti stranieri, con glossario e note",
+  "slug": "presentazione-immobile-acquirenti-stranieri",
+  "sector": "edilizia-immobiliare",
+  "use_case": "traduzioni",
+  "goal": "Ottieni titolo e testo adattati alla lingua del compratore, un glossario di massimo otto termini italiani e una nota con le informazioni che uno straniero chiederà e che l'annuncio non dà.",
+  "prompt_text": "Sei un traduttore e consulente di comunicazione immobiliare. Devo presentare un immobile in vendita in Sicilia a potenziali acquirenti di lingua {lingua}. Parti dall'annuncio in italiano e produci una versione adattata, non una traduzione parola per parola.\n\nAnnuncio in italiano:\n{annuncio_italiano}\n\nPubblico: {profilo_acquirente}\nMisure e valute: {unita_misura}\n\nProduci:\n1. Titolo e testo nella lingua di destinazione, della stessa lunghezza dell'originale e con lo stesso contenuto.\n2. Un breve glossario (massimo 8 voci) dei termini italiani che compaiono nel testo e che uno straniero potrebbe non conoscere (per esempio \"catasto\" o \"spese condominiali\"), con una spiegazione generica in una riga, nella lingua di destinazione e con la nota \"spiegazione generica: da confermare con il notaio o con l'agente\".\n3. Una sezione \"Note per me\" con le frasi che ho scritto in un modo che in quel mercato suona strano e le informazioni che un acquirente straniero chiederà quasi certamente e che nell'annuncio mancano (per esempio la distanza dall'aeroporto).\n\nVincoli: non aggiungere caratteristiche o vantaggi che non sono nel testo; non scrivere nulla su fiscalità, tasse, residenza, permessi o acquisto da parte di stranieri; non convertire superfici o valute a meno che le misure indicate sopra lo chiedano. Mantieni i nomi dei luoghi nella forma usata in quella lingua solo se sei sicuro.",
+  "variables": [
+    {
+      "name": "lingua",
+      "description": "La lingua dei compratori.",
+      "example": "inglese"
+    },
+    {
+      "name": "annuncio_italiano",
+      "description": "L'annuncio originale.",
+      "example": "Casa indipendente su due livelli nel centro storico di Scicli, 110 mq, ingresso su strada, soggiorno con camino al piano terra, due camere e bagno al primo piano, terrazzo con vista sui tetti. Impianti da rivedere, classe energetica G. Nessuna spesa condominiale. Prezzo 95.000 euro."
+    },
+    {
+      "name": "profilo_acquirente",
+      "description": "Chi sono i compratori.",
+      "example": "coppie nordeuropee che cercano una seconda casa e non conoscono il mercato italiano"
+    },
+    {
+      "name": "unita_misura",
+      "description": "Come trattare misure e valute.",
+      "example": "metri quadrati ed euro, nessuna conversione"
+    }
+  ],
+  "how_to_use": "Parti da un annuncio italiano già corretto e verificato. Incolla il prompt e fai leggere il risultato a un madrelingua o a un collega che conosce il mercato. Usa la sezione \"Note per me\" per integrare l'annuncio con le informazioni che mancano, prima di pubblicarlo sui portali esteri.",
+  "example_input": "lingua: inglese\nannuncio_italiano: Casa indipendente su due livelli nel centro storico di Scicli, 110 mq, ingresso su strada, soggiorno con camino al piano terra, due camere e bagno al primo piano, terrazzo con vista sui tetti. Impianti da rivedere, classe energetica G. Nessuna spesa condominiale. Prezzo 95.000 euro.\nprofilo_acquirente: coppie nordeuropee che cercano una seconda casa e non conoscono il mercato italiano\nunita_misura: metri quadrati ed euro, nessuna conversione",
+  "expected_output_description": "Titolo e testo nella lingua scelta, della stessa lunghezza dell'originale, un glossario di massimo 8 termini italiani con spiegazione generica e una sezione con le frasi poco naturali e le informazioni mancanti che i compratori chiederanno.",
+  "limits_and_warnings": "Il prompt non spiega l'iter di acquisto per stranieri, tasse o permessi: per quello servono notaio e consulente. Le spiegazioni del glossario sono generiche e vanno confermate. Controlla che nulla nel testo estero prometta più dell'annuncio italiano. Non usare tassi di cambio inventati.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot",
+    "Mistral Le Chat"
+  ],
+  "level": "intermedio",
+  "tested_at": "2026-10-21",
+  "test_notes": "DA COMPILARE DOPO IL TEST: nota provvisoria per superare la lunghezza minima richiesta."
+}

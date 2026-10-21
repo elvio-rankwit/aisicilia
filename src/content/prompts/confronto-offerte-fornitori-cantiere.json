@@ -1,0 +1,38 @@
+{
+  "title": "Confrontare le offerte dei fornitori per lo stesso lavoro, rendendole davvero paragonabili",
+  "slug": "confronto-offerte-fornitori-cantiere",
+  "sector": "edilizia-immobiliare",
+  "use_case": "analisi",
+  "goal": "Ottieni una tabella di confronto, l'elenco delle offerte non paragonabili così come sono, le differenze di sostanza e cinque domande da fare a ogni fornitore prima di scegliere.",
+  "prompt_text": "Sei un assistente tecnico che aiuta il titolare di un'impresa edile a confrontare più offerte di fornitori per lo stesso lavoro o la stessa fornitura. Lavoro: {lavoro}.\n\nLe offerte (copiate come sono, anche in forma di elenco):\n{offerte}\n\nCosa conta di più per me: {criteri}\n\nProcedi così.\n1. Tabella di confronto con una colonna per fornitore e una riga per ogni voce: prodotto, quantità, prezzo, posa o trasporto, IVA (esclusa o inclusa), tempi di consegna, condizioni di pagamento, garanzia. Dove un dato non è scritto, indica \"non indicato\".\n2. Rendi confrontabili le offerte: dove le condizioni sono diverse (per esempio IVA inclusa in una e non nelle altre, posa compresa o no), dimmi quali offerte non sono confrontabili così come sono. Mostra i calcoli che fai. Se per renderle confrontabili serve un dato che non è scritto, come l'aliquota IVA, non supporlo: chiedimelo.\n3. Differenze di sostanza: cosa offre una e non le altre.\n4. Cinque domande da fare a ciascun fornitore prima di decidere.\n5. In due frasi, quale offerta mi sembra più completa rispetto ai miei criteri, senza dire che è la migliore in assoluto.\n\nVincoli: usa solo i dati delle offerte, non inventare prezzi di mercato, marchi o caratteristiche tecniche. Se una voce non è chiara, scrivilo.",
+  "variables": [
+    {
+      "name": "lavoro",
+      "description": "Che lavoro o fornitura.",
+      "example": "sostituzione di 8 finestre in un appartamento a Siracusa"
+    },
+    {
+      "name": "offerte",
+      "description": "Le offerte, una per fornitore, come le hai ricevute.",
+      "example": "Fornitore A: 8 finestre in PVC, 5.920 euro; posa 960 euro; IVA esclusa; consegna in 5 settimane; pagamento 50% all'ordine e saldo a posa finita; garanzia 10 anni.\nFornitore B: 8 finestre in PVC, 5.200 euro; posa non indicata; IVA esclusa; consegna in 4 settimane; pagamento 100% all'ordine.\nFornitore C: 8 finestre in alluminio, 7.400 euro con posa; IVA inclusa; consegna in 6 settimane; pagamento 30% all'ordine, saldo a fine lavori; garanzia 5 anni."
+    },
+    {
+      "name": "criteri",
+      "description": "Cosa pesa di più nella tua scelta.",
+      "example": "costo totale a lavoro finito, tempi di consegna, garanzia"
+    }
+  ],
+  "how_to_use": "Incolla le offerte come le hai ricevute, anche se i formati sono diversi. Se un fornitore ha mandato un PDF, copia le voci principali. Leggi con attenzione il punto sulle offerte non paragonabili: spesso le differenze di prezzo stanno lì. Usa le cinque domande per telefonare ai fornitori.",
+  "example_input": "lavoro: sostituzione di 8 finestre in un appartamento a Siracusa\nofferte: Fornitore A: 8 finestre in PVC, 5.920 euro; posa 960 euro; IVA esclusa; consegna in 5 settimane; pagamento 50% all'ordine e saldo a posa finita; garanzia 10 anni.\nFornitore B: 8 finestre in PVC, 5.200 euro; posa non indicata; IVA esclusa; consegna in 4 settimane; pagamento 100% all'ordine.\nFornitore C: 8 finestre in alluminio, 7.400 euro con posa; IVA inclusa; consegna in 6 settimane; pagamento 30% all'ordine, saldo a fine lavori; garanzia 5 anni.\ncriteri: costo totale a lavoro finito, tempi di consegna, garanzia",
+  "expected_output_description": "Una tabella con una colonna per fornitore, l'elenco delle offerte non paragonabili con i calcoli mostrati, le differenze di sostanza, cinque domande per ciascun fornitore e una valutazione di due frasi rispetto ai tuoi criteri.",
+  "limits_and_warnings": "L'AI confronta solo ciò che è scritto: voci omesse, clausole nascoste e qualità reale dei prodotti non le vede. Non sostituisce il parere del direttore dei lavori o di un tecnico. Controlla i calcoli con la calcolatrice e non inserire dati personali o riservati di terzi.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot"
+  ],
+  "level": "intermedio",
+  "tested_at": "2026-10-21",
+  "test_notes": "DA COMPILARE DOPO IL TEST: nota provvisoria per superare la lunghezza minima richiesta."
+}

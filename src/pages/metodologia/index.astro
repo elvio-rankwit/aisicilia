@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCompanies, getUpcomingEvents } from '../../lib/data';
+import { PROVINCES, PROVINCE_SLUGS } from '../../lib/provinces';
+import { countByProvince } from '../../components/helpers';
+
+const [companies, events] = await Promise.all([getCompanies(), getUpcomingEvents()]);
+const cc = countByProvince(companies);
+const ec = countByProvince(events);
+const m = {
+  title: 'Come verifichiamo i dati: la metodologia di AI Sicilia',
+  description: 'Da dove prendiamo aziende ed eventi, quali criteri usiamo per includerli, cosa vuol dire “verificato” e come chiedere una correzione.',
+};
+---
+<BaseLayout seo={{ title: m.title, description: m.description, path: '/metodologia/', breadcrumbs: [{ name: 'Metodologia', path: '/metodologia/' }] }}>
+  <div class="page-head">
+    <h1>Come verifichiamo i dati</h1>
+    <p class="answer">Ogni azienda e ogni evento di AI Sicilia nasce da fonti pubbliche che abbiamo davvero consultato, e riporta la data dell’ultima verifica. Le descrizioni sono riscritte, non copiate. Niente dati personali, niente loghi di terzi. Qui spieghiamo come si decide cosa entra e cosa no.</p>
+  </div>
+
+  <div class="prose">
+    <section aria-labelledby="h-fonti">
+      <h2 id="h-fonti" class="first">Le fonti che usiamo</h2>
+      <p>Partiamo da fonti pubbliche e ufficiali. Per le aziende: siti ufficiali delle realtà, registri pubblici come quello delle startup innovative, pagine istituzionali di università e centri di ricerca. Per gli eventi: le pagine degli organizzatori, le piattaforme pubbliche di iscrizione, i calendari di università, camere di commercio e associazioni.</p>
+      <p>La stampa locale e di settore ci serve solo per scoprire nomi: ogni dato va poi confermato su una fonte primaria. Rispettiamo i termini d’uso e il file robots.txt dei siti, e non preleviamo dati da servizi che lo vietano, come LinkedIn o Crunchbase.</p>
+    </section>
+
+    <section aria-labelledby="h-aziende">
+      <h2 id="h-aziende">Quali aziende entrano</h2>
+      <p>Servono due condizioni insieme: una sede operativa in Sicilia e l’intelligenza artificiale al centro del prodotto o del servizio, dichiarata sul sito o in una fonte pubblica. Possono essere startup, aziende, spin-off universitari, centri di ricerca, incubatori e community.</p>
+      <p>Restano fuori gli operatori generalisti, come le agenzie web o le software house che usano anche ChatGPT tra gli strumenti. Nel dubbio la scheda non si pubblica e aspetta altre prove.</p>
+    </section>
+
+    <section aria-labelledby="h-eventi">
+      <h2 id="h-eventi">Quali eventi entrano</h2>
+      <p>Gli eventi sull’intelligenza artificiale che si svolgono in Sicilia, in presenza o in forma ibrida, e quelli online se li organizza una realtà siciliana. Gli eventi online non hanno un marker sulla mappa. Un evento finito passa in archivio e resta consultabile.</p>
+    </section>
+
+    <section aria-labelledby="h-verificato">
+      <h2 id="h-verificato">Che cosa significa “verificato”</h2>
+      <p>Una scheda è verificata quando ogni dato pubblicato risulta da almeno una fonte che abbiamo aperto e letto, indicata in fondo alla scheda. La data di “ultima verifica” è il giorno in cui è stato fatto l’ultimo controllo. Se qualcosa non si riesce a confermare, non lo pubblichiamo.</p>
+      <p>Una data recente non garantisce che nulla sia cambiato nel frattempo: per orari, prezzi e iscrizioni agli eventi vale sempre la pagina dell’organizzatore. Frequenza di revisione delle schede: <span class="todo">[DA COMPLETARE: frequenza di revisione delle schede]</span>.</p>
+    </section>
+
+    <section aria-labelledby="h-geo">
+      <h2 id="h-geo">Come calcoliamo la posizione</h2>
+      <p>Se l’azienda pubblica un indirizzo, lo trasformiamo in coordinate e la mappa segna quel punto: la precisione è “indirizzo”. Se non c’è un indirizzo, usiamo il centro del comune e lo diciamo nella scheda: la precisione è “città”. Le coordinate non si stimano a occhio.</p>
+    </section>
+
+    <section aria-labelledby="h-testi">
+      <h2 id="h-testi">Testi, immagini e dati personali</h2>
+      <p>Le descrizioni sono scritte da zero: cosa fa l’azienda, per chi, con quale tecnologia. Non copiamo i testi dei siti. Non usiamo loghi di terzi: al loro posto c’è un riquadro con le iniziali. Pubblichiamo solo dati aziendali. Nomi, email e telefoni di persone non compaiono.</p>
+    </section>
+
+    <section aria-labelledby="h-correzioni">
+      <h2 id="h-correzioni">Come chiedere una correzione</h2>
+      <p>Se una scheda contiene un errore o vuoi che sia tolta, usa il modulo <a href="/rimozione/">Richiedi modifica o rimozione</a>. Se manca una realtà o un evento, usa <a href="/segnala/">Segnala</a>.</p>
+    </section>
+
+    <section aria-labelledby="h-province">
+      <h2 id="h-province">Una nota sulle province</h2>
+      <p>Nel testo parliamo di province perché è il lessico che usiamo tutti. Dal 2015 in Sicilia le province sono diventate liberi consorzi comunali, mentre Palermo, Catania e Messina sono città metropolitane. I confini e i nomi che usiamo sono quelli di sempre.</p>
+    </section>
+
+    <section aria-labelledby="h-ai">
+      <h2 id="h-ai">Il ruolo dell’AI in questo progetto</h2>
+      <p>Per fare ricerca e preparare le prime bozze usiamo agenti AI, con gli stessi metodi di cui parla la pagina <a href="/chi-siamo/">Chi siamo</a>. Le bozze non vanno online da sole: la verifica delle fonti e la responsabilità editoriale di ciò che pubblichiamo sono di Elvio Leonardi.</p>
+    </section>
+  </div>
+
+  <section class="section" aria-labelledby="h-numeri">
+    <h2 id="h-numeri">I numeri di oggi, per provincia</h2>
+    <div class="table-wrap">
+      <table>
+        <caption>Aziende e eventi in programma, per provincia siciliana</caption>
+        <thead><tr><th scope="col">Provincia</th><th scope="col">Ente</th><th scope="col" class="num">Aziende</th><th scope="col" class="num">Eventi in programma</th></tr></thead>
+        <tbody>
+          {PROVINCE_SLUGS.map((p) => (
+            <tr>
+              <th scope="row">{PROVINCES[p].name}</th>
+              <td>{PROVINCES[p].ente}</td>
+              <td class="num"><a href={`/aziende/provincia/${p}/`}>{cc[p]}</a></td>
+              <td class="num"><a href={`/eventi/provincia/${p}/`}>{ec[p]}</a></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .first { margin-top: 0; }
+</style>

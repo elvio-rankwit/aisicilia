@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FormShell from '../../components/FormShell.astro';
+import { FORMS } from '../../lib/site';
+
+const m = {
+  title: 'Contatti: scrivi ad AI Sicilia',
+  description: 'Come contattare il progetto AI Sicilia: email, modulo per i messaggi e le pagine giuste per segnalare un’azienda, un evento o chiedere una rimozione.',
+};
+---
+<BaseLayout seo={{ title: m.title, description: m.description, path: '/contatti/', breadcrumbs: [{ name: 'Contatti', path: '/contatti/' }] }}>
+  <div class="page-head">
+    <h1>Contatti</h1>
+    <p class="answer">AI Sicilia è un progetto indipendente gestito da Elvio Leonardi. Per scrivere usa il modulo qui sotto o l’email. Per segnalare un’azienda o un evento, oppure per chiedere una correzione, ci sono due moduli dedicati.</p>
+  </div>
+
+  <section aria-labelledby="h-dove">
+    <h2 id="h-dove" class="first">Dove trovarci</h2>
+    <dl class="facts">
+      <dt>Email</dt>
+      <dd><span class="todo">[DA COMPLETARE: email di contatto]</span></dd>
+      <dt>Segnalazioni</dt>
+      <dd><a href="/segnala/">Segnala un’azienda o un evento</a></dd>
+      <dt>Correzioni</dt>
+      <dd><a href="/rimozione/">Richiedi modifica o rimozione</a></dd>
+      <dt>Chi c’è dietro</dt>
+      <dd><a href="/chi-siamo/">Chi siamo</a></dd>
+    </dl>
+  </section>
+
+  <section class="section" aria-labelledby="h-form">
+    <h2 id="h-form">Scrivici</h2>
+    <FormShell action={FORMS.contatti} envName="PUBLIC_FORM_CONTATTI_URL" submitLabel="Invia il messaggio" label="Modulo di contatto">
+      <div class="field">
+        <label for="c-nome">Il tuo nome</label>
+        <input id="c-nome" name="nome" type="text" required autocomplete="name" />
+      </div>
+      <div class="field">
+        <label for="c-email">La tua email</label>
+        <input id="c-email" name="email" type="email" required autocomplete="email" />
+        <span class="hint">Serve solo per risponderti. Dettagli nell’<a href="/privacy/">informativa privacy</a>.</span>
+      </div>
+      <div class="field">
+        <label for="c-msg">Messaggio</label>
+        <textarea id="c-msg" name="messaggio" required></textarea>
+      </div>
+    </FormShell>
+  </section>
+</BaseLayout>
+<style>
+  .first { margin-top: 0; }
+</style>

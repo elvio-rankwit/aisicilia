@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { profilePageNodes } from '../../lib/seo/jsonld';
+
+const m = {
+  title: 'Chi siamo: Elvio Leonardi e il progetto AI Sicilia',
+  description: 'Elvio Leonardi, consulente SEO e GEO a Palermo, racconta chi c’è dietro AI Sicilia, perché ha creato il portale e come lavora sui dati.',
+};
+---
+<BaseLayout
+  seo={{ title: m.title, description: m.description, path: '/chi-siamo/', type: 'profile', breadcrumbs: [{ name: 'Chi siamo', path: '/chi-siamo/' }], jsonld: profilePageNodes() }}
+>
+  <div class="page-head intro">
+    <div class="photo" role="group" aria-label="Foto di Elvio Leonardi, da inserire">
+      <span class="todo">[DA COMPLETARE: foto]</span>
+    </div>
+    <div>
+      <h1>Chi siamo</h1>
+      <p class="answer">Mi chiamo Elvio Leonardi, sono un consulente freelance di SEO, GEO e Google Ads e lavoro a Palermo. AI Sicilia l’ho ideato e lo gestisco io, da solo: non è un ente, un’associazione o un’agenzia.</p>
+    </div>
+  </div>
+
+  <div class="prose">
+    <section aria-labelledby="h-percorso">
+      <h2 id="h-percorso" class="first">Il mio percorso</h2>
+      <p>Tra le mie esperienze precedenti ci sono Google, Liu Jo e Plenitude. <span class="todo">[DA COMPLETARE: ruolo esatto in Google / Liu Jo / Plenitude]</span></p>
+      <p>Dal 2024 mi occupo in modo esclusivo di ospitalità e turismo. Collaboro con RankWit come SEO &amp; AI Search Specialist: seguo strutture alberghiere sulla visibilità nella ricerca tradizionale e nelle risposte dei motori AI.</p>
+      <p>Ho ideato Protocollo Disintermediazione, un servizio di consulenza che aiuta le strutture ricettive indipendenti a dipendere meno dalle OTA, le agenzie di viaggio online, e a ricevere più prenotazioni dirette.</p>
+    </section>
+
+    <section aria-labelledby="h-competenze">
+      <h2 id="h-competenze">Competenze su AI e GEO</h2>
+      <p>GEO sta per Generative Engine Optimization: si lavora perché un brand compaia, e compaia bene, nelle risposte che ChatGPT, Gemini e gli altri assistenti danno a chi fa una domanda.</p>
+      <p>Ho sviluppato strumenti per misurare la visibilità dei brand nelle risposte dei modelli AI. Un esempio è un generatore di query per l’analisi GEO, con una tassonomia per intento: scoperta, confronto, transazionale, informativo.</p>
+      <p>Sul lato tecnico uso Python e pandas per analizzare i dati SEO, e mi occupo di SEO tecnico: crawling, Search Console, dati strutturati, hreflang. Automatizzo il lavoro con l’AI. Costruisco anche portali editoriali con sistemi multi-agente AI, e sono gli stessi metodi con cui è fatto aisicilia.it.</p>
+    </section>
+
+    <section aria-labelledby="h-formazione">
+      <h2 id="h-formazione">Formazione</h2>
+      <p>Sono docente di AI e Digital Marketing per Confesercenti. La formazione è rivolta a imprese e professionisti.</p>
+    </section>
+
+    <section aria-labelledby="h-perche">
+      <h2 id="h-perche">Perché aisicilia.it</h2>
+      <p>Voglio rendere l’AI comprensibile e usabile per le imprese siciliane, mappare chi lavora con l’AI in Sicilia e dare visibilità a chi la anima.</p>
+    </section>
+
+    <section aria-labelledby="h-dati">
+      <h2 id="h-dati">Come lavoriamo sui dati</h2>
+      <p>Ricerca e prime bozze le fanno agenti AI. Verifica e responsabilità editoriale restano mie: ogni scheda ha le sue fonti e la data dell’ultima verifica. Il metodo completo è nella pagina <a href="/metodologia/">Come verifichiamo i dati</a>.</p>
+    </section>
+
+    <section aria-labelledby="h-contatti">
+      <h2 id="h-contatti">Contatti</h2>
+      <dl class="facts">
+        <dt>Email</dt>
+        <dd><span class="todo">[DA COMPLETARE: email di contatto]</span></dd>
+        <dt>LinkedIn</dt>
+        <dd><span class="todo">[DA COMPLETARE: link LinkedIn]</span></dd>
+        <dt>Altro</dt>
+        <dd>Trovi anche la pagina <a href="/contatti/">Contatti</a> e i moduli per <a href="/segnala/">segnalare</a> o <a href="/rimozione/">chiedere una correzione</a>.</dd>
+      </dl>
+    </section>
+  </div>
+</BaseLayout>
+<style>
+  .intro { display: grid; gap: var(--space-5); align-items: start; }
+  .photo { width: 160px; height: 160px; display: flex; align-items: center; justify-content: center; text-align: center; padding: var(--space-3); border: 2px dashed var(--c-border); border-radius: var(--radius-lg); background: var(--c-surface-2); font-size: var(--fs-sm); }
+  @media (min-width: 40rem) { .intro { grid-template-columns: 160px minmax(0, 1fr); } }
+  .first { margin-top: 0; }
+</style>

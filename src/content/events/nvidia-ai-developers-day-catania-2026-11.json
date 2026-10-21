@@ -1,0 +1,32 @@
+{
+  "title": "NVIDIA AI Developers Day",
+  "slug": "nvidia-ai-developers-day-catania-2026-11",
+  "description": "Giornata dedicata alle tecnologie e alle soluzioni NVIDIA per l'intelligenza artificiale, ospitata dal Dipartimento di Matematica e Informatica dell'Università di Catania. Il programma mette a confronto tecnologie AI, ricerca e applicazioni aziendali, con attenzione al modello ARIANNA, ai dati e a casi d'uso concreti per università e imprese. Dalle 9:00 alle 15:00 nell'Aula Magna del dipartimento. La partecipazione richiede l'iscrizione tramite il QR code riportato nella locandina dell'evento.",
+  "start_date": "2026-11-11",
+  "start_time": "09:00",
+  "end_time": "15:00",
+  "format": "in presenza",
+  "venue_name": "Aula Magna, Dipartimento di Matematica e Informatica",
+  "venue_address": "Viale Andrea Doria 6, 95125 Catania",
+  "city": "Catania",
+  "province": "catania",
+  "lat": 37.52541,
+  "lng": 15.07311,
+  "organizer": "Dipartimento di Matematica e Informatica, Università di Catania",
+  "organizer_url": "https://web.dmi.unict.it/",
+  "event_url": "https://web.dmi.unict.it/it/notizie/nvidia-ai-developers-day-11-novembre-2026",
+  "price": "non indicato",
+  "audience": [
+    "ricercatori",
+    "imprese",
+    "sviluppatori"
+  ],
+  "topics": [
+    "AI per le imprese",
+    "dati"
+  ],
+  "source_url": "https://web.dmi.unict.it/it/notizie/nvidia-ai-developers-day-11-novembre-2026",
+  "status": "programmato",
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

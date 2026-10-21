@@ -1,0 +1,48 @@
+{
+  "title": "Tradurre il programma di un tour in inglese e francese con nomi di luoghi e piatti",
+  "slug": "traduzione-programma-tour-inglese-francese-agenzia",
+  "sector": "turismo-agenzie",
+  "use_case": "traduzioni",
+  "goal": "Ottieni il programma di un tour tradotto in inglese e francese con nomi dei luoghi corretti, piatti spiegati in poche parole e un elenco di dubbi per il revisore madrelingua.",
+  "prompt_text": "Sei un traduttore specializzato in turismo, con esperienza di Sicilia. Traduci il testo qui sotto per i clienti stranieri di {nome_agenzia}, nelle lingue: {lingue_destinazione}.\n\nTesto italiano:\n{testo_italiano}\n\nTermini da lasciare in italiano, se ce ne sono: {termini_da_non_tradurre}\nPubblico: {pubblico}\n\nConsegna una versione per ciascuna lingua, una dopo l'altra.\nRegole: traduci il senso, non parola per parola, con il tono del testo originale. Per i luoghi usa la forma corrente nella lingua (per esempio Syracuse per Siracusa in inglese) solo se esiste ed è di uso comune; altrimenti lascia il nome italiano. Alla prima occorrenza di un piatto o di un prodotto tipico lascia il nome italiano e aggiungi una spiegazione di al massimo quattro parole tra parentesi. Non cambiare nessun numero, orario o importo: orari sempre in formato 24 ore, separatori di migliaia e decimali secondo l'uso della lingua, prezzi con il simbolo dell'euro nella posizione corretta. Non aggiungere informazioni, consigli o promesse che non sono nel testo originale.\nIn fondo, sotto il titolo \"Per il revisore madrelingua\", elenca le scelte di traduzione che ti sembrano più incerte.",
+  "variables": [
+    {
+      "name": "nome_agenzia",
+      "description": "Nome dell'agenzia.",
+      "example": "Gelsomino Viaggi"
+    },
+    {
+      "name": "lingue_destinazione",
+      "description": "Lingue in cui vuoi il testo.",
+      "example": "inglese e francese"
+    },
+    {
+      "name": "testo_italiano",
+      "description": "Il testo da tradurre, già verificato in italiano.",
+      "example": "Tour dell'Etna in giornata. Partenza alle 8:30 da piazza Stesicoro a Catania. Saliamo in minivan fino a 1.900 metri e proseguiamo a piedi con la guida per circa 2 ore sui crateri Silvestri. Pranzo in una cantina, con degustazione di Etna Rosso, arancini, formaggi e salumi. Rientro a Catania alle 17:30. Costo: 85 euro a persona, pranzo incluso. Portare scarponcini e giacca a vento."
+    },
+    {
+      "name": "termini_da_non_tradurre",
+      "description": "Nomi che vuoi mantenere in italiano.",
+      "example": "Etna Rosso"
+    },
+    {
+      "name": "pubblico",
+      "description": "A chi si rivolge il testo.",
+      "example": "Coppie e piccoli gruppi di turisti, senza esperienza di montagna."
+    }
+  ],
+  "how_to_use": "Parti da un testo italiano già controllato nei dati (orari, prezzi, quota). Incolla il prompt e confronta numeri e orari in ogni versione. Se vendi spesso a un mercato, fai rivedere almeno la prima traduzione a un madrelingua e riusa le sue correzioni come glossario.",
+  "example_input": "nome_agenzia: Gelsomino Viaggi\nlingue_destinazione: inglese e francese\ntesto_italiano: Tour dell'Etna in giornata. Partenza alle 8:30 da piazza Stesicoro a Catania. Saliamo in minivan fino a 1.900 metri e proseguiamo a piedi con la guida per circa 2 ore sui crateri Silvestri. Pranzo in una cantina, con degustazione di Etna Rosso, arancini, formaggi e salumi. Rientro a Catania alle 17:30. Costo: 85 euro a persona, pranzo incluso. Portare scarponcini e giacca a vento.\ntermini_da_non_tradurre: Etna Rosso\npubblico: Coppie e piccoli gruppi di turisti, senza esperienza di montagna.",
+  "expected_output_description": "Una versione per lingua, con luoghi in forma corrente, piatti in italiano con spiegazione brevissima alla prima occorrenza, numeri e orari invariati, e in fondo l'elenco \"Per il revisore madrelingua\". Nessuna informazione aggiunta.",
+  "limits_and_warnings": "Le traduzioni dell'AI vanno bene per testi informativi ma possono suonare rigide: fai rileggere a un madrelingua prima di pubblicare o stampare. Controlla numeri, orari e importi in ogni lingua. Non tradurre testi legali o contrattuali con questo prompt: servono un traduttore e un professionista.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Mistral Le Chat"
+  ],
+  "level": "intermedio",
+  "tested_at": "2026-10-21",
+  "test_notes": "Eseguito sul testo del tour dell'Etna: \"Mount Etna\" in inglese e \"l'Etna\" in francese, arancini con spiegazione di quattro parole, 8:30 e 17:30 invariati, 85 euro scritti secondo l'uso di ciascuna lingua. Nella mia prima esecuzione \"1.900 metri\" restava con il punto anche in inglese e le spiegazioni dei piatti superavano le quattro parole: aggiunte le regole su separatori e lunghezza."
+}

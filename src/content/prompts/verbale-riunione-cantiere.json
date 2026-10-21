@@ -1,0 +1,43 @@
+{
+  "title": "Trasformare gli appunti di una riunione di cantiere in un verbale con decisioni e azioni",
+  "slug": "verbale-riunione-cantiere",
+  "sector": "edilizia-immobiliare",
+  "use_case": "organizzazione",
+  "goal": "Ottieni un verbale con decisioni, azioni assegnate (chi, cosa, entro quando), questioni aperte e un elenco dei punti degli appunti che non sono chiari, senza dati inventati.",
+  "prompt_text": "Sei il segretario di una riunione di cantiere. Trasforma i miei appunti in un verbale chiaro e utile a chi era presente e a chi doveva esserci.\n\nCantiere: {cantiere}\nData e luogo: {data_luogo}\nPresenti (ruoli, non servono i cognomi): {presenti}\nAppunti (disordinati, anche abbreviati):\n{appunti}\n\nScrivi:\n1. Intestazione con cantiere, data, luogo e presenti.\n2. Decisioni prese: elenco numerato, una per riga.\n3. Azioni da fare: per ognuna scrivi cosa, chi (ruolo) ed entro quando. Se chi o quando non risulta dagli appunti, scrivi \"da assegnare\" o \"data da fissare\": non indovinare.\n4. Questioni aperte: cose emerse ma non decise.\n5. Punti che non ho capito: le frasi degli appunti ambigue, ciascuna con la domanda da farmi.\n6. Data della prossima riunione, solo se negli appunti.\n\nVincoli: non aggiungere decisioni, importi o date non presenti negli appunti. Riporta i numeri come scritti. Se negli appunti un'informazione ha un punto interrogativo, trattala come non confermata e mettila nei punti da chiarire. Non attribuire frasi o responsabilità a una persona se gli appunti non lo dicono. Stile sintetico, frasi brevi.",
+  "variables": [
+    {
+      "name": "cantiere",
+      "description": "Nome o descrizione del cantiere.",
+      "example": "ristrutturazione di una palazzina a due piani, Gela"
+    },
+    {
+      "name": "data_luogo",
+      "description": "Quando e dove.",
+      "example": "19 ottobre 2026, in cantiere"
+    },
+    {
+      "name": "presenti",
+      "description": "I ruoli di chi c'era.",
+      "example": "titolare dell'impresa, capocantiere, direttore dei lavori, committente"
+    },
+    {
+      "name": "appunti",
+      "description": "Gli appunti, anche scritti male.",
+      "example": "ponteggio lato nord da sistemare, capocantiere entro venerdì?\nelettricista arriva lunedì, serve il quadro pronto\nmassetto: aspettare 3 settimane prima del parquet (da chiedere al posatore)\nritardo infissi, il fornitore dice fine mese\nimpermeabilizzazione terrazzo: extra 1.800 euro, il committente deve dire sì o no\nprossima riunione boh dopo l'arrivo degli infissi"
+    }
+  ],
+  "how_to_use": "Scrivi gli appunti durante la riunione senza ordinarli, ma segna con un punto interrogativo quello di cui non sei sicuro. Poche ore dopo incolla gli appunti nel prompt, rispondi alle domande sui punti poco chiari e manda il verbale ai presenti il giorno stesso.",
+  "example_input": "cantiere: ristrutturazione di una palazzina a due piani, Gela\ndata_luogo: 19 ottobre 2026, in cantiere\npresenti: titolare dell'impresa, capocantiere, direttore dei lavori, committente\nappunti: ponteggio lato nord da sistemare, capocantiere entro venerdì?\nelettricista arriva lunedì, serve il quadro pronto\nmassetto: aspettare 3 settimane prima del parquet (da chiedere al posatore)\nritardo infissi, il fornitore dice fine mese\nimpermeabilizzazione terrazzo: extra 1.800 euro, il committente deve dire sì o no\nprossima riunione boh dopo l'arrivo degli infissi",
+  "expected_output_description": "Un verbale con intestazione, decisioni numerate, azioni con responsabile e scadenza (o \"da assegnare\"), questioni aperte, un elenco dei punti poco chiari con una domanda ciascuno e la prossima riunione solo se indicata.",
+  "limits_and_warnings": "Il verbale è un promemoria interno e non sostituisce i documenti formali di direzione lavori, sicurezza e contabilità. Controlla ogni importo e ogni data. L'AI può interpretare male le abbreviazioni: rileggi con gli appunti accanto prima di inviare, soprattutto le azioni assegnate a una persona.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot"
+  ],
+  "level": "intermedio",
+  "tested_at": "2026-10-21",
+  "test_notes": "DA COMPILARE DOPO IL TEST: nota provvisoria per superare la lunghezza minima richiesta."
+}

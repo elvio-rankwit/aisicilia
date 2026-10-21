@@ -1,0 +1,58 @@
+{
+  "title": "Descrizione giorno per giorno di un tour in Sicilia per il sito dell'agenzia",
+  "slug": "descrizione-itinerario-tour-sicilia-agenzia",
+  "sector": "turismo-agenzie",
+  "use_case": "marketing",
+  "goal": "Ottieni la pagina di un tour con introduzione, descrizione giorno per giorno e un blocco onesto su chi lo sceglie e chi no, senza orari o soste inventati.",
+  "prompt_text": "Scrivi per il sito di {nome_agenzia} la pagina del tour \"{nome_tour}\".\n\nDati reali, usa solo questi:\n- Tappe giorno per giorno: {tappe_per_giorno}\n- Spostamenti e durate: {spostamenti}\n- Cosa è incluso: {cosa_e_incluso}\n- Clientela tipica: {clientela}\n- Stagione consigliata: {stagione}\n\nConsegna, in italiano:\n1. Introduzione di circa 50 parole.\n2. Il programma giorno per giorno, da 60 a 80 parole per giorno.\n3. \"Per chi è\" e \"Per chi non è\", ciascuno di due o tre righe, ricavati dai dati (ritmo, spostamenti, scale, stagione).\n4. \"Cosa portare\", con indicazioni di buon senso legate alle tappe e alla stagione, senza temperature o dati.\n5. Titolo per il sito di massimo 60 caratteri e meta description di massimo 150.\n\nStile: frasi concrete, ritmo vario, niente \"gioiello nascosto\", \"magia\", \"paradiso\", \"autentico\". Descrivi cosa fa il viaggiatore ogni giorno. Non inventare orari, soste, ristoranti, ingressi o durate che non ho scritto. Dove un dato mi sembra necessario e manca, chiedimelo prima di scrivere.",
+  "variables": [
+    {
+      "name": "nome_agenzia",
+      "description": "Nome dell'agenzia.",
+      "example": "Gelsomino Viaggi"
+    },
+    {
+      "name": "nome_tour",
+      "description": "Nome del tour.",
+      "example": "Sicilia orientale in quattro giorni: Etna, Siracusa, Taormina"
+    },
+    {
+      "name": "tappe_per_giorno",
+      "description": "Cosa si fa ogni giorno.",
+      "example": "Giorno 1: arrivo a Catania, passeggiata nel centro storico e alla pescheria. Giorno 2: escursione sull'Etna con guida, sosta in cantina. Giorno 3: Siracusa e Ortigia. Giorno 4: Taormina e partenza."
+    },
+    {
+      "name": "spostamenti",
+      "description": "Durate degli spostamenti, solo se le conosci.",
+      "example": "Catania-Etna circa 1 ora, Catania-Siracusa circa 1 ora, Siracusa-Taormina circa 1 ora e 30. Spostamenti in minivan."
+    },
+    {
+      "name": "cosa_e_incluso",
+      "description": "Cosa comprende il tour.",
+      "example": "Guida sull'Etna, hotel con colazione, trasferimenti in minivan."
+    },
+    {
+      "name": "clientela",
+      "description": "Chi lo sceglie di solito.",
+      "example": "Coppie e piccoli gruppi sopra i 40 anni, ritmo medio."
+    },
+    {
+      "name": "stagione",
+      "description": "Quando consigli di farlo.",
+      "example": "Aprile-giugno e settembre-ottobre."
+    }
+  ],
+  "how_to_use": "Compila le variabili con il programma reale e i tempi verificati dai tuoi fornitori. Incolla il prompt, poi leggi giorno per giorno chiedendoti se un cliente ritroverebbe esattamente ciò che ha letto. Pubblica il testo con le tue foto e aggiorna le date ogni stagione.",
+  "example_input": "nome_agenzia: Gelsomino Viaggi\nnome_tour: Sicilia orientale in quattro giorni: Etna, Siracusa, Taormina\ntappe_per_giorno: Giorno 1: arrivo a Catania, passeggiata nel centro storico e alla pescheria. Giorno 2: escursione sull'Etna con guida, sosta in cantina. Giorno 3: Siracusa e Ortigia. Giorno 4: Taormina e partenza.\nspostamenti: Catania-Etna circa 1 ora, Catania-Siracusa circa 1 ora, Siracusa-Taormina circa 1 ora e 30. Spostamenti in minivan.\ncosa_e_incluso: Guida sull'Etna, hotel con colazione, trasferimenti in minivan.\nclientela: Coppie e piccoli gruppi sopra i 40 anni, ritmo medio.\nstagione: Aprile-giugno e settembre-ottobre.",
+  "expected_output_description": "Introduzione di circa 50 parole, quattro giorni da 60-80 parole, due blocchi \"Per chi è\" e \"Per chi non è\" di due o tre righe, \"Cosa portare\" con consigli generici, titolo e meta description. Nessun orario o sosta non indicato.",
+  "limits_and_warnings": "Controlla ogni orario e ogni durata con i fornitori: l'AI ricostruisce volentieri dettagli plausibili ma non veri. Se il tour prevede salite, escursioni in quota o attività in mare, le indicazioni di sicurezza e idoneità vanno scritte da chi le conosce. Verifica che il testo corrisponda al programma venduto.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot"
+  ],
+  "level": "base",
+  "tested_at": "2026-10-21",
+  "test_notes": "Eseguito sul tour di quattro giorni: ogni giorno tra 60 e 80 parole, \"Per chi non è\" ricavato da spostamenti quotidiani e ritmo (non adatto a chi preferisce restare in un solo posto), nessun ristorante o orario aggiunto. Nella mia prima esecuzione \"Cosa portare\" citava temperature in quota: aggiunto il divieto di temperature e dati."
+}

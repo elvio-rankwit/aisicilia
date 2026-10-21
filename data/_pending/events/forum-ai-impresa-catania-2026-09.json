@@ -1,0 +1,28 @@
+{
+  "title": "Forum Intelligenza Artificiale e Impresa",
+  "slug": "forum-ai-impresa-catania-2026-09",
+  "description": "Forum pomeridiano a Catania su intelligenza artificiale e impresa, organizzato da OverTheCode. La pagina Eventbrite indica solo titolo, sede (Isola Catania), orario dalle 15:00 alle 19:00 e il venerdì 25 settembre; non riporta descrizione, programma, prezzo né indirizzo, e mostra l'evento come terminato con vendite chiuse.",
+  "start_date": "2026-09-25",
+  "start_time": "15:00",
+  "end_time": "19:00",
+  "format": "in presenza",
+  "venue_name": "Isola Catania",
+  "city": "Catania",
+  "province": "catania",
+  "lat": 37.50182,
+  "lng": 15.09086,
+  "organizer": "OverTheCode",
+  "event_url": "https://www.eventbrite.com/e/biglietti-forum-intelligenza-artificiale-e-impresa-1996099696927",
+  "price": "non indicato",
+  "audience": [
+    "imprese"
+  ],
+  "topics": [
+    "AI per le imprese"
+  ],
+  "source_url": "https://www.eventbrite.com/e/biglietti-forum-intelligenza-artificiale-e-impresa-1996099696927",
+  "status": "programmato",
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "La pagina non ha descrizione, programma, prezzo, indirizzo né anno esplicito (2026 dedotto dal giorno della settimana); impossibile scrivere una scheda verificabile."
+}

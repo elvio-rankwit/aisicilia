@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const m = {
+  title: 'Note legali di AI Sicilia',
+  description: 'Natura del progetto, responsabilità sui dati di terzi, marchi citati e licenza dei contenuti di AI Sicilia, portale indipendente sull’AI in Sicilia.',
+};
+---
+<BaseLayout seo={{ title: m.title, description: m.description, path: '/note-legali/', breadcrumbs: [{ name: 'Note legali', path: '/note-legali/' }] }}>
+  <div class="page-head">
+    <h1>Note legali</h1>
+    <p class="answer">AI Sicilia è un progetto indipendente, gestito da Elvio Leonardi. Raccoglie informazioni pubbliche su aziende ed eventi: non è un ente pubblico e non rappresenta le realtà che cita.</p>
+  </div>
+
+  <div class="prose">
+    <section aria-labelledby="h-natura">
+      <h2 id="h-natura" class="first">Natura del progetto</h2>
+      <p>Il portale non è un ente, un’associazione o un’agenzia. È un progetto personale e indipendente. Chi c’è dietro lo trovi in <a href="/chi-siamo/">Chi siamo</a>.</p>
+    </section>
+
+    <section aria-labelledby="h-resp">
+      <h2 id="h-resp">Dati di terzi e responsabilità</h2>
+      <p>Le schede riportano informazioni tratte da fonti pubbliche, indicate in ogni pagina con la data dell’ultima verifica. Facciamo il possibile per tenerle corrette, ma non possiamo garantire che siano complete o aggiornate: per orari, prezzi, iscrizioni e condizioni vale sempre il sito del titolare o dell’organizzatore. Non rispondiamo del contenuto dei siti esterni a cui rimandiamo.</p>
+      <p>Le guide e i prompt hanno scopo informativo e non sono consulenza legale, fiscale o professionale. Gli strumenti AI citati sono esempi, validi alla data indicata.</p>
+    </section>
+
+    <section aria-labelledby="h-marchi">
+      <h2 id="h-marchi">Marchi citati</h2>
+      <p>Nomi di aziende, prodotti e strumenti (per esempio ChatGPT, Claude, Gemini) sono marchi dei rispettivi titolari e li citiamo solo per descriverli. Non usiamo loghi di terzi.</p>
+    </section>
+
+    <section aria-labelledby="h-licenza">
+      <h2 id="h-licenza">Licenza dei contenuti</h2>
+      <p><span class="todo">[DA COMPLETARE: licenza]</span></p>
+      <p>I confini delle province nelle mappe derivano da dati ISTAT, e le mappe interattive usano dati © contributori <a class="ext" href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap</a>.</p>
+    </section>
+
+    <section aria-labelledby="h-correzioni">
+      <h2 id="h-correzioni">Correzioni e rimozioni</h2>
+      <p>Se una scheda ti riguarda e vuoi correggerla o toglierla, usa il modulo <a href="/rimozione/">Richiedi modifica o rimozione</a>. Il metodo con cui raccogliamo i dati è descritto nella <a href="/metodologia/">metodologia</a>.</p>
+    </section>
+  </div>
+</BaseLayout>
+<style>
+  .first { margin-top: 0; }
+</style>

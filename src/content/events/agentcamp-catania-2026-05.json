@@ -1,0 +1,30 @@
+{
+  "title": "AgentCamp Catania 2026",
+  "slug": "agentcamp-catania-2026-05",
+  "description": "Mattinata di community organizzata da Global AI Catania, capitolo locale della Global AI Community, dedicata agli agenti AI. Tre interventi tecnici: agenti AI in contesti aziendali reali, uso del protocollo MCP con database Postgres, gestione del contesto negli agenti. Spazio per networking e coffee break. Si è tenuto da Paradigma, in viale Africa a Catania, con ingresso gratuito e registrazione.",
+  "start_date": "2026-05-23",
+  "start_time": "09:00",
+  "end_time": "13:00",
+  "format": "in presenza",
+  "venue_name": "Paradigma",
+  "venue_address": "Viale Africa 31/B, 95129 Catania",
+  "city": "Catania",
+  "province": "catania",
+  "lat": 37.51033,
+  "lng": 15.10216,
+  "organizer": "Global AI Catania",
+  "event_url": "https://globalai.community/agentcamp/catania",
+  "price": "gratuito",
+  "audience": [
+    "sviluppatori",
+    "professionisti"
+  ],
+  "topics": [
+    "agenti AI",
+    "sviluppo software"
+  ],
+  "source_url": "https://globalai.community/agentcamp/catania",
+  "status": "programmato",
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

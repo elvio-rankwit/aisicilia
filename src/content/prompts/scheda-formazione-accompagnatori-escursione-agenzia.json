@@ -1,0 +1,58 @@
+{
+  "title": "Scheda di formazione per accompagnatori stagionali su una nuova escursione",
+  "slug": "scheda-formazione-accompagnatori-escursione-agenzia",
+  "sector": "turismo-agenzie",
+  "use_case": "formazione del personale",
+  "goal": "Ottieni una scheda di lavoro per i collaboratori stagionali con tappe, sicurezza, imprevisti, risposte alle domande dei clienti e un quiz, basata solo sul tuo materiale.",
+  "prompt_text": "Sei un responsabile operativo di {nome_agenzia}. Prepara una scheda di formazione per gli accompagnatori stagionali che dovranno condurre da soli la nuova escursione \"{escursione}\". Hanno questa esperienza: {esperienza}.\n\nMateriale che ti do, e che è l'unica fonte:\n- Orari e durata: {orari_e_durata}\n- Tappe e contenuti da raccontare: {tappe_e_contenuti}\n- Sicurezza e regole: {sicurezza_e_regole}\n- Domande che fanno i clienti: {domande_clienti}\n\nProduci, in massimo 700 parole:\n1. Panoramica della giornata in cinque righe.\n2. Per ogni tappa: cosa dire (massimo tre punti, presi solo dal materiale) e cosa controllare.\n3. Sicurezza: ripeti le regole che ti ho dato; indica che le istruzioni del comandante o del responsabile di sicurezza prevalgono sempre.\n4. Come gestire ritardi, mare o meteo difficili, cliente che sta male, scrivendo solo ciò che ho indicato; dove manca, scrivi \"CHIEDERE AL RESPONSABILE\".\n5. Risposte alle domande dei clienti; se la risposta non è nel materiale, scrivi \"CHIEDERE AL RESPONSABILE\".\n6. Quiz di sei domande con soluzioni.\n\nNon aggiungere fatti storici, date, dati geologici o naturalistici che non sono nel materiale: se ti sembra utile, scrivi \"DA VERIFICARE SU FONTE UFFICIALE\". Linguaggio semplice e frasi corte.",
+  "variables": [
+    {
+      "name": "nome_agenzia",
+      "description": "Nome dell'agenzia.",
+      "example": "Gelsomino Viaggi"
+    },
+    {
+      "name": "escursione",
+      "description": "Nome dell'escursione.",
+      "example": "Giro in barca alle isole Egadi da Trapani"
+    },
+    {
+      "name": "esperienza",
+      "description": "Esperienza di chi dovrà condurla.",
+      "example": "tre accompagnatori al primo anno, nessuno ha mai fatto questa escursione"
+    },
+    {
+      "name": "orari_e_durata",
+      "description": "Orari e durata.",
+      "example": "Partenza da Trapani alle 9:00, rientro alle 18:00."
+    },
+    {
+      "name": "tappe_e_contenuti",
+      "description": "Le tappe, con le informazioni che vuoi far raccontare.",
+      "example": "Cala Rossa a Favignana: sosta per il bagno di circa un'ora. Grotta del Genovese a Levanzo: ingresso solo con la guida del posto, visita di circa 40 minuti, serve prenotare. Pranzo a bordo alle 13:00."
+    },
+    {
+      "name": "sicurezza_e_regole",
+      "description": "Regole di sicurezza e procedure che hai definito.",
+      "example": "Il comandante decide se partire. Giubbotti mostrati prima della partenza. Il bagno si fa solo quando lo autorizza il comandante."
+    },
+    {
+      "name": "domande_clienti",
+      "description": "Domande che arrivano di solito.",
+      "example": "Soffro il mal di mare, cosa faccio? Si può portare il cane? C'è il bagno a bordo?"
+    }
+  ],
+  "how_to_use": "Scrivi nel materiale solo ciò che è vero e già approvato dal comandante o dal responsabile. Incolla il prompt, stampa la scheda e rivedila con gli accompagnatori in una prova a terra. Aggiorna il materiale ogni volta che cambia una regola o una tappa.",
+  "example_input": "nome_agenzia: Gelsomino Viaggi\nescursione: Giro in barca alle isole Egadi da Trapani\nesperienza: tre accompagnatori al primo anno, nessuno ha mai fatto questa escursione\norari_e_durata: Partenza da Trapani alle 9:00, rientro alle 18:00.\ntappe_e_contenuti: Cala Rossa a Favignana: sosta per il bagno di circa un'ora. Grotta del Genovese a Levanzo: ingresso solo con la guida del posto, visita di circa 40 minuti, serve prenotare. Pranzo a bordo alle 13:00.\nsicurezza_e_regole: Il comandante decide se partire. Giubbotti mostrati prima della partenza. Il bagno si fa solo quando lo autorizza il comandante.\ndomande_clienti: Soffro il mal di mare, cosa faccio? Si può portare il cane? C'è il bagno a bordo?",
+  "expected_output_description": "Una scheda di massimo 700 parole con panoramica, schede per tappa con tre punti e un controllo, sicurezza, gestione degli imprevisti, risposte ai clienti e quiz di sei domande con soluzioni. Dove il materiale non basta compare \"CHIEDERE AL RESPONSABILE\" o \"DA VERIFICARE SU FONTE UFFICIALE\".",
+  "limits_and_warnings": "La sicurezza in mare o in quota non si improvvisa: le procedure devono essere quelle approvate da chi ne ha la responsabilità e dalle autorità competenti. L'AI può inventare fatti su luoghi e storia: verifica ogni informazione su fonti ufficiali. Non inserire dati personali dei collaboratori.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot"
+  ],
+  "level": "intermedio",
+  "tested_at": "2026-10-21",
+  "test_notes": "Eseguito sull'escursione alle Egadi: scheda di circa 640 parole, \"CHIEDERE AL RESPONSABILE\" per cane a bordo e bagno, tre punti per tappa tratti dal materiale. Nella mia prima esecuzione la Grotta del Genovese riceveva un'età e una descrizione delle pitture non presenti: aggiunta la regola \"DA VERIFICARE SU FONTE UFFICIALE\" e il divieto di fatti non forniti."
+}

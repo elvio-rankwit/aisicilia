@@ -1,0 +1,32 @@
+{
+  "title": "Corso AI Essentials, edizione 7 (AI NEXT)",
+  "slug": "corso-ai-essentials-ai-next-catania-2026-10",
+  "description": "Corso base sull'uso dell'intelligenza artificiale, in quattro sessioni da tre ore al Collegio Universitario Alcantara di Catania: sabato 31 ottobre, 7, 14 e 21 novembre (16:00-19:00) oppure mercoledì 4, 11, 18 e 25 novembre (17:00-20:00). Introduce gli strumenti e un metodo d'uso consapevole, con la configurazione di assistenti sul proprio lavoro. Costo 244 euro IVA inclusa. AI NEXT propone anche i corsi AI PRO, AI Marketing Masterclass e Agentic AI.",
+  "start_date": "2026-10-31",
+  "end_date": "2026-11-25",
+  "start_time": "16:00",
+  "end_time": "19:00",
+  "format": "in presenza",
+  "venue_name": "Collegio Universitario Alcantara",
+  "venue_address": "Via Caronda 129, Catania",
+  "city": "Catania",
+  "province": "catania",
+  "lat": 37.51519,
+  "lng": 15.08489,
+  "organizer": "AI NEXT",
+  "event_url": "https://ai-next.it/corsi/",
+  "price": "a pagamento",
+  "audience": [
+    "professionisti",
+    "imprese"
+  ],
+  "topics": [
+    "AI generativa",
+    "formazione"
+  ],
+  "source_url": "https://ai-next.it/corsi/",
+  "status": "programmato",
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "Percorso di formazione a pagamento con più edizioni, non un evento singolo; l'organizzatore è un'attività legata a una persona fisica. Serve decisione editoriale su se ammettere i corsi."
+}

@@ -1,0 +1,32 @@
+{
+  "title": "Ciclo di seminari su AI, multimedia forensics e computer vision",
+  "slug": "ciclo-seminari-ai-computer-vision-catania-2026-04",
+  "description": "Ciclo di seminari scientifici del Dipartimento di Matematica e Informatica di Catania su intelligenza artificiale, multimedia forensics e computer vision. Le ultime tre date in calendario, 22 aprile, 6 e 13 maggio, ruotano attorno ai deepfake: come riconoscerli, quanto reggono i metodi di rilevamento fuori dal laboratorio, il caso dei volti manipolati con il face morphing. Appuntamenti dalle 11:00 alle 13:00 in Aula 2 del dipartimento; la locandina non indica costi né iscrizione.",
+  "start_date": "2026-04-22",
+  "end_date": "2026-05-13",
+  "start_time": "11:00",
+  "end_time": "13:00",
+  "format": "in presenza",
+  "venue_name": "Aula 2, Dipartimento di Matematica e Informatica",
+  "venue_address": "Viale Andrea Doria 6, 95125 Catania",
+  "city": "Catania",
+  "province": "catania",
+  "lat": 37.52541,
+  "lng": 15.07311,
+  "organizer": "Dipartimento di Matematica e Informatica, Università di Catania",
+  "organizer_url": "https://web.dmi.unict.it/",
+  "event_url": "https://web.dmi.unict.it/it/notizie/ciclo-di-seminari-2026-su-ai-multimedia-forensics-e-computer-vision",
+  "price": "non indicato",
+  "audience": [
+    "studenti",
+    "ricercatori"
+  ],
+  "topics": [
+    "computer vision",
+    "multimedia forensics"
+  ],
+  "source_url": "https://web.dmi.unict.it/it/notizie/ciclo-di-seminari-2026-su-ai-multimedia-forensics-e-computer-vision",
+  "status": "programmato",
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

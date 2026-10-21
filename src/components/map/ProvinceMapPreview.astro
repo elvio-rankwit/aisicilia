@@ -35,8 +35,8 @@ const total = PROVINCE_SLUGS.reduce((s, slug) => s + (counts[slug] ?? 0), 0);
             aria-current={current ? (mode === 'link' ? 'page' : 'true') : undefined}
           >
             <path d={p.d} />
-            <text class="pmap-sigla" x={p.labelX} y={p.labelY - 3}>{PROVINCES[slug].sigla}</text>
-            <text class="pmap-count" x={p.labelX} y={p.labelY + 10}>{n}</text>
+            <text class="pmap-sigla" x={p.labelX} y={p.labelY - 4}>{PROVINCES[slug].sigla}</text>
+            <text class="pmap-count" x={p.labelX} y={p.labelY + 11}>{n}</text>
           </a>
         );
       })}
@@ -88,8 +88,8 @@ const total = PROVINCE_SLUGS.reduce((s, slug) => s + (counts[slug] ?? 0), 0);
   .pmap a[aria-current] path { fill: var(--c-map-active); }
   .pmap text { fill: var(--c-text); text-anchor: middle; pointer-events: none; font-family: var(--font-sans); }
   .pmap a[aria-current] text { fill: var(--c-on-primary); }
-  .pmap-sigla { font-size: 9px; font-weight: 600; letter-spacing: 0.04em; }
-  .pmap-count { font-size: 14px; font-weight: 700; }
+  .pmap-sigla { font-size: 10px; font-weight: 600; letter-spacing: 0.04em; }
+  .pmap-count { font-size: 15px; font-weight: 700; }
   .pmap-points circle { fill: var(--c-accent); stroke: var(--c-surface); stroke-width: 0.8; pointer-events: none; }
   .pmap-legend { list-style: none; margin: var(--space-3) 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr)); gap: var(--space-1) var(--space-4); font-size: var(--fs-sm); }
   .pmap-legend li { display: flex; justify-content: space-between; gap: var(--space-2); border-bottom: 1px solid var(--c-border); padding-block: 2px; }

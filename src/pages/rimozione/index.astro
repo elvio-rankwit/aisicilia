@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FormShell from '../../components/FormShell.astro';
+import { FORMS } from '../../lib/site';
+
+const m = {
+  title: 'Richiedi modifica o rimozione di una scheda',
+  description: 'Una scheda di AI Sicilia contiene un errore o vuoi che venga tolta? Scrivici: pubblichiamo solo dati aziendali e correggiamo o rimuoviamo su richiesta.',
+};
+---
+<BaseLayout seo={{ title: m.title, description: m.description, path: '/rimozione/', breadcrumbs: [{ name: 'Modifica o rimozione', path: '/rimozione/' }] }}>
+  <div class="page-head">
+    <h1>Richiedi modifica o rimozione</h1>
+    <p class="answer">Hai trovato un errore in una scheda, oppure vuoi che la tua azienda o il tuo evento non compaiano più? Compila il modulo: ti rispondiamo e correggiamo o togliamo la scheda.</p>
+  </div>
+
+  <section aria-labelledby="h-come">
+    <h2 id="h-come" class="first">Come funziona</h2>
+    <div class="prose">
+      <p>Pubblichiamo solo dati aziendali: nome, sito, sede, attività, con le fonti da cui li abbiamo presi. Non pubblichiamo dati di persone. Se ne trovi uno per errore, indicalo nel modulo e lo togliamo.</p>
+      <p>Tempi di risposta: <span class="todo">[DA COMPLETARE: tempi di risposta]</span>.</p>
+      <p>Per segnalare una realtà o un evento che manca, usa invece il modulo <a href="/segnala/">Segnala</a>.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="h-form">
+    <h2 id="h-form">Il modulo</h2>
+    <FormShell action={FORMS.rimozione} envName="PUBLIC_FORM_RIMOZIONE_URL" submitLabel="Invia la richiesta" label="Richiesta di modifica o rimozione">
+      <div class="field">
+        <label for="r-pagina">Pagina interessata</label>
+        <input id="r-pagina" name="pagina" type="text" required autocomplete="off" />
+        <span class="hint">L’indirizzo della scheda o il nome dell’azienda o dell’evento.</span>
+      </div>
+      <div class="field">
+        <label for="r-cosa">Cosa va corretto o rimosso</label>
+        <textarea id="r-cosa" name="cosa" required></textarea>
+      </div>
+      <div class="field">
+        <label for="r-ruolo">Il tuo ruolo</label>
+        <select id="r-ruolo" name="ruolo" required>
+          <option value="">Scegli</option>
+          <option value="titolare">Titolare o legale rappresentante</option>
+          <option value="collaboratore">Collaboro con l’azienda</option>
+          <option value="organizzatore">Organizzo l’evento</option>
+          <option value="altro">Altro</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="r-email">La tua email</label>
+        <input id="r-email" name="email" type="email" required autocomplete="email" />
+        <span class="hint">Serve solo per rispondere alla richiesta. Non viene pubblicata. Dettagli nell’<a href="/privacy/">informativa privacy</a>.</span>
+      </div>
+    </FormShell>
+  </section>
+</BaseLayout>
+<style>
+  .first { margin-top: 0; }
+</style>
+<script>
+  // /rimozione/?scheda=… precompila il campo "Pagina interessata". Solo testo, nulla viene inviato da qui.
+  const field = document.getElementById('r-pagina') as HTMLInputElement | null;
+  const scheda = new URLSearchParams(location.search).get('scheda');
+  if (field && scheda && /^[a-z0-9/-]{1,160}$/.test(scheda) && !field.value) field.value = scheda;
+</script>

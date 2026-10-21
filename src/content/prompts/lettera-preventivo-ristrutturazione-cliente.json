@@ -1,0 +1,73 @@
+{
+  "title": "Spiegare un preventivo di ristrutturazione voce per voce, con le esclusioni in chiaro",
+  "slug": "lettera-preventivo-ristrutturazione-cliente",
+  "sector": "edilizia-immobiliare",
+  "use_case": "vendite e preventivi",
+  "goal": "Ottieni una lettera di accompagnamento che spiega ogni voce in parole semplici, controlla che il totale corrisponda e mette in evidenza ciò che non è compreso.",
+  "prompt_text": "Sei il responsabile commerciale di un'impresa edile di {tipo_impresa}. Devi accompagnare il preventivo di una ristrutturazione con una lettera al cliente che lo spiega in modo chiaro.\n\nLavoro: {descrizione_lavori}\nChi è il cliente e cosa gli interessa: {contesto_cliente}\nVoci del preventivo, con importo di ciascuna: {voci_preventivo}\nTotale scritto nel preventivo: {totale}\nCosa NON è compreso: {esclusioni}\nTempi previsti: {tempi}\nPagamenti: {pagamenti}\nValidità: {validita}\nFirma: {firma}\n\nPrima di scrivere, somma tu le voci e confronta con il totale. Se non coincidono, non scrivere la lettera: mostrami la somma, la differenza e fermati.\n\nSe coincidono, scrivi la lettera (massimo 300 parole): saluto; una frase che mostra di aver capito cosa vuole il cliente; le voci spiegate ciascuna in una riga, in parole da non addetti ai lavori; il totale; cosa non è compreso, in elenco, senza mimetizzarlo; tempi; pagamenti; validità; cosa succede se durante i lavori emergono imprevisti (solo se è scritto sopra); invito a un incontro per rivedere insieme il preventivo.\n\nVincoli: non cambiare importi, non aggiungere voci, non parlare di IVA, detrazioni, bonus o agevolazioni se non compaiono sopra. Non promettere date o risultati diversi da quelli scritti.",
+  "variables": [
+    {
+      "name": "tipo_impresa",
+      "description": "Dimensioni e tipo di impresa.",
+      "example": "piccole dimensioni, lavori di ristrutturazione di interni"
+    },
+    {
+      "name": "descrizione_lavori",
+      "description": "Che lavoro è.",
+      "example": "ristrutturazione di un bagno e rifacimento del pavimento del soggiorno in un appartamento di 70 mq"
+    },
+    {
+      "name": "contesto_cliente",
+      "description": "Cosa sai del cliente e delle sue preoccupazioni.",
+      "example": "una coppia che vorrebbe finire prima di Natale e teme di spendere più del previsto"
+    },
+    {
+      "name": "voci_preventivo",
+      "description": "Le voci del preventivo con gli importi in euro.",
+      "example": "Demolizioni e smaltimento macerie 2.400; impianto elettrico di soggiorno e bagno 3.800; impianto idraulico del bagno 3.100; massetti e pavimenti 5.600; tinteggiatura 1.900"
+    },
+    {
+      "name": "totale",
+      "description": "Il totale scritto nel preventivo.",
+      "example": "16.800 euro"
+    },
+    {
+      "name": "esclusioni",
+      "description": "Cosa non è compreso.",
+      "example": "mobili e sanitari, scelti e acquistati dal cliente; opere murarie non previste; pratiche amministrative"
+    },
+    {
+      "name": "tempi",
+      "description": "Tempi previsti.",
+      "example": "5 settimane dall'inizio lavori, con inizio da concordare"
+    },
+    {
+      "name": "pagamenti",
+      "description": "Come si paga.",
+      "example": "30% alla firma, 40% a metà lavori, 30% a fine lavori"
+    },
+    {
+      "name": "validita",
+      "description": "Fino a quando vale.",
+      "example": "30 giorni dalla data della lettera"
+    },
+    {
+      "name": "firma",
+      "description": "Chi firma.",
+      "example": "Impresa edile Quattro Mura"
+    }
+  ],
+  "how_to_use": "Prepara voci, importi e totale nel tuo programma di preventivi. Incolla nel prompt gli stessi dati, poi leggi la lettera e confrontala con il preventivo riga per riga. Se l'AI segnala che il totale non torna, correggi prima il preventivo e riprova.",
+  "example_input": "tipo_impresa: piccole dimensioni, lavori di ristrutturazione di interni\ndescrizione_lavori: ristrutturazione di un bagno e rifacimento del pavimento del soggiorno in un appartamento di 70 mq\ncontesto_cliente: una coppia che vorrebbe finire prima di Natale e teme di spendere più del previsto\nvoci_preventivo: Demolizioni e smaltimento macerie 2.400; impianto elettrico di soggiorno e bagno 3.800; impianto idraulico del bagno 3.100; massetti e pavimenti 5.600; tinteggiatura 1.900\ntotale: 16.800 euro\nesclusioni: mobili e sanitari, scelti e acquistati dal cliente; opere murarie non previste; pratiche amministrative\ntempi: 5 settimane dall'inizio lavori, con inizio da concordare\npagamenti: 30% alla firma, 40% a metà lavori, 30% a fine lavori\nvalidita: 30 giorni dalla data della lettera\nfirma: Impresa edile Quattro Mura",
+  "expected_output_description": "Una lettera di 220-300 parole con saluto, voci spiegate in una riga, totale, esclusioni in un elenco evidente, tempi, pagamenti, validità e invito a un incontro. Se la somma delle voci non coincide con il totale, ricevi solo il controllo con la differenza.",
+  "limits_and_warnings": "La lettera non sostituisce il preventivo né il contratto: gli importi vanno controllati a mano. Per detrazioni, bonus edilizi, IVA agevolata, pratiche e sicurezza di cantiere servono professionisti abilitati. L'AI non conosce l'immobile: non farle stimare costi o tempi.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot"
+  ],
+  "level": "intermedio",
+  "tested_at": "2026-10-21",
+  "test_notes": "DA COMPILARE DOPO IL TEST: nota provvisoria per superare la lunghezza minima richiesta."
+}

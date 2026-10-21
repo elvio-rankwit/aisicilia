@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FormShell from '../../components/FormShell.astro';
+import { FORMS } from '../../lib/site';
+import { PROVINCES, PROVINCE_SLUGS } from '../../lib/provinces';
+
+const m = {
+  title: 'Segnala un’azienda o un evento AI in Sicilia',
+  description: 'Conosci un’azienda o un evento sull’intelligenza artificiale in Sicilia che manca? Segnalalo: controlliamo le fonti e lo aggiungiamo se rispetta i criteri.',
+};
+---
+<BaseLayout seo={{ title: m.title, description: m.description, path: '/segnala/', breadcrumbs: [{ name: 'Segnala', path: '/segnala/' }] }}>
+  <div class="page-head">
+    <h1>Segnala un’azienda o un evento</h1>
+    <p class="answer">Se conosci una realtà siciliana che lavora con l’intelligenza artificiale, o un evento sul tema, scrivicelo qui. Prima di pubblicare controlliamo le fonti: una segnalazione non basta, serve qualcosa di verificabile.</p>
+  </div>
+
+  <section aria-labelledby="h-criteri">
+    <h2 id="h-criteri" class="first">Cosa pubblichiamo</h2>
+    <div class="prose">
+      <p><strong>Aziende:</strong> sede operativa in Sicilia e intelligenza artificiale al centro del prodotto o del servizio, dichiarata sul sito o in una fonte pubblica. Chi usa anche ChatGPT, tra tanti strumenti, non rientra.</p>
+      <p><strong>Eventi:</strong> in Sicilia, oppure online se li organizza una realtà siciliana.</p>
+      <p>I dettagli sono nella pagina <a href="/metodologia/">Come verifichiamo i dati</a>. Pubblichiamo solo dati aziendali, mai dati di persone.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="h-form">
+    <h2 id="h-form">Il modulo</h2>
+    <FormShell action={FORMS.segnala} envName="PUBLIC_FORM_SEGNALA_URL" submitLabel="Invia la segnalazione" label="Segnala azienda o evento">
+      <div class="field">
+        <span class="label" id="l-tipo">Cosa vuoi segnalare</span>
+        <div class="choices" role="radiogroup" aria-labelledby="l-tipo">
+          <label><input type="radio" name="tipo" value="azienda" checked /> Un’azienda</label>
+          <label><input type="radio" name="tipo" value="evento" /> Un evento</label>
+        </div>
+      </div>
+      <div class="field">
+        <label for="s-nome">Nome dell’azienda o titolo dell’evento</label>
+        <input id="s-nome" name="nome" type="text" required autocomplete="off" />
+      </div>
+      <div class="field">
+        <label for="s-sito">Sito o link</label>
+        <input id="s-sito" name="sito" type="url" inputmode="url" placeholder="https://" required />
+      </div>
+      <div class="field">
+        <label for="s-prov">Provincia</label>
+        <select id="s-prov" name="provincia" required>
+          <option value="">Scegli</option>
+          {PROVINCE_SLUGS.map((p) => <option value={p}>{PROVINCES[p].name}</option>)}
+          <option value="online">Evento online</option>
+          <option value="non-so">Non lo so</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="s-perche">Che cosa c’entra l’AI</label>
+        <textarea id="s-perche" name="perche" required></textarea>
+        <span class="hint">Poche righe: cosa fa con l’AI, o di cosa parla l’evento.</span>
+      </div>
+      <div class="field">
+        <label for="s-fonte">Dove l’hai letto</label>
+        <input id="s-fonte" name="fonte" type="text" autocomplete="off" />
+        <span class="hint">Un link o il nome di una fonte pubblica (sito ufficiale, registro, pagina dell’organizzatore).</span>
+      </div>
+      <div class="field">
+        <label for="s-email">La tua email (facoltativa)</label>
+        <input id="s-email" name="email" type="email" autocomplete="email" />
+        <span class="hint">Serve solo per rispondere alla segnalazione, se serve. Non viene pubblicata. Dettagli nell’<a href="/privacy/">informativa privacy</a>.</span>
+      </div>
+    </FormShell>
+  </section>
+</BaseLayout>
+<style>
+  .first { margin-top: 0; }
+</style>

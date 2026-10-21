@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const m = {
+  title: 'Informativa privacy di AI Sicilia',
+  description: 'Che dati tratta AI Sicilia: nessun cookie e nessuno strumento di analisi, solo i dati dei moduli e i log tecnici dell’hosting. Diritti e contatti.',
+};
+---
+<BaseLayout seo={{ title: m.title, description: m.description, path: '/privacy/', breadcrumbs: [{ name: 'Privacy', path: '/privacy/' }] }}>
+  <div class="page-head">
+    <h1>Informativa privacy</h1>
+    <p class="answer">Questo sito non usa cookie né strumenti di analisi e non ti chiede di registrarti. I dati personali passano solo se compili un modulo. Qui sotto trovi chi li tratta, perché e come esercitare i tuoi diritti.</p>
+  </div>
+
+  <div class="prose">
+    <section aria-labelledby="h-titolare">
+      <h2 id="h-titolare" class="first">Titolare del trattamento</h2>
+      <p><span class="todo">[DA COMPLETARE: dati del titolare]</span></p>
+      <p>Il progetto è indipendente ed è gestito da Elvio Leonardi (vedi <a href="/chi-siamo/">Chi siamo</a>). Per scrivere al titolare: <a href="/contatti/">Contatti</a>.</p>
+    </section>
+
+    <section aria-labelledby="h-cosa">
+      <h2 id="h-cosa">Quali dati trattiamo</h2>
+      <p><strong>Dati dei moduli.</strong> I moduli Segnala, Rimozione e Contatti raccolgono solo quello che scrivi: nome, indirizzo del sito o dell’evento, messaggio ed eventualmente l’email. Li usiamo per valutare la segnalazione, correggere o togliere una scheda, risponderti. Li ricevono tramite un fornitore esterno di moduli: <span class="todo">[DA COMPLETARE: Formspree/Tally]</span>.</p>
+      <p><strong>Log tecnici.</strong> Il sito è ospitato su Cloudflare, che registra i dati tecnici di ogni richiesta (per esempio l’indirizzo IP e l’ora) per far funzionare e proteggere il servizio.</p>
+      <p><strong>Mappe.</strong> La mappa interattiva si carica solo se la apri. In quel caso il tuo browser richiede le immagini della mappa ai server di OpenStreetMap, che vedono il tuo indirizzo IP. La mappa statica delle province non fa richieste esterne.</p>
+      <p><strong>Tema chiaro o scuro.</strong> Se scegli un tema con il pulsante in alto, la scelta resta salvata nel tuo browser. Non esce dal tuo dispositivo.</p>
+      <p>Non usiamo cookie, pixel o strumenti di analisi. La ricerca nel sito gira nel tuo browser, su un indice che si scarica dal sito stesso.</p>
+    </section>
+
+    <section aria-labelledby="h-dati-pubblicati">
+      <h2 id="h-dati-pubblicati">Che cosa pubblichiamo</h2>
+      <p>Nel portale compaiono solo dati aziendali, presi da fonti pubbliche. Se trovi un dato personale, o vuoi correggere o togliere una scheda, usa il modulo <a href="/rimozione/">Richiedi modifica o rimozione</a>.</p>
+    </section>
+
+    <section aria-labelledby="h-diritti">
+      <h2 id="h-diritti">I tuoi diritti</h2>
+      <p>Secondo il GDPR (Regolamento UE 2016/679) puoi chiedere l’accesso ai tuoi dati, la rettifica, la cancellazione, la limitazione del trattamento, la portabilità, e puoi opporti al trattamento. Puoi anche presentare un reclamo al Garante per la protezione dei dati personali.</p>
+      <p>Per esercitare i diritti scrivi dalla pagina <a href="/contatti/">Contatti</a>.</p>
+    </section>
+
+    <section aria-labelledby="h-conservazione">
+      <h2 id="h-conservazione">Per quanto tempo</h2>
+      <p>Conserviamo i dati dei moduli per il tempo necessario a rispondere e a gestire la richiesta. <span class="todo">[DA COMPLETARE: tempo di conservazione]</span></p>
+    </section>
+  </div>
+</BaseLayout>
+<style>
+  .first { margin-top: 0; }
+</style>

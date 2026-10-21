@@ -190,5 +190,59 @@
     "lng": 15.08489,
     "display_name": "129, Via Caronda, Monserrato, Borgo, Borgo-Sanzio, Catania, Sicilia, 95128, Italia",
     "precision": "indirizzo"
+  },
+  "addr:via vittorio emanuele ii 119, catania": {
+    "lat": 37.6078,
+    "lng": 15.10283,
+    "display_name": "119, Via Vittorio Emanuele Secondo, Viagrande, Catania, Sicilia, 95029, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:palazzo della cultura catania": {
+    "lat": 37.50274,
+    "lng": 15.09006,
+    "display_name": "Palazzo Platamone, Via Landolina, Civita, Centro storico, Catania, Sicilia, 95131, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:viale andrea doria 6, 95125 catania ct": {
+    "lat": 37.52667,
+    "lng": 15.07779,
+    "display_name": "Dipartimento di Scienze Chimiche, 6, Viale Andrea Doria, Picanello-Ognina-Barriera-Canalicchio, Catania, Sicilia, 95125, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via santa sofia 102, 95123 catania ct": {
+    "lat": 37.53659,
+    "lng": 15.06771,
+    "display_name": "102, Via Santa Sofia, Santa Sofia, Barriera, Picanello-Ognina-Barriera-Canalicchio, Catania, Sicilia, 95125, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:piazza europa 13, 95127 catania ct": {
+    "lat": 37.61907,
+    "lng": 15.16577,
+    "display_name": "Carni Tipiche Siciliane, 13, Piazza Europa, Santa Maria la Scala, Acireale, Catania, Sicilia, 95024, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via orto limoni 25, catania": {
+    "lat": 37.51921,
+    "lng": 15.07991,
+    "display_name": "Via Orto Limoni, Consolazione, Borgo, Borgo-Sanzio, Catania, Sicilia, 95125, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:piazza europa 13, catania": {
+    "lat": 37.61907,
+    "lng": 15.16576,
+    "display_name": "13, Piazza Europa, Santa Maria la Scala, Acireale, Catania, Sicilia, 95024, Italia",
+    "precision": "indirizzo"
+  },
+  "city:solarino": {
+    "lat": 37.10092,
+    "lng": 15.11928,
+    "display_name": "Solarino, Siracusa, Sicilia, 96010, Italia",
+    "precision": "città"
+  },
+  "city:catania": {
+    "lat": 37.50236,
+    "lng": 15.08737,
+    "display_name": "Catania, Sicilia, Italia",
+    "precision": "città"
   }
 }

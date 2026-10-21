@@ -1,0 +1,30 @@
+{
+  "title": "Prompt your Future",
+  "slug": "prompt-your-future-catania-2026-10",
+  "description": "Giornata gratuita a Catania per imparare a usare ChatGPT, Gemini e Claude in modo critico, nell'ambito di Meet and Code 2026. Organizzata da Palestra per la Mente con Welcome 2 Sicily, dalle 12 alle 20 con pranzo incluso. Riservata a 28 giovani tra i 19 e i 24 anni; serve un laptop o un tablet con almeno 8 GB di RAM, senza competenze di programmazione richieste.",
+  "start_date": "2026-10-16",
+  "start_time": "12:00",
+  "end_time": "20:00",
+  "format": "in presenza",
+  "venue_name": "Ostello degli Elefanti",
+  "venue_address": "Via Etnea 28, 95131 Catania",
+  "city": "Catania",
+  "province": "catania",
+  "lat": 37.50313,
+  "lng": 15.08743,
+  "organizer": "Palestra per la Mente e Welcome 2 Sicily",
+  "event_url": "https://www.freepressonline.it/2026/10/01/a-catania-si-impara-a-usare-lia-senza-smettere-di-pensare/",
+  "price": "gratuito",
+  "audience": [
+    "studenti"
+  ],
+  "topics": [
+    "AI generativa",
+    "formazione"
+  ],
+  "source_url": "https://www.freepressonline.it/2026/10/01/a-catania-si-impara-a-usare-lia-senza-smettere-di-pensare/",
+  "status": "programmato",
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "Unica fonte è un articolo di stampa; nessuna pagina ufficiale consultabile (link bit.ly non verificato) e altre pagine indicherebbero una sede diversa; evento a posti limitati per giovani 19-24 anni."
+}

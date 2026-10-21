@@ -1,0 +1,68 @@
+{
+  "title": "Preventivo di un pacchetto in Sicilia per un cliente, con voci e calcolo chiari",
+  "slug": "preventivo-pacchetto-sicilia-agenzia-viaggi",
+  "sector": "turismo-agenzie",
+  "use_case": "vendite e preventivi",
+  "goal": "Ottieni un'email di preventivo con programma, voci a persona e di gruppo, totale calcolato e elenco di ciò che è incluso e non incluso, senza promesse in più.",
+  "prompt_text": "Sei un consulente di viaggio di {nome_agenzia}. Scrivi l'email di risposta a una richiesta di preventivo.\n\nRichiesta del cliente:\n{richiesta_cliente}\n\nProgramma che proponiamo: {programma_proposto}\nNumero di partecipanti: {numero_partecipanti}\nCosti (indica per ogni voce se è a persona o a gruppo): {costi}\nIncluso: {cosa_e_incluso}\nNon incluso: {cosa_non_incluso}\nCondizioni di pagamento e disdetta: {condizioni}\nPreventivo valido fino al: {validita}\n\nScrivi in italiano un'email di massimo 220 parole, escluso il riepilogo, con tono cordiale e concreto. Struttura: una frase che riprende la richiesta, il programma giorno per giorno in una riga ciascuno, il riepilogo economico, le condizioni, un invito a rispondere entro la data di validità.\nIl riepilogo è una tabella: voce, tipo (a persona o a gruppo), importo, subtotale. Mostra il calcolo del totale e del costo a persona. Se una voce non dice se è a persona o a gruppo, chiedimelo prima di calcolare.\nRegole: non aggiungere voci, servizi, sconti o assicurazioni che non ho scritto. Elenca \"incluso\" e \"non incluso\" esattamente come li ho indicati. Non promettere disponibilità, orari o hotel che non compaiono nel programma. Se un dato manca, chiedimelo. Apri con \"Buongiorno\" se non ti do il nome.",
+  "variables": [
+    {
+      "name": "nome_agenzia",
+      "description": "Nome dell'agenzia.",
+      "example": "Gelsomino Viaggi"
+    },
+    {
+      "name": "richiesta_cliente",
+      "description": "Messaggio del cliente, senza recapiti personali.",
+      "example": "Siamo una coppia, vorremmo cinque giorni in Sicilia orientale a fine aprile, con Etna, Siracusa e Taormina. Hotel confortevoli, auto a noleggio se serve. Budget circa 700 euro a testa, voli esclusi."
+    },
+    {
+      "name": "programma_proposto",
+      "description": "Il programma giorno per giorno, in breve.",
+      "example": "Giorno 1 arrivo a Catania e passeggiata in centro. Giorno 2 escursione guidata sull'Etna. Giorno 3 Siracusa e Ortigia. Giorno 4 Taormina. Giorno 5 rientro. Quattro notti, hotel 4 stelle a Taormina."
+    },
+    {
+      "name": "numero_partecipanti",
+      "description": "Quante persone.",
+      "example": "2"
+    },
+    {
+      "name": "costi",
+      "description": "Voci e importi, con il tipo (a persona o a gruppo).",
+      "example": "Hotel 4 notti in camera doppia con colazione: 360 euro a persona. Escursione guidata sull'Etna: 55 euro a persona. Noleggio auto per 5 giorni: 220 euro a gruppo (una vettura). Quota di gestione dell'agenzia: 40 euro a persona."
+    },
+    {
+      "name": "cosa_e_incluso",
+      "description": "Cosa comprende il prezzo.",
+      "example": "Hotel con colazione, escursione guidata sull'Etna, noleggio auto per 5 giorni."
+    },
+    {
+      "name": "cosa_non_incluso",
+      "description": "Cosa il cliente paga a parte.",
+      "example": "Voli, pasti, ingressi ai siti, carburante, tassa di soggiorno, assicurazioni facoltative."
+    },
+    {
+      "name": "condizioni",
+      "description": "Acconto, saldo e disdetta come li applichi.",
+      "example": "Acconto del 25% alla conferma, saldo 30 giorni prima della partenza. Disdetta secondo le condizioni generali allegate."
+    },
+    {
+      "name": "validita",
+      "description": "Data di scadenza del preventivo.",
+      "example": "10 novembre"
+    }
+  ],
+  "how_to_use": "Rispondi al cliente con i costi aggiornati dei fornitori e controlla di aver scritto, per ogni voce, se è a persona o a gruppo. Incolla il prompt, controlla il calcolo con la calcolatrice e allega le condizioni generali dell'agenzia. Invia l'email dal tuo indirizzo di agenzia.",
+  "example_input": "nome_agenzia: Gelsomino Viaggi\nrichiesta_cliente: Siamo una coppia, vorremmo cinque giorni in Sicilia orientale a fine aprile, con Etna, Siracusa e Taormina. Hotel confortevoli, auto a noleggio se serve. Budget circa 700 euro a testa, voli esclusi.\nprogramma_proposto: Giorno 1 arrivo a Catania e passeggiata in centro. Giorno 2 escursione guidata sull'Etna. Giorno 3 Siracusa e Ortigia. Giorno 4 Taormina. Giorno 5 rientro. Quattro notti, hotel 4 stelle a Taormina.\nnumero_partecipanti: 2\ncosti: Hotel 4 notti in camera doppia con colazione: 360 euro a persona. Escursione guidata sull'Etna: 55 euro a persona. Noleggio auto per 5 giorni: 220 euro a gruppo (una vettura). Quota di gestione dell'agenzia: 40 euro a persona.\ncosa_e_incluso: Hotel con colazione, escursione guidata sull'Etna, noleggio auto per 5 giorni.\ncosa_non_incluso: Voli, pasti, ingressi ai siti, carburante, tassa di soggiorno, assicurazioni facoltative.\ncondizioni: Acconto del 25% alla conferma, saldo 30 giorni prima della partenza. Disdetta secondo le condizioni generali allegate.\nvalidita: 10 novembre",
+  "expected_output_description": "Un'email di massimo 220 parole con programma in cinque righe, una tabella con voce, tipo, importo e subtotale, totale e costo a persona calcolati, elenchi identici a quelli indicati per incluso e non incluso, condizioni e scadenza. Nessuna voce aggiunta.",
+  "limits_and_warnings": "Ricontrolla ogni cifra: l'AI può sbagliare i calcoli. Per i pacchetti turistici valgono obblighi di informazione precontrattuale e contratto previsti dal Codice del turismo: questa email non li sostituisce, usa i moduli dell'agenzia. Non inserire dati personali del cliente e non promettere disponibilità che non hai confermato con i fornitori.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot"
+  ],
+  "level": "intermedio",
+  "tested_at": "2026-10-21",
+  "test_notes": "Eseguito sulla richiesta della coppia per 5 giorni: totale 1.130 euro (720 hotel, 110 Etna, 220 auto, 80 quota agenzia) e 565 euro a persona, elenchi incluso e non incluso identici ai miei. Nella mia prima esecuzione la voce auto veniva moltiplicata per due persone perché non era chiaro se fosse a persona o a gruppo: ora il prompt chiede il tipo di ogni voce e si ferma se manca."
+}
