@@ -54,6 +54,10 @@ const companies = defineCollection({
     source_urls: z.array(httpUrl).min(1),
     last_verified: isoDate,
     verification_status: verification,
+    /** In evidenza: prima posizione negli elenchi (regionale e di provincia). Decisione editoriale dell'utente (D-025). */
+    featured: z.boolean().default(false),
+    /** Nota di trasparenza mostrata nella scheda e nella card (es. rapporto con l'autore del portale). */
+    disclosure: z.string().min(20).max(240).optional(),
   }),
 });
 

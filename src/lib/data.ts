@@ -19,7 +19,8 @@ export function today(): Date {
 
 export async function getCompanies(): Promise<Company[]> {
   const all = await getCollection('companies', (c) => c.data.verification_status === 'verified');
-  return all.sort((a, b) => collator.compare(a.data.name, b.data.name));
+  // Prima le schede in evidenza (D-025), poi ordine alfabetico.
+  return all.sort((a, b) => Number(b.data.featured) - Number(a.data.featured) || collator.compare(a.data.name, b.data.name));
 }
 
 export async function getAllEvents(): Promise<Event[]> {

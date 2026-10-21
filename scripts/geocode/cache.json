@@ -430,5 +430,53 @@
     "lng": 13.33413,
     "display_name": "Via Resuttana, Resuttana, San Lorenzo, VI Circoscrizione, Palermo, Sicilia, 90167, Italia",
     "precision": "indirizzo"
+  },
+  "addr:via imperatore federico 24, 90143 palermo": {
+    "lat": 38.14598,
+    "lng": 13.34961,
+    "display_name": "Via Imperatore Federico, Quartiere Matteotti, VIII Circoscrizione, Palermo, Sicilia, 90143, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via san giovanni di dio 27, 90133 palermo": {
+    "lat": 38.10019,
+    "lng": 13.38349,
+    "display_name": "Via San Giovanni di Dio, Settecannoli, Brancaccio, II Circoscrizione, Palermo, Sicilia, 90123, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via benvenuto cellini 2, 90047 partinico": {
+    "lat": 38.04333,
+    "lng": 13.12417,
+    "display_name": "Via Benvenuto Cellini, Partinico, Palermo, Sicilia, 90047, Italia",
+    "precision": "indirizzo"
+  },
+  "city:misiliscemi": {
+    "lat": 37.92571,
+    "lng": 12.53755,
+    "display_name": "Misiliscemi, Trapani, Sicilia, 91031, Italia",
+    "precision": "città"
+  },
+  "city:aci castello": {
+    "lat": 37.55421,
+    "lng": 15.14856,
+    "display_name": "Aci Castello, Catania, Sicilia, 95021, Italia",
+    "precision": "città"
+  },
+  "addr:via dei tigli 2, 90149 palermo": {
+    "lat": 38.19218,
+    "lng": 13.33539,
+    "display_name": "Via dei Tigli, Valdesi, Addaura, VII Circoscrizione, Palermo, Sicilia, 90149, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via arenella 26, sciacca": {
+    "lat": 37.50029,
+    "lng": 13.02779,
+    "display_name": "Via Arenella, San Marco, Sciacca, Agrigento, Sicilia, 92019, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via ludovico ariosto 16, 90144 palermo": {
+    "lat": 38.13337,
+    "lng": 13.34324,
+    "display_name": "Via Ludovico Ariosto, Quartiere Matteotti, VIII Circoscrizione, Palermo, Sicilia, 90144, Italia",
+    "precision": "indirizzo"
   }
 }

@@ -1,0 +1,21 @@
+{
+  "name": "RankWit",
+  "slug": "rankwit",
+  "type": "startup",
+  "description": "Startup innovativa della provincia di Catania che misura come i motori di AI generativa parlano dei brand del turismo. La piattaforma interroga ogni giorno ChatGPT, Gemini, Claude, Perplexity e AI Overview con le domande tipiche dei viaggiatori, calcola la quota di citazioni rispetto ai concorrenti, individua le fonti (recensioni, guide, blog) da cui le risposte attingono e propone interventi per migliorare la visibilità. Lavora con hotel e destinazioni turistiche.",
+  "ai_areas": ["AI generativa", "dati e analytics"],
+  "sectors_served": ["turismo e ospitalità"],
+  "province": "catania",
+  "city": "Aci Castello",
+  "lat": 37.55421,
+  "lng": 15.14856,
+  "geo_precision": "città",
+  "website": "https://www.rankwit.ai/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": ["https://www.rankwit.ai/", "https://startup.registroimprese.it"],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified",
+  "featured": true,
+  "disclosure": "Trasparenza: Elvio Leonardi, autore di AI Sicilia, collabora con RankWit come SEO & AI Search Specialist."
+}
