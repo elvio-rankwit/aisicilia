@@ -1,9 +1,9 @@
 [
   {
-    "url": "http://localhost:43387/",
+    "url": "http://localhost:41297/",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost--2026_10_21_12_58_35.report.html",
-    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost--2026_10_21_12_58_35.report.json",
+    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost--2026_10_21_13_17_25.report.html",
+    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost--2026_10_21_13_17_25.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
@@ -12,10 +12,10 @@
     }
   },
   {
-    "url": "http://localhost:43387/aziende/",
+    "url": "http://localhost:41297/aziende/",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-aziende_-2026_10_21_12_58_47.report.html",
-    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-aziende_-2026_10_21_12_58_47.report.json",
+    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-aziende_-2026_10_21_13_17_37.report.html",
+    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-aziende_-2026_10_21_13_17_37.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
@@ -24,10 +24,10 @@
     }
   },
   {
-    "url": "http://localhost:43387/aziende/aim-solutions/",
+    "url": "http://localhost:41297/aziende/ai-magic/",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-aziende_aim_solutions_-2026_10_21_12_58_59.report.html",
-    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-aziende_aim_solutions_-2026_10_21_12_58_59.report.json",
+    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-aziende_ai_magic_-2026_10_21_13_17_49.report.html",
+    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-aziende_ai_magic_-2026_10_21_13_17_49.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
@@ -36,10 +36,10 @@
     }
   },
   {
-    "url": "http://localhost:43387/aziende/provincia/palermo/",
+    "url": "http://localhost:41297/aziende/provincia/palermo/",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-aziende_provincia_palermo_-2026_10_21_12_59_11.report.html",
-    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-aziende_provincia_palermo_-2026_10_21_12_59_11.report.json",
+    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-aziende_provincia_palermo_-2026_10_21_13_18_00.report.html",
+    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-aziende_provincia_palermo_-2026_10_21_13_18_00.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
@@ -48,10 +48,10 @@
     }
   },
   {
-    "url": "http://localhost:43387/eventi/",
+    "url": "http://localhost:41297/eventi/",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-eventi_-2026_10_21_12_59_22.report.html",
-    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-eventi_-2026_10_21_12_59_22.report.json",
+    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-eventi_-2026_10_21_13_18_12.report.html",
+    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-eventi_-2026_10_21_13_18_12.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
@@ -60,10 +60,10 @@
     }
   },
   {
-    "url": "http://localhost:43387/impara/ai-cantine-aziende-agroalimentari/",
+    "url": "http://localhost:41297/impara/ai-cantine-aziende-agroalimentari/",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-impara_ai_cantine_aziende_agroalimentari_-2026_10_21_12_59_34.report.html",
-    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-impara_ai_cantine_aziende_agroalimentari_-2026_10_21_12_59_34.report.json",
+    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-impara_ai_cantine_aziende_agroalimentari_-2026_10_21_13_18_24.report.html",
+    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-impara_ai_cantine_aziende_agroalimentari_-2026_10_21_13_18_24.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
@@ -72,10 +72,10 @@
     }
   },
   {
-    "url": "http://localhost:43387/prompt/",
+    "url": "http://localhost:41297/prompt/",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-prompt_-2026_10_21_12_59_46.report.html",
-    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-prompt_-2026_10_21_12_59_46.report.json",
+    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-prompt_-2026_10_21_13_18_35.report.html",
+    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-prompt_-2026_10_21_13_18_35.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
@@ -84,10 +84,10 @@
     }
   },
   {
-    "url": "http://localhost:43387/prompt/agroalimentare-vino/controllo-etichetta-claim-agroalimentare/",
+    "url": "http://localhost:41297/prompt/agroalimentare-vino/controllo-etichetta-claim-agroalimentare/",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-prompt_agroalimentare_vino_controllo_etichetta_claim_agroalimentare_-2026_10_21_12_59_58.report.html",
-    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-prompt_agroalimentare_vino_controllo_etichetta_claim_agroalimentare_-2026_10_21_12_59_58.report.json",
+    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-prompt_agroalimentare_vino_controllo_etichetta_claim_agroalimentare_-2026_10_21_13_18_47.report.html",
+    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-prompt_agroalimentare_vino_controllo_etichetta_claim_agroalimentare_-2026_10_21_13_18_47.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
@@ -96,10 +96,10 @@
     }
   },
   {
-    "url": "http://localhost:43387/chi-siamo/",
+    "url": "http://localhost:41297/chi-siamo/",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-chi_siamo_-2026_10_21_13_00_09.report.html",
-    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-chi_siamo_-2026_10_21_13_00_09.report.json",
+    "htmlPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-chi_siamo_-2026_10_21_13_18_58.report.html",
+    "jsonPath": "/home/user/aisicilia/docs/qa/lighthouse/desktop/localhost-chi_siamo_-2026_10_21_13_18_58.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,

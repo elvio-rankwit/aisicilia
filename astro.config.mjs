@@ -1,6 +1,5 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import preact from '@astrojs/preact';
 import seoHeaders from './src/lib/seo/headers-integration.mjs';
 import remarkUnpublishedLinks from './src/lib/markdown/remark-unpublished-links.mjs';
 
@@ -12,11 +11,11 @@ const SITE_URL = process.env.PUBLIC_SITE_URL || 'https://aisicilia.it';
 export default defineConfig({
   site: SITE_URL,
   trailingSlash: 'always',
-  build: { format: 'directory', inlineStylesheets: 'auto' },
+  build: { format: 'directory', inlineStylesheets: 'always' },
   compressHTML: true,
   prefetch: { prefetchAll: false, defaultStrategy: 'hover' },
-  integrations: [preact(), seoHeaders(SITE_MODE)],
-  markdown: { remarkPlugins: [remarkUnpublishedLinks] },
+  integrations: [seoHeaders(SITE_MODE)],
+  markdown: { remarkPlugins: [remarkUnpublishedLinks], syntaxHighlight: false },
   image: {
     // Formati di output: AVIF + fallback WebP tramite <Picture formats={['avif','webp']} />
     responsiveStyles: true,

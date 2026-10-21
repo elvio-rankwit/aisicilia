@@ -13,14 +13,13 @@
     "check": "astro check",
     "validate": "node scripts/with-lock.mjs node scripts/validate/run.mjs",
     "lhci": "lhci autorun",
-    "lhci:desktop": "LHCI_PRESET=desktop lhci autorun",
+    "lhci:desktop": "LH_FORM_FACTOR=desktop lhci autorun",
     "dev:fixtures": "USE_FIXTURES=1 astro dev",
     "build:fixtures": "node scripts/with-lock.mjs \"USE_FIXTURES=1 astro build\""
   },
   "dependencies": {
     "@astrojs/check": "^0.9.11",
     "@astrojs/markdown-remark": "^7.3.3",
-    "@astrojs/preact": "^6.1.0",
     "@astrojs/rss": "^4.0.19",
     "@fontsource-variable/familjen-grotesk": "^5.3.0",
     "@fontsource/ibm-plex-mono": "^5.3.0",
@@ -28,7 +27,6 @@
     "astro": "^7.4.1",
     "leaflet": "^1.9.4",
     "leaflet.markercluster": "^1.5.3",
-    "preact": "^11.0.1",
     "satori": "^0.63.2",
     "typescript": "^6.0.3"
   },

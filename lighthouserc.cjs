@@ -1,5 +1,5 @@
 // Lighthouse CI: soglia 100 in tutte e 4 le categorie, mobile e desktop.
-//   LHCI_PRESET=mobile|desktop npm run lhci   (default mobile)
+//   LH_FORM_FACTOR=mobile|desktop npm run lhci   (default mobile)
 // Gli URL si ricavano da dist/: una pagina per ogni tipo richiesto dal brief (sez. 4.1).
 const fs = require('node:fs');
 const path = require('node:path');
@@ -18,7 +18,7 @@ const urls = [
   firstChild('impara'), '/prompt/', singlePrompt, '/chi-siamo/',
 ].filter(Boolean).map((u) => `http://localhost${u}`);
 
-const preset = process.env.LHCI_PRESET === 'desktop' ? 'desktop' : 'mobile';
+const preset = process.env.LH_FORM_FACTOR === 'desktop' ? 'desktop' : 'mobile';
 const cat = (name) => [`categories:${name}`, ['error', { minScore: 1 }]];
 
 module.exports = {
