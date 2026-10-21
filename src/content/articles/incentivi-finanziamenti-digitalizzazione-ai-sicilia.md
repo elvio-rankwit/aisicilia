@@ -49,7 +49,7 @@ faq:
     answer: "Quasi mai conviene. In molti avvisi le spese contano solo se sostenute dopo una certa data, spesso dopo la presentazione della domanda o dopo la pubblicazione dell'avviso. Nel bando del Sud Est Sicilia, per esempio, la finestra parte dalla pubblicazione del bando. Controlla nell'avviso l'articolo sulle spese ammissibili prima di firmare ordini o contratti."
   - question: "Serve un consulente per presentare la domanda?"
     answer: "Non sempre, ma aiuta quando l'avviso richiede firma digitale, PEC, rendicontazione e verifica dei limiti de minimis. Diffida di chi promette il contributo o chiede una percentuale prima di aver letto l'avviso con te. Per i dubbi sul tuo caso, rivolgiti al commercialista o all'ufficio incentivi della tua associazione di categoria."
-related_prompts: []
+related_prompts: [analisi-vendite-mensili-negozio, confronto-offerte-fornitori-cantiere]
 ---
 
 Tra i temi dell'AI per le imprese, gli incentivi sono quello in cui un errore costa di più. Un testo sbagliato lo correggi, una spesa fatta prima della domanda o fuori dall'elenco ammesso no. Per questo qui il metodo è diverso dagli altri articoli: ogni misura ha uno stato e una data di verifica, e ho riportato solo ciò che ho letto sulle pagine ufficiali degli enti. Dove non sono riuscito a verificare, lo scrivo.

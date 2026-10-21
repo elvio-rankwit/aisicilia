@@ -41,7 +41,7 @@ faq:
     answer: "Può preparare una bozza, ma la legge italiana limita l'AI alle attività strumentali e di supporto e mantiene prevalente il lavoro intellettuale del professionista. Il parere lo scrivi e lo firmi tu, dopo aver verificato ogni riferimento normativo."
   - question: "Serve una valutazione d'impatto (DPIA) per usare l'AI in studio?"
     answer: "Non sempre. La DPIA serve quando il trattamento può comportare un rischio elevato per le persone, per esempio dati sensibili su larga scala. Controlla i criteri e l'elenco del Garante e, se hai dubbi, chiedi a un consulente privacy prima di partire."
-related_prompts: []
+related_prompts: [smistare-email-studio-professionale, sintesi-documento-per-cliente-studio, checklist-documenti-cliente-studio, risposta-cliente-stato-pratica-studio]
 ---
 
 Prendiamo uno studio di commercialisti a Caltanissetta. Ogni mattina arrivano decine di email: richieste di documenti, scadenze, clienti che chiedono se una spesa si deduce. Un collaboratore prova a incollarle in un chatbot per avere bozze di risposta. Funziona benissimo. Il problema è quello che c'è dentro quelle email: nomi, codici fiscali, importi, a volte il certificato medico allegato a una pratica.

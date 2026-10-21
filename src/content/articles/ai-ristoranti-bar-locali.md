@@ -34,7 +34,7 @@ faq:
     answer: "Può convenire se ricevi molte richieste uguali e hai orari e disponibilità sempre aggiornati. Se i tavoli cambiano di continuo o se serve ascoltare esigenze particolari, meglio una persona. In ogni caso chi scrive deve sapere che dall'altra parte c'è un sistema automatico."
   - question: "Posso usare l'AI per calcolare il food cost?"
     answer: "Puoi farti aiutare a costruire il foglio di calcolo, ma i numeri li devi inserire e verificare tu. Gli assistenti possono sbagliare i calcoli. Prezzi dei fornitori, rese e scarti sono dati tuoi: l'AI al massimo ti spiega come organizzarli."
-related_prompts: []
+related_prompts: [risposta-recensione-negativa-ristorante, descrizioni-piatti-menu-ristorante, briefing-sala-allergeni-ristorante, piano-social-settimana-ristorante]
 ---
 
 Prendiamo una trattoria a Catania, quaranta coperti a pranzo, un cuoco-proprietario e due ragazzi in sala. Le ore libere sono poche, i turisti stranieri aumentano e il menu esiste solo in italiano e in dialetto. Nessuno ha tempo di sedersi a scrivere. È qui che l'AI può togliere un po' di lavoro, a condizioni precise.

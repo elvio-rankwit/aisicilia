@@ -33,7 +33,7 @@ faq:
     answer: "Dipende dal volume di richieste ripetitive e da quanto sono aggiornate le informazioni che gli dai. Se le risposte sono sbagliate o se non passa la conversazione a una persona quando serve, fa più danni che altro. Conviene dire all'ospite che parla con un sistema automatico: le regole di trasparenza dell'AI Act vanno verificate per il tuo caso."
   - question: "L'AI scrive bene in inglese, tedesco e francese?"
     answer: "Di norma scrive in modo corretto e comprensibile nelle lingue più diffuse. Può sbagliare tono, formule di cortesia e riferimenti culturali. Per i messaggi importanti, come condizioni di cancellazione o regole della struttura, fai rivedere il testo a una persona che conosce la lingua."
-related_prompts: []
+related_prompts: [risposta-recensione-negativa-booking-ospitalita, email-pre-arrivo-tre-lingue-bb-ospitalita, analisi-recensioni-mese-struttura-ricettiva, procedura-check-in-personale-stagionale-ospitalita]
 ---
 
 Immagina un B&B a Ortigia con cinque camere, una titolare che fa colazione, check-in e pulizie, e una casella email che si riempie la sera. Non serve un reparto tecnologico: serve capire quali pezzi di quel lavoro sono testo, ripetitivi e controllabili. Sono quelli in cui l'AI dà una mano. Gli altri restano tuoi.

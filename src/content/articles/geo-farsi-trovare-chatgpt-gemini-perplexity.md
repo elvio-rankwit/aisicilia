@@ -35,7 +35,7 @@ faq:
     answer: "Non c'è una risposta unica. OpenAI indica circa 24 ore perché i suoi sistemi recepiscano una modifica al robots.txt, mentre Google dice che una nuova scansione può richiedere da alcuni giorni a diversi mesi. Conta le settimane, non i giorni."
   - question: "Come faccio a sapere se compaio nelle risposte AI?"
     answer: "Fai tu le domande che farebbe un cliente e annota quali fonti compaiono, ripetendo la prova ogni mese. Su Google, le visite che arrivano dalle funzioni AI sono incluse nel rapporto Prestazioni di Search Console. Le risposte cambiano da persona a persona, quindi considera il risultato un indizio, non una misura esatta."
-related_prompts: []
+related_prompts: [descrizione-camere-sito-ospitalita, storia-laboratorio-artigiano-sito, descrizione-itinerario-tour-sicilia-agenzia, risposta-recensione-negativa-booking-ospitalita]
 ---
 
 Una frase che sento in aula quasi ogni volta: «voglio comparire su ChatGPT». La risposta che do è meno entusiasmante di quella che molti sperano: non si compra, non si garantisce e non si fa in un pomeriggio. Si lavora, ed è lavoro in gran parte già noto a chi si occupa di SEO.

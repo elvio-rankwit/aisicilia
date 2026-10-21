@@ -36,7 +36,7 @@ faq:
     answer: "Per i primi passi no. Servono una persona curiosa, un compito ben scelto e qualcuno che controlli i risultati con occhio da mestiere. Un informatico serve più avanti, se colleghi gli strumenti ai tuoi programmi di gestione o vuoi automatizzare flussi interi."
   - question: "L'AI mi farà risparmiare tempo subito?"
     answer: "Non è garantito. All'inizio spendi tempo per imparare a chiedere bene e per controllare le risposte. Il risparmio, quando c'è, arriva sui compiti che ripeti spesso con la stessa struttura. Misura le ore prima e dopo, su due settimane, e decidi con i tuoi numeri."
-related_prompts: []
+related_prompts: [risposta-recensione-negativa-negozio, analisi-vendite-mensili-negozio, smistare-email-studio-professionale, descrizione-prodotto-negozio-online]
 ---
 
 Quando lo spiego in aula, la domanda che arriva sempre è la stessa: "Ho una piccola attività, da dove parto?". La risposta che nessuno si aspetta è che non si parte dallo strumento. ChatGPT, Claude, Gemini e Copilot (elenco aggiornato a ottobre 2026, cambia in fretta) fanno cose simili. Quello che cambia è il compito a cui li applichi.

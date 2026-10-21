@@ -31,7 +31,7 @@ faq:
     answer: "Di solito sì, perché i principi sono gli stessi: istruzioni chiare, contesto, esempi, formato. Le risposte però non saranno identiche, e le funzioni di ogni strumento cambiano spesso. Prova il prompt sullo strumento che usi davvero e correggilo in base al risultato."
   - question: "Posso incollare nel prompt il testo di un cliente?"
     answer: "Non se contiene dati personali, a meno che tu non abbia una base giuridica, un'informativa corretta e accordi adeguati con il fornitore dello strumento. Per cominciare sostituisci nomi, telefoni e indirizzi con segnaposto. Se hai dubbi sul tuo caso, chiedi a chi segue la privacy della tua impresa."
-related_prompts: []
+related_prompts: [risposta-recensione-negativa-ristorante, preventivo-pacchetto-sicilia-agenzia-viaggi, annuncio-immobile-vendita, procedura-operativa-apprendista-laboratorio]
 ---
 
 In aula c'è sempre qualcuno che alza la mano e dice: "Io ci ho provato, ma mi risponde cose generiche". Gli chiedo di mostrarmi cosa ha scritto. Quasi sempre è una riga: "scrivi una descrizione per la mia cantina". Se la scrivi a un copywriter che non ti conosce, ottieni la stessa cosa: una pagina che potrebbe andare bene per qualsiasi cantina del mondo.

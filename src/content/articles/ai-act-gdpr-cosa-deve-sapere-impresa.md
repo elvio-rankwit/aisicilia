@@ -51,7 +51,7 @@ faq:
     answer: "No, si affiancano. Se nello strumento AI entrano dati personali di clienti, ospiti o dipendenti, continuano ad applicarsi base giuridica, informativa, contratto col fornitore, regole sui trasferimenti extra UE e, quando serve, la valutazione d'impatto."
   - question: "Esiste una legge italiana sull'intelligenza artificiale?"
     answer: "Sì: la legge 23 settembre 2025, n. 132, pubblicata in Gazzetta Ufficiale n. 223 del 25 settembre 2025 e in vigore dal 10 ottobre 2025. È una legge quadro con principi, regole di settore (lavoro, professioni, minori) e deleghe al Governo. Designa AgID e ACN come autorità nazionali per l'AI."
-related_prompts: []
+related_prompts: [smistare-email-studio-professionale, sintesi-documento-per-cliente-studio]
 ---
 
 Questo articolo riguarda temi in cui un errore costa: lo scrivo con fonti ufficiali e dichiaro la data di verifica, che è il **21 ottobre 2026**. Non è consulenza legale. Le norme sull'AI cambiano in fretta: quest'anno le date dell'AI Act sono già state spostate una volta, a luglio. Prima di prendere una decisione che ha conseguenze, controlla la fonte e, se serve, senti un professionista.

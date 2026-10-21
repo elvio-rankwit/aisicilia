@@ -27,7 +27,7 @@ faq:
     answer: "Dipende da quanto è collegata ai tuoi programmi. Un flusso semplice con strumenti già in uso può costare pochi abbonamenti e qualche ora di prove. Se tocca gestionale, fatturazione o dati dei clienti, serve di più: tempo di chi lo imposta, test e manutenzione. Chiedi sempre un costo annuale, non solo di avvio."
   - question: "Serve un informatico?"
     answer: "Per le automazioni dentro gli strumenti che già usi, di solito no. Serve quando colleghi più programmi tra loro, quando i dati dei clienti passano da un sistema all'altro o quando un errore avrebbe conseguenze economiche. In quei casi meglio una persona che sappia anche cosa fare se il flusso si ferma."
-related_prompts: []
+related_prompts: [smistare-email-studio-professionale, risposta-richiesta-preventivo-artigiano, lettera-preventivo-ristrutturazione-cliente, piano-post-settimana-negozio]
 ---
 
 Immagina un artigiano di Caltagirone che passa il venerdì pomeriggio a rispondere sempre alle stesse domande: spedite fuori Italia? quanto costa l'imballaggio? potete personalizzare? quando arriva? A un certo punto sbotta: "Vorrei che lo facesse l'intelligenza artificiale". Provi a chiedergli cosa intenda per "lo facesse". Non lo sa. Ed è lì che quasi tutti si fermano.

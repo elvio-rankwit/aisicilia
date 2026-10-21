@@ -37,7 +37,7 @@ faq:
     answer: "Per una prima versione sì, per la versione definitiva meglio di no. Il testo scorre bene, ma può storpiare termini tecnici, denominazioni e unità di misura. Fai rivedere il catalogo a un madrelingua o a un importatore di fiducia, e crea un piccolo glossario dei tuoi termini fissi."
   - question: "Posso incollare nell'AI le email dei miei importatori?"
     answer: "Meglio di no senza aver chiarito le regole sui dati personali. Nome, ruolo e indirizzo email di una persona sono dati personali anche se lavora per un'azienda. Prepara i modelli di email con segnaposto e inserisci i dati veri nella tua posta o nel tuo gestionale."
-related_prompts: []
+related_prompts: [scheda-tecnica-vino-export-inglese-tedesco, descrizione-prodotto-ecommerce-agroalimentare, risposta-buyer-estero-agroalimentare, controllo-etichetta-claim-agroalimentare]
 ---
 
 Una cantina sull'Etna, dodici etichette, un sito in italiano e un catalogo in inglese che risale a tre vendemmie fa. Un importatore tedesco chiede le schede aggiornate in una settimana. Chi si occupa di tutto, in azienda, è il titolare con una collaboratrice part-time. Questo è il tipo di situazione in cui l'AI fa risparmiare ore, a patto di sapere cosa chiederle e cosa no.
