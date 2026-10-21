@@ -35,7 +35,7 @@ const formatWhere = d.format === 'online'
   : `${d.format === 'ibrido' ? 'in forma ibrida' : 'in presenza'}${d.venue_name ? ` presso ${d.venue_name}` : ''}, a ${d.city}`;
 const priceText = d.price === 'gratuito' ? 'L’ingresso è gratuito.' : d.price === 'a pagamento' ? 'L’ingresso è a pagamento.' : 'Il prezzo non è indicato.';
 const answer = [
-  `Questo evento ${verb} ${d.end_date && d.end_date.getTime() !== d.start_date.getTime() ? 'dal' : 'il'} ${dateRange(d.start_date, d.end_date)}${time ? `, ore ${time}` : ''}, ${formatWhere}.`,
+  `Questo evento ${verb} ${d.end_date && d.end_date.getTime() !== d.start_date.getTime() ? 'nelle date' : 'il'} ${dateRange(d.start_date, d.end_date)}${time ? `, ore ${time}` : ''}, ${formatWhere}.`,
   `Lo organizza ${d.organizer} ed è pensato per ${joinIt(d.audience)}; si parla di ${joinIt(d.topics.slice(0, 3))}. ${priceText}`,
 ].join(' ');
 const where = d.format === 'online'
