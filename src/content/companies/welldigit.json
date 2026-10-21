@@ -1,0 +1,30 @@
+{
+  "name": "Welldigit",
+  "slug": "welldigit",
+  "type": "startup",
+  "description": "Startup con sede operativa a Catania che sviluppa soluzioni basate su algoritmi predittivi, machine learning e analisi di grandi quantità di dati. I prodotti servono a sostenere le decisioni di gestione strategica, di portafoglio e di patrimonio, con simulazione di scenari futuri. Svolge ricerca e sviluppo sperimentale e dichiara una partnership con l'Università di Catania. Tra i temi indicati ci sono l'integrazione dell'AI nei processi d'impresa, l'Industria 5.0 e il monitoraggio dell'impatto ambientale con modelli digitali.",
+  "ai_areas": [
+    "machine learning",
+    "dati e analytics"
+  ],
+  "sectors_served": [
+    "trasversale"
+  ],
+  "province": "catania",
+  "city": "Catania",
+  "address": "Via Orto Limoni 25, 95125 Catania CT",
+  "lat": 37.51921,
+  "lng": 15.07991,
+  "geo_precision": "indirizzo",
+  "website": "https://www.welldigit.it",
+  "founded_year": 2023,
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://www.welldigit.it",
+    "https://www.welldigit.it/trasparenza.html",
+    "https://www.blogsicilia.it/catania/in-sicily-accelerator-fondazione-emblema-startup-selezionate-50mila-euro/1315100/"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

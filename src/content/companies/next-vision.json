@@ -1,0 +1,30 @@
+{
+  "name": "Next Vision",
+  "slug": "next-vision",
+  "type": "spin-off universitario",
+  "description": "Società nata come spin-off dell'Università di Catania dal gruppo di ricerca in visione artificiale del Dipartimento di Matematica e Informatica. Sviluppa algoritmi che ricavano informazioni da immagini e video, soprattutto da telecamere indossabili e fisse. Gli impieghi indicati sono il monitoraggio e la prevenzione dei rischi in ambienti industriali, la formazione con realtà aumentata, l'assistenza a domicilio e le visite in contesti culturali. Offre anche consulenza, ricerca e sviluppo e corsi sull'intelligenza artificiale.",
+  "ai_areas": [
+    "computer vision",
+    "machine learning"
+  ],
+  "sectors_served": [
+    "manifattura",
+    "sanità",
+    "cultura e beni culturali"
+  ],
+  "province": "catania",
+  "city": "Catania",
+  "address": "Viale Andrea Doria 6, 95125 Catania CT",
+  "lat": 37.52667,
+  "lng": 15.07779,
+  "geo_precision": "indirizzo",
+  "website": "https://www.nextvisionlab.it",
+  "same_as": [],
+  "source_urls": [
+    "https://www.nextvisionlab.it/about-us",
+    "https://www.nextvisionlab.it/contacts",
+    "https://qds.it/unict-intelligenza-artificiale-made-in-sicily-presentata-a-barcellona/"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

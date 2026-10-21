@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SearchForm from '../components/SearchForm.astro';
+
+const sections = [
+  { href: '/aziende/', title: 'Aziende', text: 'Chi fa AI in Sicilia, provincia per provincia.' },
+  { href: '/eventi/', title: 'Eventi', text: 'Gli appuntamenti in programma e l’archivio.' },
+  { href: '/impara/', title: 'Impara', text: 'Guide pratiche per le imprese.' },
+  { href: '/prompt/', title: 'Prompt', text: 'Prompt pronti da copiare, per settore.' },
+];
+---
+<BaseLayout seo={{ title: 'Pagina non trovata', description: 'La pagina che cerchi non esiste o è stata spostata. Prova con la ricerca o vai a una delle sezioni di AI Sicilia.', path: '/404/', noindex: true }}>
+  <div class="page-head">
+    <h1>Questa pagina non c’è</h1>
+    <p class="lead">L’indirizzo potrebbe essere sbagliato, oppure la scheda è stata tolta. Prova a cercarla.</p>
+  </div>
+  <SearchForm id="q404" label="Cerca nel sito" />
+  <section class="section" aria-labelledby="h-sezioni">
+    <h2 id="h-sezioni">Oppure vai in una sezione</h2>
+    <ul class="grid">
+      {sections.map((s) => (
+        <li class="card"><h3><a href={s.href}>{s.title}</a></h3><p>{s.text}</p></li>
+      ))}
+    </ul>
+    <p><a href="/">Torna alla home</a></p>
+  </section>
+</BaseLayout>

@@ -1,0 +1,30 @@
+{
+  "name": "IPLab - Image Processing Laboratory",
+  "slug": "iplab-image-processing-laboratory",
+  "type": "centro di ricerca",
+  "description": "Laboratorio del Dipartimento di Matematica e Informatica dell'Università di Catania che fa ricerca su elaborazione di immagini, visione artificiale, machine learning e computer grafica. I temi vanno dalla comprensione di immagini e video alla visione in prima persona, dall'imaging medico ai beni culturali, fino all'analisi forense dei contenuti multimediali e alle tecnologie assistive. Il gruppo lavora con imprese del settore, anche tramite borse di dottorato e brevetti, e tra le realtà nate dal laboratorio c'è lo spin-off iCTLab.",
+  "ai_areas": [
+    "computer vision",
+    "machine learning"
+  ],
+  "sectors_served": [
+    "istruzione e ricerca",
+    "sanità",
+    "cultura e beni culturali"
+  ],
+  "province": "catania",
+  "city": "Catania",
+  "address": "Viale Andrea Doria 6, 95100 Catania CT",
+  "lat": 37.52667,
+  "lng": 15.07779,
+  "geo_precision": "indirizzo",
+  "website": "https://iplab.dmi.unict.it",
+  "same_as": [],
+  "source_urls": [
+    "https://iplab.dmi.unict.it/about/",
+    "https://iplab.dmi.unict.it/contacts/",
+    "https://iplab.dmi.unict.it/"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

@@ -1,0 +1,29 @@
+{
+  "name": "PeRCeiVe.AI Lab",
+  "slug": "perceive-ai-lab",
+  "type": "centro di ricerca",
+  "description": "Gruppo di ricerca dell'Università di Catania, con recapito in via Santa Sofia, che si occupa di visione artificiale e intelligenza artificiale. Le linee di lavoro vanno dalla visione a basso livello alla comprensione di video e scene, fino al machine learning applicato alla visione e alla robotica. Tra i temi recenti figurano la previsione dell'attenzione umana con modelli video, la segmentazione di lesioni da sclerosi multipla nelle immagini cliniche, l'apprendimento continuo e la decodifica di segnali fMRI.",
+  "ai_areas": [
+    "computer vision",
+    "machine learning",
+    "robotica"
+  ],
+  "sectors_served": [
+    "istruzione e ricerca",
+    "sanità"
+  ],
+  "province": "catania",
+  "city": "Catania",
+  "address": "Via Santa Sofia 102, 95123 Catania CT",
+  "lat": 37.53659,
+  "lng": 15.06771,
+  "geo_precision": "indirizzo",
+  "website": "https://www.perceivelab.com",
+  "same_as": [],
+  "source_urls": [
+    "https://www.perceivelab.com/",
+    "https://www.perceivelab.com/contacts"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

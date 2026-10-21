@@ -1,0 +1,34 @@
+{
+  "name": "Aitho",
+  "slug": "aitho",
+  "type": "azienda",
+  "description": "Società benefit con sede a Catania che sviluppa software e si dichiara focalizzata sull'intelligenza artificiale. L'offerta comprende chatbot e generazione di testo, ricerca su basi documentali con RAG, generazione di immagini, video e voce, computer vision, analisi del linguaggio, riconoscimento vocale, sistemi di raccomandazione e analisi predittiva. Accanto all'AI svolge attività di cloud, system integration, IoT e realtà aumentata. Le piattaforme realizzate riguardano soprattutto servizi finanziari, trasporti e settore alimentare.",
+  "ai_areas": [
+    "AI generativa",
+    "NLP",
+    "computer vision",
+    "voce e speech",
+    "machine learning",
+    "dati e analytics"
+  ],
+  "sectors_served": [
+    "finanza e assicurazioni",
+    "logistica e trasporti",
+    "commercio e retail",
+    "istruzione e ricerca"
+  ],
+  "province": "catania",
+  "city": "Catania",
+  "address": "Piazza Europa 13, Catania",
+  "lat": 37.50236,
+  "lng": 15.08737,
+  "geo_precision": "città",
+  "website": "https://www.aitho.it",
+  "same_as": [],
+  "source_urls": [
+    "https://www.aitho.it/cosa-facciamo/",
+    "https://www.aitho.it/chi-siamo/"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

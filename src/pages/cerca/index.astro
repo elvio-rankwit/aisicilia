@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SearchForm from '../../components/SearchForm.astro';
+
+const m = {
+  title: 'Cerca nel sito: aziende, eventi, guide e prompt',
+  description: 'Cerca nelle aziende, negli eventi, nelle guide e nei prompt di AI Sicilia. La ricerca gira nel tuo browser, senza cookie né tracciamento.',
+};
+---
+<BaseLayout seo={{ title: m.title, description: m.description, path: '/cerca/', noindex: true, breadcrumbs: [{ name: 'Cerca', path: '/cerca/' }] }}>
+  <div class="page-head">
+    <h1>Cerca nel sito</h1>
+    <p class="lead">Aziende, eventi, guide e prompt. Scrivi una parola e premi invio.</p>
+  </div>
+  <div id="search-box" class="box">
+    <SearchForm />
+    <noscript><p class="callout warn">La ricerca ha bisogno di JavaScript. Senza, puoi sfogliare le sezioni: <a href="/aziende/">Aziende</a>, <a href="/eventi/">Eventi</a>, <a href="/impara/">Impara</a>, <a href="/prompt/">Prompt</a>.</p></noscript>
+  </div>
+  <div id="pagefind-ui" class="results"></div>
+</BaseLayout>
+<style>
+  .box { min-height: 7rem; }
+  .results { min-height: 4rem; margin-top: var(--space-5); }
+</style>
+<script>
+  // La UI di Pagefind (JS e CSS) si scarica solo qui e solo quando serve: ?q= nell'indirizzo, focus o invio nel campo.
+  const form = document.querySelector<HTMLFormElement>('#search-box form');
+  const input = form?.querySelector<HTMLInputElement>('input[name="q"]') ?? null;
+  const host = document.getElementById('pagefind-ui');
+  if (form && input && host) {
+    let mounted: Promise<void> | null = null;
+    const loadAssets = () =>
+      new Promise<void>((resolve, reject) => {
+        const css = document.createElement('link');
+        css.rel = 'stylesheet';
+        css.href = '/pagefind/pagefind-ui.css';
+        document.head.append(css);
+        const js = document.createElement('script');
+        js.src = '/pagefind/pagefind-ui.js';
+        js.onload = () => resolve();
+        js.onerror = () => reject(new Error('pagefind'));
+        document.head.append(js);
+      });
+    const mount = (q: string) => {
+      if (!mounted) {
+        mounted = loadAssets().then(() => {
+          const PagefindUI = (window as unknown as { PagefindUI: new (o: Record<string, unknown>) => unknown }).PagefindUI;
+          new PagefindUI({ element: host, showImages: false, showSubResults: false, resetStyles: false, autofocus: false });
+        });
+      }
+      return mounted.then(() => {
+        const ui = host.querySelector<HTMLInputElement>('input');
+        if (ui) {
+          if (q && ui.value !== q) { ui.value = q; ui.dispatchEvent(new Event('input', { bubbles: true })); }
+          form.hidden = true;
+          ui.focus();
+        }
+      }).catch(() => {
+        host.textContent = 'Non riesco a caricare la ricerca. Riprova tra poco, oppure sfoglia le sezioni del sito.';
+      });
+    };
+    const initial = new URLSearchParams(location.search).get('q');
+    if (initial) { input.value = initial; mount(initial); }
+    input.addEventListener('input', () => mount(input.value), { once: true });
+    form.addEventListener('submit', (e) => { e.preventDefault(); mount(input.value); });
+  }
+</script>

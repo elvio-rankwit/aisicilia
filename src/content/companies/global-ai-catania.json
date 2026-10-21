@@ -1,0 +1,27 @@
+{
+  "name": "Global AI Catania",
+  "slug": "global-ai-catania",
+  "type": "community/associazione",
+  "description": "Sezione catanese della rete internazionale Global AI Community. Organizza incontri in presenza a Catania per appassionati, studenti, ricercatori e professionisti interessati a intelligenza artificiale, machine learning e data science, con talk, workshop e momenti di confronto. Il calendario pubblicato comprende un meetup di presentazione a marzo 2026, dedicato agli SDK MCP per C#, e AgentCamp a maggio 2026. La pagina non indica una sede fissa, solo la città in cui si svolgono gli eventi.",
+  "ai_areas": [
+    "machine learning",
+    "dati e analytics",
+    "agenti e automazione"
+  ],
+  "sectors_served": [
+    "trasversale",
+    "istruzione e ricerca"
+  ],
+  "province": "catania",
+  "city": "Catania",
+  "lat": 37.50236,
+  "lng": 15.08737,
+  "geo_precision": "città",
+  "website": "https://globalai.community/chapters/catania/",
+  "same_as": [],
+  "source_urls": [
+    "https://globalai.community/chapters/catania/"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

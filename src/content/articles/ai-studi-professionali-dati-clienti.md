@@ -62,17 +62,17 @@ La legge non riscrive la deontologia. Riservatezza, diligenza e responsabilità 
 
 Appena un dato personale entra in un chatbot, hai fatto un trattamento. Valgono le regole di sempre, scritte nel [testo del GDPR](https://www.garanteprivacy.it/regolamentoue/il-testo-del-regolamento). Prima di incollare, passa queste verifiche.
 
-**Base giuridica e finalità.** Di solito i dati del cliente li tratti già per eseguire l'incarico. Usare un nuovo strumento per la stessa finalità non è per forza un trattamento nuovo, ma dipende da cosa fa il fornitore con quei dati: se li riusa per addestrare i suoi modelli, il discorso cambia. Leggi le condizioni del piano che hai, perché cambiano spesso tra versione gratuita e versione aziendale.
+Sulla base giuridica e la finalità, la questione è semplice da enunciare. Di solito i dati del cliente li tratti già per eseguire l'incarico. Usare un nuovo strumento per la stessa finalità non è per forza un trattamento nuovo, ma dipende da cosa fa il fornitore con quei dati: se li riusa per addestrare i suoi modelli, il discorso cambia. Leggi le condizioni del piano che hai, perché cambiano spesso tra versione gratuita e versione aziendale.
 
-**Il fornitore è un tuo responsabile del trattamento?** In questo caso serve il contratto previsto dall'art. 28. Con un account personale gratuito, di norma, quel contratto non c'è.
+Il fornitore, poi, è un tuo responsabile del trattamento? Se sì, serve il contratto previsto dall'art. 28. Con un account personale gratuito, di norma, quel contratto non c'è.
 
-**Dove vanno i dati.** Se il fornitore è fuori dallo Spazio economico europeo, ti servono garanzie. Il [Garante](https://www.garanteprivacy.it/temi/trasferimento-di-dati-all-estero) ricorda le strade: decisione di adeguatezza, come l'EU-US Data Privacy Framework del 10 luglio 2023 per le imprese statunitensi certificate, oppure clausole contrattuali tipo. Le deroghe dell'art. 49 sono eccezioni da leggere in modo restrittivo. I precedenti accordi con gli Stati Uniti sono stati annullati dalla Corte di giustizia dell'UE: verifica che la certificazione del fornitore sia in elenco e ancora valida.
+Conta anche dove vanno i dati. Se il fornitore è fuori dallo Spazio economico europeo, ti servono garanzie. Il [Garante](https://www.garanteprivacy.it/temi/trasferimento-di-dati-all-estero) ricorda le strade: decisione di adeguatezza, come l'EU-US Data Privacy Framework del 10 luglio 2023 per le imprese statunitensi certificate, oppure clausole contrattuali tipo. Le deroghe dell'art. 49 sono eccezioni da leggere in modo restrittivo. I precedenti accordi con gli Stati Uniti sono stati annullati dalla Corte di giustizia dell'UE: verifica che la certificazione del fornitore sia in elenco e ancora valida.
 
-**Dati particolari e giudiziari.** Salute, appartenenza sindacale, condanne penali: negli studi legali e nei consulenti del lavoro ci sono continuamente. Il rischio sale, e con lui la prudenza richiesta.
+Attenzione ai dati particolari e giudiziari. Salute, appartenenza sindacale, condanne penali: negli studi legali e nei consulenti del lavoro ci sono continuamente. Il rischio sale, e con lui la prudenza richiesta.
 
-**DPIA.** La [valutazione d'impatto](https://www.garanteprivacy.it/valutazione-d-impatto-della-protezione-dei-dati-dpia-) serve quando il trattamento può comportare un rischio elevato per i diritti delle persone. Dati sensibili di molti clienti dati in pasto a un servizio esterno sono un candidato naturale. Controlla i criteri e l'elenco del Garante.
+Sulla DPIA: la [valutazione d'impatto](https://www.garanteprivacy.it/valutazione-d-impatto-della-protezione-dei-dati-dpia-) serve quando il trattamento può comportare un rischio elevato per i diritti delle persone. Dati sensibili di molti clienti dati in pasto a un servizio esterno sono un candidato naturale. Controlla i criteri e l'elenco del Garante.
 
-**Informativa e registro.** L'informativa ai clienti e il registro dei trattamenti vanno aggiornati se introduci uno strumento nuovo.
+Infine informativa e registro. L'informativa ai clienti e il registro dei trattamenti vanno aggiornati se introduci uno strumento nuovo.
 
 ## Cosa puoi fare, cosa fai con cautela, cosa non farei
 
