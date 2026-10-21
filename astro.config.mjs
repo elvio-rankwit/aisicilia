@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import preact from '@astrojs/preact';
+import remarkUnpublishedLinks from './src/lib/markdown/remark-unpublished-links.mjs';
 
 // Unica variabile che governa beta/production. Vedi docs/DECISIONS.md (D-002).
 const SITE_MODE = process.env.PUBLIC_SITE_MODE === 'production' ? 'production' : 'beta';
@@ -14,6 +15,7 @@ export default defineConfig({
   compressHTML: true,
   prefetch: { prefetchAll: false, defaultStrategy: 'hover' },
   integrations: [preact()],
+  markdown: { remarkPlugins: [remarkUnpublishedLinks] },
   image: {
     // Formati di output: AVIF + fallback WebP tramite <Picture formats={['avif','webp']} />
     responsiveStyles: true,
