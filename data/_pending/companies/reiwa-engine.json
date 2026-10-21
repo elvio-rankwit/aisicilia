@@ -1,0 +1,27 @@
+{
+  "name": "Reiwa Engine",
+  "slug": "reiwa-engine",
+  "type": "startup",
+  "description": "Società con sede indicata a Caltagirone (indirizzo da scheda Smau) che progetta soluzioni su misura nel campo di robotica, intelligenza artificiale e automazione industriale. Il prodotto principale è SandStorm, un robot autonomo brevettato che pulisce a secco e diagnostica i pannelli fotovoltaici senza usare acqua né carburante, con applicazioni di intelligenza artificiale per contenere i costi di manutenzione. È stato presentato allo Smau di Milano nel 2022.",
+  "ai_areas": [
+    "robotica",
+    "agenti e automazione"
+  ],
+  "sectors_served": [
+    "energia"
+  ],
+  "province": "catania",
+  "city": "Caltagirone",
+  "address": "Via Giuseppe Pitrè 6/B, 95041 Caltagirone CT",
+  "lat": 37.20964,
+  "lng": 14.51328,
+  "geo_precision": "indirizzo",
+  "website": "https://reiwaengine.com",
+  "same_as": [],
+  "source_urls": [
+    "https://www.smau.it/exhibitors/reiwa-engine"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "Il sito reiwaengine.com (indicato da Smau) risponde solo con una pagina di parcheggio/lander e reiwa.tech è in vendita: nessuna fonte aziendale consultabile. Indirizzo e attività derivano solo dalla scheda espositore Smau 2022; la stampa cita Comiso (RG) come luogo di fondazione, quindi la sede attuale va confermata. Attività ancora in corso non verificata."
+}

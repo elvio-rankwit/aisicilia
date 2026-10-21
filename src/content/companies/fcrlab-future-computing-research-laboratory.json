@@ -1,0 +1,28 @@
+{
+  "name": "FCRLab - Future Computing Research Laboratory",
+  "slug": "fcrlab-future-computing-research-laboratory",
+  "type": "centro di ricerca",
+  "description": "Laboratorio di ricerca dell'Università di Messina che unisce cloud computing, Internet delle cose e intelligenza artificiale per applicazioni in sanità, città intelligenti e beni culturali. Dai profili del gruppo emergono machine learning ed edge AI, previsione e rilevamento di anomalie nell'uso delle risorse di calcolo, computer vision e imaging medico, oltre a big data, blockchain e sicurezza informatica. Il sito raccoglie le persone del gruppo, le pubblicazioni e le notizie.",
+  "ai_areas": [
+    "machine learning",
+    "IoT ed edge AI",
+    "computer vision"
+  ],
+  "sectors_served": [
+    "sanità",
+    "cultura e beni culturali",
+    "trasversale"
+  ],
+  "province": "messina",
+  "city": "Messina",
+  "lat": 38.19376,
+  "lng": 15.55421,
+  "geo_precision": "città",
+  "website": "https://fcrlab.unime.it/",
+  "same_as": [],
+  "source_urls": [
+    "https://fcrlab.unime.it/"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

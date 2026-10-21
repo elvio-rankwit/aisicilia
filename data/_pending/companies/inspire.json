@@ -1,0 +1,33 @@
+{
+  "name": "INSPIRE",
+  "slug": "inspire",
+  "type": "spin-off universitario",
+  "description": "Società di Messina nata nel 2020 come spin-off dell'Università di Messina, poi accreditata anche presso l'Università di Verona. Lavora su dati sanitari del mondo reale: farmacovigilanza, farmacoepidemiologia, revisioni sistematiche e analisi per enti pubblici, aziende farmaceutiche e organizzazioni sanitarie. La scheda universitaria cita algoritmi di machine learning per prevedere malattie rare e risposta ai farmaci. Tra i prodotti c'è MagiCoder Pro, che riconosce termini di dizionari medici nel testo libero.",
+  "ai_areas": [
+    "machine learning",
+    "dati e analytics"
+  ],
+  "sectors_served": [
+    "sanità"
+  ],
+  "province": "messina",
+  "city": "Messina",
+  "address": "Via Consolare Pompea 13, 98168 Messina ME",
+  "lat": 38.22741,
+  "lng": 15.5692,
+  "geo_precision": "indirizzo",
+  "website": "https://inspire-srl.it/",
+  "founded_year": 2020,
+  "same_as": [
+    "https://www.unime.it/terza-missione/trasferimento-tecnologico/imprenditorialita-accademica"
+  ],
+  "source_urls": [
+    "https://inspire-srl.it/company/",
+    "https://inspire-srl.it/products/",
+    "https://inspire-srl.it/contacts/",
+    "https://www.unime.it/terza-missione/trasferimento-tecnologico/imprenditorialita-accademica"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "L'AI compare nella pagina aziendale (approcci basati su AI) e nella scheda UniMe (algoritmi di machine learning), ma l'attività principale è real-world evidence e farmacoepidemiologia e le pagine prodotti non citano AI: centralità da confermare. L'accreditamento UniMe risulta scaduto il 22/04/2026 e non è chiaro se rinnovato; il sito indica anche l'accreditamento UniVr (2022)."
+}

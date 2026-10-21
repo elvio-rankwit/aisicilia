@@ -1,0 +1,27 @@
+{
+  "name": "Vecchia Dogana Hub",
+  "slug": "vecchia-dogana-hub",
+  "type": "incubatore/acceleratore",
+  "description": "Spazio condiviso e sperimentale a Catania promosso da Aitho, società con sede in città, pensato come punto di riferimento per chi lavora con tecnologie emergenti, a partire dall'intelligenza artificiale. Prevede uffici e un laboratorio di innovazione, oltre a un'area per eventi, workshop e formazione su AI, impresa e competenze trasversali, indicata come in allestimento. Il primo evento pubblico, CATAN.IA, è stato organizzato con la community Datapizza; sono già insediate alcune imprese e studi professionali.",
+  "ai_areas": [
+    "machine learning"
+  ],
+  "sectors_served": [
+    "trasversale"
+  ],
+  "province": "catania",
+  "city": "Catania",
+  "lat": 37.50236,
+  "lng": 15.08737,
+  "geo_precision": "città",
+  "website": "https://vecchiadoganahub.it",
+  "same_as": [],
+  "source_urls": [
+    "https://vecchiadoganahub.it",
+    "https://en.ilsole24ore.com/art/at-catania-vecchia-dogana-becomes-artificial-intelligence-hub-AH4J5bQ",
+    "https://www.quotidianodiragusa.it/2026/04/29/tecnologie/intelligenza-artificiale-catania-catania-2026/"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "Il sito non indica indirizzo né soggetto gestore, la sezione news è vuota (post di default) e non descrive programmi per startup: non è chiaro se sia un incubatore o uno spazio di lavoro condiviso. Le aree AI sono generiche (valore segnaposto, il sito non le specifica). Sede nel porto di Catania solo da stampa."
+}

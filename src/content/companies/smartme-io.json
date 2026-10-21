@@ -1,0 +1,33 @@
+{
+  "name": "SmartMe.IO",
+  "slug": "smartme-io",
+  "type": "azienda",
+  "description": "Società con sede a Messina che progetta sistemi di Internet delle cose con componenti di intelligenza artificiale, curando hardware, firmware, software e servizi cloud. Tra i prodotti figurano stazioni di rilevazione ambientale, gateway LoRa, data logger e dispositivi come Arancino AI e SmartAICam. Offre anche una piattaforma di monitoraggio per flotte e logistica con manutenzione predittiva e rilevamento di anomalie. Si rivolge a città intelligenti, logistica, ambiente, industria e difesa; a Messina gestisce uno spazio di coworking.",
+  "ai_areas": [
+    "IoT ed edge AI",
+    "machine learning",
+    "dati e analytics"
+  ],
+  "sectors_served": [
+    "pubblica amministrazione",
+    "logistica e trasporti",
+    "ambiente",
+    "manifattura",
+    "agricoltura"
+  ],
+  "province": "messina",
+  "city": "Messina",
+  "address": "Strada Provinciale 39 sn, Area ASI Larderia, 98129 Messina ME",
+  "lat": 38.13939,
+  "lng": 15.50217,
+  "geo_precision": "indirizzo",
+  "website": "https://smartme.io",
+  "same_as": [],
+  "source_urls": [
+    "https://smartme.io",
+    "https://smartme.io/azienda/chi-siamo/",
+    "https://smartme.io/azienda/contatti/"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}
