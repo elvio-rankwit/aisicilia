@@ -110,7 +110,7 @@ export const meta = {
     const d = e.data;
     const title = fitTitle([d.title, trimAtBoundary(d.title, T)], T);
     const where =
-      d.format === 'online' ? 'online' : d.format === 'ibrido' ? `${d.city} e online` : d.venue_name ? `${d.venue_name}, ${d.city}` : d.city;
+      d.format === 'online' ? 'online' : d.format === 'ibrido' ? `${d.city} e online` : d.venue_name && d.venue_name.length <= 40 ? `${d.venue_name}, ${d.city}` : d.city;
     const status = d.status === 'annullato' ? 'Annullato. ' : d.status === 'rinviato' ? 'Rinviato. ' : d.status === 'spostato online' ? 'Spostato online. ' : '';
     const prefix = `${status}${formatRange(d.start_date, d.end_date)}, ${where}. `;
     return {

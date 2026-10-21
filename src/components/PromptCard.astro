@@ -1,5 +1,6 @@
 ---
 import type { Prompt } from '../lib/data';
+import { PROMPT_SECTORS } from '../lib/taxonomies';
 import { clip } from './helpers';
 interface Props { prompt: Prompt; level?: 2 | 3 | 4; showSector?: boolean }
 const { prompt: p, level = 3 } = Astro.props;
@@ -7,7 +8,10 @@ const d = p.data;
 const H = `h${level}` as 'h2' | 'h3' | 'h4';
 ---
 <li class="card prompt" data-id={p.id}>
-  <p class="meta">{d.use_case[0].toUpperCase() + d.use_case.slice(1)} · livello {d.level}</p>
+  <p class="kicker">{PROMPT_SECTORS[d.sector].toUpperCase()} · {d.use_case.toUpperCase()}</p>
   <H><a href={`/prompt/${d.sector}/${p.id}/`}>{d.title}</a></H>
   <p>{clip(d.goal, 140)}</p>
+  <dl class="kv">
+    <dt>Livello</dt><dd>{d.level}</dd>
+  </dl>
 </li>

@@ -1,0 +1,60 @@
+# Header di Cloudflare Pages (D-008). Questo file vale per la production.
+# In beta l'integrazione src/lib/seo/headers-integration.mjs aggiunge in dist/_headers
+# l'header noindex della beta (non va messo qui: in production non deve esserci).
+#
+# Cloudflare unisce con una virgola i valori dello stesso header definiti da regole diverse:
+# per questo Cache-Control non sta su /* ma su percorsi disgiunti.
+# La CSP completa è nel <meta> generato da Astro (security.csp in astro.config.mjs): qui solo frame-ancestors,
+# che nel meta è ignorato. Le due policy si sommano e non si contraddicono.
+
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: accelerometer=(), autoplay=(), camera=(), display-capture=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), interest-cohort=(), browsing-topics=()
+  Cross-Origin-Opener-Policy: same-origin
+  Content-Security-Policy: frame-ancestors 'none'
+
+# Asset con hash: immutabili.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Immagini Open Graph: una settimana.
+/og/*
+  Cache-Control: public, max-age=604800
+
+# Indice di ricerca Pagefind: un giorno.
+/pagefind/*
+  Cache-Control: public, max-age=86400
+
+# HTML: sempre rivalidato. Un blocco per sezione, perché /* è riservato agli header comuni.
+# Se si aggiunge una sezione nuova al sito, aggiungere qui il suo percorso.
+/
+  Cache-Control: public, max-age=0, must-revalidate
+/aziende/*
+  Cache-Control: public, max-age=0, must-revalidate
+/eventi/*
+  Cache-Control: public, max-age=0, must-revalidate
+/impara/*
+  Cache-Control: public, max-age=0, must-revalidate
+/prompt/*
+  Cache-Control: public, max-age=0, must-revalidate
+/chi-siamo/*
+  Cache-Control: public, max-age=0, must-revalidate
+/metodologia/*
+  Cache-Control: public, max-age=0, must-revalidate
+/segnala/*
+  Cache-Control: public, max-age=0, must-revalidate
+/rimozione/*
+  Cache-Control: public, max-age=0, must-revalidate
+/contatti/*
+  Cache-Control: public, max-age=0, must-revalidate
+/privacy/*
+  Cache-Control: public, max-age=0, must-revalidate
+/note-legali/*
+  Cache-Control: public, max-age=0, must-revalidate
+/cerca/*
+  Cache-Control: public, max-age=0, must-revalidate
+/404.html
+  Cache-Control: public, max-age=0, must-revalidate

@@ -1,12 +1,16 @@
 // Utilità di testo per meta title e description: troncamenti su parola, frasi intere, nessun elenco di keyword.
 
-/** Taglia su parola e chiude con "…" (un solo carattere). */
+const DANGLING = /\s+(?:a|ad|al|alla|alle|agli|ai|con|da|dal|dei|del|della|delle|di|e|ed|già|gli|il|in|la|le|lo|nel|nella|o|per|su|sul|tra|fra|un|una|che|come|anche|ma|se|più)$/i;
+
+/** Taglia su parola e chiude con "…" (un solo carattere); non lascia articoli o preposizioni in fondo. */
 export function clipWords(s: string, max: number): string {
   const t = s.replace(/\s+/g, ' ').trim();
   if (t.length <= max) return t;
   let cut = t.slice(0, max - 1);
   if (!/\s/.test(t[max - 1])) cut = cut.replace(/\s+\S*$/, '');
-  return cut.replace(/[\s,;:.\-–(]+$/, '') + '…';
+  cut = cut.replace(/[\s,;:.\-–(]+$/, '');
+  while (DANGLING.test(cut)) cut = cut.replace(DANGLING, '').replace(/[\s,;:.\-–(]+$/, '');
+  return cut + '…';
 }
 
 /** Prima lettera minuscola se la parola è comune ("Startup" → "startup"), invariata per sigle e nomi ("AIM", "CNR"). */
@@ -23,7 +27,7 @@ const SENTENCE_SPLIT = /(?<=[.!?])\s+(?=[A-ZÀ-Ý0-9“"«])/;
 
 /**
  * Riassume un testo in `max` caratteri: frasi intere finché ci stanno; se la prima è troppo lunga,
- * taglia all'ultima virgola/due punti utile e chiude con il punto; in ultima istanza taglia su parola.
+ * taglia su parola con i puntini (un taglio a metà frase non deve sembrare una frase finita).
  */
 export function summarize(text: string, max: number, min = 60): string {
   const clean = text.replace(/\s+/g, ' ').trim();
@@ -36,9 +40,6 @@ export function summarize(text: string, max: number, min = 60): string {
     out = next;
   }
   if (out.length >= min) return out;
-  const head = clean.slice(0, max);
-  const cut = Math.max(head.lastIndexOf(', '), head.lastIndexOf('; '), head.lastIndexOf(': '));
-  if (cut >= min) return head.slice(0, cut).replace(/[\s,;:]+$/, '') + '.';
   return clipWords(clean, max);
 }
 

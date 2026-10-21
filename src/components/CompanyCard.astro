@@ -1,13 +1,12 @@
 ---
 import type { Company } from '../lib/data';
 import { PROVINCES } from '../lib/provinces';
-import { clip, initials, slugify, toneOf } from './helpers';
+import { clip, slugify } from './helpers';
 interface Props { company: Company; level?: 2 | 3 | 4 }
 const { company: c, level = 3 } = Astro.props;
 const d = c.data;
 const H = `h${level}` as 'h2' | 'h3' | 'h4';
-const areas = d.ai_areas.slice(0, 3);
-const more = d.ai_areas.length - areas.length;
+const kicker = [PROVINCES[d.province].sigla, d.type.toUpperCase(), d.founded_year].filter(Boolean).join(' · ');
 ---
 <li
   class="card company"
@@ -17,25 +16,12 @@ const more = d.ai_areas.length - areas.length;
   data-aree={d.ai_areas.map(slugify).join(' ')}
   data-settori={d.sectors_served.map(slugify).join(' ')}
 >
-  <div class="head">
-    <span class={`avatar tone-${toneOf(c.id)}`} aria-hidden="true">{initials(d.name)}</span>
-    <div class="titles">
-      <H><a href={`/aziende/${c.id}/`}>{d.name}</a></H>
-      <p class="meta">{d.type[0].toUpperCase() + d.type.slice(1)} · {d.city} ({PROVINCES[d.province].sigla})</p>
-    </div>
-  </div>
-  <p>{clip(d.description, 170)}</p>
-  <ul class="tags" aria-label="Ambiti AI">
-    {areas.map((a) => <li><span class="badge">{a}</span></li>)}
-    {more > 0 && <li><span class="badge plain">+{more}</span></li>}
-    {d.is_innovative_startup && <li><span class="badge accent">Startup innovativa</span></li>}
-  </ul>
+  <p class="kicker">{kicker}</p>
+  <H><a href={`/aziende/${c.id}/`}>{d.name}</a></H>
+  <p class="meta">{d.city}{d.is_innovative_startup ? ' · startup innovativa' : ''}</p>
+  <p>{clip(d.description, 150)}</p>
+  <dl class="kv">
+    <dt>Ambiti</dt><dd>{d.ai_areas.slice(0, 3).join(', ')}{d.ai_areas.length > 3 ? ` +${d.ai_areas.length - 3}` : ''}</dd>
+    <dt>Settori</dt><dd>{d.sectors_served.slice(0, 2).join(', ')}{d.sectors_served.length > 2 ? ` +${d.sectors_served.length - 2}` : ''}</dd>
+  </dl>
 </li>
-<style>
-  .head { display: flex; gap: var(--space-3); align-items: flex-start; }
-  .titles { min-width: 0; }
-  .avatar { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: var(--radius); font-family: var(--font-serif); font-weight: 700; font-size: var(--fs-base); background: var(--c-primary-soft); color: var(--c-primary); }
-  .tone-1 { background: var(--c-accent-soft); color: var(--c-accent); }
-  .tone-2 { background: var(--c-surface-2); color: var(--c-text); }
-  .tone-3 { background: var(--c-warning-bg); color: var(--c-warning-text); }
-</style>

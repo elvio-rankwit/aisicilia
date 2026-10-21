@@ -5,12 +5,12 @@ interface Props { target: string; label?: string }
 const { target, label = 'Copia il prompt' } = Astro.props;
 ---
 <div class="copy-row">
-  <button type="button" class="btn js-only inline" data-copy-target={target} data-label={label}>{label}</button>
+  <button type="button" class="btn ghost js-only inline" data-copy-target={target} data-label={label}>{label}</button>
   <span class="copy-status" role="status" aria-live="polite" data-copy-status></span>
 </div>
 <style>
-  .copy-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); min-height: var(--tap); margin-bottom: var(--space-3); }
-  .copy-status { font-weight: 700; color: var(--c-success); }
+  .copy-row { display: flex; flex-direction: row-reverse; align-items: center; gap: var(--space-3); min-height: var(--tap); }
+  .copy-status { font-weight: 700; color: var(--c-data); font-size: var(--fs-sm); }
 </style>
 <script>
   const btn = document.querySelector<HTMLButtonElement>('[data-copy-target]');

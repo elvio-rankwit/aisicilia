@@ -1,8 +1,9 @@
 ---
 const year = new Date().getFullYear();
 ---
-<footer class="site-footer">
+<footer class="site-footer gridbg">
   <div class="container">
+    <p class="brand"><span class="mono">37°N 14°E</span> · AI Sicilia</p>
     <nav aria-label="Piè di pagina">
       <ul>
         <li><a href="/chi-siamo/">Chi siamo</a></li>
@@ -14,11 +15,16 @@ const year = new Date().getFullYear();
         <li><a href="/note-legali/">Note legali</a></li>
       </ul>
     </nav>
-    <p class="muted">© {year} AI Sicilia, progetto indipendente di <a href="/chi-siamo/">Elvio Leonardi</a>. Mappe © <a href="https://www.openstreetmap.org/copyright">contributori OpenStreetMap</a>.</p>
+    <p class="small">© {year} AI Sicilia, progetto indipendente di <a href="/chi-siamo/">Elvio Leonardi</a>. Mappe © <a href="https://www.openstreetmap.org/copyright">contributori OpenStreetMap</a>.</p>
   </div>
 </footer>
 <style>
-  .site-footer { margin-top: var(--space-8); padding-block: var(--space-6); border-top: 1px solid var(--c-border); background: var(--c-surface-2); font-size: var(--fs-sm); }
-  ul { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); list-style: none; padding: 0; }
-  a { display: inline-block; padding-block: var(--space-2); }
+  .site-footer { margin-top: var(--space-8); padding-block: var(--space-6); background-color: var(--c-lava); color: var(--c-on-lava); font-size: var(--fs-sm); border-top: 4px solid var(--c-ochre); }
+  .brand { margin: 0 0 var(--space-3); font-weight: 700; font-size: var(--fs-lg); letter-spacing: -0.02em; }
+  .brand .mono { color: var(--c-on-lava-muted); font-size: var(--fs-xs); font-weight: 500; }
+  ul { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-5); list-style: none; padding: 0; }
+  a { display: inline-block; padding-block: var(--space-2); color: var(--c-on-lava); text-underline-offset: 0.18em; }
+  a:hover { color: var(--c-lava-ochre); }
+  .small { margin: 0; color: var(--c-on-lava-muted); }
+  .small a { padding-block: 0; color: var(--c-on-lava); }
 </style>

@@ -4,6 +4,7 @@ import MapPreviewSlot from '../../components/MapPreviewSlot.astro';
 import MapInteractiveSlot from '../../components/MapInteractiveSlot.astro';
 import ProvinceTable from '../../components/ProvinceTable.astro';
 import CompanyList from '../../components/CompanyList.astro';
+import PageStat from '../../components/PageStat.astro';
 import Pager from '../../components/Pager.astro';
 import EmptyState from '../../components/EmptyState.astro';
 import CtaSegnala from '../../components/CtaSegnala.astro';
@@ -33,7 +34,8 @@ const h1 = 'Aziende e startup AI in Sicilia';
     ],
   }}
 >
-  <div class="page-head">
+  <div class="page-head sheet">
+    <PageStat value={companies.length} label={companies.length === 1 ? 'realtà verificata' : 'realtà verificate'} coords="37°N 14°E · 9 province" />
     <h1>{h1}</h1>
     {companies.length > 0 ? (
       <p class="answer">{plural(companies.length, 'realtà siciliana lavora', 'realtà siciliane lavorano')} con l’intelligenza artificiale al centro del prodotto o del servizio, in {provincesWith} {provincesWith === 1 ? 'provincia' : 'province'} su 9. Ultimo aggiornamento dei dati: {updated && formatDate(updated)}. Ogni scheda indica le fonti e la data di verifica; i criteri di inclusione sono nella <a href="/metodologia/">metodologia</a>.</p>

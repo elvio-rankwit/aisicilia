@@ -9,7 +9,10 @@ const nav = [
 ---
 <header class="site-header">
   <div class="container bar">
-    <a class="logo" href="/" aria-label="AI Sicilia, torna alla home">AI <span>Sicilia</span></a>
+    <a class="logo" href="/" aria-label="AI Sicilia, torna alla home">
+      <svg class="glyph" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><rect class="g1" x="1" y="1" width="8" height="8" /><rect class="g2" x="11" y="1" width="8" height="8" /><rect class="g3" x="1" y="11" width="8" height="8" /><rect class="g4" x="11" y="11" width="8" height="8" /></svg>
+      <span>AI Sicilia</span>
+    </a>
     <span class="beta" title="Versione di prova: dati e testi in revisione">Beta</span>
     <div class="tools">
       <a class="icon-btn" href="/cerca/" aria-label="Cerca nel sito" data-astro-prefetch>
@@ -33,18 +36,20 @@ const nav = [
 <style>
   .site-header { border-bottom: 1px solid var(--c-border); background: var(--c-surface); }
   .bar { display: flex; flex-wrap: wrap; align-items: center; column-gap: var(--space-3); row-gap: 0; padding-block: var(--space-1); }
-  .logo { display: inline-flex; align-items: center; min-height: var(--tap); font-family: var(--font-serif); font-weight: 700; font-size: var(--fs-lg); color: var(--c-text); text-decoration: none; }
-  .logo span { color: var(--c-accent); margin-left: 0.25em; }
-  .beta { font-size: var(--fs-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 2px 8px; border-radius: var(--radius-pill); background: var(--c-accent-soft); color: var(--c-accent); }
+  .logo { display: inline-flex; align-items: center; gap: var(--space-2); min-height: var(--tap); font-weight: 700; font-size: var(--fs-lg); letter-spacing: -0.02em; color: var(--c-text); text-decoration: none; }
+  .glyph { flex: none; }
+  .g1 { fill: var(--c-primary); } .g2 { fill: var(--c-accent); } .g3 { fill: var(--c-data); } .g4 { fill: var(--c-ochre); }
+  .beta { font-family: var(--font-mono); font-weight: 500; font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.06em; padding: 1px 8px; border-radius: var(--radius-sm); background: var(--c-data-soft); color: var(--c-data); }
   .tools { display: flex; margin-left: auto; order: 2; }
-  .icon-btn { display: inline-flex; align-items: center; justify-content: center; width: var(--tap); height: var(--tap); padding: 0; border: 0; border-radius: var(--radius-sm); background: transparent; color: var(--c-text); cursor: pointer; }
+  .icon-btn { display: inline-flex; align-items: center; justify-content: center; width: var(--tap); height: var(--tap); padding: 0; border: 0; border-radius: var(--radius-sm); background: transparent; color: var(--c-text); cursor: pointer; transition: color 120ms, background-color 120ms; }
   .icon-btn:hover { background: var(--c-primary-soft); color: var(--c-primary); }
   #theme-toggle svg { display: none; }
   #theme-toggle[data-mode='light'] .i-light, #theme-toggle[data-mode='dark'] .i-dark, #theme-toggle[data-mode='system'] .i-system { display: block; }
   nav { order: 3; flex: 1 0 100%; }
   nav ul { display: flex; flex-wrap: wrap; gap: 0 var(--space-1); list-style: none; margin: 0; padding: 0; }
-  nav a { display: inline-flex; align-items: center; min-height: var(--tap); padding: 0 var(--space-2); color: var(--c-text); text-decoration: none; border-radius: var(--radius-sm); font-weight: 600; }
-  nav a:hover, nav a[aria-current='page'] { background: var(--c-primary-soft); color: var(--c-primary); }
+  nav a { display: inline-flex; align-items: center; min-height: var(--tap); padding: 0 var(--space-2); color: var(--c-text); text-decoration: none; font-weight: 600; transition: color 120ms, box-shadow 120ms; }
+  nav a:hover { color: var(--c-primary); box-shadow: inset 0 -3px 0 var(--c-border); }
+  nav a[aria-current='page'] { box-shadow: inset 0 -3px 0 var(--c-accent); }
   @media (min-width: 40rem) {
     .bar { flex-wrap: nowrap; }
     nav { order: 1; flex: 0 1 auto; margin-left: auto; }

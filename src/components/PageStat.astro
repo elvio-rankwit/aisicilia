@@ -1,0 +1,6 @@
+---
+// Conteggio grande in mono, etichetta e (opzionale) coordinate: testata dei dati.
+interface Props { value: number | string; label: string; coords?: string }
+const { value, label, coords } = Astro.props;
+---
+<p class="stat"><span class="n">{value}</span> <span class="l">{label}</span>{coords && <span class="c">{coords}</span>}</p>

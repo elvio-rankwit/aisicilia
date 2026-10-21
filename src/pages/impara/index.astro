@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
+import PageStat from '../../components/PageStat.astro';
 import EmptyState from '../../components/EmptyState.astro';
 import { getArticles, getPrompts } from '../../lib/data';
 import { meta } from '../../lib/seo/meta';
@@ -26,7 +27,8 @@ const h1 = 'Impara l’AI: guide pratiche per le imprese siciliane';
     ],
   }}
 >
-  <div class="page-head">
+  <div class="page-head sheet">
+    <PageStat value={articles.length} label={articles.length === 1 ? 'guida' : 'guide'} coords="in ordine di lettura" />
     <h1>{h1}</h1>
     {articles.length > 0 ? (
       <p class="answer">{plural(articles.length, 'guida', 'guide')} scritte per chi gestisce un’impresa: cosa può fare l’AI nel tuo lavoro, cosa non fa bene e quanto costa in tempo e denaro. Sono in ordine di lettura, dalla più semplice. Ogni guida ha le fonti e la data di aggiornamento. Se preferisci partire dalla pratica, ci sono i <a href="/prompt/">prompt pronti da copiare</a>{prompts.length > 0 && ` (${prompts.length})`}.</p>

@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import preact from '@astrojs/preact';
+import seoHeaders from './src/lib/seo/headers-integration.mjs';
 import remarkUnpublishedLinks from './src/lib/markdown/remark-unpublished-links.mjs';
 
 // Unica variabile che governa beta/production. Vedi docs/DECISIONS.md (D-002).
@@ -14,7 +15,7 @@ export default defineConfig({
   build: { format: 'directory', inlineStylesheets: 'auto' },
   compressHTML: true,
   prefetch: { prefetchAll: false, defaultStrategy: 'hover' },
-  integrations: [preact()],
+  integrations: [preact(), seoHeaders(SITE_MODE)],
   markdown: { remarkPlugins: [remarkUnpublishedLinks] },
   image: {
     // Formati di output: AVIF + fallback WebP tramite <Picture formats={['avif','webp']} />

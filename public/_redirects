@@ -1,0 +1,9 @@
+# Redirect di Cloudflare Pages. Per ora nessuno.
+#
+# www → apex: quando il dominio sarà collegato, il redirect tra host (www.aisicilia.it → aisicilia.it) NON si fa
+# da questo file: Pages accetta solo sorgenti relative. Va creato nel dashboard di Cloudflare
+# come Redirect Rule (Rules → Redirect Rules): se hostname = www.aisicilia.it → URL dinamico
+# concat("https://aisicilia.it", http.request.uri.path) con stato 301, preservando la query string.
+#
+# Esempio di redirect interno (sorgente relativa), da usare solo se serve spostare una pagina:
+# /vecchio-percorso/  /nuovo-percorso/  301

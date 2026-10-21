@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PromptCard from '../../components/PromptCard.astro';
+import PageStat from '../../components/PageStat.astro';
 import EmptyState from '../../components/EmptyState.astro';
 import { getPrompts } from '../../lib/data';
 import { meta } from '../../lib/seo/meta';
@@ -23,7 +24,8 @@ const h1 = 'Prompt AI per settore, pronti da copiare';
     ],
   }}
 >
-  <div class="page-head">
+  <div class="page-head sheet">
+    <PageStat value={prompts.length} label="prompt" coords="8 settori" />
     <h1>{h1}</h1>
     {prompts.length > 0 ? (
       <p class="answer">{plural(prompts.length, 'prompt', 'prompt')} in 8 settori dell’economia siciliana, da copiare e adattare. Ognuno ha le variabili da compilare, un esempio, i limiti e la data dell’ultimo test. Non sono formule magiche: servono a far partire bene una conversazione con un assistente AI, il resto lo fa la tua competenza.</p>

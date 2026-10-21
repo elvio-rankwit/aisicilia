@@ -5,36 +5,51 @@ import EventCard from '../components/EventCard.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import EmptyState from '../components/EmptyState.astro';
 import CtaSegnala from '../components/CtaSegnala.astro';
+import SiciliaDots from '../components/SiciliaDots.astro';
 import { getArticles, getCompanies, getPrompts, getUpcomingEvents } from '../lib/data';
 import { meta } from '../lib/seo/meta';
 import { countByProvince, plural } from '../components/helpers';
 
 const [companies, events, articles, prompts] = await Promise.all([getCompanies(), getUpcomingEvents(), getArticles(), getPrompts()]);
 const counts = countByProvince(companies);
-const nextEvents = events.slice(0, 4);
+const nextEvents = events.slice(0, 3);
 const latest = [...articles].sort((a, b) => b.data.published_at.getTime() - a.data.published_at.getTime()).slice(0, 3);
 const m = meta.home();
 
 const quick = [
-  { href: '/aziende/', title: 'Aziende', text: companies.length ? `${plural(companies.length, 'realtà siciliana', 'realtà siciliane')} con l’AI al centro del prodotto o del servizio.` : 'La directory è in costruzione: le prime schede arrivano a breve.' },
-  { href: '/eventi/', title: 'Eventi', text: events.length ? `${plural(events.length, 'evento in programma', 'eventi in programma')}, con date, luoghi e link per iscriversi.` : 'Nessun evento in programma per ora. Ne conosci uno? Segnalalo.' },
-  { href: '/impara/', title: 'Impara', text: articles.length ? `${plural(articles.length, 'guida pratica', 'guide pratiche')} per capire cosa fa l’AI per un’impresa, cosa no e quanto costa.` : 'Le prime guide per le imprese sono in preparazione.' },
-  { href: '/prompt/', title: 'Prompt', text: prompts.length ? `${plural(prompts.length, 'prompt pronto', 'prompt pronti')} da copiare, divisi per settore, con esempi e avvertenze.` : 'La libreria di prompt è in preparazione.' },
+  { href: '/aziende/', title: 'Aziende', n: companies.length, text: companies.length ? `${plural(companies.length, 'realtà siciliana', 'realtà siciliane')} con l’AI al centro del prodotto o del servizio.` : 'La directory è in costruzione: le prime schede arrivano a breve.' },
+  { href: '/eventi/', title: 'Eventi', n: events.length, text: events.length ? `${plural(events.length, 'evento in programma', 'eventi in programma')}, con date, luoghi e link per iscriversi.` : 'Nessun evento in programma per ora. Ne conosci uno? Segnalalo.' },
+  { href: '/impara/', title: 'Impara', n: articles.length, text: articles.length ? `${plural(articles.length, 'guida pratica', 'guide pratiche')} per capire cosa fa l’AI per un’impresa, cosa no e quanto costa.` : 'Le prime guide per le imprese sono in preparazione.' },
+  { href: '/prompt/', title: 'Prompt', n: prompts.length, text: prompts.length ? `${plural(prompts.length, 'prompt pronto', 'prompt pronti')} da copiare, divisi per settore, con esempi e avvertenze.` : 'La libreria di prompt è in preparazione.' },
 ];
 ---
 <BaseLayout seo={{ title: m.title, description: m.description, path: '/' }}>
-  <section class="page-head hero">
-    <p class="eyebrow">Progetto indipendente, in beta</p>
-    <h1>L’intelligenza artificiale in Sicilia: chi la fa, dove, quando</h1>
-    <p class="answer">AI Sicilia raccoglie le aziende, gli eventi, le guide e i prompt sull’intelligenza artificiale in Sicilia. Ogni scheda ha le sue fonti e la data dell’ultima verifica, così sai da dove viene ogni dato. Il portale lo gestisce Elvio Leonardi, consulente SEO e GEO con base a Palermo.</p>
+  <section slot="hero" class="hero gridbg" aria-labelledby="h-hero">
+    <div class="container hero-in">
+      <div class="copy">
+        <p class="eyebrow">37°N 14°E · progetto indipendente, in beta</p>
+        <h1 id="h-hero">L’intelligenza artificiale in Sicilia: chi la fa, dove, quando</h1>
+        <p class="answer">AI Sicilia raccoglie le aziende, gli eventi, le guide e i prompt sull’intelligenza artificiale in Sicilia. Ogni scheda ha le sue fonti e la data dell’ultima verifica, così sai da dove viene ogni dato. Il portale lo gestisce Elvio Leonardi, consulente SEO e GEO con base a Palermo.</p>
+        <div class="btn-row">
+          <a class="btn" href="/aziende/" data-astro-prefetch>Esplora le aziende</a>
+          <a class="btn ghost" href="/eventi/" data-astro-prefetch>Prossimi eventi</a>
+        </div>
+      </div>
+      <div class="map">
+        <SiciliaDots companies={companies.map((c) => c.data)} events={events.filter((e) => e.data.lat !== undefined).map((e) => ({ lat: e.data.lat!, lng: e.data.lng! }))} label="La Sicilia con le aziende e gli eventi del portale" />
+      </div>
+    </div>
   </section>
 
-  <section aria-label="Accessi rapidi">
-    <ul class="grid quick">
+  <section slot="hero" class="numbers" aria-label="Accessi rapidi">
+    <ul>
       {quick.map((q) => (
-        <li class="card">
-          <h2><a href={q.href} data-astro-prefetch>{q.title}</a></h2>
-          <p>{q.text}</p>
+        <li>
+          <a href={q.href} data-astro-prefetch>
+            <span class="num mono">{q.n}</span>
+            <h2>{q.title}</h2>
+            <p>{q.text}</p>
+          </a>
         </li>
       ))}
     </ul>
@@ -72,10 +87,27 @@ const quick = [
     )}
   </section>
 
-  <CtaSegnala text="Fai o conosci qualcosa di interessante sull’AI in Sicilia? Segnalalo: controlliamo le fonti e lo aggiungiamo se rispetta i criteri." />
+  <CtaSegnala tile text="Fai o conosci qualcosa di interessante sull’AI in Sicilia? Segnalalo: controlliamo le fonti e lo aggiungiamo se rispetta i criteri." />
 </BaseLayout>
 <style>
-  .hero h1 { max-width: 22ch; }
-  .quick { grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); }
-  .quick .card h2 { font-size: var(--fs-xl); }
+  .hero { background-color: var(--c-lava); color: var(--c-on-lava); padding-block: var(--space-6) var(--space-7); }
+  .hero-in { display: grid; gap: var(--space-6); align-items: center; }
+  @media (min-width: 56rem) { .hero-in { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: var(--space-7); } }
+  .hero .eyebrow { color: var(--c-lava-ochre); }
+  .hero h1 { color: var(--c-on-lava); margin-bottom: var(--space-4); max-width: 18ch; }
+  .hero .answer { color: var(--c-on-lava); border-left-color: var(--c-lava-accent); font-size: var(--fs-base); }
+  .hero .btn { background: var(--c-lava-accent); border-color: var(--c-lava-accent); color: var(--c-lava); }
+  .hero .btn:hover { background: var(--c-on-lava); border-color: var(--c-on-lava); color: var(--c-lava); }
+  .hero .btn.ghost { background: transparent; color: var(--c-on-lava); border-color: var(--c-on-lava-muted); }
+  .hero .btn.ghost:hover { background: var(--c-lava-2); border-color: var(--c-on-lava); color: var(--c-on-lava); }
+  .map { max-width: 30rem; }
+  .numbers { background: var(--c-surface); border-bottom: 1px solid var(--c-border); }
+  .numbers ul { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 9.5rem), 1fr)); max-width: var(--container); margin: 0 auto; padding: 0; list-style: none; }
+  .numbers li { box-shadow: -1px 0 0 var(--c-border), 0 -1px 0 var(--c-border); }
+  .numbers a { display: block; height: 100%; padding: var(--space-4) var(--gutter) var(--space-5); color: var(--c-text); text-decoration: none; transition: background-color 120ms; }
+  .numbers a:hover { background: var(--c-primary-soft); }
+  .numbers .num { display: block; font-size: clamp(2.75rem, 2rem + 3vw, 4rem); line-height: 1; letter-spacing: -0.02em; color: var(--c-primary); }
+  .numbers h2 { margin: var(--space-2) 0; font-family: var(--font-mono); font-weight: 500; font-size: var(--fs-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--c-accent); }
+  .numbers p { margin: 0; font-size: var(--fs-sm); color: var(--c-text-muted); }
+  .numbers a:hover h2 { text-decoration: underline; }
 </style>

@@ -5,6 +5,7 @@ import MapInteractiveSlot from '../../../components/MapInteractiveSlot.astro';
 import CompanyList from '../../../components/CompanyList.astro';
 import EventCard from '../../../components/EventCard.astro';
 import ArticleCard from '../../../components/ArticleCard.astro';
+import PageStat from '../../../components/PageStat.astro';
 import OtherProvinces from '../../../components/OtherProvinces.astro';
 import EmptyState from '../../../components/EmptyState.astro';
 import CtaSegnala from '../../../components/CtaSegnala.astro';
@@ -41,7 +42,8 @@ const h1 = `Aziende AI in provincia di ${prov.name}`;
     ],
   }}
 >
-  <div class="page-head">
+  <div class="page-head sheet">
+    <PageStat value={companies.length} label={companies.length === 1 ? 'azienda verificata' : 'aziende verificate'} coords={`${PROVINCES[slug].sigla} · ${Math.abs(PROVINCES[slug].center[0]).toFixed(2)}°N ${PROVINCES[slug].center[1].toFixed(2)}°E`} />
     <h1>{h1}</h1>
     {companies.length > 0 ? (
       <p class="answer">In provincia di {prov.name} ({prov.ente.toLowerCase()}) abbiamo {plural(companies.length, 'realtà verificata', 'realtà verificate')} che lavorano con l’intelligenza artificiale, su {all.length} in tutta la Sicilia. Ultimo aggiornamento: {updated && formatDate(updated)}.</p>

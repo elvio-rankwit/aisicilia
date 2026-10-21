@@ -39,7 +39,7 @@ const cap = (s: string) => s[0].toUpperCase() + s.slice(1);
     <header class="page-head head">
       <span class={`avatar tone-${toneOf(c.id)}`} aria-hidden="true">{initials(d.name)}</span>
       <div>
-        <p class="eyebrow">{cap(d.type)}</p>
+        <p class="eyebrow">{[prov.sigla, d.type.toUpperCase(), d.founded_year].filter(Boolean).join(' · ')}</p>
         <h1>{d.name}</h1>
         <p class="lead">{d.city}, provincia di <a href={`/aziende/provincia/${d.province}/`}>{prov.name}</a></p>
         {d.is_innovative_startup && <ul class="tags"><li><span class="badge accent">Startup innovativa</span></li></ul>}
@@ -98,7 +98,7 @@ const cap = (s: string) => s[0].toUpperCase() + s.slice(1);
 </BaseLayout>
 <style>
   .head { display: flex; gap: var(--space-4); align-items: flex-start; }
-  .avatar { flex: none; display: none; align-items: center; justify-content: center; width: 72px; height: 72px; border-radius: var(--radius-lg); font-family: var(--font-serif); font-weight: 700; font-size: var(--fs-2xl); background: var(--c-primary-soft); color: var(--c-primary); }
+  .avatar { flex: none; display: none; align-items: center; justify-content: center; width: 72px; height: 72px; border-radius: var(--radius); font-family: var(--font-mono); font-weight: 500; font-size: var(--fs-2xl); background: var(--c-primary-soft); color: var(--c-primary); }
   @media (min-width: 30rem) { .avatar { display: inline-flex; } }
   .tone-1 { background: var(--c-accent-soft); color: var(--c-accent); }
   .tone-2 { background: var(--c-surface-2); color: var(--c-text); }

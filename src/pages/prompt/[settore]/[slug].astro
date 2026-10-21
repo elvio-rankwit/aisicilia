@@ -41,8 +41,10 @@ const path = `/prompt/${d.sector}/${p.id}/`;
 
     <section aria-labelledby="h-prompt">
       <h2 id="h-prompt" class="first">Il prompt</h2>
-      <CopyButton target="prompt-text" />
+      <div class="term">
+        <div class="term-bar"><span class="mono">PROMPT · {label.toUpperCase()}</span><CopyButton target="prompt-text" /></div>
       <pre class="prompt-box" id="prompt-text"><code>{parts.map((s) => (/^\{[a-z0-9_]+\}$/.test(s) ? <mark class="var">{s}</mark> : s))}</code></pre>
+      </div>
       <p class="muted">Le parti evidenziate tra graffe sono le variabili: sostituiscile con i tuoi dati prima di inviare.</p>
     </section>
 
@@ -111,9 +113,11 @@ const path = `/prompt/${d.sector}/${p.id}/`;
 </BaseLayout>
 <style>
   .first { margin-top: 0; }
-  .prompt-box { white-space: pre-wrap; overflow-wrap: anywhere; margin: 0 0 var(--space-3); padding: var(--space-4); background: var(--c-surface); border: 1px solid var(--c-border); border-left: 4px solid var(--c-primary); border-radius: var(--radius); font-size: var(--fs-sm); line-height: 1.6; max-width: var(--measure); }
+  .term { max-width: var(--measure); margin-bottom: var(--space-3); background: var(--c-surface-2); border: 1px solid var(--c-border); border-radius: var(--radius); overflow: hidden; }
+  .term-bar { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); min-height: 52px; padding: 0 var(--space-3) 0 var(--space-4); border-bottom: 1px solid var(--c-border); font-size: var(--fs-xs); color: var(--c-text-muted); letter-spacing: 0.04em; }
+  .prompt-box { white-space: pre-wrap; overflow-wrap: anywhere; margin: 0; padding: var(--space-4); font-size: var(--fs-sm); line-height: 1.7; color: var(--c-text); }
   .example { white-space: pre-wrap; overflow-wrap: anywhere; margin: 0 0 var(--space-4); padding: var(--space-3); background: var(--c-surface-2); border-radius: var(--radius-sm); font-size: var(--fs-sm); }
-  .var { background: var(--c-accent-soft); color: var(--c-accent); font-weight: 700; padding: 0 2px; border-radius: 3px; }
+  .var { background: var(--c-accent-soft); color: var(--c-accent-strong); font-weight: 500; padding: 0 3px; border-radius: 2px; }
   .limits { margin-top: var(--space-5); max-width: var(--measure); }
   .limits h2 { margin-top: 0; font-size: var(--fs-xl); }
   .pl { white-space: pre-line; }

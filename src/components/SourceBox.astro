@@ -9,7 +9,7 @@ const H = `h${level}` as 'h2' | 'h3';
   <H id="fonte-titolo">Fonte e ultima verifica</H>
   <p>Ultima verifica: <time datetime={verified.toISOString().slice(0, 10)}>{formatDate(verified)}</time>. {what === 'scheda' ? 'Le informazioni di questa scheda sono state riscritte da noi a partire dalle fonti qui sotto.' : 'Date, luogo e prezzo vanno controllati sul sito dell’organizzatore prima di partire.'}</p>
   <ul>
-    {urls.map((u) => <li><a class="ext" href={u} rel="noopener">{hostOf(u)}</a></li>)}
+    {[...new Set(urls)].map((u) => <li><a class="ext" href={u} rel="noopener">{hostOf(u)}</a></li>)}
   </ul>
   <p>Qualcosa non torna? <a href="/metodologia/">Come verifichiamo i dati</a>.</p>
 </aside>

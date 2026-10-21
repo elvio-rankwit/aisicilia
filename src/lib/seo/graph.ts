@@ -31,7 +31,6 @@ export function globalNodes(): JsonLdNode[] {
       url: abs('/'),
       description: SITE.tagline,
       logo: { '@type': 'ImageObject', '@id': ID.logo, url: `${SITE.url}/favicon.svg`, contentUrl: `${SITE.url}/favicon.svg` },
-      image: { '@id': ID.logo },
       founder: { '@id': ID.person },
       areaServed: { '@type': 'AdministrativeArea', name: 'Sicilia' },
     },

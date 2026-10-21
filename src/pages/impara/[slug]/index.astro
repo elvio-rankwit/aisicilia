@@ -123,10 +123,11 @@ const sameDay = d.updated_at.getTime() === d.published_at.getTime();
   )}
 </BaseLayout>
 <style>
-  .byline { font-size: var(--fs-sm); }
-  .toc { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--radius); padding: var(--space-4); max-width: var(--measure); margin-bottom: var(--space-5); }
-  .toc h2 { font-size: var(--fs-lg); margin: 0 0 var(--space-2); }
-  .toc ol { margin: 0; padding-left: var(--space-5); }
+  .byline { font-family: var(--font-mono); font-weight: 500; font-size: var(--fs-xs); }
+  .byline a { font-weight: 500; }
+  .toc { background: var(--c-surface); border: 1px solid var(--c-border); border-top: 3px solid var(--c-ochre); border-radius: var(--radius); padding: var(--space-4); max-width: var(--measure); margin-bottom: var(--space-5); }
+  .toc h2 { font-family: var(--font-mono); font-weight: 500; font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.06em; color: var(--c-text-muted); margin: 0 0 var(--space-2); }
+  .toc ol { margin: 0; padding-left: var(--space-5); font-family: var(--font-mono); font-weight: 500; font-size: var(--fs-sm); }
   .toc a { display: inline-block; padding-block: var(--space-1); }
   details { border-bottom: 1px solid var(--c-border); padding-block: var(--space-2); }
   summary { cursor: pointer; font-weight: 700; min-height: var(--tap); display: flex; align-items: center; }
