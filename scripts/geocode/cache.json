@@ -340,5 +340,59 @@
     "lng": 12.71163,
     "display_name": "Trapani, Sicilia, 91100, Italia",
     "precision": "città"
+  },
+  "addr:via guarnotti 26, erice": {
+    "lat": 38.03766,
+    "lng": 12.58782,
+    "display_name": "26, Via Gian Filippo Guarnotti, Casa Santa, Erice, Trapani, Sicilia, 91016, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:trapani centro": {
+    "lat": 38.0181,
+    "lng": 12.51405,
+    "display_name": "Trapani Centro, Via Cavour, Il Palazzo, Trapani, Sicilia, 91100, Italia",
+    "precision": "indirizzo"
+  },
+  "city:enna": {
+    "lat": 37.56676,
+    "lng": 14.28075,
+    "display_name": "Enna, Sicilia, 94100, Italia",
+    "precision": "città"
+  },
+  "city:messina": {
+    "lat": 38.19376,
+    "lng": 15.55421,
+    "display_name": "Messina, Sicilia, Italia",
+    "precision": "città"
+  },
+  "addr:via consolare pompea 13, 98168 messina": {
+    "lat": 38.22741,
+    "lng": 15.5692,
+    "display_name": "Via Consolare Pompea, San Salvatore dei Greci, Borgo Case Basse, V Circoscrizione, Messina, Sicilia, 98168, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via giuseppe pitrè 6/b, 95041 caltagirone": {
+    "lat": 37.20964,
+    "lng": 14.51328,
+    "display_name": "Via Giuseppe Pitrè, Caltagirone, Catania, Sicilia, 95041, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:strada provinciale 39, 98129 messina": {
+    "lat": 38.11238,
+    "lng": 15.49483,
+    "display_name": "39, Strada Provinciale 37 di Galati Sant'Anna, Galati Santa Lucia, I Circoscrizione, Galati Sant'Anna, Messina, Sicilia, 98135, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:area asi larderia, messina": {
+    "lat": 38.13939,
+    "lng": 15.50217,
+    "display_name": "Area Sviluppo Industriale (ASI) Larderia, I Circoscrizione, Larderia, Messina, Sicilia, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:larderia, messina": {
+    "lat": 38.1403,
+    "lng": 15.50212,
+    "display_name": "Larderia, Messina, Sicilia, 98129, Italia",
+    "precision": "indirizzo"
   }
 }

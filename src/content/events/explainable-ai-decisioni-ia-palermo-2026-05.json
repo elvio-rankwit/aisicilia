@@ -1,0 +1,30 @@
+{
+  "title": "Explainable AI: capire le decisioni dell'intelligenza artificiale",
+  "slug": "explainable-ai-decisioni-ia-palermo-2026-05",
+  "description": "Seminario del Dipartimento di Matematica e Informatica dell'Università di Palermo, nel ciclo di incontri con il mondo del lavoro dei corsi di Informatica e Intelligenza Artificiale. Spiega perché i modelli più accurati, come le reti neurali profonde, sono difficili da interpretare, e presenta le tecniche di AI spiegabile e strumenti come LIME e SHAP, con attenzione all'uso in azienda: fiducia degli utenti, validazione dei modelli e conformità normativa. Relatrice: una ricercatrice dell'Università della Calabria. Si è tenuto il 27 maggio 2026 alle 15:00.",
+  "start_date": "2026-05-27",
+  "start_time": "15:00",
+  "format": "in presenza",
+  "venue_name": "Aula 7, Dipartimento di Matematica e Informatica",
+  "venue_address": "Via Archirafi 34, Palermo",
+  "city": "Palermo",
+  "province": "palermo",
+  "lat": 38.11083,
+  "lng": 13.37297,
+  "organizer": "Università di Palermo, Dipartimento di Matematica e Informatica",
+  "event_url": "https://www.unipa.it/dipartimenti/matematicaeinformatica/cds/computerscienceandartificialintelligence2323/Eventi-di-incontro-con-il-mondo-del-lavoro-00004/",
+  "price": "non indicato",
+  "audience": [
+    "studenti",
+    "professionisti"
+  ],
+  "topics": [
+    "AI spiegabile",
+    "machine learning",
+    "AI per le imprese"
+  ],
+  "status": "programmato",
+  "source_url": "https://www.unipa.it/dipartimenti/matematicaeinformatica/cds/informatica2460/.content/documenti/News/locandina_seminario_Explainable_AI_27052026.pdf",
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}
