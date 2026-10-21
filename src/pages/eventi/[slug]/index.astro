@@ -10,7 +10,7 @@ import { relatedEvents } from '../../../lib/related';
 import { meta } from '../../../lib/seo/meta';
 import { eventNodes } from '../../../lib/seo/jsonld';
 import { PROVINCES } from '../../../lib/provinces';
-import { RESERVED_SLUGS, cap, countByProvince, dateRange, eventPoints, eventStatus, hostOf, timeRange, weekdayOf } from '../../../components/helpers';
+import { RESERVED_SLUGS, cap, countByProvince, joinIt, dateRange, eventPoints, eventStatus, hostOf, timeRange, weekdayOf } from '../../../components/helpers';
 
 export async function getStaticPaths() {
   const events = await getAllEvents();
@@ -29,6 +29,15 @@ const hasGeo = d.lat !== undefined && d.lng !== undefined;
 const m = meta.event(e);
 const path = `/eventi/${e.id}/`;
 const canAdd = !st.past && d.status !== 'annullato';
+const verb = d.status === 'annullato' ? 'era previsto' : st.past ? 'si è svolto' : d.status === 'rinviato' ? 'era previsto' : 'si svolge';
+const formatWhere = d.format === 'online'
+  ? 'online'
+  : `${d.format === 'ibrido' ? 'in forma ibrida' : 'in presenza'}${d.venue_name ? ` presso ${d.venue_name}` : ''}, a ${d.city}`;
+const priceText = d.price === 'gratuito' ? 'L’ingresso è gratuito.' : d.price === 'a pagamento' ? 'L’ingresso è a pagamento.' : 'Il prezzo non è indicato.';
+const answer = [
+  `Questo evento ${verb} ${d.end_date && d.end_date.getTime() !== d.start_date.getTime() ? 'dal' : 'il'} ${dateRange(d.start_date, d.end_date)}${time ? `, ore ${time}` : ''}, ${formatWhere}.`,
+  `Lo organizza ${d.organizer} ed è pensato per ${joinIt(d.audience)}; si parla di ${joinIt(d.topics.slice(0, 3))}. ${priceText}`,
+].join(' ');
 const where = d.format === 'online'
   ? `Online, organizzato da una realtà di ${d.city}`
   : [d.venue_name, d.venue_address, d.city].filter(Boolean).join(', ');
@@ -63,6 +72,7 @@ const where = d.format === 'online'
       <div class="callout warn" role="note"><p><strong>Spostato online.</strong> L’evento non si tiene più in presenza: i dettagli sono sulla pagina dell’organizzatore.</p></div>
     )}
 
+    <p class="answer">{answer}</p>
     <div class="prose"><p class="desc">{d.description}</p></div>
 
     <section class="section" aria-labelledby="h-dettagli">

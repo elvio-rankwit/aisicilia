@@ -8,7 +8,7 @@ import PageStat from '../../../components/PageStat.astro';
 import OtherProvinces from '../../../components/OtherProvinces.astro';
 import EmptyState from '../../../components/EmptyState.astro';
 import CtaSegnala from '../../../components/CtaSegnala.astro';
-import { getCompanies, getUpcomingEvents } from '../../../lib/data';
+import { getAllEvents, getCompanies, getUpcomingEvents } from '../../../lib/data';
 import { meta } from '../../../lib/seo/meta';
 import { collectionPageNodes, itemListNodes } from '../../../lib/seo/jsonld';
 import { PROVINCES, PROVINCE_SLUGS, type ProvinceSlug } from '../../../lib/provinces';
@@ -19,7 +19,7 @@ export function getStaticPaths() {
 }
 const slug = Astro.params.provincia as ProvinceSlug;
 const prov = PROVINCES[slug];
-const [upcoming, allCompanies] = await Promise.all([getUpcomingEvents(), getCompanies()]);
+const [upcoming, allCompanies, anyEvents] = await Promise.all([getUpcomingEvents(), getCompanies(), getAllEvents()]);
 const events = upcoming.filter((e) => e.data.province === slug);
 const scheduled = events.filter(isScheduled);
 const companies = allCompanies.filter((c) => c.data.province === slug);
@@ -33,6 +33,7 @@ const first = events[0]?.data.start_date;
 <BaseLayout
   seo={{
     title: m.title, description: m.description, path,
+    noindex: events.length === 0 && !anyEvents.some((e) => e.data.province === slug) && !allCompanies.some((c) => c.data.province === slug),
     breadcrumbs: [{ name: 'Eventi', path: '/eventi/' }, { name: prov.name, path }],
     jsonld: [
       ...collectionPageNodes({ path, name: h1, description: m.description }),

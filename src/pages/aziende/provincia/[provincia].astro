@@ -9,7 +9,7 @@ import PageStat from '../../../components/PageStat.astro';
 import OtherProvinces from '../../../components/OtherProvinces.astro';
 import EmptyState from '../../../components/EmptyState.astro';
 import CtaSegnala from '../../../components/CtaSegnala.astro';
-import { formatDate, getArticles, getCompanies, getUpcomingEvents, latestDate } from '../../../lib/data';
+import { formatDate, getAllEvents, getArticles, getCompanies, getUpcomingEvents, latestDate } from '../../../lib/data';
 import { sectorsForProvince, articlesForSector } from '../../../lib/related';
 import { meta } from '../../../lib/seo/meta';
 import { collectionPageNodes, itemListNodes } from '../../../lib/seo/jsonld';
@@ -21,7 +21,7 @@ export function getStaticPaths() {
 }
 const slug = Astro.params.provincia as ProvinceSlug;
 const prov = PROVINCES[slug];
-const [all, upcoming, articles] = await Promise.all([getCompanies(), getUpcomingEvents(), getArticles()]);
+const [all, upcoming, articles, anyEvents] = await Promise.all([getCompanies(), getUpcomingEvents(), getArticles(), getAllEvents()]);
 const companies = all.filter((c) => c.data.province === slug);
 const counts = countByProvince(all);
 const events = upcoming.filter((e) => e.data.province === slug).slice(0, 3);
@@ -35,6 +35,7 @@ const h1 = `Aziende AI in provincia di ${prov.name}`;
 <BaseLayout
   seo={{
     title: m.title, description: m.description, path,
+    noindex: companies.length === 0 && !anyEvents.some((e) => e.data.province === slug),
     breadcrumbs: [{ name: 'Aziende', path: '/aziende/' }, { name: prov.name, path }],
     jsonld: [
       ...collectionPageNodes({ path, name: h1, description: m.description }),

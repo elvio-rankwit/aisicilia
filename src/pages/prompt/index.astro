@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import PromptCard from '../../components/PromptCard.astro';
 import PageStat from '../../components/PageStat.astro';
 import EmptyState from '../../components/EmptyState.astro';
-import { getPrompts } from '../../lib/data';
+import { formatDate, getPrompts, latestDate } from '../../lib/data';
 import { meta } from '../../lib/seo/meta';
 import { collectionPageNodes, itemListNodes } from '../../lib/seo/jsonld';
 import { PROMPT_SECTORS, PROMPT_SECTOR_SLUGS } from '../../lib/taxonomies';
@@ -12,11 +12,12 @@ import { plural } from '../../components/helpers';
 const prompts = await getPrompts();
 const bySector = PROMPT_SECTOR_SLUGS.map((s) => ({ slug: s, label: PROMPT_SECTORS[s], items: prompts.filter((p) => p.data.sector === s) }));
 const m = meta.promptsIndex(prompts.length);
+const updated = latestDate(prompts.map((p) => p.data.tested_at));
 const h1 = 'Prompt AI per settore, pronti da copiare';
 ---
 <BaseLayout
   seo={{
-    title: m.title, description: m.description, path: '/prompt/',
+    title: m.title, description: m.description, path: '/prompt/', modifiedAt: updated,
     breadcrumbs: [{ name: 'Prompt', path: '/prompt/' }],
     jsonld: [
       ...collectionPageNodes({ path: '/prompt/', name: h1, description: m.description }),
@@ -27,6 +28,7 @@ const h1 = 'Prompt AI per settore, pronti da copiare';
   <div class="page-head sheet">
     <PageStat value={prompts.length} label="prompt" coords="8 settori" />
     <h1>{h1}</h1>
+    {updated && <p class="muted updated">Aggiornato il <time datetime={updated.toISOString().slice(0, 10)}>{formatDate(updated)}</time></p>}
     {prompts.length > 0 ? (
       <p class="answer">{plural(prompts.length, 'prompt', 'prompt')} in 8 settori dell’economia siciliana, da copiare e adattare. Ognuno ha le variabili da compilare, un esempio, i limiti e la data dell’ultimo test. Non sono formule magiche: servono a far partire bene una conversazione con un assistente AI, il resto lo fa la tua competenza.</p>
     ) : (

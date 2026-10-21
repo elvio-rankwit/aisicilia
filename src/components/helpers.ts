@@ -138,3 +138,16 @@ export const SECTOR_TO_COMPANY_SECTORS: Record<PromptSector, string[]> = {
   'artigianato-manifattura': ['manifattura'],
   'edilizia-immobiliare': ['edilizia e immobiliare'],
 };
+
+/** "a, b e c" */
+export const joinIt = (list: readonly string[]): string =>
+  list.length <= 1 ? (list[0] ?? '') : `${list.slice(0, -1).join(', ')} e ${list[list.length - 1]}`;
+
+export const COMPANY_TYPE_ARTICLE: Record<string, string> = {
+  startup: 'una startup',
+  azienda: 'un’azienda',
+  'spin-off universitario': 'uno spin-off universitario',
+  'centro di ricerca': 'un centro di ricerca',
+  'incubatore/acceleratore': 'un incubatore o acceleratore',
+  'community/associazione': 'una community o associazione',
+};

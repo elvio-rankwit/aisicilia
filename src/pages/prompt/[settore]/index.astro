@@ -3,7 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import PromptCard from '../../../components/PromptCard.astro';
 import ArticleCard from '../../../components/ArticleCard.astro';
 import EmptyState from '../../../components/EmptyState.astro';
-import { getArticles, getPromptsBySector } from '../../../lib/data';
+import { formatDate, getArticles, getPromptsBySector, latestDate } from '../../../lib/data';
 import { articlesForSector } from '../../../lib/related';
 import { meta } from '../../../lib/seo/meta';
 import { collectionPageNodes, itemListNodes } from '../../../lib/seo/jsonld';
@@ -18,12 +18,13 @@ const label = PROMPT_SECTORS[sector];
 const prompts = await getPromptsBySector(sector);
 const articles = articlesForSector(sector, await getArticles(), 3);
 const m = meta.promptSector(sector, prompts.length);
+const updated = latestDate(prompts.map((p) => p.data.tested_at));
 const path = `/prompt/${sector}/`;
 const h1 = `Prompt AI per ${label.toLowerCase()}`;
 ---
 <BaseLayout
   seo={{
-    title: m.title, description: m.description, path,
+    title: m.title, description: m.description, path, modifiedAt: updated,
     breadcrumbs: [{ name: 'Prompt', path: '/prompt/' }, { name: label, path }],
     jsonld: [
       ...collectionPageNodes({ path, name: h1, description: m.description }),
@@ -33,6 +34,7 @@ const h1 = `Prompt AI per ${label.toLowerCase()}`;
 >
   <div class="page-head">
     <h1>{h1}</h1>
+    {updated && <p class="muted updated">Aggiornato il <time datetime={updated.toISOString().slice(0, 10)}>{formatDate(updated)}</time></p>}
     {prompts.length > 0 ? (
       <p class="answer">{plural(prompts.length, 'prompt pronto', 'prompt pronti')} per {label.toLowerCase()}. Ogni scheda indica a cosa serve, il livello, le variabili da compilare e le avvertenze. Copia, sostituisci i dati tra graffe e rileggi sempre il risultato prima di usarlo.</p>
     ) : (
