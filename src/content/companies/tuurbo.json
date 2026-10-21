@@ -1,0 +1,30 @@
+{
+  "name": "Tuurbo",
+  "slug": "tuurbo",
+  "type": "startup",
+  "description": "Società di Aci Sant'Antonio che offre uno strumento di automazione basato su AI per negozi online e siti di editoria e software. Un agente, descritto come consulente AI sempre attivo, interviene su SEO, prestazioni, accessibilità e visibilità del marchio, sia su Google (AI Overviews e AI Mode) sia nelle risposte di ChatGPT, Perplexity, Claude e Grok. Si usa senza scrivere codice e promette i primi risultati in 48 ore. Tra i clienti indicati ci sono testate, negozi online e fornitori di servizi italiani.",
+  "ai_areas": [
+    "agenti e automazione",
+    "AI generativa"
+  ],
+  "sectors_served": [
+    "commercio e retail",
+    "marketing e comunicazione"
+  ],
+  "province": "catania",
+  "city": "Aci Sant'Antonio",
+  "address": "Via A. Fleming SNC, 95025 Aci Sant'Antonio CT",
+  "lat": 37.62154,
+  "lng": 15.13324,
+  "geo_precision": "indirizzo",
+  "website": "https://www.tuurbo.ai/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://www.tuurbo.ai/",
+    "https://www.tuurbo.ai/privacy-policy",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

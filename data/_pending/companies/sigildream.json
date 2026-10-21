@@ -1,0 +1,28 @@
+{
+  "name": "Sigildream",
+  "slug": "sigildream",
+  "type": "startup",
+  "description": "Studio creativo indipendente con sede a Messina, che produce giochi, esperimenti di video e musica generati con AI e strumenti per le proprie pipeline. Il primo titolo è Sigilwake, un gioco di ruolo a turni online. Il sito dichiara che i prodotti sono realizzati con una flotta di agenti AI personalizzati sotto direzione umana. Non è indicato un indirizzo né un anno di fondazione.",
+  "ai_areas": [
+    "AI generativa",
+    "agenti e automazione"
+  ],
+  "sectors_served": [
+    "cultura e beni culturali"
+  ],
+  "province": "messina",
+  "city": "Messina",
+  "lat": 38.19376,
+  "lng": 15.55421,
+  "geo_precision": "città",
+  "website": "https://www.sigildream.com/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://www.sigildream.com/",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "Lo studio produce videogiochi e contenuti creativi: l'AI è il metodo di produzione più che il prodotto. Centralità AI da verificare."
+}

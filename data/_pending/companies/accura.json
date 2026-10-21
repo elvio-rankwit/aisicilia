@@ -1,0 +1,29 @@
+{
+  "name": "Accura",
+  "slug": "accura",
+  "type": "startup",
+  "description": "Società con sede legale a San Giovanni la Punta secondo il registro, che sviluppa un sistema per monitorare le microplastiche direttamente in mare con spettroscopia Raman, senza prelevare campioni. Un software di machine learning proprietario elabora i dati dei moduli marini, classifica quantità e tipo di particelle e le mette in relazione con temperatura, pH e salinità. Punta a una rete di monitoraggio a partire dal Mediterraneo, per enti pubblici, comuni costieri e ricercatori.",
+  "ai_areas": [
+    "machine learning",
+    "IoT ed edge AI"
+  ],
+  "sectors_served": [
+    "ambiente",
+    "istruzione e ricerca"
+  ],
+  "province": "catania",
+  "city": "San Giovanni la Punta",
+  "lat": 37.57741,
+  "lng": 15.09422,
+  "geo_precision": "città",
+  "website": "https://www.accuralab.it/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://www.accuralab.it/",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "Il sito non indica indirizzo; l'AI è una componente del software di analisi di un sistema di sensori ambientali. Sede e centralità AI da verificare."
+}

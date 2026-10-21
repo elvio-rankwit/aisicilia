@@ -1,0 +1,30 @@
+{
+  "name": "Lexdebita",
+  "slug": "lexdebita",
+  "type": "startup",
+  "description": "Società di Tremestieri Etneo che produce un software per gestire le procedure di sovraindebitamento: ristrutturazione dei debiti, liquidazione controllata, esdebitazione del debitore incapiente e concordato minore. L'AI legge i documenti caricati (buste paga, visure, dichiarazioni dei redditi, dati catastali) e propone i dati da inserire, che l'utente controlla e conferma. Il programma genera la relazione dell'organismo, calcola i piani di rientro e gestisce PEC e deposito telematico. Destinatari: avvocati, commercialisti, gestori della crisi e OCC.",
+  "ai_areas": [
+    "NLP",
+    "dati e analytics"
+  ],
+  "sectors_served": [
+    "legale e professioni",
+    "finanza e assicurazioni"
+  ],
+  "province": "catania",
+  "city": "Tremestieri Etneo",
+  "address": "Via Trinacria 11, 95030 Tremestieri Etneo CT",
+  "lat": 37.54141,
+  "lng": 15.09734,
+  "geo_precision": "indirizzo",
+  "website": "https://www.lexdebita.it/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://www.lexdebita.it/",
+    "https://www.lexdebita.it/contatti",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

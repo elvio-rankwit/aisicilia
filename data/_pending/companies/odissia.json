@@ -1,0 +1,30 @@
+{
+  "name": "OdissIA",
+  "slug": "odissia",
+  "type": "startup",
+  "description": "Laboratorio di ricerca e sviluppo e integratore di sistemi di Catania, che realizza soluzioni su misura per aziende ed enti pubblici combinando AI, IoT, realtà virtuale e aumentata, software e piattaforme di automazione. Ambiti indicati: ottimizzazione dei processi industriali, formazione in VR/AR, smart city e sostenibilità, sistemi digitali per difesa e aerospazio. L'AI è la prima delle tecnologie elencate ma non l'unica.",
+  "ai_areas": [
+    "IoT ed edge AI",
+    "machine learning"
+  ],
+  "sectors_served": [
+    "manifattura",
+    "pubblica amministrazione"
+  ],
+  "province": "catania",
+  "city": "Catania",
+  "address": "Via Artale Alagona, 39, 95126 Catania CT",
+  "lat": 37.50236,
+  "lng": 15.08737,
+  "geo_precision": "città",
+  "website": "https://www.odissia.net/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://www.odissia.net/",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "L'AI è una tra più tecnologie (IoT, VR/AR, software) di un integratore di sistemi. Coordinate dell'indirizzo non risolte dal geocoder nel comune giusto (risultato a Calatabiano): usato il centro di Catania."
+}

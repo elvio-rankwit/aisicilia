@@ -1,0 +1,30 @@
+{
+  "name": "AI Magic",
+  "slug": "ai-magic",
+  "type": "startup",
+  "description": "Società di Messina che realizza software su misura basato su intelligenza artificiale: elaborazione del linguaggio naturale, visione artificiale, integrazione di servizi esterni come modelli linguistici e sistemi di raccomandazione, aggiornamento di applicazioni web con funzioni AI, consulenza sulla strategia, analisi dei dati con machine learning e manutenzione dei modelli (MLOps). Propone anche strumenti per gestire la formazione: back office per corsi con crediti professionali, portale di iscrizione e piattaforma e-learning.",
+  "ai_areas": [
+    "NLP",
+    "computer vision",
+    "machine learning",
+    "AI generativa"
+  ],
+  "sectors_served": [
+    "trasversale",
+    "istruzione e ricerca"
+  ],
+  "province": "messina",
+  "city": "Messina",
+  "lat": 38.19376,
+  "lng": 15.55421,
+  "geo_precision": "città",
+  "website": "https://www.aimagic.it/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://www.aimagic.it/",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

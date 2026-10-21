@@ -1,0 +1,28 @@
+{
+  "name": "Data MonAI",
+  "slug": "data-monai",
+  "type": "startup",
+  "description": "Società di Catania attiva nell'applicazione dell'intelligenza artificiale alla sanità. Collabora con università e ospedali, partecipando a sperimentazioni cliniche, per sviluppare strumenti di analisi dei dati sanitari e diagnostica predittiva a supporto delle decisioni dei medici. Unisce l'AI a dispositivi digitali per la gestione del paziente e per l'efficienza operativa delle strutture. Offre anche percorsi di formazione per medici e dirigenti sanitari. Il sito non descrive i metodi tecnici adottati né prodotti specifici.",
+  "ai_areas": [
+    "machine learning",
+    "dati e analytics"
+  ],
+  "sectors_served": [
+    "sanità"
+  ],
+  "province": "catania",
+  "city": "Catania",
+  "lat": 37.50236,
+  "lng": 15.08737,
+  "geo_precision": "città",
+  "website": "https://www.datamonai.com/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://www.datamonai.com/",
+    "https://www.datamonai.com/chi-siamo/",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

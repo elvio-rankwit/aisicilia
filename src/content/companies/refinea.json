@@ -1,0 +1,30 @@
+{
+  "name": "Refinea",
+  "slug": "refinea",
+  "type": "startup",
+  "description": "Società con sede legale a San Gregorio di Catania che offre una piattaforma per la visibilità di un marchio nelle risposte dei motori AI (GEO). Il software mostra come l'azienda compare in ChatGPT, Gemini, Perplexity, Claude e nelle AI Overviews di Google, analizza le fonti citate, costruisce profili di clienti a partire da ricerche reali e produce contenuti pubblicabili su WordPress. Comprende flussi con agenti che controllano struttura del sito e dati strutturati. Si rivolge a marchi e team di marketing.",
+  "ai_areas": [
+    "AI generativa",
+    "agenti e automazione",
+    "dati e analytics"
+  ],
+  "sectors_served": [
+    "marketing e comunicazione",
+    "commercio e retail"
+  ],
+  "province": "catania",
+  "city": "San Gregorio di Catania",
+  "lat": 37.56525,
+  "lng": 15.11179,
+  "geo_precision": "città",
+  "website": "https://refinea.io/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://refinea.io/",
+    "https://refinea.io/team",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

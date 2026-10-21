@@ -1,0 +1,28 @@
+{
+  "name": "aiVAGO",
+  "slug": "aivago",
+  "type": "startup",
+  "description": "Società di Catania che gestisce una piattaforma di pianificazione dei viaggi con intelligenza artificiale generativa. L'utente racconta in una conversazione interessi, stile di viaggio, date e budget e riceve un itinerario giorno per giorno; dalla stessa piattaforma può poi prenotare soggiorni, tour ed esperienze. Le risposte si basano su dati locali certificati, ottenuti tramite accordi con le destinazioni. Si rivolge ai viaggiatori e agli enti del turismo (DMO, consorzi, operatori locali), che possono presentarsi direttamente ai visitatori.",
+  "ai_areas": [
+    "AI generativa",
+    "agenti e automazione"
+  ],
+  "sectors_served": [
+    "turismo e ospitalità"
+  ],
+  "province": "catania",
+  "city": "Catania",
+  "lat": 37.50236,
+  "lng": 15.08737,
+  "geo_precision": "città",
+  "website": "https://aivago.ai/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://aivago.ai/",
+    "https://aivago.ai/privacy",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

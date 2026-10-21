@@ -1,0 +1,30 @@
+{
+  "name": "MBI-Network",
+  "slug": "mbi-network",
+  "type": "startup",
+  "description": "Società di Patti, nel messinese, che vende servizi di intelligenza artificiale a imprese italiane ed europee: applicazioni e agenti AI, assistenti che rispondono sui documenti aziendali (RAG), messa a punto di modelli linguistici, creazione di dataset, installazioni AI private su server del cliente, consulenza sulla conformità all'AI Act e formazione dei team. Nata come agenzia web, affianca ancora siti, e-commerce, SEO e pubblicità, ma l'AI guida l'offerta. Ha sviluppato anche un prodotto proprio, LegisBox.",
+  "ai_areas": [
+    "AI generativa",
+    "agenti e automazione",
+    "NLP"
+  ],
+  "sectors_served": [
+    "trasversale"
+  ],
+  "province": "messina",
+  "city": "Patti",
+  "address": "Via Alcide De Gasperi 27, 98066 Patti ME",
+  "lat": 38.13794,
+  "lng": 14.96913,
+  "geo_precision": "indirizzo",
+  "website": "https://mbi-network.com/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://mbi-network.com/en/",
+    "https://mbi-network.com/en/about/",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

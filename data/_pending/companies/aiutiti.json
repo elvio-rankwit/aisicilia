@@ -1,0 +1,28 @@
+{
+  "name": "AIutiti",
+  "slug": "aiutiti",
+  "type": "startup",
+  "description": "Società con sede legale a San Giovanni la Punta secondo il registro, che propone software, app e automazioni su misura 'con l'AI' per piccole e medie imprese (AIutiti PMI) e per le pubbliche amministrazioni (AIutiti PA). Per i Comuni offre un'app che unisce segnalazioni dei cittadini e servizi comunali, con cruscotto per l'amministrazione. Il sito cita l'AI solo in termini generali, senza indicare modelli o tecniche, e non riporta indirizzo né anno di fondazione.",
+  "ai_areas": [
+    "agenti e automazione"
+  ],
+  "sectors_served": [
+    "pubblica amministrazione",
+    "trasversale"
+  ],
+  "province": "catania",
+  "city": "San Giovanni la Punta",
+  "lat": 37.57741,
+  "lng": 15.09422,
+  "geo_precision": "città",
+  "website": "https://aiutiti.it/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://aiutiti.it/",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "Il sito descrive software gestionali e app con AI solo in modo generico; nessun indirizzo. Centralità AI e sede da verificare."
+}

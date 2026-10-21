@@ -1,0 +1,29 @@
+{
+  "name": "Indaco Health",
+  "slug": "indaco-health",
+  "type": "startup",
+  "description": "Società di Messina che sviluppa HugBrAIn, una piattaforma software per il monitoraggio a domicilio di persone con demenza e malattia di Parkinson, senza hardware proprietario. Usa dispositivi già in possesso dei pazienti e combina IoT e AI: visione artificiale per esercizi guidati, rischio di caduta e progressione motoria, analisi di linguaggio e parlato per i segnali cognitivi, cruscotto per familiari e clinici con indicatori di tendenza. Non è un dispositivo diagnostico: supporta il medico in pilota clinici e ricerca. Opera con una società britannica, Bumblee Ltd.",
+  "ai_areas": [
+    "computer vision",
+    "voce e speech",
+    "machine learning",
+    "IoT ed edge AI"
+  ],
+  "sectors_served": [
+    "sanità"
+  ],
+  "province": "messina",
+  "city": "Messina",
+  "lat": 38.19376,
+  "lng": 15.55421,
+  "geo_precision": "città",
+  "website": "https://www.hugbrain.com/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://www.hugbrain.com/",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

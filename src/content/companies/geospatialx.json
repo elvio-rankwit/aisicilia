@@ -1,0 +1,29 @@
+{
+  "name": "GeospatialX",
+  "slug": "geospatialx",
+  "type": "startup",
+  "description": "Società di Catania che vende in abbonamento una piattaforma di intelligence geospaziale. L'utente pone domande in linguaggio naturale su immobili, portafogli o territori; l'AI interpreta la richiesta e un motore geospaziale proprietario calcola mappe, punteggi e report combinando dati satellitari, ambientali, infrastrutturali e di mercato. Ogni risultato indica fonte, data di osservazione, metodo e livello di confidenza, distinguendo i valori osservati da quelli stimati o dedotti dall'AI. Usi indicati: siti dismessi, localizzazione logistica, rischio assicurativo, due diligence.",
+  "ai_areas": [
+    "NLP",
+    "dati e analytics"
+  ],
+  "sectors_served": [
+    "edilizia e immobiliare",
+    "logistica e trasporti",
+    "finanza e assicurazioni"
+  ],
+  "province": "catania",
+  "city": "Catania",
+  "lat": 37.50236,
+  "lng": 15.08737,
+  "geo_precision": "città",
+  "website": "https://www.geospatialx.ai/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://www.geospatialx.ai/",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

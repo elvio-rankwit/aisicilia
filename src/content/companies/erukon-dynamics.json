@@ -1,0 +1,27 @@
+{
+  "name": "ERUKON Dynamics",
+  "slug": "erukon-dynamics",
+  "type": "startup",
+  "description": "Società di Catania che sviluppa GIASON, una piattaforma di software e firmware per garantire la sicurezza delle macchine che usano intelligenza artificiale. Collega le decisioni dell'AI all'azione fisica entro condizioni controllate e verificabili, fornendo ai team di ingegneria prove consultabili. Il prodotto è ancora in sviluppo; il primo passo previsto è una valutazione su dati registrati o simulati. Clienti target: costruttori di macchine, robotica industriale e sviluppatori di macchine autonome. Modello: licenze e integrazione.",
+  "ai_areas": [
+    "robotica"
+  ],
+  "sectors_served": [
+    "manifattura"
+  ],
+  "province": "catania",
+  "city": "Catania",
+  "address": "Via Vincenzo Giuffrida 203/A, 95128 Catania CT",
+  "lat": 37.5184,
+  "lng": 15.09162,
+  "geo_precision": "indirizzo",
+  "website": "https://erukondynamics.com/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://erukondynamics.com/",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

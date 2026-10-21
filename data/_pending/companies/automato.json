@@ -1,0 +1,30 @@
+{
+  "name": "Automato",
+  "slug": "automato",
+  "type": "startup",
+  "description": "Società con sede legale a Siracusa secondo il registro, che vende a piccole imprese un pacchetto di sito web, CRM e agente AI su WhatsApp. L'agente, costruito con LangChain e LangGraph, risponde ai contatti, li qualifica, raccoglie i dati e li sincronizza con il CRM; il CRM è basato su GoHighLevel e include funzioni AI. L'offerta comprende anche l'ottimizzazione dei siti per i motori di ricerca AI. Il sito presenta il marchio come prodotto di OK Next LLC, società del Wyoming.",
+  "ai_areas": [
+    "agenti e automazione",
+    "AI generativa"
+  ],
+  "sectors_served": [
+    "commercio e retail",
+    "marketing e comunicazione"
+  ],
+  "province": "siracusa",
+  "city": "Siracusa",
+  "lat": 37.03158,
+  "lng": 15.21243,
+  "geo_precision": "città",
+  "website": "https://www.automatoai.it/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://www.automatoai.it/",
+    "https://www.automatoai.it/chi-siamo.html",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "Il sito non cita Siracusa o la Sicilia: indirizzo legale negli USA (Wyoming), marchio di OK Next LLC. AI non esclusiva (sito e CRM rivenduto). Sede operativa e centralità AI da verificare."
+}

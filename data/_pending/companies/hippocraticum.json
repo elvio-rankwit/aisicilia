@@ -1,0 +1,29 @@
+{
+  "name": "Hippocraticum",
+  "slug": "hippocraticum",
+  "type": "startup",
+  "description": "Società con sede legale a Catania secondo il registro, che sviluppa un assistente AI per medici: redazione delle note cliniche con modelli personalizzabili (SOAP, DAP, BIRP), codifica medica, telemedicina, informazioni sul paziente e integrazione con le cartelle cliniche elettroniche. Usa modelli linguistici propri, addestrati internamente, eseguibili anche sui server del cliente; dichiara di non addestrarli sui dati dei clienti. Supporta italiano e inglese e oltre 65 specialità mediche. Rivolta a medici e strutture sanitarie.",
+  "ai_areas": [
+    "AI generativa",
+    "NLP"
+  ],
+  "sectors_served": [
+    "sanità"
+  ],
+  "province": "catania",
+  "city": "Catania",
+  "lat": 37.50236,
+  "lng": 15.08737,
+  "geo_precision": "città",
+  "website": "https://www.hippocraticum.ai/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://www.hippocraticum.ai/",
+    "https://www.hippocraticum.ai/about",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "Il sito indica come sede Torino (Politecnico di Torino, Corso Castelfidardo 30/a); Catania risulta solo come comune dell'iscrizione al registro. Sede operativa in Sicilia da verificare."
+}

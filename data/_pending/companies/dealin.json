@@ -1,0 +1,28 @@
+{
+  "name": "Dealin",
+  "slug": "dealin",
+  "type": "startup",
+  "description": "Società con sede legale a Catania secondo il registro, che gestisce una piattaforma online per trovare consulenti qualificati con recensioni verificate (IT, marketing, fiscale, legale, risorse umane, finanza). L'impresa compila una valutazione gratuita dei propri bisogni e un sistema AI analizza il profilo e suggerisce i professionisti più adatti, da contattare direttamente. L'AI serve alla selezione, mentre il servizio resta un marketplace di consulenza.",
+  "ai_areas": [
+    "AI generativa",
+    "dati e analytics"
+  ],
+  "sectors_served": [
+    "trasversale"
+  ],
+  "province": "catania",
+  "city": "Catania",
+  "lat": 37.50236,
+  "lng": 15.08737,
+  "geo_precision": "città",
+  "website": "https://deal-in.it/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://deal-in.it/",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "Il sito non indica indirizzo o sede in Sicilia; AI usata per l'abbinamento ma il servizio è un marketplace di consulenza. Centralità AI da verificare."
+}

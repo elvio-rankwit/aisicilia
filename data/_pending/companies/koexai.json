@@ -1,0 +1,28 @@
+{
+  "name": "Koexai",
+  "slug": "koexai",
+  "type": "startup",
+  "description": "Società di data science con sede legale a Catania secondo il registro. Il sito ufficiale non è stato raggiungibile durante la verifica (HTTP 503 in più tentativi): l'unica informazione letta è il titolo della pagina, 'Data Science for Your Business', con riferimento ad algoritmi e team di esperti al servizio delle imprese. Servizi, tecnologie, clienti e anno di fondazione non sono stati verificati.",
+  "ai_areas": [
+    "machine learning",
+    "dati e analytics"
+  ],
+  "sectors_served": [
+    "trasversale"
+  ],
+  "province": "catania",
+  "city": "Catania",
+  "lat": 37.50236,
+  "lng": 15.08737,
+  "geo_precision": "città",
+  "website": "https://koexai.com/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://koexai.com/",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "Sito ufficiale non raggiungibile (HTTP 503 ripetuto): attività e centralità AI non verificate."
+}

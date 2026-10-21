@@ -1,0 +1,28 @@
+{
+  "name": "ALT",
+  "slug": "alt",
+  "type": "startup",
+  "description": "Società benefit con sede legale a Ragusa secondo il registro, che offre una piattaforma di compliance per settori regolamentati. Mappa i requisiti normativi in più giurisdizioni, monitora gli aggiornamenti delle norme, esegue controlli automatici e produce report pronti per gli audit; comprende analisi delle lacune, gestione delle evidenze e cruscotti di indicatori. Il sito la presenta come potenziata dall'AI, con un catalogo normativo aggiornato dall'AI, a supporto dei team legali e non in sostituzione dei legali.",
+  "ai_areas": [
+    "AI generativa",
+    "NLP"
+  ],
+  "sectors_served": [
+    "legale e professioni"
+  ],
+  "province": "ragusa",
+  "city": "Ragusa",
+  "lat": 36.92571,
+  "lng": 14.73075,
+  "geo_precision": "città",
+  "website": "https://assistivelawtech.com/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://assistivelawtech.com/",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "Il sito non indica indirizzo né Ragusa; la tecnologia AI non è descritta (solo 'potenziata dall'AI'). Sede operativa e centralità AI da verificare."
+}
