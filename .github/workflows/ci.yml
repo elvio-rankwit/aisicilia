@@ -1,0 +1,74 @@
+# CI: validazione contenuti, build, validazione dell'output e Lighthouse CI (soglia 100).
+# Attivo su ogni pull request e su ogni push a main. Il deploy è in deploy.yml e non dipende da questo workflow.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verifica:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Installa le dipendenze
+        run: npm ci
+
+      - name: Valida i contenuti
+        run: npm run validate -- --content
+
+      - name: Build (beta)
+        run: npm run build
+        env:
+          PUBLIC_SITE_MODE: beta
+
+      - name: Valida l'output della build
+        run: npm run validate
+        env:
+          PUBLIC_SITE_MODE: beta
+
+      # D-007: Lighthouse gira su una build production. In beta il noindex farebbe fallire "is-crawlable" per scelta.
+      - name: Build (production, per Lighthouse)
+        id: build_production
+        run: npm run build
+        env:
+          PUBLIC_SITE_MODE: production
+
+      - name: Installa Chrome
+        id: chrome
+        uses: browser-actions/setup-chrome@v2
+
+      - name: Lighthouse CI (mobile)
+        run: npm run lhci
+        env:
+          CHROME_PATH: ${{ steps.chrome.outputs.chrome-path }}
+
+      - name: Lighthouse CI (desktop)
+        if: ${{ !cancelled() && steps.build_production.conclusion == 'success' }}
+        run: npm run lhci:desktop
+        env:
+          CHROME_PATH: ${{ steps.chrome.outputs.chrome-path }}
+
+      - name: Carica i report Lighthouse
+        if: ${{ !cancelled() && steps.build_production.conclusion == 'success' }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: lighthouse
+          path: docs/qa/lighthouse/
+          if-no-files-found: warn
+          retention-days: 14

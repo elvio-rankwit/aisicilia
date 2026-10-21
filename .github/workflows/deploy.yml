@@ -1,0 +1,85 @@
+# Deploy su Cloudflare Pages (progetto "aisicilia", ramo di produzione main). ATTIVO (D-021).
+# Parte a ogni push su main, a mano (workflow_dispatch) e quando lo richiama rebuild.yml (workflow_call).
+# Non dipende da Lighthouse: quello sta in ci.yml.
+# Secrets richiesti: CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID.
+# Variabili opzionali (Settings > Secrets and variables > Actions > Variables): PUBLIC_FORM_SEGNALA_URL,
+# PUBLIC_FORM_RIMOZIONE_URL, PUBLIC_FORM_CONTATTI_URL. Se mancano, i form restano disattivati (D-015).
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  workflow_call:
+    secrets:
+      CLOUDFLARE_API_TOKEN:
+        required: true
+      CLOUDFLARE_ACCOUNT_ID:
+        required: true
+
+permissions:
+  contents: read
+  deployments: write # solo per i GitHub Deployments (gitHubToken di wrangler-action)
+
+# Gruppo fisso (non basato sul nome del workflow): vale anche quando il deploy è chiamato da rebuild.yml.
+concurrency:
+  group: deploy-cloudflare-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - name: Controlla i secret
+        run: |
+          missing=0
+          for v in CLOUDFLARE_API_TOKEN CLOUDFLARE_ACCOUNT_ID; do
+            if [ -z "${!v}" ]; then echo "::error::Secret $v mancante: impostalo in Settings > Secrets and variables > Actions."; missing=1; fi
+          done
+          exit $missing
+
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Installa le dipendenze
+        run: npm ci
+
+      - name: Build (beta)
+        run: npm run build
+        env:
+          PUBLIC_SITE_MODE: beta
+          PUBLIC_FORM_SEGNALA_URL: ${{ vars.PUBLIC_FORM_SEGNALA_URL }}
+          PUBLIC_FORM_RIMOZIONE_URL: ${{ vars.PUBLIC_FORM_RIMOZIONE_URL }}
+          PUBLIC_FORM_CONTATTI_URL: ${{ vars.PUBLIC_FORM_CONTATTI_URL }}
+
+      # Crea il progetto Pages solo se non c'è. L'errore "già esistente" è tollerato, ogni altro errore no.
+      - name: Crea il progetto Pages se non esiste
+        run: |
+          set +e
+          npx --yes wrangler@4 pages project create aisicilia --production-branch main 2>&1 | tee project-create.log
+          status=${PIPESTATUS[0]}
+          set -e
+          if [ "$status" -ne 0 ]; then
+            if grep -qiE 'already exists|8000002' project-create.log; then
+              echo "Il progetto Pages esiste già: procedo."
+            else
+              echo "::error::Creazione del progetto Pages non riuscita (vedi log)."
+              exit "$status"
+            fi
+          fi
+
+      - name: Pubblica su Cloudflare Pages
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=aisicilia --branch=main
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}

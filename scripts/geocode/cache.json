@@ -268,5 +268,47 @@
     "lng": 15.07322,
     "display_name": "Tremestieri Etneo, Catania, Sicilia, 95030, Italia",
     "precision": "città"
+  },
+  "addr:via ugo la malfa 153, 90146 palermo pa": {
+    "lat": 38.16263,
+    "lng": 13.31403,
+    "display_name": "Via Ugo La Malfa, Zona Industriale Nord, San Lorenzo, VI Circoscrizione, Palermo, Sicilia, 90146, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via mariano stabile 160, 90139 palermo pa": {
+    "lat": 38.12322,
+    "lng": 13.35836,
+    "display_name": "Via Mariano Stabile, VIII Circoscrizione, Palermo, Sicilia, 90139, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via valdemone 31, 90144 palermo pa": {
+    "lat": 38.14651,
+    "lng": 13.33592,
+    "display_name": "Via Valdemone, San Lorenzo, VI Circoscrizione, Palermo, Sicilia, 90144, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via spinelli 1, 90129 palermo": {
+    "lat": 38.08877,
+    "lng": 13.3726,
+    "display_name": "Via S. Spinelli, Falsomiele, III Circoscrizione, Palermo, Sicilia, 90124, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via giuseppe la farina 11, 90141 palermo pa": {
+    "lat": 38.12862,
+    "lng": 13.34884,
+    "display_name": "Via Giuseppe La Farina, VIII Circoscrizione, Palermo, Sicilia, 90141, Italia",
+    "precision": "indirizzo"
+  },
+  "city:niscemi": {
+    "lat": 37.14645,
+    "lng": 14.39418,
+    "display_name": "Niscemi, Caltanissetta, Sicilia, 93015, Italia",
+    "precision": "città"
+  },
+  "addr:via archirafi 34, palermo": {
+    "lat": 38.11083,
+    "lng": 13.37297,
+    "display_name": "Dipartimento di Informatica e Matematica, 34, Via Archirafi, Brancaccio, II Circoscrizione, Palermo, Sicilia, 90123, Italia",
+    "precision": "indirizzo"
   }
 }

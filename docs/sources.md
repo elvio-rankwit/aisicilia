@@ -9,16 +9,19 @@ Regole (brief §3.4): niente scraping di LinkedIn, Crunchbase o siti che lo viet
 | Fonte | Tipo | Ingresso | Note | Stato |
 |---|---|---|---|---|
 | Registro startup e PMI innovative (InfoCamere / MIMIT) | open data | https://startup.registroimprese.it | Elenchi scaricabili; filtrare regione Sicilia e cercare AI, machine learning, dati, visione nell'oggetto sociale/descrizione. Conferma poi sul sito aziendale. | non raggiungibile 2026-10-21 (nessuna risposta utile da startup.registroimprese.it; usate le pagine «Trasparenza» dei siti aziendali) |
-| Spin-off Università di Palermo | sito istituzionale | https://www.unipa.it | Elenco spin-off accreditati | da verificare |
+| Spin-off Università di Palermo | sito istituzionale | https://www.unipa.it | Elenco spin-off accreditati | parziale 2026-10-21 (elenco di ateneo non raggiungibile; usata la pagina spin-off del Dipartimento DIID: PerGen e Intelener in `_pending`, nessun altro spin-off AI) |
 | Spin-off Università di Catania | sito istituzionale | https://www.unict.it | Elenco spin-off | parziale 2026-10-21 (pagine elenco 404/503; spin-off individuati da siti ufficiali e laboratori: Next Vision, iCTLab) |
 | Spin-off Università di Messina | sito istituzionale | https://www.unime.it | Elenco spin-off | non pertinente 2026-10-21 (pagina elenco non trovata, nessuno spin-off AI individuato) |
-| Università Kore di Enna | sito istituzionale | https://www.unikore.it | Spin-off e laboratori | da verificare |
-| Istituti CNR con sede in Sicilia | sito istituzionale | https://www.cnr.it | Solo istituti/sedi con attività AI dichiarata | da verificare |
-| Incubatori e acceleratori siciliani | siti ufficiali | ricerca web | Incubatori universitari, hub d'innovazione, coworking con programmi di accelerazione | da verificare |
+| Università Kore di Enna | sito istituzionale | https://www.unikore.it | Spin-off e laboratori | non pertinente 2026-10-21 (strutture di ricerca consultate: nessuna dedicata ad AI; spin-off non trovati) |
+| Istituti CNR con sede in Sicilia | sito istituzionale | https://www.cnr.it | Solo istituti/sedi con attività AI dichiarata | ok 2026-10-21 (CNR-ICAR sede di Palermo, da icar.cnr.it) |
+| Incubatori e acceleratori siciliani | siti ufficiali | ricerca web | Incubatori universitari, hub d'innovazione, coworking con programmi di accelerazione | parziale 2026-10-21 (Palermo: sito Magnisi con 403, Digital Magics Palermo non più attivo come sito proprio; nessun incubatore verificato) |
 | Digital Innovation Hub ed EDIH attivi in Sicilia | siti ufficiali | ricerca web | Spesso elencano partner e aziende tech | da verificare |
 | Community tecniche locali | siti/pagine pubbliche | ricerca web | GDG, gruppi Python/ML, associazioni: solo pagine pubbliche, niente nomi di persone | ok 2026-10-21 (Global AI Catania; GDG Nebrodi non dedicato all'AI) |
-| Stampa locale e di settore | articoli | ricerca web | Solo per scoprire nomi: ogni dato va poi confermato sul sito dell'azienda | ok 2026-10-21 (solo per scoprire nomi: Catania, Messina, Siracusa, Ragusa) |
+| Stampa locale e di settore | articoli | ricerca web | Solo per scoprire nomi: ogni dato va poi confermato sul sito dell'azienda | ok 2026-10-21 (solo per scoprire nomi: Catania, Messina, Siracusa, Ragusa; Palermo e Sicilia occidentale: Forbes Italia, PalermoToday, Dieci, Balarm, Panorama) |
 | Laboratori di ricerca AI dell'Università di Catania (IPLab, PeRCeiVe.AI Lab) | siti dei laboratori | https://iplab.dmi.unict.it, https://www.perceivelab.com | Sedi e attività dichiarate dai laboratori | ok 2026-10-21 |
+| Laboratori di ricerca UniPa (repertorio di ateneo e schede dei laboratori del Dipartimento di Ingegneria) | repertorio e schede PDF | https://centri.unipa.it/laboratori/ | Ubicazione e attività di Laboratori di AI, visione artificiale, robotica | ok 2026-10-21 |
+| I3P, incubatore del Politecnico di Torino (pagina startup AiDA) | sito istituzionale | https://www.i3p.it | Seconda fonte per AIM Solutions | ok 2026-10-21 |
+| Sicily Valley (distretto tecnologico, elenco aziende socie) | elenco aziende | https://www.sicilyvalley.it/aziende-sicily-valley/en/le-aziende/ | Descrizioni troppo generiche, filtro AI non leggibile senza JavaScript | non pertinente 2026-10-21 |
 
 ## Eventi
 

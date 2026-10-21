@@ -1,0 +1,30 @@
+{
+  "name": "Canonity",
+  "slug": "canonity",
+  "type": "startup",
+  "description": "Società di Palermo che ha messo online a giugno 2026 una piattaforma per automatizzare lavori d'ufficio ripetitivi, come inserimento dati, documenti ed email. Il sistema fa lavorare in sequenza più modelli di intelligenza artificiale di fornitori diversi: uno analizza i dati, un altro scrive, un altro controlla il risultato. Si usa senza scrivere codice, con un canone fisso, ed è rivolto a professionisti e piccole imprese. È previsto un marketplace per condividere i flussi creati.",
+  "ai_areas": [
+    "agenti e automazione",
+    "AI generativa"
+  ],
+  "sectors_served": [
+    "trasversale"
+  ],
+  "province": "palermo",
+  "city": "Palermo",
+  "address": "Via Valdemone 31, 90144 Palermo PA",
+  "lat": 38.14651,
+  "lng": 13.33592,
+  "geo_precision": "indirizzo",
+  "website": "https://canonity.com",
+  "founded_year": 2026,
+  "same_as": [],
+  "source_urls": [
+    "https://canonity.com",
+    "https://canonity.com/contatti",
+    "https://www.palermotoday.it/economia/canonity-piattaforma-dialogare-9-intelligenze-artificiali-aziende.html",
+    "https://www.dieci.media/2026/06/una-startup-ai-tutta-palermitana/"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

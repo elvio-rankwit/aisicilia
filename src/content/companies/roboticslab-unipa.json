@@ -1,0 +1,29 @@
+{
+  "name": "RoboticsLab (Università di Palermo)",
+  "slug": "roboticslab-unipa",
+  "type": "centro di ricerca",
+  "description": "Laboratorio di robotica del Dipartimento di Ingegneria dell'Università di Palermo. Studia l'interazione tra persone e robot e la robotica cognitiva con robot umanoidi Pepper e NAO. Tra i progetti ci sono un robot per accompagnare l'invecchiamento in salute e la fisioterapia, un robot direttore d'orchestra per sperimentare forme d'arte nuove e ricerche su coscienza artificiale, senso di sé e discorso interno delle macchine, con un occhio agli aspetti etici di AI e robotica.",
+  "ai_areas": [
+    "robotica",
+    "agenti e automazione"
+  ],
+  "sectors_served": [
+    "sanità",
+    "cultura e beni culturali"
+  ],
+  "province": "palermo",
+  "city": "Palermo",
+  "address": "Viale delle Scienze, Edificio 6, Palermo",
+  "lat": 38.10455,
+  "lng": 13.34951,
+  "geo_precision": "indirizzo",
+  "website": "https://www.unipa.it/dipartimenti/ingegneria/",
+  "same_as": [],
+  "source_urls": [
+    "https://unipa.it/persone/tecnico-amministrativi/m/mario.minacapilli/.content/pdf/57.pdf",
+    "https://centri.unipa.it/laboratori/",
+    "https://www.unipa.it/dipartimenti/ingegneria/Laboratori/"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "Laboratorio Analisi di Immagini Biomedicali (Università di Palermo)",
+  "slug": "laboratorio-analisi-immagini-biomedicali-unipa",
+  "type": "centro di ricerca",
+  "description": "Laboratorio del Dipartimento di Fisica e Chimica dell'Università di Palermo in cui fisici, ingegneri informatici e biologi sviluppano e provano algoritmi di computer vision e intelligenza artificiale su immagini biomediche. Le ricerche riguardano sistemi di supporto alla diagnosi, come i CAD per la mammografia, e il progetto internazionale A.I.D.A. sulla diagnosi di malattie autoimmuni da immagini di immunofluorescenza. Dal laboratorio è nato il primo spin-off dell'ateneo.",
+  "ai_areas": [
+    "computer vision",
+    "machine learning"
+  ],
+  "sectors_served": [
+    "sanità"
+  ],
+  "province": "palermo",
+  "city": "Palermo",
+  "lat": 38.11123,
+  "lng": 13.35244,
+  "geo_precision": "città",
+  "website": "https://www.unipa.it/dipartimenti/difc/Lab/Analisi-di-Immagini-Biomedicali/",
+  "same_as": [],
+  "source_urls": [
+    "https://www.unipa.it/dipartimenti/difc/Lab/Analisi-di-Immagini-Biomedicali/"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

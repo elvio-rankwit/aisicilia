@@ -1,0 +1,19 @@
+# Ricostruzione giornaliera: "prossimi eventi" e archivio si calcolano alla data di build (D-013).
+# Richiama deploy.yml (workflow_call): stessa build, stessi secret, stessa concurrency, nessun deploy hook.
+# STATO: schedule SPENTO. Per attivarlo togli il commento al blocco `schedule`.
+# L'orario è subito dopo la mezzanotte italiana in estate e in inverno (23:15 UTC = 01:15 CEST / 00:15 CET).
+name: Rebuild giornaliero
+
+on:
+  workflow_dispatch:
+  # schedule:
+  #   - cron: '15 23 * * *'
+
+permissions:
+  contents: read
+  deployments: write
+
+jobs:
+  deploy:
+    uses: ./.github/workflows/deploy.yml
+    secrets: inherit

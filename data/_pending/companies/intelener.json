@@ -1,0 +1,28 @@
+{
+  "name": "Intelener",
+  "slug": "intelener",
+  "type": "spin-off universitario",
+  "description": "Spin-off dell'Università di Palermo costituito nel 2010 e censito dal Dipartimento DIID tra le società derivate dall'ateneo. La scheda universitaria lo descrive come progettista di sistemi per monitorare e controllare le condizioni ambientali con reti di sensori e attuatori wireless e metodi di intelligenza artificiale, con prodotti per i consumi energetici e per la conservazione degli alimenti. Il sito attuale presenta invece una società di sviluppo tecnologico e commercializzazione, senza un ruolo chiaro dell'AI.",
+  "ai_areas": [
+    "IoT ed edge AI"
+  ],
+  "sectors_served": [
+    "energia",
+    "agroalimentare"
+  ],
+  "province": "palermo",
+  "city": "Palermo",
+  "lat": 38.11123,
+  "lng": 13.35244,
+  "geo_precision": "città",
+  "website": "http://www.intelener.com",
+  "founded_year": 2010,
+  "same_as": [],
+  "source_urls": [
+    "https://www.unipa.it/dipartimenti/diid/Terza-Missione/spin-off/",
+    "https://www.intelener.com"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "Scheda UniPA: AI e sensori WSAN (2010). Sito ufficiale oggi orientato a consulenza TRL/commercializzazione tecnologica, AI non centrale; sede senza indirizzo; prodotti citati non verificabili sul sito."
+}

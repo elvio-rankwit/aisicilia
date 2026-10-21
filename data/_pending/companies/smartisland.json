@@ -1,0 +1,32 @@
+{
+  "name": "Smart Island",
+  "slug": "smartisland",
+  "type": "startup",
+  "description": "Società agritech nata nel 2014 che sviluppa Smartfarm, un software cloud di intelligenza e visione artificiale per l'agricoltura di precisione. Raccoglie dati da sensori e da robot di campo chiamati Daiki, li trasmette via LoRa e fornisce informazioni su resa, fertirrigazione e stato di salute delle colture, con avvisi su parassiti e malattie. Il sito propone anche centraline e fertirrigatori automatizzati. Le fonti di stampa collocano la nascita a Niscemi, in provincia di Caltanissetta.",
+  "ai_areas": [
+    "computer vision",
+    "IoT ed edge AI",
+    "machine learning"
+  ],
+  "sectors_served": [
+    "agricoltura",
+    "agroalimentare"
+  ],
+  "province": "caltanissetta",
+  "city": "Niscemi",
+  "lat": 37.14645,
+  "lng": 14.39418,
+  "geo_precision": "città",
+  "website": "https://smartisland.it",
+  "founded_year": 2014,
+  "same_as": [],
+  "source_urls": [
+    "https://smartisland.it/",
+    "https://smartisland.it/il-progetto/",
+    "https://www.panorama.it/attualita/smartisland-when-innovation-involves-agriculture",
+    "https://www.balarm.it/news/magazine/intelligenza-artificiale-e-robot-a-servizio-dell-agricoltura-l-idea-di-due-siciliane-20000"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "Sede attuale non verificata: il sito non indica la città (Niscemi solo da stampa 2017-2018); ultimo aggiornamento del sito a settembre 2022, attività corrente da confermare. Iscrizione startup innovativa dichiarata dal sito ma non verificata sul registro."
+}

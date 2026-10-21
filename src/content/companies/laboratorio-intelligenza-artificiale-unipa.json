@@ -1,0 +1,29 @@
+{
+  "name": "Laboratorio di Intelligenza Artificiale (Università di Palermo)",
+  "slug": "laboratorio-intelligenza-artificiale-unipa",
+  "type": "centro di ricerca",
+  "description": "Laboratorio del Dipartimento di Ingegneria dell'Università di Palermo dedicato ai sistemi intelligenti, con attenzione particolare all'ambient intelligence. I temi di ricerca comprendono l'apprendimento distribuito e federato per riconoscere attività complesse, la progettazione di sistemi di crowdsensing, i modelli di intelligenza artificiale che rispettano la privacy e i metodi di AI per la cybersicurezza, oltre alla sicurezza dell'AI stessa. Collabora con partner accademici e industriali.",
+  "ai_areas": [
+    "machine learning",
+    "IoT ed edge AI",
+    "AI per la sicurezza informatica"
+  ],
+  "sectors_served": [
+    "trasversale"
+  ],
+  "province": "palermo",
+  "city": "Palermo",
+  "address": "Viale delle Scienze, Edificio 6, Palermo",
+  "lat": 38.10455,
+  "lng": 13.34951,
+  "geo_precision": "indirizzo",
+  "website": "https://www.unipa.it/dipartimenti/ingegneria/",
+  "same_as": [],
+  "source_urls": [
+    "https://unipa.it/persone/tecnico-amministrativi/m/mario.minacapilli/.content/pdf/31.pdf",
+    "https://centri.unipa.it/laboratori/",
+    "https://www.unipa.it/dipartimenti/ingegneria/Laboratori/"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

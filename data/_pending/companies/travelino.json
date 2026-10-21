@@ -1,0 +1,27 @@
+{
+  "name": "Travelino",
+  "slug": "travelino",
+  "type": "azienda",
+  "description": "Società con sede a Palermo che offre ai tour operator, alle agenzie di viaggio e agli hotel automazioni, chatbot e assistenti AI per gestire richieste, preventivi, follow-up e CRM, insieme a servizi di marketing digitale (campagne, SEO, social, report). Il nome richiama il vecchio assistente di viaggio su messaggistica sviluppato da Threebot, ma il legame societario non è dichiarato sul sito. L'offerta attuale unisce AI operativa e marketing.",
+  "ai_areas": [
+    "agenti e automazione",
+    "NLP"
+  ],
+  "sectors_served": [
+    "turismo e ospitalità"
+  ],
+  "province": "palermo",
+  "city": "Palermo",
+  "address": "Via Gen. Dalla Chiesa 10, 90143 Palermo PA",
+  "lat": 38.11123,
+  "lng": 13.35244,
+  "geo_precision": "città",
+  "website": "https://travelino.it",
+  "same_as": [],
+  "source_urls": [
+    "https://travelino.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "Offerta mista di automazioni AI e marketing digitale (agenzia): AI non unico focus; legame con Threebot non verificato; nessuna seconda fonte indipendente sul sito attuale."
+}

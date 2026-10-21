@@ -1,0 +1,29 @@
+{
+  "name": "Keplera",
+  "slug": "keplera",
+  "type": "azienda",
+  "description": "Società di consulenza legale con sede a Palermo che affianca alla consulenza su contratti, compliance e proprietà intellettuale un prodotto software proprio, LexHero. La piattaforma usa l'AI per rispondere a domande giuridiche con riferimenti a norme e giurisprudenza, analizzare i contratti caricati segnalando rischi e incongruenze, generare clausole e atti e portare il documento fino alla firma elettronica. È pensata per professionisti, aziende e startup e funziona con abbonamento mensile.",
+  "ai_areas": [
+    "NLP",
+    "AI generativa"
+  ],
+  "sectors_served": [
+    "legale e professioni"
+  ],
+  "province": "palermo",
+  "city": "Palermo",
+  "address": "Via Mariano Stabile 160, 90139 Palermo PA",
+  "lat": 38.12322,
+  "lng": 13.35836,
+  "geo_precision": "indirizzo",
+  "website": "https://keplera.it",
+  "same_as": [],
+  "source_urls": [
+    "https://keplera.it",
+    "https://keplera.it/contatti",
+    "https://lexhero.com",
+    "https://lexhero.com/privacy-policy"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

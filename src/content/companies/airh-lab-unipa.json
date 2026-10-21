@@ -1,0 +1,28 @@
+{
+  "name": "AIRH Lab, Artificial Intelligence and Robotics for Humanities (Università di Palermo)",
+  "slug": "airh-lab-unipa",
+  "type": "centro di ricerca",
+  "description": "Laboratorio istituito nel Dipartimento di Scienze Umanistiche dell'Università di Palermo per applicare AI e robotica alle discipline umanistiche. Le linee di ricerca riguardano la creatività computazionale con AI generativa (metafore, immagini, musica e testi), la coscienza artificiale, i robot umanoidi come tutor e per le arti dello spettacolo, la digitalizzazione del patrimonio culturale. Lavora insieme al RoboticsLab del Dipartimento di Ingegneria e dispone del robot Pepper.",
+  "ai_areas": [
+    "AI generativa",
+    "robotica",
+    "NLP"
+  ],
+  "sectors_served": [
+    "cultura e beni culturali",
+    "istruzione e ricerca"
+  ],
+  "province": "palermo",
+  "city": "Palermo",
+  "lat": 38.11123,
+  "lng": 13.35244,
+  "geo_precision": "città",
+  "website": "https://www.unipa.it/AIRH-Lab--Artificial-Intelligence-and-Robotics-for-Humanities-Lab-Dipartimento-di-Scienze-Umanistiche-Universit-di-Palermo/",
+  "same_as": [],
+  "source_urls": [
+    "https://www.unipa.it/AIRH-Lab--Artificial-Intelligence-and-Robotics-for-Humanities-Lab-Dipartimento-di-Scienze-Umanistiche-Universit-di-Palermo/",
+    "https://www.unipa.it/Un-nuovo-laboratorio-di-ricerca-su-IA-e-Robotica-al-Dipartimento-di-Scienze-Umanistiche-dellUniversit-di-Palermo/"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

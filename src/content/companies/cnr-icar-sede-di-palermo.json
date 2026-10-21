@@ -1,0 +1,32 @@
+{
+  "name": "CNR-ICAR, sede di Palermo",
+  "slug": "cnr-icar-sede-di-palermo",
+  "type": "centro di ricerca",
+  "description": "La sede palermitana dell'Istituto di Calcolo e Reti ad Alte Prestazioni del CNR ospita laboratori che lavorano su robotica cognitiva e social sensing, bioinformatica traslazionale e sistemi intelligenti. Le ricerche usano reti neurali, elaborazione del linguaggio naturale e apprendimento automatico, per esempio per far interagire i robot umanoidi con le persone o per classificare dati molecolari a supporto della clinica. Le applicazioni toccano sanità, beni culturali ed energia.",
+  "ai_areas": [
+    "robotica",
+    "NLP",
+    "machine learning"
+  ],
+  "sectors_served": [
+    "sanità",
+    "cultura e beni culturali",
+    "energia"
+  ],
+  "province": "palermo",
+  "city": "Palermo",
+  "address": "Via Ugo La Malfa 153, 90146 Palermo PA",
+  "lat": 38.16263,
+  "lng": 13.31403,
+  "geo_precision": "indirizzo",
+  "website": "https://www.icar.cnr.it/",
+  "same_as": [],
+  "source_urls": [
+    "https://www.icar.cnr.it/sedi/",
+    "https://www.icar.cnr.it/laboratori-icar/robotica-cognitiva-e-social-sensing/",
+    "https://www.icar.cnr.it/laboratori-icar/bioinformatica-traslazionale-tb-lab/",
+    "https://www.icar.cnr.it/artificial-intelligence-and-data-science/"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

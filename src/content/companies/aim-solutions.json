@@ -1,0 +1,34 @@
+{
+  "name": "AIM Solutions",
+  "slug": "aim-solutions",
+  "type": "startup",
+  "description": "Società con sede legale a Palermo che ha sviluppato AiDA, una receptionist virtuale basata su AI per hotel e agenzie immobiliari. Il sistema risponde a telefonate, email, messaggi WhatsApp e chat del sito in 25 lingue, si collega al booking engine della struttura per controllare disponibilità e tariffe, prepara preventivi e passa la richiesta a una persona quando non ha una risposta certa. Il progetto è nato nell'incubatore I3P del Politecnico di Torino.",
+  "ai_areas": [
+    "voce e speech",
+    "agenti e automazione",
+    "NLP"
+  ],
+  "sectors_served": [
+    "turismo e ospitalità",
+    "edilizia e immobiliare"
+  ],
+  "province": "palermo",
+  "city": "Palermo",
+  "address": "Via Vincenzo Spinelli 1, 90129 Palermo PA",
+  "lat": 38.11123,
+  "lng": 13.35244,
+  "geo_precision": "città",
+  "website": "https://aimsolutions.it/",
+  "founded_year": 2025,
+  "same_as": [
+    "https://www.i3p.it/en/startup/aida"
+  ],
+  "source_urls": [
+    "https://aimsolutions.it/",
+    "https://aimsolutions.it/privacy-policy",
+    "https://www.i3p.it/en/startup/aida",
+    "https://www.i3p.it/en/news/aim-solutions-closes-500-000-euro-preseed-round-accelerates-development-aida-platform"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

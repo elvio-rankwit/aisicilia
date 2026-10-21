@@ -1,0 +1,29 @@
+{
+  "name": "Laboratorio di Elaborazione delle Immagini e Visione Artificiale (Università di Palermo)",
+  "slug": "laboratorio-visione-artificiale-unipa",
+  "type": "centro di ricerca",
+  "description": "Laboratorio del Dipartimento di Ingegneria di Palermo che sviluppa modelli di visione artificiale e AI generativa. Si occupa di videosorveglianza, con tracking e re-identificazione delle persone, di analisi delle azioni dei pedoni per i veicoli a guida autonoma, del rilevamento di oggetti sconosciuti nella scena e della generazione automatica di immagini e video, compresi avatar con gesti sincronizzati al parlato. Lavora anche sull'analisi di documenti in lingue antiche con modelli linguistici di grandi dimensioni.",
+  "ai_areas": [
+    "computer vision",
+    "AI generativa"
+  ],
+  "sectors_served": [
+    "logistica e trasporti",
+    "cultura e beni culturali"
+  ],
+  "province": "palermo",
+  "city": "Palermo",
+  "address": "Viale delle Scienze, Edificio 6, Palermo",
+  "lat": 38.10455,
+  "lng": 13.34951,
+  "geo_precision": "indirizzo",
+  "website": "https://www.unipa.it/dipartimenti/ingegneria/",
+  "same_as": [],
+  "source_urls": [
+    "https://unipa.it/persone/tecnico-amministrativi/m/mario.minacapilli/.content/pdf/14.pdf",
+    "https://centri.unipa.it/laboratori/",
+    "https://www.unipa.it/dipartimenti/ingegneria/Laboratori/"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

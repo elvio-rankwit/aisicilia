@@ -1,0 +1,28 @@
+{
+  "name": "PerGen",
+  "slug": "pergen",
+  "type": "spin-off universitario",
+  "description": "Spin-off dell'Università di Palermo costituito nel 2018 e censito dal Dipartimento DIID. La scheda dell'ateneo indica che l'attività consiste nella progettazione e realizzazione di sistemi ICT ad alto contenuto tecnologico basati su tecniche di intelligenza artificiale e sistemi pervasivi, per enti pubblici e privati. Non risultano un sito aziendale né altre fonti indipendenti che descrivano prodotti, clienti o stato attuale della società.",
+  "ai_areas": [
+    "machine learning",
+    "IoT ed edge AI"
+  ],
+  "sectors_served": [
+    "pubblica amministrazione",
+    "trasversale"
+  ],
+  "province": "palermo",
+  "city": "Palermo",
+  "lat": 38.11123,
+  "lng": 13.35244,
+  "geo_precision": "città",
+  "website": "https://www.unipa.it/dipartimenti/diid/Terza-Missione/spin-off/",
+  "founded_year": 2018,
+  "same_as": [],
+  "source_urls": [
+    "https://www.unipa.it/dipartimenti/diid/Terza-Missione/spin-off/"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "Unica fonte la scheda UniPA; nessun sito ufficiale né seconda fonte; stato attuale e prodotti non verificabili. Il campo website punta alla scheda universitaria."
+}

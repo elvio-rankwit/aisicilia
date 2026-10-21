@@ -1,0 +1,28 @@
+{
+  "name": "Prismed",
+  "slug": "prismed",
+  "type": "startup",
+  "description": "Startup di Palermo, con sede in piazza Stazione San Lorenzo, che sviluppa COPERNICO Surveillance & Prevention, un sistema per la sorveglianza e la prevenzione delle infezioni ospedaliere. Combina unità robotiche, realtà aumentata per la comunicazione con gli operatori, analisi di big data, gemello digitale, blockchain e un'intelligenza artificiale di supporto alle operazioni. Si rivolge al servizio sanitario e ha partecipato a programmi di accelerazione.",
+  "ai_areas": [
+    "robotica",
+    "dati e analytics"
+  ],
+  "sectors_served": [
+    "sanità"
+  ],
+  "province": "palermo",
+  "city": "Palermo",
+  "address": "Piazza Stazione San Lorenzo 15, 90146 Palermo PA",
+  "lat": 38.11123,
+  "lng": 13.35244,
+  "geo_precision": "città",
+  "website": "https://prismed.it",
+  "same_as": [],
+  "source_urls": [
+    "https://prismed.it",
+    "https://forbes.it/2025/03/24/le-interviste-alle-startup-della-tappa-italian-excellence-di-palermo/"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "L'AI è una tra sei tecnologie (robotica, AR, big data, digital twin, blockchain, AI) e la pagina di dettaglio non è consultabile; centralità dell'AI non verificabile."
+}

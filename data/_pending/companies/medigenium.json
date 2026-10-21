@@ -1,0 +1,27 @@
+{
+  "name": "Medigenium",
+  "slug": "medigenium",
+  "type": "startup",
+  "description": "Startup di Palermo che ha sviluppato MeRis, un dispositivo da installare in ambulatori e studi privati: si collega agli apparecchi diagnostici via DICOM, archivia gli esami in locale con cifratura, li anonimizza secondo il GDPR e li struttura negli standard del settore. Mira a rendere disponibili alla ricerca e agli sviluppatori di AI medica i dati prodotti fuori dagli ospedali. L'accesso ai dataset e il marketplace di esami diagnostici con AI di terzi non sono ancora operativi.",
+  "ai_areas": [
+    "dati e analytics"
+  ],
+  "sectors_served": [
+    "sanità"
+  ],
+  "province": "palermo",
+  "city": "Palermo",
+  "address": "Via Giuseppe La Farina 11, 90141 Palermo PA",
+  "lat": 38.12862,
+  "lng": 13.34884,
+  "geo_precision": "indirizzo",
+  "website": "https://medigenium.com",
+  "same_as": [],
+  "source_urls": [
+    "https://medigenium.com",
+    "https://www.palermotoday.it/economia/call-startup-invitalia-palermo-vincitori-medigenium.html"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "Il prodotto operativo oggi è infrastruttura dati e archiviazione clinica; la parte AI (dataset per modelli, gateway verso servizi AI di terzi, marketplace) non è ancora operativa. AI non centrale: da rivalutare."
+}
