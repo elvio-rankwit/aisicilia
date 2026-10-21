@@ -1,0 +1,26 @@
+{
+  "name": "Longeviva",
+  "slug": "longeviva",
+  "type": "azienda",
+  "description": "Società di Palermo che offre a personal trainer, fisioterapisti e preparatori atletici una piattaforma per fissare obiettivi di mantenimento e seguire i pazienti tramite una dashboard su aderenza, costanza e livello di attenzione. Il sito dichiara che gli strumenti raccolgono e organizzano i dati e preparano le azioni, ma nulla parte senza la validazione del professionista. Il sito indica un'architettura pensata per GDPR e AI Act.",
+  "ai_areas": [
+    "agenti e automazione"
+  ],
+  "sectors_served": [
+    "sanità"
+  ],
+  "province": "palermo",
+  "city": "Palermo",
+  "address": "Via Resuttana 352/B, 90146 Palermo PA",
+  "lat": 38.11123,
+  "lng": 13.35244,
+  "geo_precision": "città",
+  "website": "https://www.longeviva.it",
+  "same_as": [],
+  "source_urls": [
+    "https://www.longeviva.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "Il sito non usa il termine intelligenza artificiale né descrive modelli o funzioni AI: centralità dell'AI non dimostrata (solo riferimento a AI Act e a strumenti supervisionati). Nessuna seconda fonte."
+}

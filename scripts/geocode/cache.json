@@ -394,5 +394,41 @@
     "lng": 15.50212,
     "display_name": "Larderia, Messina, Sicilia, 98129, Italia",
     "precision": "indirizzo"
+  },
+  "addr:via biagio petrocelli 11, 90142 palermo": {
+    "lat": 38.05236,
+    "lng": 13.12165,
+    "display_name": "Via Biagio Petrocelli, Partinico, Palermo, Sicilia, 90047, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via tolomea 70, 90151 palermo": {
+    "lat": 38.2072,
+    "lng": 13.31705,
+    "display_name": "Via Tolomea, Mondello, VII Circoscrizione, Palermo, Sicilia, 90151, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via resuttana 352/b, 90146 palermo": {
+    "lat": 38.15366,
+    "lng": 13.33413,
+    "display_name": "Via Resuttana, Resuttana, San Lorenzo, VI Circoscrizione, Palermo, Sicilia, 90167, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via biagio petrocelli 11, palermo, sicilia": {
+    "lat": 38.05236,
+    "lng": 13.12165,
+    "display_name": "Via Biagio Petrocelli, Partinico, Palermo, Sicilia, 90047, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via tolomea 70, 90151 palermo pa": {
+    "lat": 38.2072,
+    "lng": 13.31705,
+    "display_name": "Via Tolomea, Mondello, VII Circoscrizione, Palermo, Sicilia, 90151, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via resuttana 352, 90146 palermo pa": {
+    "lat": 38.15366,
+    "lng": 13.33413,
+    "display_name": "Via Resuttana, Resuttana, San Lorenzo, VI Circoscrizione, Palermo, Sicilia, 90167, Italia",
+    "precision": "indirizzo"
   }
 }

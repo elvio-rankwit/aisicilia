@@ -1,0 +1,26 @@
+{
+  "name": "Selfmotion",
+  "slug": "selfmotion",
+  "type": "azienda",
+  "description": "Società di Palermo che sviluppa una piattaforma di teleriabilitazione per strutture sanitarie e fisioterapisti. Il professionista prescrive il programma e il paziente esegue gli esercizi a casa davanti alla fotocamera del telefono: un modello di AI analizza il movimento in tempo reale e dà indicazioni vocali e visive, con parametri e tolleranze regolabili dal terapista. L'analisi avviene sul dispositivo e vengono conservati solo i dati del movimento, non video né immagini. Il software è in corso di certificazione come dispositivo medico (MDR).",
+  "ai_areas": [
+    "computer vision"
+  ],
+  "sectors_served": [
+    "sanità"
+  ],
+  "province": "palermo",
+  "city": "Palermo",
+  "address": "Via Tolomea 70, 90151 Palermo PA",
+  "lat": 38.2072,
+  "lng": 13.31705,
+  "geo_precision": "indirizzo",
+  "website": "https://www.selfmotion.it",
+  "same_as": [],
+  "source_urls": [
+    "https://www.selfmotion.it",
+    "https://www.selfmotion.it/note-legali"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "Coloombus",
+  "slug": "coloombus",
+  "type": "startup",
+  "description": "Startup palermitana che digitalizza le spedizioni di merci per le piccole imprese di autotrasporto. Usa algoritmi di intelligenza artificiale per pianificare viaggi di andata e ritorno e ridurre i camion che viaggiano vuoti, con meno emissioni di CO2. Nel 2021 ha vinto la categoria Digital di UniCredit Start Lab. Le informazioni provengono solo da articoli di stampa e dalla pagina del premio.",
+  "ai_areas": [
+    "dati e analytics"
+  ],
+  "sectors_served": [
+    "logistica e trasporti"
+  ],
+  "province": "palermo",
+  "city": "Palermo",
+  "lat": 38.11123,
+  "lng": 13.35244,
+  "geo_precision": "città",
+  "same_as": [],
+  "source_urls": [
+    "https://livesicilia.it/?p=917178",
+    "https://www.unicreditgroup.eu/en/one-unicredit/clients/2021/jul/start-lab-2021-digital-winners-announced.html"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "Sito ufficiale non individuato (coloombus.com risponde 503 ma non è citato da alcuna fonte): nessuna fonte aziendale. Dati solo da stampa 2021; attività corrente e sede da confermare."
+}

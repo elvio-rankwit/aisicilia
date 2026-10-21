@@ -1,0 +1,26 @@
+{
+  "name": "ItaliaRimborso",
+  "slug": "italiarimborso",
+  "type": "startup",
+  "description": "Società che assiste i passeggeri aerei nelle richieste di rimborso e risarcimento per voli in ritardo o cancellati e per bagagli smarriti o danneggiati. Un articolo del 2022 la indica con sede a Trapani e la collega a un uso di machine learning, in occasione della presenza al CES di Las Vegas. Il sito ufficiale oggi non descrive alcuna funzione di AI né indica la sede.",
+  "ai_areas": [
+    "machine learning"
+  ],
+  "sectors_served": [
+    "logistica e trasporti"
+  ],
+  "province": "trapani",
+  "city": "Trapani",
+  "lat": 37.90037,
+  "lng": 12.71163,
+  "geo_precision": "città",
+  "website": "https://www.italiarimborso.it",
+  "same_as": [],
+  "source_urls": [
+    "https://lavocedinewyork.com/news/economia/2022/01/01/la-startup-siciliana-italiarimborso-presente-al-ces-2022-con-il-suo-machine-learning/",
+    "https://www.italiarimborso.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "pending",
+  "pending_reason": "Sito ufficiale senza menzione di AI e senza sede (ragione sociale Italia Rimborso Srl, telefono con prefisso 06); sede di Trapani e machine learning solo da articolo 2022. AI non centrale nell'offerta attuale."
+}
