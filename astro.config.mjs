@@ -25,7 +25,6 @@ export default defineConfig({
         "img-src 'self' data: https://*.tile.openstreetmap.org https://tile.openstreetmap.org",
         "connect-src 'self'",
         "font-src 'self'",
-        "frame-ancestors 'none'",
         "base-uri 'self'",
         "form-action 'self' https://tally.so https://formspree.io",
       ],

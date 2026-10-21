@@ -15,8 +15,8 @@ author: elvio-leonardi
 sources:
   - url: https://www.garanteprivacy.it/temi/intelligenza-artificiale
     title: "Garante per la protezione dei dati personali, sezione Intelligenza artificiale"
-  - url: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai
-    title: "Commissione europea, quadro normativo sull'AI e calendario di applicazione"
+  - url: https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act
+    title: "Commissione europea, AI Act Service Desk: calendario di attuazione, consultato il 21 ottobre 2026"
 needs_human_review: false
 faq:
   - question: "Automatizzare significa usare l'intelligenza artificiale?"
@@ -82,7 +82,7 @@ Due prudenze. Documenti con dati personali, contratti con clienti o fornitori e 
 
 Sui social l'automazione più utile è la più noiosa: un calendario di due o tre settimane con bozze dei post, preparate dall'assistente partendo da quello che succede davvero (un evento in cantina, il menu di stagione, un arrivo di merce), e programmate con lo strumento di pubblicazione. Le foto e i fatti li dai tu. L'assistente non sa cosa succede nella tua attività e, se glielo lasci inventare, i post escono generici o sbagliati.
 
-Lascerei fuori l'automazione dei commenti e dei messaggi privati. Una risposta automatica fuori contesto si vede subito e si paga in reputazione. Se usi un chatbot sul sito, tieni presente che la Commissione europea indica, nelle pagine sul calendario dell'AI Act, che le regole di trasparenza (tra cui informare le persone che stanno parlando con una macchina) si applicano da agosto 2026 ([Commissione europea](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai), consultata il 21 ottobre 2026). Verifica il testo vigente e, se hai dubbi, chiedi a un professionista.
+Lascerei fuori l'automazione dei commenti e dei messaggi privati. Una risposta automatica fuori contesto si vede subito e si paga in reputazione. Se usi un chatbot sul sito, tieni presente che il calendario dell'AI Act indica che le regole di trasparenza dell'art. 50 (tra cui informare le persone che stanno parlando con una macchina) si applicano dal 2 agosto 2026 ([Commissione europea](https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act), consultato il 21 ottobre 2026). I dettagli sono in [AI Act e GDPR: cosa deve sapere un'impresa](/impara/ai-act-gdpr-cosa-deve-sapere-impresa/); se hai dubbi, chiedi a un professionista.
 
 <aside class="in-pratica">
 

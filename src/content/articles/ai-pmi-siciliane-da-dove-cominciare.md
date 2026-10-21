@@ -18,12 +18,14 @@ sources:
     title: "Eurostat, Use of artificial intelligence in enterprises (dati 2025)"
   - url: https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers
     title: "Commissione europea, AI literacy: domande e risposte (art. 4 dell'AI Act)"
-  - url: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai
-    title: "Commissione europea, quadro normativo sull'AI e calendario di applicazione"
   - url: https://www.garanteprivacy.it/temi/intelligenza-artificiale
     title: "Garante per la protezione dei dati personali, sezione Intelligenza artificiale"
   - url: https://www.puntoimpresadigitale.camcom.it
     title: "Punto Impresa Digitale, Camere di Commercio: autovalutazione e formazione"
+  - url: https://data.consilium.europa.eu/doc/document/PE-30-2026-INIT/en/pdf
+    title: "Consiglio dell'UE, PE-CONS 30/26, testo del Digital Omnibus on AI (nuovo art. 4 dell'AI Act), consultato il 21 ottobre 2026"
+  - url: https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act
+    title: "Commissione europea, AI Act Service Desk: calendario di attuazione, consultato il 21 ottobre 2026"
 needs_human_review: false
 faq:
   - question: "Devo comprare un abbonamento a pagamento per cominciare?"
@@ -102,7 +104,7 @@ C'è poi un costo di organizzazione: chi usa lo strumento in azienda deve sapere
 
 Il principio è semplice. Nome, cognome, telefono, email, indirizzo, date di soggiorno e preferenze alimentari di una persona sono dati personali. Inserirli in uno strumento di AI è un trattamento a tutti gli effetti, e servono base giuridica, informativa e accordi adeguati con il fornitore, con attenzione ai fornitori fuori dall'Unione europea. Finché non hai chiarito questi punti, non incollare quei dati: anonimizza o lavora su modelli generici. Il Garante raccoglie sul tema [materiali e indicazioni](https://www.garanteprivacy.it/temi/intelligenza-artificiale), ma non sostituisce un parere professionale sul tuo caso.
 
-Poi c'è l'AI Act, il regolamento europeo sull'intelligenza artificiale. Il calendario ufficiale ([Commissione europea](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai), consultato il 21 ottobre 2026) indica che dal 2 febbraio 2025 si applicano gli obblighi di alfabetizzazione in materia di AI. Le [domande e risposte della Commissione](https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers) chiariscono che riguardano anche le aziende che usano questi strumenti, ad esempio per testi pubblicitari o traduzioni, e che non serve alcuna certificazione: si tratta di adottare misure per far capire al personale come funziona lo strumento e quali rischi ha. Le stesse pagine segnalano che l'AI Omnibus, in vigore da luglio 2026, ha modificato anche questo articolo, quindi controlla sempre il testo vigente. Il quadro completo è nell'[articolo su AI Act e GDPR](/impara/ai-act-gdpr-cosa-deve-sapere-impresa/).
+Poi c'è l'AI Act, il regolamento europeo sull'intelligenza artificiale. L'art. 4, sull'alfabetizzazione in materia di AI, fa parte delle disposizioni applicate dal 2 febbraio 2025 ([calendario della Commissione europea](https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act), consultato il 21 ottobre 2026). Il Digital Omnibus, in vigore dal 27 luglio 2026, lo ha riscritto ([testo PE-CONS 30/26](https://data.consilium.europa.eu/doc/document/PE-30-2026-INIT/en/pdf)): chi usa strumenti AI deve prendere misure per sostenere l'alfabetizzazione del personale, tenendo conto di esperienza e contesto d'uso, senza garantire un livello specifico a ogni persona. Le [domande e risposte della Commissione](https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers) fanno l'esempio di chi usa ChatGPT per testi pubblicitari o traduzioni. In pratica: spiega a chi lavora cosa fa lo strumento e quali rischi ha. Il quadro completo è in [AI Act e GDPR: cosa deve sapere un'impresa](/impara/ai-act-gdpr-cosa-deve-sapere-impresa/).
 
 ## Dove imparare senza spendere troppo
 

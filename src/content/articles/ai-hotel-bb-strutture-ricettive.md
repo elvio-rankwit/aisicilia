@@ -17,10 +17,12 @@ sources:
     title: "Eurostat, Use of artificial intelligence in enterprises (dati 2025)"
   - url: https://www.garanteprivacy.it/temi/intelligenza-artificiale
     title: "Garante per la protezione dei dati personali, sezione Intelligenza artificiale"
-  - url: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai
-    title: "Commissione europea, quadro normativo sull'AI e calendario di applicazione"
   - url: https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers
     title: "Commissione europea, AI literacy: domande e risposte (art. 4 dell'AI Act)"
+  - url: https://data.consilium.europa.eu/doc/document/PE-30-2026-INIT/en/pdf
+    title: "Consiglio dell'UE, PE-CONS 30/26, testo del Digital Omnibus on AI (nuovo art. 4 dell'AI Act), consultato il 21 ottobre 2026"
+  - url: https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act
+    title: "Commissione europea, AI Act Service Desk: calendario di attuazione, consultato il 21 ottobre 2026"
 needs_human_review: false
 faq:
   - question: "Posso rispondere alle recensioni con l'AI senza che si noti?"
@@ -98,7 +100,7 @@ La soluzione pratica, per cominciare, è semplice. Lavora sui modelli, non sui d
 
 Un assistente automatico sul sito che risponde alle domande più frequenti (parcheggio, animali, orari) può togliere lavoro, ma richiede cura. Le informazioni che gli dai devono essere aggiornate, e lo devi controllare ogni tanto con domande vere. Se sbaglia sulla politica di cancellazione, ti trovi un ospite convinto di avere ragione.
 
-Conviene anche dichiarare che si parla con un sistema automatico. Secondo il calendario della [Commissione europea](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai), consultato il 21 ottobre 2026, le regole di trasparenza dell'AI Act entrano in applicazione dall'agosto 2026; i dettagli su chi è obbligato a cosa sono nell'articolo su [AI Act e GDPR](/impara/ai-act-gdpr-cosa-deve-sapere-impresa/) e conviene verificarli con un professionista. In ogni caso conviene che la conversazione passi a una persona quando la richiesta esce dal copione.
+Conviene anche dichiarare che si parla con un sistema automatico. Secondo il calendario della [Commissione europea](https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act), consultato il 21 ottobre 2026, le regole di trasparenza dell'art. 50 dell'AI Act si applicano dal 2 agosto 2026; i dettagli su chi è obbligato a cosa sono nell'articolo su [AI Act e GDPR](/impara/ai-act-gdpr-cosa-deve-sapere-impresa/) e conviene verificarli con un professionista. In ogni caso conviene che la conversazione passi a una persona quando la richiesta esce dal copione.
 
 Per una struttura piccola, spesso un buon modello di risposta rapida nella tua posta fa lo stesso lavoro con meno rischi.
 
@@ -106,7 +108,7 @@ Per una struttura piccola, spesso un buon modello di risposta rapida nella tua p
 
 Il costo in denaro è il più semplice: gli assistenti generalisti hanno versioni gratuite con limiti e piani a pagamento. I prezzi cambiano spesso, quindi guardali sul sito del fornitore il giorno in cui decidi. Il costo in tempo è più alto di quanto si pensi: imparare a dare istruzioni precise, costruire un set di modelli adatti alla tua struttura, rileggere ogni testo. Calcola qualche ora iniziale e poi una manutenzione costante, soprattutto in alta stagione, quando hai meno tempo.
 
-C'è anche il personale. Dal calendario europeo risulta che gli obblighi di alfabetizzazione sull'AI si applicano dal 2 febbraio 2025, e le [domande e risposte della Commissione](https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers) li riferiscono anche a chi usa strumenti come ChatGPT per testi o traduzioni. Se nella tua struttura lo usano in tre, almeno mezza giornata di formazione comune e poche regole scritte sono un buon investimento. Anche qui, l'AI Omnibus ha toccato quell'articolo a luglio 2026: verifica il testo in vigore.
+C'è anche il personale. L'art. 4 dell'AI Act, riscritto dal Digital Omnibus in vigore dal 27 luglio 2026 ([testo PE-CONS 30/26](https://data.consilium.europa.eu/doc/document/PE-30-2026-INIT/en/pdf)), chiede a chi usa strumenti AI di prendere misure per sostenere l'alfabetizzazione del personale, tenendo conto di esperienza e contesto d'uso. Non impone un livello specifico a ogni persona, e le [domande e risposte della Commissione](https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers) fanno l'esempio di chi usa ChatGPT per testi o traduzioni. Se nella tua struttura lo usano in tre, almeno mezza giornata di formazione comune e poche regole scritte sono un buon investimento. I dettagli sono in [AI Act e GDPR](/impara/ai-act-gdpr-cosa-deve-sapere-impresa/).
 
 ## Quando non conviene
 

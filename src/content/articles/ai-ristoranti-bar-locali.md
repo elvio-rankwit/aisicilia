@@ -22,6 +22,8 @@ sources:
     title: "Garante per la protezione dei dati personali, sezione Intelligenza artificiale"
   - url: https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers
     title: "Commissione europea, AI literacy: domande e risposte (art. 4 dell'AI Act)"
+  - url: https://data.consilium.europa.eu/doc/document/PE-30-2026-INIT/en/pdf
+    title: "Consiglio dell'UE, PE-CONS 30/26, testo del Digital Omnibus on AI (nuovo art. 4 dell'AI Act), consultato il 21 ottobre 2026"
 needs_human_review: false
 faq:
   - question: "Posso far scrivere all'AI la lista degli allergeni di un piatto?"
@@ -93,7 +95,7 @@ Non ci mettere i dati del personale: nomi, contratti e assenze sono dati persona
 
 In denaro, poco: gli assistenti generalisti hanno versioni gratuite con limiti e piani a pagamento, con prezzi che cambiano spesso (controlla il sito del fornitore il giorno in cui decidi). In tempo, di più: qualche ora per scrivere i primi modelli e un controllo su ogni testo. In alta stagione quel tempo non c'è, e allora conviene preparare i modelli fuori stagione.
 
-Chi in sala o in cucina usa questi strumenti dovrebbe anche sapere cosa fa e cosa no. La Commissione europea ricorda che gli obblighi di alfabetizzazione sull'AI si applicano dal 2 febbraio 2025 anche a chi usa strumenti come ChatGPT per testi o traduzioni ([domande e risposte della Commissione](https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers)); non serve una certificazione, ma l'AI Omnibus di luglio 2026 ha toccato quell'articolo, quindi verifica il testo vigente.
+Chi in sala o in cucina usa questi strumenti dovrebbe anche sapere cosa fa e cosa no. L'art. 4 dell'AI Act, riscritto dal Digital Omnibus in vigore dal 27 luglio 2026 ([testo PE-CONS 30/26](https://data.consilium.europa.eu/doc/document/PE-30-2026-INIT/en/pdf)), chiede a chi usa strumenti AI di prendere misure per sostenere l'alfabetizzazione del personale, senza imporre un livello specifico a ogni persona. La Commissione fa l'esempio di chi usa ChatGPT per testi o traduzioni ([domande e risposte](https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers)). Dettagli in [AI Act e GDPR: cosa deve sapere un'impresa](/impara/ai-act-gdpr-cosa-deve-sapere-impresa/).
 
 ## Dove l'AI non serve
 

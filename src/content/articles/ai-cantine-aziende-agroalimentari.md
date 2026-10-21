@@ -25,6 +25,8 @@ sources:
     title: "Garante per la protezione dei dati personali, sezione Intelligenza artificiale"
   - url: https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers
     title: "Commissione europea, AI literacy: domande e risposte (art. 4 dell'AI Act)"
+  - url: https://data.consilium.europa.eu/doc/document/PE-30-2026-INIT/en/pdf
+    title: "Consiglio dell'UE, PE-CONS 30/26, testo del Digital Omnibus on AI (nuovo art. 4 dell'AI Act), consultato il 21 ottobre 2026"
 needs_human_review: false
 faq:
   - question: "Posso far scrivere all'AI le note di degustazione dei miei vini?"
@@ -100,7 +102,7 @@ Se la tua azienda ha un punto vendita o un'esperienza turistica (visite, degusta
 
 In denaro, poco: versioni gratuite con limiti e piani a pagamento, i cui prezzi cambiano di continuo (guarda il sito del fornitore il giorno in cui scegli). In tempo, di più: costruire la tabella dei prodotti, il glossario e le istruzioni richiede una giornata di lavoro ben fatta, e ogni scheda va riletta. È un investimento che si ripaga se hai molti prodotti o molte lingue. Con tre referenze e un solo mercato, probabilmente conviene scrivere a mano.
 
-Un secondo costo è la formazione di chi usa gli strumenti. Secondo la Commissione europea, gli obblighi di alfabetizzazione sull'AI si applicano dal 2 febbraio 2025 anche alle aziende che usano questi strumenti per testi o traduzioni, e non serve alcuna certificazione ([domande e risposte della Commissione](https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers)). L'AI Omnibus ha però modificato quell'articolo a luglio 2026: verifica il testo vigente, e leggi l'articolo su [AI Act e GDPR](/impara/ai-act-gdpr-cosa-deve-sapere-impresa/).
+Un secondo costo è la formazione di chi usa gli strumenti. L'art. 4 dell'AI Act, riscritto dal Digital Omnibus in vigore dal 27 luglio 2026 ([testo PE-CONS 30/26](https://data.consilium.europa.eu/doc/document/PE-30-2026-INIT/en/pdf)), chiede a chi usa strumenti AI di prendere misure per sostenere l'alfabetizzazione di chi ci lavora, tenendo conto di esperienza e contesto d'uso. Non impone un livello specifico a ogni persona. Per testi e traduzioni la Commissione fa l'esempio dei rischi da spiegare, come le risposte inventate dal modello ([domande e risposte della Commissione](https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers)). Il quadro completo è in [AI Act e GDPR: cosa deve sapere un'impresa](/impara/ai-act-gdpr-cosa-deve-sapere-impresa/).
 
 ## Quando non conviene
 
