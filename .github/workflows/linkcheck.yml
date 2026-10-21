@@ -1,0 +1,92 @@
+# Controllo settimanale dei link: interni (validatore) ed esterni (scripts/linkcheck/external.mjs).
+# Se ci sono errori apre o aggiorna una sola issue "Link rotti"; senza errori chiude quella aperta.
+# STATO: schedule SPENTO, avvio manuale attivo (workflow_dispatch). Per attivarlo togli il commento al blocco `schedule`.
+name: Link check
+
+on:
+  workflow_dispatch:
+  # schedule:
+  #   - cron: '31 6 * * 3' # ogni mercoledì, 06:31 UTC
+
+permissions:
+  contents: read
+  issues: write # issue "Link rotti"
+
+concurrency:
+  group: linkcheck
+  cancel-in-progress: false
+
+jobs:
+  linkcheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Installa le dipendenze
+        run: npm ci
+
+      - name: Build (beta)
+        run: npm run build
+        env:
+          PUBLIC_SITE_MODE: beta
+
+      # Il validatore controlla già i link interni sul dist/. Qui si tengono solo le righe sui link rotti.
+      - name: Link interni
+        run: |
+          mkdir -p .cache/linkcheck
+          npm run validate -- --dist > .cache/linkcheck/validate.txt 2>&1 || true
+          grep 'link interno rotto' .cache/linkcheck/validate.txt | sed -E 's/^ERRORE +//' > .cache/linkcheck/internal.txt || true
+          echo "Link interni rotti: $(wc -l < .cache/linkcheck/internal.txt)"
+        env:
+          PUBLIC_SITE_MODE: beta
+
+      - name: Link esterni
+        run: |
+          set +e
+          node scripts/linkcheck/external.mjs --internal-file .cache/linkcheck/internal.txt
+          code=$?
+          [ "$code" -le 1 ] || exit "$code"
+
+      - name: Apri, aggiorna o chiudi la issue "Link rotti"
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const fs = require('fs');
+            const title = 'Link rotti';
+            const report = JSON.parse(fs.readFileSync('.cache/linkcheck/report.json', 'utf8'));
+            let body = fs.readFileSync('.cache/linkcheck/report.md', 'utf8');
+            if (body.length > 60000) body = body.slice(0, 60000) + '\n\n(elenco troncato: vedi il riepilogo dell\'esecuzione)';
+            const problems = report.errors.length + report.internal.length;
+            const { owner, repo } = context.repo;
+            const open = await github.paginate(github.rest.issues.listForRepo, { owner, repo, state: 'open', per_page: 100 });
+            const existing = open.find((i) => !i.pull_request && i.title === title);
+            if (problems > 0) {
+              if (existing) {
+                await github.rest.issues.update({ owner, repo, issue_number: existing.number, body });
+                core.info(`Issue #${existing.number} aggiornata`);
+              } else {
+                const created = await github.rest.issues.create({ owner, repo, title, body });
+                core.info(`Issue #${created.data.number} creata`);
+              }
+            } else if (existing) {
+              await github.rest.issues.createComment({ owner, repo, issue_number: existing.number, body: 'Nessun link da correggere nell\'ultimo controllo. Chiudo la issue.' });
+              await github.rest.issues.update({ owner, repo, issue_number: existing.number, state: 'closed', state_reason: 'completed' });
+              core.info(`Issue #${existing.number} chiusa`);
+            } else {
+              core.info('Nessun errore e nessuna issue aperta.');
+            }
+
+      - name: Carica il report
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: linkcheck-report
+          path: .cache/linkcheck/
+          retention-days: 14
+          if-no-files-found: ignore

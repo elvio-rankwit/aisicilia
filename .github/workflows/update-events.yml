@@ -1,0 +1,136 @@
+# Aggiornamento settimanale degli eventi con Claude Code headless (agente events-researcher) e PR da approvare.
+# STATO: schedule SPENTO, avvio manuale attivo (workflow_dispatch). Per attivarlo togli il commento al blocco `schedule`.
+# Secret richiesto: ANTHROPIC_API_KEY. Variabili opzionali: CLAUDE_MODEL (default sonnet), MAX_TURNS (default 40).
+# Le PR le approva sempre una persona: il workflow non fa mai merge. Vedi docs/automation.md.
+name: Aggiorna eventi
+
+on:
+  workflow_dispatch:
+  # schedule:
+  #   - cron: '17 5 * * 1' # ogni lunedì, 05:17 UTC
+
+permissions:
+  contents: write # branch bot/eventi-*
+  pull-requests: write # PR ed etichetta
+
+concurrency:
+  group: update-events
+  cancel-in-progress: false
+
+jobs:
+  eventi:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      GH_TOKEN: ${{ github.token }}
+      MODEL: ${{ vars.CLAUDE_MODEL || 'sonnet' }}
+      MAX_TURNS: ${{ vars.MAX_TURNS || '40' }}
+    steps:
+      - name: Controlla il secret
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then echo "::error::Secret ANTHROPIC_API_KEY mancante."; exit 1; fi
+
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Installa le dipendenze
+        run: npm ci
+
+      - name: Data di oggi (Europe/Rome)
+        id: today
+        run: echo "date=$(TZ=Europe/Rome date +%F)" >> "$GITHUB_OUTPUT"
+
+      - name: Ricerca eventi (events-researcher)
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          github_token: ${{ github.token }}
+          claude_args: |
+            --agent events-researcher
+            --model ${{ env.MODEL }}
+            --max-turns ${{ env.MAX_TURNS }}
+            --allowedTools "Read,Write,Edit,Glob,Grep,WebFetch,WebSearch,Bash(node scripts/geocode/geocode.mjs *),Bash(npm run validate *),Bash(date *)"
+          prompt: |
+            Oggi è ${{ steps.today.outputs.date }} (Europe/Rome). Esegui l'aggiornamento periodico degli eventi di aisicilia.it.
+
+            Segui alla lettera la tua spec `docs/specs/events-researcher.md` e leggi `CLAUDE.md`.
+            1. Parti dalle fonti in `docs/sources.md`: cerca nuovi eventi sull'intelligenza artificiale in Sicilia (futuri nei prossimi 6 mesi) e crea i record in `src/content/events/` (verificati) o `data/_pending/events/` (dubbi, con `pending_reason`).
+            2. Ricontrolla gli eventi futuri già presenti: se la fonte indica una modifica (data, luogo, stato annullato/rinviato/spostato online), aggiorna il record e `last_verified`.
+            3. Non spostare né cancellare eventi passati: finiscono in archivio da soli alla build.
+
+            Vincoli non negoziabili, validi anche in questa esecuzione automatica:
+            - zero dati inventati: ogni campo deve risultare dalla `source_url` che hai aperto davvero;
+            - nessun dato personale (niente nomi di relatori, email, telefoni);
+            - descrizioni riscritte con parole tue, mai copiate;
+            - rispetta robots.txt e i termini delle fonti, massimo 1 richiesta al secondo per dominio, niente login, niente scraping di siti che lo vietano;
+            - coordinate solo con `node scripts/geocode/geocode.mjs`;
+            - scrivi solo in `src/content/events/`, `data/_pending/events/`, `docs/sources.md` e nel log.
+
+            Non eseguire operazioni git (commit, push, branch): le fa il workflow. Non lanciare `npm run build`.
+            Alla fine esegui `npm run validate -- --content` e correggi gli errori sui tuoi file.
+            Scrivi il log `docs/runs/${{ steps.today.outputs.date }}-eventi.md` nel formato di `docs/runs/README.md` (max 40 righe): data, modello (${{ env.MODEL }}), turni/token se noti, record aggiunti/modificati/spostati, fonti consultate, errori.
+
+      - name: Valida i contenuti
+        run: npm run validate -- --content
+
+      - name: Controlla se ci sono modifiche ai dati
+        id: changes
+        run: |
+          n=$(git status --porcelain -- src/content data docs/sources.md | wc -l)
+          echo "count=$n" >> "$GITHUB_OUTPUT"
+          echo "Modifiche ai dati: $n"
+
+      - name: Log di riserva se l'agente non l'ha scritto
+        if: steps.changes.outputs.count != '0'
+        run: |
+          f="docs/runs/${{ steps.today.outputs.date }}-eventi.md"
+          if [ ! -f "$f" ]; then
+            mkdir -p docs/runs
+            {
+              echo "# Eventi — ${{ steps.today.outputs.date }}"
+              echo
+              echo "Il log non è stato scritto dall'agente. Modello: ${MODEL}. File toccati:"
+              echo
+              git status --porcelain -- src/content data docs/sources.md | sed 's/^/- /'
+            } > "$f"
+          fi
+
+      - name: Etichetta "dati"
+        if: steps.changes.outputs.count != '0'
+        run: gh label create dati --description "Aggiornamento dati da pipeline automatica" --color 0E8A16 --force
+
+      - name: Apri la Pull Request
+        if: steps.changes.outputs.count != '0'
+        uses: peter-evans/create-pull-request@v8
+        with:
+          branch: bot/eventi-${{ steps.today.outputs.date }}
+          base: main
+          title: "Eventi: aggiornamento del ${{ steps.today.outputs.date }}"
+          commit-message: "Eventi: aggiornamento automatico del ${{ steps.today.outputs.date }}"
+          labels: dati
+          body-path: docs/runs/${{ steps.today.outputs.date }}-eventi.md
+          add-paths: |
+            src/content/events
+            data/_pending/events
+            docs/sources.md
+            docs/runs
+          delete-branch: true
+
+      - name: Salva i file prodotti se il job fallisce
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: eventi-${{ steps.today.outputs.date }}
+          path: |
+            src/content/events
+            data/_pending/events
+            docs/sources.md
+            docs/runs
+          retention-days: 7
+          if-no-files-found: ignore

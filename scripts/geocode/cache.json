@@ -310,5 +310,35 @@
     "lng": 13.37297,
     "display_name": "Dipartimento di Informatica e Matematica, 34, Via Archirafi, Brancaccio, II Circoscrizione, Palermo, Sicilia, 90123, Italia",
     "precision": "indirizzo"
+  },
+  "addr:mediterraneo palace, ragusa": {
+    "lat": 36.92402,
+    "lng": 14.72713,
+    "display_name": "Mediterraneo Palace Hotel, Via Cono, Cappuccini, Ragusa Ibla, Ragusa, Sicilia, 97100, Italia",
+    "precision": "indirizzo"
+  },
+  "city:erice": {
+    "lat": 38.0126,
+    "lng": 12.59124,
+    "display_name": "Erice, Trapani, Sicilia, 91016, Italia",
+    "precision": "città"
+  },
+  "city:agrigento": {
+    "lat": 37.3123,
+    "lng": 13.57465,
+    "display_name": "Agrigento, Sicilia, 92100, Italia",
+    "precision": "città"
+  },
+  "city:butera": {
+    "lat": 37.18639,
+    "lng": 14.18627,
+    "display_name": "Butera, Caltanissetta, Sicilia, 93011, Italia",
+    "precision": "città"
+  },
+  "city:trapani": {
+    "lat": 37.90037,
+    "lng": 12.71163,
+    "display_name": "Trapani, Sicilia, 91100, Italia",
+    "precision": "città"
   }
 }
