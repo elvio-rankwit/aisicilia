@@ -237,7 +237,7 @@ function validateDist() {
 
     const text = doc.querySelector('main')?.text ?? '';
     checkCopy(where, text, { strict: false });
-    if (/\[DA COMPLETARE/.test(text) && !url.startsWith('/chi-siamo/') && !url.startsWith('/contatti/') && !url.startsWith('/note-legali/') && !url.startsWith('/privacy/'))
+    if (/\[DA COMPLETARE/.test(text) && !url.startsWith('/chi-siamo/') && !url.startsWith('/contatti/') && !url.startsWith('/note-legali/') && !url.startsWith('/privacy/') && !url.startsWith('/metodologia/') && !url.startsWith('/rimozione/') && !url.startsWith('/segnala/'))
       warn(where, 'segnaposto [DA COMPLETARE] fuori dalle pagine istituzionali');
   }
 

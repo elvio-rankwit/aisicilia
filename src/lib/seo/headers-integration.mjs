@@ -3,11 +3,8 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
-const BETA_BLOCK = `
-# Solo beta: rafforza il meta robots. Aggiunto in build da headers-integration.mjs, assente in production.
-/*
-  X-Robots-Tag: noindex, nofollow
-`;
+// Va dentro il blocco /* esistente: con due blocchi /* separati Cloudflare Pages applica solo l'ultimo.
+const BETA_LINE = '  X-Robots-Tag: noindex, nofollow';
 
 export default function seoHeaders(mode) {
   return {
@@ -17,8 +14,8 @@ export default function seoHeaders(mode) {
         const file = fileURLToPath(new URL('_headers', dir));
         let text = existsSync(file) ? readFileSync(file, 'utf8') : '';
         // In production non deve esistere nessun X-Robots-Tag.
-        text = text.replace(/\n# Solo beta[\s\S]*?X-Robots-Tag:[^\n]*\n?/g, '\n');
-        if (mode !== 'production') text = text.replace(/\n*$/, '\n') + BETA_BLOCK;
+        text = text.replace(/^\s*X-Robots-Tag:[^\n]*\n/gm, '');
+        if (mode !== 'production') text = text.replace(/^\/\*\n/m, `/*\n${BETA_LINE}\n`);
         writeFileSync(file, text);
       },
     },
