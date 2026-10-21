@@ -50,5 +50,5 @@
   ],
   "level": "base",
   "tested_at": "2026-10-21",
-  "test_notes": "Prima versione: alla domanda \"può iniziare lunedì?\" la bozza rispondeva con una regola sull'assunzione, cioè un parere. Aggiunta la nota \"da girare al professionista\" al posto della risposta. Test finale: 120 parole, stato e documenti corretti, domanda su lunedì rimandata al professionista."
+  "test_notes": "Nessuna correzione necessaria. Email di 80 parole nel corpo, stato e documenti corretti; la domanda sull'inizio lavori di lunedì non ha avuto risposta ed è finita nella nota \"da girare al professionista\", come richiesto."
 }

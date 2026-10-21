@@ -39,5 +39,5 @@
   ],
   "level": "base",
   "tested_at": "2026-10-21",
-  "test_notes": "Prima versione: la descrizione aggiungeva \"resistente\" e \"adatto all'uso quotidiano\", non presenti nei dati. Aggiunto il divieto di aggettivi non supportati. Secondo test: 98 parole, altezza segnata \"[da inserire]\", nessun riferimento alla tradizione, meta description di 142 caratteri."
+  "test_notes": "Primo giro: la scheda tecnica andava a 7 righe per via dell'altezza mancante, in conflitto con il limite di 6, e la descrizione deduceva piccole differenze tra i pezzi dal \"dipinto a mano\". Portato il limite a 7 righe e vietate le conseguenze non nei dati. Output finale: titolo di 50 caratteri, descrizione di 80 parole, meta description di 143."
 }

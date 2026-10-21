@@ -55,5 +55,5 @@
   ],
   "level": "base",
   "tested_at": "2026-10-21",
-  "test_notes": "Prima versione: aggiungeva alla checklist la certificazione unica e una visura, che non erano nell'elenco. Aggiunto il divieto con la nota separata \"da verificare con il professionista\". Test finale: 4 documenti come da elenco, scadenza evidente, nota finale con un solo dubbio."
+  "test_notes": "Primo giro: l'invito a indicare dove si trova ogni documento spingeva a indovinare portali e aree riservate, e la riga sul documento non trovato prometteva un aiuto dello studio. Tolta la parte sul dove e vietata la promessa. Output finale: 4 documenti come da elenco, scadenza in evidenza, 140 parole."
 }

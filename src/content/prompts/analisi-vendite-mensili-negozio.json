@@ -44,5 +44,5 @@
   ],
   "level": "intermedio",
   "tested_at": "2026-10-21",
-  "test_notes": "Calcolo fatto a mano: totali 7.940 e 7.255 euro (meno 8,6%), costumi meno 44,4%, calzature più 37,1%; l'output coincideva. Prima versione: attribuiva il calo dei costumi alla fine della stagione come certezza. Aggiunte l'etichetta \"Ipotesi da verificare\" e la richiesta dei numeri sottostanti a ogni percentuale."
+  "test_notes": "Ricalcolati a mano totali (7.940 e 7.255 euro, meno 8,6%), scarto dall'obiettivo (245 euro) e variazioni per categoria (da meno 44,4% a più 37,1%): l'output coincide. Cause del calo presentate come \"Ipotesi da verificare\", con il dato che servirebbe. Nessuna correzione necessaria."
 }

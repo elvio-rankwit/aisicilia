@@ -60,5 +60,5 @@
   ],
   "level": "base",
   "tested_at": "2026-10-21",
-  "test_notes": "Prima versione: la bozza diceva \"ci stiamo lavorando\", una promessa non presente nei dati, e usava \"non è una scusa\", che suona difensivo. Aggiunti il divieto di promesse e l'elenco delle formule da evitare. Nuovo test: 65 parole, un solo cenno al contesto (negozio pieno, un solo addetto), invito al contatto privato."
+  "test_notes": "Primo giro: la frase di contesto suonava come una giustificazione (\"lo diciamo per spiegare, non per sminuire\"). Aggiunta la regola del fatto neutro, senza \"ma\" e \"per spiegare\". Output finale di 56 parole: un solo cenno al contesto, nessuna promessa oltre all'incontro con il titolare."
 }

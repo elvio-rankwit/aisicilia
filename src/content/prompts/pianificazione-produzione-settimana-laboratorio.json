@@ -44,5 +44,5 @@
   ],
   "level": "intermedio",
   "tested_at": "2026-10-21",
-  "test_notes": "DA COMPILARE DOPO IL TEST: nota provvisoria per superare la lunghezza minima richiesta."
+  "test_notes": "Con la consegna delle sedie venerdì 6 il caso non aveva soluzione per via dell'asciugatura, e il prompt lo ha segnalato prima del piano: ho cambiato l'esempio (consegna lunedì 9). Somme verificate con uno script (56 ore contro 55); piano rispetta ore, ruoli e asciugatura, con 1 ora dell'ordine C rinviata."
 }

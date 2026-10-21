@@ -34,5 +34,5 @@
   ],
   "level": "intermedio",
   "tested_at": "2026-10-21",
-  "test_notes": "DA COMPILARE DOPO IL TEST: nota provvisoria per superare la lunghezza minima richiesta."
+  "test_notes": "Nessuna correzione necessaria. Tabella corretta, A con posa calcolata in 6.880 euro IVA esclusa, B senza totale perché la posa non è indicata. Per C, con IVA inclusa, l'output ha chiesto l'aliquota invece di supporla. Valutazione finale prudente, senza dire che A sia la migliore in assoluto."
 }

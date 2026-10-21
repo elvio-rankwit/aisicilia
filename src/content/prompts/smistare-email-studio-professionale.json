@@ -44,5 +44,5 @@
   ],
   "level": "intermedio",
   "tested_at": "2026-10-21",
-  "test_notes": "Prima versione: nella bozza all'email 3 compariva una proposta di orari mai forniti. Aggiunto il divieto di date e orari inventati. Test finale su 4 email: la prima classificata alta con scadenza \"da verificare\" e risposta da valutare, la promozione bassa, ordine di urgenza coerente con le regole."
+  "test_notes": "Primo giro: alla promozione l'output scriveva \"risposta da valutare\", che implica un parere. Aggiunta la dicitura \"nessuna risposta necessaria\". Verificato: nessuna data proposta nelle bozze, la scadenza \"domani\" riportata come da verificare, ordine di urgenza 1, 3, 2, 4 coerente con le regole."
 }

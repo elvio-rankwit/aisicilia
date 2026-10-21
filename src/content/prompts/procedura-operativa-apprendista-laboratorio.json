@@ -45,5 +45,5 @@
   ],
   "level": "base",
   "tested_at": "2026-10-21",
-  "test_notes": "DA COMPILARE DOPO IL TEST: nota provvisoria per superare la lunghezza minima richiesta."
+  "test_notes": "Primo giro: gli \"errori comuni\" erano ricavati dalle istruzioni, non da errori citati. Ora si riportano solo errori con conseguenza indicata. Verificato: 8 passaggi sotto le 25 parole, nessuna temperatura o tempo di cottura inventati, i punti incerti marcati [DA CONFERMARE] e raccolti in fondo."
 }

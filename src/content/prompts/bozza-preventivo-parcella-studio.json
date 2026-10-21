@@ -69,5 +69,5 @@
   ],
   "level": "intermedio",
   "tested_at": "2026-10-21",
-  "test_notes": "Prima versione: la bozza aggiungeva \"come da tariffario professionale\", un richiamo che non avevo fornito. Aggiunto il divieto di citare tariffari e di toccare gli importi. Test finale: 210 parole, compenso identico all'input, esclusioni in un blocco separato, nessun campo inventato."
+  "test_notes": "Nessuna correzione necessaria. Bozza di 121 parole, compenso e dicitura fiscale identici all'input, esclusioni in blocco separato, nessun richiamo a tariffari. Con tutti i campi compilati la nota finale segnala che non manca nulla."
 }

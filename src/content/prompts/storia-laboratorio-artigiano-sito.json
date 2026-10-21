@@ -55,5 +55,5 @@
   ],
   "level": "base",
   "tested_at": "2026-10-21",
-  "test_notes": "DA COMPILARE DOPO IL TEST: nota provvisoria per superare la lunghezza minima richiesta."
+  "test_notes": "Primo giro: testo di 138 parole contro le 180 richieste e un movente inventato (\"volevano decidere da soli\"). Il limite è diventato un massimo con nota sui fatti da aggiungere, e sono vietate le motivazioni non negli appunti. Output finale breve ma fedele: tre titoli, due sottotitoli, nota sui fatti mancanti."
 }

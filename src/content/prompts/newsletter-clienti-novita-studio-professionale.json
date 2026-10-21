@@ -54,5 +54,5 @@
   ],
   "level": "intermedio",
   "tested_at": "2026-10-21",
-  "test_notes": "Prima versione: scriveva che il nuovo termine valeva \"per tutte le attività con partita IVA\", andando oltre il testo. Aggiunti il divieto di estendere i destinatari e la nota sui punti ambigui. Test finale: 190 parole, la tabella 2 segnalata come non disponibile nella nota per il professionista."
+  "test_notes": "Nessuna correzione necessaria. 133 parole, oggetto di 50 caratteri. Il testo di esempio rimanda a una \"tabella 2\" non fornita: l'output non ha esteso la proroga a tutti i clienti e ha messo la domanda nella nota \"da far valutare al professionista\"."
 }

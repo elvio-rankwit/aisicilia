@@ -60,5 +60,5 @@
   ],
   "level": "base",
   "tested_at": "2026-10-21",
-  "test_notes": "Prima versione: 5 post invece dei 4 giorni indicati e uno sconto del 15% inventato. Aggiunti \"né uno in più né uno in meno\" e il vincolo sulle offerte. Secondo test: 4 post, sconto del 10% con date corrette, un post dietro le quinte, hashtag con #Siracusa."
+  "test_notes": "Primo giro: un post diceva che le coperte in cotone \"ci sono sempre\" (disponibilità non nei dati) e i post alternavano tu e voi. Aggiunti il divieto di formule sulla disponibilità e la forma unica. Output finale: 4 post per i 4 giorni indicati, sconto del 10% con date giuste, testi sotto le 60 parole."
 }

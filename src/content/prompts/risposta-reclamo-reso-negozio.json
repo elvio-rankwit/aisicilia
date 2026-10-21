@@ -55,5 +55,5 @@
   ],
   "level": "base",
   "tested_at": "2026-10-21",
-  "test_notes": "Prima versione: la risposta dava ragione al cliente sulla cerniera e mancavano gli orari da citare. Aggiunti il vincolo \"se si tratta di un difetto\" e la variabile orari_negozio. Poi la bozza prometteva il rimborso in contanti per un acquisto pagato con carta: aggiunta la regola sulla modalità di rimborso. Output finale di circa 70 parole, senza regole inventate."
+  "test_notes": "Primo giro: mancava un orario da citare (aggiunta la variabile orari_negozio), la bozza prevedeva il rimborso in contanti per un acquisto pagato con carta e chiedeva lo scontrino, richiesto dalle regole solo per il cambio. Aggiunti i vincoli su modalità di rimborso e su cosa far portare. Output finale di 73 parole, senza regole inventate."
 }

@@ -45,5 +45,5 @@
   ],
   "level": "intermedio",
   "tested_at": "2026-10-21",
-  "test_notes": "DA COMPILARE DOPO IL TEST: nota provvisoria per superare la lunghezza minima richiesta."
+  "test_notes": "Primo giro: il marchio nel glossario non compariva nella scheda di esempio (corretta) e la richiesta di una \"scheda tecnica con la stessa struttura\" non aveva un originale. Ora chiede dati tecnici in elenco. Verificato: misure non convertite, \"adatto all'esterno\" e \"unico\" segnalati nelle note, scelte su \"glasiert\" e \"worked\" motivate."
 }

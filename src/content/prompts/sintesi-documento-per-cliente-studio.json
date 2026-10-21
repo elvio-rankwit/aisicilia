@@ -39,5 +39,5 @@
   ],
   "level": "intermedio",
   "tested_at": "2026-10-21",
-  "test_notes": "Prima versione: per \"quanto pago all'inizio\" calcolava 2.400 euro senza dire che era un calcolo suo, e definiva sfavorevole la clausola sul recesso. Aggiunti l'obbligo di indicare i calcoli e il divieto di giudizi. Test finale: recesso e deposito citati alla lettera, calcolo etichettato, tre domande sensate per il professionista."
+  "test_notes": "Primo giro: scrivendo \"chi affitta\" non era chiaro se fosse il cliente o la controparte, e il ruolo del cliente era dedotto dalle domande. Aggiunti l'obbligo di chiarire le parti e il ruolo nel profilo. Sintesi di 101 parole, calcolo sul deposito etichettato come calcolo, nessun giudizio sulle clausole."
 }

@@ -60,5 +60,5 @@
   ],
   "level": "base",
   "tested_at": "2026-10-21",
-  "test_notes": "DA COMPILARE DOPO IL TEST: nota provvisoria per superare la lunghezza minima richiesta."
+  "test_notes": "Primo giro: la versione breve arrivava a 43 parole con l'invito, oltre le 40 richieste, e la storia descriveva una scena non presente tra le foto. Aggiunto che l'invito rientra nel conteggio e rifatta la storia sul materiale reale. Output finale: 30, 66 e 98 parole, 5 hashtag per post."
 }
