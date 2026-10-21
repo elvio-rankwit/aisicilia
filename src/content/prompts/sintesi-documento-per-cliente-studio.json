@@ -13,8 +13,8 @@
     },
     {
       "name": "profilo_cliente",
-      "description": "Chi è il cliente e cosa sa.",
-      "example": "titolare di una piccola attività, senza formazione giuridica"
+      "description": "Chi è il cliente, cosa sa e che ruolo ha nel documento.",
+      "example": "titolare di una piccola attività, senza formazione giuridica; nel contratto è il conduttore"
     },
     {
       "name": "testo_documento",
@@ -28,7 +28,7 @@
     }
   ],
   "how_to_use": "Togli dal documento nomi, codici fiscali, indirizzi e numeri di conto. Incolla il testo (o le parti che interessano, se è lungo) e le domande del cliente. Leggi la sintesi insieme al documento originale e usala come traccia per l'incontro, non come risposta da girare così com'è.",
-  "example_input": "tipo_documento: contratto di affitto di un locale commerciale\nprofilo_cliente: titolare di una piccola attività, senza formazione giuridica\ntesto_documento: Art. 1 Durata: sei anni dal 1 gennaio 2027, rinnovabili alle stesse condizioni. Art. 2 Canone: 800 euro al mese, da pagare entro il giorno 5, con aggiornamento annuo pari al 75% della variazione ISTAT. Art. 3 Deposito cauzionale: tre mensilità. Art. 4 Recesso: il conduttore può recedere con preavviso di sei mesi solo per gravi motivi. Art. 5 Lavori: le migliorie restano al locatore senza indennizzo.\ndomande_cliente: Posso lasciare il locale prima della scadenza? Quanto devo pagare all'inizio?",
+  "example_input": "tipo_documento: contratto di affitto di un locale commerciale\nprofilo_cliente: titolare di una piccola attività, senza formazione giuridica; nel contratto è il conduttore\ntesto_documento: Art. 1 Durata: sei anni dal 1 gennaio 2027, rinnovabili alle stesse condizioni. Art. 2 Canone: 800 euro al mese, da pagare entro il giorno 5, con aggiornamento annuo pari al 75% della variazione ISTAT. Art. 3 Deposito cauzionale: tre mensilità. Art. 4 Recesso: il conduttore può recedere con preavviso di sei mesi solo per gravi motivi. Art. 5 Lavori: le migliorie restano al locatore senza indennizzo.\ndomande_cliente: Posso lasciare il locale prima della scadenza? Quanto devo pagare all'inizio?",
   "expected_output_description": "Una sintesi di massimo 120 parole, un elenco di dati chiave tra virgolette con il riferimento, le clausole da guardare con attenzione e le risposte alle domande, con calcoli mostrati e distinti dal testo. In fondo, tre domande per il professionista.",
   "limits_and_warnings": "Non è una consulenza e non sostituisce la lettura del documento da parte del professionista. L'AI può omettere clausole o fraintendere rimandi tra articoli: confronta sempre con l'originale. Non incollare testi non anonimizzati né documenti coperti da segreto professionale su servizi AI non autorizzati dallo studio.",
   "compatible_tools": [
