@@ -10,3 +10,4 @@ dist/
 *.log
 .DS_Store
 scripts/geocode/.last-request
+scripts/geocode/raw/
