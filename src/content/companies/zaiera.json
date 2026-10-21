@@ -2,7 +2,7 @@
   "name": "Zaiera",
   "slug": "zaiera",
   "type": "startup",
-  "description": "Startup con sede a Solarino che sviluppa AALisi Engine, un sistema di monitoraggio dei parametri vitali senza contatto. Sensori radar a onde millimetriche (60-77 GHz) e un modello di intelligenza artificiale rilevano frequenza cardiaca, respiro e cadute senza telecamere né dispositivi indossabili. Le applicazioni indicate vanno da RSA e ospedali a yacht e strutture di ospitalità di fascia alta. Il progetto comprende anche un hub per l'elisoccorso, dove usare lo stesso monitoraggio per il personale operativo.",
+  "description": "Startup con sede a Solarino che sviluppa AALisi Engine, un sistema di monitoraggio senza contatto basato su sensori radar a onde millimetriche (60-77 GHz) e su un modello di intelligenza artificiale. Il sito dichiara che misura frequenza cardiaca e respiro e segnala le cadute, senza telecamere né dispositivi indossabili; i protocolli clinici sono ancora in definizione. Gli usi indicati vanno da RSA e ospedali a yacht e strutture ricettive di lusso. Il progetto include un hub per l'elisoccorso, autorizzato alla realizzazione dalla Regione ma non ancora operativo.",
   "ai_areas": [
     "machine learning",
     "IoT ed edge AI"
@@ -23,7 +23,8 @@
   "same_as": [],
   "source_urls": [
     "https://www.zaiera.net",
-    "https://www.zaiera.net/trasparenza"
+    "https://www.zaiera.net/trasparenza",
+    "https://startup.registroimprese.it"
   ],
   "last_verified": "2026-10-21",
   "verification_status": "verified"

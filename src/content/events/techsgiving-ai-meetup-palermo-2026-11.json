@@ -13,7 +13,7 @@
   "lng": 13.35744,
   "organizer": "Panormus Tech",
   "organizer_url": "https://panormus.tech/",
-  "event_url": "https://panormus.tech/",
+  "event_url": "https://panormus.tech/eventi/techsgiving-ai-meetup",
   "price": "gratuito",
   "audience": [
     "sviluppatori",
@@ -24,7 +24,7 @@
     "agenti AI",
     "RAG"
   ],
-  "source_url": "https://panormus.tech/",
+  "source_url": "https://panormus.tech/eventi/techsgiving-ai-meetup",
   "status": "programmato",
   "last_verified": "2026-10-21",
   "verification_status": "verified"

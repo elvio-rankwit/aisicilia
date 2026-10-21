@@ -24,5 +24,6 @@
   "status": "programmato",
   "source_url": "https://www.ragusaoggi.it/la-questione-casa-tra-catasto-e-nuovi-strumenti-convegno-internazionale-dei-geometri-a-ragusa/",
   "last_verified": "2026-10-21",
-  "verification_status": "verified"
+  "verification_status": "pending",
+  "pending_reason": "L'AI è solo un tema parziale: conferenza internazionale sulla modellazione del mercato immobiliare, con l'AI nella giornata del 15 ottobre (il 16 è riservato ai delegati, in inglese). Event_url e source_url coincidono con un articolo di cronaca locale, non con una pagina ufficiale FIG o CNGeGL, e la frase su AI e modelli di valutazione automatica non emerge dall'articolo. Da riammettere solo con fonte ufficiale che dichiari l'AI come blocco del programma."
 }

@@ -16,15 +16,17 @@
   "lat": 38.14651,
   "lng": 13.33592,
   "geo_precision": "indirizzo",
-  "website": "https://canonity.com",
+  "website": "https://www.canonity.com",
   "founded_year": 2026,
   "same_as": [],
   "source_urls": [
-    "https://canonity.com",
-    "https://canonity.com/contatti",
+    "https://www.canonity.com",
+    "https://www.canonity.com/contatti",
     "https://www.palermotoday.it/economia/canonity-piattaforma-dialogare-9-intelligenze-artificiali-aziende.html",
-    "https://www.dieci.media/2026/06/una-startup-ai-tutta-palermitana/"
+    "https://www.dieci.media/2026/06/una-startup-ai-tutta-palermitana/",
+    "https://startup.registroimprese.it"
   ],
   "last_verified": "2026-10-21",
-  "verification_status": "verified"
+  "verification_status": "verified",
+  "is_innovative_startup": true
 }

@@ -23,8 +23,10 @@
   "source_urls": [
     "https://www.nextvisionlab.it/about-us",
     "https://www.nextvisionlab.it/contacts",
-    "https://qds.it/unict-intelligenza-artificiale-made-in-sicily-presentata-a-barcellona/"
+    "https://qds.it/unict-intelligenza-artificiale-made-in-sicily-presentata-a-barcellona/",
+    "https://startup.registroimprese.it"
   ],
   "last_verified": "2026-10-21",
-  "verification_status": "verified"
+  "verification_status": "verified",
+  "is_innovative_startup": true
 }

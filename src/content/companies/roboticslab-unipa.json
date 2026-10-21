@@ -2,7 +2,7 @@
   "name": "RoboticsLab (Università di Palermo)",
   "slug": "roboticslab-unipa",
   "type": "centro di ricerca",
-  "description": "Laboratorio di robotica del Dipartimento di Ingegneria dell'Università di Palermo. Studia l'interazione tra persone e robot e la robotica cognitiva con robot umanoidi Pepper e NAO. Tra i progetti ci sono un robot per accompagnare l'invecchiamento in salute e la fisioterapia, un robot direttore d'orchestra per sperimentare forme d'arte nuove e ricerche su coscienza artificiale, senso di sé e discorso interno delle macchine, con un occhio agli aspetti etici di AI e robotica.",
+  "description": "Laboratorio di robotica del Dipartimento di Ingegneria dell'Università di Palermo, che dispone di due robot umanoidi Pepper e di un NAO. Studia come persone e robot interagiscono e come dare alle macchine capacità cognitive. Le sperimentazioni indicate comprendono un robot di compagnia per chi invecchia e per le sedute di fisioterapia, un robot che dirige un'orchestra come banco di prova per la creatività e modelli in cui il robot si parla a voce alta per valutare le proprie scelte. Il lavoro considera anche le questioni etiche di AI e robotica.",
   "ai_areas": [
     "robotica",
     "agenti e automazione"
@@ -20,9 +20,9 @@
   "website": "https://www.unipa.it/dipartimenti/ingegneria/",
   "same_as": [],
   "source_urls": [
-    "https://unipa.it/persone/tecnico-amministrativi/m/mario.minacapilli/.content/pdf/57.pdf",
     "https://centri.unipa.it/laboratori/",
-    "https://www.unipa.it/dipartimenti/ingegneria/Laboratori/"
+    "https://www.unipa.it/dipartimenti/ingegneria/Laboratori/",
+    "https://www.unipa.it/Pubblicato-su-iScience-lo-studio-dei-ricercatori-del-RoboticsLab-UniPa-sul-primo-robot-che-pensa-ad-alta-voce/"
   ],
   "last_verified": "2026-10-21",
   "verification_status": "verified"

@@ -16,14 +16,16 @@
   "lat": 38.12322,
   "lng": 13.35836,
   "geo_precision": "indirizzo",
-  "website": "https://keplera.it",
+  "website": "https://www.keplera.it",
   "same_as": [],
   "source_urls": [
-    "https://keplera.it",
-    "https://keplera.it/contatti",
+    "https://www.keplera.it",
+    "https://www.keplera.it/contatti",
     "https://lexhero.com",
-    "https://lexhero.com/privacy-policy"
+    "https://lexhero.com/privacy-policy/",
+    "https://startup.registroimprese.it"
   ],
   "last_verified": "2026-10-21",
-  "verification_status": "verified"
+  "verification_status": "verified",
+  "is_innovative_startup": true
 }

@@ -23,11 +23,11 @@
   "lat": 37.50236,
   "lng": 15.08737,
   "geo_precision": "città",
-  "website": "https://www.aitho.it",
+  "website": "https://aitho.it",
   "same_as": [],
   "source_urls": [
-    "https://www.aitho.it/cosa-facciamo/",
-    "https://www.aitho.it/chi-siamo/"
+    "https://aitho.it/cosa-facciamo/",
+    "https://aitho.it/chi-siamo/"
   ],
   "last_verified": "2026-10-21",
   "verification_status": "verified"

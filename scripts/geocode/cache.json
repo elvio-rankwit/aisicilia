@@ -544,5 +544,23 @@
     "lng": 15.228,
     "display_name": "Via Artale Alagona, Lapide Pasteria, Calatabiano, Catania, Sicilia, 95011, Italia",
     "precision": "indirizzo"
+  },
+  "addr:piazza europa 13, 95129 catania ct": {
+    "lat": 37.61907,
+    "lng": 15.16576,
+    "display_name": "13, Piazza Europa, Santa Maria la Scala, Acireale, Catania, Sicilia, 95024, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:piazza europa, catania": {
+    "lat": 37.61891,
+    "lng": 15.16542,
+    "display_name": "Piazza Europa, Santa Maria la Scala, Acireale, Catania, Sicilia, 95024, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:piazza europa 13, 95127 catania": {
+    "lat": 37.61907,
+    "lng": 15.16576,
+    "display_name": "13, Piazza Europa, Santa Maria la Scala, Acireale, Catania, Sicilia, 95024, Italia",
+    "precision": "indirizzo"
   }
 }
