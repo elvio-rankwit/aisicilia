@@ -1,0 +1,58 @@
+{
+  "title": "Trasformare una comunicazione ufficiale in una newsletter breve per i clienti dello studio",
+  "slug": "newsletter-clienti-novita-studio-professionale",
+  "sector": "studi-professionali",
+  "use_case": "marketing",
+  "goal": "Ottieni una newsletter di meno di 220 parole che riassume solo ciò che dice il testo ufficiale, con fonte e data, e una nota con i punti dubbi da far valutare al professionista.",
+  "prompt_text": "Sei il responsabile comunicazione di uno studio di {tipo_studio}. Scrivi la newsletter ai clienti su una novità, partendo dal testo ufficiale che ti incollo.\n\nTesto ufficiale (unica fonte che puoi usare):\n{testo_fonte}\n\nChi la riceve: {destinatari}\nFonte e data da citare: {fonte_e_data}\nCosa vogliamo che il lettore faccia: {azione_richiesta}\nForma di cortesia: {forma_di_cortesia}\nFirma: {firma}\n\nFormato: oggetto di massimo 60 caratteri; apertura di due frasi che dice subito cosa cambia e per chi; \"Cosa cambia\" in non più di 4 punti; \"Cosa devi fare\" in 2-3 righe; una riga con la fonte e la data; invito a contattare lo studio. Massimo 220 parole. Tono diretto.\n\nVincoli: usa solo ciò che c'è nel testo ufficiale. Non aggiungere importi, scadenze, soglie o eccezioni che non vi compaiono, e non dire a chi si applica più di quanto dica il testo. Se il testo è ambiguo, non interpretarlo: elencami le frasi dubbie in una nota separata intitolata \"da far valutare al professionista\". Niente titoli allarmistici, niente \"imperdibile\" o \"ultima chiamata\".",
+  "variables": [
+    {
+      "name": "tipo_studio",
+      "description": "Tipo di studio.",
+      "example": "commercialisti"
+    },
+    {
+      "name": "testo_fonte",
+      "description": "Il testo ufficiale, incollato per intero. Qui è un testo di esempio inventato.",
+      "example": "Comunicazione (testo di esempio): L'ente X ha spostato dal 30 novembre al 15 dicembre il termine per l'invio della comunicazione Y. Lo spostamento riguarda i soggetti indicati nella tabella 2 della comunicazione. Per gli altri soggetti il termine resta il 30 novembre."
+    },
+    {
+      "name": "destinatari",
+      "description": "A quali clienti scrivi.",
+      "example": "clienti titolari di partita IVA"
+    },
+    {
+      "name": "fonte_e_data",
+      "description": "Fonte e data da citare in newsletter.",
+      "example": "Comunicazione dell'ente X, 12 ottobre 2026"
+    },
+    {
+      "name": "azione_richiesta",
+      "description": "Cosa devono fare i clienti dopo averla letta.",
+      "example": "chiamare lo studio per verificare se rientrano tra i soggetti interessati"
+    },
+    {
+      "name": "forma_di_cortesia",
+      "description": "Tu o lei.",
+      "example": "lei"
+    },
+    {
+      "name": "firma",
+      "description": "Come firma lo studio.",
+      "example": "Studio Meridiana"
+    }
+  ],
+  "how_to_use": "Incolla il testo ufficiale per intero, non un tuo riassunto. Compila le altre variabili e lancia il prompt. Fai leggere la bozza e la nota sui dubbi al professionista prima dell'invio. Spedisci con lo strumento che usi per le newsletter e conserva la versione inviata.",
+  "example_input": "tipo_studio: commercialisti\ntesto_fonte: Comunicazione (testo di esempio): L'ente X ha spostato dal 30 novembre al 15 dicembre il termine per l'invio della comunicazione Y. Lo spostamento riguarda i soggetti indicati nella tabella 2 della comunicazione. Per gli altri soggetti il termine resta il 30 novembre.\ndestinatari: clienti titolari di partita IVA\nfonte_e_data: Comunicazione dell'ente X, 12 ottobre 2026\nazione_richiesta: chiamare lo studio per verificare se rientrano tra i soggetti interessati\nforma_di_cortesia: lei\nfirma: Studio Meridiana",
+  "expected_output_description": "Una newsletter con oggetto, apertura di due frasi, fino a 4 punti su cosa cambia, istruzioni per il lettore, fonte e data. In fondo una nota con le frasi del testo che il professionista deve interpretare.",
+  "limits_and_warnings": "Contenuto su norme e scadenze: lo rivede sempre il professionista prima dell'invio, e la fonte ufficiale va controllata alla data di invio. L'AI può riassumere male un testo ambiguo o aggiungere soglie che non esistono. Non usare nomi o dati dei clienti.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot"
+  ],
+  "level": "intermedio",
+  "tested_at": "2026-10-21",
+  "test_notes": "Prima versione: scriveva che il nuovo termine valeva \"per tutte le attività con partita IVA\", andando oltre il testo. Aggiunti il divieto di estendere i destinatari e la nota sui punti ambigui. Test finale: 190 parole, la tabella 2 segnalata come non disponibile nella nota per il professionista."
+}

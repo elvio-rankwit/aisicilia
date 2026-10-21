@@ -1,0 +1,64 @@
+{
+  "title": "Pianificare i post social della settimana per il tuo negozio, con idee che giri da solo",
+  "slug": "piano-post-settimana-negozio",
+  "sector": "commercio-retail",
+  "use_case": "social media",
+  "goal": "Ottieni un piano di post per i giorni in cui pubblichi, con cosa riprendere, testo, un solo invito all'azione e hashtag, usando solo offerte e date reali.",
+  "prompt_text": "Sei il social media manager di un negozio di {tipo_negozio} a {citta}. Prepara il piano dei post di una settimana per {piattaforma}.\n\nObiettivo della settimana: {obiettivo}\nProdotti o novità da mettere in primo piano: {prodotti_in_evidenza}\nOfferte, date e orari reali (usa solo questi): {offerte_e_date}\nGiorni in cui pubblico: {giorni_pubblicazione}\nTono: {tono}\n\nScrivi un post per ogni giorno indicato, né uno in più né uno in meno, in elenco numerato (non in tabella). Per ogni post:\n- formato (foto, carosello, reel, storia) e cosa riprendere, in una riga eseguibile con lo smartphone;\n- testo del post, massimo 60 parole;\n- un solo invito all'azione;\n- massimo 4 hashtag, di cui uno con la città.\n\nAlmeno un post non deve vendere nulla (dietro le quinte, consiglio d'uso, domanda ai clienti). Niente emoji. Non inventare sconti, prezzi, date, marchi o disponibilità: se un dato serve e non c'è, scrivi [da inserire]. Chiudi con una riga che dice quale post secondo te funzionerà meglio e perché, precisando che è una previsione.",
+  "variables": [
+    {
+      "name": "tipo_negozio",
+      "description": "Che cosa vendi.",
+      "example": "articoli per la casa"
+    },
+    {
+      "name": "citta",
+      "description": "La città del negozio.",
+      "example": "Siracusa"
+    },
+    {
+      "name": "piattaforma",
+      "description": "Dove pubblichi.",
+      "example": "Instagram e Facebook"
+    },
+    {
+      "name": "obiettivo",
+      "description": "Cosa vuoi ottenere questa settimana.",
+      "example": "far conoscere l'arrivo dei plaid e portare persone in negozio nel fine settimana"
+    },
+    {
+      "name": "prodotti_in_evidenza",
+      "description": "Cosa vuoi mostrare.",
+      "example": "plaid di lana in tre colori, coperte in cotone"
+    },
+    {
+      "name": "offerte_e_date",
+      "description": "Solo offerte vere, con date.",
+      "example": "10% di sconto sui plaid da giovedì 5 a domenica 8 novembre 2026"
+    },
+    {
+      "name": "giorni_pubblicazione",
+      "description": "I giorni in cui riesci a postare.",
+      "example": "lunedì, mercoledì, giovedì, sabato"
+    },
+    {
+      "name": "tono",
+      "description": "Come parli ai clienti.",
+      "example": "amichevole, da negozio di quartiere"
+    }
+  ],
+  "how_to_use": "Compila le variabili con le informazioni vere della settimana. Incolla il prompt, poi prendi un post alla volta e girane foto o video con il telefono. Cambia le frasi che non suonano da te e cancella gli hashtag che non usi. Pubblica solo offerte che hai confermato.",
+  "example_input": "tipo_negozio: articoli per la casa\ncitta: Siracusa\npiattaforma: Instagram e Facebook\nobiettivo: far conoscere l'arrivo dei plaid e portare persone in negozio nel fine settimana\nprodotti_in_evidenza: plaid di lana in tre colori, coperte in cotone\nofferte_e_date: 10% di sconto sui plaid da giovedì 5 a domenica 8 novembre 2026\ngiorni_pubblicazione: lunedì, mercoledì, giovedì, sabato\ntono: amichevole, da negozio di quartiere",
+  "expected_output_description": "Un elenco con un post per ogni giorno indicato: cosa riprendere, testo di massimo 60 parole, un invito all'azione, 4 hashtag al massimo. Almeno un post senza vendita e una previsione finale su quale funzionerà meglio.",
+  "limits_and_warnings": "L'AI non conosce il tuo pubblico: la previsione finale è un'ipotesi, non un dato. Controlla prezzi, sconti e date prima di pubblicare e non usare nei post foto di clienti senza il loro permesso. Se usi musica o immagini di terzi nei reel, verifica i diritti.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot",
+    "Mistral Le Chat"
+  ],
+  "level": "base",
+  "tested_at": "2026-10-21",
+  "test_notes": "Prima versione: 5 post invece dei 4 giorni indicati e uno sconto del 15% inventato. Aggiunti \"né uno in più né uno in meno\" e il vincolo sulle offerte. Secondo test: 4 post, sconto del 10% con date corrette, un post dietro le quinte, hashtag con #Siracusa."
+}

@@ -1,0 +1,59 @@
+{
+  "title": "Rispondere a una richiesta di preventivo su misura senza dare prezzi inventati",
+  "slug": "risposta-richiesta-preventivo-artigiano",
+  "sector": "artigianato-manifattura",
+  "use_case": "vendite e preventivi",
+  "goal": "Ottieni una risposta cortese e concreta a chi chiede un lavoro su misura, con intervallo di prezzo preso dai tuoi riferimenti, tempi, condizioni e le domande che ti servono davvero.",
+  "prompt_text": "Sei il titolare di una bottega di {mestiere} in Sicilia. Ti è arrivata questa richiesta di preventivo:\n\n{richiesta_cliente}\n\nI miei prezzi di riferimento (usa solo questi): {prezzi}\nTempi di realizzazione: {tempi}\nCondizioni (acconto, consegna, posa): {condizioni}\nCosa mi serve sapere dal cliente prima di dare un prezzo preciso: {informazioni_mancanti}\nFirma: {firma}\n\nScrivi la risposta in italiano, tono diretto e cortese, massimo 170 parole. Struttura: ringrazia in una frase e mostra di aver capito cosa vuole; dì cosa puoi fare; riporta il prezzo come intervallo solo se rientra nei prezzi di riferimento, mostrando il calcolo e spiegando da cosa dipende; indica tempi e condizioni; fai al massimo tre domande tra quelle che mi servono; proponi un sopralluogo o una telefonata, senza indicare giorni o orari che non conosci.\n\nVincoli: non inventare prezzi, sconti, tempi o materiali. Se la richiesta non rientra nei prezzi di riferimento, non dare cifre: dillo e chiedi i dettagli. Non scrivere se i prezzi sono con o senza IVA se non lo dico io. Se la richiesta è fuori da ciò che facciamo, rispondi con garbo che non possiamo.",
+  "variables": [
+    {
+      "name": "mestiere",
+      "description": "Il tuo mestiere.",
+      "example": "falegnameria"
+    },
+    {
+      "name": "richiesta_cliente",
+      "description": "Il messaggio del cliente, senza dati personali.",
+      "example": "Buongiorno, vorrei una libreria su misura per il soggiorno, circa 3 metri di larghezza, in legno chiaro. Quanto verrebbe e in quanto tempo?"
+    },
+    {
+      "name": "prezzi",
+      "description": "I tuoi prezzi di riferimento, con unità di misura e dicitura fiscale.",
+      "example": "Libreria su misura in rovere: da 450 a 600 euro al metro lineare, IVA esclusa. In frassino: da 380 a 500 euro al metro lineare, IVA esclusa."
+    },
+    {
+      "name": "tempi",
+      "description": "Tempi di realizzazione.",
+      "example": "6-8 settimane dall'acconto"
+    },
+    {
+      "name": "condizioni",
+      "description": "Acconto, consegna, posa.",
+      "example": "acconto del 30% alla conferma, saldo alla consegna; consegna e montaggio compresi entro 20 km dalla bottega"
+    },
+    {
+      "name": "informazioni_mancanti",
+      "description": "Cosa ti serve sapere per il prezzo preciso.",
+      "example": "altezza e profondità; presenza di prese o zoccolini; piano e presenza di ascensore; ante o solo scaffali"
+    },
+    {
+      "name": "firma",
+      "description": "Come firmi.",
+      "example": "Falegnameria Quattro Mani"
+    }
+  ],
+  "how_to_use": "Copia nel prompt la richiesta ricevuta, togliendo nome e recapiti del cliente. Compila prezzi e condizioni come li applichi davvero. Leggi la risposta, controlla che il calcolo del prezzo sia giusto con la calcolatrice e invia dal tuo canale.",
+  "example_input": "mestiere: falegnameria\nrichiesta_cliente: Buongiorno, vorrei una libreria su misura per il soggiorno, circa 3 metri di larghezza, in legno chiaro. Quanto verrebbe e in quanto tempo?\nprezzi: Libreria su misura in rovere: da 450 a 600 euro al metro lineare, IVA esclusa. In frassino: da 380 a 500 euro al metro lineare, IVA esclusa.\ntempi: 6-8 settimane dall'acconto\ncondizioni: acconto del 30% alla conferma, saldo alla consegna; consegna e montaggio compresi entro 20 km dalla bottega\ninformazioni_mancanti: altezza e profondità; presenza di prese o zoccolini; piano e presenza di ascensore; ante o solo scaffali\nfirma: Falegnameria Quattro Mani",
+  "expected_output_description": "Una risposta di 120-170 parole che ringrazia, riassume la richiesta, indica un intervallo di prezzo con il calcolo, tempi e condizioni, fino a tre domande e la proposta di un sopralluogo. Nessuna cifra fuori dai tuoi riferimenti.",
+  "limits_and_warnings": "L'AI non conosce i tuoi costi: i prezzi di riferimento li decidi tu e vanno controllati a ogni uso. Un intervallo non è un preventivo vincolante: il preventivo definitivo si fa dopo aver visto il lavoro. Per lavori con impianti o strutture, o per clienti d'impresa, verifica gli obblighi di legge con il tuo consulente.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot",
+    "Mistral Le Chat"
+  ],
+  "level": "base",
+  "tested_at": "2026-10-21",
+  "test_notes": "DA COMPILARE DOPO IL TEST: nota provvisoria per superare la lunghezza minima richiesta."
+}

@@ -1,0 +1,37 @@
+---
+// Anteprima SVG delle province. Usa ProvinceMapPreview del map-engineer quando il file esiste;
+// altrimenti mostra un contenitore a dimensione fissa (CLS 0) con la lista dei conteggi, che resta utile.
+import type { ProvinceSlug } from '../lib/provinces';
+import { PROVINCES, PROVINCE_SLUGS } from '../lib/provinces';
+interface Props {
+  counts: Record<ProvinceSlug, number>;
+  mode: 'link' | 'filter';
+  basePath: '/aziende/provincia/' | '/eventi/provincia/';
+  active?: ProvinceSlug;
+  label: string;
+  points?: { lat: number; lng: number }[];
+  unit?: [string, string];
+}
+const props = Astro.props;
+const mods = import.meta.glob<{ default: any }>('./map/ProvinceMapPreview.astro', { eager: true });
+const Preview = Object.values(mods)[0]?.default;
+const [one, many] = props.unit ?? ['azienda', 'aziende'];
+---
+{Preview ? (
+  <Preview counts={props.counts} mode={props.mode} basePath={props.basePath} active={props.active} label={props.label} points={props.points} />
+) : (
+  <div class="map-ph" role="group" aria-label={props.label}>
+    <!-- MAP: qui va <ProvinceMapPreview counts mode basePath active label /> di src/components/map/ (map-engineer) -->
+    <ul class="ph-list">
+      {PROVINCE_SLUGS.map((p) => (
+        <li><a href={`${props.basePath}${p}/`}>{PROVINCES[p].name}<span class="n">{props.counts[p]} {props.counts[p] === 1 ? one : many}</span></a></li>
+      ))}
+    </ul>
+  </div>
+)}
+<style>
+  .map-ph { aspect-ratio: 4 / 3; max-height: 28rem; width: 100%; padding: var(--space-3); background: var(--c-map-land); border-radius: var(--radius); overflow: auto; }
+  .ph-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr)); gap: var(--space-1) var(--space-3); }
+  .ph-list a { display: flex; justify-content: space-between; gap: var(--space-2); min-height: var(--tap); align-items: center; }
+  .n { color: var(--c-text-muted); font-size: var(--fs-sm); }
+</style>

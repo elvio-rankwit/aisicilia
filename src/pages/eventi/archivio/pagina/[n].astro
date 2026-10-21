@@ -1,0 +1,48 @@
+---
+// Pagine successive dell'archivio: si generano solo oltre 100 eventi passati (D-014).
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import EventCard from '../../../../components/EventCard.astro';
+import Pager from '../../../../components/Pager.astro';
+import CtaSegnala from '../../../../components/CtaSegnala.astro';
+import { getPastEvents } from '../../../../lib/data';
+import { meta } from '../../../../lib/seo/meta';
+import { collectionPageNodes, itemListNodes } from '../../../../lib/seo/jsonld';
+import { LIST_PAGE_SIZE, PAGINATE_OVER, pagedTitle } from '../../../../components/helpers';
+
+export async function getStaticPaths() {
+  const past = await getPastEvents();
+  if (past.length <= PAGINATE_OVER) return [];
+  const total = Math.ceil(past.length / LIST_PAGE_SIZE);
+  return Array.from({ length: total - 1 }, (_, i) => ({ params: { n: String(i + 2) }, props: { total } }));
+}
+const n = Number(Astro.params.n);
+const { total } = Astro.props;
+const past = await getPastEvents();
+const slice = past.slice((n - 1) * LIST_PAGE_SIZE, n * LIST_PAGE_SIZE);
+const m = meta.eventsArchive(past.length);
+const path = `/eventi/archivio/pagina/${n}/`;
+const h1 = `Archivio degli eventi AI in Sicilia, pagina ${n}`;
+---
+<BaseLayout
+  seo={{
+    title: pagedTitle('Archivio eventi AI in Sicilia', n),
+    description: `Pagina ${n} di ${total} dell'archivio: ${m.description}`.slice(0, 155).replace(/\s+\S*$/, ''),
+    path,
+    breadcrumbs: [{ name: 'Eventi', path: '/eventi/' }, { name: 'Archivio', path: '/eventi/archivio/' }, { name: `Pagina ${n}`, path }],
+    jsonld: [
+      ...collectionPageNodes({ path, name: h1, description: m.description }),
+      ...itemListNodes({ path, name: h1, items: slice.map((e) => ({ url: `/eventi/${e.id}/`, name: e.data.title })) }),
+    ],
+  }}
+>
+  <div class="page-head">
+    <h1>{h1}</h1>
+    <p class="lead">{past.length} eventi già svolti, {LIST_PAGE_SIZE} per pagina. Torna all’<a href="/eventi/archivio/">inizio dell’archivio</a>.</p>
+  </div>
+  <section aria-labelledby="h-archivio">
+    <h2 id="h-archivio" class="visually-hidden">Eventi passati, pagina {n}</h2>
+    <ul class="grid">{slice.map((e) => <EventCard event={e} />)}</ul>
+    <Pager base="/eventi/archivio/" current={n} total={total} />
+  </section>
+  <CtaSegnala text="Ti risulta un evento passato che manca? Segnalalo con il link alla pagina originale." label="Segnala un evento" />
+</BaseLayout>

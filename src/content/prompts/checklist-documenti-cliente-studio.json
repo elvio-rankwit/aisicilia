@@ -1,0 +1,59 @@
+{
+  "title": "Chiedere al cliente i documenti per una pratica con una checklist che si capisce al volo",
+  "slug": "checklist-documenti-cliente-studio",
+  "sector": "studi-professionali",
+  "use_case": "amministrazione",
+  "goal": "Ottieni un'email con checklist dei documenti da consegnare, scadenza ben visibile e modalità di consegna, senza documenti in più rispetto all'elenco del tuo studio.",
+  "prompt_text": "Sei la segreteria di uno studio di {tipo_studio}. Scrivi un'email a un cliente per chiedergli i documenti che ci servono per {pratica}.\n\nTipo di cliente: {tipo_cliente}\nDocumenti da richiedere (elenco dello studio, non aggiungerne): {elenco_documenti}\nEntro quando ci servono: {scadenza_interna}\nCome possono consegnarli: {modalita_consegna}\nFirma: {firma}\n\nFormato: oggetto chiaro; due righe di apertura che spiegano a cosa servono i documenti; una checklist con una riga per documento da spuntare e, accanto, in poche parole, a cosa serve o dove di solito si trova (per esempio \"area documenti del sito della banca\"), solo se è una cosa ovvia e sicura; la scadenza in evidenza; come consegnare; cosa fare se un documento non si trova.\n\nVincoli: non aggiungere documenti oltre l'elenco. Se ritieni che ne manchi uno, mettilo in una nota finale per me, separata dall'email, con la dicitura \"da verificare con il professionista\". Non scrivere importi, norme o scadenze di legge. Chiedi di consegnare i documenti solo con la modalità indicata sopra. Linguaggio semplice, massimo 200 parole.",
+  "variables": [
+    {
+      "name": "tipo_studio",
+      "description": "Tipo di studio.",
+      "example": "commercialisti"
+    },
+    {
+      "name": "pratica",
+      "description": "Per quale pratica servono i documenti.",
+      "example": "la raccolta dei dati per la dichiarazione dei redditi di una ditta individuale"
+    },
+    {
+      "name": "tipo_cliente",
+      "description": "Chi è il cliente, come lo descriveresti a un collega.",
+      "example": "ditta individuale, titolare poco esperto di contabilità"
+    },
+    {
+      "name": "elenco_documenti",
+      "description": "I documenti da chiedere, decisi dallo studio.",
+      "example": "estratti conto bancari dell'anno; fatture di acquisto non ancora inviate; ricevute di pagamento delle imposte già versate; quietanze dei contributi"
+    },
+    {
+      "name": "scadenza_interna",
+      "description": "La data entro cui vuoi i documenti.",
+      "example": "venerdì 13 novembre 2026"
+    },
+    {
+      "name": "modalita_consegna",
+      "description": "Come il cliente li consegna.",
+      "example": "portale riservato dello studio oppure a mano in segreteria"
+    },
+    {
+      "name": "firma",
+      "description": "Chi firma.",
+      "example": "Segreteria, Studio Meridiana"
+    }
+  ],
+  "how_to_use": "Scrivi l'elenco dei documenti una volta sola, nel modo in cui lo usa il tuo studio, e riusalo per ogni cliente cambiando solo tipo di cliente e scadenza. Incolla il prompt, controlla l'email e invia. La nota finale con eventuali documenti mancanti va letta dal professionista, non inoltrata al cliente.",
+  "example_input": "tipo_studio: commercialisti\npratica: la raccolta dei dati per la dichiarazione dei redditi di una ditta individuale\ntipo_cliente: ditta individuale, titolare poco esperto di contabilità\nelenco_documenti: estratti conto bancari dell'anno; fatture di acquisto non ancora inviate; ricevute di pagamento delle imposte già versate; quietanze dei contributi\nscadenza_interna: venerdì 13 novembre 2026\nmodalita_consegna: portale riservato dello studio oppure a mano in segreteria\nfirma: Segreteria, Studio Meridiana",
+  "expected_output_description": "Un'email breve con oggetto, due righe di contesto, checklist di una riga per documento, scadenza evidente, modalità di consegna e cosa fare se un documento non si trova. Se l'AI pensa che manchi qualcosa, lo scrive in una nota separata.",
+  "limits_and_warnings": "Per scadenze, importi e norme serve il professionista: il prompt non li tratta. Evita di far arrivare documenti sensibili per email semplice se lo studio ha un canale più sicuro. Controlla che l'elenco corrisponda a ciò che serve davvero per quella pratica e per quell'anno.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot",
+    "Mistral Le Chat"
+  ],
+  "level": "base",
+  "tested_at": "2026-10-21",
+  "test_notes": "Prima versione: aggiungeva alla checklist la certificazione unica e una visura, che non erano nell'elenco. Aggiunto il divieto con la nota separata \"da verificare con il professionista\". Test finale: 4 documenti come da elenco, scadenza evidente, nota finale con un solo dubbio."
+}

@@ -1,0 +1,64 @@
+{
+  "title": "Trasformare le foto di un lavoro in corso in tre post e una storia per i social",
+  "slug": "post-lavorazione-artigiano-social",
+  "sector": "artigianato-manifattura",
+  "use_case": "social media",
+  "goal": "Ottieni tre versioni del post (breve, media, lunga) e uno schema di storia in quattro schermate partendo dalle foto o dai video che hai già fatto in laboratorio.",
+  "prompt_text": "Sei il social media manager di una bottega artigiana di {mestiere} a {citta}. Ho fatto queste foto o video di un lavoro in corso e voglio pubblicarli su {piattaforma}.\n\nCosa si vede nelle foto o nei video: {materiale_disponibile}\nIl lavoro: {lavoro}\nCosa voglio che chi guarda capisca: {messaggio}\nCosa non voglio dire o mostrare: {da_evitare}\nCome contattarci (solo se lo indico): {contatto}\n\nScrivi tre versioni del testo del post, diverse tra loro: una breve (massimo 40 parole), una media (massimo 80) e una lunga (massimo 120) con un piccolo racconto del lavoro. Per ciascuna: una prima riga che funzioni da sola (su Instagram è l'unica che si legge senza aprire il testo), un solo invito all'azione e al massimo 5 hashtag. Poi uno schema di una storia in 4 schermate: cosa inquadrare e che frase scrivere su ognuna, massimo 10 parole.\n\nVincoli: usa solo i fatti che ti ho dato; niente prezzi, tempi di consegna, nomi di clienti o promesse. Niente emoji, niente punti esclamativi in serie. Non descrivere nulla che non c'è nelle foto o nei video. Se per un post serve un dato che manca, scrivi [da inserire].",
+  "variables": [
+    {
+      "name": "mestiere",
+      "description": "Il tuo mestiere.",
+      "example": "lavorazione del cuoio"
+    },
+    {
+      "name": "citta",
+      "description": "Dove sei.",
+      "example": "Palermo"
+    },
+    {
+      "name": "piattaforma",
+      "description": "Dove pubblichi.",
+      "example": "Instagram"
+    },
+    {
+      "name": "materiale_disponibile",
+      "description": "Cosa mostrano foto e video.",
+      "example": "tre foto: il taglio della pelle sul tavolo, le cuciture a mano di una tracolla, la tracolla finita appoggiata sul banco; un video di 15 secondi della cucitura"
+    },
+    {
+      "name": "lavoro",
+      "description": "Che lavoro è.",
+      "example": "una borsa a tracolla realizzata su ordinazione, in pelle conciata al vegetale, cucita a mano"
+    },
+    {
+      "name": "messaggio",
+      "description": "Cosa deve capire chi guarda.",
+      "example": "che la borsa è fatta in laboratorio, pezzo per pezzo, e che richiede tempo"
+    },
+    {
+      "name": "da_evitare",
+      "description": "Cosa non dire o mostrare.",
+      "example": "il prezzo, il nome della cliente, il giorno di consegna"
+    },
+    {
+      "name": "contatto",
+      "description": "Come contattarvi.",
+      "example": "messaggio privato su Instagram"
+    }
+  ],
+  "how_to_use": "Metti insieme foto e video prima di scrivere, poi descrivili con precisione nel prompt: più sei esatto su ciò che si vede, meglio funziona. Scegli la versione che preferisci e modificala con parole tue. Pubblica negli orari in cui i tuoi clienti sono online, non a caso.",
+  "example_input": "mestiere: lavorazione del cuoio\ncitta: Palermo\npiattaforma: Instagram\nmateriale_disponibile: tre foto: il taglio della pelle sul tavolo, le cuciture a mano di una tracolla, la tracolla finita appoggiata sul banco; un video di 15 secondi della cucitura\nlavoro: una borsa a tracolla realizzata su ordinazione, in pelle conciata al vegetale, cucita a mano\nmessaggio: che la borsa è fatta in laboratorio, pezzo per pezzo, e che richiede tempo\nda_evitare: il prezzo, il nome della cliente, il giorno di consegna\ncontatto: messaggio privato su Instagram",
+  "expected_output_description": "Tre testi per il post di lunghezza diversa, ciascuno con una prima riga efficace, un invito all'azione e al massimo 5 hashtag. In più, una storia da 4 schermate con cosa inquadrare e una frase breve per ciascuna.",
+  "limits_and_warnings": "Controlla che il testo non dica nulla di diverso da ciò che si vede. Non pubblicare foto con clienti riconoscibili senza il loro permesso e non rivelare i dati di un ordine. Se usi musica in un video, controlla che sia utilizzabile per scopi commerciali.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot",
+    "Mistral Le Chat"
+  ],
+  "level": "base",
+  "tested_at": "2026-10-21",
+  "test_notes": "DA COMPILARE DOPO IL TEST: nota provvisoria per superare la lunghezza minima richiesta."
+}

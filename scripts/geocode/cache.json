@@ -4,5 +4,191 @@
     "lng": 14.5132,
     "display_name": "Caltagirone, Catania, Sicilia, 95041, Italia",
     "precision": "città"
+  },
+  "addr:via emerico amari 148, palermo": {
+    "lat": 38.12446,
+    "lng": 13.35744,
+    "display_name": "Magneti Cowork, 148, Via Emerico Amari, VIII Circoscrizione, Palermo, Sicilia, 90139, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:viale delle scienze, palermo": {
+    "lat": 38.10455,
+    "lng": 13.34951,
+    "display_name": "Viale delle Scienze, Villaggio Santa Rosalia, IV Circoscrizione, Palermo, Sicilia, 90128, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via alessandro volta 44, palermo": {
+    "lat": 38.04602,
+    "lng": 13.39371,
+    "display_name": "Via Alessandro Volta, Belmonte Mezzagno, Palermo, Sicilia, 90031, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:piazza marina 61, palermo": {
+    "lat": 38.11778,
+    "lng": 13.36864,
+    "display_name": "Piazza Marina, Kalsa, I Circoscrizione, Palermo, Sicilia, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:piazza del parlamento 1, palermo": {
+    "lat": 38.11121,
+    "lng": 13.35325,
+    "display_name": "Palazzo dei Normanni, 1, Piazza del Parlamento, Albergheria, I Circoscrizione, Palermo, Sicilia, 90134, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via alessandro volta 44, 90133 palermo": {
+    "lat": 38.1237,
+    "lng": 13.36568,
+    "display_name": "Via Alessandro Volta, VIII Circoscrizione, Palermo, Sicilia, 90133, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via alessandro volta, 90133 palermo": {
+    "lat": 38.1237,
+    "lng": 13.36568,
+    "display_name": "Via Alessandro Volta, VIII Circoscrizione, Palermo, Sicilia, 90133, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:zen 2, palermo": {
+    "lat": 38.18056,
+    "lng": 13.31706,
+    "display_name": "Zen, VII Circoscrizione, Palermo, Sicilia, 90147, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via emerico amari 11, palermo": {
+    "lat": 38.12559,
+    "lng": 13.35878,
+    "display_name": "Via Emerico Amari, VIII Circoscrizione, Palermo, Sicilia, 90139, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via santa maddalena 37, catania": {
+    "lat": 37.5083,
+    "lng": 15.08281,
+    "display_name": "Via Santa Maddalena, Antico Corso, Centro storico, Catania, Sicilia, 95124, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:corso italia 55, catania": {
+    "lat": 37.61991,
+    "lng": 15.16475,
+    "display_name": "55, Corso Italia, Santa Maria la Scala, Acireale, Catania, Sicilia, 95024, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:viale andrea doria 6, catania": {
+    "lat": 37.52541,
+    "lng": 15.07311,
+    "display_name": "Dipartimento di Matematica e Informatica, 6, Viale Andrea Doria, Picanello-Ognina-Barriera-Canalicchio, Catania, Sicilia, 95125, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via cardinale dusmet 2, catania": {
+    "lat": 37.73136,
+    "lng": 15.15905,
+    "display_name": "Via Cardinale Dusmet, Tagliaborsa, San Giovanni Montebello, Giarre, Catania, Sicilia, 95014, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:viale africa 31/b, catania": {
+    "lat": 37.51033,
+    "lng": 15.10216,
+    "display_name": "Viale Africa, Picanello-Ognina-Barriera-Canalicchio, Catania, Sicilia, 95129, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:four points by sheraton catania": {
+    "lat": 37.54248,
+    "lng": 15.13675,
+    "display_name": "Four Points by Sheraton, Via Antonello da Messina, Cannizzaro, Aci Castello, Catania, Sicilia, 95021, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:piazza giovanni verga, catania": {
+    "lat": 37.51417,
+    "lng": 15.09287,
+    "display_name": "Piazza Giovanni Verga, Monserrato, Borgo, Borgo-Sanzio, Catania, Sicilia, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:azienda ospedaliera cannizzaro, catania": {
+    "lat": 37.54284,
+    "lng": 15.11877,
+    "display_name": "Ospedale Cannizzaro, Viale Pierre De Coubertin, Picanello-Ognina-Barriera-Canalicchio, Catania, Sicilia, 95126, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:piazza pugliatti 1, messina": {
+    "lat": 38.18875,
+    "lng": 15.55312,
+    "display_name": "Piazza Salvatore Pugliatti, Torre Vittoria, IV Circoscrizione, Messina, Sicilia, 98122, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via arsenale 22, siracusa": {
+    "lat": 37.06809,
+    "lng": 15.28847,
+    "display_name": "22a, Via dell'Arsenale, Santa Lucia, Siracusa, Sicilia, 96100, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via etnea 28, catania": {
+    "lat": 37.50313,
+    "lng": 15.08743,
+    "display_name": "Ostello degli Elefanti, 28, Via Etnea, Giudecca, Centro storico, Catania, Sicilia, 95131, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:vecchia dogana, catania": {
+    "lat": 37.50082,
+    "lng": 15.0927,
+    "display_name": "Vecchia Dogana, Via Beato Cardinale Giuseppe Benedetto Dusmet, Civita, Centro storico, Catania, Sicilia, 95131, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via dusmet, catania": {
+    "lat": 37.50121,
+    "lng": 15.09203,
+    "display_name": "Via Beato Cardinale Giuseppe Benedetto Dusmet, Civita, Centro storico, Catania, Sicilia, 95131, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:corso italia 55, 95129 catania": {
+    "lat": 37.51521,
+    "lng": 15.09546,
+    "display_name": "55, Corso Italia, Monserrato, Borgo, Borgo-Sanzio, Catania, Sicilia, 95129, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via benfratelli 4, palermo": {
+    "lat": 38.11247,
+    "lng": 13.35941,
+    "display_name": "Via Benfratelli, Albergheria, I Circoscrizione, Palermo, Sicilia, 90134, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via duca della verdura 48, palermo": {
+    "lat": 38.13538,
+    "lng": 13.35398,
+    "display_name": "Istituto tecnico settore tecnologico \"Vittorio Emanuele III\", 48, Via Duca della Verdura, Quartiere Matteotti, VIII Circoscrizione, Palermo, Sicilia, 90143, Italia",
+    "precision": "indirizzo"
+  },
+  "city:palermo": {
+    "lat": 38.11123,
+    "lng": 13.35244,
+    "display_name": "Palermo, Sicilia, Italia",
+    "precision": "città"
+  },
+  "addr:via dell'arenella, palermo": {
+    "lat": 38.15147,
+    "lng": 13.37252,
+    "display_name": "Via dell'Arenella, Arenella, VII Circoscrizione, Palermo, Sicilia, 90142, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:grand hotel villa politi, siracusa": {
+    "lat": 37.07861,
+    "lng": 15.29332,
+    "display_name": "Grand Hotel Villa Politi, Via Maria Politi Laudien, Acradina, Siracusa, Sicilia, 96100, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:santuario madonna delle lacrime, siracusa": {
+    "lat": 37.07472,
+    "lng": 15.28552,
+    "display_name": "Basilica Santuario della Madonna delle Lacrime, Viale Teocrito, Santa Lucia, Siracusa, Sicilia, 96100, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:isola catania": {
+    "lat": 37.50182,
+    "lng": 15.09086,
+    "display_name": "Isola, Piazza Cardinale Pappalardo, Civita, Centro storico, Catania, Sicilia, 95131, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via caronda 129, catania": {
+    "lat": 37.51519,
+    "lng": 15.08489,
+    "display_name": "129, Via Caronda, Monserrato, Borgo, Borgo-Sanzio, Catania, Sicilia, 95128, Italia",
+    "precision": "indirizzo"
   }
 }

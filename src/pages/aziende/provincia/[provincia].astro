@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import MapPreviewSlot from '../../../components/MapPreviewSlot.astro';
+import MapInteractiveSlot from '../../../components/MapInteractiveSlot.astro';
+import CompanyList from '../../../components/CompanyList.astro';
+import EventCard from '../../../components/EventCard.astro';
+import ArticleCard from '../../../components/ArticleCard.astro';
+import OtherProvinces from '../../../components/OtherProvinces.astro';
+import EmptyState from '../../../components/EmptyState.astro';
+import CtaSegnala from '../../../components/CtaSegnala.astro';
+import { formatDate, getArticles, getCompanies, getUpcomingEvents, latestDate } from '../../../lib/data';
+import { sectorsForProvince, articlesForSector } from '../../../lib/related';
+import { meta } from '../../../lib/seo/meta';
+import { collectionPageNodes, itemListNodes } from '../../../lib/seo/jsonld';
+import { PROVINCES, PROVINCE_SLUGS, type ProvinceSlug } from '../../../lib/provinces';
+import { companyPoints, countByProvince, plural } from '../../../components/helpers';
+
+export function getStaticPaths() {
+  return PROVINCE_SLUGS.map((provincia) => ({ params: { provincia } }));
+}
+const slug = Astro.params.provincia as ProvinceSlug;
+const prov = PROVINCES[slug];
+const [all, upcoming, articles] = await Promise.all([getCompanies(), getUpcomingEvents(), getArticles()]);
+const companies = all.filter((c) => c.data.province === slug);
+const counts = countByProvince(all);
+const events = upcoming.filter((e) => e.data.province === slug).slice(0, 3);
+const sectors = sectorsForProvince(slug, all, upcoming);
+const related = [...new Map(sectors.flatMap((s) => articlesForSector(s, articles, 2)).map((a) => [a.id, a])).values()].slice(0, 3);
+const updated = latestDate(companies.map((c) => c.data.last_verified));
+const m = meta.companiesProvince(slug, companies.length);
+const path = `/aziende/provincia/${slug}/`;
+const h1 = `Aziende AI in provincia di ${prov.name}`;
+---
+<BaseLayout
+  seo={{
+    title: m.title, description: m.description, path,
+    breadcrumbs: [{ name: 'Aziende', path: '/aziende/' }, { name: prov.name, path }],
+    jsonld: [
+      ...collectionPageNodes({ path, name: h1, description: m.description }),
+      ...itemListNodes({ path, name: h1, items: companies.map((c) => ({ url: `/aziende/${c.id}/`, name: c.data.name })) }),
+    ],
+  }}
+>
+  <div class="page-head">
+    <h1>{h1}</h1>
+    {companies.length > 0 ? (
+      <p class="answer">In provincia di {prov.name} ({prov.ente.toLowerCase()}) abbiamo {plural(companies.length, 'realtà verificata', 'realtà verificate')} che lavorano con l’intelligenza artificiale, su {all.length} in tutta la Sicilia. Ultimo aggiornamento: {updated && formatDate(updated)}.</p>
+    ) : (
+      <p class="answer">Nessuna azienda AI verificata in provincia di {prov.name} per ora. Su tutta la Sicilia le schede sono {all.length}. Ne conosci una che manca? Segnalala.</p>
+    )}
+  </div>
+
+  <section class="section" aria-labelledby="h-mappa">
+    <h2 id="h-mappa">Dove si trovano</h2>
+    {companies.length > 0 ? (
+      <MapInteractiveSlot points={companyPoints(companies)} center={prov.center} zoom={prov.zoom} label={`Mappa delle aziende AI in provincia di ${prov.name}`} />
+    ) : (
+      <MapPreviewSlot counts={counts} mode="link" basePath="/aziende/provincia/" active={slug} label="Aziende AI per provincia siciliana" />
+    )}
+  </section>
+
+  <section class="section" aria-labelledby="h-elenco">
+    <h2 id="h-elenco">Le aziende di {prov.name}</h2>
+    {companies.length > 0 ? (
+      <CompanyList companies={companies} withProvinceFilter={false} />
+    ) : (
+      <EmptyState text={`Nessuna azienda AI a ${prov.name} per ora. Ne conosci una? Segnalala.`} ctaLabel="Segnala un’azienda" />
+    )}
+  </section>
+
+  <section class="section" aria-labelledby="h-eventi">
+    <div class="section-head">
+      <h2 id="h-eventi">Eventi in zona</h2>
+      <a href={`/eventi/provincia/${slug}/`}>Tutti gli eventi a {prov.name}</a>
+    </div>
+    {events.length > 0 ? (
+      <ul class="grid">{events.map((e) => <EventCard event={e} />)}</ul>
+    ) : (
+      <EmptyState text={`Nessun evento in programma a ${prov.name} per ora. Ne conosci uno? Segnalalo.`} />
+    )}
+  </section>
+
+  {related.length > 0 && (
+    <section class="section" aria-labelledby="h-guide">
+      <h2 id="h-guide">Guide utili per le imprese della zona</h2>
+      <ul class="grid">{related.map((a) => <ArticleCard article={a} />)}</ul>
+    </section>
+  )}
+
+  <OtherProvinces current={slug} counts={counts} basePath="/aziende/provincia/" label="Le altre province" />
+  <CtaSegnala />
+</BaseLayout>

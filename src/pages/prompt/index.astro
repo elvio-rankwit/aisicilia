@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PromptCard from '../../components/PromptCard.astro';
+import EmptyState from '../../components/EmptyState.astro';
+import { getPrompts } from '../../lib/data';
+import { meta } from '../../lib/seo/meta';
+import { collectionPageNodes, itemListNodes } from '../../lib/seo/jsonld';
+import { PROMPT_SECTORS, PROMPT_SECTOR_SLUGS } from '../../lib/taxonomies';
+import { plural } from '../../components/helpers';
+
+const prompts = await getPrompts();
+const bySector = PROMPT_SECTOR_SLUGS.map((s) => ({ slug: s, label: PROMPT_SECTORS[s], items: prompts.filter((p) => p.data.sector === s) }));
+const m = meta.promptsIndex(prompts.length);
+const h1 = 'Prompt AI per settore, pronti da copiare';
+---
+<BaseLayout
+  seo={{
+    title: m.title, description: m.description, path: '/prompt/',
+    breadcrumbs: [{ name: 'Prompt', path: '/prompt/' }],
+    jsonld: [
+      ...collectionPageNodes({ path: '/prompt/', name: h1, description: m.description }),
+      ...itemListNodes({ path: '/prompt/', name: h1, items: prompts.map((p) => ({ url: `/prompt/${p.data.sector}/${p.id}/`, name: p.data.title })) }),
+    ],
+  }}
+>
+  <div class="page-head">
+    <h1>{h1}</h1>
+    {prompts.length > 0 ? (
+      <p class="answer">{plural(prompts.length, 'prompt', 'prompt')} in 8 settori dell’economia siciliana, da copiare e adattare. Ognuno ha le variabili da compilare, un esempio, i limiti e la data dell’ultimo test. Non sono formule magiche: servono a far partire bene una conversazione con un assistente AI, il resto lo fa la tua competenza.</p>
+    ) : (
+      <p class="answer">La libreria è in preparazione: i prompt arrivano settore per settore, ognuno provato prima di essere pubblicato.</p>
+    )}
+  </div>
+
+  <section class="section" aria-labelledby="h-settori">
+    <h2 id="h-settori">Scegli il tuo settore</h2>
+    <ul class="grid">
+      {bySector.map((s) => (
+        <li class="card">
+          <h3><a href={`/prompt/${s.slug}/`} data-astro-prefetch>{s.label}</a></h3>
+          <p class="meta">{plural(s.items.length, 'prompt', 'prompt')}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="section" aria-labelledby="h-uso">
+    <h2 id="h-uso">Come si usa un prompt</h2>
+    <ol class="prose">
+      <li>Apri un prompt e copialo con il pulsante.</li>
+      <li>Sostituisci le parti tra graffe, come <code>{'{nome_struttura}'}</code>, con i tuoi dati.</li>
+      <li>Incollalo nello strumento che usi (ChatGPT, Claude, Gemini o un altro) e leggi la risposta con occhio critico.</li>
+      <li>Non inserire dati personali di clienti o dipendenti, e rileggi sempre il testo prima di usarlo.</li>
+    </ol>
+  </section>
+
+  <section class="section" aria-labelledby="h-tutti">
+    <h2 id="h-tutti">Tutti i prompt, per settore</h2>
+    {prompts.length > 0 ? (
+      bySector.filter((s) => s.items.length > 0).map((s) => (
+        <section aria-labelledby={`s-${s.slug}`}>
+          <h3 id={`s-${s.slug}`} class="sector">{s.label}</h3>
+          <ul class="grid">{s.items.map((p) => <PromptCard prompt={p} level={4} />)}</ul>
+        </section>
+      ))
+    ) : (
+      <EmptyState text="Nessun prompt pubblicato per ora." cta={false} />
+    )}
+  </section>
+</BaseLayout>
+<style>
+  .sector { margin-top: var(--space-5); }
+</style>

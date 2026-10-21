@@ -1,0 +1,53 @@
+{
+  "title": "Procedura di check-in e mini quiz per il personale stagionale",
+  "slug": "procedura-check-in-personale-stagionale-ospitalita",
+  "sector": "ospitalita",
+  "use_case": "formazione del personale",
+  "goal": "Ottieni una procedura di check-in su una pagina, con frasi per gli ospiti in più lingue e un quiz a parte, per far lavorare bene un nuovo collega dal primo turno.",
+  "prompt_text": "Sei un formatore di accoglienza per piccole strutture ricettive. Prepara per {nome_struttura} ({numero_camere} camere) una procedura di check-in di una pagina destinata al personale stagionale che inizia lunedì e non ha mai lavorato da noi.\n\nMateriale che ti do:\n- Come facciamo oggi il check-in: {passaggi_attuali}\n- Errori che vediamo di solito: {errori_frequenti}\n- Lingue degli ospiti: {lingue_ospiti}\n- Il check-in si fa dalle {orario_checkin}\n\nProduci due fogli separati.\nFoglio 1, che deve stare in una pagina:\n1. La procedura in passi numerati, massimo 10, una sola azione per passo.\n2. Per ogni errore frequente una riga nella forma \"Se succede X, fai Y\".\n3. Una tabella con sei frasi utili per accogliere gli ospiti (benvenuto, documenti, chiave, colazione, wifi, partenza): una colonna in italiano e una per ciascuna lingua indicata.\nFoglio 2: un quiz di cinque domande a risposta breve, con le soluzioni in fondo, per capire se il collega ha capito.\n\nLinguaggio semplice, frasi corte. Non inventare regole, tariffe o politiche di cancellazione: dove serve una decisione che non ho scritto, scrivi \"DA DECIDERE\" e lasciala a me. Non usare nomi o dati di ospiti reali.",
+  "variables": [
+    {
+      "name": "nome_struttura",
+      "description": "Nome della struttura.",
+      "example": "Albergo Casa Bellini"
+    },
+    {
+      "name": "numero_camere",
+      "description": "Quante camere ha la struttura.",
+      "example": "14"
+    },
+    {
+      "name": "passaggi_attuali",
+      "description": "I passi del check-in come li fate davvero, anche in modo disordinato.",
+      "example": "Saluto, chiedo i documenti, li registro sul portale della Questura, faccio firmare la scheda, spiego colazione e orari, accompagno in camera, consegno la chiave e ricordo la tassa di soggiorno."
+    },
+    {
+      "name": "errori_frequenti",
+      "description": "Gli sbagli che si ripetono ogni stagione.",
+      "example": "Si dimentica di chiedere i documenti a tutti gli ospiti adulti. Si promette un late check-out senza controllare gli arrivi del giorno dopo. Si sbaglia il numero di camera sulla chiave."
+    },
+    {
+      "name": "lingue_ospiti",
+      "description": "Lingue più frequenti tra i vostri ospiti.",
+      "example": "inglese, tedesco, francese"
+    },
+    {
+      "name": "orario_checkin",
+      "description": "Fascia del check-in.",
+      "example": "15:00-21:00"
+    }
+  ],
+  "how_to_use": "Scrivi i passi come li fai tu, senza ripulirli: è meglio che l'AI parta dalla realtà. Incolla il prompt, poi stampa la procedura e provala con un collega che finge di essere l'ospite. Correggi i passi che non reggono e fai fare il quiz al nuovo arrivato dopo il primo giorno.",
+  "example_input": "nome_struttura: Albergo Casa Bellini\nnumero_camere: 14\npassaggi_attuali: Saluto, chiedo i documenti, li registro sul portale della Questura, faccio firmare la scheda, spiego colazione e orari, accompagno in camera, consegno la chiave e ricordo la tassa di soggiorno.\nerrori_frequenti: Si dimentica di chiedere i documenti a tutti gli ospiti adulti. Si promette un late check-out senza controllare gli arrivi del giorno dopo. Si sbaglia il numero di camera sulla chiave.\nlingue_ospiti: inglese, tedesco, francese\norario_checkin: 15:00-21:00",
+  "expected_output_description": "Un primo foglio di una pagina con al massimo 10 passi numerati, una riga \"Se succede X, fai Y\" per ogni errore indicato e una tabella di sei frasi in italiano e nelle lingue degli ospiti. Un secondo foglio con il quiz di cinque domande e le soluzioni. Linguaggio da manuale operativo, senza gergo.",
+  "limits_and_warnings": "La procedura dei documenti e della registrazione degli ospiti dipende dalla normativa: verificala con l'associazione di categoria o con il consulente prima di darla al personale. Controlla che l'AI non abbia introdotto politiche (late check-out, penali) che non hai scritto. Non inserire dati di ospiti.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot"
+  ],
+  "level": "intermedio",
+  "tested_at": "2026-10-21",
+  "test_notes": "Eseguito sull'albergo di 14 camere con tre lingue: 9 passi, 3 righe \"Se succede\", tabella di 6 frasi, quiz di 5 domande. Con la richiesta originale tutto insieme superava una pagina e non era chiaro se le sei frasi fossero per lingua o in totale: ora i due fogli sono separati e le frasi stanno in una tabella. Corretto un refuso (\"le arrivi\") nell'esempio."
+}

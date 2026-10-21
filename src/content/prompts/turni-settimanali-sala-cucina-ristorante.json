@@ -1,0 +1,53 @@
+{
+  "title": "Bozza dei turni settimanali di sala e cucina rispettando indisponibilità e ore massime",
+  "slug": "turni-settimanali-sala-cucina-ristorante",
+  "sector": "ristorazione",
+  "use_case": "organizzazione",
+  "goal": "Ottieni una bozza dei turni della settimana in tabella, con le ore per persona ricalcolate e l'elenco dei vincoli che non riesci a rispettare.",
+  "prompt_text": "Costruisci la bozza dei turni della settimana per il ristorante {nome_locale}. Indico il personale solo con sigle, mai con nomi.\n\nServizi e durata: {servizi_e_durata}\nPersone necessarie per servizio: {fabbisogno_per_servizio}\nPersonale e disponibilità: {personale_e_disponibilita}\nOre massime per persona nella settimana: {ore_massime}\nAltri vincoli: {altri_vincoli}\n\nOutput:\n1. Una tabella giorno per servizio con le sigle assegnate.\n2. Una tabella con il totale delle ore di ciascuna persona. Prima di mostrarla, ricalcola le ore sommando turno per turno e controlla che nessuno superi il massimo.\n3. Un elenco \"Da risolvere\" con i turni scoperti o i vincoli che non si riescono a rispettare, e perché.\n\nRegole: usa solo le sigle indicate, rispetta indisponibilità e ore massime, distribuisci i giorni liberi e bilancia le ore tra persone dello stesso ruolo, quando le indisponibilità lo permettono. Questa è una bozza. Non applicare tu regole di legge o del contratto collettivo (riposi, straordinari, festivi): se i turni ti sembrano critici, scrivilo e indica che vanno verificati con il consulente del lavoro. Se un dato manca, chiedimelo prima di costruire la tabella.",
+  "variables": [
+    {
+      "name": "nome_locale",
+      "description": "Nome del ristorante.",
+      "example": "Osteria Fico d'India"
+    },
+    {
+      "name": "servizi_e_durata",
+      "description": "Giorni di apertura, servizi e ore di ciascun turno.",
+      "example": "Solo cena, da martedì a domenica, turno di 5 ore (18:30-23:30). Chiuso il lunedì."
+    },
+    {
+      "name": "fabbisogno_per_servizio",
+      "description": "Quante persone servono per ruolo e per giorno.",
+      "example": "Sala: 3 persone da martedì a giovedì, 4 da venerdì a domenica. Cucina: 2 persone da martedì a giovedì, 3 da venerdì a domenica."
+    },
+    {
+      "name": "personale_e_disponibilita",
+      "description": "Sigle, ruolo e giorni in cui NON sono disponibili.",
+      "example": "Sala: S1, S2, S3 (non disponibile venerdì e sabato), S4, S5. Cucina: C1, C2 (non disponibile martedì), C3."
+    },
+    {
+      "name": "ore_massime",
+      "description": "Tetto di ore settimanali per persona.",
+      "example": "40 ore"
+    },
+    {
+      "name": "altri_vincoli",
+      "description": "Preferenze o regole interne.",
+      "example": "Ciascuno ha almeno un giorno libero a settimana. C1 è l'unico che può stare ai fornelli del pesce."
+    }
+  ],
+  "how_to_use": "Scrivi le sigle e le indisponibilità raccolte dal personale, senza nomi. Incolla il prompt e controlla la bozza: ricalcola a mano le ore di due persone a campione. Poi sostituisci le sigle con i nomi nel tuo foglio e confronta con il consulente del lavoro i turni al limite.",
+  "example_input": "nome_locale: Osteria Fico d'India\nservizi_e_durata: Solo cena, da martedì a domenica, turno di 5 ore (18:30-23:30). Chiuso il lunedì.\nfabbisogno_per_servizio: Sala: 3 persone da martedì a giovedì, 4 da venerdì a domenica. Cucina: 2 persone da martedì a giovedì, 3 da venerdì a domenica.\npersonale_e_disponibilita: Sala: S1, S2, S3 (non disponibile venerdì e sabato), S4, S5. Cucina: C1, C2 (non disponibile martedì), C3.\nore_massime: 40 ore\naltri_vincoli: Ciascuno ha almeno un giorno libero a settimana. C1 è l'unico che può stare ai fornelli del pesce.",
+  "expected_output_description": "Una tabella dei turni con le sigle, una tabella con le ore settimanali per persona e un elenco di problemi aperti. È una bozza: il titolare la corregge prima di comunicarla al personale.",
+  "limits_and_warnings": "I turni sono materia di contratto e di norme sul lavoro (riposi, ore massime, festivi): l'AI non le applica e può sbagliare i conti, quindi verifica con il consulente del lavoro. Non inserire nomi o dati personali dei dipendenti: usa sigle. Ricontrolla sempre le somme delle ore.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot"
+  ],
+  "level": "intermedio",
+  "tested_at": "2026-10-21",
+  "test_notes": "Ho costruito la tabella a mano: 21 turni di sala (ore 25, 20, 15, 20, 25) e 15 di cucina (30, 20, 25), con C1 sempre al pesce e nessuno sopra le 40 ore. Con la prima formulazione la distribuzione poteva restare sbilanciata e le somme non erano obbligate: aggiunti il bilanciamento delle ore, il ricalcolo turno per turno e il divieto di applicare norme sul lavoro."
+}

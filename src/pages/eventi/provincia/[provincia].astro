@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import MapPreviewSlot from '../../../components/MapPreviewSlot.astro';
+import MapInteractiveSlot from '../../../components/MapInteractiveSlot.astro';
+import EventCard from '../../../components/EventCard.astro';
+import CompanyCard from '../../../components/CompanyCard.astro';
+import OtherProvinces from '../../../components/OtherProvinces.astro';
+import EmptyState from '../../../components/EmptyState.astro';
+import CtaSegnala from '../../../components/CtaSegnala.astro';
+import { getCompanies, getUpcomingEvents } from '../../../lib/data';
+import { meta } from '../../../lib/seo/meta';
+import { collectionPageNodes, itemListNodes } from '../../../lib/seo/jsonld';
+import { PROVINCES, PROVINCE_SLUGS, type ProvinceSlug } from '../../../lib/provinces';
+import { countByProvince, dateRange, eventPoints, isScheduled, plural } from '../../../components/helpers';
+
+export function getStaticPaths() {
+  return PROVINCE_SLUGS.map((provincia) => ({ params: { provincia } }));
+}
+const slug = Astro.params.provincia as ProvinceSlug;
+const prov = PROVINCES[slug];
+const [upcoming, allCompanies] = await Promise.all([getUpcomingEvents(), getCompanies()]);
+const events = upcoming.filter((e) => e.data.province === slug);
+const scheduled = events.filter(isScheduled);
+const companies = allCompanies.filter((c) => c.data.province === slug);
+const counts = countByProvince(upcoming);
+const points = eventPoints(events);
+const m = meta.eventsProvince(slug, scheduled.length);
+const path = `/eventi/provincia/${slug}/`;
+const h1 = `Eventi AI in provincia di ${prov.name}`;
+const first = events[0]?.data.start_date;
+---
+<BaseLayout
+  seo={{
+    title: m.title, description: m.description, path,
+    breadcrumbs: [{ name: 'Eventi', path: '/eventi/' }, { name: prov.name, path }],
+    jsonld: [
+      ...collectionPageNodes({ path, name: h1, description: m.description }),
+      ...itemListNodes({ path, name: h1, items: events.map((e) => ({ url: `/eventi/${e.id}/`, name: e.data.title })) }),
+    ],
+  }}
+>
+  <div class="page-head">
+    <h1>{h1}</h1>
+    {events.length > 0 && first ? (
+      <p class="answer">In provincia di {prov.name} {scheduled.length === 1 ? 'c’è' : 'ci sono'} {plural(scheduled.length, 'evento in programma', 'eventi in programma')} sull’intelligenza artificiale, il primo il {dateRange(first)}. Su tutta la Sicilia sono {upcoming.filter(isScheduled).length}.</p>
+    ) : (
+      <p class="answer">Nessun evento in programma a {prov.name} per ora. Ne conosci uno? <a href="/segnala/">Segnalalo</a>.</p>
+    )}
+  </div>
+
+  <section class="section" aria-labelledby="h-elenco">
+    <h2 id="h-elenco">Prossimi eventi a {prov.name}</h2>
+    {events.length > 0 ? (
+      <ul class="grid">{events.map((e) => <EventCard event={e} />)}</ul>
+    ) : (
+      <EmptyState text={`Nessun evento in programma a ${prov.name} per ora. Ne conosci uno? Segnalalo.`} ctaLabel="Segnala un evento" />
+    )}
+  </section>
+
+  <section class="section" aria-labelledby="h-mappa">
+    <h2 id="h-mappa">Sulla mappa</h2>
+    {points.length > 0 ? (
+      <MapInteractiveSlot points={points} center={prov.center} zoom={prov.zoom} label={`Mappa degli eventi AI in provincia di ${prov.name}`} />
+    ) : (
+      <MapPreviewSlot counts={counts} mode="link" basePath="/eventi/provincia/" active={slug} label="Eventi AI per provincia siciliana" unit={['evento', 'eventi']} />
+    )}
+  </section>
+
+  <section class="section" aria-labelledby="h-aziende">
+    <div class="section-head">
+      <h2 id="h-aziende">Aziende AI di {prov.name}</h2>
+      <a href={`/aziende/provincia/${slug}/`}>Tutte le aziende a {prov.name}</a>
+    </div>
+    {companies.length > 0 ? (
+      <ul class="grid">{companies.slice(0, 3).map((c) => <CompanyCard company={c} />)}</ul>
+    ) : (
+      <EmptyState text={`Nessuna azienda AI a ${prov.name} in elenco per ora. Ne conosci una? Segnalala.`} ctaLabel="Segnala un’azienda" />
+    )}
+  </section>
+
+  <OtherProvinces current={slug} counts={counts} basePath="/eventi/provincia/" label="Eventi nelle altre province" />
+  <CtaSegnala text="Conosci un evento sull’AI in Sicilia? Segnalalo: lo controlliamo e lo aggiungiamo." label="Segnala un evento" />
+</BaseLayout>

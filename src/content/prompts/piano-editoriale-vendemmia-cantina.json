@@ -1,0 +1,63 @@
+{
+  "title": "Piano editoriale della vendemmia per una cantina: quattro settimane realistiche",
+  "slug": "piano-editoriale-vendemmia-cantina",
+  "sector": "agroalimentare-vino",
+  "use_case": "social media",
+  "goal": "Ottieni un piano di quattro settimane per la vendemmia con contenuti sostenibili per il tuo tempo, tre bozze complete e le avvertenze sulla comunicazione del vino.",
+  "prompt_text": "Sei un consulente di comunicazione per cantine piccole. Prepara il piano editoriale della vendemmia di {nome_cantina} ({zona}) per quattro settimane.\n\nDati reali:\n- Periodo di vendemmia: {periodo_vendemmia}\n- Uve in raccolta: {varieta_in_raccolta}\n- Cosa possiamo mostrare: {cosa_si_puo_mostrare}\n- Canali che usiamo: {canali}\n- Tempo che posso dedicare: {ore_a_settimana} ore a settimana\n- Vincoli: {vincoli}\n\nOutput:\n1. Una tabella con le quattro settimane (prima della raccolta, raccolta, cantina, dopo), l'obiettivo di ciascuna e i contenuti. Per ogni contenuto: canale, formato, idea, cosa registrare, bozza di testo di massimo 40 parole.\n2. Tre bozze complete di post tra quelli proposti.\nConta circa un'ora per contenuto: non proporre più contenuti a settimana delle ore che ho indicato.\nRegole: non indicare date precise di raccolta, imbottigliamento o uscita dei vini: usa formule come \"quando il meteo lo permette\". Non inventare dati su quantità, rese o qualità dell'annata. Non rivolgerti a minorenni, non associare il vino a guida, sport, successo o salute, non incitare a bere. Se manca un dato, chiedimelo prima di costruire il piano.",
+  "variables": [
+    {
+      "name": "nome_cantina",
+      "description": "Nome della cantina.",
+      "example": "Cantina Fondo Alto"
+    },
+    {
+      "name": "zona",
+      "description": "Zona di produzione.",
+      "example": "versante nord dell'Etna"
+    },
+    {
+      "name": "periodo_vendemmia",
+      "description": "Quando prevedi di vendemmiare, in modo approssimativo.",
+      "example": "dai primi di ottobre fino a fine mese, a seconda del meteo"
+    },
+    {
+      "name": "varieta_in_raccolta",
+      "description": "Uve che raccogli.",
+      "example": "Nerello Mascalese e Nerello Cappuccio; il Mascalese per ultimo."
+    },
+    {
+      "name": "cosa_si_puo_mostrare",
+      "description": "Cosa riesci e vuoi riprendere o fotografare.",
+      "example": "Uva in cassetta, selezione sul tavolo, pigiatura, cantina in fermentazione. Nessuna ripresa di clienti."
+    },
+    {
+      "name": "canali",
+      "description": "Dove pubblichi.",
+      "example": "Instagram e newsletter mensile"
+    },
+    {
+      "name": "ore_a_settimana",
+      "description": "Ore reali a settimana per la comunicazione.",
+      "example": "3"
+    },
+    {
+      "name": "vincoli",
+      "description": "Cose da evitare.",
+      "example": "Niente minorenni nelle riprese, niente promesse sulle date di uscita dei vini."
+    }
+  ],
+  "how_to_use": "Compila le ore che hai davvero, non quelle che vorresti avere. Incolla il prompt e confronta il piano con il calendario della cantina: sposta i contenuti nei giorni in cui puoi riprendere. Tieni le bozze come traccia e riscrivile con le tue parole.",
+  "example_input": "nome_cantina: Cantina Fondo Alto\nzona: versante nord dell'Etna\nperiodo_vendemmia: dai primi di ottobre fino a fine mese, a seconda del meteo\nvarieta_in_raccolta: Nerello Mascalese e Nerello Cappuccio; il Mascalese per ultimo.\ncosa_si_puo_mostrare: Uva in cassetta, selezione sul tavolo, pigiatura, cantina in fermentazione. Nessuna ripresa di clienti.\ncanali: Instagram e newsletter mensile\nore_a_settimana: 3\nvincoli: Niente minorenni nelle riprese, niente promesse sulle date di uscita dei vini.",
+  "expected_output_description": "Una tabella di quattro settimane con obiettivo e contenuti (canale, formato, idea, cosa registrare, bozza di massimo 40 parole), con un numero di contenuti compatibile con le ore indicate, e tre bozze complete di post. Nessuna data precisa promessa.",
+  "limits_and_warnings": "La pubblicità degli alcolici ha regole proprie (autodisciplina e norme di legge): controlla con l'associazione di categoria o con un consulente prima di pubblicare. L'AI può inventare dati sull'annata: usa solo ciò che sai. Non riprendere persone riconoscibili senza consenso. Non rivolgerti a minori.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot"
+  ],
+  "level": "intermedio",
+  "tested_at": "2026-10-21",
+  "test_notes": "Eseguito sulla vendemmia sull'Etna con 3 ore a settimana: sono usciti 3 contenuti a settimana e tre bozze complete. Nella mia prima esecuzione comparivano date precise (\"il 12 ottobre raccogliamo il Nerello\") e un frase su \"una grande annata\", non fornite: aggiunti il divieto di date precise e di dati sull'annata."
+}

@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import MapPreviewSlot from '../../components/MapPreviewSlot.astro';
+import MapInteractiveSlot from '../../components/MapInteractiveSlot.astro';
+import ProvinceTable from '../../components/ProvinceTable.astro';
+import EventCard from '../../components/EventCard.astro';
+import ListFilters from '../../components/ListFilters.astro';
+import EmptyState from '../../components/EmptyState.astro';
+import CtaSegnala from '../../components/CtaSegnala.astro';
+import { getPastEvents, getUpcomingEvents } from '../../lib/data';
+import { meta } from '../../lib/seo/meta';
+import { collectionPageNodes, itemListNodes } from '../../lib/seo/jsonld';
+import { PROVINCES, PROVINCE_SLUGS } from '../../lib/provinces';
+import { EVENT_AUDIENCES, EVENT_FORMATS, EVENT_PRICES } from '../../lib/taxonomies';
+import { cap, countByProvince, dateRange, eventPoints, isScheduled, monthKey, monthLabel, plural, slugify } from '../../components/helpers';
+
+const events = await getUpcomingEvents();
+const past = await getPastEvents();
+const scheduled = events.filter(isScheduled);
+const counts = countByProvince(events);
+const points = eventPoints(events);
+const first = events[0]?.data.start_date;
+const last = events.length ? events.map((e) => e.data.end_date ?? e.data.start_date).sort((a, b) => b.getTime() - a.getTime())[0] : undefined;
+
+const months = [...new Set(events.map((e) => monthKey(e.data.start_date)))].sort();
+const byMonth = months.map((k) => ({ key: k, label: monthLabel(k), items: events.filter((e) => monthKey(e.data.start_date) === k) }));
+const present = (all: readonly string[], pick: (e: (typeof events)[number]) => readonly string[]) =>
+  all.filter((v) => events.some((e) => pick(e).includes(v))).map((v) => ({ value: slugify(v), label: cap(v) }));
+const fields = [
+  { key: 'provincia', label: 'Provincia', options: PROVINCE_SLUGS.filter((p) => counts[p] > 0).map((p) => ({ value: p, label: PROVINCES[p].name })) },
+  { key: 'formato', label: 'Formato', options: present(EVENT_FORMATS, (e) => [e.data.format]) },
+  { key: 'pubblico', label: 'Pubblico', options: present(EVENT_AUDIENCES, (e) => e.data.audience) },
+  { key: 'prezzo', label: 'Prezzo', options: present(EVENT_PRICES, (e) => [e.data.price]) },
+  { key: 'mese', label: 'Mese', options: months.map((k) => ({ value: k, label: cap(monthLabel(k)) })) },
+].filter((f) => f.options.length > 1);
+
+const m = meta.eventsIndex(scheduled.length);
+const h1 = 'Eventi AI in Sicilia';
+---
+<BaseLayout
+  seo={{
+    title: m.title, description: m.description, path: '/eventi/',
+    breadcrumbs: [{ name: 'Eventi', path: '/eventi/' }],
+    jsonld: [
+      ...collectionPageNodes({ path: '/eventi/', name: h1, description: m.description }),
+      ...itemListNodes({ path: '/eventi/', name: h1, items: events.map((e) => ({ url: `/eventi/${e.id}/`, name: e.data.title })) }),
+    ],
+  }}
+>
+  <div class="page-head">
+    <h1>{h1}</h1>
+    {events.length > 0 && first && last ? (
+      <p class="answer">{plural(scheduled.length, 'evento in programma', 'eventi in programma')} sull’intelligenza artificiale in Sicilia, da {dateRange(first)} a {dateRange(last)}. Ogni scheda ha il link alla pagina dell’organizzatore, la fonte e la data di verifica. Quelli già svolti restano nell’<a href="/eventi/archivio/">archivio</a>.</p>
+    ) : (
+      <p class="answer">Nessun evento in programma per ora. Ne conosci uno? <a href="/segnala/">Segnalalo</a>. Intanto puoi guardare l’<a href="/eventi/archivio/">archivio degli eventi passati</a>.</p>
+    )}
+  </div>
+
+  <section class="section" aria-labelledby="h-province">
+    <h2 id="h-province">Eventi per provincia</h2>
+    <div class="two">
+      <MapPreviewSlot counts={counts} mode="filter" basePath="/eventi/provincia/" label="Eventi AI per provincia siciliana" unit={['evento', 'eventi']} />
+      <ProvinceTable counts={counts} basePath="/eventi/provincia/" caption="Eventi AI in programma in Sicilia, per provincia" header="Eventi" />
+    </div>
+  </section>
+
+  {points.length > 0 && (
+    <section class="section" aria-labelledby="h-mappa">
+      <h2 id="h-mappa">Sulla mappa</h2>
+      <p class="muted">Compaiono gli eventi con un luogo. Quelli online non hanno un marker: li trovi nell’elenco.</p>
+      <MapInteractiveSlot points={points} label="Mappa degli eventi AI in Sicilia" />
+    </section>
+  )}
+
+  <section class="section" aria-labelledby="h-calendario">
+    <h2 id="h-calendario">Calendario per mese</h2>
+    {events.length > 0 ? (
+      <>
+        <ListFilters target="calendario" fields={fields} noun={['evento', 'eventi']} searchLabel="Cerca per titolo, città o organizzatore" />
+        <div id="calendario">
+          {byMonth.map((g) => (
+            <section data-group aria-labelledby={`m-${g.key}`}>
+              <h3 id={`m-${g.key}`} class="month">{cap(g.label)}</h3>
+              <ul class="grid">{g.items.map((e) => <EventCard event={e} level={4} />)}</ul>
+            </section>
+          ))}
+        </div>
+      </>
+    ) : (
+      <EmptyState text="Nessun evento in programma per ora. Ne conosci uno? Segnalalo." ctaLabel="Segnala un evento" />
+    )}
+    <p><a href="/eventi/archivio/">Vai all’archivio {past.length > 0 ? `(${plural(past.length, 'evento passato', 'eventi passati')})` : 'degli eventi passati'}</a></p>
+  </section>
+
+  <CtaSegnala text="Organizzi o conosci un evento sull’AI in Sicilia? Segnalalo: lo controlliamo e lo aggiungiamo al calendario." />
+</BaseLayout>
+<style>
+  .two { display: grid; gap: var(--space-5); align-items: start; }
+  @media (min-width: 56rem) { .two { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); } }
+  .month { margin-top: var(--space-5); font-size: var(--fs-xl); border-bottom: 2px solid var(--c-border); padding-bottom: var(--space-2); }
+</style>

@@ -1,0 +1,73 @@
+{
+  "title": "Scheda tecnica di un vino per l'export, in italiano, inglese e tedesco",
+  "slug": "scheda-tecnica-vino-export-inglese-tedesco",
+  "sector": "agroalimentare-vino",
+  "use_case": "traduzioni",
+  "goal": "Ottieni la scheda tecnica di un vino in tre lingue con la stessa struttura, i numeri invariati e l'elenco dei termini da far controllare al tuo enologo.",
+  "prompt_text": "Sei un redattore tecnico che lavora per una cantina siciliana. Crea la scheda tecnica per l'export del vino \"{nome_vino}\" di {nome_cantina}, destinata a importatori in {mercato_destinazione}.\n\nDati forniti:\n- Denominazione: {denominazione}\n- Annata: {annata}\n- Vitigni: {vitigni}\n- Dati analitici: {dati_analitici}\n- Vinificazione e affinamento: {vinificazione_affinamento}\n- Note di degustazione, in italiano: {note_degustazione}\n- Abbinamenti: {abbinamenti}\n\nConsegna tre blocchi con la stessa struttura: italiano, inglese, tedesco. Ogni blocco ha una tabella dei dati tecnici, un paragrafo sulla vinificazione, le note di degustazione (massimo 60 parole) e gli abbinamenti.\nRegole: non cambiare nessun valore, unità, nome di vitigno, denominazione o annata. Adatta solo il separatore dei decimali alla lingua (virgola in italiano e tedesco, punto in inglese). Non tradurre i nomi propri (cantina, vino, denominazione). Non aggiungere descrittori, punteggi, premi, certificazioni (biologico, vegano) o dati analitici che non ho scritto: dove manca un dato scrivi \"n.d.\" e segnalalo. Niente affermazioni sulla salute.\nUsa la terminologia enologica corrente in ogni lingua. In fondo, sotto il titolo \"Da verificare con l'enologo\", elenca ogni termine tradotto di cui non sei sicuro.",
+  "variables": [
+    {
+      "name": "nome_vino",
+      "description": "Nome commerciale del vino.",
+      "example": "Muntagna"
+    },
+    {
+      "name": "nome_cantina",
+      "description": "Nome della cantina.",
+      "example": "Cantina Fondo Alto"
+    },
+    {
+      "name": "mercato_destinazione",
+      "description": "Paesi o tipo di importatori a cui è destinata la scheda.",
+      "example": "Germania e Regno Unito"
+    },
+    {
+      "name": "denominazione",
+      "description": "Denominazione come in etichetta.",
+      "example": "Etna Rosso DOC"
+    },
+    {
+      "name": "annata",
+      "description": "Anno di vendemmia.",
+      "example": "2023"
+    },
+    {
+      "name": "vitigni",
+      "description": "Vitigni con percentuali, se le dichiari.",
+      "example": "Nerello Mascalese 80%, Nerello Cappuccio 20%"
+    },
+    {
+      "name": "dati_analitici",
+      "description": "Valori dal certificato di analisi, con unità.",
+      "example": "Alcol 13,5% vol; acidità totale 5,8 g/l; pH 3,45; zuccheri residui 0,8 g/l"
+    },
+    {
+      "name": "vinificazione_affinamento",
+      "description": "Cosa succede in cantina, dalla raccolta alla bottiglia.",
+      "example": "Vendemmia manuale; fermentazione in acciaio con macerazione di 12 giorni; affinamento di 12 mesi in botti di rovere da 25 ettolitri e 6 mesi in bottiglia."
+    },
+    {
+      "name": "note_degustazione",
+      "description": "Le tue note di assaggio in italiano.",
+      "example": "Rosso rubino chiaro. Profumi di ciliegia e di terra bagnata. In bocca è teso, con tannino fine e finale minerale."
+    },
+    {
+      "name": "abbinamenti",
+      "description": "Piatti consigliati.",
+      "example": "Pasta alla Norma, carni alla brace, formaggi stagionati."
+    }
+  ],
+  "how_to_use": "Prendi i dati dal certificato di analisi e dalla scheda di cantina, non a memoria. Incolla il prompt, poi fai leggere la sezione \"Da verificare con l'enologo\" a chi conosce i termini e, se puoi, fai controllare la versione tedesca a un madrelingua o all'importatore. Impagina la scheda con i tuoi colori e il tuo logo.",
+  "example_input": "nome_vino: Muntagna\nnome_cantina: Cantina Fondo Alto\nmercato_destinazione: Germania e Regno Unito\ndenominazione: Etna Rosso DOC\nannata: 2023\nvitigni: Nerello Mascalese 80%, Nerello Cappuccio 20%\ndati_analitici: Alcol 13,5% vol; acidità totale 5,8 g/l; pH 3,45; zuccheri residui 0,8 g/l\nvinificazione_affinamento: Vendemmia manuale; fermentazione in acciaio con macerazione di 12 giorni; affinamento di 12 mesi in botti di rovere da 25 ettolitri e 6 mesi in bottiglia.\nnote_degustazione: Rosso rubino chiaro. Profumi di ciliegia e di terra bagnata. In bocca è teso, con tannino fine e finale minerale.\nabbinamenti: Pasta alla Norma, carni alla brace, formaggi stagionati.",
+  "expected_output_description": "Tre versioni della scheda (italiano, inglese, tedesco) con la stessa struttura: tabella dei dati tecnici, paragrafo di vinificazione, note di degustazione sotto le 60 parole, abbinamenti. Valori e nomi identici, decimali adattati alla lingua. In fondo l'elenco dei termini da verificare.",
+  "limits_and_warnings": "I dati analitici devono venire dal certificato: l'AI non deve mai completarli. Premi, certificazioni e indicazioni obbligatorie in etichetta per il paese di destinazione vanno verificati con l'importatore e con un consulente. Una traduzione tecnica sbagliata può creare problemi commerciali: fai rileggere a un madrelingua del settore.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Mistral Le Chat"
+  ],
+  "level": "avanzato",
+  "tested_at": "2026-10-21",
+  "test_notes": "Eseguito su un Etna Rosso DOC 2023: tre blocchi con stessa struttura, note di degustazione sotto le 60 parole e un elenco finale con \"macerazione\" e \"tannino fine\". Nella mia prima esecuzione il valore 13,5% diventava \"13,5\" anche in inglese e un descrittore (\"note di spezie\") compariva solo in una lingua: aggiunte la regola sui decimali e il divieto di nuovi descrittori."
+}

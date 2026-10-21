@@ -1,0 +1,53 @@
+{
+  "title": "Rispondere a una recensione negativa su Booking senza mettersi sulla difensiva",
+  "slug": "risposta-recensione-negativa-booking-ospitalita",
+  "sector": "ospitalita",
+  "use_case": "recensioni",
+  "goal": "Ottieni una risposta pubblica di 80-120 parole, cordiale e basata solo sui fatti che hai verificato, da incollare sotto una recensione negativa.",
+  "prompt_text": "Sei il responsabile dell'accoglienza di {nome_struttura}, una struttura ricettiva a {localita}. Devi scrivere la risposta pubblica a una recensione negativa lasciata su {piattaforma}.\n\nRecensione dell'ospite, testo integrale:\n{testo_recensione}\n\nFatti che ho verificato io (non aggiungerne altri):\n{fatti_verificati}\n\nCosa siamo disposti a fare, in concreto:\n{azione_proposta}\n\nScrivi la risposta in italiano, da 80 a 120 parole, in prima persona plurale, con tono cordiale e asciutto. Struttura: ringrazia per aver scritto senza formule di rito, riconosci il disagio con le parole dell'ospite, spiega cosa è successo solo se emerge dai fatti verificati, dichiara l'azione concreta, invita a proseguire in privato dai canali della piattaforma.\nVincoli: i fatti servono a spiegare, non a difenderci o a dare torto all'ospite. Non confermare circostanze che non compaiono tra i fatti verificati (per esempio che nessuno ha avvisato l'ospite). Non dare colpa a terzi, non citare nomi di persone, non offrire sconti o rimborsi che non compaiono nell'azione proposta. Se un'informazione manca o i fatti contraddicono la recensione, non inventare: prima di scrivere elencami le domande che ti servono.\nDopo la risposta aggiungi due varianti alternative dell'ultima frase, massimo 15 parole ciascuna.",
+  "variables": [
+    {
+      "name": "nome_struttura",
+      "description": "Nome della struttura come lo scrivi sul sito.",
+      "example": "B&B Il Cortile"
+    },
+    {
+      "name": "localita",
+      "description": "Città o zona.",
+      "example": "Ortigia, Siracusa"
+    },
+    {
+      "name": "piattaforma",
+      "description": "Dove è stata pubblicata la recensione.",
+      "example": "Booking.com"
+    },
+    {
+      "name": "testo_recensione",
+      "description": "Testo della recensione, senza il nome dell'ospite.",
+      "example": "Camera piccola e rumorosa, si sentiva il bar fino a tardi. La colazione era già finita alle 9:30 e nessuno ci ha avvisato. Per il prezzo mi aspettavo di più."
+    },
+    {
+      "name": "fatti_verificati",
+      "description": "Ciò che hai controllato davvero (orari, lavori, guasti, fornitori).",
+      "example": "La camera 3 dà sulla via e il bar vicino chiude alle 23:30 nel fine settimana. La colazione si serve dalle 8:00 alle 10:00, ma quel giorno il fornitore ha consegnato i dolci in ritardo e alle 9:30 erano finiti. La camera misura 14 metri quadri, come scritto sul sito."
+    },
+    {
+      "name": "azione_proposta",
+      "description": "Il gesto concreto che offri, e nient'altro.",
+      "example": "Se tornano, camera sul cortile allo stesso prezzo, quando disponibile. Dal 15 ottobre il fornitore consegna entro le 7:30 e riforniamo il buffet fino alle 10:00."
+    }
+  ],
+  "how_to_use": "Apri la recensione, copia il testo togliendo il nome dell'ospite e compila le sei variabili. Nei fatti verificati scrivi solo cose controllate (chiedi al personale prima). Incolla il prompt in un assistente AI, leggi la risposta ad alta voce e togli ogni frase che non diresti a voce a un ospite. Pubblica da te, dalla piattaforma.",
+  "example_input": "nome_struttura: B&B Il Cortile\nlocalita: Ortigia, Siracusa\npiattaforma: Booking.com\ntesto_recensione: Camera piccola e rumorosa, si sentiva il bar fino a tardi. La colazione era già finita alle 9:30 e nessuno ci ha avvisato. Per il prezzo mi aspettavo di più.\nfatti_verificati: La camera 3 dà sulla via e il bar vicino chiude alle 23:30 nel fine settimana. La colazione si serve dalle 8:00 alle 10:00, ma quel giorno il fornitore ha consegnato i dolci in ritardo e alle 9:30 erano finiti. La camera misura 14 metri quadri, come scritto sul sito.\nazione_proposta: Se tornano, camera sul cortile allo stesso prezzo, quando disponibile. Dal 15 ottobre il fornitore consegna entro le 7:30 e riforniamo il buffet fino alle 10:00.",
+  "expected_output_description": "Un testo unico di 80-120 parole, in italiano, in prima persona plurale, senza elenchi: ringraziamento, riconoscimento del disagio, spiegazione breve, impegno concreto, invito a scrivere in privato. Seguono due varianti dell'ultima frase. Tono da gestore che parla a una persona, non da ufficio reclami.",
+  "limits_and_warnings": "Non incollare nome, cognome, email o dati di prenotazione dell'ospite. L'AI tende a ingentilire e ad aggiungere scuse o promesse: controlla che non offra nulla che non hai scritto. Se la recensione contiene accuse gravi (igiene, sicurezza, discriminazione) non rispondere d'impulso: valuta con un legale o con l'associazione di categoria. Rileggi sempre prima di pubblicare.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot"
+  ],
+  "level": "base",
+  "tested_at": "2026-10-21",
+  "test_notes": "Eseguito sull'input B&B Il Cortile: risposta di circa 115 parole, quindi al limite dei 120. Nella mia esecuzione compariva \"dovevamo avvisarvi e non l'abbiamo fatto\", circostanza non presente nei fatti verificati: aggiunto il divieto di confermare circostanze non verificate. Le due varianti finali sono limitate a 15 parole."
+}

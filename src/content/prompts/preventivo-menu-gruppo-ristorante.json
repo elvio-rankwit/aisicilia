@@ -1,0 +1,58 @@
+{
+  "title": "Preventivo per un gruppo (cena o cerimonia) con menu, calcolo del totale e condizioni",
+  "slug": "preventivo-menu-gruppo-ristorante",
+  "sector": "ristorazione",
+  "use_case": "vendite e preventivi",
+  "goal": "Ottieni un'email di risposta a una richiesta di gruppo con menu, totale calcolato e condizioni, senza voci o promesse che non hai scritto tu.",
+  "prompt_text": "Sei il titolare di {nome_locale}. Scrivi l'email di risposta a una richiesta di preventivo per un gruppo.\n\nRichiesta del cliente:\n{richiesta_cliente}\n\nDati della nostra offerta:\n- Menu proposto: {menu_proposto}\n- Numero di ospiti: {numero_ospiti}\n- Prezzo a persona e cosa comprende: {prezzo_a_persona}\n- Condizioni (acconto, disdetta): {condizioni}\n- Conferma richiesta entro: {scadenza_conferma}\n\nScrivi un'email in italiano di massimo 180 parole, escluso l'elenco del menu, con tono cordiale e concreto. Mostra il calcolo del totale (ospiti per prezzo a persona) e, se ho indicato una percentuale di acconto, anche l'importo dell'acconto. Chiudi con una domanda precisa per avanzare (per esempio conferma del numero di ospiti entro la data).\nRegole: non aggiungere voci, sconti, servizi o orari che non ho scritto. Non dire che IVA, servizio o coperto sono inclusi o esclusi se non è scritto in \"prezzo a persona\". Non indicare allergie o intolleranze: chiedi al cliente di segnalarle. Se la richiesta contiene qualcosa a cui non so rispondere (menu per bambini, torta, musica), non rispondere e mettilo in una lista \"Da chiarire\" sotto l'email. Se non conosci il nome del cliente, apri con \"Buongiorno\".",
+  "variables": [
+    {
+      "name": "nome_locale",
+      "description": "Nome del ristorante.",
+      "example": "Osteria Fico d'India"
+    },
+    {
+      "name": "richiesta_cliente",
+      "description": "Il messaggio ricevuto, senza dati di contatto.",
+      "example": "Buongiorno, vorremmo prenotare per venerdì 20 novembre una cena per il pensionamento di una collega. Saremo circa 24 persone. Preferiremmo pesce. Avete un menu fisso? Quanto verrebbe a persona?"
+    },
+    {
+      "name": "menu_proposto",
+      "description": "Le portate che offri.",
+      "example": "Antipasto: caponata di melanzane e insalata di mare. Primo: busiate al pesto trapanese. Secondo: pesce spada alla ghiotta con contorno di stagione. Dolce: cannolo scomposto."
+    },
+    {
+      "name": "numero_ospiti",
+      "description": "Numero di persone per cui calcoli.",
+      "example": "24"
+    },
+    {
+      "name": "prezzo_a_persona",
+      "description": "Prezzo e cosa comprende, scritto come lo scriveresti sul preventivo.",
+      "example": "38 euro a persona, bevande escluse, coperto incluso."
+    },
+    {
+      "name": "condizioni",
+      "description": "Acconto e disdetta, come le applichi davvero.",
+      "example": "Acconto del 30% alla conferma, saldo la sera stessa. Disdetta senza penale fino a 7 giorni prima."
+    },
+    {
+      "name": "scadenza_conferma",
+      "description": "Data entro cui il cliente deve confermare.",
+      "example": "6 novembre"
+    }
+  ],
+  "how_to_use": "Rispondi entro il giorno stesso: i gruppi chiedono preventivo a più locali. Compila le variabili con il menu e le condizioni che applichi davvero, incolla il prompt e ricontrolla il calcolo con la calcolatrice. Se sul preventivo servono dati fiscali o un contratto, aggiungili tu in un secondo momento.",
+  "example_input": "nome_locale: Osteria Fico d'India\nrichiesta_cliente: Buongiorno, vorremmo prenotare per venerdì 20 novembre una cena per il pensionamento di una collega. Saremo circa 24 persone. Preferiremmo pesce. Avete un menu fisso? Quanto verrebbe a persona?\nmenu_proposto: Antipasto: caponata di melanzane e insalata di mare. Primo: busiate al pesto trapanese. Secondo: pesce spada alla ghiotta con contorno di stagione. Dolce: cannolo scomposto.\nnumero_ospiti: 24\nprezzo_a_persona: 38 euro a persona, bevande escluse, coperto incluso.\ncondizioni: Acconto del 30% alla conferma, saldo la sera stessa. Disdetta senza penale fino a 7 giorni prima.\nscadenza_conferma: 6 novembre",
+  "expected_output_description": "Un'email di massimo 180 parole (escluso il menu) con menu, calcolo del totale e dell'acconto, condizioni, scadenza e una domanda finale. Sotto, un elenco \"Da chiarire\" con ciò che la richiesta chiede e tu non hai indicato.",
+  "limits_and_warnings": "Ricontrolla il calcolo e ogni importo: l'AI può sbagliare le moltiplicazioni. Non incollare dati personali del cliente. Controlla che le condizioni siano quelle che applichi davvero e che l'informazione su allergeni e intolleranze sia richiesta per iscritto. Per fattura, IVA e contratti di banchetto, chiedi al commercialista.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot"
+  ],
+  "level": "intermedio",
+  "tested_at": "2026-10-21",
+  "test_notes": "Eseguito sulla cena per 24 persone: il totale è 912 euro (24 per 38) e l'acconto 273,60 euro. Nella mia prima esecuzione avevo scritto \"IVA inclusa\" senza che fosse dichiarato e avevo aggiunto una frase rassicurante sulle intolleranze: aggiunte le regole su IVA e allergie. L'elenco \"Da chiarire\" resta vuoto perché la richiesta trova risposta."
+}

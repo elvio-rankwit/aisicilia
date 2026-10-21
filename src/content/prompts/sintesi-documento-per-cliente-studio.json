@@ -1,0 +1,43 @@
+{
+  "title": "Riassumere un contratto o un atto in linguaggio semplice per spiegarlo a un cliente",
+  "slug": "sintesi-documento-per-cliente-studio",
+  "sector": "studi-professionali",
+  "use_case": "analisi",
+  "goal": "Ottieni una sintesi in 120 parole, con dati chiave citati alla lettera, clausole da guardare con attenzione e tre domande da fare al professionista, senza pareri.",
+  "prompt_text": "Sei un assistente che prepara per un professionista la sintesi di un documento da spiegare a un cliente non esperto. Tipo di documento: {tipo_documento}. Il cliente è {profilo_cliente}.\n\nIl testo (già anonimizzato, senza nomi e dati personali):\n{testo_documento}\n\nCosa chiede il cliente: {domande_cliente}\n\nRispondi con:\n1. Sintesi in linguaggio semplice, massimo 120 parole.\n2. Dati chiave: importi, durate, date e termini, copiati esattamente come nel testo e tra virgolette, ciascuno con il riferimento (articolo, clausola o paragrafo) se c'è.\n3. Punti che richiedono attenzione: clausole che limitano i diritti o gli obblighi del cliente, spiegate in una riga ciascuna, senza giudicare se siano giuste.\n4. Risposte alle domande del cliente, solo se il testo risponde; altrimenti scrivi \"Il testo non lo dice\". Se per rispondere serve un calcolo, mostralo passaggio per passaggio e indicalo come calcolo, non come dato del testo.\n5. Tre domande da fare al professionista.\n\nVincoli: non aggiungere nulla che non sia nel testo, non citare leggi o sentenze, non dare pareri sulla convenienza o sulla validità. Spiega ogni termine tecnico in poche parole la prima volta. Se il testo sembra incompleto, dimmelo.",
+  "variables": [
+    {
+      "name": "tipo_documento",
+      "description": "Che documento è.",
+      "example": "contratto di affitto di un locale commerciale"
+    },
+    {
+      "name": "profilo_cliente",
+      "description": "Chi è il cliente e cosa sa.",
+      "example": "titolare di una piccola attività, senza formazione giuridica"
+    },
+    {
+      "name": "testo_documento",
+      "description": "Il testo, anonimizzato. Qui è un estratto di esempio inventato.",
+      "example": "Art. 1 Durata: sei anni dal 1 gennaio 2027, rinnovabili alle stesse condizioni. Art. 2 Canone: 800 euro al mese, da pagare entro il giorno 5, con aggiornamento annuo pari al 75% della variazione ISTAT. Art. 3 Deposito cauzionale: tre mensilità. Art. 4 Recesso: il conduttore può recedere con preavviso di sei mesi solo per gravi motivi. Art. 5 Lavori: le migliorie restano al locatore senza indennizzo."
+    },
+    {
+      "name": "domande_cliente",
+      "description": "Le domande del cliente, così come le ha poste.",
+      "example": "Posso lasciare il locale prima della scadenza? Quanto devo pagare all'inizio?"
+    }
+  ],
+  "how_to_use": "Togli dal documento nomi, codici fiscali, indirizzi e numeri di conto. Incolla il testo (o le parti che interessano, se è lungo) e le domande del cliente. Leggi la sintesi insieme al documento originale e usala come traccia per l'incontro, non come risposta da girare così com'è.",
+  "example_input": "tipo_documento: contratto di affitto di un locale commerciale\nprofilo_cliente: titolare di una piccola attività, senza formazione giuridica\ntesto_documento: Art. 1 Durata: sei anni dal 1 gennaio 2027, rinnovabili alle stesse condizioni. Art. 2 Canone: 800 euro al mese, da pagare entro il giorno 5, con aggiornamento annuo pari al 75% della variazione ISTAT. Art. 3 Deposito cauzionale: tre mensilità. Art. 4 Recesso: il conduttore può recedere con preavviso di sei mesi solo per gravi motivi. Art. 5 Lavori: le migliorie restano al locatore senza indennizzo.\ndomande_cliente: Posso lasciare il locale prima della scadenza? Quanto devo pagare all'inizio?",
+  "expected_output_description": "Una sintesi di massimo 120 parole, un elenco di dati chiave tra virgolette con il riferimento, le clausole da guardare con attenzione e le risposte alle domande, con calcoli mostrati e distinti dal testo. In fondo, tre domande per il professionista.",
+  "limits_and_warnings": "Non è una consulenza e non sostituisce la lettura del documento da parte del professionista. L'AI può omettere clausole o fraintendere rimandi tra articoli: confronta sempre con l'originale. Non incollare testi non anonimizzati né documenti coperti da segreto professionale su servizi AI non autorizzati dallo studio.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot"
+  ],
+  "level": "intermedio",
+  "tested_at": "2026-10-21",
+  "test_notes": "Prima versione: per \"quanto pago all'inizio\" calcolava 2.400 euro senza dire che era un calcolo suo, e definiva sfavorevole la clausola sul recesso. Aggiunti l'obbligo di indicare i calcoli e il divieto di giudizi. Test finale: recesso e deposito citati alla lettera, calcolo etichettato, tre domande sensate per il professionista."
+}

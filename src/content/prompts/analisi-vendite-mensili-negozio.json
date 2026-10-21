@@ -1,0 +1,48 @@
+{
+  "title": "Leggere le vendite del mese contro il precedente, senza scambiare ipotesi per fatti",
+  "slug": "analisi-vendite-mensili-negozio",
+  "sector": "commercio-retail",
+  "use_case": "analisi",
+  "goal": "Ottieni una relazione breve con totali, variazioni per categoria, cose che saltano all'occhio, ipotesi da verificare e tre azioni per il mese dopo, con i calcoli visibili.",
+  "prompt_text": "Sei un analista che lavora per il titolare di un negozio di {tipo_negozio}. Analizza le vendite del mese di {mese} confrontandole con il mese precedente.\n\nDati (incollati dal gestionale o dal foglio di calcolo):\n{dati_vendite}\n\nContesto che conosco: {contesto}\nObiettivo di incasso del mese: {obiettivo_incasso}\n\nRispondi in quattro parti.\n1. Numeri: incasso totale dei due mesi, variazione assoluta e percentuale, e la variazione per ogni categoria. Per ogni percentuale scrivi i due numeri da cui deriva, così posso controllarla. Usa la virgola decimale e arrotonda a una cifra.\n2. Cosa salta all'occhio: massimo 3 osservazioni, ognuna con il dato che la sostiene.\n3. Ipotesi: spiegazioni possibili, ognuna etichettata \"Ipotesi da verificare\" e con il dato che servirebbe per confermarla. Non presentare mai una causa come certa.\n4. Azioni: massimo 3 cose da provare il mese prossimo, concrete e a basso costo.\n\nUsa solo i dati che ti ho dato. Se una colonna è ambigua o mancano righe, dimmelo prima di calcolare. Stile da relazione per un imprenditore, senza gergo.",
+  "variables": [
+    {
+      "name": "tipo_negozio",
+      "description": "Che cosa vendi.",
+      "example": "abbigliamento e accessori in una località di mare"
+    },
+    {
+      "name": "mese",
+      "description": "Il mese da analizzare.",
+      "example": "settembre"
+    },
+    {
+      "name": "dati_vendite",
+      "description": "Tabella incollata come testo, con i due mesi affiancati.",
+      "example": "Categoria | Incasso agosto (euro) | Incasso settembre (euro)\nCostumi da bagno | 3.400 | 1.890\nAbiti | 1.850 | 2.170\nBorse | 1.100 | 1.260\nAccessori | 890 | 975\nCalzature | 700 | 960"
+    },
+    {
+      "name": "contesto",
+      "description": "Cose che spiegano i numeri e che solo tu sai: eventi, meteo, stagione.",
+      "example": "La stagione balneare finisce a metà settembre; ad agosto c'erano molti turisti; a settembre abbiamo cambiato la vetrina."
+    },
+    {
+      "name": "obiettivo_incasso",
+      "description": "L'obiettivo che ti eri dato, se ce l'hai.",
+      "example": "7.500 euro"
+    }
+  ],
+  "how_to_use": "Esporta le vendite dal gestionale, tieni solo categoria e incasso dei due mesi e incollali come testo. Togli nomi di clienti e dati personali. Dopo la risposta, ricontrolla a mano almeno il totale e due percentuali con la calcolatrice: i numeri dell'AI vanno sempre verificati.",
+  "example_input": "tipo_negozio: abbigliamento e accessori in una località di mare\nmese: settembre\ndati_vendite: Categoria | Incasso agosto (euro) | Incasso settembre (euro)\nCostumi da bagno | 3.400 | 1.890\nAbiti | 1.850 | 2.170\nBorse | 1.100 | 1.260\nAccessori | 890 | 975\nCalzature | 700 | 960\ncontesto: La stagione balneare finisce a metà settembre; ad agosto c'erano molti turisti; a settembre abbiamo cambiato la vetrina.\nobiettivo_incasso: 7.500 euro",
+  "expected_output_description": "Una relazione in quattro blocchi: totali e variazioni con i numeri di partenza, fino a tre osservazioni, ipotesi chiaramente etichettate e tre azioni pratiche. Le percentuali sono scritte con la virgola e con i due valori da cui derivano.",
+  "limits_and_warnings": "I modelli linguistici sbagliano i calcoli, soprattutto con tabelle lunghe: controlla sempre totali e percentuali. Le cause che propone sono ipotesi, non fatti. Non incollare dati di singoli clienti. Con più di qualche decina di righe usa un foglio di calcolo e chiedi all'AI solo la lettura dei risultati.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot"
+  ],
+  "level": "intermedio",
+  "tested_at": "2026-10-21",
+  "test_notes": "Calcolo fatto a mano: totali 7.940 e 7.255 euro (meno 8,6%), costumi meno 44,4%, calzature più 37,1%; l'output coincideva. Prima versione: attribuiva il calo dei costumi alla fine della stagione come certezza. Aggiunte l'etichetta \"Ipotesi da verificare\" e la richiesta dei numeri sottostanti a ogni percentuale."
+}

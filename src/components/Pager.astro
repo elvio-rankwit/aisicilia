@@ -1,0 +1,17 @@
+---
+// Paginazione statica: la pagina 1 sta sulla rotta base, le altre in {base}pagina/{n}/.
+interface Props { base: string; current: number; total: number }
+const { base, current, total } = Astro.props;
+const href = (n: number) => (n === 1 ? base : `${base}pagina/${n}/`);
+---
+{total > 1 && (
+  <nav aria-label="Pagine dell’elenco">
+    <ul class="pager">
+      {current > 1 && <li><a href={href(current - 1)} rel="prev">Precedente</a></li>}
+      {Array.from({ length: total }, (_, i) => i + 1).map((n) => (
+        <li>{n === current ? <span aria-current="page">{n}</span> : <a href={href(n)} aria-label={`Pagina ${n}`}>{n}</a>}</li>
+      ))}
+      {current < total && <li><a href={href(current + 1)} rel="next">Successiva</a></li>}
+    </ul>
+  </nav>
+)}

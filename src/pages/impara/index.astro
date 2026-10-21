@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import EmptyState from '../../components/EmptyState.astro';
+import { getArticles, getPrompts } from '../../lib/data';
+import { meta } from '../../lib/seo/meta';
+import { collectionPageNodes, itemListNodes } from '../../lib/seo/jsonld';
+import { LEVELS, PROMPT_SECTORS, PROMPT_SECTOR_SLUGS } from '../../lib/taxonomies';
+import { cap, plural } from '../../components/helpers';
+
+const articles = await getArticles();
+const prompts = await getPrompts();
+const sectors = PROMPT_SECTOR_SLUGS.map((s) => ({ slug: s, label: PROMPT_SECTORS[s], n: articles.filter((a) => (a.data.sectors as string[]).includes(s) || a.data.sectors.includes('tutti')).length })).filter((s) => s.n > 0 && s.n < articles.length);
+const levels = LEVELS.map((l) => ({ slug: l, n: articles.filter((a) => a.data.level === l).length })).filter((l) => l.n > 0 && l.n < articles.length);
+const showFilters = articles.length > 3 && (sectors.length > 0 || levels.length > 0);
+const m = meta.learnIndex();
+const h1 = 'Impara l’AI: guide pratiche per le imprese siciliane';
+---
+<BaseLayout
+  seo={{
+    title: m.title, description: m.description, path: '/impara/',
+    breadcrumbs: [{ name: 'Impara', path: '/impara/' }],
+    jsonld: [
+      ...collectionPageNodes({ path: '/impara/', name: h1, description: m.description }),
+      ...itemListNodes({ path: '/impara/', name: h1, items: articles.map((a) => ({ url: `/impara/${a.id}/`, name: a.data.title })) }),
+    ],
+  }}
+>
+  <div class="page-head">
+    <h1>{h1}</h1>
+    {articles.length > 0 ? (
+      <p class="answer">{plural(articles.length, 'guida', 'guide')} scritte per chi gestisce un’impresa: cosa può fare l’AI nel tuo lavoro, cosa non fa bene e quanto costa in tempo e denaro. Sono in ordine di lettura, dalla più semplice. Ogni guida ha le fonti e la data di aggiornamento. Se preferisci partire dalla pratica, ci sono i <a href="/prompt/">prompt pronti da copiare</a>{prompts.length > 0 && ` (${prompts.length})`}.</p>
+    ) : (
+      <p class="answer">Le prime guide sono in preparazione. Intanto puoi partire dalla pratica con i <a href="/prompt/">prompt pronti da copiare</a>.</p>
+    )}
+  </div>
+
+  {articles.length > 0 ? (
+    <section aria-labelledby="h-guide">
+      <h2 id="h-guide">Tutte le guide, in ordine di lettura</h2>
+      {showFilters && (
+        <nav class="filter-nav" aria-label="Filtra le guide per settore o livello">
+          {sectors.length > 0 && (
+            <>
+              <p class="label">Per settore</p>
+              <ul class="link-list">
+                {sectors.map((s) => <li><a href={`#s-${s.slug}`}>{s.label}<span class="n">{s.n}</span></a></li>)}
+              </ul>
+            </>
+          )}
+          {levels.length > 0 && (
+            <>
+              <p class="label">Per livello</p>
+              <ul class="link-list">
+                {levels.map((l) => <li><a href={`#l-${l.slug}`}>{cap(l.slug)}<span class="n">{l.n}</span></a></li>)}
+              </ul>
+            </>
+          )}
+          <p><a href="#guide">Mostra tutte le guide</a></p>
+        </nav>
+      )}
+      <div id="guide" class="listing">
+        {showFilters && sectors.map((s) => <span id={`s-${s.slug}`} class="anchor"></span>)}
+        {showFilters && levels.map((l) => <span id={`l-${l.slug}`} class="anchor"></span>)}
+        <ul class="grid">{articles.map((a) => <ArticleCard article={a} />)}</ul>
+      </div>
+    </section>
+  ) : (
+    <EmptyState text="Nessuna guida pubblicata per ora." cta={false} />
+  )}
+</BaseLayout>
+<style>
+  .filter-nav { margin-bottom: var(--space-5); }
+  .label { margin: 0 0 var(--space-2); font-weight: 700; }
+  .anchor { display: block; height: 0; scroll-margin-top: var(--space-4); }
+</style>
+<style is:global>
+  /* Filtro senza JS: il link imposta :target e :has() nasconde le guide che non c'entrano. */
+  #guide:has(#s-ospitalita:target) .card:not([data-settori~='ospitalita'], [data-settori~='tutti']),
+  #guide:has(#s-ristorazione:target) .card:not([data-settori~='ristorazione'], [data-settori~='tutti']),
+  #guide:has(#s-agroalimentare-vino:target) .card:not([data-settori~='agroalimentare-vino'], [data-settori~='tutti']),
+  #guide:has(#s-commercio-retail:target) .card:not([data-settori~='commercio-retail'], [data-settori~='tutti']),
+  #guide:has(#s-turismo-agenzie:target) .card:not([data-settori~='turismo-agenzie'], [data-settori~='tutti']),
+  #guide:has(#s-studi-professionali:target) .card:not([data-settori~='studi-professionali'], [data-settori~='tutti']),
+  #guide:has(#s-artigianato-manifattura:target) .card:not([data-settori~='artigianato-manifattura'], [data-settori~='tutti']),
+  #guide:has(#s-edilizia-immobiliare:target) .card:not([data-settori~='edilizia-immobiliare'], [data-settori~='tutti']),
+  #guide:has(#l-base:target) .card:not([data-livello='base']),
+  #guide:has(#l-intermedio:target) .card:not([data-livello='intermedio']),
+  #guide:has(#l-avanzato:target) .card:not([data-livello='avanzato']) { display: none; }
+</style>

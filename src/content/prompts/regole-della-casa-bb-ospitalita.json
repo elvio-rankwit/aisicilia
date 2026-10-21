@@ -1,0 +1,48 @@
+{
+  "title": "Regole della casa per un B&B: chiare, gentili, da incollare nella chat",
+  "slug": "regole-della-casa-bb-ospitalita",
+  "sector": "ospitalita",
+  "use_case": "customer care",
+  "goal": "Ottieni le regole della casa in al massimo otto punti brevi, in italiano e in un'altra lingua, con un tono da padrone di casa e non da regolamento.",
+  "prompt_text": "Scrivi le regole della casa di {nome_struttura} a {localita}, da stampare e da incollare nella chat di prenotazione.\n\nRegole da comunicare: {regole_da_comunicare}\nMotivo reale di ciascuna, se esiste: {motivi_regole}\nLingua da aggiungere all'italiano: {lingua_ospiti}\n\nFormato: massimo 8 punti, una frase ciascuno, in quest'ordine: prima ciò che serve all'arrivo (orari, chiavi), poi la vita in casa, poi la partenza. Ogni regola in forma positiva quando si può (\"Dopo le 23 teniamo la voce bassa nel cortile\"), e con il motivo in poche parole quando c'è. Se la forma positiva richiede di inventare un'alternativa che non ho scritto (per esempio dove si può fumare), scrivi la regola in modo diretto e gentile. Tono da padrone di casa gentile, non da regolamento condominiale: niente maiuscole urlate, niente \"è severamente vietato\".\nPrima la versione italiana, poi quella nella lingua indicata.\nNon aggiungere regole, penali, cauzioni o orari che non ho scritto. Se un punto mi pare incompleto (per esempio una penale senza importo), chiedimelo prima di scrivere.\nChiudi con una riga di avviso: clausole su penali, cauzioni e ospiti extra vanno verificate con il contratto e la normativa locale.",
+  "variables": [
+    {
+      "name": "nome_struttura",
+      "description": "Nome della struttura.",
+      "example": "B&B Il Cortile"
+    },
+    {
+      "name": "localita",
+      "description": "Città o zona.",
+      "example": "Ortigia, Siracusa"
+    },
+    {
+      "name": "regole_da_comunicare",
+      "description": "Le regole che vuoi davvero far rispettare, anche in forma grezza.",
+      "example": "Check-in dalle 15 alle 20. Check-out entro le 10:30. Silenzio dopo le 23. Non si fuma in camera. Niente ospiti non registrati. Raccolta differenziata nel cortile. Chiavi da lasciare nella cassetta alla partenza."
+    },
+    {
+      "name": "motivi_regole",
+      "description": "Perché esiste ciascuna regola, se c'è un motivo concreto.",
+      "example": "Silenzio: le camere affacciano sul cortile e i vicini sono vicinissimi. Ospiti non registrati: obbligo di registrare tutti gli alloggiati. Raccolta differenziata: ritiro rifiuti in giorni fissi."
+    },
+    {
+      "name": "lingua_ospiti",
+      "description": "Lingua straniera più usata dai tuoi ospiti.",
+      "example": "inglese"
+    }
+  ],
+  "how_to_use": "Elenca le regole come le diresti a voce, poi aggiungi il motivo di quelle che creano più discussioni. Incolla il prompt, controlla che ogni punto corrisponda alla tua prassi reale e stampa il foglio per la camera. Invia la versione digitale insieme all'email pre-arrivo.",
+  "example_input": "nome_struttura: B&B Il Cortile\nlocalita: Ortigia, Siracusa\nregole_da_comunicare: Check-in dalle 15 alle 20. Check-out entro le 10:30. Silenzio dopo le 23. Non si fuma in camera. Niente ospiti non registrati. Raccolta differenziata nel cortile. Chiavi da lasciare nella cassetta alla partenza.\nmotivi_regole: Silenzio: le camere affacciano sul cortile e i vicini sono vicinissimi. Ospiti non registrati: obbligo di registrare tutti gli alloggiati. Raccolta differenziata: ritiro rifiuti in giorni fissi.\nlingua_ospiti: inglese",
+  "expected_output_description": "Due versioni (italiana e nella lingua scelta) di al massimo 8 punti da una frase, ordinati da arrivo a partenza, in forma positiva e con il motivo dove esiste. In fondo un avviso sulla verifica delle clausole economiche.",
+  "limits_and_warnings": "Se prevedi penali o cauzioni devono essere già scritte nelle condizioni di prenotazione: il foglio da solo non basta. Le regole su registrazione degli ospiti, fumo e rumore dipendono da norme e regolamenti locali: verificale. Non inserire dati di ospiti.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot"
+  ],
+  "level": "base",
+  "tested_at": "2026-10-21",
+  "test_notes": "Eseguito sulle sette regole del B&B Il Cortile: 7 punti in italiano e 7 in inglese, ordinati da arrivo a partenza, motivi usati solo dove forniti. Riscrivendo \"non si fuma in camera\" in forma positiva ho inventato uno spazio per fumare in cortile: aggiunta l'eccezione per le alternative non scritte."
+}

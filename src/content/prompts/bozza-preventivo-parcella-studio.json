@@ -1,0 +1,73 @@
+{
+  "title": "Scrivere la bozza di un preventivo per un cliente, con cosa è incluso e cosa no",
+  "slug": "bozza-preventivo-parcella-studio",
+  "sector": "studi-professionali",
+  "use_case": "vendite e preventivi",
+  "goal": "Ottieni una email di preventivo ordinata, che riformula la richiesta, elenca prestazioni incluse ed escluse e riporta compenso e tempi esattamente come li hai decisi tu.",
+  "prompt_text": "Sei il collaboratore di un professionista che gestisce uno studio di {tipo_studio}. Prepara la bozza di una email di preventivo da inviare a un potenziale cliente. La bozza la rileggerà e la firmerà il professionista.\n\nRichiesta del cliente: {richiesta_cliente}\nPrestazioni incluse: {prestazioni_incluse}\nPrestazioni escluse: {prestazioni_escluse}\nCompenso deciso dal professionista: {compenso}\nModalità di pagamento: {pagamento}\nTempi di consegna: {tempi}\nCosa serve dal cliente: {cosa_serve}\nValidità del preventivo: {validita}\nFirma: {firma}\n\nScrivi: oggetto; un'apertura che mostra di aver capito la richiesta riformulandola in una frase; cosa facciamo, in elenco; cosa non è compreso; compenso e pagamento, riportati identici a come li scrivo; tempi; cosa ci serve; validità; invito a rispondere per confermare o per fare domande. Massimo 250 parole, linguaggio chiaro.\n\nVincoli: non calcolare né modificare importi, non citare tariffari o minimi, non aggiungere IVA o contributi se non li ho scritti. Non aggiungere prestazioni. Se un campo è vuoto, lascia \"[da completare]\" e segnalamelo in una nota finale, invece di inventarlo.",
+  "variables": [
+    {
+      "name": "tipo_studio",
+      "description": "Tipo di studio e città.",
+      "example": "geometra a Ragusa"
+    },
+    {
+      "name": "richiesta_cliente",
+      "description": "Cosa ha chiesto il cliente, in una frase.",
+      "example": "Ho ereditato una casa e devo aggiornare l'accatastamento. Mi serve un preventivo."
+    },
+    {
+      "name": "prestazioni_incluse",
+      "description": "Cosa è compreso nel compenso.",
+      "example": "sopralluogo, rilievo, predisposizione e invio della pratica di aggiornamento catastale, consegna della ricevuta"
+    },
+    {
+      "name": "prestazioni_escluse",
+      "description": "Cosa è escluso e va a parte.",
+      "example": "eventuali sanatorie, frazionamenti, atti notarili"
+    },
+    {
+      "name": "compenso",
+      "description": "L'importo che hai deciso, con la dicitura fiscale che vuoi usare.",
+      "example": "650 euro più IVA e contributo cassa"
+    },
+    {
+      "name": "pagamento",
+      "description": "Come e quando si paga.",
+      "example": "50% all'incarico, saldo alla consegna della ricevuta"
+    },
+    {
+      "name": "tempi",
+      "description": "Tempi di consegna, se li puoi garantire.",
+      "example": "30 giorni dal sopralluogo"
+    },
+    {
+      "name": "cosa_serve",
+      "description": "Documenti e accessi che servono dal cliente.",
+      "example": "visure e atti di provenienza, accesso all'immobile"
+    },
+    {
+      "name": "validita",
+      "description": "Fino a quando vale il preventivo.",
+      "example": "30 giorni dalla data dell'email"
+    },
+    {
+      "name": "firma",
+      "description": "Come firma il professionista.",
+      "example": "Studio tecnico Mare e Terra"
+    }
+  ],
+  "how_to_use": "Compila le variabili con i dati già decisi: il prompt non sa fare un preventivo, impagina quello che hai scelto. Incolla il prompt, leggi la bozza, correggi il tono e completa i campi \"[da completare]\". Prima dell'invio confronta importi e diciture con il tuo modello di incarico.",
+  "example_input": "tipo_studio: geometra a Ragusa\nrichiesta_cliente: Ho ereditato una casa e devo aggiornare l'accatastamento. Mi serve un preventivo.\nprestazioni_incluse: sopralluogo, rilievo, predisposizione e invio della pratica di aggiornamento catastale, consegna della ricevuta\nprestazioni_escluse: eventuali sanatorie, frazionamenti, atti notarili\ncompenso: 650 euro più IVA e contributo cassa\npagamento: 50% all'incarico, saldo alla consegna della ricevuta\ntempi: 30 giorni dal sopralluogo\ncosa_serve: visure e atti di provenienza, accesso all'immobile\nvalidita: 30 giorni dalla data dell'email\nfirma: Studio tecnico Mare e Terra",
+  "expected_output_description": "Una email di 180-250 parole con oggetto, elenco delle prestazioni, esclusioni evidenti, compenso e pagamento identici ai tuoi, tempi, richieste al cliente e validità. Eventuali dati mancanti sono segnati e riepilogati in una nota finale.",
+  "limits_and_warnings": "L'AI non calcola la parcella e non deve farlo: l'importo lo decidi tu. Per le professioni regolamentate ci sono obblighi su come comunicare il compenso e sul contenuto dell'incarico: verifica con il tuo ordine o collegio. Controlla ogni cifra e ogni dicitura fiscale prima di inviare.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot"
+  ],
+  "level": "intermedio",
+  "tested_at": "2026-10-21",
+  "test_notes": "Prima versione: la bozza aggiungeva \"come da tariffario professionale\", un richiamo che non avevo fornito. Aggiunto il divieto di citare tariffari e di toccare gli importi. Test finale: 210 parole, compenso identico all'input, esclusioni in un blocco separato, nessun campo inventato."
+}

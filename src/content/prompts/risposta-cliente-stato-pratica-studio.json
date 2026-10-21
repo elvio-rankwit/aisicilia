@@ -1,0 +1,54 @@
+{
+  "title": "Rispondere a un cliente che chiede a che punto è la sua pratica, senza dare pareri",
+  "slug": "risposta-cliente-stato-pratica-studio",
+  "sector": "studi-professionali",
+  "use_case": "customer care",
+  "goal": "Ottieni un'email chiara e breve sullo stato di una pratica, con cosa succede adesso e cosa manca al cliente. Le domande che richiedono un parere vengono girate al professionista.",
+  "prompt_text": "Sei la segreteria di uno studio di {tipo_studio}. Un cliente ci ha scritto per sapere a che punto è la sua pratica. Scrivi una email di risposta, in italiano, con il tono professionale ma caldo di uno studio di provincia: il lei, frasi corte, nessun burocratese.\n\nMessaggio del cliente:\n{messaggio_cliente}\n\nStato reale della pratica: {stato_pratica}\nProssimi passi con date, se ci sono: {prossimi_passi}\nCosa ci manca dal cliente: {documenti_mancanti}\nFirma: {firma}\n\nStruttura: oggetto; una riga di saluto; lo stato in una o due frasi chiare; cosa succede adesso e chi lo fa; cosa ci serve dal cliente (elenco puntato, se c'è qualcosa); chiusura con il nome di chi scrive. Massimo 150 parole nel corpo.\n\nVincoli: non promettere esiti, tempi o scadenze che non sono scritti sopra; non dare pareri legali o fiscali; non usare il nome o altri dati del cliente oltre al saluto. Se nel messaggio c'è una domanda a cui lo stato della pratica non risponde, non risponderle: segnalala in una nota separata sotto l'email, con la dicitura \"da girare al professionista\".",
+  "variables": [
+    {
+      "name": "tipo_studio",
+      "description": "Tipo di studio.",
+      "example": "consulenza del lavoro"
+    },
+    {
+      "name": "messaggio_cliente",
+      "description": "Il messaggio ricevuto, senza dati personali.",
+      "example": "Buongiorno, volevo sapere a che punto è la pratica per l'assunzione del mio nuovo dipendente e se posso farlo iniziare lunedì."
+    },
+    {
+      "name": "stato_pratica",
+      "description": "Lo stato vero, scritto da chi segue la pratica.",
+      "example": "Contratto predisposto, in attesa della firma del cliente. La comunicazione obbligatoria non è ancora stata inviata."
+    },
+    {
+      "name": "prossimi_passi",
+      "description": "Cosa farete e quando, solo se lo sapete.",
+      "example": "Invio della comunicazione dopo la firma del contratto."
+    },
+    {
+      "name": "documenti_mancanti",
+      "description": "Cosa deve ancora consegnare il cliente.",
+      "example": "Contratto firmato, copia del documento d'identità del dipendente, IBAN del dipendente"
+    },
+    {
+      "name": "firma",
+      "description": "Come firma la segreteria.",
+      "example": "Segreteria, Studio Meridiana"
+    }
+  ],
+  "how_to_use": "Chiedi a chi segue la pratica di scriverti in due righe lo stato reale e compila le variabili. Incolla il prompt, leggi la bozza e invia solo dopo averla confrontata con il fascicolo. La nota in fondo con le domande per il professionista va girata a lui prima di inviare la risposta.",
+  "example_input": "tipo_studio: consulenza del lavoro\nmessaggio_cliente: Buongiorno, volevo sapere a che punto è la pratica per l'assunzione del mio nuovo dipendente e se posso farlo iniziare lunedì.\nstato_pratica: Contratto predisposto, in attesa della firma del cliente. La comunicazione obbligatoria non è ancora stata inviata.\nprossimi_passi: Invio della comunicazione dopo la firma del contratto.\ndocumenti_mancanti: Contratto firmato, copia del documento d'identità del dipendente, IBAN del dipendente\nfirma: Segreteria, Studio Meridiana",
+  "expected_output_description": "Un'email di 100-150 parole con oggetto, stato della pratica, prossimi passi e elenco di ciò che manca. Sotto, una nota separata con le domande del cliente che richiedono una valutazione del professionista.",
+  "limits_and_warnings": "Non incollare nel prompt dati personali del cliente o del dipendente. L'AI non conosce la pratica: scrive solo ciò che le dai. Le risposte su obblighi, tempi di legge o conseguenze restano al professionista. Verifica sempre date e documenti elencati.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot",
+    "Mistral Le Chat"
+  ],
+  "level": "base",
+  "tested_at": "2026-10-21",
+  "test_notes": "Prima versione: alla domanda \"può iniziare lunedì?\" la bozza rispondeva con una regola sull'assunzione, cioè un parere. Aggiunta la nota \"da girare al professionista\" al posto della risposta. Test finale: 120 parole, stato e documenti corretti, domanda su lunedì rimandata al professionista."
+}

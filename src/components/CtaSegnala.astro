@@ -1,0 +1,8 @@
+---
+interface Props { text?: string; label?: string }
+const { text = 'La tua azienda non c’è? Segnalala. Controlliamo le fonti e, se rispetta i criteri, la aggiungiamo.', label = 'Segnala un’azienda o un evento' } = Astro.props;
+---
+<aside class="cta" aria-label="Segnalazioni">
+  <p>{text}</p>
+  <a class="btn" href="/segnala/">{label}</a>
+</aside>

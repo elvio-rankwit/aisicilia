@@ -1,0 +1,82 @@
+---
+// Mappa interattiva Leaflet: al primo render solo un riquadro con il pulsante, zero byte di Leaflet.
+// Leaflet, markercluster e CSS partono con import() dinamico SOLO al clic (scelta: niente caricamento
+// all'ingresso nel viewport, per non toccare TBT/LCP). Vedi leaflet-map.ts.
+import type { ProvinceSlug } from '../../lib/provinces';
+
+interface Props {
+  points: { id: string; lat: number; lng: number; title: string; url: string; province: ProvinceSlug; subtitle?: string }[];
+  center?: [number, number];
+  zoom?: number;
+  height?: number;
+  label: string;
+}
+const { points, center, zoom, height = 420, label } = Astro.props;
+
+// Niente style="..." (CSP): l'altezza è una delle misure predefinite del CSS, la più vicina a quella chiesta.
+const STEPS = [320, 360, 420, 480, 560, 640];
+const h = STEPS.reduce((best, s) => (Math.abs(s - height) < Math.abs(best - height) ? s : best), STEPS[0]);
+// `<` escapato: il JSON sta dentro un <script> e non deve poter chiudere il tag.
+const json = JSON.stringify(points).replace(/</g, '\\u003c');
+---
+<section class="imap" data-imap data-h={h} data-label={label} data-center={center?.join(',')} data-zoom={zoom} aria-label={label}>
+  <div class="imap-stage">
+    <div class="imap-intro">
+      <button type="button" class="imap-open">Apri la mappa interattiva</button>
+      <p class="imap-hint">Il clic carica la mappa e le tile di OpenStreetMap. L'elenco delle schede resta sempre disponibile.</p>
+    </div>
+    <div class="imap-canvas" hidden></div>
+  </div>
+  <p class="visually-hidden" role="status" data-imap-status></p>
+  <script type="application/json" set:html={json} />
+</section>
+
+<script>
+  // Isola minima: ricorda lo stato della lista e carica Leaflet solo al clic.
+  type Api = { filter(ids: string[] | null): void; province(p: string | null): void };
+  document.querySelectorAll<HTMLElement>('[data-imap]').forEach((root) => {
+    const st = { visible: null as string[] | null, province: null as string | null };
+    let api: Api | null = null;
+    const btn = root.querySelector<HTMLButtonElement>('.imap-open')!;
+    const status = root.querySelector<HTMLElement>('[data-imap-status]')!;
+    document.addEventListener('aisicilia:filter-change', (e) => {
+      st.visible = (e as CustomEvent<{ visibleIds: string[] }>).detail.visibleIds;
+      api?.filter(st.visible);
+    });
+    document.addEventListener('aisicilia:province-select', (e) => {
+      st.province = (e as CustomEvent<{ province: string | null }>).detail.province;
+      api?.province(st.province);
+    });
+    btn.addEventListener('click', async () => {
+      btn.disabled = true;
+      status.textContent = 'Carico la mappa…';
+      try {
+        const { mount } = await import('./leaflet-map');
+        api = await mount(root, st);
+        root.querySelector('.imap-intro')!.setAttribute('hidden', '');
+        status.textContent = 'Mappa pronta.';
+      } catch {
+        btn.disabled = false;
+        status.textContent = 'Non sono riuscito a caricare la mappa. Riprova, oppure usa l\'elenco.';
+      }
+    });
+  });
+</script>
+
+<style>
+  .imap { --imap-h: 420px; }
+  .imap[data-h="320"] { --imap-h: 320px; }
+  .imap[data-h="360"] { --imap-h: 360px; }
+  .imap[data-h="480"] { --imap-h: 480px; }
+  .imap[data-h="560"] { --imap-h: 560px; }
+  .imap[data-h="640"] { --imap-h: 640px; }
+  .imap-stage { position: relative; height: calc(var(--imap-h) * 0.762); background: var(--c-surface-2); border: 1px solid var(--c-border); border-radius: var(--radius); overflow: hidden; }
+  @media (min-width: 48rem) { .imap-stage { height: var(--imap-h); } }
+  .imap-intro { position: absolute; inset: 0; display: grid; align-content: center; justify-items: center; gap: var(--space-3); padding: var(--space-4); text-align: center; }
+  .imap-intro[hidden], .imap-canvas[hidden] { display: none; }
+  .imap-open { min-height: var(--tap); padding: var(--space-2) var(--space-5); font: 600 var(--fs-base) var(--font-sans); color: var(--c-on-primary); background: var(--c-primary); border: 0; border-radius: var(--radius-pill); cursor: pointer; }
+  .imap-open:hover { background: var(--c-primary-hover); }
+  .imap-open:disabled { opacity: 0.7; cursor: progress; }
+  .imap-hint { margin: 0; max-width: 28rem; font-size: var(--fs-sm); color: var(--c-text-muted); }
+  .imap-canvas { position: absolute; inset: 0; }
+</style>

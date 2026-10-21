@@ -1,0 +1,15 @@
+---
+import { formatDate } from '../lib/data';
+import { hostOf } from './helpers';
+interface Props { urls: string[]; verified: Date; what: 'scheda' | 'evento'; level?: 2 | 3 }
+const { urls, verified, what, level = 2 } = Astro.props;
+const H = `h${level}` as 'h2' | 'h3';
+---
+<aside class="source-box" aria-labelledby="fonte-titolo">
+  <H id="fonte-titolo">Fonte e ultima verifica</H>
+  <p>Ultima verifica: <time datetime={verified.toISOString().slice(0, 10)}>{formatDate(verified)}</time>. {what === 'scheda' ? 'Le informazioni di questa scheda sono state riscritte da noi a partire dalle fonti qui sotto.' : 'Date, luogo e prezzo vanno controllati sul sito dell’organizzatore prima di partire.'}</p>
+  <ul>
+    {urls.map((u) => <li><a class="ext" href={u} rel="noopener">{hostOf(u)}</a></li>)}
+  </ul>
+  <p>Qualcosa non torna? <a href="/metodologia/">Come verifichiamo i dati</a>.</p>
+</aside>

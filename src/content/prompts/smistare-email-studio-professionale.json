@@ -1,0 +1,48 @@
+{
+  "title": "Smistare le email in arrivo dello studio per categoria, urgenza e responsabile",
+  "slug": "smistare-email-studio-professionale",
+  "sector": "studi-professionali",
+  "use_case": "organizzazione",
+  "goal": "Ottieni un elenco delle email del giorno con categoria, urgenza motivata, chi se ne occupa e prossima azione, più bozze brevi solo dove la risposta è semplice.",
+  "prompt_text": "Sei l'assistente organizzativo di uno studio di {tipo_studio}. Devo smistare le email arrivate in questi giorni. Sono già anonimizzate: i clienti sono indicati con sigle.\n\nPersone e ruoli dello studio: {ruoli_studio}\nCategorie di smistamento: {categorie}\nRegole di priorità dello studio: {regole_priorita}\n\nEmail:\n{email_da_smistare}\n\nPer ogni email, in un elenco numerato nello stesso ordine, scrivi:\n- categoria (una sola, tra quelle indicate);\n- urgenza: alta, media o bassa, con il motivo in una frase;\n- chi se ne occupa, indicando il ruolo;\n- prossima azione, in una riga;\n- bozza di risposta di massimo 3 righe, solo se la risposta è semplice e non richiede una valutazione professionale; altrimenti scrivi \"risposta da valutare\". Nelle bozze non proporre date o orari che non conosci.\n\nNon stabilire scadenze fiscali o legali: se un'email ne cita una, riportala come scritta e segnala \"da verificare\". Non dare pareri. Se un'email è ambigua o non rientra nelle categorie, scrivilo invece di forzarla. Se nel testo trovi nomi, codici fiscali, IBAN o altri dati personali, non ripeterli e avvisami in cima alla risposta. Chiudi con l'elenco dei numeri delle email in ordine di urgenza.",
+  "variables": [
+    {
+      "name": "tipo_studio",
+      "description": "Che tipo di studio e dove.",
+      "example": "commercialisti a Caltanissetta"
+    },
+    {
+      "name": "ruoli_studio",
+      "description": "I ruoli (non servono i nomi) e cosa fa ciascuno.",
+      "example": "titolare (consulenza e scadenze), collaboratrice (contabilità), segretaria (appuntamenti e documenti)"
+    },
+    {
+      "name": "categorie",
+      "description": "Le categorie in cui vuoi dividere la posta.",
+      "example": "scadenze e adempimenti, richiesta documenti, appuntamenti, fatture e pagamenti, altro"
+    },
+    {
+      "name": "regole_priorita",
+      "description": "Come decidi cosa è urgente.",
+      "example": "Alta: scadenza entro 3 giorni lavorativi o comunicazione di un ente. Media: richieste di appuntamento. Bassa: richieste di copie e promozioni."
+    },
+    {
+      "name": "email_da_smistare",
+      "description": "Le email, con i clienti sostituiti da sigle.",
+      "example": "1) [Cliente A] Ho ricevuto una comunicazione dall'ente e scade domani, cosa devo fare?\n2) [Cliente B] Potete mandarmi copia della fattura di marzo?\n3) [Cliente C] Vorrei fissare un appuntamento la prossima settimana per parlare della cessione dell'attività.\n4) Promozione software gestionale, sconto del 30% per i nuovi clienti."
+    }
+  ],
+  "how_to_use": "Prima di incollare le email sostituisci nomi, codici fiscali, IBAN e numeri di telefono con sigle. Ripeti l'operazione al mattino o a fine giornata. Usa l'elenco come promemoria: l'assegnazione definitiva la decidi tu. Le bozze si copiano nel programma di posta solo dopo una rilettura.",
+  "example_input": "tipo_studio: commercialisti a Caltanissetta\nruoli_studio: titolare (consulenza e scadenze), collaboratrice (contabilità), segretaria (appuntamenti e documenti)\ncategorie: scadenze e adempimenti, richiesta documenti, appuntamenti, fatture e pagamenti, altro\nregole_priorita: Alta: scadenza entro 3 giorni lavorativi o comunicazione di un ente. Media: richieste di appuntamento. Bassa: richieste di copie e promozioni.\nemail_da_smistare: 1) [Cliente A] Ho ricevuto una comunicazione dall'ente e scade domani, cosa devo fare?\n2) [Cliente B] Potete mandarmi copia della fattura di marzo?\n3) [Cliente C] Vorrei fissare un appuntamento la prossima settimana per parlare della cessione dell'attività.\n4) Promozione software gestionale, sconto del 30% per i nuovi clienti.",
+  "expected_output_description": "Un elenco numerato, una voce per email, con categoria, urgenza motivata, ruolo responsabile, azione e, dove serve, una bozza di tre righe. In fondo l'ordine di urgenza. Le email che richiedono un parere professionale sono segnate come \"risposta da valutare\".",
+  "limits_and_warnings": "Non incollare mai email con dati personali, sanitari o fiscali dei clienti: anonimizza sempre. L'AI non conosce le scadenze di legge e può sbagliare l'urgenza: le scadenze le verifica sempre il professionista. Se usi un servizio AI aziendale, controlla con il tuo consulente privacy cosa è consentito.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot"
+  ],
+  "level": "intermedio",
+  "tested_at": "2026-10-21",
+  "test_notes": "Prima versione: nella bozza all'email 3 compariva una proposta di orari mai forniti. Aggiunto il divieto di date e orari inventati. Test finale su 4 email: la prima classificata alta con scadenza \"da verificare\" e risposta da valutare, la promozione bassa, ordine di urgenza coerente con le regole."
+}

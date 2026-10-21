@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CopyButton from '../../../components/CopyButton.astro';
+import PromptCard from '../../../components/PromptCard.astro';
+import ArticleCard from '../../../components/ArticleCard.astro';
+import { formatDate, getArticles, getPrompts } from '../../../lib/data';
+import { articlesForSector } from '../../../lib/related';
+import { meta } from '../../../lib/seo/meta';
+import { promptNodes } from '../../../lib/seo/jsonld';
+import { PROMPT_SECTORS } from '../../../lib/taxonomies';
+import { cap } from '../../../components/helpers';
+
+export async function getStaticPaths() {
+  const prompts = await getPrompts();
+  return prompts.map((p) => ({ params: { settore: p.data.sector, slug: p.id }, props: { id: p.id } }));
+}
+const prompts = await getPrompts();
+const p = prompts.find((x) => x.id === Astro.props.id)!;
+const d = p.data;
+const label = PROMPT_SECTORS[d.sector];
+const parts = d.prompt_text.split(/(\{[a-z0-9_]+\})/g);
+const siblings = prompts.filter((x) => x.data.sector === d.sector && x.id !== p.id).slice(0, 3);
+const articles = articlesForSector(d.sector, await getArticles(), 3);
+const m = meta.prompt(p);
+const path = `/prompt/${d.sector}/${p.id}/`;
+---
+<BaseLayout
+  seo={{
+    title: m.title, description: m.description, path,
+    breadcrumbs: [{ name: 'Prompt', path: '/prompt/' }, { name: label, path: `/prompt/${d.sector}/` }, { name: d.title, path }],
+    jsonld: promptNodes(p),
+    modifiedAt: d.tested_at,
+  }}
+>
+  <article>
+    <header class="page-head">
+      <p class="eyebrow"><a href={`/prompt/${d.sector}/`}>{label}</a> · {cap(d.use_case)} · livello {d.level}</p>
+      <h1>{d.title}</h1>
+      <p class="answer"><strong>Cosa ottieni:</strong> {d.goal}</p>
+    </header>
+
+    <section aria-labelledby="h-prompt">
+      <h2 id="h-prompt" class="first">Il prompt</h2>
+      <CopyButton target="prompt-text" />
+      <pre class="prompt-box" id="prompt-text"><code>{parts.map((s) => (/^\{[a-z0-9_]+\}$/.test(s) ? <mark class="var">{s}</mark> : s))}</code></pre>
+      <p class="muted">Le parti evidenziate tra graffe sono le variabili: sostituiscile con i tuoi dati prima di inviare.</p>
+    </section>
+
+    <section aria-labelledby="h-limiti" class="callout warn limits">
+      <h2 id="h-limiti">Limiti e avvertenze</h2>
+      <p class="pl">{d.limits_and_warnings}</p>
+    </section>
+
+    <section class="section" aria-labelledby="h-variabili">
+      <h2 id="h-variabili">Variabili da compilare</h2>
+      <div class="table-wrap">
+        <table>
+          <caption class="visually-hidden">Variabili del prompt, con descrizione ed esempio</caption>
+          <thead><tr><th scope="col">Variabile</th><th scope="col">Cosa inserire</th><th scope="col">Esempio</th></tr></thead>
+          <tbody>
+            {d.variables.map((v) => (
+              <tr><th scope="row"><code>{`{${v.name}}`}</code></th><td>{v.description}</td><td>{v.example}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section prose" aria-labelledby="h-uso">
+      <h2 id="h-uso">Come usarlo</h2>
+      <p class="pl">{d.how_to_use}</p>
+    </section>
+
+    <section class="section prose" aria-labelledby="h-esempio">
+      <h2 id="h-esempio">Esempio di input</h2>
+      <pre class="example"><code>{d.example_input}</code></pre>
+      <h2 id="h-output">Cosa aspettarti</h2>
+      <p class="pl">{d.expected_output_description}</p>
+    </section>
+
+    <section class="section" aria-labelledby="h-info">
+      <h2 id="h-info">Strumenti, livello e test</h2>
+      <dl class="facts">
+        <dt>Compatibile con</dt>
+        <dd>{d.compatible_tools.join(', ')}</dd>
+        <dt>Livello</dt>
+        <dd>{cap(d.level)}</dd>
+        <dt>Ultimo test</dt>
+        <dd><time datetime={d.tested_at.toISOString().slice(0, 10)}>{formatDate(d.tested_at)}</time>. {d.test_notes}</dd>
+      </dl>
+      <p class="muted">Le risposte degli assistenti AI cambiano con i modelli: il test vale per la data indicata.</p>
+    </section>
+  </article>
+
+  {siblings.length > 0 && (
+    <section class="section" aria-labelledby="h-altri">
+      <div class="section-head">
+        <h2 id="h-altri">Altri prompt per {label.toLowerCase()}</h2>
+        <a href={`/prompt/${d.sector}/`}>Tutti i prompt del settore</a>
+      </div>
+      <ul class="grid">{siblings.map((s) => <PromptCard prompt={s} />)}</ul>
+    </section>
+  )}
+
+  {articles.length > 0 && (
+    <section class="section" aria-labelledby="h-guide">
+      <h2 id="h-guide">Guide collegate</h2>
+      <ul class="grid">{articles.map((a) => <ArticleCard article={a} />)}</ul>
+    </section>
+  )}
+</BaseLayout>
+<style>
+  .first { margin-top: 0; }
+  .prompt-box { white-space: pre-wrap; overflow-wrap: anywhere; margin: 0 0 var(--space-3); padding: var(--space-4); background: var(--c-surface); border: 1px solid var(--c-border); border-left: 4px solid var(--c-primary); border-radius: var(--radius); font-size: var(--fs-sm); line-height: 1.6; max-width: var(--measure); }
+  .example { white-space: pre-wrap; overflow-wrap: anywhere; margin: 0 0 var(--space-4); padding: var(--space-3); background: var(--c-surface-2); border-radius: var(--radius-sm); font-size: var(--fs-sm); }
+  .var { background: var(--c-accent-soft); color: var(--c-accent); font-weight: 700; padding: 0 2px; border-radius: 3px; }
+  .limits { margin-top: var(--space-5); max-width: var(--measure); }
+  .limits h2 { margin-top: 0; font-size: var(--fs-xl); }
+  .pl { white-space: pre-line; }
+</style>

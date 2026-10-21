@@ -1,0 +1,33 @@
+{
+  "title": "Sintetizzare un capitolato della grande distribuzione e confrontarlo con la tua azienda",
+  "slug": "sintesi-capitolato-gdo-agroalimentare",
+  "sector": "agroalimentare-vino",
+  "use_case": "analisi",
+  "goal": "Ottieni una scheda di una pagina con requisiti, penali, pagamenti e punti ambigui di un capitolato, confrontati con ciò che la tua azienda può davvero garantire.",
+  "prompt_text": "Sei un analista commerciale per un produttore agroalimentare siciliano. Leggi il capitolato di fornitura qui sotto e preparami una scheda di una pagina per decidere se trattare.\n\nTesto del capitolato:\n{testo_capitolato}\n\nCosa offre la nostra azienda:\n{prodotti_e_capacita}\n\nProduci:\n1. Una tabella con una riga per tema: prodotto, certificazioni, consegna, qualità e vita residua, pagamento, contributi e sconti, durata e recesso, resi e penali. Per ogni tema scrivi il requisito e l'articolo di riferimento.\n2. Il confronto con la nostra azienda: per ogni requisito scrivi \"lo soddisfiamo\", \"non lo soddisfiamo\" o \"non so\", con il motivo.\n3. I punti ambigui o sbilanciati, citando il testo.\n4. Le domande da fare al buyer prima di firmare.\n5. Le clausole da far leggere a un legale o al commercialista (penali, recesso, pagamento, pratiche commerciali sleali nella filiera agroalimentare).\n\nRegole: lavora solo sul testo fornito, non interpretare giuridicamente e non dire se una clausola è legittima. Non calcolare impatti sul margine se non ti do i costi. Se un dato manca nel capitolato o nei miei dati, scrivi \"non indicato\" e inseriscilo nelle domande.",
+  "variables": [
+    {
+      "name": "testo_capitolato",
+      "description": "Testo del capitolato o delle condizioni di fornitura, senza dati riservati non necessari.",
+      "example": "Art. 1 Prodotto: olio extravergine di oliva 0,75 l, di origine italiana, ultimo raccolto. Art. 2 Certificazioni: IFS Food o BRC in corso di validità. Art. 3 Consegna: franco piattaforma entro 5 giorni lavorativi dall'ordine; per ritardi oltre 24 ore penale del 2% del valore dell'ordine. Art. 4 Vita residua: almeno il 70% alla consegna. Art. 5 Pagamento: 90 giorni data fattura fine mese. Art. 6 Contributi: 4% del fatturato annuo per attività promozionali e 1,5% per l'apertura di nuovi punti vendita. Art. 7 Durata: 12 mesi con rinnovo tacito; recesso del cliente con 15 giorni di preavviso, del fornitore con 90 giorni. Art. 8 Resi: la merce non conforme è ritirata a spese del fornitore."
+    },
+    {
+      "name": "prodotti_e_capacita",
+      "description": "Cosa produci, certificazioni, tempi e volumi reali.",
+      "example": "Olio extravergine in bottiglie da 0,75 l, 0,5 l e latte da 3 litri, origine 100% italiana. Certificazione biologica, non abbiamo IFS né BRC. Consegna in 7 giorni lavorativi. Capacità: circa 8.000 bottiglie al mese."
+    }
+  ],
+  "how_to_use": "Chiedi al buyer il testo completo del capitolato e togli solo ciò che è davvero riservato e inutile all'analisi. Compila con numeri veri, non con quelli che vorresti. Incolla il prompt, poi controlla ogni articolo citato nel testo originale e porta le clausole segnalate al tuo professionista.",
+  "example_input": "testo_capitolato: Art. 1 Prodotto: olio extravergine di oliva 0,75 l, di origine italiana, ultimo raccolto. Art. 2 Certificazioni: IFS Food o BRC in corso di validità. Art. 3 Consegna: franco piattaforma entro 5 giorni lavorativi dall'ordine; per ritardi oltre 24 ore penale del 2% del valore dell'ordine. Art. 4 Vita residua: almeno il 70% alla consegna. Art. 5 Pagamento: 90 giorni data fattura fine mese. Art. 6 Contributi: 4% del fatturato annuo per attività promozionali e 1,5% per l'apertura di nuovi punti vendita. Art. 7 Durata: 12 mesi con rinnovo tacito; recesso del cliente con 15 giorni di preavviso, del fornitore con 90 giorni. Art. 8 Resi: la merce non conforme è ritirata a spese del fornitore.\nprodotti_e_capacita: Olio extravergine in bottiglie da 0,75 l, 0,5 l e latte da 3 litri, origine 100% italiana. Certificazione biologica, non abbiamo IFS né BRC. Consegna in 7 giorni lavorativi. Capacità: circa 8.000 bottiglie al mese.",
+  "expected_output_description": "Una scheda di una pagina con una tabella per tema (requisito e articolo), un confronto con la tua azienda in tre stati (\"lo soddisfiamo\", \"non lo soddisfiamo\", \"non so\"), i punti ambigui con citazione, le domande per il buyer e l'elenco di clausole da far leggere a un professionista.",
+  "limits_and_warnings": "Il capitolato può essere coperto da riservatezza: controlla di poterlo incollare in uno strumento esterno. L'AI non dà un parere legale e può leggere male un articolo: verifica ogni citazione. Penali, recesso, pagamenti e pratiche sleali vanno visti da un legale o dal commercialista prima di firmare.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot"
+  ],
+  "level": "avanzato",
+  "tested_at": "2026-10-21",
+  "test_notes": "Eseguito sul capitolato di otto articoli: IFS/BRC e consegna in 5 giorni risultano \"non lo soddisfiamo\", vita residua \"non so\", contributi (5,5% in totale) segnalati tra i punti sbilanciati. Nella mia prima esecuzione avevo calcolato l'effetto sul margine senza costi e dichiarato \"clausola vessatoria\": aggiunti il divieto di calcoli senza dati e di giudizi giuridici."
+}

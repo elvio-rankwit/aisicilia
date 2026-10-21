@@ -1,0 +1,49 @@
+{
+  "title": "Tradurre la scheda di un prodotto artigianale per clienti esteri, con note sui dubbi",
+  "slug": "traduzione-scheda-prodotto-artigianato",
+  "sector": "artigianato-manifattura",
+  "use_case": "traduzioni",
+  "goal": "Ottieni la scheda tradotta in modo naturale nelle lingue scelte, più una sezione di note con ambiguità, termini difficili e affermazioni da verificare nei mercati di destinazione.",
+  "prompt_text": "Sei un traduttore tecnico dall'italiano a {lingue_destinazione}, specializzato in schede prodotto di artigianato e piccola manifattura. Traduci la scheda qui sotto per {mercato}.\n\nScheda in italiano:\n{scheda_italiano}\n\nTermini da non tradurre o da tradurre in un modo preciso (glossario del laboratorio): {glossario}\nMisure: {unita_misura}\n\nPer ogni lingua di destinazione produci: titolo, descrizione e scheda tecnica con la stessa struttura dell'originale. Poi, in fondo, una sezione \"Note per me\" con: frasi dell'originale ambigue e come le hai risolte; termini che potrebbero non avere un equivalente esatto; affermazioni dell'originale che in alcuni mercati richiedono verifica (per esempio idoneità al contatto con alimenti, resistenza, certificazioni).\n\nVincoli: traduci in modo naturale, non parola per parola, ma non aggiungere né togliere informazioni e non rendere più forte un'affermazione. Non convertire le misure se non lo chiedo. Mantieni nomi propri e luoghi (per esempio \"Etna\") nella forma usata nella lingua di destinazione solo se sei sicuro; altrimenti lasciali in italiano. Se hai dubbi sulla traduzione di un termine tecnico, scrivi due opzioni nelle note.",
+  "variables": [
+    {
+      "name": "lingue_destinazione",
+      "description": "Le lingue in cui vuoi tradurre.",
+      "example": "inglese e tedesco"
+    },
+    {
+      "name": "mercato",
+      "description": "Chi leggerà la traduzione.",
+      "example": "turisti in visita al laboratorio e piccoli negozi di design nei paesi di lingua inglese e tedesca"
+    },
+    {
+      "name": "scheda_italiano",
+      "description": "La scheda originale, completa.",
+      "example": "Tavolino in pietra lavica dell'Etna, piano smaltato a mano, diametro 45 cm, altezza 50 cm. La pietra è lavorata e smaltata nel nostro laboratorio. Ogni pezzo è unico: colore e sfumature possono variare. Adatto anche all'esterno; si pulisce con un panno umido. Peso: 18 kg."
+    },
+    {
+      "name": "glossario",
+      "description": "Parole del tuo mestiere con la traduzione che vuoi.",
+      "example": "\"smaltata\" = glazed; il marchio \"Pietra Viva\" resta invariato"
+    },
+    {
+      "name": "unita_misura",
+      "description": "Come trattare le misure.",
+      "example": "centimetri e chilogrammi, nessuna conversione"
+    }
+  ],
+  "how_to_use": "Incolla la scheda italiana così com'è e compila il glossario con le parole su cui sei sicuro. Fai leggere il risultato a qualcuno che parla la lingua, anche un cliente affezionato. Leggi sempre la sezione \"Note per me\" prima di pubblicare: contiene i punti dubbi.",
+  "example_input": "lingue_destinazione: inglese e tedesco\nmercato: turisti in visita al laboratorio e piccoli negozi di design nei paesi di lingua inglese e tedesca\nscheda_italiano: Tavolino in pietra lavica dell'Etna, piano smaltato a mano, diametro 45 cm, altezza 50 cm. La pietra è lavorata e smaltata nel nostro laboratorio. Ogni pezzo è unico: colore e sfumature possono variare. Adatto anche all'esterno; si pulisce con un panno umido. Peso: 18 kg.\nglossario: \"smaltata\" = glazed; il marchio \"Pietra Viva\" resta invariato\nunita_misura: centimetri e chilogrammi, nessuna conversione",
+  "expected_output_description": "Per ogni lingua un titolo, una descrizione e una scheda tecnica con la stessa struttura dell'italiano, in un testo naturale. In fondo una sezione di note con ambiguità, termini senza equivalente esatto e affermazioni da verificare.",
+  "limits_and_warnings": "Le traduzioni vanno riviste da chi conosce la lingua, soprattutto per i termini tecnici. Affermazioni come \"adatto all'esterno\" o \"idoneo al contatto con alimenti\" possono richiedere prove o avere obblighi diversi nei paesi di destinazione. Non cambiare misure o valute senza verificare le regole di quel mercato.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot",
+    "Mistral Le Chat"
+  ],
+  "level": "intermedio",
+  "tested_at": "2026-10-21",
+  "test_notes": "DA COMPILARE DOPO IL TEST: nota provvisoria per superare la lunghezza minima richiesta."
+}

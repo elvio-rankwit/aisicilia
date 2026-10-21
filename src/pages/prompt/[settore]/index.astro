@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PromptCard from '../../../components/PromptCard.astro';
+import ArticleCard from '../../../components/ArticleCard.astro';
+import EmptyState from '../../../components/EmptyState.astro';
+import { getArticles, getPromptsBySector } from '../../../lib/data';
+import { articlesForSector } from '../../../lib/related';
+import { meta } from '../../../lib/seo/meta';
+import { collectionPageNodes, itemListNodes } from '../../../lib/seo/jsonld';
+import { PROMPT_SECTORS, PROMPT_SECTOR_SLUGS, type PromptSector } from '../../../lib/taxonomies';
+import { plural } from '../../../components/helpers';
+
+export function getStaticPaths() {
+  return PROMPT_SECTOR_SLUGS.map((settore) => ({ params: { settore } }));
+}
+const sector = Astro.params.settore as PromptSector;
+const label = PROMPT_SECTORS[sector];
+const prompts = await getPromptsBySector(sector);
+const articles = articlesForSector(sector, await getArticles(), 3);
+const m = meta.promptSector(sector, prompts.length);
+const path = `/prompt/${sector}/`;
+const h1 = `Prompt AI per ${label.toLowerCase()}`;
+---
+<BaseLayout
+  seo={{
+    title: m.title, description: m.description, path,
+    breadcrumbs: [{ name: 'Prompt', path: '/prompt/' }, { name: label, path }],
+    jsonld: [
+      ...collectionPageNodes({ path, name: h1, description: m.description }),
+      ...itemListNodes({ path, name: h1, items: prompts.map((p) => ({ url: `/prompt/${sector}/${p.id}/`, name: p.data.title })) }),
+    ],
+  }}
+>
+  <div class="page-head">
+    <h1>{h1}</h1>
+    {prompts.length > 0 ? (
+      <p class="answer">{plural(prompts.length, 'prompt pronto', 'prompt pronti')} per {label.toLowerCase()}. Ogni scheda indica a cosa serve, il livello, le variabili da compilare e le avvertenze. Copia, sostituisci i dati tra graffe e rileggi sempre il risultato prima di usarlo.</p>
+    ) : (
+      <p class="answer">I prompt per {label.toLowerCase()} sono in preparazione. Ognuno viene provato prima di essere pubblicato.</p>
+    )}
+  </div>
+
+  <section class="section" aria-labelledby="h-prompt">
+    <h2 id="h-prompt">I prompt per {label.toLowerCase()}</h2>
+    {prompts.length > 0 ? (
+      <ul class="grid">{prompts.map((p) => <PromptCard prompt={p} />)}</ul>
+    ) : (
+      <EmptyState text="Nessun prompt pubblicato in questo settore per ora." cta={false} />
+    )}
+  </section>
+
+  {articles.length > 0 && (
+    <section class="section" aria-labelledby="h-guide">
+      <div class="section-head">
+        <h2 id="h-guide">Guide collegate</h2>
+        <a href="/impara/">Tutte le guide</a>
+      </div>
+      <ul class="grid">{articles.map((a) => <ArticleCard article={a} />)}</ul>
+    </section>
+  )}
+
+  <p class="section"><a href="/prompt/">Tutti i settori della libreria</a></p>
+</BaseLayout>

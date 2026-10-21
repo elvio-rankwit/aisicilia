@@ -1,0 +1,58 @@
+{
+  "title": "Email pre-arrivo in italiano, inglese e tedesco per un B&B",
+  "slug": "email-pre-arrivo-tre-lingue-bb-ospitalita",
+  "sector": "ospitalita",
+  "use_case": "traduzioni",
+  "goal": "Ottieni in un solo passaggio l'email da inviare prima dell'arrivo in italiano, inglese e tedesco, con orari e istruzioni identici nelle tre versioni.",
+  "prompt_text": "Sei il referente dell'accoglienza di {nome_struttura} a {localita}. Scrivi l'email di pre-arrivo da inviare tre giorni prima, in tre versioni consecutive: italiano, inglese, tedesco. Ogni versione ha oggetto e testo.\n\nDati da usare:\n- Arrivo: {data_arrivo}\n- Check-in: {orario_checkin}\n- Come arrivare ed entrare: {istruzioni_arrivo}\n- Regole da ricordare: {regole_essenziali}\n- Come contattarci all'arrivo: {contatto_arrivo}\n\nVincoli: massimo 130 parole per versione. Tono caldo e concreto, senza formule da catena alberghiera. Usa il \"tu\" in italiano, \"you\" in inglese, \"Sie\" in tedesco. Non tradurre parola per parola: adatta le espressioni a ciascuna lingua, ma date, orari, numeri civici e nomi di vie restano identici, con gli orari sempre in formato 24 ore (15:00, non 3 pm). Scrivi la data per esteso secondo l'uso di ogni lingua.\nNon aggiungere servizi, orari o prezzi che non ho scritto. Se manca qualcosa di necessario (per esempio come si ritirano le chiavi), chiedimelo prima di scrivere.\nIn fondo, sotto il titolo \"Da controllare\", elenca gli eventuali punti in cui le versioni inglese e tedesca si allontanano dall'originale italiano.",
+  "variables": [
+    {
+      "name": "nome_struttura",
+      "description": "Nome della struttura.",
+      "example": "B&B Il Cortile"
+    },
+    {
+      "name": "localita",
+      "description": "Città o zona.",
+      "example": "Ortigia, Siracusa"
+    },
+    {
+      "name": "data_arrivo",
+      "description": "Data di arrivo dell'ospite.",
+      "example": "sabato 14 novembre 2026"
+    },
+    {
+      "name": "orario_checkin",
+      "description": "Fascia oraria del check-in.",
+      "example": "dalle 15:00 alle 20:00"
+    },
+    {
+      "name": "istruzioni_arrivo",
+      "description": "Come raggiungere la struttura, dove parcheggiare, come si entra e si ritirano le chiavi.",
+      "example": "Ortigia è a traffico limitato: lasciare l'auto al parcheggio indicato nella conferma e proseguire a piedi per 8 minuti. Il portone verde è al civico 12 di via dei Mille; le chiavi sono in una cassetta con codice che inviamo la mattina dell'arrivo."
+    },
+    {
+      "name": "regole_essenziali",
+      "description": "Le due o tre regole che servono prima di arrivare.",
+      "example": "Silenzio in cortile dopo le 23:00. Non si fuma nelle camere. Tassa di soggiorno da pagare in contanti al check-in."
+    },
+    {
+      "name": "contatto_arrivo",
+      "description": "Canale da usare in caso di ritardo o problemi, senza scrivere numeri personali.",
+      "example": "Messaggio al numero dell'attività indicato nella conferma di prenotazione, anche in orario serale."
+    }
+  ],
+  "how_to_use": "Compila le variabili con le informazioni che oggi mandi a voce o in messaggi sparsi. Incolla il prompt, copia ogni versione in un'email separata e inviala nella lingua dell'ospite. Se hai un amico o un collaboratore che parla tedesco, fagli leggere almeno l'oggetto e la prima frase prima del primo invio.",
+  "example_input": "nome_struttura: B&B Il Cortile\nlocalita: Ortigia, Siracusa\ndata_arrivo: sabato 14 novembre 2026\norario_checkin: dalle 15:00 alle 20:00\nistruzioni_arrivo: Ortigia è a traffico limitato: lasciare l'auto al parcheggio indicato nella conferma e proseguire a piedi per 8 minuti. Il portone verde è al civico 12 di via dei Mille; le chiavi sono in una cassetta con codice che inviamo la mattina dell'arrivo.\nregole_essenziali: Silenzio in cortile dopo le 23:00. Non si fuma nelle camere. Tassa di soggiorno da pagare in contanti al check-in.\ncontatto_arrivo: Messaggio al numero dell'attività indicato nella conferma di prenotazione, anche in orario serale.",
+  "expected_output_description": "Tre blocchi distinti (italiano, inglese, tedesco), ciascuno con oggetto e corpo di al massimo 130 parole, stessi orari e stesse istruzioni, tono amichevole. In coda una sezione \"Da controllare\" con le scelte di traduzione meno ovvie.",
+  "limits_and_warnings": "Non inserire nomi o recapiti personali degli ospiti: l'email viene personalizzata dopo. Il tedesco e l'inglese generati vanno bene per comunicazioni pratiche ma possono suonare rigidi: fai controllare le formule di cortesia da un madrelingua se scrivi spesso a quel mercato. Verifica sempre orari, importi e regole sulla tassa di soggiorno del tuo Comune.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Mistral Le Chat"
+  ],
+  "level": "intermedio",
+  "tested_at": "2026-10-21",
+  "test_notes": "Eseguito sull'input del 14 novembre a Ortigia: le tre versioni stanno sotto le 130 parole e riportano le stesse date e istruzioni. Nella versione inglese l'orario veniva convertito in formato 12 ore (\"3 pm\"): aggiunto l'obbligo del formato 24 ore. Tra i punti da controllare è emersa la resa di \"tassa di soggiorno\" in tedesco."
+}

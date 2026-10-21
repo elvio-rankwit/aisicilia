@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import MapPreviewSlot from '../../../components/MapPreviewSlot.astro';
+import MapInteractiveSlot from '../../../components/MapInteractiveSlot.astro';
+import SourceBox from '../../../components/SourceBox.astro';
+import EventCard from '../../../components/EventCard.astro';
+import CompanyCard from '../../../components/CompanyCard.astro';
+import { getAllEvents, getCompanies, getUpcomingEvents } from '../../../lib/data';
+import { relatedEvents } from '../../../lib/related';
+import { meta } from '../../../lib/seo/meta';
+import { eventNodes } from '../../../lib/seo/jsonld';
+import { PROVINCES } from '../../../lib/provinces';
+import { RESERVED_SLUGS, cap, countByProvince, dateRange, eventPoints, eventStatus, hostOf, timeRange, weekdayOf } from '../../../components/helpers';
+
+export async function getStaticPaths() {
+  const events = await getAllEvents();
+  return events.filter((e) => !RESERVED_SLUGS.includes(e.id)).map((e) => ({ params: { slug: e.id }, props: { id: e.id } }));
+}
+const all = await getAllEvents();
+const e = all.find((x) => x.id === Astro.props.id)!;
+const d = e.data;
+const prov = PROVINCES[d.province];
+const st = eventStatus(e);
+const upcoming = await getUpcomingEvents();
+const related = relatedEvents(e, upcoming, 3);
+const companies = (await getCompanies()).filter((c) => c.data.province === d.province).slice(0, 3);
+const time = timeRange(d.start_time, d.end_time);
+const hasGeo = d.lat !== undefined && d.lng !== undefined;
+const m = meta.event(e);
+const path = `/eventi/${e.id}/`;
+const canAdd = !st.past && d.status !== 'annullato';
+const where = d.format === 'online'
+  ? `Online, organizzato da una realtà di ${d.city}`
+  : [d.venue_name, d.venue_address, d.city].filter(Boolean).join(', ');
+---
+<BaseLayout
+  seo={{
+    title: m.title, description: m.description, path,
+    breadcrumbs: [{ name: 'Eventi', path: '/eventi/' }, { name: prov.name, path: `/eventi/provincia/${d.province}/` }, { name: d.title, path }],
+    jsonld: eventNodes(e),
+    modifiedAt: d.last_verified,
+  }}
+>
+  <article>
+    <header class="page-head">
+      <p class="eyebrow"><span class={`badge ${st.tone}`}>{st.label}</span></p>
+      <h1>{d.title}</h1>
+      <p class="lead"><time datetime={d.start_date.toISOString().slice(0, 10)}>{dateRange(d.start_date, d.end_date)}</time>{time && ` · ore ${time}`} · {d.format === 'online' ? 'online' : d.city}</p>
+    </header>
+
+    {st.key === 'concluso' && (
+      <div class="callout" role="note">
+        <p><strong>Evento concluso.</strong> La scheda resta online come memoria. Gli eventi in programma sono nell’<a href="/eventi/">elenco dei prossimi eventi</a>; quelli già svolti, nell’<a href="/eventi/archivio/">archivio</a>.</p>
+      </div>
+    )}
+    {st.key === 'annullato' && (
+      <div class="callout danger" role="note"><p><strong>Evento annullato.</strong> Controlla la pagina dell’organizzatore per eventuali novità. Altri appuntamenti nell’<a href="/eventi/">elenco dei prossimi eventi</a>.</p></div>
+    )}
+    {st.key === 'rinviato' && (
+      <div class="callout warn" role="note"><p><strong>Evento rinviato.</strong> La data indicata qui sotto potrebbe non essere più valida: controlla la pagina dell’organizzatore.</p></div>
+    )}
+    {st.key === 'spostato' && (
+      <div class="callout warn" role="note"><p><strong>Spostato online.</strong> L’evento non si tiene più in presenza: i dettagli sono sulla pagina dell’organizzatore.</p></div>
+    )}
+
+    <div class="prose"><p class="desc">{d.description}</p></div>
+
+    <section class="section" aria-labelledby="h-dettagli">
+      <h2 id="h-dettagli">Quando, dove, quanto</h2>
+      <dl class="facts">
+        <dt>Data</dt>
+        <dd>{dateRange(d.start_date, d.end_date)}{!d.end_date && ` (${weekdayOf(d.start_date)})`}</dd>
+        {time && <><dt>Orario</dt><dd>{time}</dd></>}
+        <dt>Formato</dt>
+        <dd>{cap(d.format)}</dd>
+        <dt>Luogo</dt>
+        <dd>{where} ({prov.sigla})</dd>
+        <dt>Organizzatore</dt>
+        <dd>{d.organizer_url ? <a class="ext" href={d.organizer_url} rel="noopener">{d.organizer}</a> : d.organizer}</dd>
+        <dt>Prezzo</dt>
+        <dd>{cap(d.price)}</dd>
+        <dt>Per chi</dt>
+        <dd>{d.audience.map(cap).join(', ')}</dd>
+        <dt>Temi</dt>
+        <dd>{d.topics.join(', ')}</dd>
+      </dl>
+      <div class="btn-row">
+        <a class="btn" href={d.event_url} rel="noopener">Vai alla pagina dell’evento</a>
+        {canAdd && <a class="btn ghost" href={`/eventi/${e.id}/evento.ics`} download>Aggiungi al calendario</a>}
+      </div>
+    </section>
+
+    <SourceBox urls={[d.source_url]} verified={d.last_verified} what="evento" />
+
+    {hasGeo && (
+      <section class="section" aria-labelledby="h-mappa">
+        <h2 id="h-mappa">Dove si svolge</h2>
+        <div class="two">
+          <MapPreviewSlot counts={countByProvince(upcoming)} mode="link" basePath="/eventi/provincia/" active={d.province} label={`${d.title}: provincia di ${prov.name}`} points={[{ lat: d.lat!, lng: d.lng! }]} unit={['evento', 'eventi']} />
+          <MapInteractiveSlot points={eventPoints([e])} center={[d.lat!, d.lng!]} zoom={14} height={320} label={`Mappa interattiva: ${d.title}`} />
+        </div>
+      </section>
+    )}
+  </article>
+
+  {related.length > 0 && (
+    <section class="section" aria-labelledby="h-correlati">
+      <h2 id="h-correlati">Altri eventi che potrebbero interessarti</h2>
+      <ul class="grid">{related.map((r) => <EventCard event={r} />)}</ul>
+    </section>
+  )}
+
+  {companies.length > 0 && (
+    <section class="section" aria-labelledby="h-aziende">
+      <div class="section-head">
+        <h2 id="h-aziende">Aziende AI di {prov.name}</h2>
+        <a href={`/aziende/provincia/${d.province}/`}>Tutte le aziende a {prov.name}</a>
+      </div>
+      <ul class="grid">{companies.map((c) => <CompanyCard company={c} />)}</ul>
+    </section>
+  )}
+</BaseLayout>
+<style>
+  .desc { font-size: var(--fs-lg); line-height: 1.6; }
+  .two { display: grid; gap: var(--space-4); align-items: start; }
+  @media (min-width: 56rem) { .two { grid-template-columns: 1fr 1fr; } }
+</style>

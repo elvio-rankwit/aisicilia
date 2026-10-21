@@ -1,0 +1,63 @@
+{
+  "title": "Descrizione di un prodotto agroalimentare per l'e-commerce, fedele all'etichetta",
+  "slug": "descrizione-prodotto-ecommerce-agroalimentare",
+  "sector": "agroalimentare-vino",
+  "use_case": "marketing",
+  "goal": "Ottieni titolo, descrizione breve e lunga, scheda dati e meta description per la pagina prodotto, senza claim che l'etichetta non può sostenere.",
+  "prompt_text": "Scrivi la scheda prodotto per l'e-commerce di {nome_azienda}.\n\nProdotto: {prodotto}, formato {formato}.\nIngredienti come in etichetta: {ingredienti_etichetta}\nOrigine delle materie prime: {origine_materie_prime}\nMetodo di produzione: {metodo_produzione}\nAllergeni come in etichetta: {allergeni_etichetta}\nConservazione: {conservazione}\n\nConsegna, in italiano:\n1. Titolo di massimo 70 caratteri.\n2. Descrizione breve di circa 40 parole.\n3. Descrizione lunga di 120-150 parole.\n4. Scheda dati con ingredienti, formato, conservazione, allergeni e origine.\n5. Meta description di massimo 155 caratteri.\n6. Due suggerimenti d'uso in cucina, indicati come suggerimenti.\n\nRegole: la scheda dati riporta ingredienti e allergeni identici all'etichetta, nello stesso ordine e con le stesse parole (non scrivere \"latte\" se in etichetta c'è \"latte intero in polvere\"). Non usare claim nutrizionali o sulla salute (\"sano\", \"ricco di\", \"energetico\") né diciture come DOP, IGP, biologico, \"senza olio di palma\", a meno che non siano scritte qui sopra. Niente superlativi (\"il migliore\"). Non inventare storia dell'azienda o ricette. Se manca un dato, chiedimelo.",
+  "variables": [
+    {
+      "name": "nome_azienda",
+      "description": "Nome dell'azienda.",
+      "example": "Azienda agricola Le Terrazze"
+    },
+    {
+      "name": "prodotto",
+      "description": "Nome del prodotto.",
+      "example": "Crema di pistacchio"
+    },
+    {
+      "name": "formato",
+      "description": "Peso o volume del vasetto.",
+      "example": "vasetto da 190 g"
+    },
+    {
+      "name": "ingredienti_etichetta",
+      "description": "Elenco ingredienti copiato dall'etichetta.",
+      "example": "pistacchi 40%, zucchero, olio di girasole, latte intero in polvere, burro di cacao, emulsionante lecitina di girasole, sale"
+    },
+    {
+      "name": "origine_materie_prime",
+      "description": "Da dove arrivano gli ingredienti principali, solo se lo sai documentare.",
+      "example": "Pistacchi coltivati dall'azienda sulle pendici dell'Etna, in provincia di Catania."
+    },
+    {
+      "name": "metodo_produzione",
+      "description": "Come lo producete, in fatti.",
+      "example": "Tostatura e macinazione in azienda, nessun conservante aggiunto."
+    },
+    {
+      "name": "allergeni_etichetta",
+      "description": "Allergeni come scritti in etichetta.",
+      "example": "Frutta a guscio, latte. Può contenere tracce di altra frutta a guscio."
+    },
+    {
+      "name": "conservazione",
+      "description": "Indicazioni di conservazione.",
+      "example": "In luogo fresco e asciutto. Dopo l'apertura in frigorifero, da consumare entro 30 giorni."
+    }
+  ],
+  "how_to_use": "Tieni davanti l'etichetta stampata e copia i dati da lì, non dal sito vecchio. Incolla il prompt, rileggi la scheda dati confrontandola riga per riga con l'etichetta. Poi carica i testi sul tuo e-commerce e sui marketplace, adattando solo i limiti di caratteri richiesti.",
+  "example_input": "nome_azienda: Azienda agricola Le Terrazze\nprodotto: Crema di pistacchio\nformato: vasetto da 190 g\ningredienti_etichetta: pistacchi 40%, zucchero, olio di girasole, latte intero in polvere, burro di cacao, emulsionante lecitina di girasole, sale\norigine_materie_prime: Pistacchi coltivati dall'azienda sulle pendici dell'Etna, in provincia di Catania.\nmetodo_produzione: Tostatura e macinazione in azienda, nessun conservante aggiunto.\nallergeni_etichetta: Frutta a guscio, latte. Può contenere tracce di altra frutta a guscio.\nconservazione: In luogo fresco e asciutto. Dopo l'apertura in frigorifero, da consumare entro 30 giorni.",
+  "expected_output_description": "Un titolo sotto i 70 caratteri, due descrizioni (circa 40 e 120-150 parole), una scheda dati identica all'etichetta, una meta description sotto i 155 caratteri e due suggerimenti d'uso. Nessun claim sulla salute.",
+  "limits_and_warnings": "Ingredienti, allergeni e dichiarazioni sono materia di legge: copia sempre dall'etichetta e fai controllare le novità a un consulente. L'AI può aggiungere claim o dettagli che non esistono: leggi con attenzione. Se vendi all'estero, alcune indicazioni obbligatorie cambiano da paese a paese.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot"
+  ],
+  "level": "base",
+  "tested_at": "2026-10-21",
+  "test_notes": "Eseguito sulla crema di pistacchio: titolo di 38 caratteri, descrizioni di 41 e circa 130 parole, meta description sotto i 155. Nella mia prima esecuzione la scheda dati riportava \"latte\" invece di \"latte intero in polvere\" e la descrizione aggiungeva \"senza olio di palma\": aggiunti l'obbligo di ingredienti identici e il divieto di dichiarazioni non scritte."
+}

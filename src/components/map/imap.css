@@ -1,0 +1,28 @@
+/* Stili della mappa interattiva: un unico file, caricato con un <link> solo all'apertura (mai nel CSS iniziale).
+   Colori solo dai token (light/dark automatici). */
+@import './leaflet-lite.css';
+@import 'leaflet.markercluster/dist/MarkerCluster.css';
+
+.leaflet-container { font: inherit; background: var(--c-surface-2); }
+.leaflet-container a { color: var(--c-primary); }
+.leaflet-container:focus-visible { outline: 3px solid var(--c-focus); outline-offset: -3px; }
+.leaflet-touch .leaflet-bar a { width: 40px; height: 40px; line-height: 40px; }
+.leaflet-bar a, .leaflet-bar a:hover { background-color: var(--c-surface); color: var(--c-text); border-bottom-color: var(--c-border); }
+.leaflet-bar a:hover { background-color: var(--c-surface-2); }
+.leaflet-bar a.leaflet-disabled { color: var(--c-text-muted); background-color: var(--c-surface-2); }
+.leaflet-control-attribution { background: color-mix(in srgb, var(--c-surface) 85%, transparent); color: var(--c-text-muted); font-size: var(--fs-xs); }
+.leaflet-popup-content-wrapper, .leaflet-popup-tip { background: var(--c-surface); color: var(--c-text); }
+.leaflet-popup-content { margin: var(--space-3) var(--space-4); line-height: 1.4; }
+
+.imap-pin svg { display: block; }
+.imap-pin path { fill: var(--c-primary); stroke: var(--c-surface); stroke-width: 1.5; }
+.imap-pin circle { fill: var(--c-on-primary); }
+.imap-pin:hover path, .imap-pin:focus-visible path { fill: var(--c-primary-hover); }
+.imap-pin:focus-visible { outline: 3px solid var(--c-focus); outline-offset: 2px; border-radius: var(--radius-sm); }
+
+.imap-cluster { display: grid; place-items: center; border-radius: var(--radius-pill); background: var(--c-primary); color: var(--c-on-primary); border: 3px solid var(--c-surface); box-shadow: var(--shadow); font: 700 var(--fs-sm) var(--font-sans); }
+.imap-cluster:focus-visible { outline: 3px solid var(--c-focus); outline-offset: 2px; }
+
+.imap-pop { min-width: 10rem; max-width: 16rem; }
+.imap-pop-title { display: block; font-weight: 700; font-size: var(--fs-base); margin: 0 0 var(--space-1); }
+.imap-pop p { margin: 0; font-size: var(--fs-sm); color: var(--c-text-muted); }

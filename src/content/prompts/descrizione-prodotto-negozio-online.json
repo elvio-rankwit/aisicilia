@@ -1,0 +1,43 @@
+{
+  "title": "Scrivere la scheda di un prodotto per il negozio online usando solo i dati che hai davvero",
+  "slug": "descrizione-prodotto-negozio-online",
+  "sector": "commercio-retail",
+  "use_case": "marketing",
+  "goal": "Ottieni titolo, descrizione, scheda tecnica e meta description per un prodotto, senza aggettivi di qualità o origine che non puoi dimostrare.",
+  "prompt_text": "Sei un copywriter che scrive schede prodotto per il negozio online di un'attività siciliana. Scrivi la scheda del prodotto qui sotto usando solo i dati che ti do.\n\nProdotto: {nome_prodotto}\nDati certi (materiali, misure, lavorazione, origine, cura): {dati_prodotto}\nA chi lo proponiamo: {pubblico}\nTono del negozio: {tono}\n\nOutput, in italiano:\n1. Titolo di massimo 60 caratteri.\n2. Descrizione di 80-110 parole: apri con ciò che il cliente ci fa o dove lo usa, poi materiali e lavorazione.\n3. Scheda tecnica in 4-6 righe nel formato \"voce: valore\", solo con dati presenti sopra.\n4. Meta description di massimo 155 caratteri.\n\nVincoli: non aggiungere aggettivi su resistenza, qualità, sicurezza alimentare, origine o certificazioni che non compaiono nei dati. Niente \"tradizione secolare\", \"passione\", \"cuore della Sicilia\" e simili, se non sono nei dati. Se ti manca un dato che serve alla scheda tecnica (per esempio l'altezza), scrivi \"[da inserire]\" al suo posto e non stimarlo. Frasi di lunghezza varia, niente punti esclamativi.",
+  "variables": [
+    {
+      "name": "nome_prodotto",
+      "description": "Nome o tipo del prodotto.",
+      "example": "Piatto da portata dipinto a limoni"
+    },
+    {
+      "name": "dati_prodotto",
+      "description": "Tutti i dati che puoi garantire. Se non lo sai, non scriverlo.",
+      "example": "ceramica smaltata, diametro 32 cm, dipinto a mano con motivo a limoni, smalto lucido, prodotto in un laboratorio a Caltagirone, lavabile in lavastoviglie a ciclo delicato, non adatto al microonde"
+    },
+    {
+      "name": "pubblico",
+      "description": "A chi si rivolge.",
+      "example": "chi cerca un regalo per la casa e turisti che portano a casa un ricordo"
+    },
+    {
+      "name": "tono",
+      "description": "Come parla il tuo negozio.",
+      "example": "caldo e semplice, senza enfasi"
+    }
+  ],
+  "how_to_use": "Incolla il prompt, compila i dati del prodotto con calma: tutto ciò che scrivi lì potrà finire nella scheda. Lancialo per ogni prodotto cambiando solo nome e dati. Controlla titolo e meta description nel gestionale del sito e completa le voci segnate \"[da inserire]\".",
+  "example_input": "nome_prodotto: Piatto da portata dipinto a limoni\ndati_prodotto: ceramica smaltata, diametro 32 cm, dipinto a mano con motivo a limoni, smalto lucido, prodotto in un laboratorio a Caltagirone, lavabile in lavastoviglie a ciclo delicato, non adatto al microonde\npubblico: chi cerca un regalo per la casa e turisti che portano a casa un ricordo\ntono: caldo e semplice, senza enfasi",
+  "expected_output_description": "Titolo breve, descrizione di 80-110 parole che parte dall'uso, scheda tecnica di 4-6 righe e meta description sotto i 155 caratteri. Le voci mancanti appaiono come \"[da inserire]\" e non ci sono aggettivi non supportati dai dati.",
+  "limits_and_warnings": "L'AI tende ad aggiungere qualità che non hai indicato: leggi ogni frase e togli quelle che non puoi dimostrare. Verifica misure, materiali e istruzioni di cura. Per prodotti a contatto con alimenti, cosmetici o giocattoli le dichiarazioni sono regolate dalla legge: chiedi conferma al fornitore o a un consulente.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot"
+  ],
+  "level": "base",
+  "tested_at": "2026-10-21",
+  "test_notes": "Prima versione: la descrizione aggiungeva \"resistente\" e \"adatto all'uso quotidiano\", non presenti nei dati. Aggiunto il divieto di aggettivi non supportati. Secondo test: 98 parole, altezza segnata \"[da inserire]\", nessun riferimento alla tradizione, meta description di 142 caratteri."
+}

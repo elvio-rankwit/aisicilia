@@ -1,0 +1,18 @@
+---
+import type { Article } from '../lib/data';
+import { PROMPT_SECTORS } from '../lib/taxonomies';
+import { clip } from './helpers';
+interface Props { article: Article; level?: 2 | 3 | 4 }
+const { article: a, level = 3 } = Astro.props;
+const d = a.data;
+const H = `h${level}` as 'h2' | 'h3' | 'h4';
+const sectors = d.sectors.map((s) => (s === 'tutti' ? 'Tutti i settori' : PROMPT_SECTORS[s]));
+---
+<li class="card article" data-id={a.id} data-settori={d.sectors.join(' ')} data-livello={d.level}>
+  <p class="meta">{d.level[0].toUpperCase() + d.level.slice(1)} · {d.reading_time} min di lettura</p>
+  <H><a href={`/impara/${a.id}/`}>{d.title}</a></H>
+  <p>{clip(d.description, 140)}</p>
+  <ul class="tags" aria-label="Settori">
+    {sectors.slice(0, 3).map((s) => <li><span class="badge plain">{s}</span></li>)}
+  </ul>
+</li>

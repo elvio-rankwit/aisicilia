@@ -1,0 +1,59 @@
+{
+  "title": "Scrivere la pagina \"Chi siamo\" della tua bottega partendo da appunti sparsi",
+  "slug": "storia-laboratorio-artigiano-sito",
+  "sector": "artigianato-manifattura",
+  "use_case": "marketing",
+  "goal": "Ottieni tre titoli e un testo di circa 200 parole per la pagina \"Chi siamo\", scritto in prima persona plurale e senza frasi fatte sulla tradizione, partendo solo dai fatti che dai.",
+  "prompt_text": "Sei un copywriter che scrive per piccole botteghe artigiane. Scrivi la pagina \"Chi siamo\" di {nome_laboratorio}, laboratorio di {mestiere} a {citta}, partendo dagli appunti che trovi qui sotto.\n\nAppunti (fatti, anche scritti male): {appunti}\nCosa produciamo: {prodotti}\nCosa ci distingue, secondo noi: {distintivo}\nPer chi scriviamo: {pubblico}\n\nOutput:\n1. Tre proposte di titolo, di stile diverso.\n2. Il testo, tra 180 e 220 parole, in prima persona plurale (\"noi\"), con due sottotitoli: il primo sulla storia del laboratorio, il secondo su come lavoriamo oggi.\n3. Una frase finale che invita a contattarci o a venire in bottega, senza orari né indirizzi che non ho fornito.\n\nVincoli: usa solo i fatti degli appunti, nessun nome, data o numero in più. Niente \"tradizione secolare\", \"passione\", \"amore per il bello\", \"cuore della Sicilia\" e simili: preferisci un fatto concreto a un aggettivo. Alterna frasi brevi e frasi più lunghe, niente punti esclamativi. Se un fatto importante manca (per esempio da quanti anni esiste il laboratorio), scrivi \"[da inserire]\" e segnalalo in una nota finale.",
+  "variables": [
+    {
+      "name": "nome_laboratorio",
+      "description": "Il nome della bottega.",
+      "example": "Bottega Ferro e Fuoco"
+    },
+    {
+      "name": "mestiere",
+      "description": "Cosa fai.",
+      "example": "lavorazione artistica del ferro battuto"
+    },
+    {
+      "name": "citta",
+      "description": "Dove sei.",
+      "example": "Modica"
+    },
+    {
+      "name": "appunti",
+      "description": "I fatti sulla storia e sul lavoro, come ti vengono.",
+      "example": "aperta nel 1998 da due fratelli dopo anni da dipendenti in un'officina; oggi lavorano in tre; il fabbro più giovane è entrato nel 2019 dopo la scuola professionale; le parti decorative si forgiano ancora a mano, le strutture si saldano in laboratorio; lavorano per privati e per due ristoranti della zona"
+    },
+    {
+      "name": "prodotti",
+      "description": "Cosa realizzi.",
+      "example": "cancelli, ringhiere, lampade, arredi per locali"
+    },
+    {
+      "name": "distintivo",
+      "description": "Cosa ti rende diverso, con fatti.",
+      "example": "ogni pezzo parte da un disegno fatto con il cliente e si può vedere la lavorazione in laboratorio"
+    },
+    {
+      "name": "pubblico",
+      "description": "Chi leggerà la pagina.",
+      "example": "privati che ristrutturano casa e gestori di locali"
+    }
+  ],
+  "how_to_use": "Scrivi gli appunti come li racconteresti a un amico: date, numeri, cose che fate. Più fatti dai, meno frasi generiche troverai. Scegli il titolo che ti somiglia e rileggi il testo ad alta voce: se una frase non l'avresti mai detta, riscrivila.",
+  "example_input": "nome_laboratorio: Bottega Ferro e Fuoco\nmestiere: lavorazione artistica del ferro battuto\ncitta: Modica\nappunti: aperta nel 1998 da due fratelli dopo anni da dipendenti in un'officina; oggi lavorano in tre; il fabbro più giovane è entrato nel 2019 dopo la scuola professionale; le parti decorative si forgiano ancora a mano, le strutture si saldano in laboratorio; lavorano per privati e per due ristoranti della zona\nprodotti: cancelli, ringhiere, lampade, arredi per locali\ndistintivo: ogni pezzo parte da un disegno fatto con il cliente e si può vedere la lavorazione in laboratorio\npubblico: privati che ristrutturano casa e gestori di locali",
+  "expected_output_description": "Tre titoli e un testo di 180-220 parole in prima persona plurale, diviso in due sottotitoli (storia e lavoro di oggi), con una frase finale per contattarvi. I fatti mancanti sono segnati \"[da inserire]\" e riepilogati in una nota.",
+  "limits_and_warnings": "L'AI non conosce la tua bottega: ogni frase va confrontata con la realtà e con gli appunti. Se citi clienti, premi o certificazioni, assicurati di avere l'autorizzazione o la prova. Non scrivere nel testo nomi e dati personali dei dipendenti senza il loro consenso.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot",
+    "Mistral Le Chat"
+  ],
+  "level": "base",
+  "tested_at": "2026-10-21",
+  "test_notes": "DA COMPILARE DOPO IL TEST: nota provvisoria per superare la lunghezza minima richiesta."
+}

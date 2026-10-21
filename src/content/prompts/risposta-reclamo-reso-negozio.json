@@ -1,0 +1,59 @@
+{
+  "title": "Rispondere a un cliente che chiede reso o rimborso, senza promettere più di quanto prevedi",
+  "slug": "risposta-reclamo-reso-negozio",
+  "sector": "commercio-retail",
+  "use_case": "customer care",
+  "goal": "Ottieni una risposta breve e cordiale a un reclamo o a una richiesta di reso, che cita solo le regole del tuo negozio e non dà ragione o torto prima della verifica.",
+  "prompt_text": "Sei l'addetto al servizio clienti di un negozio di {tipo_negozio}. Un cliente ci scrive per chiedere il reso, il cambio o il rimborso di un acquisto.\n\nMessaggio del cliente:\n{messaggio_cliente}\n\nRegole del negozio (puoi citare solo queste):\n{politica_reso}\n\nCosa so dell'acquisto: {dettagli_acquisto}\nOrari di apertura: {orari_negozio}\n\nScrivi la risposta per {canale}, in italiano, con il lei, tono cordiale e diretto, massimo 110 parole. Struttura:\n1. una frase che riconosce il problema, senza scuse esagerate;\n2. cosa è possibile secondo le regole sopra e cosa deve portare o fare il cliente;\n3. quando può passare, usando solo gli orari indicati;\n4. firma: {firma}.\n\nVincoli: non dire che il prodotto è difettoso né che non lo è, usa formule come \"se si tratta di un difetto\". Se la merce può essere difettosa, ricorda in una riga che esiste la garanzia legale e che i dettagli li confermiamo in negozio, senza citare articoli di legge. Non indicare la modalità del rimborso se non coincide con quanto scritto sopra e con il modo in cui ha pagato il cliente: in quel caso scrivi che la definiamo in negozio. Non inventare regole, termini, rimborsi o promesse. Se per rispondere manca un'informazione, non scrivere la risposta: elencami al massimo tre domande e fermati.",
+  "variables": [
+    {
+      "name": "tipo_negozio",
+      "description": "Che cosa vendi e dove.",
+      "example": "abbigliamento donna, Catania"
+    },
+    {
+      "name": "messaggio_cliente",
+      "description": "Il testo del cliente, senza nome, telefono o indirizzo.",
+      "example": "Buongiorno, ho comprato sabato una giacca ma la cerniera si è rotta alla seconda volta che l'ho usata. Vorrei i soldi indietro."
+    },
+    {
+      "name": "politica_reso",
+      "description": "Le regole di cambio e rimborso, scritte come le applichi davvero.",
+      "example": "Cambio merce entro 14 giorni con scontrino; rimborso in contanti solo per merce difettosa dopo verifica in negozio; i capi indossati non si cambiano se non difettosi."
+    },
+    {
+      "name": "dettagli_acquisto",
+      "description": "Ciò che sai dell'acquisto: prodotto, data, come ha pagato.",
+      "example": "giacca di cotone, acquistata sabato scorso, pagata con carta"
+    },
+    {
+      "name": "orari_negozio",
+      "description": "Orari in cui il cliente può passare.",
+      "example": "lunedì-sabato 9:30-13:00 e 16:30-20:00"
+    },
+    {
+      "name": "canale",
+      "description": "Dove invii la risposta.",
+      "example": "WhatsApp Business"
+    },
+    {
+      "name": "firma",
+      "description": "Come firmi il messaggio.",
+      "example": "Marta, Boutique Il Gelsomino"
+    }
+  ],
+  "how_to_use": "Incolla il prompt in un assistente AI. Sostituisci le variabili tra graffe con i tuoi dati, togliendo dal messaggio del cliente nome, telefono e indirizzo. Le regole di reso scrivile come le applichi, anche se sono poche. Rileggi la risposta, controlla che gli orari e le condizioni siano giusti e inviala dal tuo canale.",
+  "example_input": "tipo_negozio: abbigliamento donna, Catania\nmessaggio_cliente: Buongiorno, ho comprato sabato una giacca ma la cerniera si è rotta alla seconda volta che l'ho usata. Vorrei i soldi indietro.\npolitica_reso: Cambio merce entro 14 giorni con scontrino; rimborso in contanti solo per merce difettosa dopo verifica in negozio; i capi indossati non si cambiano se non difettosi.\ndettagli_acquisto: giacca di cotone, acquistata sabato scorso, pagata con carta\norari_negozio: lunedì-sabato 9:30-13:00 e 16:30-20:00\ncanale: WhatsApp Business\nfirma: Marta, Boutique Il Gelsomino",
+  "expected_output_description": "Un messaggio di 60-110 parole, con il lei, che riconosce il problema in una frase, dice cosa si può fare secondo le regole e invita il cliente a passare negli orari indicati. Nessuna cifra, scadenza o promessa che non hai scritto tu.",
+  "limits_and_warnings": "Non incollare dati personali del cliente: nome, telefono, indirizzo, numero d'ordine. L'AI non conosce le tue regole e la legge sulla garanzia: verifica sempre condizioni, tempi e modalità di rimborso prima di inviare. Per contestazioni importanti o clienti che minacciano vie legali, rispondi tu dopo aver sentito un consulente.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot",
+    "Mistral Le Chat"
+  ],
+  "level": "base",
+  "tested_at": "2026-10-21",
+  "test_notes": "Prima versione: la risposta dava ragione al cliente sulla cerniera e mancavano gli orari da citare. Aggiunti il vincolo \"se si tratta di un difetto\" e la variabile orari_negozio. Poi la bozza prometteva il rimborso in contanti per un acquisto pagato con carta: aggiunta la regola sulla modalità di rimborso. Output finale di circa 70 parole, senza regole inventate."
+}

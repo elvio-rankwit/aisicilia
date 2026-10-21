@@ -1,0 +1,130 @@
+---
+// Filtri delle liste (aziende, eventi): isola vanilla, nessun framework (D-005).
+// Le schede stanno già nell'HTML con data-*: qui si nascondono/mostrano con l'attributo hidden.
+// Stato nell'hash (#provincia=catania&tipo=startup), mai in URL indicizzabili.
+// Contratto mappe: ascolta aisicilia:province-select, emette aisicilia:filter-change { visibleIds }.
+export interface FilterOption { value: string; label: string }
+export interface FilterField { key: string; label: string; options: FilterOption[]; all?: string }
+interface Props {
+  /** id del contenitore che racchiude le schede (elementi con data-id). */
+  target: string;
+  fields: FilterField[];
+  searchLabel?: string;
+  noun: [one: string, many: string];
+}
+const { target, fields, searchLabel = 'Cerca per nome, città o parola chiave', noun } = Astro.props;
+---
+<form class="filters js-only" data-filters data-target={target} data-one={noun[0]} data-many={noun[1]} role="search" aria-label="Filtra l’elenco" action="#">
+  <div class="grid-f">
+    <div class="field wide">
+      <label for="f-q">{searchLabel}</label>
+      <input id="f-q" name="q" type="search" autocomplete="off" />
+    </div>
+    {fields.map((f) => (
+      <div class="field">
+        <label for={`f-${f.key}`}>{f.label}</label>
+        <select id={`f-${f.key}`} name={f.key}>
+          <option value="">{f.all ?? 'Tutti'}</option>
+          {f.options.map((o) => <option value={o.value}>{o.label}</option>)}
+        </select>
+      </div>
+    ))}
+  </div>
+  <div class="bar">
+    <p class="count" data-count aria-live="polite"></p>
+    <button type="button" class="btn ghost" data-reset>Azzera i filtri</button>
+  </div>
+  <p class="empty" data-empty hidden>Nessun risultato con questi filtri. Prova a toglierne qualcuno, oppure <a href="/segnala/">segnala ciò che manca</a>.</p>
+</form>
+<style>
+  .filters { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--radius); padding: var(--space-4); margin-bottom: var(--space-5); }
+  .grid-f { display: grid; gap: var(--space-3) var(--space-4); grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); }
+  .wide { grid-column: 1 / -1; }
+  .bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2) var(--space-4); margin-top: var(--space-3); }
+  .count { margin: 0; font-weight: 600; min-height: 1.65em; }
+  .empty { margin: var(--space-3) 0 0; }
+</style>
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-filters]');
+  const root = form ? document.getElementById(form.dataset.target ?? '') : null;
+  if (form && root) {
+    const items = Array.from(root.querySelectorAll<HTMLElement>('[data-id]'));
+    const norm = (s: string) => s.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();
+    const texts = items.map((i) => norm(i.textContent ?? ''));
+    const selects = Array.from(form.querySelectorAll<HTMLSelectElement>('select[name]'));
+    const search = form.querySelector<HTMLInputElement>('input[name="q"]')!;
+    const count = form.querySelector<HTMLElement>('[data-count]')!;
+    const empty = form.querySelector<HTMLElement>('[data-empty]')!;
+    const groups = Array.from(root.querySelectorAll<HTMLElement>('[data-group]'));
+    const total = items.length;
+    const one = form.dataset.one ?? 'risultato';
+    const many = form.dataset.many ?? 'risultati';
+    let lastKey = '';
+
+    const emit = (name: string, detail: unknown) => document.dispatchEvent(new CustomEvent(name, { detail }));
+
+    const readHash = () => {
+      const p = new URLSearchParams(location.hash.slice(1));
+      for (const s of selects) {
+        const v = p.get(s.name) ?? '';
+        s.value = Array.from(s.options).some((o) => o.value === v) ? v : '';
+      }
+      search.value = p.get('q') ?? '';
+    };
+    const writeHash = () => {
+      const p = new URLSearchParams();
+      for (const s of selects) if (s.value) p.set(s.name, s.value);
+      if (search.value.trim()) p.set('q', search.value.trim());
+      const h = p.toString();
+      try { history.replaceState(null, '', location.pathname + location.search + (h ? '#' + h : '')); } catch {}
+    };
+    const apply = () => {
+      const q = norm(search.value.trim());
+      const visibleIds: string[] = [];
+      items.forEach((el, i) => {
+        let ok = true;
+        for (const s of selects) {
+          if (s.value && !(el.dataset[s.name] ?? '').split(' ').includes(s.value)) { ok = false; break; }
+        }
+        if (ok && q && !texts[i].includes(q)) ok = false;
+        el.hidden = !ok;
+        if (ok) visibleIds.push(el.dataset.id ?? '');
+      });
+      for (const g of groups) g.hidden = !g.querySelector('[data-id]:not([hidden])');
+      const n = visibleIds.length;
+      count.textContent = n === total ? `${total} ${total === 1 ? one : many}` : `${n} ${n === 1 ? one : many} su ${total}`;
+      empty.hidden = n > 0;
+      const key = visibleIds.join('|');
+      if (key !== lastKey) { lastKey = key; emit('aisicilia:filter-change', { visibleIds }); }
+    };
+
+    const province = selects.find((s) => s.name === 'provincia');
+    form.addEventListener('submit', (e) => e.preventDefault());
+    form.addEventListener('input', (e) => {
+      writeHash();
+      apply();
+      if (province && e.target === province) emit('aisicilia:province-select', { province: province.value || null, source: 'filters' });
+    });
+    form.querySelectorAll('[data-reset]').forEach((b) => b.addEventListener('click', () => {
+      selects.forEach((s) => (s.value = ''));
+      search.value = '';
+      writeHash();
+      apply();
+      emit('aisicilia:province-select', { province: null, source: 'filters' });
+    }));
+    // Selezione dalla mappa SVG: imposta il filtro provincia (un secondo clic sulla stessa la toglie, lo gestisce la mappa).
+    document.addEventListener('aisicilia:province-select', (e) => {
+      const d = (e as CustomEvent<{ province: string | null; source?: string }>).detail;
+      if (!province || d?.source === 'filters') return;
+      const v = d?.province ?? '';
+      province.value = Array.from(province.options).some((o) => o.value === v) ? v : '';
+      writeHash();
+      apply();
+    });
+    window.addEventListener('hashchange', () => { readHash(); apply(); });
+
+    readHash();
+    apply();
+    if (province?.value) emit('aisicilia:province-select', { province: province.value, source: 'filters' });
+  }
+</script>

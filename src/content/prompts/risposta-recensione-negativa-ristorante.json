@@ -1,0 +1,53 @@
+{
+  "title": "Rispondere a una recensione negativa del ristorante, con una nota per la sala",
+  "slug": "risposta-recensione-negativa-ristorante",
+  "sector": "ristorazione",
+  "use_case": "recensioni",
+  "goal": "Ottieni una risposta pubblica di 60-100 parole a una recensione negativa, più una nota interna di tre righe su cosa cambiare nel servizio.",
+  "prompt_text": "Sei il titolare di {nome_locale}, un ristorante a {localita}. Scrivi la risposta pubblica a questa recensione negativa pubblicata su {piattaforma}.\n\nRecensione, testo integrale:\n{testo_recensione}\n\nRicostruzione della serata, solo fatti controllati con sala e cucina:\n{ricostruzione_serata}\n\nGesto che siamo disposti a fare:\n{gesto_proposto}\n\nScrivi in italiano, da 60 a 100 parole, in prima persona plurale, con tono diretto e cordiale, senza formule di rito.\nRegole: riconosci il disagio con le parole dell'ospite. Usa la ricostruzione per spiegare, mai per difenderci. Se i numeri della ricostruzione differiscono da quelli dell'ospite (per esempio i minuti di attesa), non citare i nostri: accetta i suoi. Non confermare circostanze che non compaiono nella ricostruzione. Non promettere cambiamenti o rimborsi che non compaiono nel gesto. Non citare malattie, assenze o questioni del personale. Non nominare nessuno.\nSe la recensione parla di allergie, intossicazioni, malori o igiene, non rispondere nel merito: scrivi solo una risposta neutra di massimo 40 parole che invita a contattarci in privato, e avvisami che conviene sentire il consulente o l'associazione di categoria prima di pubblicarla.\nSe manca un'informazione, chiedimela invece di inventarla.\nDopo la risposta scrivi una nota interna per la sala, massimo 3 righe, su cosa cambiare nel servizio.",
+  "variables": [
+    {
+      "name": "nome_locale",
+      "description": "Nome del ristorante.",
+      "example": "Osteria Fico d'India"
+    },
+    {
+      "name": "localita",
+      "description": "Città.",
+      "example": "Noto"
+    },
+    {
+      "name": "piattaforma",
+      "description": "Dove è stata pubblicata.",
+      "example": "Google"
+    },
+    {
+      "name": "testo_recensione",
+      "description": "Testo della recensione, senza il nome dell'autore.",
+      "example": "Abbiamo aspettato 50 minuti per i primi e il cameriere si è scusato poco. Il pesce era buono, ma il conto era più alto del previsto: ci hanno messo 4 euro di coperto senza dirci niente."
+    },
+    {
+      "name": "ricostruzione_serata",
+      "description": "Cosa è successo davvero, verificato con chi era in servizio.",
+      "example": "Sabato sera 62 coperti. La cucina lavorava con un cuoco in meno e i primi sono usciti in circa 40 minuti. Il coperto è 2 euro a persona e compare in fondo alla pagina del menu."
+    },
+    {
+      "name": "gesto_proposto",
+      "description": "Cosa offri, e nient'altro.",
+      "example": "Se tornano, caffè e dolce offerti. Nessun rimborso."
+    }
+  ],
+  "how_to_use": "Chiedi a sala e cucina cosa è successo prima di scrivere: la ricostruzione deve essere vera. Compila le variabili, incolla il prompt e rileggi la risposta chiedendoti se la direbbe così il titolare di persona. Pubblica tu dalla piattaforma. La nota interna portala al briefing del servizio successivo.",
+  "example_input": "nome_locale: Osteria Fico d'India\nlocalita: Noto\npiattaforma: Google\ntesto_recensione: Abbiamo aspettato 50 minuti per i primi e il cameriere si è scusato poco. Il pesce era buono, ma il conto era più alto del previsto: ci hanno messo 4 euro di coperto senza dirci niente.\nricostruzione_serata: Sabato sera 62 coperti. La cucina lavorava con un cuoco in meno e i primi sono usciti in circa 40 minuti. Il coperto è 2 euro a persona e compare in fondo alla pagina del menu.\ngesto_proposto: Se tornano, caffè e dolce offerti. Nessun rimborso.",
+  "expected_output_description": "Una risposta di 60-100 parole in italiano, in prima persona plurale, senza elenchi, con riconoscimento del disagio, spiegazione breve, gesto concreto e invito a scrivere in privato. Sotto, una nota interna di al massimo tre righe per la sala. Se la recensione tocca allergie o igiene, solo una risposta neutra e un avviso.",
+  "limits_and_warnings": "Non incollare nomi o recapiti dei clienti. L'AI tende a scusarsi troppo e a promettere: controlla che non offra nulla che non hai scritto. Su allergie, malori e igiene non pubblicare senza aver sentito il consulente o l'associazione di categoria. Non rispondere a caldo: aspetta almeno qualche ora e rileggi.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot"
+  ],
+  "level": "base",
+  "tested_at": "2026-10-21",
+  "test_notes": "Eseguito sull'input dell'Osteria Fico d'India. Nella mia prima esecuzione la risposta spiegava che mancava un cuoco (questione del personale), correggeva l'ospite sui 50 minuti con i nostri 40 e prometteva di spostare il coperto in alto: aggiunte le regole per vietarlo. Dopo la correzione la risposta è di circa 85 parole."
+}

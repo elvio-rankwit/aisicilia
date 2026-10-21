@@ -1,8 +1,80 @@
 ---
-// Segnaposto di Fase 0: il frontend-builder costruisce la home vera.
 import BaseLayout from '../layouts/BaseLayout.astro';
+import MapPreviewSlot from '../components/MapPreviewSlot.astro';
+import EventCard from '../components/EventCard.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import EmptyState from '../components/EmptyState.astro';
+import CtaSegnala from '../components/CtaSegnala.astro';
+import { getArticles, getCompanies, getPrompts, getUpcomingEvents } from '../lib/data';
+import { meta } from '../lib/seo/meta';
+import { countByProvince, plural } from '../components/helpers';
+
+const [companies, events, articles, prompts] = await Promise.all([getCompanies(), getUpcomingEvents(), getArticles(), getPrompts()]);
+const counts = countByProvince(companies);
+const nextEvents = events.slice(0, 4);
+const latest = [...articles].sort((a, b) => b.data.published_at.getTime() - a.data.published_at.getTime()).slice(0, 3);
+const m = meta.home();
+
+const quick = [
+  { href: '/aziende/', title: 'Aziende', text: companies.length ? `${plural(companies.length, 'realtà siciliana', 'realtà siciliane')} con l’AI al centro del prodotto o del servizio.` : 'La directory è in costruzione: le prime schede arrivano a breve.' },
+  { href: '/eventi/', title: 'Eventi', text: events.length ? `${plural(events.length, 'evento in programma', 'eventi in programma')}, con date, luoghi e link per iscriversi.` : 'Nessun evento in programma per ora. Ne conosci uno? Segnalalo.' },
+  { href: '/impara/', title: 'Impara', text: articles.length ? `${plural(articles.length, 'guida pratica', 'guide pratiche')} per capire cosa fa l’AI per un’impresa, cosa no e quanto costa.` : 'Le prime guide per le imprese sono in preparazione.' },
+  { href: '/prompt/', title: 'Prompt', text: prompts.length ? `${plural(prompts.length, 'prompt pronto', 'prompt pronti')} da copiare, divisi per settore, con esempi e avvertenze.` : 'La libreria di prompt è in preparazione.' },
+];
 ---
-<BaseLayout seo={{ title: "AI Sicilia: aziende, eventi e guide sull'AI in Sicilia", description: "Il portale sull'intelligenza artificiale in Sicilia: directory di aziende e startup, eventi per provincia, guide pratiche e prompt pronti per le imprese.", path: '/' }}>
-  <h1>AI Sicilia</h1>
-  <p class="answer">In costruzione.</p>
+<BaseLayout seo={{ title: m.title, description: m.description, path: '/' }}>
+  <section class="page-head hero">
+    <p class="eyebrow">Progetto indipendente, in beta</p>
+    <h1>L’intelligenza artificiale in Sicilia: chi la fa, dove, quando</h1>
+    <p class="answer">AI Sicilia raccoglie le aziende, gli eventi, le guide e i prompt sull’intelligenza artificiale in Sicilia. Ogni scheda ha le sue fonti e la data dell’ultima verifica, così sai da dove viene ogni dato. Il portale lo gestisce Elvio Leonardi, consulente SEO e GEO con base a Palermo.</p>
+  </section>
+
+  <section aria-label="Accessi rapidi">
+    <ul class="grid quick">
+      {quick.map((q) => (
+        <li class="card">
+          <h2><a href={q.href} data-astro-prefetch>{q.title}</a></h2>
+          <p>{q.text}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="section" aria-labelledby="h-eventi">
+    <div class="section-head">
+      <h2 id="h-eventi">Prossimi eventi</h2>
+      <a href="/eventi/" data-astro-prefetch>Tutti gli eventi</a>
+    </div>
+    {nextEvents.length ? (
+      <ul class="grid">{nextEvents.map((e) => <EventCard event={e} />)}</ul>
+    ) : (
+      <EmptyState text="Nessun evento in programma per ora. Ne conosci uno? Segnalalo." />
+    )}
+  </section>
+
+  <section class="section" aria-labelledby="h-mappa">
+    <div class="section-head">
+      <h2 id="h-mappa">Le aziende, provincia per provincia</h2>
+      <a href="/aziende/" data-astro-prefetch>Vai alla directory</a>
+    </div>
+    <MapPreviewSlot counts={counts} mode="link" basePath="/aziende/provincia/" label="Aziende AI per provincia siciliana" />
+  </section>
+
+  <section class="section" aria-labelledby="h-guide">
+    <div class="section-head">
+      <h2 id="h-guide">Ultime guide</h2>
+      <a href="/impara/" data-astro-prefetch>Tutte le guide</a>
+    </div>
+    {latest.length ? (
+      <ul class="grid">{latest.map((a) => <ArticleCard article={a} />)}</ul>
+    ) : (
+      <EmptyState text="Le prime guide sono in preparazione." cta={false} />
+    )}
+  </section>
+
+  <CtaSegnala text="Fai o conosci qualcosa di interessante sull’AI in Sicilia? Segnalalo: controlliamo le fonti e lo aggiungiamo se rispetta i criteri." />
 </BaseLayout>
+<style>
+  .hero h1 { max-width: 22ch; }
+  .quick .card h2 { font-size: var(--fs-xl); }
+</style>

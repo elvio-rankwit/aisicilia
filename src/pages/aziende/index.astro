@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import MapPreviewSlot from '../../components/MapPreviewSlot.astro';
+import MapInteractiveSlot from '../../components/MapInteractiveSlot.astro';
+import ProvinceTable from '../../components/ProvinceTable.astro';
+import CompanyList from '../../components/CompanyList.astro';
+import Pager from '../../components/Pager.astro';
+import EmptyState from '../../components/EmptyState.astro';
+import CtaSegnala from '../../components/CtaSegnala.astro';
+import { formatDate, getCompanies, latestDate } from '../../lib/data';
+import { meta } from '../../lib/seo/meta';
+import { collectionPageNodes, itemListNodes } from '../../lib/seo/jsonld';
+import { PROVINCE_SLUGS } from '../../lib/provinces';
+import { LIST_PAGE_SIZE, PAGINATE_OVER, companyPoints, countByProvince, plural } from '../../components/helpers';
+
+const companies = await getCompanies();
+const paginated = companies.length > PAGINATE_OVER;
+const totalPages = paginated ? Math.ceil(companies.length / LIST_PAGE_SIZE) : 1;
+const shown = paginated ? companies.slice(0, LIST_PAGE_SIZE) : companies;
+const counts = countByProvince(companies);
+const provincesWith = PROVINCE_SLUGS.filter((p) => counts[p] > 0).length;
+const updated = latestDate(companies.map((c) => c.data.last_verified));
+const m = meta.companiesIndex(companies.length);
+const h1 = 'Aziende e startup AI in Sicilia';
+---
+<BaseLayout
+  seo={{
+    title: m.title, description: m.description, path: '/aziende/',
+    breadcrumbs: [{ name: 'Aziende', path: '/aziende/' }],
+    jsonld: [
+      ...collectionPageNodes({ path: '/aziende/', name: h1, description: m.description }),
+      ...itemListNodes({ path: '/aziende/', name: h1, items: shown.map((c) => ({ url: `/aziende/${c.id}/`, name: c.data.name })) }),
+    ],
+  }}
+>
+  <div class="page-head">
+    <h1>{h1}</h1>
+    {companies.length > 0 ? (
+      <p class="answer">{plural(companies.length, 'realtà siciliana lavora', 'realtà siciliane lavorano')} con l’intelligenza artificiale al centro del prodotto o del servizio, in {provincesWith} {provincesWith === 1 ? 'provincia' : 'province'} su 9. Ultimo aggiornamento dei dati: {updated && formatDate(updated)}. Ogni scheda indica le fonti e la data di verifica; i criteri di inclusione sono nella <a href="/metodologia/">metodologia</a>.</p>
+    ) : (
+      <p class="answer">La directory è in costruzione: per ora non ci sono schede verificate. Entrano solo le realtà con sede operativa in Sicilia e l’AI al centro del prodotto o del servizio, con fonti controllate (vedi la <a href="/metodologia/">metodologia</a>).</p>
+    )}
+  </div>
+
+  <section class="section" aria-labelledby="h-province">
+    <h2 id="h-province">Aziende per provincia</h2>
+    <div class="two">
+      <MapPreviewSlot counts={counts} mode="filter" basePath="/aziende/provincia/" label="Aziende AI per provincia siciliana" />
+      <ProvinceTable counts={counts} basePath="/aziende/provincia/" caption="Aziende AI in Sicilia, per provincia" header="Aziende" />
+    </div>
+  </section>
+
+  {companies.length > 0 && (
+    <section class="section" aria-labelledby="h-mappa">
+      <h2 id="h-mappa">Sulla mappa</h2>
+      <MapInteractiveSlot points={companyPoints(companies)} label="Mappa delle aziende AI in Sicilia" />
+    </section>
+  )}
+
+  <section class="section" aria-labelledby="h-elenco">
+    <h2 id="h-elenco">Tutte le realtà</h2>
+    {companies.length > 0 ? (
+      <>
+        <CompanyList companies={shown} />
+        <Pager base="/aziende/" current={1} total={totalPages} />
+      </>
+    ) : (
+      <EmptyState text="Nessuna azienda in elenco per ora. Ne conosci una? Segnalala." ctaLabel="Segnala un’azienda" />
+    )}
+  </section>
+
+  <CtaSegnala />
+</BaseLayout>
+<style>
+  .two { display: grid; gap: var(--space-5); align-items: start; }
+  @media (min-width: 56rem) { .two { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); } }
+</style>

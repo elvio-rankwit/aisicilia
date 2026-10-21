@@ -1,0 +1,44 @@
+---
+// Unica isola JS della pagina prompt: copia negli appunti con feedback in aria-live.
+// Senza JS il bottone non compare e il testo resta selezionabile.
+interface Props { target: string; label?: string }
+const { target, label = 'Copia il prompt' } = Astro.props;
+---
+<div class="copy-row">
+  <button type="button" class="btn js-only inline" data-copy-target={target} data-label={label}>{label}</button>
+  <span class="copy-status" role="status" aria-live="polite" data-copy-status></span>
+</div>
+<style>
+  .copy-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); min-height: var(--tap); margin-bottom: var(--space-3); }
+  .copy-status { font-weight: 700; color: var(--c-success); }
+</style>
+<script>
+  const btn = document.querySelector<HTMLButtonElement>('[data-copy-target]');
+  const status = document.querySelector<HTMLElement>('[data-copy-status]');
+  const source = btn ? document.getElementById(btn.dataset.copyTarget ?? '') : null;
+  if (btn && status && source) {
+    let timer = 0;
+    const done = (ok: boolean) => {
+      status.textContent = ok ? 'Copiato' : 'Copia non riuscita: seleziona il testo e copialo a mano';
+      btn.textContent = ok ? 'Copiato' : btn.dataset.label ?? 'Copia';
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => { btn.textContent = btn.dataset.label ?? 'Copia'; status.textContent = ''; }, 2500);
+    };
+    btn.addEventListener('click', async () => {
+      const text = source.textContent ?? '';
+      try {
+        await navigator.clipboard.writeText(text);
+        done(true);
+      } catch {
+        try {
+          const range = document.createRange();
+          range.selectNodeContents(source);
+          const sel = window.getSelection();
+          sel?.removeAllRanges();
+          sel?.addRange(range);
+          done(document.execCommand('copy'));
+        } catch { done(false); }
+      }
+    });
+  }
+</script>

@@ -1,0 +1,43 @@
+{
+  "title": "Scrivere le descrizioni dei piatti del menu con gli allergeni sotto controllo",
+  "slug": "descrizioni-piatti-menu-ristorante",
+  "sector": "ristorazione",
+  "use_case": "marketing",
+  "goal": "Ottieni descrizioni brevi dei piatti, fedeli agli ingredienti che elenchi, con gli allergeni riportati come li ha dichiarati la cucina e le incongruenze segnalate.",
+  "prompt_text": "Scrivi le descrizioni dei piatti per il menu di {nome_locale} ({tipo_cucina}).\n\nPiatti con gli ingredienti reali:\n{piatti_e_ingredienti}\n\nAllergeni dichiarati dalla cucina per ciascun piatto:\n{allergeni_dichiarati}\n\nPer ogni piatto scrivi una descrizione di massimo 18 parole che dica cosa c'è nel piatto e, solo se l'ho scritto, come è cucinato. Niente aggettivi vuoti (delizioso, ricercato, goloso). Usa solo gli ingredienti elencati: non aggiungere ingredienti, metodi, origini o denominazioni (DOP, IGP, \"a km zero\") che non ho scritto.\nSotto ogni descrizione riporta gli allergeni esattamente come li ho dichiarati, con i nomi dell'elenco dei 14 allergeni del Regolamento UE 1169/2011. Se per un piatto non ho dichiarato nulla, scrivi \"ALLERGENI DA CONFERMARE\" e non dedurli.\nIn fondo, sotto il titolo \"Incongruenze\", elenca i piatti in cui gli ingredienti fanno pensare a un allergene non dichiarato (per esempio una cialda e nessun glutine). Qui puoi indicare allergeni probabili, ma non inserirli nella scheda del piatto.",
+  "variables": [
+    {
+      "name": "nome_locale",
+      "description": "Nome del ristorante.",
+      "example": "Osteria Fico d'India"
+    },
+    {
+      "name": "tipo_cucina",
+      "description": "Tipo di cucina, in poche parole.",
+      "example": "cucina siciliana di casa"
+    },
+    {
+      "name": "piatti_e_ingredienti",
+      "description": "Un piatto per riga, con ingredienti e, se vuoi, come è cucinato.",
+      "example": "1. Busiate al pesto trapanese: busiate, pomodori, mandorle, basilico, pecorino, aglio, olio.\n2. Caponata di melanzane: melanzane fritte, sedano, olive, capperi, cipolla, pomodoro, aceto, zucchero.\n3. Pesce spada alla ghiotta: pesce spada, pomodoro, olive, capperi, sedano.\n4. Cannolo scomposto: ricotta di pecora, scorza d'arancia, cioccolato fondente, cialda di cannolo, granella di pistacchi."
+    },
+    {
+      "name": "allergeni_dichiarati",
+      "description": "Per ogni piatto gli allergeni scritti dalla cucina; lascia vuoto se non li sai.",
+      "example": "1. glutine, frutta a guscio, latte.\n2. sedano.\n3. pesce, sedano.\n4. (non dichiarati)"
+    }
+  ],
+  "how_to_use": "Fatti dare dalla cucina ingredienti e allergeni per ogni piatto, scritti, prima di compilare. Incolla il prompt, poi confronta ogni descrizione con la ricetta e leggi la sezione \"Incongruenze\" con lo chef. Aggiorna la scheda ogni volta che una ricetta cambia.",
+  "example_input": "nome_locale: Osteria Fico d'India\ntipo_cucina: cucina siciliana di casa\npiatti_e_ingredienti: 1. Busiate al pesto trapanese: busiate, pomodori, mandorle, basilico, pecorino, aglio, olio.\n2. Caponata di melanzane: melanzane fritte, sedano, olive, capperi, cipolla, pomodoro, aceto, zucchero.\n3. Pesce spada alla ghiotta: pesce spada, pomodoro, olive, capperi, sedano.\n4. Cannolo scomposto: ricotta di pecora, scorza d'arancia, cioccolato fondente, cialda di cannolo, granella di pistacchi.\nallergeni_dichiarati: 1. glutine, frutta a guscio, latte.\n2. sedano.\n3. pesce, sedano.\n4. (non dichiarati)",
+  "expected_output_description": "Per ogni piatto un titolo, una descrizione di massimo 18 parole e una riga con gli allergeni dichiarati (o \"ALLERGENI DA CONFERMARE\"). In fondo una sezione \"Incongruenze\" con i dubbi da sciogliere con la cucina.",
+  "limits_and_warnings": "Gli allergeni sono un obbligo di legge: l'AI non può sostituire la scheda della cucina e può sbagliare o dimenticare. Controlla ogni riga con lo chef, comprese le tracce e le contaminazioni. Se cambi fornitore o ricetta rifai il controllo. Non pubblicare il menu senza verifica.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot"
+  ],
+  "level": "intermedio",
+  "tested_at": "2026-10-21",
+  "test_notes": "Eseguito sui quattro piatti: il cannolo ha giustamente ricevuto \"ALLERGENI DA CONFERMARE\" e compare tra le incongruenze con glutine, latte e frutta a guscio. Nella prima esecuzione scrivevo \"busiate fresche trafilate a mano\", dettaglio mai fornito, perché il prompt chiedeva anche \"come è cucinato\": ora il metodo è ammesso solo se scritto."
+}

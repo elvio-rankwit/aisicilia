@@ -1,0 +1,8 @@
+---
+interface Props { text: string; cta?: boolean; ctaLabel?: string }
+const { text, cta = true, ctaLabel = 'Segnalalo' } = Astro.props;
+---
+<div class="empty">
+  <p>{text}</p>
+  {cta && <p><a class="btn ghost" href="/segnala/">{ctaLabel}</a></p>}
+</div>

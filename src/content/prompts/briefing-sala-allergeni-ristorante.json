@@ -1,0 +1,43 @@
+{
+  "title": "Briefing di cinque minuti prima del servizio per camerieri stagionali, con gli allergeni",
+  "slug": "briefing-sala-allergeni-ristorante",
+  "sector": "ristorazione",
+  "use_case": "formazione del personale",
+  "goal": "Ottieni una scheda breve per i camerieri nuovi: piatti del giorno con allergeni dichiarati, cosa dire quando un cliente segnala un'allergia e un mini test.",
+  "prompt_text": "Prepara il briefing di cinque minuti prima del servizio per i camerieri stagionali di {nome_locale}. Devono poterlo leggere in piedi, prima di aprire.\n\nMenu del giorno con gli allergeni dichiarati dalla cucina:\n{menu_del_giorno_con_allergeni}\n\nCome gestiamo le segnalazioni di allergia:\n{regola_allergie}\n\nDomande che i clienti fanno spesso:\n{domande_clienti}\n\nProduci, in massimo 400 parole:\n1. Una scheda per ogni piatto: nome, una frase da dire al tavolo, allergeni dichiarati. La frase si basa solo sul nome del piatto e su ciò che ho scritto: non elencare ingredienti che non compaiono qui sopra.\n2. La formula esatta da usare quando un cliente dichiara un'allergia, seguendo la nostra regola. Il cameriere non rassicura mai a voce (\"non c'è problema\"): passa l'informazione alla cucina.\n3. Risposte brevi alle domande dei clienti.\n4. Cinque domande di verifica con risposte.\n\nUsa solo ciò che ho scritto: non dedurre allergeni, ricette o tracce. Dove un'informazione manca, scrivi \"CHIEDERE ALLA CUCINA\". Linguaggio semplice, frasi corte.",
+  "variables": [
+    {
+      "name": "nome_locale",
+      "description": "Nome del ristorante.",
+      "example": "Osteria Fico d'India"
+    },
+    {
+      "name": "menu_del_giorno_con_allergeni",
+      "description": "Piatti del giorno con allergeni scritti dalla cucina.",
+      "example": "Busiate al pesto trapanese (glutine, frutta a guscio, latte). Caponata di melanzane (sedano). Pesce spada alla ghiotta (pesce, sedano). Cannolo scomposto (allergeni da chiedere allo chef)."
+    },
+    {
+      "name": "regola_allergie",
+      "description": "La procedura che usate quando un cliente segnala un'allergia.",
+      "example": "Il cameriere scrive \"ALLERGIA\" sulla comanda con il nome dell'allergene, porta la comanda di persona in cucina e aspetta la conferma dello chef. Non rassicura mai a voce."
+    },
+    {
+      "name": "domande_clienti",
+      "description": "Domande tipiche dei clienti.",
+      "example": "È senza glutine? Il pesce è fresco o surgelato? Si può avere mezza porzione di pasta?"
+    }
+  ],
+  "how_to_use": "Prima del servizio fatti dare dallo chef il menu del giorno con gli allergeni e compila le variabili. Stampa il briefing o leggilo ad alta voce al personale, poi fai le cinque domande a risposta breve. Chiedi allo chef di controllare la scheda ogni giorno in cui cambia il menu.",
+  "example_input": "nome_locale: Osteria Fico d'India\nmenu_del_giorno_con_allergeni: Busiate al pesto trapanese (glutine, frutta a guscio, latte). Caponata di melanzane (sedano). Pesce spada alla ghiotta (pesce, sedano). Cannolo scomposto (allergeni da chiedere allo chef).\nregola_allergie: Il cameriere scrive \"ALLERGIA\" sulla comanda con il nome dell'allergene, porta la comanda di persona in cucina e aspetta la conferma dello chef. Non rassicura mai a voce.\ndomande_clienti: È senza glutine? Il pesce è fresco o surgelato? Si può avere mezza porzione di pasta?",
+  "expected_output_description": "Una scheda di massimo 400 parole con un blocco per piatto, una formula chiara per le segnalazioni di allergia, risposte alle domande dei clienti e cinque domande di verifica con soluzioni. Dove mancano dati compare \"CHIEDERE ALLA CUCINA\".",
+  "limits_and_warnings": "Gli allergeni vanno sempre confermati dalla cucina: l'AI non conosce le tue ricette e può sbagliare. La formazione del personale sugli alimenti ha obblighi di legge: chiedi al consulente o all'associazione di categoria cosa serve nel tuo caso. Non inserire dati di clienti con allergie.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot"
+  ],
+  "level": "intermedio",
+  "tested_at": "2026-10-21",
+  "test_notes": "Eseguito sul menu di quattro piatti: la scheda resta sotto le 400 parole, il cannolo e le domande su pesce fresco o surgelato ricevono \"CHIEDERE ALLA CUCINA\". Nella mia prima esecuzione le frasi da dire al tavolo elencavano ingredienti (mandorle, basilico) che nel menu non avevo scritto: aggiunto il vincolo di usare solo nome e allergeni forniti."
+}

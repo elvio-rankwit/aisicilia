@@ -1,0 +1,15 @@
+---
+import type { ProvinceSlug } from '../lib/provinces';
+import { PROVINCES, PROVINCE_SLUGS } from '../lib/provinces';
+interface Props { current: ProvinceSlug; counts: Record<ProvinceSlug, number>; basePath: string; label: string; level?: 2 | 3 }
+const { current, counts, basePath, label, level = 2 } = Astro.props;
+const H = `h${level}` as 'h2' | 'h3';
+---
+<section class="section" aria-labelledby="altre-province">
+  <H id="altre-province">{label}</H>
+  <ul class="link-list">
+    {PROVINCE_SLUGS.filter((p) => p !== current).map((p) => (
+      <li><a href={`${basePath}${p}/`}>{PROVINCES[p].name}<span class="n">{counts[p]}</span></a></li>
+    ))}
+  </ul>
+</section>

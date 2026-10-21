@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import EventCard from '../../../components/EventCard.astro';
+import Pager from '../../../components/Pager.astro';
+import EmptyState from '../../../components/EmptyState.astro';
+import CtaSegnala from '../../../components/CtaSegnala.astro';
+import { getPastEvents } from '../../../lib/data';
+import { meta } from '../../../lib/seo/meta';
+import { collectionPageNodes, itemListNodes } from '../../../lib/seo/jsonld';
+import { LIST_PAGE_SIZE, PAGINATE_OVER, dateRange } from '../../../components/helpers';
+
+const past = await getPastEvents();
+const paginated = past.length > PAGINATE_OVER;
+const total = paginated ? Math.ceil(past.length / LIST_PAGE_SIZE) : 1;
+const shown = paginated ? past.slice(0, LIST_PAGE_SIZE) : past;
+const m = meta.eventsArchive(past.length);
+const h1 = 'Archivio degli eventi AI in Sicilia';
+const oldest = past[past.length - 1]?.data.start_date;
+---
+<BaseLayout
+  seo={{
+    title: m.title, description: m.description, path: '/eventi/archivio/',
+    breadcrumbs: [{ name: 'Eventi', path: '/eventi/' }, { name: 'Archivio', path: '/eventi/archivio/' }],
+    jsonld: [
+      ...collectionPageNodes({ path: '/eventi/archivio/', name: h1, description: m.description }),
+      ...itemListNodes({ path: '/eventi/archivio/', name: h1, items: shown.map((e) => ({ url: `/eventi/${e.id}/`, name: e.data.title })) }),
+    ],
+  }}
+>
+  <div class="page-head">
+    <h1>{h1}</h1>
+    {past.length > 0 && oldest ? (
+      <p class="answer">{past.length} {past.length === 1 ? 'evento già svolto' : 'eventi già svolti'} in Sicilia, dal più recente al più vecchio (il più vecchio è del {dateRange(oldest)}). Le schede restano online per consultare date, luoghi e organizzatori. Cerchi quello che deve ancora arrivare? Vai ai <a href="/eventi/">prossimi eventi</a>.</p>
+    ) : (
+      <p class="answer">L’archivio è vuoto: nessun evento è ancora concluso. Gli eventi passati finiscono qui in automatico. Guarda i <a href="/eventi/">prossimi eventi</a>.</p>
+    )}
+  </div>
+  <section aria-labelledby="h-archivio">
+    <h2 id="h-archivio" class="visually-hidden">Eventi passati</h2>
+    {shown.length > 0 ? (
+      <>
+        <ul class="grid">{shown.map((e) => <EventCard event={e} />)}</ul>
+        <Pager base="/eventi/archivio/" current={1} total={total} />
+      </>
+    ) : (
+      <EmptyState text="Nessun evento concluso per ora." cta={false} />
+    )}
+  </section>
+  <CtaSegnala text="Ti risulta un evento passato che manca? Segnalalo con il link alla pagina originale." label="Segnala un evento" />
+</BaseLayout>

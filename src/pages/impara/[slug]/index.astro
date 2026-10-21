@@ -1,0 +1,135 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PromptCard from '../../../components/PromptCard.astro';
+import CompanyCard from '../../../components/CompanyCard.astro';
+import EventCard from '../../../components/EventCard.astro';
+import ArticleCard from '../../../components/ArticleCard.astro';
+import { formatDate, getArticles, getCompanies, getPrompts, getUpcomingEvents } from '../../../lib/data';
+import { nextArticle, promptsForArticle } from '../../../lib/related';
+import { meta } from '../../../lib/seo/meta';
+import { articleNodes } from '../../../lib/seo/jsonld';
+import { PROMPT_SECTORS, PROMPT_SECTOR_SLUGS } from '../../../lib/taxonomies';
+import { RESERVED_SLUGS, SECTOR_TO_COMPANY_SECTORS, cap, hostOf } from '../../../components/helpers';
+
+export async function getStaticPaths() {
+  const articles = await getArticles();
+  return articles.filter((a) => !RESERVED_SLUGS.includes(a.id)).map((a) => ({ params: { slug: a.id }, props: { id: a.id } }));
+}
+const articles = await getArticles();
+const a = articles.find((x) => x.id === Astro.props.id)!;
+const d = a.data;
+const { Content, headings } = await render(a);
+const toc = headings.filter((h) => h.depth === 2);
+const prompts = promptsForArticle(a, await getPrompts(), 4);
+const next = nextArticle(a, articles);
+const sectorKeys = d.sectors.includes('tutti') ? PROMPT_SECTOR_SLUGS : (d.sectors as (keyof typeof PROMPT_SECTORS)[]);
+const wanted = new Set(sectorKeys.flatMap((s) => SECTOR_TO_COMPANY_SECTORS[s] ?? []));
+const allCompanies = await getCompanies();
+const companies = (d.sectors.includes('tutti') ? [] : allCompanies.filter((c) => c.data.sectors_served.some((s) => wanted.has(s)))).slice(0, 3);
+const events = (await getUpcomingEvents()).slice(0, 2);
+const m = meta.article(a);
+const path = `/impara/${a.id}/`;
+const sameDay = d.updated_at.getTime() === d.published_at.getTime();
+---
+<BaseLayout
+  seo={{
+    title: m.title, description: m.description, path, type: 'article',
+    breadcrumbs: [{ name: 'Impara', path: '/impara/' }, { name: d.title, path }],
+    jsonld: articleNodes(a),
+    publishedAt: d.published_at, modifiedAt: d.updated_at,
+  }}
+>
+  <article>
+    <header class="page-head">
+      <p class="eyebrow">{cap(d.level)} · {d.reading_time} min di lettura</p>
+      <h1>{d.title}</h1>
+      <p class="answer">{d.answer}</p>
+      <p class="byline muted">
+        Di <a href="/chi-siamo/">Elvio Leonardi</a> ·
+        Pubblicato il <time datetime={d.published_at.toISOString().slice(0, 10)}>{formatDate(d.published_at)}</time>
+        {!sameDay && <> · <strong>Aggiornato il <time datetime={d.updated_at.toISOString().slice(0, 10)}>{formatDate(d.updated_at)}</time></strong></>}
+      </p>
+    </header>
+
+    {toc.length > 1 && (
+      <nav class="toc" aria-labelledby="h-indice">
+        <h2 id="h-indice">In questa guida</h2>
+        <ol>
+          {toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}
+        </ol>
+      </nav>
+    )}
+
+    <div class="prose-body"><Content /></div>
+
+    <section class="section" aria-labelledby="h-faq">
+      <h2 id="h-faq">Domande frequenti</h2>
+      <div class="faq prose">
+        {d.faq.map((f) => (
+          <details>
+            <summary>{f.question}</summary>
+            <p>{f.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="h-fonti">
+      <h2 id="h-fonti">Fonti</h2>
+      <ol class="prose">
+        {d.sources.map((s) => <li><a class="ext" href={s.url} rel="noopener">{s.title}</a> <span class="muted">({hostOf(s.url)})</span></li>)}
+      </ol>
+      <p class="muted">Gli strumenti citati sono esempi e valgono alla data di aggiornamento della guida.</p>
+    </section>
+
+    <footer class="signature">
+      <p>Scritto da <a href="/chi-siamo/">Elvio Leonardi</a>, consulente SEO e GEO con base a Palermo. Hai un dubbio o una correzione? Trovi i contatti in <a href="/chi-siamo/">Chi siamo</a>.</p>
+    </footer>
+  </article>
+
+  {prompts.length > 0 && (
+    <section class="section" aria-labelledby="h-prompt">
+      <h2 id="h-prompt">Prompt da provare</h2>
+      <ul class="grid">{prompts.map((p) => <PromptCard prompt={p} />)}</ul>
+    </section>
+  )}
+
+  {companies.length > 0 && (
+    <section class="section" aria-labelledby="h-aziende">
+      <div class="section-head">
+        <h2 id="h-aziende">Chi ci lavora in Sicilia</h2>
+        <a href="/aziende/">Tutte le aziende</a>
+      </div>
+      <ul class="grid">{companies.map((c) => <CompanyCard company={c} />)}</ul>
+    </section>
+  )}
+
+  {events.length > 0 && (
+    <section class="section" aria-labelledby="h-eventi">
+      <div class="section-head">
+        <h2 id="h-eventi">Prossimi eventi</h2>
+        <a href="/eventi/">Tutti gli eventi</a>
+      </div>
+      <ul class="grid">{events.map((e) => <EventCard event={e} />)}</ul>
+    </section>
+  )}
+
+  {next && (
+    <section class="section" aria-labelledby="h-next">
+      <h2 id="h-next">Articolo successivo</h2>
+      <ul class="grid"><ArticleCard article={next} /></ul>
+    </section>
+  )}
+</BaseLayout>
+<style>
+  .byline { font-size: var(--fs-sm); }
+  .toc { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--radius); padding: var(--space-4); max-width: var(--measure); margin-bottom: var(--space-5); }
+  .toc h2 { font-size: var(--fs-lg); margin: 0 0 var(--space-2); }
+  .toc ol { margin: 0; padding-left: var(--space-5); }
+  .toc a { display: inline-block; padding-block: var(--space-1); }
+  details { border-bottom: 1px solid var(--c-border); padding-block: var(--space-2); }
+  summary { cursor: pointer; font-weight: 700; min-height: var(--tap); display: flex; align-items: center; }
+  details p { margin: 0 0 var(--space-3); }
+  .signature { margin-top: var(--space-6); padding-top: var(--space-4); border-top: 1px solid var(--c-border); max-width: var(--measure); }
+</style>

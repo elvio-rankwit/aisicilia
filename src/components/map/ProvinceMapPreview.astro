@@ -1,0 +1,98 @@
+---
+// Anteprima SVG delle 9 province: zero JS di default, ogni provincia è un link.
+// mode="filter": con JS il clic non naviga ma emette `aisicilia:province-select` (script < 1 KB).
+// Confini: ISTAT, unità territoriali sovracomunali generalizzate al 01/01/2025, CC BY 4.0.
+import { PROVINCES, PROVINCE_SLUGS, type ProvinceSlug } from '../../lib/provinces';
+import { PROVINCE_PATHS, VIEWBOX, VIEWBOX_W, VIEWBOX_H, project } from './provinces-paths';
+
+interface Props {
+  counts: Record<ProvinceSlug, number>;
+  mode: 'link' | 'filter';
+  basePath: '/aziende/provincia/' | '/eventi/provincia/';
+  active?: ProvinceSlug;
+  label: string;
+  points?: { lat: number; lng: number }[];
+}
+const { counts, mode, basePath, active, label, points = [] } = Astro.props;
+
+const isCompanies = basePath === '/aziende/provincia/';
+const noun = (n: number) => (isCompanies ? (n === 1 ? 'azienda' : 'aziende') : n === 1 ? 'evento' : 'eventi');
+const dots = points.map((p) => project(p.lat, p.lng));
+const total = PROVINCE_SLUGS.reduce((s, slug) => s + (counts[slug] ?? 0), 0);
+---
+<figure class="pmap" data-pmap={mode}>
+  <svg class="pmap-svg" viewBox={VIEWBOX} width={VIEWBOX_W} height={VIEWBOX_H} role="group" aria-label={label} focusable="false">
+    <g class="pmap-provinces">
+      {PROVINCE_SLUGS.map((slug) => {
+        const p = PROVINCE_PATHS[slug];
+        const n = counts[slug] ?? 0;
+        const current = active === slug;
+        return (
+          <a
+            href={`${basePath}${slug}/`}
+            data-p={slug}
+            aria-label={`${PROVINCES[slug].name}: ${n} ${noun(n)}`}
+            aria-current={current ? (mode === 'link' ? 'page' : 'true') : undefined}
+          >
+            <path d={p.d} />
+            <text class="pmap-sigla" x={p.labelX} y={p.labelY - 3}>{PROVINCES[slug].sigla}</text>
+            <text class="pmap-count" x={p.labelX} y={p.labelY + 10}>{n}</text>
+          </a>
+        );
+      })}
+    </g>
+    {dots.length > 0 && (
+      <g class="pmap-points" role="img" aria-label={`${dots.length} posizioni sulla mappa`}>
+        {dots.map(([x, y]) => <circle cx={x} cy={y} r="2.4" />)}
+      </g>
+    )}
+  </svg>
+  <ul class="pmap-legend" aria-label={`${label}: conteggi per provincia`}>
+    {PROVINCE_SLUGS.map((slug) => (
+      <li><span>{PROVINCES[slug].name}</span> <strong>{counts[slug] ?? 0}</strong></li>
+    ))}
+  </ul>
+  <figcaption class="pmap-note">
+    {total} {noun(total)} in 9 province. Confini © ISTAT, licenza CC BY 4.0.
+  </figcaption>
+</figure>
+
+<script>
+  // Modalità filtro: il clic emette l'evento invece di navigare. Senza JS resta un link.
+  document.querySelectorAll<HTMLElement>('[data-pmap="filter"]').forEach((root) => {
+    const links = root.querySelectorAll<SVGAElement>('a[data-p]');
+    let cur: string | null = root.querySelector<SVGAElement>('a[aria-current]')?.dataset.p ?? null;
+    const mark = () => links.forEach((a) => (a.dataset.p === cur ? a.setAttribute('aria-current', 'true') : a.removeAttribute('aria-current')));
+    root.addEventListener('click', (e) => {
+      const a = (e.target as Element).closest<SVGAElement>('a[data-p]');
+      if (!a) return;
+      e.preventDefault();
+      cur = cur === a.dataset.p ? null : a.dataset.p!;
+      mark();
+      document.dispatchEvent(new CustomEvent('aisicilia:province-select', { detail: { province: cur } }));
+    });
+    document.addEventListener('aisicilia:province-select', (e) => {
+      cur = (e as CustomEvent<{ province: string | null }>).detail.province;
+      mark();
+    });
+  });
+</script>
+
+<style>
+  .pmap { margin: 0; max-width: 32rem; margin-inline: auto; }
+  .pmap-svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .pmap a { cursor: pointer; outline: none; }
+  .pmap path { fill: var(--c-map-land); stroke: var(--c-map-stroke); stroke-width: 0.8; stroke-linejoin: round; transition: fill 0.12s; }
+  .pmap a:hover path { fill: var(--c-map-land-hover); }
+  .pmap a:focus-visible path { fill: var(--c-map-land-hover); stroke: var(--c-focus); stroke-width: 2.4; }
+  .pmap a[aria-current] path { fill: var(--c-map-active); }
+  .pmap text { fill: var(--c-text); text-anchor: middle; pointer-events: none; font-family: var(--font-sans); }
+  .pmap a[aria-current] text { fill: var(--c-on-primary); }
+  .pmap-sigla { font-size: 9px; font-weight: 600; letter-spacing: 0.04em; }
+  .pmap-count { font-size: 14px; font-weight: 700; }
+  .pmap-points circle { fill: var(--c-accent); stroke: var(--c-surface); stroke-width: 0.8; pointer-events: none; }
+  .pmap-legend { list-style: none; margin: var(--space-3) 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr)); gap: var(--space-1) var(--space-4); font-size: var(--fs-sm); }
+  .pmap-legend li { display: flex; justify-content: space-between; gap: var(--space-2); border-bottom: 1px solid var(--c-border); padding-block: 2px; }
+  .pmap-note { margin-top: var(--space-2); font-size: var(--fs-xs); color: var(--c-text-muted); }
+  @media (prefers-reduced-motion: reduce) { .pmap path { transition: none; } }
+</style>

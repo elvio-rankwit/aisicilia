@@ -1,0 +1,23 @@
+---
+// Tabella citabile "per provincia": sempre le 9 righe, con link alle pagine provincia.
+import type { ProvinceSlug } from '../lib/provinces';
+import { PROVINCES, PROVINCE_SLUGS } from '../lib/provinces';
+interface Props { counts: Record<ProvinceSlug, number>; basePath: string; caption: string; header: string; unit?: [string, string]; showTotal?: boolean }
+const { counts, basePath, caption, header, showTotal = true } = Astro.props;
+const total = PROVINCE_SLUGS.reduce((n, p) => n + counts[p], 0);
+---
+<div class="table-wrap">
+  <table>
+    <caption>{caption}</caption>
+    <thead><tr><th scope="col">Provincia</th><th scope="col" class="num">{header}</th></tr></thead>
+    <tbody>
+      {PROVINCE_SLUGS.map((p) => (
+        <tr><th scope="row"><a href={`${basePath}${p}/`}>{PROVINCES[p].name}</a></th><td class="num">{counts[p]}</td></tr>
+      ))}
+    </tbody>
+    {showTotal && <tfoot><tr><th scope="row">Totale</th><td class="num">{total}</td></tr></tfoot>}
+  </table>
+</div>
+<style>
+  tfoot th, tfoot td { font-weight: 700; border-top: 2px solid var(--c-border); border-bottom: 0; }
+</style>

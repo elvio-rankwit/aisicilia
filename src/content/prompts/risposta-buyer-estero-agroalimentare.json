@@ -1,0 +1,48 @@
+{
+  "title": "Rispondere a un buyer estero che chiede listino, minimi e campioni",
+  "slug": "risposta-buyer-estero-agroalimentare",
+  "sector": "agroalimentare-vino",
+  "use_case": "vendite e preventivi",
+  "goal": "Ottieni una risposta in lingua straniera punto per punto all'email di un importatore, con prezzi e condizioni solo dal tuo listino, più un riepilogo in italiano.",
+  "prompt_text": "Sei il responsabile commerciale di {nome_azienda}, un'azienda agroalimentare siciliana. Rispondi all'email di un possibile importatore.\n\nEmail ricevuta, testo integrale:\n{email_del_buyer}\n\nLe nostre condizioni, le uniche che puoi usare:\n{listino_e_condizioni}\n\nCosa non possiamo offrire o promettere:\n{limiti_da_dichiarare}\n\nScrivi la risposta in {lingua_risposta}, da 150 a 200 parole, con tono professionale e diretto. Ringrazia in una frase, poi rispondi punto per punto alle domande presenti nell'email, nello stesso ordine. Usa solo prezzi, minimi, tempi e Incoterms che compaiono sopra, con i numeri scritti secondo l'uso della lingua senza cambiarne il valore. Non scegliere Incoterms, sconti o tempi di spedizione dei campioni che non ho indicato. Se una domanda non ha risposta nei miei dati, non rispondere e inseriscila in una lista finale in italiano. Chiudi proponendo un solo passo successivo.\nDopo la risposta aggiungi: un riepilogo in italiano di tre righe e la lista delle domande rimaste senza risposta.\nPrima di scrivere, controlla se l'email ha segnali tipici di truffa (pagamento anticipato su conti diversi, urgenza insistente, richiesta di dati bancari, indirizzi email non coerenti con l'azienda). In quel caso non scrivere la risposta: elenca i segnali e suggerisci di verificare l'azienda.",
+  "variables": [
+    {
+      "name": "nome_azienda",
+      "description": "Nome dell'azienda.",
+      "example": "Azienda agricola Le Terrazze"
+    },
+    {
+      "name": "email_del_buyer",
+      "description": "Testo dell'email ricevuta, senza firma e dati di contatto personali.",
+      "example": "Dear Sir or Madam, we are a specialty food importer in Hamburg. We saw your extra virgin olive oil at a trade fair. Could you send us your price list for the 500 ml bottle and the 3 litre tin, your minimum order and lead time? Do you ship DAP to Germany? Could we have samples? Is the oil certified organic?"
+    },
+    {
+      "name": "listino_e_condizioni",
+      "description": "Prezzi, minimi, tempi, Incoterms, campioni, come li applichi.",
+      "example": "Extravergine 500 ml: 7,20 euro a bottiglia; latta da 3 litri: 24,50 euro. Prezzi franco fabbrica (EXW), IVA esclusa. Ordine minimo: un bancale (600 bottiglie da 500 ml). Consegna in 15 giorni lavorativi dalla conferma. Campioni: due bottiglie da 500 ml gratuite, spedizione a carico nostro."
+    },
+    {
+      "name": "limiti_da_dichiarare",
+      "description": "Quello che non offri.",
+      "example": "Non facciamo vendita DAP. Non abbiamo certificazione biologica. Sconti oltre due bancali da concordare caso per caso."
+    },
+    {
+      "name": "lingua_risposta",
+      "description": "Lingua dell'importatore.",
+      "example": "inglese"
+    }
+  ],
+  "how_to_use": "Incolla il testo dell'email senza firma e dati personali, e compila listino e limiti con quello che sei davvero disposto a dire. Lascia che la risposta nasca dai tuoi numeri, poi controllala riga per riga. Se compare la lista delle domande senza risposta, rispondi a quelle da te prima di inviare.",
+  "example_input": "nome_azienda: Azienda agricola Le Terrazze\nemail_del_buyer: Dear Sir or Madam, we are a specialty food importer in Hamburg. We saw your extra virgin olive oil at a trade fair. Could you send us your price list for the 500 ml bottle and the 3 litre tin, your minimum order and lead time? Do you ship DAP to Germany? Could we have samples? Is the oil certified organic?\nlistino_e_condizioni: Extravergine 500 ml: 7,20 euro a bottiglia; latta da 3 litri: 24,50 euro. Prezzi franco fabbrica (EXW), IVA esclusa. Ordine minimo: un bancale (600 bottiglie da 500 ml). Consegna in 15 giorni lavorativi dalla conferma. Campioni: due bottiglie da 500 ml gratuite, spedizione a carico nostro.\nlimiti_da_dichiarare: Non facciamo vendita DAP. Non abbiamo certificazione biologica. Sconti oltre due bancali da concordare caso per caso.\nlingua_risposta: inglese",
+  "expected_output_description": "Una risposta in lingua straniera di 150-200 parole che risponde alle domande nell'ordine in cui sono state poste, con prezzi e condizioni identici al listino, seguita da un riepilogo in italiano e dalla lista delle domande senza risposta. In caso di segnali di truffa, un elenco di segnali al posto della risposta.",
+  "limits_and_warnings": "Non incollare dati bancari, partite IVA di clienti o contratti riservati. Prezzi, Incoterms, certificazioni e regole di importazione vanno verificati con il tuo spedizioniere o con un consulente export. Un solo buyer su un portale non è una conferma di affidabilità: verifica l'azienda prima di spedire campioni o merce.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Mistral Le Chat"
+  ],
+  "level": "intermedio",
+  "tested_at": "2026-10-21",
+  "test_notes": "Eseguito sull'email del buyer di Amburgo, risposta in inglese: tutte le domande nell'ordine giusto, 7.20 e 24.50 euro in formato inglese, \"no DAP\" e \"not organic\" dichiarati senza girarci intorno. Nella mia prima esecuzione avevo promesso \"samples shipped this week\", tempo non indicato: aggiunto il divieto di inventare tempi dei campioni."
+}

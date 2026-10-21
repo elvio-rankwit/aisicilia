@@ -1,0 +1,59 @@
+{
+  "title": "Preparare una guida di una pagina per il commesso stagionale che inizia domani",
+  "slug": "guida-accoglienza-commessi-stagionali-negozio",
+  "sector": "commercio-retail",
+  "use_case": "formazione del personale",
+  "goal": "Ottieni una scheda per il nuovo addetto con primi dieci minuti, modo di accogliere i clienti, domande frequenti con risposte basate solo sulle tue regole e cinque domande di verifica.",
+  "prompt_text": "Sei un responsabile di negozio esperto che prepara il personale stagionale. Scrivi una guida di una pagina per un nuovo addetto di un negozio di {tipo_negozio} a {citta}, che lavorerà nella stagione {stagione}.\n\nClientela tipica: {clientela}\nLingue che servono: {lingue_cliente}\nRegole del negozio (le uniche che puoi usare): {regole_negozio}\nCosa decide solo il titolare: {decide_il_titolare}\n\nLa guida contiene:\n1. i primi 10 minuti di un turno: cosa guardare, cosa preparare;\n2. come accogliere un cliente: 4 comportamenti concreti, con una frase di esempio in italiano e, se serve, nelle lingue indicate;\n3. le 6 domande più frequenti dei clienti, con la risposta ricavata solo dalle regole sopra;\n4. cosa non fare mai;\n5. quando chiamare il titolare;\n6. 5 domande di verifica con risposta, per controllare a fine giornata che abbia capito.\n\nSe un cliente può chiedere qualcosa che non è nelle regole, la risposta da insegnare è \"verifico e le dico subito\". Non inventare politiche su resi, sconti, spedizioni, tax free o pagamenti. Frasi brevi, linguaggio semplice, adatto a chi non ha mai lavorato in negozio.",
+  "variables": [
+    {
+      "name": "tipo_negozio",
+      "description": "Che cosa vendi.",
+      "example": "souvenir e ceramiche"
+    },
+    {
+      "name": "citta",
+      "description": "Dove si trova il negozio.",
+      "example": "Taormina"
+    },
+    {
+      "name": "stagione",
+      "description": "Periodo di lavoro.",
+      "example": "estate"
+    },
+    {
+      "name": "clientela",
+      "description": "Chi entra di solito.",
+      "example": "turisti stranieri, gruppi da crociera, qualche cliente locale"
+    },
+    {
+      "name": "lingue_cliente",
+      "description": "Le lingue in cui servono frasi pronte.",
+      "example": "inglese e tedesco"
+    },
+    {
+      "name": "regole_negozio",
+      "description": "Le regole che l'addetto può applicare da solo.",
+      "example": "Orario 10:00-22:00. Si accettano carte e contanti. Pacchetto regalo gratuito. I prezzi sono quelli del cartellino."
+    },
+    {
+      "name": "decide_il_titolare",
+      "description": "Cosa l'addetto non deve decidere.",
+      "example": "sconti, spedizioni all'estero, resi, ordini speciali"
+    }
+  ],
+  "how_to_use": "Compila le variabili con regole vere e semplici, poi stampa la guida e consegnala il primo giorno. Fai leggere le frasi in lingua a qualcuno che le conosce prima di usarle. Usa le cinque domande di verifica a fine turno, a voce, insieme al nuovo addetto.",
+  "example_input": "tipo_negozio: souvenir e ceramiche\ncitta: Taormina\nstagione: estate\nclientela: turisti stranieri, gruppi da crociera, qualche cliente locale\nlingue_cliente: inglese e tedesco\nregole_negozio: Orario 10:00-22:00. Si accettano carte e contanti. Pacchetto regalo gratuito. I prezzi sono quelli del cartellino.\ndecide_il_titolare: sconti, spedizioni all'estero, resi, ordini speciali",
+  "expected_output_description": "Una pagina o poco più, divisa in sei blocchi, con frasi brevi. Le domande frequenti hanno risposte coerenti con le regole date e rimandano al titolare quando serve. Le frasi in inglese e tedesco sono semplici e pronte da dire.",
+  "limits_and_warnings": "Le frasi nelle lingue straniere vanno controllate da chi le parla. L'AI non conosce le tue regole su resi, tax free e spedizioni: se non le scrivi, la guida deve rimandare al titolare. Non indicare nella guida condizioni contrattuali o di sicurezza sul lavoro: quelle si danno al dipendente con i documenti ufficiali.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot",
+    "Mistral Le Chat"
+  ],
+  "level": "base",
+  "tested_at": "2026-10-21",
+  "test_notes": "Prima versione: tra le domande frequenti compariva il tax free con una procedura inventata. Aggiunta la regola \"verifico e le dico subito\" e il divieto esplicito. Secondo test: 6 domande coerenti, spedizioni e sconti rimandati al titolare, frasi in inglese e tedesco semplici e corrette."
+}

@@ -1,0 +1,48 @@
+---
+// Pagine successive della directory: si generano solo se le aziende sono più di 100 (D-014).
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CompanyList from '../../../components/CompanyList.astro';
+import Pager from '../../../components/Pager.astro';
+import CtaSegnala from '../../../components/CtaSegnala.astro';
+import { getCompanies } from '../../../lib/data';
+import { meta } from '../../../lib/seo/meta';
+import { collectionPageNodes, itemListNodes } from '../../../lib/seo/jsonld';
+import { LIST_PAGE_SIZE, PAGINATE_OVER, pagedTitle } from '../../../components/helpers';
+
+export async function getStaticPaths() {
+  const companies = await getCompanies();
+  if (companies.length <= PAGINATE_OVER) return [];
+  const total = Math.ceil(companies.length / LIST_PAGE_SIZE);
+  return Array.from({ length: total - 1 }, (_, i) => ({ params: { n: String(i + 2) }, props: { total } }));
+}
+const n = Number(Astro.params.n);
+const { total } = Astro.props;
+const companies = await getCompanies();
+const slice = companies.slice((n - 1) * LIST_PAGE_SIZE, n * LIST_PAGE_SIZE);
+const m = meta.companiesIndex(companies.length);
+const path = `/aziende/pagina/${n}/`;
+const h1 = `Aziende e startup AI in Sicilia, pagina ${n}`;
+---
+<BaseLayout
+  seo={{
+    title: pagedTitle('Aziende e startup AI in Sicilia', n),
+    description: `Pagina ${n} di ${total} della directory: ${m.description}`.slice(0, 155).replace(/\s+\S*$/, ''),
+    path,
+    breadcrumbs: [{ name: 'Aziende', path: '/aziende/' }, { name: `Pagina ${n}`, path }],
+    jsonld: [
+      ...collectionPageNodes({ path, name: h1, description: m.description }),
+      ...itemListNodes({ path, name: h1, items: slice.map((c) => ({ url: `/aziende/${c.id}/`, name: c.data.name })) }),
+    ],
+  }}
+>
+  <div class="page-head">
+    <h1>{h1}</h1>
+    <p class="lead">{companies.length} realtà in elenco, {LIST_PAGE_SIZE} per pagina. Torna alla <a href="/aziende/">mappa e alla tabella per provincia</a>.</p>
+  </div>
+  <section aria-labelledby="h-elenco">
+    <h2 id="h-elenco" class="visually-hidden">Elenco, pagina {n}</h2>
+    <CompanyList companies={slice} id="elenco-aziende" />
+    <Pager base="/aziende/" current={n} total={total} />
+  </section>
+  <CtaSegnala />
+</BaseLayout>

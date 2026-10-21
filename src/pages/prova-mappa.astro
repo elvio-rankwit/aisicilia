@@ -1,0 +1,23 @@
+---
+// TEMPORANEA (map-engineer): da cancellare prima di chiudere il lavoro.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProvinceMapPreview from '../components/map/ProvinceMapPreview.astro';
+import InteractiveMap from '../components/map/InteractiveMap.astro';
+import { PROVINCES, PROVINCE_SLUGS } from '../lib/provinces';
+const pts = PROVINCE_SLUGS.flatMap((s, i) => Array.from({ length: 3 + i }, (_, k) => ({
+  id: `${s}-${k}`, province: s, lat: PROVINCES[s].center[0] + ((k * 7) % 5) * 0.02 - 0.04, lng: PROVINCES[s].center[1] + ((k * 3) % 5) * 0.02 - 0.04,
+  title: `Prova ${PROVINCES[s].name} ${k + 1}`, url: `/aziende/provincia/${s}/`, subtitle: k % 2 ? 'Sottotitolo di prova' : undefined,
+})));
+const counts = Object.fromEntries(PROVINCE_SLUGS.map((s) => [s, pts.filter((p) => p.province === s).length])) as any;
+---
+<BaseLayout seo={{ title: 'Prova mappa', description: 'Pagina di prova temporanea delle mappe', path: '/prova-mappa/', noindex: true }}>
+  <h1>Prova mappa</h1>
+  <div class="g2">
+    <ProvinceMapPreview counts={counts} mode="filter" basePath="/aziende/provincia/" label="Aziende per provincia" points={pts} />
+    <ProvinceMapPreview counts={counts} mode="link" basePath="/eventi/provincia/" active="palermo" label="Eventi per provincia" />
+  </div>
+  <p><button id="f1" type="button">Filtra: solo Palermo</button> <button id="f2" type="button">Tutti</button></p>
+  <InteractiveMap points={pts} label="Mappa delle aziende in Sicilia" />
+</BaseLayout>
+
+<style>.g2{display:grid;gap:2rem;grid-template-columns:1fr 1fr}</style>

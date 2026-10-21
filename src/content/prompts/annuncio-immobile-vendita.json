@@ -1,0 +1,59 @@
+{
+  "title": "Scrivere l'annuncio di vendita di un immobile senza vanterie e senza nascondere i difetti",
+  "slug": "annuncio-immobile-vendita",
+  "sector": "edilizia-immobiliare",
+  "use_case": "marketing",
+  "goal": "Ottieni titolo, descrizione, caratteristiche tecniche e cinque foto consigliate per un annuncio che usa solo dati verificati e dichiara con calma lavori da fare e difetti.",
+  "prompt_text": "Sei un agente immobiliare esperto che scrive annunci per portali e per il sito dell'agenzia. Scrivi l'annuncio di vendita di questo immobile usando solo i dati che ti do.\n\nTipo e zona: {tipo_e_zona}\nDati certi (metri quadrati, piano, stanze, anno, stato, riscaldamento, spese): {dati_certi}\nClasse energetica: {classe_energetica}\nPunti di forza verificati: {punti_di_forza}\nDa dichiarare con trasparenza (difetti, lavori da fare, vincoli): {da_dichiarare}\nPrezzo richiesto: {prezzo}\nPubblico di riferimento: {pubblico}\n\nOutput:\n1. Titolo di massimo 70 caratteri, con tipo di immobile e zona.\n2. Descrizione di 150-200 parole: apri con ciò che rende l'immobile adatto al pubblico indicato, poi gli spazi, poi la zona.\n3. Elenco delle caratteristiche tecniche: una voce per riga, solo con i dati certi.\n4. Cinque foto da fare o scegliere, nell'ordine in cui le metterei nell'annuncio.\n\nVincoli: niente \"vista mare\", \"a due passi da\" o distanze se non risultano dai dati. Non scrivere \"ristrutturato\", \"luminoso\", \"silenzioso\" o simili senza un dato che lo supporti. I difetti e i lavori da fare vanno scritti in modo chiaro, in una frase calma, non nascosti. Se la classe energetica non è indicata, scrivi \"[classe energetica: da inserire]\". Niente \"occasione imperdibile\" e simili.",
+  "variables": [
+    {
+      "name": "tipo_e_zona",
+      "description": "Tipo di immobile e zona.",
+      "example": "trilocale in un palazzo degli anni Settanta, zona centro di Marsala"
+    },
+    {
+      "name": "dati_certi",
+      "description": "Solo dati che hai verificato sui documenti o sul posto.",
+      "example": "82 mq, terzo piano con ascensore, due camere e un bagno, cucina abitabile, balcone di 6 mq, riscaldamento autonomo a metano, spese condominiali circa 60 euro al mese"
+    },
+    {
+      "name": "classe_energetica",
+      "description": "Classe dall'attestato di prestazione energetica.",
+      "example": "classe E"
+    },
+    {
+      "name": "punti_di_forza",
+      "description": "Punti di forza che puoi dimostrare.",
+      "example": "esposizione a sud, cantina di 8 mq, parcheggio condominiale"
+    },
+    {
+      "name": "da_dichiarare",
+      "description": "Difetti, lavori, vincoli.",
+      "example": "serramenti da sostituire; bagno con impianti originali"
+    },
+    {
+      "name": "prezzo",
+      "description": "Prezzo richiesto.",
+      "example": "118.000 euro"
+    },
+    {
+      "name": "pubblico",
+      "description": "A chi si rivolge.",
+      "example": "giovani coppie"
+    }
+  ],
+  "how_to_use": "Compila le variabili con dati controllati su visura, planimetria e attestato energetico, non con quelli del vecchio annuncio. Incolla il prompt, poi rileggi la descrizione con i documenti accanto. Le foto consigliate servono per il sopralluogo fotografico: scattale con luce naturale e ordine in casa.",
+  "example_input": "tipo_e_zona: trilocale in un palazzo degli anni Settanta, zona centro di Marsala\ndati_certi: 82 mq, terzo piano con ascensore, due camere e un bagno, cucina abitabile, balcone di 6 mq, riscaldamento autonomo a metano, spese condominiali circa 60 euro al mese\nclasse_energetica: classe E\npunti_di_forza: esposizione a sud, cantina di 8 mq, parcheggio condominiale\nda_dichiarare: serramenti da sostituire; bagno con impianti originali\nprezzo: 118.000 euro\npubblico: giovani coppie",
+  "expected_output_description": "Un titolo di massimo 70 caratteri, una descrizione di 150-200 parole che cita difetti e lavori in una frase calma, un elenco tecnico con una voce per riga e cinque foto consigliate. Dove manca la classe energetica compare un segnaposto.",
+  "limits_and_warnings": "Gli annunci immobiliari sono soggetti a obblighi di legge (tra cui l'indicazione della prestazione energetica): verifica con la tua agenzia o con un professionista cosa deve comparire. Controlla ogni dato su visura, planimetria e attestato. L'AI può aggiungere dettagli di zona che non conosce: cancellali.",
+  "compatible_tools": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Microsoft Copilot",
+    "Mistral Le Chat"
+  ],
+  "level": "base",
+  "tested_at": "2026-10-21",
+  "test_notes": "DA COMPILARE DOPO IL TEST: nota provvisoria per superare la lunghezza minima richiesta."
+}

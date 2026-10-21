@@ -19,13 +19,14 @@ const { seo } = Astro.props;
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <SeoHead seo={seo} />
     <script is:inline>
+      document.documentElement.classList.add('js');
       try { const t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}
     </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Vai al contenuto</a>
     <Header />
-    <main id="main" class="container">
+    <main id="main" class="container" data-pagefind-body={seo.noindex ? undefined : ''}>
       {seo.breadcrumbs && seo.breadcrumbs.length > 0 && <Breadcrumbs items={seo.breadcrumbs} />}
       <slot />
     </main>
