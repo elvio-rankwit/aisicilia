@@ -19,7 +19,7 @@
     {
       "name": "scheda_italiano",
       "description": "La scheda originale, completa.",
-      "example": "Tavolino in pietra lavica dell'Etna, piano smaltato a mano, diametro 45 cm, altezza 50 cm. La pietra è lavorata e smaltata nel nostro laboratorio. Ogni pezzo è unico: colore e sfumature possono variare. Adatto anche all'esterno; si pulisce con un panno umido. Peso: 18 kg."
+      "example": "Tavolino della linea Pietra Viva, in pietra lavica dell'Etna, piano smaltato a mano, diametro 45 cm, altezza 50 cm. La pietra è lavorata e smaltata nel nostro laboratorio. Ogni pezzo è unico: colore e sfumature possono variare. Adatto anche all'esterno; si pulisce con un panno umido. Peso: 18 kg."
     },
     {
       "name": "glossario",
@@ -33,7 +33,7 @@
     }
   ],
   "how_to_use": "Incolla la scheda italiana così com'è e compila il glossario con le parole su cui sei sicuro. Fai leggere il risultato a qualcuno che parla la lingua, anche un cliente affezionato. Leggi sempre la sezione \"Note per me\" prima di pubblicare: contiene i punti dubbi.",
-  "example_input": "lingue_destinazione: inglese e tedesco\nmercato: turisti in visita al laboratorio e piccoli negozi di design nei paesi di lingua inglese e tedesca\nscheda_italiano: Tavolino in pietra lavica dell'Etna, piano smaltato a mano, diametro 45 cm, altezza 50 cm. La pietra è lavorata e smaltata nel nostro laboratorio. Ogni pezzo è unico: colore e sfumature possono variare. Adatto anche all'esterno; si pulisce con un panno umido. Peso: 18 kg.\nglossario: \"smaltata\" = glazed; il marchio \"Pietra Viva\" resta invariato\nunita_misura: centimetri e chilogrammi, nessuna conversione",
+  "example_input": "lingue_destinazione: inglese e tedesco\nmercato: turisti in visita al laboratorio e piccoli negozi di design nei paesi di lingua inglese e tedesca\nscheda_italiano: Tavolino della linea Pietra Viva, in pietra lavica dell'Etna, piano smaltato a mano, diametro 45 cm, altezza 50 cm. La pietra è lavorata e smaltata nel nostro laboratorio. Ogni pezzo è unico: colore e sfumature possono variare. Adatto anche all'esterno; si pulisce con un panno umido. Peso: 18 kg.\nglossario: \"smaltata\" = glazed; il marchio \"Pietra Viva\" resta invariato\nunita_misura: centimetri e chilogrammi, nessuna conversione",
   "expected_output_description": "Per ogni lingua un titolo, una descrizione e una scheda tecnica con la stessa struttura dell'italiano, in un testo naturale. In fondo una sezione di note con ambiguità, termini senza equivalente esatto e affermazioni da verificare.",
   "limits_and_warnings": "Le traduzioni vanno riviste da chi conosce la lingua, soprattutto per i termini tecnici. Affermazioni come \"adatto all'esterno\" o \"idoneo al contatto con alimenti\" possono richiedere prove o avere obblighi diversi nei paesi di destinazione. Non cambiare misure o valute senza verificare le regole di quel mercato.",
   "compatible_tools": [

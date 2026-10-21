@@ -28,16 +28,19 @@ const total = PROVINCE_SLUGS.reduce((s, slug) => s + (counts[slug] ?? 0), 0);
         const n = counts[slug] ?? 0;
         const current = active === slug;
         return (
-          <a
-            href={`${basePath}${slug}/`}
-            data-p={slug}
-            aria-label={`${PROVINCES[slug].name}: ${n} ${noun(n)}`}
-            aria-current={current ? (mode === 'link' ? 'page' : 'true') : undefined}
-          >
-            <path d={p.d} />
-            <text class="pmap-sigla" x={p.labelX} y={p.labelY - 4}>{PROVINCES[slug].sigla}</text>
-            <text class="pmap-count" x={p.labelX} y={p.labelY + 11}>{n}</text>
-          </a>
+          <g>
+            <a
+              href={`${basePath}${slug}/`}
+              data-p={slug}
+              aria-label={`${PROVINCES[slug].name}: ${n} ${noun(n)}`}
+              aria-current={current ? (mode === 'link' ? 'page' : 'true') : undefined}
+            >
+              <path d={p.d} />
+              <text class="pmap-count" x={p.labelX} y={p.labelY + 11}>{n}</text>
+            </a>
+            {/* La sigla sta fuori dal link: il testo visibile del link è solo il conteggio, contenuto nel nome accessibile. */}
+            <text class="pmap-sigla" x={p.labelX} y={p.labelY - 4} aria-hidden="true">{PROVINCES[slug].sigla}</text>
+          </g>
         );
       })}
     </g>
@@ -87,7 +90,7 @@ const total = PROVINCE_SLUGS.reduce((s, slug) => s + (counts[slug] ?? 0), 0);
   .pmap a:focus-visible path { fill: var(--c-map-land-hover); stroke: var(--c-focus); stroke-width: 2.4; }
   .pmap a[aria-current] path { fill: var(--c-map-active); }
   .pmap text { fill: var(--c-text); text-anchor: middle; pointer-events: none; font-family: var(--font-sans); }
-  .pmap a[aria-current] text { fill: var(--c-on-primary); }
+  .pmap a[aria-current] text, .pmap a[aria-current] ~ .pmap-sigla { fill: var(--c-on-primary); }
   .pmap-sigla { font-size: 10px; font-weight: 600; letter-spacing: 0.04em; }
   .pmap-count { font-size: 15px; font-weight: 700; }
   .pmap-points circle { fill: var(--c-accent); stroke: var(--c-surface); stroke-width: 0.8; pointer-events: none; }

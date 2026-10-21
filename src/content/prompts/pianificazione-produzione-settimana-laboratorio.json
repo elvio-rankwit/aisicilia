@@ -19,7 +19,7 @@
     {
       "name": "ordini",
       "description": "Gli ordini con ore stimate e consegna.",
-      "example": "A) 6 sedie su misura: 22 ore, consegna venerdì 6 novembre. B) Restauro di una credenza: 16 ore, consegna giovedì 5 novembre. C) 10 mensole in rovere: 12 ore, consegna mercoledì 11 novembre. D) Riparazione di un tavolo: 6 ore, consegna martedì 3 novembre."
+      "example": "A) 6 sedie su misura: 22 ore, di cui 8 di carteggiatura e montaggio, consegna venerdì 6 novembre. B) Restauro di una credenza: 16 ore, di cui 6 di carteggiatura, consegna giovedì 5 novembre. C) 10 mensole in rovere: 12 ore, di cui 4 di carteggiatura e montaggio, consegna mercoledì 11 novembre. D) Riparazione di un tavolo: 6 ore, di cui 1 di carteggiatura, consegna martedì 3 novembre."
     },
     {
       "name": "persone_e_ore",
@@ -33,7 +33,7 @@
     }
   ],
   "how_to_use": "Scrivi gli ordini con ore stimate realistiche, anche se sono approssimate: se le ore sono sbagliate, il piano lo sarà. Incolla il prompt, leggi prima il controllo delle ore e decidi tu cosa spostare. Poi stampa il piano per giorno e appendilo in laboratorio. Aggiornalo a metà settimana.",
-  "example_input": "mestiere: falegnameria\nsettimana: dal 2 al 6 novembre 2026\nordini: A) 6 sedie su misura: 22 ore, consegna venerdì 6 novembre. B) Restauro di una credenza: 16 ore, consegna giovedì 5 novembre. C) 10 mensole in rovere: 12 ore, consegna mercoledì 11 novembre. D) Riparazione di un tavolo: 6 ore, consegna martedì 3 novembre.\npersone_e_ore: Rosa: 8 ore al giorno da lunedì a giovedì e 5 ore venerdì, fa tutto. L'apprendista: 4 ore al giorno da lunedì a giovedì e 2 ore venerdì, può fare solo carteggiatura e montaggio, non le finiture.\nvincoli: Ogni mano di vernice richiede 24 ore di asciugatura. Sedie e credenza richiedono due mani ciascuna, già comprese nelle ore stimate. Venerdì il laboratorio chiude alle 14.",
+  "example_input": "mestiere: falegnameria\nsettimana: dal 2 al 6 novembre 2026\nordini: A) 6 sedie su misura: 22 ore, di cui 8 di carteggiatura e montaggio, consegna venerdì 6 novembre. B) Restauro di una credenza: 16 ore, di cui 6 di carteggiatura, consegna giovedì 5 novembre. C) 10 mensole in rovere: 12 ore, di cui 4 di carteggiatura e montaggio, consegna mercoledì 11 novembre. D) Riparazione di un tavolo: 6 ore, di cui 1 di carteggiatura, consegna martedì 3 novembre.\npersone_e_ore: Rosa: 8 ore al giorno da lunedì a giovedì e 5 ore venerdì, fa tutto. L'apprendista: 4 ore al giorno da lunedì a giovedì e 2 ore venerdì, può fare solo carteggiatura e montaggio, non le finiture.\nvincoli: Ogni mano di vernice richiede 24 ore di asciugatura. Sedie e credenza richiedono due mani ciascuna, già comprese nelle ore stimate. Venerdì il laboratorio chiude alle 14.",
   "expected_output_description": "Prima le due somme (ore richieste e disponibili) e la differenza; poi la proposta su cosa spostare, se serve; il piano per giorno con persona, ore e ordine; fino a 3 rischi di ritardo; eventuali bozze di due righe per i clienti.",
   "limits_and_warnings": "Le ore stimate sono tue: l'AI non conosce i tempi reali del laboratorio e può sbagliare le somme, quindi ricontrolla il totale. Un vincolo non scritto (un fornitore che consegna in ritardo, un guasto) non sarà considerato. Non comunicare date ai clienti senza averle confermate.",
   "compatible_tools": [
