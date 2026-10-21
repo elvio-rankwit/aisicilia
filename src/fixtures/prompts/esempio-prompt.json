@@ -1,0 +1,20 @@
+{
+  "title": "[FITTIZIO] Prompt di esempio per rispondere a una recensione",
+  "slug": "esempio-prompt",
+  "sector": "ospitalita",
+  "use_case": "recensioni",
+  "goal": "Prompt fittizio per testare la pagina singolo prompt, il pulsante Copia e le variabili.",
+  "prompt_text": "Sei il titolare di {nome_struttura}. Scrivi una risposta cordiale e breve a questa recensione: {testo_recensione}. Ringrazia per i punti positivi, rispondi nel merito alle critiche senza scuse generiche.",
+  "variables": [
+    { "name": "nome_struttura", "description": "Nome della struttura", "example": "B&B Esempio" },
+    { "name": "testo_recensione", "description": "La recensione da incollare", "example": "Camera pulita, colazione scarsa." }
+  ],
+  "how_to_use": "Testo fittizio: incolla il prompt in un assistente AI, sostituisci le variabili tra graffe e rileggi la risposta prima di pubblicarla.",
+  "example_input": "nome_struttura: B&B Esempio; testo_recensione: Camera pulita, colazione scarsa.",
+  "expected_output_description": "Una risposta fittizia di 4-6 frasi, con tono cordiale, che cita la colazione e propone un miglioramento concreto.",
+  "limits_and_warnings": "Fixture di sviluppo. Nei prompt veri: non inserire dati personali dei clienti e rileggi sempre prima di pubblicare.",
+  "compatible_tools": ["ChatGPT", "Claude"],
+  "level": "base",
+  "tested_at": "2026-10-01",
+  "test_notes": "Fixture: nessun test reale, serve solo all'interfaccia."
+}

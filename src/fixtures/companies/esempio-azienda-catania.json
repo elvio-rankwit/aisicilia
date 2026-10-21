@@ -1,0 +1,17 @@
+{
+  "name": "[FITTIZIO] Esempio Parole Lab",
+  "slug": "esempio-azienda-catania",
+  "type": "azienda",
+  "description": "Secondo record fittizio per lo sviluppo. Immagina un laboratorio che costruisce assistenti testuali per gli uffici turistici, con risposte in più lingue. È qui solo per testare filtri combinati, conteggi per provincia e cluster sulla mappa. Nessuna delle informazioni contenute in questo file è reale e il record non deve mai finire nella build di produzione.",
+  "ai_areas": ["NLP", "AI generativa"],
+  "sectors_served": ["turismo e ospitalità", "pubblica amministrazione"],
+  "province": "catania",
+  "city": "Catania",
+  "lat": 37.502,
+  "lng": 15.087,
+  "geo_precision": "città",
+  "website": "https://esempio-parole.example",
+  "source_urls": ["https://esempio-parole.example"],
+  "last_verified": "2026-10-01",
+  "verification_status": "verified"
+}

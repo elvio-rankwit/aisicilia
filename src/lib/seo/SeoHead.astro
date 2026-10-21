@@ -1,0 +1,13 @@
+---
+// Versione minima di Fase 0: il seo-geo-engineer la completa (OG, Twitter, JSON-LD @graph, feed, hreflang).
+import { IS_BETA, SITE } from '../site';
+import type { PageSeo } from './types';
+interface Props { seo: PageSeo }
+const { seo } = Astro.props;
+const canonical = new URL(seo.path, SITE.url + '/').href;
+const robots = IS_BETA || seo.noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large';
+---
+<title>{seo.title}</title>
+<meta name="description" content={seo.description} />
+<link rel="canonical" href={canonical} />
+<meta name="robots" content={robots} />

@@ -1,0 +1,21 @@
+{
+  "title": "[FITTIZIO] Esempio di meetup AI a Catania",
+  "slug": "esempio-evento-futuro",
+  "description": "Evento fittizio per lo sviluppo dell'interfaccia: un incontro serale immaginario su come usare l'AI generativa negli uffici. Serve a testare la vista prossimi eventi, il link per aggiungere al calendario e la mappa. Non esiste e non va pubblicato.",
+  "start_date": "2027-03-12",
+  "start_time": "18:30",
+  "format": "in presenza",
+  "venue_name": "Sala Esempio",
+  "city": "Catania",
+  "province": "catania",
+  "lat": 37.502,
+  "lng": 15.087,
+  "organizer": "[FITTIZIO] Community Esempio",
+  "event_url": "https://esempio-meetup.example/evento",
+  "price": "gratuito",
+  "audience": ["imprese", "sviluppatori"],
+  "topics": ["AI generativa"],
+  "source_url": "https://esempio-meetup.example/evento",
+  "last_verified": "2026-10-01",
+  "verification_status": "verified"
+}

@@ -1,0 +1,24 @@
+---
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container">
+    <nav aria-label="Piè di pagina">
+      <ul>
+        <li><a href="/chi-siamo/">Chi siamo</a></li>
+        <li><a href="/metodologia/">Come verifichiamo i dati</a></li>
+        <li><a href="/segnala/">Segnala un'azienda o un evento</a></li>
+        <li><a href="/rimozione/">Richiedi modifica o rimozione</a></li>
+        <li><a href="/contatti/">Contatti</a></li>
+        <li><a href="/privacy/">Privacy</a></li>
+        <li><a href="/note-legali/">Note legali</a></li>
+      </ul>
+    </nav>
+    <p class="muted">© {year} AI Sicilia, progetto indipendente di <a href="/chi-siamo/">Elvio Leonardi</a>. Mappe © <a href="https://www.openstreetmap.org/copyright">contributori OpenStreetMap</a>.</p>
+  </div>
+</footer>
+<style>
+  .site-footer { margin-top: var(--space-8); padding-block: var(--space-6); border-top: 1px solid var(--c-border); background: var(--c-surface-2); font-size: var(--fs-sm); }
+  ul { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); list-style: none; padding: 0; }
+  a { display: inline-block; padding-block: var(--space-2); }
+</style>

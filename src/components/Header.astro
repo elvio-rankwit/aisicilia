@@ -1,0 +1,33 @@
+---
+const path = Astro.url.pathname;
+const nav = [
+  { href: '/aziende/', label: 'Aziende' },
+  { href: '/eventi/', label: 'Eventi' },
+  { href: '/impara/', label: 'Impara' },
+  { href: '/prompt/', label: 'Prompt' },
+];
+---
+<header class="site-header">
+  <div class="container bar">
+    <a class="logo" href="/" aria-label="AI Sicilia, torna alla home">AI <span>Sicilia</span></a>
+    <span class="beta" title="Versione di prova: dati e testi in revisione">Beta</span>
+    <nav aria-label="Principale">
+      <ul>
+        {nav.map((n) => (
+          <li><a href={n.href} aria-current={path.startsWith(n.href) ? 'page' : undefined}>{n.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+<style>
+  .site-header { border-bottom: 1px solid var(--c-border); background: var(--c-surface); }
+  .bar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-4); min-height: 64px; }
+  .logo { font-family: var(--font-serif); font-weight: 700; font-size: var(--fs-lg); color: var(--c-text); text-decoration: none; }
+  .logo span { color: var(--c-accent); }
+  .beta { font-size: var(--fs-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 2px 8px; border-radius: var(--radius-pill); background: var(--c-accent-soft); color: var(--c-accent); }
+  nav { margin-left: auto; }
+  nav ul { display: flex; flex-wrap: wrap; gap: var(--space-1); list-style: none; margin: 0; padding: 0; }
+  nav a { display: inline-flex; align-items: center; min-height: var(--tap); padding: 0 var(--space-3); color: var(--c-text); text-decoration: none; border-radius: var(--radius-sm); font-weight: 600; }
+  nav a:hover, nav a[aria-current='page'] { background: var(--c-primary-soft); color: var(--c-primary); }
+</style>

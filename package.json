@@ -12,7 +12,9 @@
     "preview": "astro preview",
     "check": "astro check",
     "validate": "node scripts/validate/run.mjs",
-    "lhci": "lhci autorun"
+    "lhci": "lhci autorun",
+    "lhci:desktop": "LHCI_PRESET=desktop lhci autorun",
+    "dev:fixtures": "USE_FIXTURES=1 astro dev"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.11",
@@ -25,7 +27,9 @@
   },
   "devDependencies": {
     "@lhci/cli": "^0.15.1",
+    "node-html-parser": "^9.0.5",
     "pagefind": "^1.5.2",
-    "sharp": "^0.35.5"
+    "sharp": "^0.35.5",
+    "yaml": "^2.9.1"
   }
 }

@@ -8,3 +8,4 @@ dist/
 .cache/
 *.log
 .DS_Store
+scripts/geocode/.last-request

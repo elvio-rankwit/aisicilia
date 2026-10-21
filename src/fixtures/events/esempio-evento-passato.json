@@ -1,0 +1,18 @@
+{
+  "title": "[FITTIZIO] Esempio di webinar concluso",
+  "slug": "esempio-evento-passato",
+  "description": "Evento fittizio già concluso, usato per verificare che l'archivio funzioni e che la scheda mostri lo stato concluso senza restituire errori. Formato online, quindi senza marker sulla mappa. Nessun dato reale: non va pubblicato.",
+  "start_date": "2026-05-20",
+  "start_time": "15:00",
+  "format": "online",
+  "city": "Palermo",
+  "province": "palermo",
+  "organizer": "[FITTIZIO] Associazione Esempio",
+  "event_url": "https://esempio-webinar.example",
+  "price": "non indicato",
+  "audience": ["imprese"],
+  "topics": ["prompt"],
+  "source_url": "https://esempio-webinar.example",
+  "last_verified": "2026-06-01",
+  "verification_status": "verified"
+}
