@@ -20,6 +20,10 @@
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
 
+# Font self-hosted (nomi stabili, contenuto invariato): un anno.
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
 # Immagini Open Graph: una settimana.
 /og/*
   Cache-Control: public, max-age=604800
