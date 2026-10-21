@@ -1,0 +1,23 @@
+{
+  "name": "Neotera",
+  "slug": "neotera",
+  "type": "startup",
+  "description": "Startup con sede legale a Misiliscemi (TP) che sviluppa sistemi intelligenti per agricoltura e industria. Combina dispositivi IoT a basso consumo, edge AI e una piattaforma cloud con modelli di machine learning. Le applicazioni sono il monitoraggio di vigneti e cantine, con previsione delle malattie della vite, la manutenzione predittiva delle macchine industriali e la piattaforma FusionIIoT per impianti di produzione. Lavora anche su sicurezza dei dispositivi e componenti software per l'automotive.",
+  "ai_areas": ["IoT ed edge AI", "machine learning"],
+  "sectors_served": ["agricoltura", "manifattura"],
+  "province": "trapani",
+  "city": "Misiliscemi",
+  "lat": 37.92571,
+  "lng": 12.53755,
+  "geo_precision": "città",
+  "website": "https://www.neotera.eu/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://www.neotera.eu/",
+    "https://www.neotera.eu/team/",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

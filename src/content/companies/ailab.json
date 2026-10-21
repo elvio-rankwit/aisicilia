@@ -1,0 +1,24 @@
+{
+  "name": "AILAB",
+  "slug": "ailab",
+  "type": "startup",
+  "description": "Laboratorio di analisi veterinarie di Palermo che affianca ai referti un agente di intelligenza artificiale. L'agente legge i risultati degli esami nel contesto del quadro clinico dell'animale, evidenzia le correlazioni tra i valori e propone possibili percorsi diagnostici; ogni referto resta validato da un veterinario. Il laboratorio copre chimica clinica, biologia molecolare, ematologia, microbiologia, endocrinologia e citologia, con ritiro dei campioni tramite corriere. Si rivolge a medici veterinari e cliniche.",
+  "ai_areas": ["agenti e automazione", "dati e analytics"],
+  "sectors_served": ["sanità"],
+  "province": "palermo",
+  "city": "Palermo",
+  "address": "Via San Giovanni di Dio 27, Palermo PA",
+  "lat": 38.10019,
+  "lng": 13.38349,
+  "geo_precision": "indirizzo",
+  "website": "https://www.ailab.vet/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://www.ailab.vet/",
+    "https://www.ailab.vet/contactus",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

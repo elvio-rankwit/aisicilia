@@ -1,0 +1,23 @@
+{
+  "name": "OttimAI",
+  "slug": "ottimai",
+  "type": "startup",
+  "description": "Società di Partinico (PA) che ha sviluppato Agendo, un'app per le persone con endometriosi. Un assistente conversazionale basato su AI permette di registrare in pochi secondi sintomi, umore, terapie e allenamenti; l'AI legge il diario, individua andamenti ricorrenti e prepara raccomandazioni e sintesi da portare al medico. L'app raccoglie anche gli esiti degli esami caricati come PDF o foto ed è collegata a una rete di specialisti. Esiste una versione dedicata ai professionisti sanitari.",
+  "ai_areas": ["agenti e automazione", "NLP"],
+  "sectors_served": ["sanità"],
+  "province": "palermo",
+  "city": "Partinico",
+  "address": "Via Benvenuto Cellini 2, 90047 Partinico PA",
+  "lat": 38.04333,
+  "lng": 13.12417,
+  "geo_precision": "indirizzo",
+  "website": "https://agendo.health/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://agendo.health/",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}

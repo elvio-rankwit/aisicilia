@@ -478,5 +478,17 @@
     "lng": 13.34324,
     "display_name": "Via Ludovico Ariosto, Quartiere Matteotti, VIII Circoscrizione, Palermo, Sicilia, 90144, Italia",
     "precision": "indirizzo"
+  },
+  "addr:via duca degli abruzzi 16, 90046 monreale": {
+    "lat": 38.08027,
+    "lng": 13.28957,
+    "display_name": "Via Duca degli Abruzzi, Intravaia, Aquino, Monreale, Palermo, Sicilia, 90131, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via vittorio emanuele 113, 92028 naro": {
+    "lat": 37.29535,
+    "lng": 13.79342,
+    "display_name": "Via Vittorio Emanuele, Naro, Agrigento, Sicilia, 92028, Italia",
+    "precision": "indirizzo"
   }
 }

@@ -1,0 +1,23 @@
+{
+  "name": "PicoStudio.ai",
+  "slug": "picostudioai",
+  "type": "startup",
+  "description": "Società di Palermo specializzata nell'analisi delle emozioni con l'intelligenza artificiale. Un motore addestrato su modelli della psicologia delle emozioni stima lo stato emotivo di chi scrive e alimenta una suite di prodotti: strumenti di feedback e analisi delle opinioni dei clienti, un'app per raccogliere commenti anonimi dai follower sui social e Pika, un assistente per il customer care che adatta il tono delle risposte alle emozioni rilevate. Si rivolge ad aziende e creator.",
+  "ai_areas": ["NLP", "agenti e automazione"],
+  "sectors_served": ["marketing e comunicazione", "trasversale"],
+  "province": "palermo",
+  "city": "Palermo",
+  "address": "Via Imperatore Federico 24, 90143 Palermo PA",
+  "lat": 38.14598,
+  "lng": 13.34961,
+  "geo_precision": "indirizzo",
+  "website": "https://www.picostudio.ai/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://www.picostudio.ai/",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-21",
+  "verification_status": "verified"
+}
