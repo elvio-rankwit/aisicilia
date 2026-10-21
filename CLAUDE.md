@@ -32,3 +32,5 @@ Astro 7 statico · TypeScript · Content Collections + Zod (`src/content.config.
 - Squadra di agenti in `.claude/agents/` (tutti `model: sonnet`), ognuno con la sua spec in `docs/specs/<agente>.md` e cartelle di scrittura dedicate.
 - Decisioni in `docs/DECISIONS.md`; fonti candidate in `docs/sources.md`; report QA in `docs/qa/`; log delle pipeline in `docs/runs/`.
 - Commit in italiano, piccoli e descrittivi.
+- Build e validazioni passano da `scripts/with-lock.mjs`: usare sempre `npm run build`, `npm run build:fixtures`, `npm run validate` (mai `npx astro build` diretto) perché più agenti lavorano in parallelo.
+- Gli agenti non fanno commit né operazioni git: le fa l'orchestratore.

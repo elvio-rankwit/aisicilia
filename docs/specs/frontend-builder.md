@@ -13,7 +13,7 @@ Costruisci tutte le pagine e i componenti di aisicilia.it (Astro 7, statico). Il
 Non toccare: `src/lib/**` (se ti serve una funzione nuova, scrivila in un componente o segnalala), `src/components/map/**` (map-engineer), `src/content/**`, `src/fixtures/**`.
 
 ## Come lavori
-- Sviluppa con i dati fittizi: `USE_FIXTURES=1 npx astro build` (oppure `npm run dev:fixtures`). Le collezioni reali sono vuote o in arrivo: **ogni pagina deve funzionare con 0 record** (stato vuoto cordiale) e con 100.
+- Sviluppa con i dati fittizi: `npm run build:fixtures` (oppure `npm run dev:fixtures`). Le collezioni reali sono vuote o in arrivo: **ogni pagina deve funzionare con 0 record** (stato vuoto cordiale) e con 100.
 - I dati si leggono solo da `src/lib/data.ts` (`getCompanies`, `getUpcomingEvents`, `getPastEvents`, `getArticles`, `getPrompts`…). Mai `getCollection` diretto: lì ci sono le regole editoriali.
 - Ogni pagina usa `BaseLayout` e passa `seo: PageSeo` con: `title`/`description` da `meta.*()` in `src/lib/seo/meta.ts`, `path` canonico con slash finale, `breadcrumbs`, e `jsonld` dalle funzioni di `src/lib/seo/jsonld.ts` (oggi restituiscono `[]`: il seo-geo-engineer le implementa dopo, tu le chiami già). Niente `<meta>` scritti a mano nelle pagine.
 - Pagine istituzionali senza funzione dedicata in `meta.ts`: scrivi title (≤ 60) e description (70–155) unici direttamente nella pagina.
@@ -95,5 +95,5 @@ Non scrivi codice Leaflet. Usi i componenti del map-engineer in `src/components/
 ## Regole comuni
 - Non modificare file fuori dalle tue cartelle; se serve, segnalalo nel report.
 - Microcopy secondo `docs/copy-rules.md`.
-- Al termine: `npm run build` (con dati reali, anche se vuoti), `USE_FIXTURES=1 npx astro build` e `npm run validate`. Gli errori su `robots.txt`, `llms.txt`, `_headers`, JSON-LD vuoto e OG sono del seo-geo-engineer: ignorali e citali nel report. Tutti gli altri devono essere zero.
+- Al termine: `npm run build` (con dati reali, anche se vuoti), `npm run build:fixtures` e `npm run validate`. Gli errori su `robots.txt`, `llms.txt`, `_headers`, JSON-LD vuoto e OG sono del seo-geo-engineer: ignorali e citali nel report. Tutti gli altri devono essere zero.
 - Report finale (max 200 parole): cosa hai fatto, file toccati, problemi aperti.
