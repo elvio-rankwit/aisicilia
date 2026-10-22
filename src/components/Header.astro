@@ -61,6 +61,15 @@ const nav = [
   .drop { position: absolute; right: 0; top: 54px; width: 230px; display: grid; padding: 8px; background: var(--card); border: 1.5px solid var(--bd); border-radius: var(--r); box-shadow: 5px 5px 0 var(--sh); }
   .drop a { display: flex; align-items: center; min-height: var(--tap); padding: 0 12px; border-radius: 8px; color: var(--ink); font-weight: 600; text-decoration: none; }
   .drop a:hover { background: var(--brand-t); }
+  /* Schermi molto stretti (320–380px): tutto deve stare in una riga senza scroll orizzontale. */
+  @media (max-width: 23.75rem) {
+    .bar { gap: 6px; }
+    .logo { font-size: 16px; gap: 7px; }
+    .logo svg { width: 26px; height: 26px; }
+    .tools { gap: 0; }
+    .menu { margin-left: 2px; }
+    .menu summary { padding: 0 12px; }
+  }
   @media (min-width: 45.01rem) {
     .bar { height: 76px; }
     .logo { font-size: 21px; }
