@@ -98,7 +98,7 @@ Si comincia dal livello più basso che risolve il problema. Sono quattro, e per 
 | 3. Collegamenti senza programmazione | Strumenti a blocchi come Zapier, Make o Power Automate: quando succede A in un programma, fai B in un altro | Una giornata per un flusso semplice, settimane per uno che regge ai cambiamenti | Tu o un consulente |
 | 4. Sviluppo su misura | Software scritto per i tuoi sistemi, per volumi alti | Settimane o mesi | Uno sviluppatore |
 
-Il livello 1 è automazione solo in senso largo e risolve già molto. Il livello 2 è quello che sottovalutano di più: spesso la funzione che cerchi è già nel tuo abbonamento e nessuno l'ha mai attivata. Quali funzioni sono disponibili e a che prezzo cambia in continuazione, quindi guarda la pagina del fornitore il giorno in cui decidi.
+Il livello 1 è automazione solo in senso largo e risolve già molto. Il livello 2 è quello che si sottovaluta di più: spesso la funzione che cerchi è già nel tuo abbonamento e nessuno l'ha mai attivata. Quali funzioni sono disponibili e a che prezzo cambia in continuazione, quindi guarda la pagina del fornitore il giorno in cui decidi.
 
 Al livello 4 va messo a budget anche il costo di manutenzione, e per una microimpresa quasi mai è il punto di partenza. Nella [directory delle aziende](/aziende/) puoi cercare chi in Sicilia offre questo tipo di lavoro, e nella pagina di una provincia, come quella di [Catania](/aziende/provincia/catania/), chi lavora vicino a te.
 
@@ -106,7 +106,7 @@ Al livello 4 va messo a budget anche il costo di manutenzione, e per una microim
 
 Si smistano e si preparano, ma non si lasciano rispondere da sole. Ipotizza uno studio di Caltanissetta che riceve ogni giorno una cinquantina di email. Per mettere ordine bastano 3 mosse in sequenza: filtri e cartelle per mittente e oggetto; un modello di risposta per le richieste standard (orari, documenti da portare, appuntamenti); solo dopo, un assistente che propone la bozza per quelle che non rientrano nei modelli.
 
-Per lo smistamento c'è un [prompt per smistare le email dello studio](/prompt/studi-professionali/smistare-email-studio-professionale/) con categoria, urgenza e responsabile.
+Per questo esiste un [prompt per smistare le email dello studio](/prompt/studi-professionali/smistare-email-studio-professionale/) con categoria, urgenza e responsabile.
 
 Dentro quelle email ci sono dati dei clienti, e a volte dati delicati. Non farle passare in uno strumento di AI finché non hai chiarito base giuridica, informativa e accordi con il fornitore, compresa la questione dei fornitori fuori dall'Unione europea.
 
