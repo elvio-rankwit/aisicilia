@@ -17,10 +17,12 @@ export const SITE = {
   },
 } as const;
 
+// Endpoint Formspree (pubblici: finiscono comunque nell'HTML dei moduli). Le variabili d'ambiente
+// PUBLIC_FORM_*_URL, se impostate, hanno la precedenza (D-033).
 export const FORMS = {
-  segnala: import.meta.env.PUBLIC_FORM_SEGNALA_URL || '',
-  rimozione: import.meta.env.PUBLIC_FORM_RIMOZIONE_URL || '',
-  contatti: import.meta.env.PUBLIC_FORM_CONTATTI_URL || '',
+  segnala: import.meta.env.PUBLIC_FORM_SEGNALA_URL || 'https://formspree.io/f/mzeeppqo',
+  rimozione: import.meta.env.PUBLIC_FORM_RIMOZIONE_URL || 'https://formspree.io/f/meaajjwd',
+  contatti: import.meta.env.PUBLIC_FORM_CONTATTI_URL || 'https://formspree.io/f/xoeeaazz',
 } as const;
 
 /** Elementi per pagina nelle liste paginate (aziende, eventi, archivio). */
