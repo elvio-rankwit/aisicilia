@@ -135,7 +135,7 @@ Non serve un manuale. Serve una pagina che dica:
 - quali strumenti sono ammessi e con quali account aziendali;
 - cosa non si incolla mai (categorie particolari, segreti, dati di minori);
 - chi controlla l'output prima che esca dallo studio;
-- dove si annota l'uso rilevante, per poterlo spiegare al cliente;
+- dove si annota l'uso dello strumento su una pratica, per poterlo spiegare al cliente;
 - cosa fare se un dato finisce dove non doveva: se ricorrono i presupposti, la notifica di una violazione al Garante ha un termine di 72 ore (art. 33 GDPR), quindi la decisione va presa subito.
 
 Se non sai da dove partire con gli strumenti, [AI per le PMI siciliane: da dove cominciare](/impara/ai-pmi-siciliane-da-dove-cominciare/) spiega come scegliere il primo compito, e [come scrivere prompt efficaci](/impara/scrivere-prompt-efficaci-senza-essere-tecnici/) ti evita metà delle correzioni successive. Per cercare consulenti e fornitori sul territorio c'è l'[elenco delle aziende AI siciliane](/aziende/).

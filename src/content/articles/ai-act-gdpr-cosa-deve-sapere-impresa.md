@@ -54,7 +54,7 @@ faq:
   - question: "Come faccio a sapere se il mio uso dell'AI è ad alto rischio?"
     answer: "Guarda l'allegato III dell'AI Act: tra i casi ci sono i sistemi per assumere, valutare o gestire i lavoratori. Se il tuo uso rientra, chiedi al fornitore, per iscritto, come classifica il sistema. Un semplice assistente per bozze di email o descrizioni di camere, di norma, non è in quell'elenco."
   - question: "Quali sanzioni rischia una piccola impresa che ignora le regole sull'AI?"
-    answer: "Le sanzioni dipendono dalla violazione e le applicano le autorità nazionali, in Italia designate dalla legge 132/2025 (AgID e ACN). Dal 2 agosto 2026 partono i poteri di controllo. Importi e criteri sono nel testo del regolamento: leggili con un professionista prima di decidere, senza basarti su cifre trovate in rete."
+    answer: "Le sanzioni dipendono dalla violazione e sono previste dal regolamento e dalle norme nazionali; in Italia la legge 132/2025 ha designato AgID e ACN come autorità per l'AI. Dal 2 agosto 2026 partono i poteri di controllo. Importi e criteri leggili nel testo con un professionista, non da cifre trovate in rete."
 related_prompts: [smistare-email-studio-professionale, sintesi-documento-per-cliente-studio]
 ---
 
@@ -88,7 +88,7 @@ Se fai sviluppare o personalizzi uno strumento e lo offri a nome tuo, il confine
 | Pratiche vietate (art. 5) | Non può usarle | Non può metterle sul mercato |
 | Chatbot (art. 50, par. 1) | Nella pratica, conviene dirlo ai clienti | Deve progettare il sistema in modo che le persone sappiano di parlare con una macchina |
 | Marcatura dei contenuti sintetici (art. 50, par. 2) | Nessun obbligo diretto | Deve marcare audio, immagini, video e testo in formato leggibile da una macchina |
-| Deepfake e testi di interesse pubblico (art. 50, par. 4) | Deve dichiararli | Fornisce gli strumenti |
+| Deepfake e testi di interesse pubblico (art. 50, par. 4) | Deve dichiararli quando li pubblica | Marca gli output, come sopra |
 | Alto rischio (art. 26 e requisiti del Capo III) | Uso conforme, sorveglianza umana, log, informazione ai lavoratori | Requisiti di progettazione, documentazione e conformità |
 
 ## Quali date conviene segnare dopo il Digital Omnibus?
@@ -149,7 +149,7 @@ La legge contiene anche deleghe al Governo: i decreti attuativi, quando arrivano
 
 ## Il GDPR vale anche quando usi l'AI?
 
-Sì, e non è cambiato. Quando nello strumento di AI entra un dato personale, per il [GDPR](https://www.garanteprivacy.it/regolamentoue/il-testo-del-regolamento) hai fatto un trattamento. Prendiamo un piccolo hotel che incolla le email degli ospiti per avere bozze di risposta: dentro ci sono nomi, date di soggiorno e spesso esigenze alimentari o di mobilità, dati che possono rivelare informazioni sulla salute, cioè una categoria particolare.
+Il GDPR non è cambiato e si applica anche all'AI. Quando nello strumento entra un dato personale, per il [GDPR](https://www.garanteprivacy.it/regolamentoue/il-testo-del-regolamento) hai fatto un trattamento. Prendiamo un piccolo hotel che incolla le email degli ospiti per avere bozze di risposta: dentro ci sono nomi, date di soggiorno e spesso esigenze alimentari o di mobilità, dati che possono rivelare informazioni sulla salute, cioè una categoria particolare.
 
 Da verificare, in ordine:
 
