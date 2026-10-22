@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>AI Sicilia | Concept B Magazine (mockup)</title>
+<style>
+/* Font locali: Fraunces (titoli e testata, asse opsz) e Public Sans (testo). Nessuna richiesta esterna. */
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/fraunces-latin-opsz-normal.woff2) format('woff2')}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:100 900;font-display:swap;src:url(fonts/fraunces-latin-opsz-italic.woff2) format('woff2')}
+@font-face{font-family:'Public Sans';font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/public-sans-latin-wght-normal.woff2) format('woff2')}
+@font-face{font-family:'Public Sans';font-style:italic;font-weight:100 900;font-display:swap;src:url(fonts/public-sans-latin-wght-italic.woff2) format('woff2')}
+
+:root{
+  --paper:#F7F2E8; --paper2:#EEE6D5; --ink:#20252B; --ink2:#4A515A;
+  --accent:#B4361F;            /* corallo di Sciacca, scurito per il contrasto AA su carta (5.4:1) */
+  --accent-dk:#F2A08E;         /* stessa tinta, schiarita per i fondi inchiostro (7.5:1) */
+  --hair:rgba(32,37,43,.28);
+  --serif:'Fraunces',Georgia,'Times New Roman',serif;
+  --sans:'Public Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --w:1280px; --gut:clamp(20px,4vw,40px);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.65 var(--sans);font-optical-sizing:auto;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.2em}
+a:hover{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:var(--w);margin:0 auto;padding:0 var(--gut)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--paper);padding:8px 14px;z-index:10}
+.skip:focus{left:8px}
+h1,h2,h3,h4{font-family:var(--serif);margin:0;font-weight:600;line-height:1.1;text-wrap:balance}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+.num{font-variant-numeric:tabular-nums lining-nums}
+
+/* occhiello: etichetta di sezione in maiuscoletto con filetto */
+.occ{font:700 13px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.meta{font-size:14px;line-height:1.5;color:var(--ink2)}
+.sec{padding-top:64px}
+.sechead{border-top:4px solid var(--ink);padding-top:14px;display:flex;flex-wrap:wrap;gap:6px 24px;align-items:baseline;justify-content:space-between;margin-bottom:28px}
+.sechead h2{font-size:clamp(30px,4vw,48px);font-weight:700;letter-spacing:-.015em}
+.sechead a{font:600 15px var(--sans)}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 22px;background:var(--ink);color:var(--paper);font:700 15px/1 var(--sans);letter-spacing:.02em;text-decoration:none;border:2px solid var(--ink);cursor:pointer}
+.btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* ---------- striscia superiore + testata ---------- */
+.strip{border-bottom:1px solid var(--hair);font-size:14px}
+.strip .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 24px;padding-top:8px;padding-bottom:8px;color:var(--ink2)}
+.strip b{color:var(--ink);font-weight:600}
+.mast{padding:28px 0 0;text-align:center}
+.mast .ears{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px}
+.ear{font-size:14px;line-height:1.5;color:var(--ink2);max-width:210px}
+.ear.r{justify-self:end;text-align:right}
+.ear b{display:block;font:700 13px/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+.mast h1{font-size:clamp(76px,16.6vw,224px);font-weight:800;letter-spacing:-.04em;line-height:.86;font-variation-settings:'opsz' 144;white-space:nowrap;padding-bottom:.04em}
+.mast h1 i{font-style:italic;font-weight:300;letter-spacing:-.02em}
+.rule2{border-top:4px solid var(--ink);border-bottom:1px solid var(--ink);height:8px;margin-top:20px}
+.navbar{border-bottom:1px solid var(--ink)}
+.navbar .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:0 6px}
+.navbar a{display:inline-flex;align-items:center;min-height:48px;padding:0 clamp(10px,2vw,22px);font:700 14px var(--sans);letter-spacing:.12em;text-transform:uppercase;text-decoration:none}
+.navbar a:hover{color:var(--accent);box-shadow:inset 0 -3px var(--accent)}
+.navbar a.seg{color:var(--accent)}
+.deck{max-width:860px;margin:44px auto 0;text-align:center;padding:0 var(--gut)}
+.deck h2{font-size:clamp(28px,3.6vw,46px);font-weight:500;line-height:1.18;letter-spacing:-.01em}
+.deck h2 em{font-style:italic;font-weight:400}
+.deck p{margin-top:16px;font-size:18px;color:var(--ink2)}
+
+/* ---------- ricerca ---------- */
+.search{max-width:760px;margin:32px auto 0;padding:0 var(--gut)}
+.search form{display:flex;border:2px solid var(--ink);background:#fff}
+.search label{position:absolute;left:-999px}
+.search input{flex:1;min-width:0;border:0;background:transparent;padding:0 18px;min-height:56px;font:400 18px var(--sans);color:var(--ink)}
+.search input::placeholder{color:#5B6169}
+.search input:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
+.search button{border:0;background:var(--ink);color:var(--paper);padding:0 22px;font:700 15px var(--sans);letter-spacing:.04em;cursor:pointer;display:flex;align-items:center;gap:10px}
+.search button:hover{background:var(--accent)}
+.try{margin-top:12px;font-size:14px;color:var(--ink2);text-align:center}
+.try a{margin-left:10px;white-space:nowrap}
+
+/* ---------- le quattro sezioni, a numeri grandi ---------- */
+.nums{margin-top:44px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.nums ul{display:grid;grid-template-columns:repeat(4,1fr)}
+.nums li{border-left:1px solid var(--hair)}
+.nums li:first-child{border-left:0}
+.nums a{display:block;padding:26px 24px 28px;text-decoration:none;height:100%}
+.nums li:first-child a{padding-left:0}
+.nums .big{display:block;font:800 clamp(72px,9vw,128px)/.9 var(--serif);letter-spacing:-.04em;font-variation-settings:'opsz' 144;font-variant-numeric:lining-nums}
+.nums .lab{display:block;margin-top:12px;font:700 14px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.nums .txt{display:block;margin-top:8px;font-size:15.5px;line-height:1.55;color:var(--ink2)}
+.nums a:hover .big{color:var(--accent)}
+
+/* ---------- apertura + agenda ---------- */
+.front{display:grid;grid-template-columns:minmax(0,8fr) minmax(0,4fr);gap:0 48px;padding-top:48px}
+.lead{padding-right:48px;border-right:1px solid var(--ink)}
+.lead .occ{display:flex;gap:14px;align-items:center}
+.lead .occ::after{content:"";flex:1;height:1px;background:var(--ink);opacity:.35}
+.lead h2{font-size:clamp(38px,5.4vw,78px);font-weight:800;letter-spacing:-.025em;line-height:1.02;margin-top:18px;font-variation-settings:'opsz' 144}
+.lead h2 a{text-decoration:none}
+.lead .sommario{font:400 italic clamp(21px,2vw,26px)/1.42 var(--serif);margin-top:22px;color:var(--ink)}
+.byline{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;margin-top:24px;padding:12px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--hair);font-size:14.5px;color:var(--ink2)}
+.byline b{color:var(--ink);font-weight:700}
+.byline time{color:var(--accent);font-weight:700}
+.body2{column-count:2;column-gap:40px;column-rule:1px solid var(--hair);margin-top:28px;font-size:18px;line-height:1.7}
+.body2 p+p{margin-top:1em}
+.body2 p:first-child::first-letter{float:left;font:800 5.6em/.74 var(--serif);padding:.06em .1em 0 0;color:var(--ink);font-variation-settings:'opsz' 144}
+.inbreve{margin-top:28px;background:var(--paper2);padding:22px 26px;border-top:3px solid var(--accent)}
+.inbreve ul{margin-top:10px}
+.inbreve li{position:relative;padding:6px 0 6px 20px;font-size:16.5px;line-height:1.55}
+.inbreve li::before{content:"";position:absolute;left:0;top:.95em;width:8px;height:2px;background:var(--ink)}
+.leadfoot{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;margin-top:24px}
+
+.agenda{align-self:start;position:sticky;top:16px}
+.agenda .head{border-top:4px solid var(--ink);padding-top:14px}
+.agenda h2{font-size:clamp(34px,3.4vw,46px);font-weight:800;margin-top:6px;letter-spacing:-.02em}
+.agenda .sub{margin-top:8px;font-size:15.5px;line-height:1.5;color:var(--ink2)}
+.day{display:grid;grid-template-columns:78px 1fr;gap:0 14px;padding:16px 0 4px;border-top:1px solid var(--ink);margin-top:18px}
+.daylab{display:flex;flex-direction:column;align-items:flex-start;color:var(--accent)}
+.dnum{font:800 44px/.9 var(--serif);font-variant-numeric:lining-nums;font-variation-settings:'opsz' 72}
+.dtxt{white-space:nowrap;font:700 12.5px var(--sans);letter-spacing:.12em;text-transform:uppercase;margin-top:6px}
+.day li+li{border-top:1px solid var(--hair);margin-top:12px;padding-top:12px}
+.day li{padding-bottom:4px}
+.day li a{display:block;text-decoration:none}
+.day .when{display:block;font:700 13.5px var(--sans);color:var(--accent);font-variant-numeric:tabular-nums;min-height:0}
+.day .when:empty{display:none}
+.day .ttl{display:block;font:600 19px/1.28 var(--serif);margin-top:2px}
+.day li a:hover .ttl{text-decoration:underline;text-decoration-thickness:1px}
+.day .where{display:block;font-size:14px;color:var(--ink2);margin-top:4px;line-height:1.45}
+.agenda .more{display:block;margin-top:20px;padding:16px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);font:700 15px/1.4 var(--sans);text-decoration:none}
+.agenda .more span{display:block;font-weight:400;color:var(--ink2);font-size:14.5px;margin-top:2px}
+
+/* ---------- citazione + numeri ---------- */
+.quoteband{margin-top:64px;background:var(--paper2);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.quoteband .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:48px;padding-top:56px;padding-bottom:56px;align-items:center}
+.quoteband blockquote{margin:0;position:relative;padding-top:56px}
+.quoteband blockquote::before{content:"\201C";position:absolute;left:-4px;top:-18px;font:800 190px/1 var(--serif);color:var(--accent);height:110px;overflow:visible}
+.quoteband blockquote p{font:500 italic clamp(28px,3.4vw,46px)/1.2 var(--serif);letter-spacing:-.01em;text-wrap:balance}
+.quoteband cite{display:block;margin-top:20px;font:600 15px var(--sans);font-style:normal;color:var(--ink2)}
+.quoteband cite b{color:var(--ink)}
+.stats{display:grid;gap:0}
+.stat{padding:22px 0;border-top:1px solid var(--ink)}
+.stat:last-child{border-bottom:1px solid var(--ink)}
+.stat .n{color:var(--ink);font:800 clamp(56px,6vw,84px)/.9 var(--serif);letter-spacing:-.035em;font-variation-settings:'opsz' 144;font-variant-numeric:lining-nums}
+.stat p{font-size:16px;line-height:1.5;margin-top:8px;color:var(--ink2)}
+.stat p b{color:var(--ink)}
+
+/* ---------- RankWit ---------- */
+.rw{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:0 56px}
+.rw h3{font-size:clamp(30px,3.6vw,50px);font-weight:700;line-height:1.08;letter-spacing:-.02em;margin-top:14px}
+.rw .txt{margin-top:20px;font-size:18px;line-height:1.7;max-width:62ch}
+.rw .txt p+p{margin-top:.9em}
+.fact{margin-top:28px;border-top:1px solid var(--ink)}
+.fact div{display:grid;grid-template-columns:130px 1fr;gap:16px;padding:10px 0;border-bottom:1px solid var(--hair);font-size:16px}
+.fact dt{font:700 12.5px/1.8 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+.fact dd{margin:0}
+.disc{align-self:start;border:2px solid var(--ink);padding:26px 28px;background:#fff;position:relative}
+.disc::before{content:"";position:absolute;left:-2px;top:-2px;bottom:-2px;width:8px;background:var(--accent)}
+.disc h4{font:700 13px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.disc p{margin-top:12px;font:500 22px/1.42 var(--serif)}
+.disc .small{margin-top:14px;font:400 15px/1.55 var(--sans);color:var(--ink2)}
+.disc .btn{margin-top:20px}
+
+/* ---------- province ---------- */
+.terr{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:0 64px;align-items:start}
+.terr h3{font-size:clamp(30px,3.6vw,50px);font-weight:700;letter-spacing:-.02em;line-height:1.08}
+.terr .lede{margin-top:16px;font-size:18px;color:var(--ink2)}
+.prov{margin-top:26px;border-top:1px solid var(--ink)}
+.prov li{display:grid;grid-template-columns:130px 1fr 52px;gap:14px;align-items:center;padding:11px 0;border-bottom:1px solid var(--hair)}
+.pn{font:600 22px/1.1 var(--serif)}
+.bar{display:block;height:14px;background:linear-gradient(var(--ink),var(--ink)) 0 0/var(--w) 100% no-repeat}
+.pc{font:800 30px/1 var(--serif);text-align:right;font-variant-numeric:lining-nums tabular-nums}
+.zero{margin-top:18px;font-size:16px;color:var(--ink2)}
+.zero a{font-weight:700;color:var(--ink)}
+.mapfig{margin:0}
+.mapfig svg{display:block;width:100%;height:auto}
+.mapfig .pshape{fill:var(--paper2);stroke:var(--ink);stroke-width:.9;stroke-linejoin:round}
+.mapfig .dot{fill:var(--accent);stroke:var(--paper);stroke-width:.8}
+.mapfig .dot.feat{fill:var(--accent);stroke:var(--ink);stroke-width:1.4}
+.mapfig .plab{font:700 9px var(--sans);letter-spacing:.12em;fill:var(--ink2)}
+.mapfig figcaption{margin-top:12px;font-size:14px;line-height:1.5;color:var(--ink2);border-top:1px solid var(--ink);padding-top:10px}
+
+/* ---------- guide ---------- */
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:0 40px}
+.gcard{padding-top:16px;border-top:1px solid var(--ink)}
+.gcard h3{font-size:clamp(24px,2.3vw,31px);font-weight:700;line-height:1.14;margin:10px 0 12px;letter-spacing:-.012em}
+.gcard h3 a{text-decoration:none}
+.gcard h3 a:hover{text-decoration:underline;text-decoration-thickness:1px}
+.glist{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;margin-top:36px;border-top:3px double var(--ink)}
+.glist li{display:grid;grid-template-columns:64px 1fr;gap:0 14px;padding:20px 0;border-bottom:1px solid var(--hair)}
+.gn{font:300 48px/.95 var(--serif);color:var(--ink2);font-variant-numeric:lining-nums;font-variation-settings:'opsz' 144}
+.glist a{display:block;font:600 21px/1.25 var(--serif);text-decoration:none;margin-top:4px}
+.glist a:hover{text-decoration:underline;text-decoration-thickness:1px}
+.glist .meta{margin-top:6px}
+
+/* ---------- prompt ---------- */
+.pp{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:0 56px;align-items:start}
+.pp h3{font-size:clamp(28px,3.2vw,42px);font-weight:700;line-height:1.1;letter-spacing:-.018em;margin-top:14px}
+.pp .goal{margin-top:16px;font-size:18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.chips span{border:1px solid var(--ink);padding:3px 11px;font:600 13.5px/1.5 var(--sans)}
+.pp .lim{margin-top:22px;padding-left:18px;border-left:3px solid var(--accent);font-size:16px;color:var(--ink2)}
+.pp .lim b{color:var(--ink)}
+.pp .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.term{background:var(--ink);color:var(--paper);padding:0;border-radius:0}
+.term .bar2{display:flex;justify-content:space-between;align-items:center;padding:10px 14px 10px 22px;border-bottom:1px solid rgba(247,242,232,.25);font:700 12.5px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#C9CED4}
+.term button{background:var(--paper);color:var(--ink);border:0;min-height:40px;padding:0 16px;font:700 14px var(--sans);cursor:pointer}
+.term button:hover{background:var(--accent-dk)}
+.term pre{margin:0;padding:24px 26px 28px;white-space:pre-wrap;font:400 16.5px/1.7 var(--sans);position:relative;max-height:370px;overflow:hidden}
+.term pre::after{content:"";position:absolute;left:0;right:0;bottom:0;height:90px;background:linear-gradient(rgba(32,37,43,0),var(--ink))}
+.term .v{color:var(--accent-dk);font-weight:600}
+
+/* ---------- fiducia ---------- */
+.trust{margin-top:72px;background:var(--ink);color:var(--paper)}
+.trust .wrap{padding-top:64px;padding-bottom:64px}
+.trust .occ{color:var(--accent-dk)}
+.trust h2{font-size:clamp(34px,4.6vw,64px);font-weight:700;letter-spacing:-.02em;line-height:1.05;margin-top:12px;max-width:16ch}
+.trust .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:0 32px;margin-top:44px}
+.trust .col{border-top:1px solid rgba(247,242,232,.5);padding-top:16px}
+.trust .col .k{font:300 54px/.9 var(--serif);color:var(--accent-dk);font-variant-numeric:lining-nums;font-variation-settings:'opsz' 144}
+.trust h3{font-size:22px;font-weight:700;margin-top:14px;line-height:1.2}
+.trust .col p{margin-top:10px;font-size:16.5px;line-height:1.6;color:#DAD6CC}
+.trust .btn{margin-top:40px;background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.trust .btn:hover{background:var(--accent-dk);border-color:var(--accent-dk);color:var(--ink)}
+
+/* ---------- segnala ---------- */
+.cta{background:var(--accent);color:#fff}
+.cta .wrap{display:grid;grid-template-columns:minmax(0,8fr) minmax(0,4fr);gap:40px;align-items:center;padding-top:56px;padding-bottom:56px}
+.cta h2{font-size:clamp(34px,5vw,70px);font-weight:800;letter-spacing:-.025em;line-height:1.02;font-variation-settings:'opsz' 144}
+.cta p{margin-top:16px;font-size:18px;max-width:52ch;color:#fff}
+.cta .btn{background:var(--paper);color:var(--ink);border-color:var(--paper);min-height:60px;padding:0 32px;font-size:17px;justify-self:start}
+.cta .btn:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.cta :focus-visible{outline-color:#fff}
+
+/* ---------- piede ---------- */
+footer{border-top:4px solid var(--ink);margin-top:0;padding:40px 0 48px;font-size:15.5px}
+footer .top{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:32px 48px}
+footer .logo{font:800 56px/.9 var(--serif);letter-spacing:-.04em;font-variation-settings:'opsz' 144}
+footer .logo i{font-weight:300}
+footer .note{margin-top:14px;color:var(--ink2);max-width:46ch;line-height:1.6}
+footer nav{display:grid;grid-template-columns:repeat(3,1fr);gap:0 24px}
+footer nav h3{font:700 12.5px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+footer nav a{display:block;padding:5px 0;text-decoration:none}
+footer nav a:hover{text-decoration:underline}
+footer .legal{margin-top:36px;padding-top:14px;border-top:1px solid var(--hair);color:var(--ink2);font-size:14px}
+
+/* ---------- responsive ---------- */
+@media (max-width:1100px){
+  .front{grid-template-columns:1fr}
+  .lead{padding-right:0;border-right:0}
+  .agenda{position:static;margin-top:56px}
+  .agenda .list{display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+  .nums ul{grid-template-columns:repeat(2,1fr)}
+  .nums li:nth-child(3){border-left:0}
+  .nums li:nth-child(n+3){border-top:1px solid var(--hair)}
+  .nums li:nth-child(3) a{padding-left:0}
+  .rw,.terr,.pp,.quoteband .wrap{grid-template-columns:1fr;gap:36px}
+  .trust .cols{grid-template-columns:1fr 1fr;gap:32px}
+  .cta .wrap{grid-template-columns:1fr}
+  .g3{grid-template-columns:1fr;gap:28px}
+  .mast .ears{grid-template-columns:1fr}
+  .ear{display:none}
+}
+@media (max-width:720px){
+  body{font-size:17px}
+  .sec{padding-top:44px}
+  .mast{padding-top:20px}
+  .mast h1{font-size:19.5vw}
+  .strip .wrap{flex-direction:column}
+  .navbar a{padding:0 9px;font-size:13px;letter-spacing:.08em}
+  .deck{margin-top:32px}
+  .deck p{font-size:17px}
+  .body2{column-count:1}
+  .agenda .list{grid-template-columns:1fr}
+  .day{grid-template-columns:54px 1fr;gap:0 10px}
+  .nums a{padding:20px 14px 22px 0}
+  .nums li:nth-child(even) a{padding-left:16px}
+  .nums li:nth-child(odd) a{padding-left:0}
+  .nums .txt{font-size:14.5px}
+  .quoteband blockquote{padding-top:44px}
+  .quoteband blockquote::before{font-size:150px;top:-12px}
+  .fact div{grid-template-columns:1fr;gap:0}
+  .prov li{grid-template-columns:100px 1fr 40px;gap:10px}
+  .pn{font-size:19px}
+  .glist{grid-template-columns:1fr}
+  .glist li{grid-template-columns:52px 1fr}
+  .gn{font-size:40px}
+  .trust .cols{grid-template-columns:1fr}
+  footer .top{grid-template-columns:1fr}
+  footer nav{grid-template-columns:1fr 1fr}
+  .search input{font-size:17px;padding:0 12px}
+  .search button{padding:0 16px}
+  .search button .t{display:none}
+  .try a{display:inline-block}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media (prefers-reduced-motion:no-preference){a,.btn,button{transition:color .18s ease,background-color .18s ease,box-shadow .18s ease}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Vai al contenuto</a>
+
+<header>
+  <div class="strip"><div class="wrap">
+    <span><b>Giovedì 22 ottobre 2026</b> · Edizione beta, non indicizzata</span>
+    <span>Dati controllati il 21 e il 22 ottobre 2026</span>
+  </div></div>
+
+  <div class="mast"><div class="wrap">
+    <div class="ears">
+      <p class="ear"><b>Portale indipendente</b>Sull'intelligenza artificiale in Sicilia. Lo cura Elvio Leonardi.</p>
+      <h1>AI <i>Sicilia</i></h1>
+      <p class="ear r"><b>Oggi in archivio</b>37 aziende, 15 eventi in programma, 10 guide, 48 prompt.</p>
+    </div>
+    <div class="rule2" aria-hidden="true"></div>
+  </div></div>
+  <nav class="navbar" aria-label="Sezioni"><div class="wrap">
+    <a href="/aziende/">Aziende</a><a href="/eventi/">Eventi</a><a href="/impara/">Guide</a><a href="/prompt/">Prompt</a><a class="seg" href="/segnala/">Segnala</a>
+  </div></nav>
+</header>
+
+<main id="main">
+
+  <section class="deck" aria-labelledby="deck-t">
+    <h2 id="deck-t">Chi fa intelligenza artificiale in Sicilia, dove se ne parla, <em>come usarla in un'impresa piccola.</em></h2>
+    <p>Ogni scheda ha la sua fonte e la data in cui l'abbiamo controllata.</p>
+  </section>
+
+  <div class="search" role="search">
+    <form action="/cerca/" method="get">
+      <label for="q">Cerca nel portale</label>
+      <input id="q" name="q" type="search" placeholder="Un'azienda, un evento, una guida, un prompt" autocomplete="off">
+      <button type="submit" aria-label="Cerca">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg><span class="t">Cerca</span>
+      </button>
+    </form>
+    <p class="try">Prova con <a href="/cerca/?q=hotel">hotel</a><a href="/cerca/?q=Catania">Catania</a><a href="/cerca/?q=AI+Act">AI Act</a><a href="/cerca/?q=recensioni">recensioni</a></p>
+  </div>
+
+  <div class="nums"><div class="wrap">
+    <ul>
+      <li><a href="/aziende/"><span class="big">37</span><span class="lab">Aziende</span><span class="txt">22 startup, 9 centri di ricerca e 6 altre realtà in 5 province.</span></a></li>
+      <li><a href="/eventi/"><span class="big">15</span><span class="lab">Eventi</span><span class="txt">In programma da oggi al 16 dicembre. 9 sono a ingresso gratuito.</span></a></li>
+      <li><a href="/impara/"><span class="big">10</span><span class="lab">Guide</span><span class="txt">Per chi ha un'attività: hotel, ristoranti, cantine, studi, AI Act, bandi.</span></a></li>
+      <li><a href="/prompt/"><span class="big">48</span><span class="lab">Prompt</span><span class="txt">8 settori, 6 prompt ciascuno. Ognuno con data di prova e limiti dichiarati.</span></a></li>
+    </ul>
+  </div></div>
+
+  <div class="wrap front">
+    <article class="lead" aria-labelledby="lead-t">
+      <p class="occ">Apertura · La guida per cominciare</p>
+      <h2 id="lead-t"><a href="/impara/ai-pmi-siciliane-da-dove-cominciare/">AI per le PMI siciliane: da dove cominciare, in pratica</a></h2>
+      <p class="sommario">Si parte da un compito noioso e lo strumento viene dopo. Due settimane di prova, un foglio per segnare i tempi, nessun dato dei clienti dentro l'assistente. Nel 2025 usava l'AI il 16,4% delle imprese italiane con almeno 10 addetti.</p>
+      <p class="byline"><span>Di <b>Elvio Leonardi</b></span><span><time datetime="2026-10-21">21 ottobre 2026</time>, aggiornata il <time datetime="2026-10-22">22 ottobre</time></span><span>9 minuti di lettura</span><span>Livello base</span></p>
+      <div class="body2">
+        <p>Quando lo spiego in aula, la domanda che arriva sempre è la stessa: «Ho una piccola attività, da dove parto?». La risposta sorprende quasi tutti: non si parte dallo strumento.</p>
+        <p>ChatGPT, Claude, Gemini e Copilot (elenco a ottobre 2026, cambia in fretta) fanno cose simili. Quello che cambia il risultato è il compito a cui li applichi.</p>
+        <p>Io partirei sempre dal compito più noioso, non da quello più ambizioso. Un buon primo compito noioso vale più di uno brillante che si impantana alla terza settimana.</p>
+      </div>
+      <div class="inbreve">
+        <p class="occ">In breve</p>
+        <ul>
+          <li>Il compito giusto è scritto, si ripete ogni settimana e lo controlli in 2 minuti.</li>
+          <li>La prova dura 2 settimane, con la versione gratuita di un assistente generalista e i tempi misurati prima e dopo.</li>
+          <li>Dati personali di clienti e dipendenti restano fuori finché non hai chiarito base giuridica e informativa.</li>
+        </ul>
+      </div>
+      <div class="leadfoot">
+        <a class="btn" href="/impara/ai-pmi-siciliane-da-dove-cominciare/">Leggi la guida</a>
+        <span class="meta">7 fonti citate: Istat, Eurostat, Garante privacy, Commissione europea.</span>
+      </div>
+    </article>
+
+    <aside class="agenda" aria-labelledby="ag-t">
+      <div class="head">
+        <p class="occ">Palinsesto</p>
+        <h2 id="ag-t">Agenda</h2>
+        <p class="sub">Fino a sabato 24 ottobre: 7 eventi, 4 a Palermo, 2 a Catania, 1 a Messina.</p>
+      </div>
+      <div class="list"><div class="day"><div class="daylab"><span class="dnum">22</span><span class="dtxt">gio ott</span></div><ul><li><a href="/eventi/on-digital-innovation-congress-catania-2026-10/"><span class="when">22-24 ott</span><span class="ttl">ON Digital Innovation Congress 2026</span><span class="where">Catania · in presenza · ingresso gratuito</span></a></li><li><a href="/eventi/alfabetizzazione-digitale-ia-palermo-2026-10/"><span class="when">09:00</span><span class="ttl">Seminario: alfabetizzazione digitale all&#39;intelligenza artificiale</span><span class="where">Palermo · in presenza · a pagamento</span></a></li><li><a href="/eventi/bim-intelligenza-artificiale-architetti-palermo-2026-10/"><span class="when">15:00</span><span class="ttl">BIM e intelligenza artificiale: dal modello alla presentazione del progetto</span><span class="where">Palermo · in presenza · prezzo non indicato</span></a></li></ul></div><div class="day"><div class="daylab"><span class="dnum">23</span><span class="dtxt">ven ott</span></div><ul><li><a href="/eventi/sicurezza-informazioni-ia-palermo-2026-10/"><span class="when">09:00</span><span class="ttl">Seminario: sicurezza delle informazioni e intelligenza artificiale</span><span class="where">Palermo · in presenza · a pagamento</span></a></li><li><a href="/eventi/linux-day-ai-iis-verona-trento-messina-2026-10/"><span class="when">15:15</span><span class="ttl">Linux Day 2026 all&#39;IIS Verona Trento di Messina</span><span class="where">Messina · in presenza · ingresso gratuito</span></a></li><li><a href="/eventi/giustizia-intelligenza-artificiale-catania-2026-10/"><span class="when">15:30</span><span class="ttl">Giustizia e intelligenza artificiale</span><span class="where">Catania · in presenza · ingresso gratuito</span></a></li></ul></div><div class="day"><div class="daylab"><span class="dnum">24</span><span class="dtxt">sab ott</span></div><ul><li><a href="/eventi/linux-day-open-source-agenti-palermo-2026-10/"><span class="when">09:00</span><span class="ttl">Linux Day 2026 a Palermo: open source e agenti intelligenti</span><span class="where">Palermo · in presenza · ingresso gratuito</span></a></li></ul></div></div>
+      <a class="more" href="/eventi/">Tutti i 15 eventi in programma<span>Altri 8 fino al 16 dicembre.</span></a>
+    </aside>
+  </div>
+
+  <section class="quoteband" aria-label="In evidenza: la citazione">
+    <div class="wrap">
+      <blockquote>
+        <p>Più di metà di chi si ferma non sa da dove cominciare o ha paura di sbagliare.</p>
+        <cite><b>Elvio Leonardi</b>, dalla guida d'apertura</cite>
+      </blockquote>
+      <div class="stats">
+        <div class="stat"><p class="n">16,4%</p><p><b>delle imprese italiane</b> con almeno 10 addetti usava l'AI nel 2025. Nel 2024 era l'8,2%. Fonte: Istat, Imprese e ICT 2025.</p></div>
+        <div class="stat"><p class="n">58,6%</p><p>di chi l'aveva valutata e poi lasciata cita la <b>mancanza di competenze</b>. Fonte: Istat.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec wrap" aria-labelledby="rw-t">
+    <div class="sechead"><h2 id="rw-t">In evidenza</h2><a href="/aziende/">Tutte le 37 aziende</a></div>
+    <div class="rw">
+      <article>
+        <p class="occ">Azienda · Aci Castello, Catania</p>
+        <h3>Ad Aci Castello una startup chiede ogni giorno a cinque AI cosa dicono degli hotel</h3>
+        <div class="txt">
+          <p>RankWit pone a ChatGPT, Gemini, Claude, Perplexity e AI Overview le domande che farebbe un viaggiatore. Poi conta quante volte compare ogni brand rispetto ai concorrenti.</p>
+          <p>Indica anche da quali fonti pescano le risposte (recensioni, guide, blog) e propone cosa correggere. Lavora con hotel e destinazioni turistiche.</p>
+        </div>
+      </article>
+      <div>
+      <aside class="disc" aria-labelledby="disc-t">
+        <h4 id="disc-t">Nota di trasparenza</h4>
+        <p>Trasparenza: Elvio Leonardi, autore di AI Sicilia, collabora con RankWit come SEO &amp; AI Search Specialist.</p>
+        <p class="small">La scheda segue le stesse regole delle altre 37: descrizione riscritta, fonti consultate, data di verifica. La segnaliamo in evidenza e lo diciamo qui.</p>
+        <a class="btn ghost" href="/aziende/rankwit/">Apri la scheda di RankWit</a>
+      </aside>
+        <dl class="fact">
+          <div><dt>Tipo</dt><dd>Startup</dd></div>
+          <div><dt>Aree di AI</dt><dd>AI generativa, dati e analytics</dd></div>
+          <div><dt>Settore</dt><dd>Turismo e ospitalità</dd></div>
+          <div><dt>Fonti</dt><dd>Sito aziendale e Registro delle imprese</dd></div>
+          <div><dt>Verificata il</dt><dd><time datetime="2026-10-21">21 ottobre 2026</time></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec wrap" aria-labelledby="terr-t">
+    <div class="sechead"><h2 id="terr-t">Il territorio</h2><a href="/aziende/">Elenco e filtri</a></div>
+    <div class="terr">
+      <div>
+        <h3>37 aziende in 5 province. Catania e Palermo ne hanno 30.</h3>
+        <p class="lede">Quattro province sono ancora in bianco: lì non abbiamo trovato niente che potessimo verificare.</p>
+        <ul class="prov num" aria-label="Aziende per provincia"><li><span class="pn">Catania</span><span class="bar" style="--w:100.0%" aria-hidden="true"></span><span class="pc">17</span></li><li><span class="pn">Palermo</span><span class="bar" style="--w:76.5%" aria-hidden="true"></span><span class="pc">13</span></li><li><span class="pn">Messina</span><span class="bar" style="--w:29.4%" aria-hidden="true"></span><span class="pc">5</span></li><li><span class="pn">Siracusa</span><span class="bar" style="--w:5.9%" aria-hidden="true"></span><span class="pc">1</span></li><li><span class="pn">Trapani</span><span class="bar" style="--w:5.9%" aria-hidden="true"></span><span class="pc">1</span></li></ul>
+        <p class="zero">Nessuna azienda verificata per ora ad Agrigento, Caltanissetta, Enna e Ragusa. Ne conosci una? <a href="/segnala/">Segnalala</a>.</p>
+      </div>
+      <figure class="mapfig">
+        <svg viewBox="0 0 391.2 289.4" role="img" aria-label="Mappa della Sicilia con un punto per ogni azienda: 17 in provincia di Catania, 13 a Palermo, 5 a Messina, 1 a Trapani, 1 a Siracusa">
+          <path class="pshape" data-p="agrigento" d="M189.7 150.8l.7 .1 2.2 .4 4-1.2 1 1.6 1.4 0 0 2-1.2 2.5 1.9 1.6 .1 1.4-.8 .4-3.5-1.1-1.2 2.2-1.5 0 .2 1.3-1.1 .7-4.7 1.1-2.7-.5-1 .8-.2 1.2 2 2 .1 7.2-4 4.9 3.6 .6 1.9 2.3 2.7 .4 1.7 1.2 2.7-1.6 3.9 1.2 3.8-.8-.3 1.1 1.3 2.9 3.8 .5 1.4 2-2.4 1.6-.4 2.1 4.6 3.6 3.6 .1 3.1 3 .5 1.9 2.2 .9 .7-.9 .6 .1-.3 2.1-1.9 1.7 .8 .9-1.1 1.9 1 1.5-2.5 1.2 .2 2.2 1 1.3-1.3-.5-.7 .6 2.8 4.3 1.9 .7 .6 6.3-5.9-.4-4.6 1.8-3.2-.2-3.8-1.7-2.4-3.2-1.9-1.3-7.6-.7-2.2-2.5-6.9-3.5-2.3-4.4-1.7-.6-2.8-3-1.9-.4-.1-1-2.1-2.2-2.4 .2-2.6-1-2.8 .6-1.5-1.1-1.7-.1-2-1-2.7-3.7-1.5-.4-3.9-3-2.9-.7-3.1-3.5-2.1-.4-1.6-3.7-4-4.8-2.1-.8-2.8-3.5-2.1-.7-1.9 .6-5.5-1.6-5.9 1.3-2.8-5.5-3.6-3.7-4.1-1.4-1.3 .4 .6 .2-1.1-.3-.4-.3 1.2-2.4 .9-6.4-2.9 .3 1.2-1.5-.7-.9 2.1-1.4 .4-2.3 4.2-4 0-.9 3-1 .5-1 .6 .9 1.2-.8 .2-.2 .2 .1 1.3 .3 2.1 3.6 3.4 2.6 4.5-1.2 2.5 1.8 4-.5 2.8 2.3-.2 4.2 3.8 3.5 2.9-4.2 2.6 .9 2-1.3 .6-1.6 2 .6 0 1.7-2.8 2.4 1.4 2.2-1.3 2.7 2 1.5-.1 3 1.9 1.7 4.4-2.3 .3-1.6-1.2-.3-1.1-3.5 .6-1.6 1.4-.7-1.8-4.4 1.3-1.1 1.4 .1 1.7 2.1 2.8-2.3 1.2 1.6 4.4-1.4 .4 1.6 1.4 1.1 4 .4 3.8-2.7 5.1-.3 1.9-1.5 .3-2.5 .7-.4 1.7-.4zM130.9 155.7l-1.7 .3 .2 2.2 1.2 0 2.6-1.1-1.3-1.3z"/>
+<path class="pshape" data-p="caltanissetta" d="M222.7 145.7l1 .1 .8 1.2 .9-.1 1 .7 .1 1.3-1.1 .4-.2 .5 1 1.4-.2 .4-2.6 .3-1.3 .9-1.4 1.6-1.5-.2-1.2-1.8 .1-2.2 .4-.3 1.6-.1 1.4 .2 0-1.1-1.3-.9 .7-2.1 .8-.7zM230.8 160l.3-.6 .2 .1 2.8 .5-.5 3.4-2.2 .9 .2 3.4-1.4 4.2 1.1 .7 .5 2.2 1.8 2.2-2.8 1.3-5.5 5.6-.8 .9 .1 2-1.6-.1 2.2 3.5-.6 .7 1.3 1.3-.2 1.7 .8 .2-.7 1.4 3.2 .6 1.4-1.2 .6 1.1 3.4 1.5 5-1.6 1.4-1.5 1.2 .1 2.4 .5 1.1 1.6 4.2 .6 0 3 3.7-.4 .1 0 0 .5 0 3.1 2.9-.9 .9 2.4-1.5 7.9 1.2 2.2 1.2 1.3 1.4 .2 2-1.6 4.3 6.8-2.1 5.1-2.1-.1-.3 .6 1.4 5.3 .1 .1-.3 .3-2.9 2.7-2.4 .7-2.5 2.5-2.9 .5-.2-.3-4-4.3-2.7-1.8-.7 .6 .5-.8-1-.8-3.2-1-5.9-3.3-9.4-2.4-4.2 .3-.2 .2-.6-6.3-1.9-.7-2.8-4.3 .7-.6 1.3 .5-1-1.3-.2-2.2 2.5-1.2-1-1.5 1.1-1.9-.8-.9 1.9-1.7 .3-2.1-.6-.1-.7 .9-2.2-.9-.5-1.9-3.1-3-3.6-.1-4.6-3.6 .4-2.1 2.4-1.6-1.4-2-3.8-.5-1.3-2.9 .3-1.1-3.8 .8-3.9-1.2-2.7 1.6-1.7-1.2-2.7-.4-1.9-2.3-3.6-.6 4-4.9-.1-7.2-2-2 .2-1.2 1-.8 2.7 .5 4.7-1.1 1.1-.7-.2-1.3 1.5 0 1.2-2.2 3.5 1.1 .8-.4-.1-1.4-1.9-1.6 1.2-2.5 0-2-1.4 0-1-1.6-4 1.2-2.2-.4-.7-.1 .2-.2 .9-2.5 3.4 .3 0-2.6 3.3-2.9 1 2.2 .2 3 5.9 2.8 1.6 3 1.2 .2-.5 5.1 3.2 1.5-.7 1.3 3.9 1.4 5.9-1.6 .8-.5-.7-2.3 .5-1.5 3.2-2.2 2 .5 2.8 2.3 1.8-.3 .3 2.2zM226.1 167.6l.3 1 .9 1.1 .8-.3-.2-1.1-.5-.7-1-.5z"/>
+<path class="pshape" data-p="catania" d="M346.6 134.7l-.6 .5-4.9 8.1 1.4 3.7-2 4.6 0 2.9-2.5 2.8 .2 7.4-1.1 .5-2.4 3.7-2.8 1.7 .2 .9-1.9 2.9 .1 2.3-.3-2.3-1.1 2.4 .5 15.6 0 .6-5.9-.5-.8-2.1-1.2 1.2-3-.6-3-1.6-1.5-2.5-2.7-1-2.8 .7-.7 2.1-3.9 1.6-.5 2.8-3 1-2.8 2.1-.3 1.1 1.2 .1 1.4 1.1 3.8-1.1 5.2 1.8-1.2 1.9 .3 1.3-2.6 1.1-1.1 2.3-3.6 .5-3.9 3.5 .9 2.5 2.1-.5 1.8 .8 .5 1.5 3.9-1.7 .8 .6-.1 2.4-3.6 3 1.1 2.2-.3 2.1-1.1 .7-3.3-.7-.7-.3-.8-.5-1.1-.5-.2 .9 1.9 3-2.7 1.8-2.2-.6-1.7 .6 .1-2.7-1.8-1.1-3.4 3.1-1.8-.7-1.1 .7-.8 2-2.2 .9-.9-1.6-4.5 5-2.2-.3-1.3-1 0-1.6-6.5 3.2-2.5-.6-.2 .3-.1-.1-1.4-5.3 .3-.6 2.1 .1 2.1-5.1-4.3-6.8-2 1.6-1.4-.2-1.2-1.3-1.2-2.2 1.5-7.9-.9-2.4-2.9 .9 0-3.1 0-.5 .1 0 3 1.2 1.8-.3 2.1 .8 .9 0 1.3-1.4 1.1 .2-.4-2.1-2.8-2.5 1.6-.3 .9-1.1 4.1 4.5 2.1 .5 1.3-2-2.9-3 2.4-.4 2.6-1.6 3 .4 1.3-.5 1-2.4-1.3-.9 .4-1.8 1.8-1.1 2-.2 1.4-1.4-.9-1.4-1.2 .2-2.5-2.1-3.5 .6-1.1-.5-1.8-1.6-.9-2.2 1.1-2.4-4.1-1.5 3.9-1.3 1.7-3.2 2 .3 2-1.2 1.3 1.7 4 0 .4-.8 3.8-2 1.6 .5 .9-.7 .1 1.3 .8 0 .8 1.3 2.8 1.7 2.3 2.9 .4-.6 .9 .9 1.4-.6 .1-2.8 .8-.6 .2-2.8-1.1-.9 3.8-3.7-.2-5.4-3.4-2.8 0-3 1-1.5-.5-3.3-4.7 3.4-1.8-.5-.6 1.1-.6-.2-.7-2.4 .4-2.4-1.4-1.2 3-2.9-1.9-2-.2-1.1 3-1.8-.5-3.2 .3-.5 2.2-.5 3.5 2.4 .5-.9-1.4-5.5-1.1-1.2-2-.8-2.1 2.6 0-7 2.2 .3 .8 1.5 1.1-2.1-2.2-1.5 .9-3.2 3.7-1.6 2.8 2.3 1.3-3.1 1 .5-.3 1.7 1.5 1.7 6.8-4.1 1.1 1.2 1.7 5.1 2.3 .7 .2 1.8 2.9-.8 3.5 .7 3.2-1.3 3.8-.3 2.1 1.6 2.2-.2 2.2 2.5 1.2 .1 3.6 3.2 2.6 5z"/>
+<path class="pshape" data-p="enna" d="M227.5 169.8l-1.1-1.2-.3-1.1 .3-.4 1 .5 .5 .7 .2 1.1zM293.5 133.2l-.3 .5 .5 3.2-3 1.8 .2 1.1 1.9 2-3 2.9 1.4 1.2-.4 2.4 .7 2.4 .6 .2 .6-1.1 1.8 .5 4.7-3.4 .5 3.3-1 1.5 0 3 3.4 2.8 .2 5.4-3.8 3.7 1.1 .9-.2 2.8-.8 .6-.1 2.8-1.4 .6-.9-.9-.4 .6-2.3-2.9-2.8-1.7-.8-1.3-.8 0-.1-1.3-.9 .7-1.6-.5-3.8 2-.4 .8-4 0-1.3-1.7-2 1.2-2-.3-1.7 3.2-3.9 1.3 4.1 1.5-1.1 2.4 .9 2.2 1.8 1.6 1.1 .5 3.5-.6 2.5 2.1 1.2-.2 .9 1.4-1.4 1.4-2 .2-1.8 1.1-.4 1.8 1.3 .9-1 2.4-1.3 .5-3-.4-2.6 1.6-2.4 .4 2.9 3-1.3 2-2.1-.5-4.1-4.5-.9 1.1-1.6 .3 2.8 2.5 .4 2.1-1.1-.2-1.3 1.4-.9 0-2.1-.8-1.8 .3-3-1.2-.1 0-.1 0-3.7 .4 0-3-4.2-.6-1.1-1.6-2.4-.5-1.2-.1-1.4 1.5-5 1.6-3.4-1.5-.6-1.1-1.4 1.2-3.2-.6 .7-1.4-.8-.2 .2-1.7-1.3-1.3 .6-.7-2.2-3.5 1.6 .1-.1-2 .8-.9 5.5-5.6 2.8-1.3-1.8-2.2-.5-2.2-1.1-.7 1.4-4.2-.2-3.4 2.2-.9 .5-3.4-2.8-.5-.2-.1 .9-.3 2-2.5-.5-3.8 1.2-.8 1.7 .3 2.6-.9 2.9-2.2 2.2-.5 3.3-5.7-.4-2.8-2.1-1.4 .1-1.9-.9-.3 .8-1.6-.6-3.1 1.3-1.2 .4-.3 .5 0 4.3 .3 2.4-1.3 4.3-.5 1.5-2 2.3 1.8 3.3 1.2-.7 3.5 2.3 .7 1.7-1.8 1.4-3.5 2.8-1.1 1.8-2 1.8-.4 .4 2.6-1.6 1-.5 1.6 2 .8 2.6 2.9 4.9 .5 3.7 1.5 2.6-2.3z"/>
+<path class="pshape" data-p="messina" d="M346.8 134.3l-.2 .4-1.3-.7-2.6-5-3.6-3.2-1.2-.1-2.2-2.5-2.2 .2-2.1-1.6-3.8 .3-3.2 1.3-3.5-.7-2.9 .8-.2-1.8-2.3-.7-1.7-5.1-1.1-1.2-6.8 4.1-1.5-1.7 .3-1.7-1-.5-1.3 3.1-2.8-2.3-3.7 1.6-.9 3.2 2.2 1.5-1.1 2.1-.8-1.5-2.2-.3 0 7 2.1-2.6 2 .8 1.1 1.2 1.4 5.5-.5 .9-3.5-2.4-2.2 .5-3.7 .7-2.6 2.3-3.7-1.5-4.9-.5-2.6-2.9-2-.8 .5-1.6 1.6-1-.4-2.6-1.8 .4-1.8 2-2.8 1.1-1.4 3.5-1.7 1.8-2.3-.7 .7-3.5-3.3-1.2-2.3-1.8-1.5 2-4.3 .5-2.4 1.3-4.3-.3-.5 0 0-.2-1.2-4.6 .6-3.5 1.8-1.9-4 .2 .1-2.3-2.3-1.8-4.9-9.2 .5 .2 6.7 1.2 5.7 .1 3.3-1.5 3.5 .3 5.3-3.1 4.5 1 5.6-1.2 3.2-2.3 3 .1 3.7-2.2-.1 .6 .9 .1 1.3-.7 3.8-3.1 7.2-8.6 1.2 1.1 3.5 .5 9.7-2.3 2.6-2.7 2.7 1.6 3.4 3.6 7.6 .4 1.2 2.6 2.2 1.1 1.9-.1 7.7-4.2 3.9-4.2 3-7.5-.5-2.9-1.2-.6 1.4 .1 1.4 2.3-1.1 4.6 1.9 1.1 3.1 .3 6.1-1.4 8.3-3.4 9-6.9 2.5-.7 4.9 2.8 6.3 1.2 .2 .8-7.3 2.6-1.4 2.6-1 4.4 .9 0 0-.9 .8 .6-4.3 6.1-4 9.3-5.3 6.4-10.4 15.1-3.6 4.1-1 2 .6 1.2-3 2.2-.4 1 .6 .9zM315.9 53.4l.9 .9-.6 .7 .1 1 1.7 .3 1.7 1.8 .8 2.9-1.3 .9-1.5-.3-2.1-1.7-.8-.8-1-1.8 0-1.2 .6-.7 1.1-.3-.2-1.3zM316 41.5l.2 4.3 .5 .6 .9 0 .4 .3-.1 .6-1.7 .3-.1-.2-.7 .5 .2 1.9 .5 1.1-.3 1.2-.5 .4-1.2-.5-.1-.8-.7-1.4-2.2-.7-1.4-1.7 0-1 .5-3.2 .8-1 1.4-.6 .6 .3 1.4 .1zM254.4 37.5l.5 .6-.6 2.2-.5 .3-1.2-.2-.5-.9 .1-1.2 .8-.7zM274.1 33.4l2.4 .7 .5 1-.1 1.4 .6 .4 .6 0 .1 .4-.6 .3-1-.5-1.8 0-.7-.4-1.3-1.5-.1-.7 .4-1zM306.3 33.8l.6 .4-.1 1.2 .3 1.1-.6 1.2 .2 1.8-.4 .4-1.2 .2-.5-.2-2.2-1.5-2.3-.8-1-1 1.2-2.7 2.7 0 1.2 .3zM327.5 25.5l.5 .7-.2 1.3-1.3 .8-.7 0-.2-.5 .6-1.9zM342.8 4l1.8 .8 .4 .4-1.2 1.9-.4 1.4-1 .7-2.4-1.2-.7-1.2 .2-.7 1-.4 1.4-1.5z"/>
+<path class="pshape" data-p="palermo" d="M132.2 156.1l1 1.1-2.7 1.1-1.1-.1-.1-2.3 2.6-.1zM235.8 106.9l.3 .2 4.9 9.2 2.3 1.8-.1 2.3 4-.2-1.8 1.9-.6 3.5 1.2 4.6 0 .2-.4 .3-1.3 1.2 .6 3.1-.8 1.6 .9 .3-.1 1.9 2.1 1.4 .4 2.8-3.3 5.7-2.2 .5-2.9 2.2-2.6 .9-1.7-.3-1.2 .8 .5 3.8-2 2.5-.9 .3-.3 .6-.9 0-.3-2.2-1.8 .3-2.8-2.3-2-.5-3.2 2.2-.5 1.5 .7 2.3-.8 .5-5.9 1.6-3.9-1.4 .7-1.3-3.2-1.5 .5-5.1-1.2-.2-1.6-3-5.9-2.8-.2-3-1-2.2-3.3 2.9 0 2.6-3.4-.3-.9 2.5-.2 .2-3.8-1.6-1.7 .4-.7 .4-.3 2.5-1.9 1.5-5.1 .3-3.8 2.7-4-.4-1.4-1.1-.4-1.6-4.4 1.4-1.2-1.6-2.8 2.3-1.7-2.1-1.4-.1-1.3 1.1 1.8 4.4-1.4 .7-.6 1.6 1.1 3.5 1.2 .3-.3 1.6-4.4 2.3-1.9-1.7 .1-3-2-1.5 1.3-2.7-1.4-2.2 2.8-2.4 0-1.7-2-.6-.6 1.6-2 1.3-2.6-.9-2.9 4.2-3.8-3.5 .2-4.2-2.8-2.3-4 .5-2.5-1.8-4.5 1.2-3.4-2.6-2.1-3.6-1.3-.3-.2-.1 .2-.3 .6-.8 2.4-.4 1-1.4 1 1.1 3.9-1.9-2.6-2.2 .6-1.9 1.8-1.4-1.9-.6-2.5 1-8.7-1.7-.8-1.6-1.8-.5-.2-1.7 1.5-1.5-1.1-2.2-1.7-.5 .8-2.5 1.7 .9 3.8 0 .7-1.4 2.5 .8 1.8-1.6 .1-4.3 .8-1.6-1.3-1.4-1 .5-.1-1.4-2.3-1.9-.3-2.3-1.7-1.3-.8-2.7 .2 0 10-6-.4-3.3-2-3.3 2-.5-.1-.9 1.4-1.7-.6-1.6 2.7-2.2 5.6 .6 .4 1.9 2.9 .3 4.3-1.8 1.1-1.3-.3-1 3.4 .3 2.2-2.5 2-.9 1.3 1.7 .1 1.5 2.8 1.1 1 1.2 1.1 3.9-.7 1 .5 2.1-.6-.9-.6 .7 2.1 2.7 2.3 1.2 3.8 .7 6.3-1.7 .4-1.6 2.6 1.1 .9 4.4-.6 1.2 .9 1.6 10.9 7.5 7.3 1.5-1.9-.4 .8 1.6 3.5 1 5.4-.7 7.5-2.5 7.7-4.4 2.7-.7 1 .6 2.5-.4 1.7-1.2 4.4 3 4.7 .4 3.6-1.5zM220.7 146.8l-.5 1.2 1.3 .9 0 1.1-3-.1-.5 .7 0 1.8 1.4 1.9 1.3 .1 1.4-1.6 1.3-.9 2.6-.3 .2-.4-1-1.4 .2-.5 1.1-.4-.1-1.3-1-.7-.9 .1-.8-1.2-1.4-.2-.6-.4-.8 .7zM133 15.9l1.8 .9 .1 .7-2.6 2.1-2.1-.2-.1-.7 1.1-1.9z"/>
+<path class="pshape" data-p="ragusa" d="M298 221.9l.8 .5 .2 .1 .6 .9-.7 1.4 1.9 .1 .7 4.2 2.4 2.6-1.9-.9-.7 1.8 1.4 .6 .7-.8 .2 2.1 1.6 1.3 3.2 5.1 .1 3.3 2 3.3 1.2 .5 1.9 4.1-.3 .4-3.2-2.8-4.4-4.6 0-2.2-2.4 .2 .2 3.4 2.7 .4 3.2 2.4-2 .8 .7 2.6 3.2 1.7 2.4 2.9-1.7 1.9-3.7-2.5-1.6-.3-1 1.8-.1 3.3-.6 .4 1.3 1.8 .1-.9 2-.4 1.6 1.4 2.2 0 1.9 1.3-.1 .8 1.7-.3 2.8 2.5 .7 2.5-.6 1.3 1 1.7 .5 4.6-.5 .1-2.3 1.2-1.7-.2-4.8-3.9-3.4-.9-3 .5-1.7 1.3-.1 .9-1.4-.8-3.7 1.7-.3-.9-2.1 0-1.1-1.2-5.7-.1-2-2.7-4.5-3.1-7.5-2.3-2.3 .3-1.7-.9-2.4 .1-3.3-3.8-1.9-7.2-2.7-5.2-7.7-11.4-.4-.3 2.9-.5 2.5-2.5 2.4-.7 2.9-2.7 .3-.3 .2-.3 2.5 .6 6.5-3.2 0 1.6 1.3 1 2.2 .3 4.5-5 .9 1.6 2.2-.9 .8-2 1.1-.7 1.8 .7 3.4-3.1 1.8 1.1-.1 2.7 1.7-.6 2.2 .6 2.7-1.8-1.9-3 .2-.9z"/>
+<path class="pshape" data-p="siracusa" d="M329.4 193l.1 .5 1.3 5.8 3.1 0 2.7 2.7 1.1-.5 1.8 1.4 .8-1.3 .9-.2 5.1 6.8-.9 1.2-1.6-1.4-.8 .5 .9 5.3-1.6-3.4-.4-2.9-1.6 1.5-1.2-.2 1 1.4-1 1.2-.1 2.2 .3 1.3 1.2 .7 .7 4 1.5 .5 1.3-1.2 1.1 1.6-2-.5-.3 2.9 4 2.8 3.6 0 .5 3.6-1 1.6 .8 .7-.3 .9-1.6-1.5-.9 1.9 1.1 2.3 1 .1 1.2-1.3 1.3 1 2.1 4.3-2.2-.2-1.4-1.5-3.3 1.6-.5 1 .5 1.1-1.3 .8 .5 .8-4.9 1.4-.8 1.3-2 1.1-1.4 2.7-1.8 1-1.9 6.6-1 0-1.5 2-1.8 9.7 2.2 4.1 .7 5.6 1.5 1.8-.5 2.6-1.7-.9-3.8 3.5-.9-1.5-1.4-.4-1.5-3.4-2.2-1.7-1.9-.2-.2 0-.5-4.6-1-1.7 .6-1.3-.7-2.5-2.8-2.5-1.7 .3 .1-.8-1.9-1.3-2.2 0-1.6-1.4-2 .4-.1 .9-1.3-1.8 .6-.4 .1-3.3 1-1.8 1.6 .3 3.7 2.5 1.7-1.9-2.4-2.9-3.2-1.7-.7-2.6 2-.8-3.2-2.4-2.7-.4-.2-3.4 2.4-.2 0 2.2 4.4 4.6 3.2 2.8 .3-.4-1.9-4.1-1.2-.5-2-3.3-.1-3.3-3.2-5.1-1.6-1.3-.2-2.1-.7 .8-1.4-.6 .7-1.8 1.9 .9-2.4-2.6-.7-4.2-1.9-.1 .7-1.4-.6-.9-.2-.1 .7 .3 3.3 .7 1.1-.7 .3-2.1-1.1-2.2 3.6-3 .1-2.4-.8-.6-3.9 1.7-.5-1.5-1.8-.8-2.1 .5-.9-2.5 3.9-3.5 3.6-.5 1.1-2.3 2.6-1.1-.3-1.3 1.2-1.9-5.2-1.8-3.8 1.1-1.4-1.1-1.2-.1 .3-1.1 2.8-2.1 3-1 .5-2.8 3.9-1.6 .7-2.1 2.8-.7 2.7 1 1.5 2.5 3 1.6 3 .6 1.2-1.2 .8 2.1z"/>
+<path class="pshape" data-p="trapani" d="M6.9 260.5l1.9 .5 .7 1.1 1 .5 1.5 .2 .2-.4 .7-.1 2.5 2.8 .9 .3 .4 .5 .5 2.1 0 2.4-.8 1.7-2 1.8-1.8 .2-1.8-.4-1-.9-1.1-2.5-1.6-1.1-.6-1.5-2.4-2.4 .1-3 .7-1.1 .7 .4 .3-.7zM58.4 121.9l0 .8-.8 .5 .4 2.8-.3 1 .3 1.7-.5 1.1-1-4.7-.8-1.9 1.6-.3zM43.3 115.3l.9 2.6 .6 .6 2.2-.7 .5 .3 .7 1.2 1.3 .4 .2 .5-.5 1.6-1.6-.2-1.4-1.6-2.9 .1-2.2 .5-.6-.6-.2-1.3-.6-1 .4-.9 1.3 .2zM18.1 110.5l.1 .2-.3 .4 .3 1.1 1.4 2.4 .4 1.3 1 .5-.9 .2-3.4-1.2-.5-.6-1.2-3.7-.4 .1-.1-.5 .1-.2 .9 0 2.3 .3zM46.1 106.9l.6 2.1 1.1 1.5-.1 .5-1.3 .6-1.2-.6-.7-1.6 .2-.8 .7-.2 .4-1.4zM112 104.4l0-.1 .8 2.7 1.7 1.3 .3 2.3 2.3 1.9 .1 1.4 1-.5 1.3 1.4-.8 1.6-.1 4.3-1.8 1.6-2.5-.8-.7 1.4-3.8 0-1.7-.9-.8 2.5 1.7 .5 1.1 2.2-1.5 1.5 .2 1.7 1.8 .5 .8 1.6 8.7 1.7 2.5-1 1.9 .6-1.8 1.4-.6 1.9 2.6 2.2-3.9 1.9-1-1.1-1 1.4-2.4 .4-.6 .8-.2 .3-.2 .2-1.2 .8-.6-.9-.5 1-3 1 0 .9-4.2 4-.4 2.3-2.1 1.4 .7 .9-1.2 1.5 2.9-.3-.9 6.4-1.2 2.4-.2 0-4-.8-7.6 .3-11.1 2.7-2.5-2.4-4.6-8.3-4.6-2.7-4.2 .3-4.4-5-.6-.8 0-5.4-2.3-4.7-2.3-2.6 1.6-1.7 .1 .7 2-.9 .7-1.5-.3-2.4 2.1-3.4-2.8-4.5 3.6-5.8 .5-1.7-.4-2.3 1.3-1.4 .4-2 .9 .1 0-.6-2.8-.3 2.9-.9 5-6 3.2 .5 4.6-1.7 1.8-2.1-.6-1.7 .4-.6 1.8-.2 1.1 1.1 2.1-.5 2.9-3.9-2.2-4.4 1.3-2.1 .6 0-.3 1.1 .7 .6 3-.5 .1 3.3 1.1 .5 1.2 2.1-.1 2.9 1.8 3.4 4.8 4.6 1.5 0 .2 1.8 1.1 .9 2.9 .6z"/>
+<circle class="dot" cx="329.7" cy="164.5" r="2.6"/>
+<circle class="dot" cx="377.0" cy="84.4" r="2.6"/>
+<circle class="dot" cx="153.8" cy="96.6" r="2.6"/>
+<circle class="dot" cx="148.2" cy="97.3" r="2.6"/>
+<circle class="dot" cx="150.9" cy="91.9" r="2.6"/>
+<circle class="dot" cx="329.0" cy="174.3" r="2.6"/>
+<circle class="dot" cx="326.6" cy="176.5" r="2.6"/>
+<circle class="dot" cx="150.8" cy="93.0" r="2.6"/>
+<circle class="dot" cx="143.5" cy="87.8" r="2.6"/>
+<circle class="dot" cx="329.3" cy="171.1" r="2.6"/>
+<circle class="dot" cx="331.3" cy="174.7" r="2.6"/>
+<circle class="dot" cx="374.6" cy="86.6" r="2.6"/>
+<circle class="dot" cx="325.8" cy="173.7" r="2.6"/>
+<circle class="dot" cx="331.7" cy="172.6" r="2.6"/>
+<circle class="dot" cx="377.3" cy="81.2" r="2.6"/>
+<circle class="dot" cx="326.5" cy="176.7" r="2.6"/>
+<circle class="dot" cx="153.9" cy="91.9" r="2.6"/>
+<circle class="dot" cx="325.3" cy="167.0" r="2.6"/>
+<circle class="dot" cx="149.1" cy="100.7" r="2.6"/>
+<circle class="dot" cx="147.6" cy="90.9" r="2.6"/>
+<circle class="dot" cx="155.7" cy="98.0" r="2.6"/>
+<circle class="dot" cx="330.0" cy="169.2" r="2.6"/>
+<circle class="dot" cx="316.8" cy="91.6" r="2.6"/>
+<circle class="dot" cx="66.8" cy="119.2" r="2.6"/>
+<circle class="dot" cx="333.4" cy="173.1" r="2.6"/>
+<circle class="dot" cx="127.2" cy="103.9" r="2.6"/>
+<circle class="dot" cx="321.6" cy="172.0" r="2.6"/>
+<circle class="dot" cx="144.9" cy="92.8" r="2.6"/>
+<circle class="dot feat" cx="335.3" cy="167.5" r="4.2"/>
+<circle class="dot" cx="331.5" cy="166.1" r="2.6"/>
+<circle class="dot" cx="152.8" cy="90.7" r="2.6"/>
+<circle class="dot" cx="148.7" cy="88.1" r="2.6"/>
+<circle class="dot" cx="373.6" cy="94.0" r="2.6"/>
+<circle class="dot" cx="333.3" cy="167.2" r="2.6"/>
+<circle class="dot" cx="333.7" cy="158.8" r="2.6"/>
+<circle class="dot" cx="329.9" cy="177.6" r="2.6"/>
+<circle class="dot" cx="332.3" cy="226.5" r="2.6"/>
+
+          <text class="plab" x="164.9" y="182" text-anchor="middle">AG</text><text class="plab" x="239.4" y="212.9" text-anchor="middle">CL</text><text class="plab" x="320.5" y="145.7" text-anchor="middle">CT</text><text class="plab" x="263" y="153.3" text-anchor="middle">EN</text><text class="plab" x="344.1" y="106.4" text-anchor="middle">ME</text><text class="plab" x="153.3" y="125.4" text-anchor="middle">PA</text><text class="plab" x="283.9" y="250.4" text-anchor="middle">RG</text><text class="plab" x="323.8" y="228.9" text-anchor="middle">SR</text><text class="plab" x="84.3" y="134" text-anchor="middle">TP</text>
+        </svg>
+        <figcaption>Un punto per azienda. Il punto cerchiato è RankWit. Confini: Istat, 1 gennaio 2025, licenza CC BY 4.0.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec wrap" aria-labelledby="g-t">
+    <div class="sechead"><h2 id="g-t">Ultime guide</h2><a href="/impara/">Tutte le 10 guide</a></div>
+    <div class="g3"><article class="gcard"><p class="occ">Ospitalità</p><h3><a href="/impara/ai-hotel-bb-strutture-ricettive/">AI per hotel, B&amp;B e strutture ricettive: casi d&#39;uso concreti</a></h3><p class="meta">Livello base · 9 min · 21 ott 2026</p></article><article class="gcard"><p class="occ">Ristorazione</p><h3><a href="/impara/ai-ristoranti-bar-locali/">AI per ristoranti, bar e locali: cosa funziona davvero</a></h3><p class="meta">Livello base · 9 min · 21 ott 2026</p></article><article class="gcard"><p class="occ">Agroalimentare e vino</p><h3><a href="/impara/ai-cantine-aziende-agroalimentari/">AI per cantine e aziende agroalimentari: schede prodotto, traduzioni ed export</a></h3><p class="meta">Livello intermedio · 9 min · 21 ott 2026</p></article></div>
+    <ol class="glist" style="padding:0;margin-left:0;margin-bottom:0"><li><span class="gn">05</span><div><p class="occ">Studi professionali</p><a href="/impara/ai-studi-professionali-dati-clienti/">AI negli studi professionali: cosa fare e cosa evitare con i dati dei clienti</a><p class="meta">Livello intermedio · 9 min</p></div></li><li><span class="gn">06</span><div><p class="occ">Norme</p><a href="/impara/ai-act-gdpr-cosa-deve-sapere-impresa/">AI Act e GDPR: cosa deve sapere un&#39;impresa che usa strumenti di AI</a><p class="meta">Livello intermedio · 10 min</p></div></li><li><span class="gn">07</span><div><p class="occ">Visibilità online</p><a href="/impara/geo-farsi-trovare-chatgpt-gemini-perplexity/">GEO: come farsi trovare (e consigliare) da ChatGPT, Gemini e Perplexity</a><p class="meta">Livello intermedio · 11 min</p></div></li><li><span class="gn">08</span><div><p class="occ">Metodo</p><a href="/impara/scrivere-prompt-efficaci-senza-essere-tecnici/">Scrivere prompt efficaci senza essere tecnici: il metodo per chi ha un&#39;attività</a><p class="meta">Livello base · 10 min</p></div></li><li><span class="gn">09</span><div><p class="occ">Organizzazione</p><a href="/impara/automatizzare-attivita-ripetitive/">Automatizzare le attività ripetitive: email, preventivi, documenti e social, passo dopo passo</a><p class="meta">Livello intermedio · 9 min</p></div></li><li><span class="gn">10</span><div><p class="occ">Bandi e incentivi</p><a href="/impara/incentivi-finanziamenti-digitalizzazione-ai-sicilia/">Incentivi e finanziamenti per digitalizzazione e AI in Sicilia: cosa è aperto e cosa no</a><p class="meta">Livello intermedio · 11 min</p></div></li></ol>
+  </section>
+
+  <section class="sec wrap" aria-labelledby="p-t">
+    <div class="sechead"><h2 id="p-t">Prompt in vetrina</h2><a href="/prompt/">Tutti i 48 prompt</a></div>
+    <div class="pp">
+      <div>
+        <p class="occ">Ospitalità · Analisi</p>
+        <h3 id="p-t2">Analizzare le recensioni del mese e decidere cosa cambiare in struttura</h3>
+        <p class="goal">Le recensioni di un mese ridotte a temi contati, citazioni brevi e al massimo tre azioni per il mese dopo.</p>
+        <div class="chips"><span>Livello intermedio</span><span>Provato il 21 ottobre 2026</span><span>ChatGPT</span><span>Claude</span><span>Gemini</span><span>Copilot</span></div>
+        <p class="lim"><b>Limite dichiarato.</b> Con 9 recensioni il campione è piccolo. I conteggi dell'AI vanno ricontrollati a mano, e i nomi degli ospiti non vanno incollati.</p>
+        <div class="acts"><a class="btn" href="/prompt/ospitalita/analisi-recensioni-mese-struttura-ricettiva/">Apri il prompt completo</a></div>
+      </div>
+      <div class="term">
+        <div class="bar2"><span>Prompt · parte iniziale</span><button type="button" id="copy">Copia</button></div>
+        <pre id="ptxt">Sei un analista che lavora per il titolare di <span class="v">{nome_struttura}</span>. Qui sotto trovi le recensioni di <span class="v">{mese}</span>, incollate così come sono e senza nomi degli ospiti:
+
+<span class="v">{recensioni_incollate}</span>
+
+Note del titolare sul mese (lavori, eventi, personale, meteo): <span class="v">{note_del_mese}</span>
+
+Compito:
+1. Dichiara quante recensioni hai letto.
+2. Raggruppa i commenti in temi (pulizia, colazione, posizione, rumore, rapporto qualità/prezzo, ecc.). Per ogni tema indica quante recensioni lo citano, se in positivo o in negativo, e una citazione di massimo 12 parole copiata dal testo.</pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust" aria-labelledby="t-t">
+    <div class="wrap">
+      <p class="occ">Il metodo</p>
+      <h2 id="t-t">Ogni scheda ha una fonte e una data.</h2>
+      <div class="cols">
+        <div class="col"><p class="k">1</p><h3>Una fonte consultata</h3><p>Un'azienda o un evento entra solo se lo troviamo sul sito di chi lo organizza o in un registro pubblico. Se un dato non torna, resta fuori.</p></div>
+        <div class="col"><p class="k">2</p><h3>Descrizioni riscritte</h3><p>Niente testi copiati dai siti, niente loghi di terzi. Ogni scheda mostra la data dell'ultimo controllo.</p></div>
+        <div class="col"><p class="k">3</p><h3>Solo dati aziendali</h3><p>Nessun dato personale. Se vuoi che una scheda venga tolta o corretta, c'è <a href="/rimozione/" style="color:var(--accent-dk)">una pagina apposta</a>.</p></div>
+        <div class="col"><p class="k">4</p><h3>Norme e bandi</h3><p>Su AI Act, GDPR e incentivi usiamo solo fonti ufficiali e mettiamo la data in vista. Questi testi passano da una revisione umana prima di uscire.</p></div>
+      </div>
+      <a class="btn" href="/metodologia/">Leggi il metodo per esteso</a>
+    </div>
+  </section>
+
+  <section class="cta" aria-labelledby="c-t">
+    <div class="wrap">
+      <div>
+        <h2 id="c-t">Manca un'azienda o un evento?</h2>
+        <p>Bastano il nome, il sito e un link che lo confermi. Controlliamo noi prima di pubblicare.</p>
+      </div>
+      <a class="btn" href="/segnala/">Segnala</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <p class="logo">AI <i>Sicilia</i></p>
+        <p class="note">Progetto indipendente di Elvio Leonardi. Il sito è in beta e non è indicizzato dai motori di ricerca.</p>
+      </div>
+      <nav aria-label="Piè di pagina">
+        <div><h3>Sezioni</h3><a href="/aziende/">Aziende</a><a href="/eventi/">Eventi</a><a href="/impara/">Guide</a><a href="/prompt/">Prompt</a></div>
+        <div><h3>Il progetto</h3><a href="/chi-siamo/">Chi siamo</a><a href="/metodologia/">Metodologia</a><a href="/segnala/">Segnala</a><a href="/contatti/">Contatti</a></div>
+        <div><h3>Regole</h3><a href="/rimozione/">Rimozione</a><a href="/privacy/">Privacy</a><a href="/note-legali/">Note legali</a><a href="/rss/">RSS</a></div>
+      </nav>
+    </div>
+    <p class="legal">Mockup della homepage, Concept B &quot;Magazine&quot;. Dati reali del 22 ottobre 2026. Nessun logo di terzi.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('copy').addEventListener('click',function(){
+  var b=this,t=document.getElementById('ptxt').innerText;
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).catch(function(){}).then(function(){
+    b.textContent='Copiato';setTimeout(function(){b.textContent='Copia'},1800);
+  });
+});
+</script>
+</body>
+</html>
