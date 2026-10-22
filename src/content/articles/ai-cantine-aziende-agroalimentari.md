@@ -74,7 +74,7 @@ L'AI aiuta nei lavori di scrittura e traduzione che partono da dati tuoi. Non ai
 | --- | --- | --- | --- |
 | Schede prodotto | Una scheda per ogni riga della tua tabella, con struttura e tono uguali | Ogni dato, con la tabella accanto | Medio: riempie i vuoti con dettagli inventati |
 | Note di degustazione | Dà forma alle tue note grezze | Che il testo dica ciò che senti nel bicchiere | Alto, se gliele fai inventare |
-| Traduzioni | Prima versione scorrevole di catalogo e sito | Termini tecnici, denominazioni, cifre, unità | Medio: l'errore si nasconde in frasi fluide |
+| Traduzioni | Prima versione scorrevole di catalogo e sito | Termini tecnici, denominazioni, cifre, unità | Medio: l'errore si nasconde in frasi che scorrono bene |
 | Email a importatori | Bozza in lingua, risposta a richieste di listino | Prezzi, sconti, consegne, pagamenti | Medio, più la privacy sui nomi |
 | Etichetta, ingredienti, allergeni | Impagina una tabella, spiega un documento | Tutto, dalle analisi e dalle norme | Alto: la responsabilità è tua |
 | Post e descrizioni per il sito | Versioni di lunghezza diversa, da fatti veri | Fatti e foto | Basso |

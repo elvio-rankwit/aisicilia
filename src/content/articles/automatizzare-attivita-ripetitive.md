@@ -49,7 +49,7 @@ related_prompts: [smistare-email-studio-professionale, risposta-richiesta-preven
 - Automatizza un compito se si ripete spesso, ha un inizio e una fine, si controlla in pochi minuti e un errore non fa danni gravi.
 - Parti dalla regola (un modello salvato, un filtro, un modulo), non dall'AI: l'AI serve solo dove c'è un testo da capire o da scrivere.
 - Le email e i preventivi si preparano con l'AI e si inviano a mano; i prezzi li calcola un foglio di calcolo, non l'assistente.
-- Prima di misurare due settimane di lavoro vero non costruire niente: sotto le 2 ore al mese, secondo me, non vale la pena.
+- Misura prima di costruire: annota per due settimane quante volte ripeti il compito e quanto ci metti; sotto le 2 ore al mese, secondo me, non vale la pena.
 - Il costo vero ha tre voci (abbonamenti, tempo di impostazione, manutenzione) e ogni flusso ha un responsabile e un controllo mensile.
 
 </aside>
