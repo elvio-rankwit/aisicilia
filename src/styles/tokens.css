@@ -1,147 +1,132 @@
-/* Design tokens AI Sicilia v2 — basalto e maiolica digitale. Contrasti verificati WCAG AA (testo ≥ 4.5:1).
+/* Design tokens AI Sicilia v3: leggibilità prima di tutto (docs/specs/design-v3.md).
+   Contrasti verificati con script (light e dark): testo ≥ 4.5:1, bordi dei controlli ≥ 3:1.
    Ogni colore si usa SOLO tramite queste variabili. */
 :root {
   color-scheme: light;
-  /* Calce e pietra di Noto */
-  --c-bg: #f4f1ea;
-  --c-surface: #fbfaf7;
-  --c-surface-2: #ece7dc;
-  --c-border: #d8d1c3;
-  --c-text: #1a1e21;
-  --c-text-muted: #555b5f;
-  /* Maiolica di Caltagirone */
-  --c-primary: #24577a;
-  --c-primary-hover: #183f59;
-  --c-primary-soft: #dde7ee;
+  /* Calce, carta, pietra */
+  --c-bg: #f8f6f1;
+  --c-surface: #ffffff;
+  --c-surface-2: #f1ede5;
+  --c-border: #e3ddd2;
+  --c-border-strong: #858a8f; /* bordi dei controlli (input, select): ≥ 3:1 */
+  --c-text: #2a2e33;
+  --c-text-muted: #5d6369;
+  /* Blu maiolica: link e azioni */
+  --c-primary: #235c80;
+  --c-primary-hover: #19445f;
+  --c-primary-soft: #e6eef4;
   --c-on-primary: #ffffff;
-  /* Terracotta */
-  --c-accent: #a4502a;
-  --c-accent-soft: #f2dfd2;
-  --c-accent-strong: #8a4220;
-  /* Pistacchio di Bronte: dati */
-  --c-data: #5b6b2e;
-  --c-data-soft: #e4e8d3;
+  /* Terracotta: date, "In evidenza", una CTA per pagina */
+  --c-accent: #a8532d;
+  --c-accent-soft: #f6e7dd;
+  --c-accent-strong: #8f4322;
+  --c-on-accent: #ffffff;
+  /* Pistacchio: conteggi e tag dati */
+  --c-data: #55672c;
+  --c-data-soft: #e9edda;
   /* Ocra: solo decorativo, mai testo */
-  --c-ochre: #c29a4e;
-  --c-lemon: #c29a4e;
-  /* Pietra lavica dell'Etna: bande scure */
-  --c-lava: #1c2124;
-  --c-lava-2: #252b2f;
-  --c-on-lava: #ece7dc;
-  --c-on-lava-muted: #a9afa9;
-  /* Colori dei dati sulle bande scure (uguali in light e dark) */
-  --c-lava-accent: #e0916a;
-  --c-lava-blue: #8fb9d6;
-  --c-lava-ochre: #c29a4e;
-  --c-lava-data: #aebf7c;
+  --c-ochre: #c79a45;
+  --c-ochre-strong: #8a6a2a; /* contorno dei punti sulla mappa */
   /* Stati */
-  --c-success: #4b5b24;
-  --c-warning-bg: #f3e8c8;
+  --c-warning-bg: #f6ecd0;
   --c-warning-text: #5e4400;
   --c-danger: #9b1c1c;
-  --c-danger-bg: #f6e0dc;
-  --c-focus: #24577a;
+  --c-danger-bg: #f8e4e0;
+  --c-focus: #235c80;
   /* Mappa province (riempimenti SVG) */
-  --c-map-land: #e3dccd;
-  --c-map-land-hover: #d4e0e8;
-  --c-map-stroke: #fbfaf7;
-  --c-map-active: #24577a;
+  --c-map-land: #ece6da;
+  --c-map-land-hover: #dbe6ee;
+  --c-map-stroke: #ffffff;
+  --c-map-active: #235c80;
 
-  /* Tipografia: Familjen Grotesk (variabile) per testo e titoli, IBM Plex Mono solo per i dati */
-  --font-sans: "Familjen Grotesk", "Familjen Fallback", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  --font-serif: var(--font-sans);
-  --font-mono: "IBM Plex Mono", "Plex Fallback", ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+  /* Tipografia: Public Sans (testo e interfaccia), Newsreader 600 (titoli). Niente monospazio. */
+  --font-sans: "Public Sans", "Public Sans Fallback", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-serif: "Newsreader", "Newsreader Fallback", "Newsreader Fallback Times", Georgia, "Times New Roman", serif;
   --fs-xs: 0.8125rem;
-  --fs-sm: 0.9375rem;
-  --fs-base: 1.0625rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-md: 1.125rem;
   --fs-lg: 1.25rem;
-  --fs-xl: clamp(1.375rem, 1.1rem + 1vw, 1.75rem);
-  --fs-2xl: clamp(1.75rem, 1.3rem + 2vw, 2.5rem);
-  --fs-3xl: clamp(2.125rem, 1.5rem + 3vw, 3.25rem);
-  --lh-tight: 1.12;
-  --lh-base: 1.65;
+  --fs-xl: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+  --fs-2xl: clamp(2rem, 1.4rem + 2.6vw, 3rem);
+  --lh-tight: 1.15;
+  --lh-base: 1.6;
+  --lh-read: 1.7;
 
-  /* Spazi e forme */
+  /* Spazi (8, 12, 16, 24, 32, 48, 64, 96) e forme */
   --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
-  --space-5: 1.5rem; --space-6: 2rem; --space-7: 3rem; --space-8: 4.5rem;
+  --space-5: 1.5rem; --space-6: 2rem; --space-7: 3rem; --space-8: 4rem; --space-9: 6rem;
   --gutter: 16px;
   --container: 72rem;
-  --measure: 44rem;
-  --radius-sm: 3px; --radius: 4px; --radius-lg: 6px; --radius-pill: 999px;
-  --shadow: none;
+  --measure: 40rem; /* ≈ 75 caratteri a 18px: misura di lettura */
+  --radius-sm: 6px; --radius: 12px; --radius-lg: 16px; --radius-pill: 999px;
   --tap: 44px;
-  /* Reticolo cartografico (linee sottili) */
-  --grid-line: rgb(236 231 220 / 0.07);
+  --ease: 160ms ease-out;
+  --shadow: none;
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --c-bg: #14181a;
-  --c-surface: #1b2023;
-  --c-surface-2: #232a2e;
-  --c-border: #343c41;
-  --c-text: #ece7dc;
-  --c-text-muted: #abb0aa;
-  --c-primary: #8fb9d6;
+  --c-bg: #15191c;
+  --c-surface: #1c2125;
+  --c-surface-2: #232a2f;
+  --c-border: #2f373d;
+  --c-border-strong: #7b838a;
+  --c-text: #e6e1d8;
+  --c-text-muted: #a9aeb2;
+  --c-primary: #8ebbd8;
   --c-primary-hover: #b3d1e5;
-  --c-primary-soft: #1f303c;
-  --c-on-primary: #0f1214;
-  --c-accent: #e0916a;
-  --c-accent-soft: #3a2a22;
-  --c-accent-strong: #f0ad8c;
-  --c-data: #aebf7c;
-  --c-data-soft: #283020;
+  --c-primary-soft: #1f2f3a;
+  --c-on-primary: #10161a;
+  --c-accent: #e39b74;
+  --c-accent-soft: #33271f;
+  --c-accent-strong: #f0b08e;
+  --c-on-accent: #1b1410;
+  --c-data: #afc07e;
+  --c-data-soft: #262f1f;
   --c-ochre: #d3b06c;
-  --c-lemon: #d3b06c;
-  --c-lava: #0f1214;
-  --c-lava-2: #171c1f;
-  --c-on-lava: #ece7dc;
-  --c-on-lava-muted: #a9afa9;
-  --c-success: #aebf7c;
-  --c-warning-bg: #3a3014;
+  --c-ochre-strong: #d3b06c;
+  --c-warning-bg: #372f15;
   --c-warning-text: #f5d98a;
   --c-danger: #f3a0a0;
-  --c-danger-bg: #3b1a1a;
-  --c-focus: #8fb9d6;
-  --c-map-land: #2a3236;
+  --c-danger-bg: #3a1c1c;
+  --c-focus: #8ebbd8;
+  --c-map-land: #262d32;
   --c-map-land-hover: #2f4452;
-  --c-map-stroke: #14181a;
-  --c-map-active: #8fb9d6;
+  --c-map-stroke: #15191c;
+  --c-map-active: #8ebbd8;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --c-bg: #14181a;
-    --c-surface: #1b2023;
-    --c-surface-2: #232a2e;
-    --c-border: #343c41;
-    --c-text: #ece7dc;
-    --c-text-muted: #abb0aa;
-    --c-primary: #8fb9d6;
+    --c-bg: #15191c;
+    --c-surface: #1c2125;
+    --c-surface-2: #232a2f;
+    --c-border: #2f373d;
+    --c-border-strong: #7b838a;
+    --c-text: #e6e1d8;
+    --c-text-muted: #a9aeb2;
+    --c-primary: #8ebbd8;
     --c-primary-hover: #b3d1e5;
-    --c-primary-soft: #1f303c;
-    --c-on-primary: #0f1214;
-    --c-accent: #e0916a;
-    --c-accent-soft: #3a2a22;
-    --c-accent-strong: #f0ad8c;
-    --c-data: #aebf7c;
-    --c-data-soft: #283020;
+    --c-primary-soft: #1f2f3a;
+    --c-on-primary: #10161a;
+    --c-accent: #e39b74;
+    --c-accent-soft: #33271f;
+    --c-accent-strong: #f0b08e;
+    --c-on-accent: #1b1410;
+    --c-data: #afc07e;
+    --c-data-soft: #262f1f;
     --c-ochre: #d3b06c;
-    --c-lemon: #d3b06c;
-    --c-lava: #0f1214;
-    --c-lava-2: #171c1f;
-    --c-on-lava: #ece7dc;
-    --c-on-lava-muted: #a9afa9;
-    --c-success: #aebf7c;
-    --c-warning-bg: #3a3014;
+    --c-ochre-strong: #d3b06c;
+    --c-warning-bg: #372f15;
     --c-warning-text: #f5d98a;
     --c-danger: #f3a0a0;
-    --c-danger-bg: #3b1a1a;
-    --c-focus: #8fb9d6;
-    --c-map-land: #2a3236;
+    --c-danger-bg: #3a1c1c;
+    --c-focus: #8ebbd8;
+    --c-map-land: #262d32;
     --c-map-land-hover: #2f4452;
-    --c-map-stroke: #14181a;
-    --c-map-active: #8fb9d6;
+    --c-map-stroke: #15191c;
+    --c-map-active: #8ebbd8;
   }
 }

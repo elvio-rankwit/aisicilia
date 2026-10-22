@@ -85,14 +85,14 @@ const total = PROVINCE_SLUGS.reduce((s, slug) => s + (counts[slug] ?? 0), 0);
   .pmap { margin: 0; max-width: 32rem; margin-inline: auto; }
   .pmap-svg { display: block; width: 100%; height: auto; overflow: visible; }
   .pmap a { cursor: pointer; outline: none; }
-  .pmap path { fill: var(--c-map-land); stroke: var(--c-map-stroke); stroke-width: 0.8; stroke-linejoin: round; transition: fill 0.12s; }
+  .pmap path { fill: var(--c-map-land); stroke: var(--c-map-stroke); stroke-width: 0.8; stroke-linejoin: round; transition: fill 160ms ease-out; }
   .pmap a:hover path { fill: var(--c-map-land-hover); }
   .pmap a:focus-visible path { fill: var(--c-map-land-hover); stroke: var(--c-focus); stroke-width: 2.4; }
   .pmap a[aria-current] path { fill: var(--c-map-active); }
   .pmap text { fill: var(--c-text); text-anchor: middle; pointer-events: none; font-family: var(--font-sans); }
   .pmap a[aria-current] text, .pmap a[aria-current] ~ .pmap-sigla { fill: var(--c-on-primary); }
   .pmap-sigla { font-size: 10px; font-weight: 600; letter-spacing: 0.04em; }
-  .pmap-count { font-size: 15px; font-weight: 700; }
+  .pmap-count { font-size: 15px; font-weight: 600; font-variant-numeric: tabular-nums; }
   .pmap-points circle { fill: var(--c-accent); stroke: var(--c-surface); stroke-width: 0.8; pointer-events: none; }
   .pmap-legend { list-style: none; margin: var(--space-3) 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr)); gap: var(--space-1) var(--space-4); font-size: var(--fs-sm); }
   .pmap-legend li { display: flex; justify-content: space-between; gap: var(--space-2); border-bottom: 1px solid var(--c-border); padding-block: 2px; }
