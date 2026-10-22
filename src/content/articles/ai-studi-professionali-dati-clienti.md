@@ -36,11 +36,11 @@ faq:
   - question: "Devo dire ai clienti che uso l'intelligenza artificiale in studio?"
     answer: "L'art. 13 della legge 132/2025 lo prevede per chi esercita una professione intellettuale: le informazioni sui sistemi usati vanno comunicate in modo chiaro, semplice ed esaustivo. Il modo più pratico è una clausola nel mandato o una nota informativa. CNDCEC e CNF hanno diffuso modelli da adattare."
   - question: "Se sostituisco i nomi con «Cliente A» i dati diventano anonimi?"
-    answer: "Non necessariamente. Se restano importi, luoghi, date e circostanze che permettono di risalire alla persona, hai solo pseudonimizzato e il GDPR continua ad applicarsi. Vale la pena farlo comunque, perché riduce il danno in caso di errore, ma da solo non basta."
+    answer: "Se restano importi, luoghi, date e circostanze che permettono di risalire alla persona, hai solo pseudonimizzato e il GDPR continua ad applicarsi. Fallo comunque, perché riduce il danno in caso di errore, ma da solo non basta."
   - question: "L'AI può redigere o firmare un parere al posto mio?"
     answer: "Può preparare una bozza, ma la legge italiana limita l'AI alle attività strumentali e di supporto e mantiene prevalente il lavoro intellettuale del professionista. Il parere lo scrivi e lo firmi tu, dopo aver verificato ogni riferimento normativo sulla fonte ufficiale."
   - question: "Serve una valutazione d'impatto (DPIA) per usare l'AI in studio?"
-    answer: "Non sempre. La DPIA serve quando il trattamento può comportare un rischio elevato per le persone, per esempio dati sensibili su larga scala. Controlla i criteri e l'elenco del Garante per la protezione dei dati personali e, se hai dubbi, chiedi a un consulente privacy prima di partire."
+    answer: "Dipende dal rischio. La DPIA serve quando il trattamento può comportare un rischio elevato per le persone, per esempio dati sensibili su larga scala. Controlla i criteri e l'elenco del Garante per la protezione dei dati personali e, se hai dubbi, chiedi a un consulente privacy prima di partire."
   - question: "Cosa faccio se un collaboratore ha incollato per errore dati di un cliente in un chatbot?"
     answer: "Ricostruisci subito cosa è stato inserito, con quale account e presso quale fornitore, e annota tutto. Se ricorrono i presupposti di una violazione dei dati personali, la notifica al Garante ha un termine di 72 ore (art. 33 GDPR). Chiedi al fornitore la cancellazione e coinvolgi il consulente privacy."
   - question: "I collaboratori dello studio devono essere formati sull'AI?"
@@ -106,9 +106,9 @@ La regola pratica è un semaforo, e il colore dipende dai dati che entrano più 
 
 Per il primo gruppo, nella libreria trovi i [prompt per gli studi professionali](/prompt/studi-professionali/) pensati per lavorare senza dati reali, per esempio [smistare le email in arrivo](/prompt/studi-professionali/smistare-email-studio-professionale/).
 
-Sostituire i nomi con «Cliente A» aiuta, ma non basta: se restano importi, comune, date e circostanze, la persona si riconosce lo stesso. Si chiama pseudonimizzazione e il GDPR continua ad applicarsi. Fallo comunque, perché riduce il danno se qualcosa va storto.
+Sostituire i nomi con «Cliente A» aiuta poco: se restano importi, comune, date e circostanze, la persona si riconosce lo stesso. Si chiama pseudonimizzazione e il GDPR continua ad applicarsi. Fallo comunque, perché riduce il danno se qualcosa va storto.
 
-L'ultima riga della tabella merita una frase in più. Quando l'AI entra nella gestione del personale scattano regole europee più severe, di cui parlo in [AI Act e GDPR: cosa deve sapere un'impresa](/impara/ai-act-gdpr-cosa-deve-sapere-impresa/), e l'art. 11 della legge 132/2025 prevede che il datore di lavoro informi il lavoratore dell'uso dell'AI.
+Quando l'AI entra nella gestione del personale scattano regole europee più severe, di cui parlo in [AI Act e GDPR: cosa deve sapere un'impresa](/impara/ai-act-gdpr-cosa-deve-sapere-impresa/), e l'art. 11 della legge 132/2025 prevede che il datore di lavoro informi il lavoratore dell'uso dell'AI.
 
 Il caso peggiore è quello invisibile: dati sanitari dentro un account personale di un collaboratore, senza che nessuno lo abbia deciso, perché qualcuno aveva fretta un giovedì pomeriggio. Una policy scritta serve soprattutto a questo.
 
@@ -130,7 +130,7 @@ Per uno studio significa una mezza giornata di formazione interna, 2 regole scri
 
 ## Come si scrive una policy di una pagina?
 
-Non serve un manuale. Serve una pagina che dica:
+Basta una pagina, non un manuale. Deve dire:
 
 - quali strumenti sono ammessi e con quali account aziendali;
 - cosa non si incolla mai (categorie particolari, segreti, dati di minori);

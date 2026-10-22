@@ -38,7 +38,7 @@ faq:
   - question: "Quanti esempi servono dentro un prompt?"
     answer: "Ne bastano due o tre. Google consiglia esempi vari ma scritti con lo stesso formato e avverte che troppi possono far copiare lo schema troppo da vicino. Scegli testi che ti piacciono davvero e che somigliano a quello che vuoi ottenere, altrimenti lo strumento si confonde."
   - question: "Come evito che l'AI inventi prezzi, orari e promesse?"
-    answer: "Non puoi eliminare il rischio, ma lo riduci. Scrivi tu prezzi, orari e condizioni nel prompt, vieta espressamente di aggiungere informazioni e chiedi di segnalare tra parentesi quadre ciò che manca. Poi controlla sempre ogni numero e ogni data prima di pubblicare o inviare il testo."
+    answer: "Scrivi tu prezzi, orari e condizioni nel prompt, vieta espressamente di aggiungere informazioni e chiedi di segnalare tra parentesi quadre ciò che manca. Il rischio scende molto ma non sparisce: controlla sempre ogni numero e ogni data prima di pubblicare o inviare il testo."
 related_prompts: [risposta-recensione-negativa-ristorante, preventivo-pacchetto-sicilia-agenzia-viaggi, annuncio-immobile-vendita, procedura-operativa-apprendista-laboratorio]
 ---
 
@@ -56,15 +56,17 @@ related_prompts: [risposta-recensione-negativa-ristorante, preventivo-pacchetto-
 
 «Ci ho provato, ma mi risponde cose generiche». Quando in aula chiedo di vedere cosa è stato scritto, di solito è una riga: «scrivi una descrizione per la mia cantina». A un copywriter che non ti conosce otterresti la stessa pagina, buona per qualsiasi cantina del mondo.
 
-Questa guida spiega il metodo che uso io, in cinque pezzi, con esempi siciliani e i limiti da conoscere. Situazione a ottobre 2026. Se parti da zero, prima leggi [da dove cominciare con l'AI in una PMI siciliana](/impara/ai-pmi-siciliane-da-dove-cominciare/).
+Il metodo che uso io ha cinque pezzi e qualche limite da conoscere. Situazione a ottobre 2026. Se parti da zero, prima leggi [da dove cominciare con l'AI in una PMI siciliana](/impara/ai-pmi-siciliane-da-dove-cominciare/).
 
 ## Che cos'è un prompt, e perché le risposte sembrano generiche?
 
 Prompt vuol dire la richiesta che scrivi allo strumento, e le risposte sono generiche quando la richiesta lo è. Pensa a una persona sveglia e veloce che oggi è al primo giorno nella tua attività: non conosce i clienti, non sa come parli, non sa che il martedì sei chiuso. Se le dici «rispondi a questa recensione» scrive una risposta educata e anonima.
 
-I fornitori dicono cose molto simili nelle loro guide per sviluppatori. [Google](https://ai.google.dev/gemini-api/docs/prompting-strategies) (pagina aggiornata il 13 ottobre 2026) indica istruzioni chiare e specifiche, vincoli, formato della risposta, esempi e contesto, e consiglia di procedere per tentativi. [OpenAI](https://developers.openai.com/api/docs/guides/prompt-engineering) descrive un buon messaggio come fatto di identità, istruzioni, esempi e contesto. [Anthropic](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview) rimanda alla propria raccolta di buone pratiche e ricorda che non ogni problema si risolve cambiando il prompt.
+I fornitori dicono cose molto simili nelle loro guide per sviluppatori. [Google](https://ai.google.dev/gemini-api/docs/prompting-strategies) (pagina aggiornata il 13 ottobre 2026) indica istruzioni chiare e specifiche, vincoli, formato della risposta, esempi e contesto, e consiglia di procedere per tentativi.
 
-Sono pagine tecniche, ma i principi valgono per chiunque. Il resto della guida li traduce in lavoro quotidiano.
+[OpenAI](https://developers.openai.com/api/docs/guides/prompt-engineering) descrive un buon messaggio come fatto di identità, istruzioni, esempi e contesto. [Anthropic](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview) rimanda alla propria raccolta di buone pratiche e ricorda che non ogni problema si risolve cambiando il prompt.
+
+Sono pagine tecniche, ma i principi valgono per chiunque.
 
 ## I cinque pezzi di un prompt efficace
 
@@ -99,7 +101,9 @@ Il nostro pacchetto base: 4 notti a Ortigia, colazione inclusa, transfer dall'ae
 Scrivi la risposta email che propone il pacchetto e chiede date e numero di persone. Non promettere disponibilità e non inventare servizi che non ti ho elencato. Massimo 150 parole. Dammi prima l'oggetto, poi il testo, in italiano e in inglese.
 ```
 
-La seconda richiesta costa due minuti in più. Il testo che ottieni si usa con pochi ritocchi, quello della prima quasi mai. Resta una bozza: la rileggi, controlli che il transfer sia davvero incluso (lo strumento lo sa perché glielo hai scritto tu) e invii con la tua firma. Per partire da un testo già impostato c'è il [prompt per il preventivo di un pacchetto in Sicilia](/prompt/turismo-agenzie/preventivo-pacchetto-sicilia-agenzia-viaggi/).
+La seconda richiesta costa due minuti in più. Il testo che ottieni si usa con pochi ritocchi, quello della prima quasi mai.
+
+Resta una bozza: la rileggi, controlli che il transfer sia davvero incluso (lo strumento lo sa perché glielo hai scritto tu) e invii con la tua firma. Per partire da un testo già impostato c'è il [prompt per il preventivo di un pacchetto in Sicilia](/prompt/turismo-agenzie/preventivo-pacchetto-sicilia-agenzia-viaggi/).
 
 ## Quando conviene mostrare un esempio?
 
@@ -123,11 +127,13 @@ Si dice cosa ti serve in mano e si vieta di inventare. Se il risultato deve fini
 
 Funziona bene, anche se non sempre. Ti ritrovi con una bozza piena di buchi visibili, invece che con errori nascosti dentro frasi scorrevoli. I buchi si riempiono in un minuto, gli errori nascosti si scoprono quando il cliente protesta.
 
-Un'altra riga che uso per le richieste complesse, come un piano per il personale stagionale: «prima di rispondere, fammi tre domande se qualcosa non ti è chiaro». Fa risparmiare un giro di correzioni. Con compiti lunghi, spezzali: prima chiedi di analizzare, poi di proporre, poi di scrivere. È una tecnica che compare anche nella pagina di Google, sotto «break down complex tasks».
+Un'altra riga che uso per le richieste complesse, come un piano per il personale stagionale: «prima di rispondere, fammi tre domande se qualcosa non ti è chiaro». Fa risparmiare un giro di correzioni.
+
+Con compiti lunghi, spezzali: prima chiedi di analizzare, poi di proporre, poi di scrivere. È una tecnica che compare anche nella pagina di Google, sotto «break down complex tasks».
 
 ## Come si corregge un risultato senza ricominciare?
 
-Si risponde allo strumento nella stessa conversazione, dicendo cosa non va e cosa vuoi. Il secondo risultato di solito è migliore del primo, perché ora sai cosa manca. «Non mi piace» non serve: servono istruzioni precise.
+Si risponde allo strumento nella stessa conversazione, dicendo cosa non va e cosa vuoi. Il secondo risultato di solito è migliore del primo, perché ora sai cosa manca. «Non mi piace» dice poco allo strumento: servono istruzioni precise.
 
 Immagina una trattoria di Trapani e una recensione a tre stelle: «cibo ottimo, ma abbiamo aspettato 50 minuti per i primi». Il primo testo esce lungo e pieno di scuse. Ecco come correggerlo.
 
@@ -139,7 +145,9 @@ Immagina una trattoria di Trapani e una recensione a tre stelle: «cibo ottimo, 
 | Tono freddo | «Dai del tu a chi ha scritto, come faresti al bancone.» |
 | Manca un fatto | «Aggiungi che il sabato sera consigliamo di prenotare.» |
 
-Ogni correzione precisa vale più di tre tentativi vaghi. Quando il testo è giusto, salva il prompt finale in un documento, con le parti variabili tra parentesi graffe. La volta dopo lo copi, cambi i dati e hai già gran parte del lavoro fatta. È così che si costruisce, senza accorgersene, una libreria di prompt per la propria attività. Per le recensioni parti dal [prompt per rispondere a una recensione negativa di un ristorante](/prompt/ristorazione/risposta-recensione-negativa-ristorante/).
+Ogni correzione precisa vale più di tre tentativi vaghi. Quando il testo è giusto, salva il prompt finale in un documento, con le parti variabili tra parentesi graffe. La volta dopo lo copi, cambi i dati e hai già gran parte del lavoro fatta: così nasce, senza accorgersene, una libreria di prompt per la tua attività.
+
+Per le recensioni parti dal [prompt per rispondere a una recensione negativa di un ristorante](/prompt/ristorazione/risposta-recensione-negativa-ristorante/).
 
 ## Quali dati puoi incollare in un prompt?
 
@@ -151,13 +159,15 @@ La regola pratica, che costa dieci secondi: sostituisci i dati con segnaposto (�
 
 ## Cosa non fa un buon prompt, e quanto costa davvero?
 
-Un buon prompt non rende lo strumento più bravo di quello che è. Sul testo se la cava bene. Sui calcoli, sulle norme e sulle notizie recenti no, o non sempre: la stessa pagina di Google suggerisce di affidare i calcoli all'esecuzione di codice e i fatti recenti alla ricerca, non al solo modello. Sulle cose molto locali (la denominazione di un'area vitivinicola, il regolamento del tuo comune, la sagra del paese vicino) i dati di partenza sono scarsi: ciò che serve lo scrivi tu.
+Un buon prompt non rende lo strumento più bravo di quello che è. Sul testo se la cava bene. Sui calcoli, sulle norme e sulle notizie recenti no, o non sempre: la stessa pagina di Google suggerisce di affidare i calcoli all'esecuzione di codice e i fatti recenti alla ricerca, non al solo modello.
 
-C'è poi il tono sicuro. Google, nelle sue indicazioni sui contenuti generati con AI, ricorda che questi modelli non recuperano fatti ma prevedono una sequenza probabile di parole, quindi possono produrre errori (le «allucinazioni», risposte inventate ma plausibili). Per questo prezzi, orari, norme, nomi e date si controllano sempre. Un prompt scritto bene riduce gli errori, non li elimina.
+Sulle cose molto locali (la denominazione di un'area vitivinicola, il regolamento del tuo comune, la sagra del paese vicino) i dati di partenza sono scarsi: ciò che serve lo scrivi tu.
 
-Quanto costa? In denaro poco: per cominciare provi con la versione dello strumento che hai già a disposizione (ChatGPT, Claude, Gemini e Copilot sono gli esempi più noti, situazione a ottobre 2026) e leggi sul sito del fornitore condizioni, limiti e prezzi, che cambiano spesso. In tempo di più di quanto si pensi. La mia stima: un paio d'ore per scrivere i primi tre o quattro prompt buoni, poi qualche minuto di controllo ogni volta che li usi.
+C'è poi il tono sicuro. Google, nelle sue indicazioni sui contenuti generati con AI, ricorda che questi modelli non recuperano fatti ma prevedono una sequenza probabile di parole, quindi possono produrre errori (le «allucinazioni», risposte inventate ma plausibili). Per questo prezzi, orari, norme, nomi e date si controllano sempre: un prompt scritto bene riduce gli errori e non li elimina.
 
-Quando non conviene: un testo che scrivi una volta all'anno si scrive meglio a mano. Per uno che scrivi ogni settimana, il prompt conviene. E se in azienda ognuno scrive i prompt a modo suo, i testi escono con toni diversi: accordatevi su uno o due prompt condivisi e fate tenere l'elenco aggiornato a una persona sola.
+Quanto costa? In denaro poco: per cominciare provi con la versione dello strumento che hai già a disposizione (ChatGPT, Claude, Gemini e Copilot sono gli esempi più noti, situazione a ottobre 2026) e leggi sul sito del fornitore condizioni, limiti e prezzi, che cambiano spesso. In tempo di più di quanto si pensi: la mia stima è un paio d'ore per scrivere i primi tre o quattro prompt buoni, poi qualche minuto di controllo ogni volta che li usi.
+
+Quando non conviene: un testo che scrivi una volta all'anno si scrive meglio a mano. Per uno che scrivi ogni settimana, il prompt conviene. Se in azienda ognuno scrive i prompt a modo suo, i testi escono con toni diversi: accordatevi su uno o due prompt condivisi e fate tenere l'elenco aggiornato a una persona sola.
 
 Per allenarti scegli un compito vero alla volta. La [libreria dei prompt](/prompt/) ha schede per otto settori, con variabili da compilare, esempio d'uso e limiti. Nel calendario degli [eventi sull'AI in Sicilia](/eventi/) trovi incontri e seminari, e nella [directory delle aziende](/aziende/) chi in Sicilia lavora con questi strumenti.
 

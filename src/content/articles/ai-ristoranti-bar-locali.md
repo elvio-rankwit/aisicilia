@@ -55,9 +55,9 @@ related_prompts: [risposta-recensione-negativa-ristorante, descrizioni-piatti-me
 
 </aside>
 
-Prendiamo una trattoria a Catania: 40 coperti a pranzo, un cuoco-proprietario e 2 ragazzi in sala. Le ore libere sono poche, i turisti stranieri aumentano e il menu esiste solo in italiano. Nessuno ha tempo di sedersi a scrivere.
+Prendiamo una trattoria a Catania: 40 coperti a pranzo, un cuoco-proprietario e 2 ragazzi in sala. Le ore libere sono poche, arrivano turisti stranieri e il menu esiste solo in italiano. Nessuno ha tempo di sedersi a scrivere.
 
-Qui l'AI può togliere un po' di lavoro, a condizioni precise. La trattoria è un esempio costruito, non un cliente. ChatGPT, Claude, Gemini e Copilot li cito solo come esempi: le funzioni cambiano in fretta e la situazione è quella di ottobre 2026. Se ti manca il quadro generale, parti da [come cominciare con l'AI in una piccola impresa](/impara/ai-pmi-siciliane-da-dove-cominciare/).
+Qui l'AI può togliere un po' di lavoro, a condizioni precise. La trattoria è un esempio costruito e gli assistenti (ChatGPT, Claude, Gemini, Copilot) sono citati solo come esempi, nella situazione di ottobre 2026. Se ti manca il quadro generale, parti da [come cominciare con l'AI in una piccola impresa](/impara/ai-pmi-siciliane-da-dove-cominciare/).
 
 ## Dove l'AI aiuta davvero in un locale?
 
@@ -81,7 +81,7 @@ Meglio una riga come questa: "Arancina: riso fritto con ripieno di ragù e pisel
 
 Se una descrizione dice "tonno fresco del Mediterraneo" e quella sera il tonno è surgelato, l'errore è tuo. Servono ingredienti veri, forniti da te, e un controllo prima di stampare.
 
-Un ordine di grandezza con numeri ipotetici: 28 piatti in 3 lingue. A mano, con un traduttore online e molta pazienza, 6 ore. Con le bozze dell'assistente e la rilettura di un madrelingua, 2 ore. Si fa una volta a stagione.
+Un ordine di grandezza con numeri ipotetici: 28 piatti in 3 lingue richiedono 6 ore a mano, con un traduttore online e molta pazienza, e 2 ore con le bozze dell'assistente e la rilettura di un madrelingua. Il lavoro si rifà una volta a stagione.
 
 Per le descrizioni c'è un testo da adattare: [descrizioni dei piatti con gli allergeni sotto controllo](/prompt/ristorazione/descrizioni-piatti-menu-ristorante/).
 
@@ -107,7 +107,7 @@ Meglio togliere gli aggettivi da brochure e tenere ciò che si vede: il piatto, 
 
 Un limite concreto: i testi dei post suonano spesso tutti uguali, perché i modelli tendono a un tono medio. Prendi un bar di Palermo che ha una battuta secca come marchio di fabbrica. Gli dai 5 esempi veri di come scrive e correggi il resto a mano.
 
-Numeri ipotetici: 5 post a settimana, 20 minuti l'uno a pensarli e scriverli, 100 minuti. Con le bozze e la rilettura ne bastano 10 ciascuno, 50 minuti. Sono circa 3 ore al mese. Per la ristorazione c'è anche la [raccolta di prompt](/prompt/ristorazione/).
+Numeri ipotetici: 5 post a settimana, a 20 minuti l'uno per pensarli e scriverli, fanno 100 minuti; con le bozze e la rilettura ne bastano 10 ciascuno, quindi 50. Il risparmio è di circa 3 ore al mese. Per la ristorazione c'è anche la [raccolta di prompt](/prompt/ristorazione/).
 
 <aside class="in-pratica">
 
@@ -127,7 +127,7 @@ Le domande sono sempre le stesse: siete aperti, ci sono tavoli per sabato, accet
 
 Un assistente che risponde da solo su WhatsApp o sul sito è un altro discorso. Funziona con poche domande molto ripetitive e orari sempre aggiornati. Funziona male quando i tavoli cambiano di continuo: confermare un tavolo che non c'è è peggio di non rispondere.
 
-Le domande su allergie e intolleranze devono arrivare a una persona, mai a un sistema che improvvisa. Se attivi un assistente, di' al cliente che sta scrivendo con un sistema automatico. Le regole di trasparenza dell'AI Act (Regolamento (UE) 2024/1689) sono nella guida su [AI Act e GDPR](/impara/ai-act-gdpr-cosa-deve-sapere-impresa/) e vanno verificate per il tuo caso.
+Le domande su allergie e intolleranze devono arrivare a una persona, mai a un sistema che improvvisa. Se attivi un assistente, di' al cliente che sta scrivendo con un sistema automatico. Le regole di trasparenza dell'AI Act (Regolamento (UE) 2024/1689) sono spiegate nella guida su [AI Act e GDPR](/impara/ai-act-gdpr-cosa-deve-sapere-impresa/) e vanno verificate per il tuo caso.
 
 ## Turni, ordini e procedure: dove l'AI aiuta in cucina e in sala?
 
@@ -139,17 +139,17 @@ E non affidarle i conti: i modelli possono sbagliare i calcoli, quindi food cost
 
 ## Quali dati di clienti e dipendenti non vanno inseriti?
 
-Il nome di chi prenota, il telefono, l'email, una nota come "tavolo vicino alla finestra, la signora è celiaca": sono dati personali, e l'ultima riguarda la salute. Inserirli in uno strumento di AI è un trattamento a tutti gli effetti. Servono base giuridica, informativa e accordi adeguati con il fornitore, con attenzione a chi ha sede fuori dall'Unione europea.
+Il nome di chi prenota, il telefono, l'email, una nota come "tavolo vicino alla finestra, la signora è celiaca": sono dati personali, e l'ultima riguarda la salute. Passarli a uno strumento di AI è già un trattamento di dati: prima servono base giuridica, informativa e un accordo adeguato con il fornitore, e va guardato dove ha sede.
 
-Il Garante per la protezione dei dati personali raccoglie [materiali sull'AI e i dati personali](https://www.garanteprivacy.it/temi/intelligenza-artificiale). Per il tuo caso serve un professionista. Nel dubbio lavora sui modelli, non sulle prenotazioni vere.
+I [materiali del Garante per la protezione dei dati personali sull'AI](https://www.garanteprivacy.it/temi/intelligenza-artificiale) sono un buon punto di partenza; per il tuo caso serve un professionista. Nel dubbio lavora sui modelli, non sulle prenotazioni vere.
 
 ## Quanto costa davvero, in tempo e in soldi?
 
-Di soldi ne servono pochi. Gli assistenti generalisti hanno versioni gratuite con limiti e piani a pagamento, con prezzi che cambiano spesso: controlla il sito del fornitore il giorno in cui decidi.
+Di soldi ne servono pochi: gli assistenti generalisti hanno versioni gratuite con limiti e piani a pagamento, e le cifre cambiano spesso, quindi guarda la pagina ufficiale del fornitore.
 
 Di tempo ne serve di più: qualche ora per scrivere i primi modelli e un controllo su ogni testo. In alta stagione quel tempo non c'è, quindi i modelli si preparano fuori stagione.
 
-Chi in sala o in cucina usa questi strumenti dovrebbe sapere cosa fanno e cosa no. L'art. 4 dell'AI Act, riscritto dal Digital Omnibus in vigore dal 27 luglio 2026 ([testo PE-CONS 30/26](https://data.consilium.europa.eu/doc/document/PE-30-2026-INIT/en/pdf)), chiede a chi usa strumenti AI di prendere misure per sostenere l'alfabetizzazione del personale, senza imporre un livello specifico a ogni persona. La Commissione fa l'esempio di chi usa ChatGPT per testi o traduzioni ([domande e risposte](https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers)).
+Chi in sala o in cucina usa questi strumenti dovrebbe sapere cosa fanno e cosa no, e l'AI Act lo prevede. L'art. 4, riscritto dal Digital Omnibus in vigore dal 27 luglio 2026 ([testo PE-CONS 30/26](https://data.consilium.europa.eu/doc/document/PE-30-2026-INIT/en/pdf)), chiede a chi usa strumenti AI di prendere misure per sostenere l'alfabetizzazione del personale, senza imporre un livello specifico a ogni persona. La Commissione fa l'esempio di chi usa ChatGPT per testi o traduzioni ([domande e risposte](https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers)).
 
 In concreto, 20 minuti di spiegazione prima del servizio e una pagina di regole bastano per cominciare.
 
@@ -157,6 +157,6 @@ In concreto, 20 minuti di spiegazione prima del servizio e una pagina di regole 
 
 Se servi 20 coperti con un menu di 6 piatti che non cambia, probabilmente non ti serve. Il sapore, il ritmo del servizio e il sorriso con cui si accoglie un tavolo di sconosciuti non passano da un assistente. Se il tuo punto di forza è la voce del titolare, i testi che la esprimono scrivili tu.
 
-Per capire come vengono scelti i locali quando qualcuno chiede a un assistente "dove mangio bene a Trapani stasera", leggi [come farsi trovare da ChatGPT, Gemini e Perplexity](/impara/geo-farsi-trovare-chatgpt-gemini-perplexity/). Per vedere chi lavora con l'AI in provincia c'è l'elenco delle [aziende di Catania](/aziende/provincia/catania/), e per incontri e corsi la pagina degli [eventi](/eventi/).
+Per capire come vengono scelti i locali quando qualcuno chiede a un assistente "dove mangio bene a Trapani stasera", leggi [come farsi trovare da ChatGPT, Gemini e Perplexity](/impara/geo-farsi-trovare-chatgpt-gemini-perplexity/). Chi cerca colleghi con cui confrontarsi trova le [aziende di Catania](/aziende/provincia/catania/) nella directory, e corsi e incontri nella pagina degli [eventi](/eventi/).
 
-Per passare dalle prove ai flussi stabili, la guida successiva è su come [automatizzare le attività ripetitive](/impara/automatizzare-attivita-ripetitive/).
+Dalle prove ai flussi stabili si passa con la guida su come [automatizzare le attività ripetitive](/impara/automatizzare-attivita-ripetitive/).

@@ -42,7 +42,7 @@ sources:
 needs_human_review: true
 faq:
   - question: "Un'impresa che usa ChatGPT o Copilot deve rispettare l'AI Act?"
-    answer: "Come utilizzatore (deployer) sì, ma gli obblighi sono pochi e mirati: misure per l'alfabetizzazione del personale, nessuna pratica vietata, trasparenza nei casi previsti dall'art. 50. Gli obblighi più pesanti riguardano i fornitori e i sistemi ad alto rischio. Se non sei sicuro di dove ricade il tuo uso, chiedi al fornitore e a un professionista."
+    answer: "Come utilizzatore (deployer) hai obblighi pochi e mirati: misure per l'alfabetizzazione del personale, nessuna pratica vietata, trasparenza nei casi previsti dall'art. 50. Gli obblighi più pesanti riguardano i fornitori e i sistemi ad alto rischio. Se non sei sicuro di dove ricade il tuo uso, chiedi al fornitore e a un professionista."
   - question: "Quando diventano obbligatorie le regole sui sistemi di AI ad alto rischio?"
     answer: "Dopo il Digital Omnibus, in vigore dal 27 luglio 2026, dal 2 dicembre 2027 per i sistemi dell'allegato III (per esempio selezione e gestione del personale) e dal 2 agosto 2028 per quelli incorporati in prodotti regolati. Prima era previsto il 2 agosto 2026. Verificato il 22 ottobre 2026: le date possono cambiare ancora."
   - question: "Devo dichiarare che un testo o un'immagine li ha fatti l'AI?"
@@ -72,7 +72,7 @@ related_prompts: [smistare-email-studio-professionale, sintesi-documento-per-cli
 
 Questa guida riguarda temi in cui un errore costa, quindi lavoro solo su fonti ufficiali e scrivo la data di verifica: il **22 ottobre 2026**. Non è consulenza legale. Le norme sull'AI cambiano in fretta, e quest'anno le date dell'AI Act sono già state spostate una volta, a luglio. Prima di prendere una decisione con conseguenze, controlla la fonte e, se serve, senti un professionista.
 
-In aula i titolari di PMI mi fanno quasi sempre due domande. «Devo preoccuparmi dell'AI Act se non costruisco intelligenza artificiale?» E: «Il GDPR vale anche quando uso ChatGPT?». Le risposte sono: un po', e sì.
+In aula i titolari di PMI mi fanno quasi sempre due domande. «Devo preoccuparmi dell'AI Act se non costruisco intelligenza artificiale?» E: «Il GDPR vale anche quando uso ChatGPT?». Rispondo subito: un po' per l'AI Act, sì per il GDPR.
 
 ## Fornitore o utilizzatore: in quale ruolo sei?
 
@@ -80,7 +80,7 @@ Il [Regolamento (UE) 2024/1689](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/i
 
 Prendiamo un B&B di Ortigia che usa un assistente AI per rispondere alle email degli ospiti: è un utilizzatore. Una software house di Catania che costruisce quell'assistente è un fornitore. Gli obblighi più pesanti gravano sulla seconda.
 
-Se fai sviluppare o personalizzi uno strumento e lo offri a nome tuo, il confine si sposta. In quel caso chiedi per iscritto al fornitore chi risponde di cosa: la risposta non sta in una guida, sta nel contratto.
+Se fai sviluppare o personalizzi uno strumento e lo offri a nome tuo, il confine si sposta. In quel caso chiedi per iscritto al fornitore chi risponde di cosa: lo stabilisce il contratto.
 
 | Tema | Chi usa l'AI (deployer) | Chi la sviluppa (provider) |
 |---|---|---|
@@ -114,7 +114,7 @@ Sull'alfabetizzazione in materia di AI l'obbligo è leggero e va documentato con
 
 Per un'impresa vuol dire spiegare a chi lavora cosa può fare lo strumento e cosa no, quali dati non inserire e chi controlla il risultato. Tenere traccia di quella formazione è una scelta ragionevole, anche se il testo non prescrive un formato.
 
-L'[articolo 5](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-5) elenca le pratiche vietate, in vigore dal 2 febbraio 2025. Per quasi tutte le PMI sono scenari lontani: raccolta indiscriminata di immagini facciali, valutazione dei cittadini con punteggi sociali, identificazione biometrica in tempo reale per la polizia. Ce n'è uno che può avvicinarsi a un datore di lavoro: i sistemi che deducono le emozioni delle persone sul luogo di lavoro, vietati salvo motivi medici o di sicurezza. Se un software promette di «capire l'umore» di chi lavora al banco o in reception, fermati e chiedi.
+L'[articolo 5](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-5) elenca le pratiche vietate, in vigore dal 2 febbraio 2025. Per quasi tutte le PMI sono casi lontani: raccolta indiscriminata di immagini facciali, valutazione dei cittadini con punteggi sociali, identificazione biometrica in tempo reale per la polizia. Ce n'è uno che può avvicinarsi a un datore di lavoro: i sistemi che deducono le emozioni delle persone sul luogo di lavoro, vietati salvo motivi medici o di sicurezza. Se un software promette di «capire l'umore» di chi lavora al banco o in reception, fermati e chiedi.
 
 ## Devi dichiarare quando un contenuto è fatto con l'AI?
 
@@ -122,7 +122,7 @@ Dipende dal contenuto e dal ruolo. L'[articolo 50](https://ai-act-service-desk.e
 
 - un chatbot che interagisce con le persone deve essere progettato in modo che sappiano di parlare con una macchina, a meno che non sia ovvio. L'obbligo è del fornitore; se lo strumento è altrui, dillo comunque ai clienti in chiaro;
 - i fornitori di sistemi che generano audio, immagini, video o testo sintetici devono marcare gli output in formato leggibile dalle macchine;
-- chi pubblica un deepfake deve dichiarare che è generato o manipolato artificialmente, con regole più leggere per opere evidentemente artistiche, creative o satiriche;
+- chi pubblica un deepfake (audio, video o immagine falsi ma realistici) deve dichiarare che è generato o manipolato artificialmente, con regole più leggere per opere evidentemente artistiche, creative o satiriche;
 - chi pubblica testi generati dall'AI per informare il pubblico su questioni di interesse pubblico deve dichiararlo, salvo revisione umana con responsabilità editoriale.
 
 Un post promozionale di una cantina non è, di per sé, un testo su una «questione di interesse pubblico». Una foto sintetica che mostra una persona o un luogo reali in modo che sembri autentica è invece una zona da verificare. Nel dubbio dichiara l'uso dell'AI: costa una riga.
@@ -131,7 +131,7 @@ Un post promozionale di una cantina non è, di per sé, un testo su una «questi
 
 L'allegato III comprende, tra gli altri, i sistemi usati per l'occupazione e la gestione dei lavoratori. Una PMI che usasse un software per ordinare i curriculum o valutare le prestazioni del personale potrebbe rientrare in questa categoria.
 
-Per chi li usa, l'[articolo 26](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26) prevede, tra l'altro, uso conforme alle istruzioni, sorveglianza umana affidata a persone competenti, conservazione dei log sotto il proprio controllo per almeno sei mesi, e informazione ai lavoratori e ai loro rappresentanti prima dell'uso sul posto di lavoro. Questi obblighi si applicano dal 2 dicembre 2027, non prima.
+Per chi li usa, l'[articolo 26](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26) prevede, tra l'altro, uso conforme alle istruzioni, sorveglianza umana affidata a persone competenti, conservazione dei log (i registri di funzionamento) sotto il proprio controllo per almeno sei mesi, e informazione ai lavoratori e ai loro rappresentanti prima dell'uso sul posto di lavoro. Questi obblighi si applicano dal 2 dicembre 2027, non prima.
 
 Se oggi stai valutando uno strumento di questo tipo, la domanda al fornitore è una: come lo classificate ai sensi dell'AI Act? Pretendi una risposta scritta, e metti nel contratto chi aggiorna il sistema quando le regole cambiano.
 
@@ -149,7 +149,7 @@ La legge contiene anche deleghe al Governo: i decreti attuativi, quando arrivano
 
 ## Il GDPR vale anche quando usi l'AI?
 
-Il GDPR non è cambiato e si applica anche all'AI. Quando nello strumento entra un dato personale, per il [GDPR](https://www.garanteprivacy.it/regolamentoue/il-testo-del-regolamento) hai fatto un trattamento. Prendiamo un piccolo hotel che incolla le email degli ospiti per avere bozze di risposta: dentro ci sono nomi, date di soggiorno e spesso esigenze alimentari o di mobilità, dati che possono rivelare informazioni sulla salute, cioè una categoria particolare.
+Il GDPR non è cambiato e si applica anche all'AI. Quando nello strumento entra un dato personale, per il [GDPR](https://www.garanteprivacy.it/regolamentoue/il-testo-del-regolamento) (il regolamento europeo sulla protezione dei dati personali) hai fatto un trattamento. Prendiamo un piccolo hotel che incolla le email degli ospiti per avere bozze di risposta: dentro ci sono nomi, date di soggiorno e spesso esigenze alimentari o di mobilità, dati che possono rivelare informazioni sulla salute, cioè una categoria particolare.
 
 Da verificare, in ordine:
 
@@ -163,7 +163,7 @@ Sul rapporto tra GDPR e modelli di AI il Comitato europeo per la protezione dei 
 
 ## Quando serve un professionista, e quanto costa farsi aiutare?
 
-Non per tutto. Per leggere le condizioni del fornitore e scrivere una regola interna basta un pomeriggio. Chiamerei un avvocato o un consulente privacy in questi casi: dati sanitari o altre categorie particolari in grandi volumi, strumenti per selezionare o valutare il personale, chatbot che prendono decisioni che incidono sui clienti, fornitori extra UE senza garanzie chiare, qualsiasi dubbio sull'obbligo di dichiarare l'uso dell'AI.
+Per leggere le condizioni del fornitore e scrivere una regola interna basta un pomeriggio. Chiamerei un avvocato o un consulente privacy in questi casi: dati sanitari o altre categorie particolari in grandi volumi, strumenti per selezionare o valutare il personale, chatbot che prendono decisioni che incidono sui clienti, fornitori extra UE senza garanzie chiare, qualsiasi dubbio sull'obbligo di dichiarare l'uso dell'AI.
 
 Il costo è reale. Una consulenza ben fatta richiede tempo e denaro e rende poco se arrivi senza sapere cosa usi. Prepara l'elenco degli strumenti, dei dati che entrano e dei fornitori: è metà del lavoro, e lo puoi fare da solo.
 

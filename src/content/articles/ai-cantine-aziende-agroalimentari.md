@@ -62,7 +62,7 @@ related_prompts: [scheda-tecnica-vino-export-inglese-tedesco, descrizione-prodot
 
 </aside>
 
-Prendiamo una cantina sull'Etna con 12 etichette, un sito in italiano e un catalogo in inglese fermo a tre vendemmie fa. Un importatore tedesco chiede le schede aggiornate entro una settimana, e in azienda ci sono il titolare e una collaboratrice part-time. È un esempio, non un cliente: serve a far vedere dove l'AI fa risparmiare ore.
+Prendiamo una cantina sull'Etna con 12 etichette, un sito in italiano e un catalogo in inglese fermo a 3 vendemmie fa. Un importatore tedesco chiede le schede aggiornate entro una settimana, e in azienda ci sono il titolare e una collaboratrice part-time. È un esempio, non un cliente: serve a far vedere dove l'AI fa risparmiare ore.
 
 Gli assistenti citati nella guida (ChatGPT, Claude, Gemini, Copilot) sono esempi, e funzioni e prezzi sono quelli di ottobre 2026. Se parti da zero, leggi prima [da dove cominciare con l'AI in una PMI siciliana](/impara/ai-pmi-siciliane-da-dove-cominciare/).
 
@@ -85,7 +85,7 @@ L'Italia è un po' sotto la media europea. Nel 2025 usa almeno una tecnologia di
 
 Parti da una tabella con una riga per prodotto e i soli dati che puoi garantire, poi chiedi all'assistente una scheda per ogni riga. Il metodo è noioso e dà risultati.
 
-1. Costruisci la tabella: nome, annata, vitigni o ingredienti, zona, gradazione, formato, abbinamenti che consigli, le tue note grezze e tre cose da non dire.
+1. Costruisci la tabella: nome, annata, vitigni o ingredienti, zona, gradazione, formato, abbinamenti che consigli, le tue note grezze e 3 cose da non dire.
 2. Scrivi le istruzioni: tono della casa, lunghezza, e la regola «usa solo i dati della tabella; se manca un'informazione, scrivi dato mancante».
 3. Fai generare una scheda di prova per un solo prodotto e correggila.
 4. Se la prova ti convince, genera le altre.
@@ -95,7 +95,9 @@ Il vantaggio è la coerenza. Le 12 schede escono con la stessa struttura e lo st
 
 Il rischio è che l'assistente riempia i vuoti. Dove la tabella tace, lui inventa: un affinamento in barrique mai fatto, un abbinamento che nessuno ha provato, un'altitudine del vigneto. Per questo il passo 2 non si salta.
 
-Sulle note di degustazione sono ancora più netto. Se chiedi «descrivi il profumo di questo Nerello Mascalese», ottieni un elenco credibile di fiori e frutti, identico a quello di mille altri vini. Dagli le note di chi il vino lo ha in bocca e chiedigli di renderle leggibili. Nella raccolta di [prompt per agroalimentare e vino](/prompt/agroalimentare-vino/) c'è un modello per la [scheda tecnica in italiano, inglese e tedesco](/prompt/agroalimentare-vino/scheda-tecnica-vino-export-inglese-tedesco/).
+Sulle note di degustazione sono ancora più netto. Se chiedi «descrivi il profumo di questo Nerello Mascalese», ottieni un elenco credibile di fiori e frutti, identico a quello di mille altri vini. Dagli le note di chi il vino lo ha in bocca e chiedigli di renderle leggibili.
+
+Nella raccolta di [prompt per agroalimentare e vino](/prompt/agroalimentare-vino/) c'è un modello per la [scheda tecnica in italiano, inglese e tedesco](/prompt/agroalimentare-vino/scheda-tecnica-vino-export-inglese-tedesco/).
 
 ## Le traduzioni dell'AI bastano per l'export?
 
@@ -107,7 +109,7 @@ I punti deboli sono tre e si ripetono.
 - Denominazioni: i nomi di DOC, IGT e DOP non si traducono né si adattano: si copiano come compaiono nei documenti ufficiali.
 - Unità di misura e cifre: un errore qui scorre benissimo dentro una frase perfetta.
 
-Due accorgimenti funzionano. Il primo è un glossario di 20 o 30 termini tuoi, da incollare ogni volta nelle istruzioni («contrada» resta «contrada», «Etna Rosso» non si traduce). Il secondo è far rivedere il testo definitivo a un madrelingua o a un importatore di fiducia. Se serve una traduzione con valore legale o contrattuale, si va da un traduttore professionale: un assistente non basta.
+Due accorgimenti funzionano: un glossario di 20 o 30 termini tuoi, da incollare ogni volta nelle istruzioni («contrada» resta «contrada», «Etna Rosso» non si traduce), e la revisione del testo definitivo da parte di un madrelingua o di un importatore di fiducia. Se serve una traduzione con valore legale o contrattuale, si va da un traduttore professionale: un assistente non basta.
 
 ## Chi decide che cosa va scritto in etichetta?
 
@@ -123,9 +125,9 @@ Su indicazioni salutistiche, claim come «biologico» o «senza solfiti aggiunti
 
 ## Come si scrive a importatori e buyer senza esporre dati personali?
 
-Con modelli di email che usano segnaposto, inserendo i dati veri solo nella tua posta o nel gestionale. Nome, ruolo e indirizzo di una persona sono dati personali anche quando lavora per un'azienda, e incollarli in un assistente richiede prima di aver chiarito le regole. Il Garante per la protezione dei dati personali raccoglie [materiali sull'AI e la protezione dei dati](https://www.garanteprivacy.it/temi/intelligenza-artificiale); per il tuo caso serve il parere di un professionista.
+Con modelli di email che usano segnaposto, inserendo i dati veri solo nella tua posta o nel gestionale. Nome, ruolo e indirizzo di una persona sono dati personali anche quando lavora per un'azienda, e incollarli in un assistente richiede prima di aver chiarito le regole. Per orientarti ci sono i [materiali del Garante per la protezione dei dati personali](https://www.garanteprivacy.it/temi/intelligenza-artificiale); per il tuo caso serve il parere di un professionista.
 
-Prendiamo l'ipotesi di 40 contatti raccolti a una fiera. Il modello è uno solo: ringraziamento, due righe su ciò che hai visto insieme, proposta del passo successivo, con segnaposto per «nome», «azienda» e «fiera». L'assistente ti scrive la bozza in tedesco o in inglese, tu la adatti e la personalizzi nel programma di posta. Esiste anche un [prompt per rispondere a un buyer estero](/prompt/agroalimentare-vino/risposta-buyer-estero-agroalimentare/) che chiede listino, minimi e campioni.
+Ipotizza 40 contatti raccolti a una fiera. Il modello è uno solo: ringraziamento, due righe su ciò che hai visto insieme, proposta del passo successivo, con segnaposto per «nome», «azienda» e «fiera». L'assistente ti scrive la bozza in tedesco o in inglese, tu la adatti e la personalizzi nel programma di posta. Esiste anche un [prompt per rispondere a un buyer estero](/prompt/agroalimentare-vino/risposta-buyer-estero-agroalimentare/) che chiede listino, minimi e campioni.
 
 Ci sono cose che l'AI non sa e non deve inventare: prezzi, sconti, tempi di consegna, condizioni di pagamento, documenti doganali. Le definisci tu, con lo spedizioniere e con la Camera di Commercio, e le scrivi nella bozza prima dell'invio.
 
@@ -152,11 +154,13 @@ Se hai uno spaccio o un'esperienza turistica, molti compiti coincidono con quell
 
 ## Quanto costa davvero, in tempo e in denaro?
 
-In denaro poco, in tempo di più. Esistono versioni gratuite con limiti e piani a pagamento, con prezzi che cambiano di continuo: guarda il sito del fornitore il giorno in cui scegli. In tempo, costruire tabella, glossario e istruzioni richiede una giornata ben fatta (è una mia stima), e ogni scheda va riletta.
+In denaro poco, in tempo di più. Esistono versioni gratuite con limiti e piani a pagamento, e i prezzi in vigore si leggono solo sulla pagina del fornitore. In tempo, costruire tabella, glossario e istruzioni richiede una giornata ben fatta (è una mia stima), e ogni scheda va riletta.
 
 Si ripaga se hai molti prodotti o molte lingue. Con tre referenze e un solo mercato scrivere a mano costa meno.
 
-C'è poi un costo di formazione. L'articolo 4 dell'AI Act, riscritto dal Digital Omnibus in vigore dal 27 luglio 2026 ([testo PE-CONS 30/26](https://data.consilium.europa.eu/doc/document/PE-30-2026-INIT/en/pdf)), chiede a chi usa strumenti AI di prendere misure per sostenere l'alfabetizzazione di chi ci lavora, tenendo conto di esperienza e contesto d'uso. Non impone un livello specifico a ogni persona. Per testi e traduzioni la Commissione fa l'esempio dei rischi da spiegare, come le risposte inventate dal modello ([domande e risposte della Commissione](https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers)). Il quadro completo è in [AI Act e GDPR: cosa deve sapere un'impresa](/impara/ai-act-gdpr-cosa-deve-sapere-impresa/).
+C'è poi un costo di formazione. L'articolo 4 dell'AI Act, riscritto dal Digital Omnibus in vigore dal 27 luglio 2026 ([testo PE-CONS 30/26](https://data.consilium.europa.eu/doc/document/PE-30-2026-INIT/en/pdf)), chiede a chi usa strumenti AI di prendere misure per sostenere l'alfabetizzazione di chi ci lavora, tenendo conto di esperienza e contesto d'uso, senza imporre un livello specifico a ogni persona.
+
+Per testi e traduzioni la Commissione fa l'esempio dei rischi da spiegare, come le risposte inventate dal modello ([domande e risposte della Commissione](https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers)). Il quadro completo è in [AI Act e GDPR: cosa deve sapere un'impresa](/impara/ai-act-gdpr-cosa-deve-sapere-impresa/).
 
 ## Quando non conviene usare l'AI?
 
@@ -169,4 +173,4 @@ Non conviene quando il valore del prodotto è la voce del produttore, quando i d
 | Il testo è una prima versione che una persona rivede | Serve una traduzione con valore legale o contrattuale |
 | Sai chi controlla ogni numero prima della pubblicazione | Nessuno in azienda ha tempo di rileggere |
 
-Per sapere come gli assistenti scelgono quali cantine consigliare quando un turista o un buyer chiede «vini dell'Etna da provare», leggi [come farsi trovare da ChatGPT, Gemini e Perplexity](/impara/geo-farsi-trovare-chatgpt-gemini-perplexity/). Per vedere chi lavora con l'AI nella zona c'è l'elenco delle [aziende di Catania](/aziende/provincia/catania/), e per seminari e fiere la pagina degli [eventi](/eventi/). Quando hai le basi, la guida sull'[automatizzare le attività ripetitive](/impara/automatizzare-attivita-ripetitive/) spiega come far lavorare insieme tabella, schede ed email.
+Per sapere come gli assistenti scelgono quali cantine consigliare quando un turista o un buyer chiede «vini dell'Etna da provare», leggi [come farsi trovare da ChatGPT, Gemini e Perplexity](/impara/geo-farsi-trovare-chatgpt-gemini-perplexity/). Altre aziende della zona sono nella directory delle [aziende di Catania](/aziende/provincia/catania/), mentre seminari e fiere stanno nella pagina degli [eventi](/eventi/). Quando hai le basi, la guida su come [automatizzare le attività ripetitive](/impara/automatizzare-attivita-ripetitive/) spiega come far lavorare insieme tabella, schede ed email.

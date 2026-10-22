@@ -42,7 +42,7 @@ faq:
   - question: "Devo bloccare i crawler delle AI nel robots.txt?"
     answer: "Dipende da cosa vuoi. Bloccare OAI-SearchBot o PerplexityBot ti toglie dalle risposte di ricerca di quei servizi. Bloccare GPTBot, ClaudeBot o Google-Extended esprime invece il rifiuto all'addestramento dei modelli. Sono scelte separate: decidile una per una, tenendo la ricerca aperta se vuoi essere trovato."
   - question: "Quanto tempo ci vuole perché una modifica al sito si veda nelle risposte AI?"
-    answer: "Non c'è una risposta unica. OpenAI indica circa 24 ore perché i suoi sistemi recepiscano una modifica al robots.txt per la ricerca, mentre Google parla di giorni o mesi per una nuova scansione delle pagine. Ragiona in settimane e rifai la prova ogni mese, senza aspettarti effetti immediati."
+    answer: "Dipende dal servizio. OpenAI indica circa 24 ore perché i suoi sistemi recepiscano una modifica al robots.txt per la ricerca, mentre Google parla di giorni o mesi per una nuova scansione delle pagine. Ragiona in settimane e rifai la prova ogni mese, senza aspettarti effetti immediati."
   - question: "Come faccio a sapere se compaio nelle risposte di ChatGPT, Gemini e Perplexity?"
     answer: "Scrivi dieci domande come le farebbe un cliente, provale su ciascuno strumento in una chat nuova e annota se compari e quali fonti vengono citate. Ripeti ogni mese. Su Google, le visite dalle funzioni AI sono incluse nel rapporto Prestazioni di Search Console, nel tipo di ricerca Web."
   - question: "Che differenza c'è tra SEO e GEO?"
@@ -64,7 +64,7 @@ related_prompts: [descrizione-camere-sito-ospitalita, storia-laboratorio-artigia
 
 </aside>
 
-«Voglio comparire su ChatGPT». È una frase che sento spesso in aula, e la mia risposta è meno brillante della domanda: si lavora, non si compra, e nessuno può promettertelo. Questa guida mette in ordine cosa funziona, cosa dichiarano i fornitori nella loro documentazione e dove finisce ciò che puoi aspettarti. Situazione a ottobre 2026: le regole dei motori cambiano, per questo ogni dato ha il link alla fonte.
+«Voglio comparire su ChatGPT» è una frase che sento spesso in aula, e la mia risposta è meno brillante della domanda: la citazione non si compra e nessuno può promettertela. Questa guida mette in ordine cosa funziona, cosa dichiarano i fornitori nella loro documentazione e dove finisce ciò che puoi aspettarti. Situazione a ottobre 2026: le regole dei motori cambiano, per questo ogni dato ha il link alla fonte.
 
 ## Che cos'è la GEO e perché riguarda anche un B&B di Ortigia?
 
@@ -72,15 +72,17 @@ GEO sta per Generative Engine Optimization: il lavoro che serve a far sì che i 
 
 Il motivo per cui ti riguarda è pratico. Un cliente non scrive più «B&B Ortigia»: scrive «un posto tranquillo a Ortigia a settembre, con colazione senza glutine, a piedi dal mare». La risposta nomina due o tre strutture. Se non ci sei, per quel cliente non esisti.
 
-La mia posizione, da consulente SEO: la GEO è SEO fatta con più disciplina sui contenuti, più il lavoro sulle fonti che stanno fuori dal tuo sito.
+La mia posizione, da consulente SEO: la GEO è SEO (il lavoro per farsi trovare nei motori di ricerca) fatta con più disciplina sui contenuti, più il lavoro sulle fonti che stanno fuori dal tuo sito.
 
 ## Come scelgono le fonti ChatGPT, Gemini e Perplexity?
 
-Hanno due strade, e solo una è alla tua portata. La prima è la memoria del modello: ciò che ha imparato durante l'addestramento. Su questa una piccola impresa non ha leva diretta. Se il modello «sa» che la tua cantina esiste ma sbaglia l'indirizzo, non puoi correggerlo scrivendogli: devi sistemare le fonti pubbliche da cui impara.
+Hanno due strade, e solo una è alla tua portata. La prima è la memoria del modello: ciò che ha imparato durante l'addestramento.
+
+Su questa una piccola impresa non ha leva diretta. Se il modello «sa» che la tua cantina esiste ma sbaglia l'indirizzo, non puoi correggerlo scrivendogli: devi sistemare le fonti pubbliche da cui impara.
 
 La seconda è la ricerca in tempo reale, detta anche grounding (la risposta viene ancorata a pagine consultate in quel momento). Lo strumento riformula la domanda, cerca pagine, le legge e compone una risposta con i link. Qui puoi agire, perché dipende da pagine che esistono oggi.
 
-Google lo dice così nella guida [AI features and your website](https://developers.google.com/search/docs/appearance/ai-features), aggiornata il 10 dicembre 2025: per AI Overviews e AI Mode non ci sono requisiti aggiuntivi né interventi speciali, e la pagina deve essere indicizzata e idonea a mostrare uno snippet. Le funzioni possono usare il «query fan-out», cioè più ricerche correlate su sottotemi diversi. Il tuo contenuto può quindi essere pescato per una domanda secondaria a cui non avevi pensato.
+Google lo dice così nella guida [AI features and your website](https://developers.google.com/search/docs/appearance/ai-features), aggiornata il 10 dicembre 2025: per AI Overviews e AI Mode non ci sono requisiti aggiuntivi né interventi speciali, e la pagina deve essere indicizzata e idonea a mostrare uno snippet (l'anteprima di testo nei risultati). Le funzioni possono usare il «query fan-out», cioè più ricerche correlate su sottotemi diversi. Il tuo contenuto può quindi essere pescato per una domanda secondaria a cui non avevi pensato.
 
 I criteri esatti con cui ChatGPT e Perplexity scelgono le fonti non sono pubblicati. Quello che sappiamo viene dalla documentazione dei loro crawler, il programma che scarica le pagine, e da prove ripetute.
 
@@ -104,7 +106,9 @@ Fonti: OpenAI, [Perplexity](https://docs.perplexity.ai/guides/bots), [Anthropic]
 
 Io, per un'attività che vive di prenotazioni e di telefonate, terrei aperta la ricerca. Sull'addestramento non c'è una risposta giusta: se il tuo patrimonio sono testi originali (ricettari, guide, schede tecniche), rifiutarlo è una scelta ragionevole, se vendi camere pesa meno. Decidilo con chi gestisce il sito e fatti scrivere cosa è consentito.
 
-C'è poi un guaio da escludere subito: crawler bloccati da un firewall, da una rete di consegna dei contenuti o da un plugin di sicurezza, senza che nessuno se ne accorga. Google consiglia di consentire la scansione anche nelle infrastrutture di hosting. Perplexity indica di abbinare nome del crawler e indirizzi IP pubblicati, mentre Anthropic sconsiglia di bloccare per IP, perché il crawler non riesce più a leggere il robots.txt. Se vuoi limitare gli estratti in Google, esistono i controlli nosnippet e max-snippet.
+C'è poi un guaio da escludere subito: crawler bloccati da un firewall, da una rete di consegna dei contenuti o da un plugin di sicurezza, senza che nessuno se ne accorga. Google consiglia di consentire la scansione anche nelle infrastrutture di hosting. Perplexity indica di abbinare nome del crawler e indirizzi IP pubblicati, mentre Anthropic sconsiglia di bloccare per IP, perché il crawler non riesce più a leggere il robots.txt.
+
+Se vuoi limitare gli estratti in Google, esistono i controlli nosnippet e max-snippet.
 
 ## Da dove si comincia? Il test con le domande dei clienti
 
@@ -121,11 +125,13 @@ Si comincia guardando cosa risponde oggi lo strumento a una domanda vera, prima 
 
 La riga è inventata, serve solo a far capire come si compila. Le risposte variano da persona a persona e da un giorno all'altro: se una domanda è importante, provala due o tre volte e non fidarti del singolo risultato.
 
-Di solito scopri due cose. Che i nomi consigliati non sono quelli che immaginavi. E che le fonti citate sono pagine su cui puoi intervenire, almeno in parte: il tuo sito, la tua scheda su Google, un portale, un giornale locale. Da lì parte il lavoro.
+Di solito scopri due cose: i nomi consigliati non sono quelli che immaginavi, e le fonti citate sono pagine su cui puoi intervenire, almeno in parte (il tuo sito, la tua scheda su Google, un portale, un giornale locale). Da lì parte il lavoro.
 
 ## Quali dati devono essere identici ovunque?
 
-Nome, indirizzo, telefono, orari e categoria vanno scritti allo stesso modo in ogni posto dove compari. Prendiamo una cantina sull'Etna che si presenta come «Cantina Rossi», «Rossi Società Agricola» e «Azienda Rossi Vini» a seconda del sito. Per una persona sono la stessa cosa. Per un sistema che incrocia le fonti no, o non sempre.
+Nome, indirizzo, telefono, orari e categoria vanno scritti allo stesso modo in ogni posto dove compari. Prendiamo una cantina sull'Etna che si presenta come «Cantina Rossi», «Rossi Società Agricola» e «Azienda Rossi Vini» a seconda del sito.
+
+Per una persona sono la stessa cosa. Per un sistema che incrocia le fonti no, o non sempre.
 
 Scegli una sola forma del nome e usala ovunque. Le [linee guida di Google Business Profile](https://support.google.com/business/answer/3038177) chiedono che il nome corrisponda a quello reale, quello dell'insegna, senza slogan, orari o parole in più. L'indirizzo deve essere quello fisico, il telefono sotto il controllo dell'impresa, il sito quello dell'attività.
 
@@ -158,27 +164,31 @@ Altre regole, in linea con le [buone pratiche di Google](https://developers.goog
 - ogni pagina è raggiungibile da altre pagine del sito con link interni;
 - prezzi, orari e condizioni portano la data dell'ultimo aggiornamento, e la data si cambia solo se cambia il contenuto.
 
-Se usi l'AI per le bozze, ricordati che Google nella [guida sui contenuti generati con AI](https://developers.google.com/search/docs/fundamentals/using-gen-ai-content) (aggiornata il 1 ottobre 2026) considera l'AI utile per ricercare e strutturare, ma avverte che molte pagine prodotte senza valore per l'utente possono violare le regole sullo spam. La libreria offre prompt come la [descrizione delle camere per il sito](/prompt/ospitalita/descrizione-camere-sito-ospitalita/) e la [storia di un laboratorio artigiano](/prompt/artigianato-manifattura/storia-laboratorio-artigiano-sito/). Per ottenere meno testo generico leggi [come scrivere prompt efficaci senza essere tecnici](/impara/scrivere-prompt-efficaci-senza-essere-tecnici/). Le informazioni, però, devono essere tue.
+Se usi l'AI per le bozze, ricordati che Google nella [guida sui contenuti generati con AI](https://developers.google.com/search/docs/fundamentals/using-gen-ai-content) (aggiornata il 1 ottobre 2026) considera l'AI utile per ricercare e strutturare, ma avverte che molte pagine prodotte senza valore per l'utente possono violare le regole sullo spam. La libreria offre prompt come la [descrizione delle camere per il sito](/prompt/ospitalita/descrizione-camere-sito-ospitalita/) e la [storia di un laboratorio artigiano](/prompt/artigianato-manifattura/storia-laboratorio-artigiano-sito/). Per ottenere meno testo generico leggi [come scrivere prompt efficaci senza essere tecnici](/impara/scrivere-prompt-efficaci-senza-essere-tecnici/).
 
 ## I dati strutturati e i file speciali servono davvero?
 
-Servono per mettere ordine, non per sbloccare le funzioni AI. I dati strutturati sono le stesse informazioni della pagina scritte in un formato che le macchine leggono senza ambiguità. Per l'AI Google dichiara che non c'è nessuno schema speciale da aggiungere e che non servono nuovi file leggibili dalle macchine né file di testo pensati per l'AI.
+Servono a mettere ordine nel sito e non sbloccano le funzioni AI. I dati strutturati sono le stesse informazioni della pagina scritte in un formato che le macchine leggono senza ambiguità. Per l'AI Google dichiara che non c'è nessuno schema speciale da aggiungere e che non servono nuovi file leggibili dalle macchine né file di testo pensati per l'AI.
 
 Per un'attività locale, la [pagina sul markup LocalBusiness](https://developers.google.com/search/docs/appearance/structured-data/local-business) richiede nome e indirizzo e raccomanda coordinate, orari, telefono, URL, fascia di prezzo e, per i ristoranti, l'indirizzo del menu. Google precisa che le valutazioni aggregate sono pensate per i siti che raccolgono recensioni su altre attività: non è un campo da compilare con le tue.
 
-Due regole. I dati devono coincidere con ciò che l'utente vede nella pagina, e Google non garantisce che le funzioni basate sui dati strutturati compaiano. Io li inserisco perché costringono a tenere il sito coerente. Se qualcuno te li vende come scorciatoia per le risposte AI, diffida.
+Le regole sono due: i dati devono coincidere con ciò che l'utente vede nella pagina, e Google non garantisce che le funzioni basate sui dati strutturati compaiano. Io li inserisco perché costringono a tenere il sito coerente. Se qualcuno te li vende come scorciatoia per le risposte AI, diffida.
 
 ## Contano le recensioni e le menzioni di altri siti?
 
 Contano, e per questo non conviene limitarsi alle tue pagine. La guida di Google sul [posizionamento locale](https://support.google.com/business/answer/7091) dice che i risultati locali dipendono da pertinenza, distanza e notorietà, e che più recensioni e valutazioni positive possono aiutare. Rispondere alle recensioni mostra attenzione, e le attività con dati completi e accurati hanno più probabilità di comparire.
 
-Le recensioni si guadagnano. Non comprarle e non pilotarle: oltre al rischio con le piattaforme, un sistema che incrocia fonti diverse prima o poi trova le incoerenze. Per le risposte ai clienti arrabbiati ci sono i [prompt per la gestione delle recensioni](/prompt/ospitalita/) e quello per [rispondere a una recensione negativa su Booking](/prompt/ospitalita/risposta-recensione-negativa-booking-ospitalita/). Le recensioni contengono nomi di persone: prima di incollarle in uno strumento AI leggi cosa dice [AI Act e GDPR: cosa deve sapere un'impresa](/impara/ai-act-gdpr-cosa-deve-sapere-impresa/).
+Le recensioni si guadagnano. Non comprarle e non pilotarle: oltre al rischio con le piattaforme, un sistema che incrocia fonti diverse prima o poi trova le incoerenze.
 
-Poi guarda le fonti emerse dal test. Se sono portali, giornali locali, associazioni di categoria o video, lì conviene esserci, con contributi veri e con la stessa forma del nome. Correggere una scheda in un elenco soci online, per esempio, è un intervento semplice, spesso più rapido di un rifacimento del sito. Se lavori con l'AI c'è anche l'[elenco delle aziende AI siciliane](/aziende/), con le pagine per provincia come quella di [Ragusa](/aziende/provincia/ragusa/).
+Per le risposte ai clienti arrabbiati ci sono i [prompt per la gestione delle recensioni](/prompt/ospitalita/) e quello per [rispondere a una recensione negativa su Booking](/prompt/ospitalita/risposta-recensione-negativa-booking-ospitalita/). Le recensioni contengono nomi di persone: prima di incollarle in uno strumento AI leggi cosa dice [AI Act e GDPR: cosa deve sapere un'impresa](/impara/ai-act-gdpr-cosa-deve-sapere-impresa/).
+
+Poi guarda le fonti emerse dal test. Se sono portali, giornali locali, associazioni di categoria o video, lì conviene esserci, con contributi veri e con la stessa forma del nome. Correggere una scheda in un elenco soci online, per esempio, è un intervento semplice, spesso più rapido di un rifacimento del sito.
+
+Se lavori con l'AI c'è anche l'[elenco delle aziende AI siciliane](/aziende/), con le pagine per provincia come quella di [Ragusa](/aziende/provincia/ragusa/).
 
 ## Cosa non si può garantire, e quanto costa davvero?
 
-Non si può garantire la citazione. Google scrive che indicizzazione e visualizzazione non sono garantite, OpenAI e Perplexity descrivono i loro crawler come strumenti per essere trovati, non promettono posizioni. Chi vende un posto fisso nelle risposte ti racconta una storia.
+Non si può garantire la citazione. Google scrive che indicizzazione e visualizzazione non sono garantite, OpenAI e Perplexity descrivono i loro crawler come strumenti per essere trovati, non promettono posizioni. Chi vende un posto fisso nelle risposte AI non può citare nessuna documentazione ufficiale a sostegno.
 
 Altri limiti, in ordine di fastidio:
 
@@ -187,7 +197,9 @@ Altri limiti, in ordine di fastidio:
 - i risultati dipendono dai concorrenti: se il ristorante accanto ha pagine più chiare delle tue, ti supera, a prescindere da quanto hai lavorato;
 - le risposte variano, quindi la misura è un indizio, non un numero preciso.
 
-Il costo vero è la manutenzione. Orari che cambiano, menu stagionali, regole di cancellazione: ogni modifica va riportata ovunque. Come ordine di grandezza (mia stima, dipende dal numero di pagine): un pomeriggio per allineare i dati di sito e scheda Google, mezz'ora al mese per la prova, e qualcuno che aggiorna le pagine quando le informazioni cambiano. I servizi a pagamento di monitoraggio possono far risparmiare tempo se hai molte pagine. Prima di pagare, chiedi una prova e confrontala con la tua tabella.
+Il costo vero è la manutenzione. Orari che cambiano, menu stagionali, regole di cancellazione: ogni modifica va riportata ovunque. Come ordine di grandezza (mia stima, dipende dal numero di pagine): un pomeriggio per allineare i dati di sito e scheda Google, mezz'ora al mese per la prova, e qualcuno che aggiorna le pagine quando le informazioni cambiano.
+
+I servizi a pagamento di monitoraggio possono far risparmiare tempo se hai molte pagine. Prima di pagare, chiedi una prova e confrontala con la tua tabella.
 
 Se non hai nessuno che faccia manutenzione, parti da scheda Google e sito e tralascia il resto. Se il tuo settore è l'ospitalità, trovi esempi in [AI per hotel, B&B e strutture ricettive](/impara/ai-hotel-bb-strutture-ricettive/). Per chi produce vino e cibo c'è [AI per cantine e aziende agroalimentari](/impara/ai-cantine-aziende-agroalimentari/).
 

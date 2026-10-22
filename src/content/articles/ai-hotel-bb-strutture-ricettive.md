@@ -54,15 +54,15 @@ related_prompts: [risposta-recensione-negativa-booking-ospitalita, email-pre-arr
 
 </aside>
 
-Prendiamo un B&B a Ortigia con 6 camere, una titolare che fa colazione, check-in e pulizie, e una casella email che si riempie la sera. Non serve un reparto tecnologico. Serve capire quali pezzi di quel lavoro sono testo, ripetuti e controllabili: lì l'AI aiuta, il resto resta tuo.
+Prendiamo un B&B a Ortigia con 6 camere, una titolare che fa colazione, check-in e pulizie, e una casella email che si riempie la sera. Per usare l'AI basta capire quali pezzi di quel lavoro sono testo, ripetuti e controllabili: lì aiuta, il resto resta tuo.
 
-Gli esempi sono costruiti per spiegare, non sono casi di clienti. Gli strumenti che cito (ChatGPT, Claude, Gemini, Copilot) valgono come esempi e le funzioni cambiano spesso: la situazione descritta è quella di ottobre 2026. Se parti da zero, leggi prima [da dove cominciare con l'AI in una piccola impresa](/impara/ai-pmi-siciliane-da-dove-cominciare/).
+Gli esempi di questa guida sono ipotesi costruite per spiegare, senza clienti reali. ChatGPT, Claude, Gemini e Copilot compaiono solo come esempi di strumenti, nella situazione di ottobre 2026. Se parti da zero, leggi prima [da dove cominciare con l'AI in una piccola impresa](/impara/ai-pmi-siciliane-da-dove-cominciare/).
 
 ## Dove l'AI serve davvero in una struttura ricettiva?
 
 Dove si scrive molto e le informazioni sono già tue. Eurostat rileva che tra le imprese europee che usano l'AI, il 34,70% la applica a marketing e vendite e il 31,05% ad amministrazione e gestione. Nel settore dell'alloggio, marketing e vendite arrivano al 58,82% ([Eurostat, dati 2025](https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Use_of_artificial_intelligence_in_enterprises), imprese con almeno 10 addetti). Scrivere e comunicare è la parte del tuo lavoro più vicina a quelle voci.
 
-Questa tabella riassume i compiti dove vale la pena provare.
+Questi sono i compiti da cui partire.
 
 | Compito | Cosa dai all'assistente | Rischio principale | Controllo |
 |---|---|---|---|
@@ -79,7 +79,7 @@ Il rischio è la risposta fotocopia: "Gentile ospite, la ringraziamo per il suo 
 
 Per le recensioni negative l'AI non decide cosa rispondere. Ti aiuta a scrivere con calma quando sei arrabbiato, e la scelta su rimborsi o scuse resta tua. Nella [prompt library per l'ospitalità](/prompt/ospitalita/) c'è un modello per [rispondere a una recensione negativa su Booking senza mettersi sulla difensiva](/prompt/ospitalita/risposta-recensione-negativa-booking-ospitalita/).
 
-Un conto ipotetico, per dare un ordine di grandezza. Il B&B di Ortigia riceve 8 recensioni al mese e ne risponde a ciascuna in 10 minuti: 80 minuti. Con la bozza e la rilettura ne bastano 5: 40 minuti. Il risparmio è di 40 minuti al mese, poco.
+Un conto ipotetico, per dare un ordine di grandezza: il B&B di Ortigia riceve 8 recensioni al mese e risponde a ciascuna in 10 minuti, 80 in tutto. Con la bozza e la rilettura ne bastano 5, cioè 40 minuti. Il risparmio è di 40 minuti al mese, poco.
 
 Una regola netta: niente recensioni finte, né per te né contro altri.
 
@@ -87,9 +87,9 @@ Una regola netta: niente recensioni finte, né per te né contro altri.
 
 Pre-arrivo, istruzioni per il check-in, orari della colazione, regole sul rumore, come arrivare in barca alle isole. Sono testi che ripeti identici decine di volte e che in inglese, tedesco o francese ti costano fatica.
 
-Qui l'AI traduce e adatta bene, di solito. Scrivi tu il testo base in italiano con le informazioni giuste e chiedi la versione nelle altre lingue. Per i messaggi personalizzati costruisci un modello con segnaposto al posto di nome, data di arrivo e camera. I dati veri li inserisci nel tuo programma di gestione o nella tua posta, mai nello strumento.
+Qui l'AI traduce e adatta bene, di solito. Scrivi tu il testo base in italiano con le informazioni giuste e chiedi la versione nelle altre lingue. Per i messaggi personalizzati costruisci un modello con segnaposto al posto di nome, data di arrivo e camera, e inserisci i dati veri nel tuo programma di gestione o nella tua posta, mai nello strumento.
 
-Conto ipotetico: 20 messaggi a settimana in inglese o tedesco, 6 minuti l'uno a scriverli e ricontrollarli, sono 2 ore. Con i modelli pronti ne bastano 2 a messaggio, quindi 40 minuti. Il risparmio è di più di 5 ore al mese, e qui la fatica pesa davvero. Esiste già un testo da adattare: [email pre-arrivo in italiano, inglese e tedesco per un B&B](/prompt/ospitalita/email-pre-arrivo-tre-lingue-bb-ospitalita/).
+Altro conto ipotetico: 20 messaggi a settimana in inglese o tedesco, 6 minuti l'uno a scriverli e ricontrollarli, sono 2 ore. Con i modelli pronti ne bastano 2 a messaggio, quindi 40 minuti. Il risparmio è di più di 5 ore al mese, e qui la fatica pesa davvero. Esiste già un testo da adattare: [email pre-arrivo in italiano, inglese e tedesco per un B&B](/prompt/ospitalita/email-pre-arrivo-tre-lingue-bb-ospitalita/).
 
 Prima di inviare una traduzione, controlla questi 5 punti:
 
@@ -105,11 +105,11 @@ Una traduzione scorrevole può contenere un errore su un orario e restare scorre
 
 Le schede sul sito e sulle piattaforme di prenotazione si scrivono una volta e invecchiano male. L'AI è utile a riscrivere la stessa informazione in versioni diverse: breve per una piattaforma, più lunga per il sito, con più dettaglio per chi viaggia in famiglia.
 
-Il limite sono i fatti. Se non le dici che la camera ha il balcone sul porto, non lo sa. Se glielo lasci indovinare, lo inventa. Dai tu l'elenco di cosa c'è e vieta espressamente di aggiungere altro.
+Il limite sono i fatti: se non le dici che la camera ha il balcone sul porto non lo sa, e se glielo lasci indovinare lo inventa. Dai tu l'elenco di cosa c'è e vieta espressamente di aggiungere altro.
 
 Per gli itinerari vale lo stesso principio. Un hotel a Taormina può far preparare una bozza di 3 giorni per chi arriva da fuori, un agriturismo del Ragusano una guida a spiagge e cantine. L'AI organizza bene: ordina, divide per giornata, adatta a chi viaggia con bambini.
 
-Sui dettagli locali è debole. Orari, giorni di chiusura, prezzi, disponibilità di un traghetto o di un museo li sbaglia con sicurezza. L'itinerario resta una bozza che controlli tu, guardando i siti ufficiali o telefonando. Se scrivi cose non verificate, la responsabilità verso l'ospite è tua.
+Sui dettagli locali è debole: orari, giorni di chiusura, prezzi, disponibilità di un traghetto o di un museo li sbaglia con sicurezza. L'itinerario resta una bozza che controlli tu, sui siti ufficiali o per telefono, perché verso l'ospite la responsabilità è tua.
 
 Per descrivere le camere senza aggettivi vuoti c'è il modello per [descrivere le camere per il sito di una struttura](/prompt/ospitalita/descrizione-camere-sito-ospitalita/).
 
@@ -133,9 +133,9 @@ Valgono le stesse regole: fatti forniti da te, prezzi e disponibilità verificat
 
 ## Quali dati degli ospiti non devi dare all'AI?
 
-Nome, cognome, email, telefono, date di soggiorno, esigenze alimentari, a volte condizioni di salute: nella tua posta ci sono dati personali di ogni genere. Inserirli in uno strumento di AI è un trattamento a tutti gli effetti. Servono base giuridica, informativa agli ospiti e accordi adeguati con il fornitore, con attenzione ai fornitori fuori dall'Unione europea.
+Nome, cognome, email, telefono, date di soggiorno, esigenze alimentari, a volte condizioni di salute: nella tua posta sono dati personali di ogni genere. Darli a uno strumento di AI è un trattamento a tutti gli effetti, quindi servono base giuridica, informativa agli ospiti e un accordo adeguato con il fornitore, soprattutto se ha sede fuori dall'Unione europea.
 
-Il Garante per la protezione dei dati personali raccoglie [materiali sull'intelligenza artificiale](https://www.garanteprivacy.it/temi/intelligenza-artificiale). Per il tuo caso concreto serve però il parere di un professionista.
+Sul sito del Garante per la protezione dei dati personali trovi [materiali sull'intelligenza artificiale](https://www.garanteprivacy.it/temi/intelligenza-artificiale); per il tuo caso concreto serve il parere di un professionista.
 
 Per cominciare, lavora sui modelli e non sui dati. Se vuoi migliorare un messaggio ricevuto, cancella nome, recapiti e date prima di incollarlo. Mai documenti d'identità, mai fotografie degli ospiti, mai note su salute o religione.
 
@@ -149,11 +149,11 @@ Quando la richiesta esce dal copione, la conversazione deve passare a una person
 
 ## Quanto costa davvero, in tempo e in soldi?
 
-In denaro si spende poco. Gli assistenti generalisti hanno versioni gratuite con limiti e piani a pagamento, e i prezzi cambiano spesso: guardali sul sito del fornitore il giorno in cui decidi.
+In denaro si spende poco: gli assistenti generalisti hanno versioni gratuite con limiti e piani a pagamento, e i prezzi aggiornati stanno solo sulle pagine dei fornitori.
 
 In tempo si spende più di quanto si pensi. Calcola qualche ora iniziale per imparare a dare istruzioni precise e costruire i modelli, poi una manutenzione costante, soprattutto in alta stagione, quando hai meno tempo.
 
-C'è anche il personale. L'art. 4 dell'AI Act, riscritto dal Digital Omnibus in vigore dal 27 luglio 2026 ([testo PE-CONS 30/26](https://data.consilium.europa.eu/doc/document/PE-30-2026-INIT/en/pdf)), chiede a chi usa strumenti AI di prendere misure per sostenere l'alfabetizzazione del personale, tenendo conto di esperienza e contesto d'uso. Non impone un livello specifico a ogni persona. Le [domande e risposte della Commissione](https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers) fanno l'esempio di chi usa ChatGPT per testi o traduzioni.
+C'è anche il personale. L'art. 4 dell'AI Act, riscritto dal Digital Omnibus in vigore dal 27 luglio 2026 ([testo PE-CONS 30/26](https://data.consilium.europa.eu/doc/document/PE-30-2026-INIT/en/pdf)), chiede a chi usa strumenti AI di prendere misure per sostenere l'alfabetizzazione del personale, tenendo conto di esperienza e contesto d'uso, senza imporre un livello specifico a ogni persona. Le [domande e risposte della Commissione](https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers) fanno l'esempio di chi usa ChatGPT per testi o traduzioni.
 
 Se nella tua struttura lo usano in 3, mezza giornata di formazione comune e poche regole scritte sono un buon investimento. Per i collaboratori stagionali c'è un modello per la [procedura di check-in e il mini quiz](/prompt/ospitalita/procedura-check-in-personale-stagionale-ospitalita/).
 
@@ -161,6 +161,6 @@ Se nella tua struttura lo usano in 3, mezza giornata di formazione comune e poch
 
 Con 3 camere e 10 messaggi a settimana risparmi poco, e il tempo per imparare può superare quello risparmiato. Se la tua forza è il tono personale (il biglietto scritto a mano, la telefonata prima dell'arrivo), non delegare proprio quello. Se non hai informazioni ordinate su camere, prezzi e regole, comincia da lì: l'AI non ripara un'informazione che non c'è.
 
-C'è anche l'altro lato. Sempre più persone chiedono a un assistente "dove dormire a Noto con un bambino piccolo". Come ci si finisce dentro, e cosa nessuno può garantirti, è nella guida su [come farsi trovare e consigliare da ChatGPT, Gemini e Perplexity](/impara/geo-farsi-trovare-chatgpt-gemini-perplexity/).
+C'è anche l'altro lato: un ospite può chiedere a un assistente "dove dormire a Noto con un bambino piccolo". Come ci si finisce dentro, e cosa nessuno può garantirti, è nella guida su [come farsi trovare e consigliare da ChatGPT, Gemini e Perplexity](/impara/geo-farsi-trovare-chatgpt-gemini-perplexity/).
 
-Per vedere chi lavora con l'AI nella tua zona, a Siracusa per esempio, c'è l'elenco delle [aziende della provincia](/aziende/provincia/siracusa/). Per passare dalle procedure ripetute a flussi stabili, dopo le prime prove leggi la guida su come [automatizzare le attività ripetitive](/impara/automatizzare-attivita-ripetitive/).
+Se vuoi confrontarti con chi usa l'AI nella tua zona, nella directory ci sono le [aziende della provincia di Siracusa](/aziende/provincia/siracusa/). Quando le prime prove funzionano, il passo successivo è la guida su come [automatizzare le attività ripetitive](/impara/automatizzare-attivita-ripetitive/).

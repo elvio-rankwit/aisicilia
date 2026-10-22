@@ -57,7 +57,7 @@ related_prompts: [risposta-recensione-negativa-negozio, analisi-vendite-mensili-
 
 </aside>
 
-Quando lo spiego in aula, la domanda che arriva sempre è la stessa: "Ho una piccola attività, da dove parto?". La risposta sorprende quasi tutti. Non si parte dallo strumento.
+Quando lo spiego in aula, la domanda che arriva sempre è la stessa: "Ho una piccola attività, da dove parto?". La risposta sorprende quasi tutti: non si parte dallo strumento.
 
 ChatGPT, Claude, Gemini e Copilot (elenco a ottobre 2026, cambia in fretta) fanno cose simili. Quello che cambia il risultato è il compito a cui li applichi. Questa guida è il punto d'ingresso: da qui puoi passare a quelle per [hotel e B&B](/impara/ai-hotel-bb-strutture-ricettive/), [ristoranti e bar](/impara/ai-ristoranti-bar-locali/) e [cantine e aziende agroalimentari](/impara/ai-cantine-aziende-agroalimentari/).
 
@@ -65,7 +65,7 @@ ChatGPT, Claude, Gemini e Copilot (elenco a ottobre 2026, cambia in fretta) fann
 
 Dal lavoro scritto che ti costa più ore ogni settimana. Un assistente di AI generativa (un programma che produce testi a partire da una richiesta in italiano) rende bene dove c'è da scrivere, riscrivere, riassumere o tradurre.
 
-Una piccola impresa non ha bisogno di un progetto. Ha bisogno di un compito, di una persona che lo provi e di qualcuno che controlli il risultato. Il resto viene dopo.
+A una piccola impresa servono un compito, una persona che lo provi e qualcuno che controlli il risultato. Il progetto, se serve, viene dopo.
 
 Io partirei sempre dal compito più noioso, non da quello più ambizioso. Un buon primo compito noioso vale più di uno brillante che si impantana alla terza settimana.
 
@@ -81,14 +81,14 @@ Più di metà di chi si ferma, quindi, non sa da dove cominciare o ha paura di s
 
 ## Come si sceglie il primo compito?
 
-Il compito giusto ha 4 caratteristiche. Si ripete spesso. È fatto di testo. Il risultato lo controlli in 2 minuti, perché il mestiere lo conosci tu. E non richiede dati personali di nessuno.
+Il compito giusto ha 4 caratteristiche: si ripete spesso, è fatto di testo, il risultato lo controlli in 2 minuti perché il mestiere lo conosci tu, e non richiede dati personali di nessuno.
 
 Questa tabella usa 4 esempi costruiti per spiegare. Sono ipotesi, non casi di imprese reali.
 
 | Compito (esempio ipotetico) | Cosa chiedi all'assistente | Cosa controlli tu | Dati personali? |
 |---|---|---|---|
 | Ferramenta a Marsala: 40 schede prodotto da scrivere nello stesso tono | Una bozza partendo da misure e materiali che gli fornisci | Misure, compatibilità, normative d'uso | No |
-| Laboratorio di ceramica a Caltagirone: stesse domande su spedizioni e imballaggi ogni giorno | Un modello di risposta da adattare | Costi di spedizione, tempi, paesi serviti | No, se lavori sui modelli |
+| Autofficina a Gela: stesse domande ogni giorno su tempi di consegna e preventivi | Un modello di risposta da adattare | Costi, tempi, ricambi disponibili | No, se lavori sui modelli |
 | Impresa edile di Ragusa: lettere di preventivo con la stessa struttura | Lo schema della lettera e la riscrittura in tono chiaro | Importi, tempi, voci incluse | Sì, se incolli dati del cliente: usa segnaposto |
 | Negozio di abbigliamento a Enna: risposte alle recensioni | Una bozza calma e concreta | Fatti citati, promesse fatte | No, se togli il nome |
 
@@ -104,7 +104,7 @@ Se il compito che hai in mente non rientra nei 4 criteri, rimandalo. Nella [prom
 4. Dopo ogni bozza scrivi cosa hai dovuto sistemare: sono le istruzioni che mancavano.
 5. Alla fine confronta tempi e qualità. Il testo finale è migliore, uguale o peggiore di quello che avresti scritto da solo?
 
-Il primo risultato quasi mai va bene, ed è normale. L'assistente non conosce la tua struttura, il tuo tono, i tuoi clienti. Devi dirgli chi sei, a chi scrivi, cosa vuoi e cosa non deve fare. Come si fa è spiegato nella guida su [come scrivere prompt efficaci senza essere tecnici](/impara/scrivere-prompt-efficaci-senza-essere-tecnici/).
+Il primo risultato quasi mai va bene, ed è normale: l'assistente non conosce la tua struttura, il tuo tono, i tuoi clienti. Devi dirgli chi sei, a chi scrivi, cosa vuoi e cosa non deve fare, come spiega la guida su [come scrivere prompt efficaci senza essere tecnici](/impara/scrivere-prompt-efficaci-senza-essere-tecnici/).
 
 <aside class="in-pratica">
 
@@ -120,11 +120,11 @@ Il primo risultato quasi mai va bene, ed è normale. L'assistente non conosce la
 
 ## Quanto costa davvero, in tempo e in soldi?
 
-I soldi sono la parte semplice. Gli assistenti generalisti hanno di norma una versione gratuita con limiti e piani a pagamento che cambiano spesso. Prima di decidere guarda i prezzi aggiornati sul sito del fornitore: a ottobre 2026 io non li riporto, perché dopo qualche mese sarebbero sbagliati. Per la prova di 2 settimane il gratuito basta.
+I soldi sono la parte semplice. Gli assistenti generalisti hanno di norma una versione gratuita con limiti e piani a pagamento che cambiano spesso. Per questo non riporto cifre: guarda i prezzi aggiornati sul sito del fornitore prima di decidere. Per la prova di 2 settimane il gratuito basta.
 
 Il tempo è la voce che si sottovaluta. Metti in conto qualche ora per imparare a scrivere richieste utili e il tempo di controllo su ogni risultato, che non va mai a zero.
 
-Facciamo un conto con numeri ipotetici. La ferramenta di Marsala scrive 12 schede prodotto al mese e ci mette 15 minuti per ciascuna: 3 ore. Con la bozza dell'assistente, tra richiesta e controllo, ne servono 10 a scheda: 2 ore. Il risparmio è di 1 ora al mese, meno del tempo speso per imparare.
+Un conto con numeri ipotetici: la ferramenta di Marsala scrive 12 schede prodotto al mese e ci mette 15 minuti per ciascuna: 3 ore. Con la bozza dell'assistente, tra richiesta e controllo, ne servono 10 a scheda: 2 ore. Il risparmio è di 1 ora al mese, meno del tempo speso per imparare.
 
 Per quella ferramenta non conviene, almeno per ora. Se invece le schede fossero 80 al mese, il discorso cambierebbe. Il numero di ripetizioni decide, più dello strumento.
 
@@ -134,17 +134,17 @@ C'è poi un costo di organizzazione: chi usa lo strumento in azienda deve sapere
 
 Questi assistenti scrivono testi che suonano sicuri anche quando sono sbagliati. Il fenomeno si chiama "allucinazione" (la risposta è inventata ma plausibile) e non sparisce con l'abbonamento a pagamento.
 
-I punti dove sbagliano di più sono quelli che per un'impresa contano. Orari, prezzi, indirizzi e disponibilità non li conoscono, a meno che tu non glieli dia. I calcoli vanno ricontrollati. Norme, scadenze e requisiti di legge possono comparire con articoli che non esistono o con regole superate.
+I punti dove sbagliano di più sono quelli che per un'impresa contano. Orari, prezzi, indirizzi e disponibilità non li conoscono, a meno che tu non glieli dia; i calcoli vanno ricontrollati; norme, scadenze e requisiti di legge possono comparire con articoli che non esistono o con regole superate.
 
 I dettagli siciliani sono un terreno scivoloso: una denominazione, un regolamento comunale, la festa del patrono di un paese piccolo. Su questi argomenti i dati di partenza sono scarsi, e si vede.
 
-La regola pratica è semplice. Tutto ciò che riguarda un fatto, un numero o una norma lo verifichi su una fonte. Tono e struttura li giudichi tu. Il resto è una bozza, e come tale va trattata.
+Fatti, numeri e norme li verifichi su una fonte; tono e struttura li giudichi tu. Il resto è una bozza, e come tale va trattata.
 
 ## Quali dati puoi dare all'AI e quali no?
 
 Nome, cognome, telefono, email, indirizzo e preferenze di una persona sono dati personali. Inserirli in uno strumento di AI è un trattamento a tutti gli effetti, e servono base giuridica, informativa e accordi adeguati con il fornitore, con attenzione a chi ha sede fuori dall'Unione europea.
 
-Finché non hai chiarito questi punti, anonimizza o lavora su modelli generici. Il Garante per la protezione dei dati personali raccoglie [materiali e indicazioni sull'intelligenza artificiale](https://www.garanteprivacy.it/temi/intelligenza-artificiale), ma non sostituisce un parere professionale sul tuo caso.
+Finché non hai chiarito questi punti, anonimizza o lavora su modelli generici. Il Garante per la protezione dei dati personali raccoglie [materiali e indicazioni sull'intelligenza artificiale](https://www.garanteprivacy.it/temi/intelligenza-artificiale), ma per il tuo caso serve il parere di un professionista.
 
 Poi c'è l'AI Act, il regolamento europeo sull'intelligenza artificiale (Regolamento (UE) 2024/1689). L'art. 4, sull'alfabetizzazione in materia di AI, fa parte delle disposizioni applicate dal 2 febbraio 2025 ([calendario della Commissione europea](https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act), consultato il 21 ottobre 2026). Il Digital Omnibus, in vigore dal 27 luglio 2026, lo ha riscritto ([testo PE-CONS 30/26](https://data.consilium.europa.eu/doc/document/PE-30-2026-INIT/en/pdf)).
 
@@ -160,7 +160,7 @@ Un altro modo è vedere come lavorano gli altri. Nella pagina degli [eventi in S
 
 ## Quando conviene aspettare, e cosa fare dopo la prova
 
-Ci sono casi in cui aspettare è la scelta giusta. Se non hai un compito ripetitivo ben definito, non c'è niente da migliorare. Se il tuo processo è disordinato (listini in 3 file diversi, nessuno sa dove sono le informazioni giuste), l'AI amplifica il disordine.
+Ci sono casi in cui aspettare è la scelta giusta. Se non hai un compito ripetitivo ben definito, non c'è niente da migliorare. Se il tuo processo è disordinato (listini in 3 file diversi, nessuno sa dove sono le informazioni giuste), l'AI ti restituisce lo stesso disordine, più in fretta.
 
 Se tratti dati sensibili, per esempio di salute, e non hai chiarito le regole, fermati. E se nessuno ha tempo di controllare cosa produce l'assistente, non usarlo: una bozza non controllata è peggio di nessuna bozza.
 
