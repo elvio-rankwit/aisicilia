@@ -19,14 +19,14 @@ const urls = [
 ].filter(Boolean).map((u) => `http://localhost${u}`);
 
 const preset = process.env.LH_FORM_FACTOR === 'desktop' ? 'desktop' : 'mobile';
-const cat = (name) => [`categories:${name}`, ['error', { minScore: 1 }]];
+const cat = (name) => [`categories:${name}`, ['error', { minScore: 1, aggregationMethod: 'median-run' }]];
 
 module.exports = {
   ci: {
     collect: {
       staticDistDir: './dist',
       url: urls,
-      numberOfRuns: 1,
+      numberOfRuns: 3,
       chromePath: process.env.CHROME_PATH || '/opt/pw-browsers/chromium-1194/chrome-linux/chrome',
       settings: {
         ...(preset === 'desktop' ? { preset: 'desktop' } : {}),
