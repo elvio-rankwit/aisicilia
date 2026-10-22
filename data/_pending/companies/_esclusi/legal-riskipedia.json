@@ -23,7 +23,7 @@
     "https://www.raisk.it/",
     "https://startup.registroimprese.it"
   ],
-  "last_verified": "2026-10-21",
+  "last_verified": "2026-10-22",
   "verification_status": "pending",
-  "pending_reason": "Il sito dichiara che l'AI cura la formulazione degli scenari e che l'estrazione non dipende dall'AI generativa: centralità dell'AI non chiara; il server MCP per agenti AI è l'elemento più AI. Il dominio legal-riskipedia.legal reindirizza a raisk.it."
+  "excluded_reason": "Il sito (raisk.it) dichiara che l'AI cura solo la formulazione degli scenari e che l'estrazione non dipende dall'AI generativa: il prodotto è una banca dati sul rischio-reato D.lgs. 231. AI non centrale."
 }

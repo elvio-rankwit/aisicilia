@@ -1,0 +1,28 @@
+{
+  "name": "Accura",
+  "slug": "accura",
+  "type": "startup",
+  "description": "Startup di San Giovanni la Punta che sviluppa un sistema modulare per rilevare le microplastiche direttamente in mare, senza prelevare campioni d'acqua. I moduli usano la spettroscopia Raman per riconoscere i polimeri, come PET e PMMA, e un software di machine learning proprietario riceve i dati, classifica quantità e tipo delle particelle e li incrocia con temperatura, pH e salinità. L'obiettivo dichiarato è una rete di monitoraggio, a partire dal Mediterraneo, per enti pubblici, comuni costieri e ricercatori.",
+  "ai_areas": [
+    "machine learning",
+    "dati e analytics"
+  ],
+  "sectors_served": [
+    "ambiente",
+    "istruzione e ricerca"
+  ],
+  "province": "catania",
+  "city": "San Giovanni la Punta",
+  "lat": 37.57741,
+  "lng": 15.09422,
+  "geo_precision": "città",
+  "website": "https://www.accuralab.it/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://www.accuralab.it/",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-22",
+  "verification_status": "verified"
+}

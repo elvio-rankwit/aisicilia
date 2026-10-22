@@ -22,7 +22,7 @@
     "https://prismed.it",
     "https://forbes.it/2025/03/24/le-interviste-alle-startup-della-tappa-italian-excellence-di-palermo/"
   ],
-  "last_verified": "2026-10-21",
+  "last_verified": "2026-10-22",
   "verification_status": "pending",
-  "pending_reason": "L'AI è una tra sei tecnologie (robotica, AR, big data, digital twin, blockchain, AI) e la pagina di dettaglio non è consultabile; centralità dell'AI non verificabile."
+  "excluded_reason": "Il sito presenta una startup di sorveglianza e prevenzione delle infezioni in ambito sanitario con robotica, AR, big data, digital twin, blockchain e AI come una tra sei tecnologie; il prodotto è basato su unità robotiche. AI non centrale."
 }

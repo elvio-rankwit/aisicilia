@@ -23,7 +23,7 @@
     "https://www.sicurai.com/about/",
     "https://startup.registroimprese.it"
   ],
-  "last_verified": "2026-10-21",
+  "last_verified": "2026-10-22",
   "verification_status": "pending",
-  "pending_reason": "Servizio ancora pianificato (disponibilità prevista 2027); il sito non indica sede legale né anno di fondazione (città dal registro); l'infrastruttura di calcolo non rientra con chiarezza nelle aree AI del vocabolario."
+  "pending_reason": "Rivisto il 22/10/2026: il sito dichiara un'infrastruttura di calcolo per l'AI in Sicilia (Campus Muxaro, Bivona) ma ancora «planned deployment»; nessun servizio operativo. Sede legale a Palermo solo dal registro (iscrizione marzo 2026). Da ripubblicare a servizio attivo."
 }

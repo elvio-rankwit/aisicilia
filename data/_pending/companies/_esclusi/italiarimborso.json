@@ -20,7 +20,7 @@
     "https://lavocedinewyork.com/news/economia/2022/01/01/la-startup-siciliana-italiarimborso-presente-al-ces-2022-con-il-suo-machine-learning/",
     "https://www.italiarimborso.it"
   ],
-  "last_verified": "2026-10-21",
+  "last_verified": "2026-10-22",
   "verification_status": "pending",
-  "pending_reason": "Sito ufficiale senza menzione di AI e senza sede (ragione sociale Italia Rimborso Srl, telefono con prefisso 06); sede di Trapani e machine learning solo da articolo 2022. AI non centrale nell'offerta attuale."
+  "excluded_reason": "Il sito non cita AI né sede in Sicilia (ragione sociale Italia Rimborso Srl, prefisso telefonico 06) e oggi risponde 503; sede a Trapani e machine learning risultano solo da un articolo del 2022. Nessuna evidenza di AI come attività attuale in Sicilia."
 }

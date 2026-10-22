@@ -22,7 +22,7 @@
     "https://www.unipa.it/dipartimenti/diid/Terza-Missione/spin-off/",
     "https://www.intelener.com"
   ],
-  "last_verified": "2026-10-21",
+  "last_verified": "2026-10-22",
   "verification_status": "pending",
-  "pending_reason": "Scheda UniPA: AI e sensori WSAN (2010). Sito ufficiale oggi orientato a consulenza TRL/commercializzazione tecnologica, AI non centrale; sede senza indirizzo; prodotti citati non verificabili sul sito."
+  "excluded_reason": "La scheda UniPA è del 2010 (AI e sensori WSAN); il sito attuale mostra solo un nome e uno slogan, la verifica precedente lo indicava orientato a consulenza sul trasferimento tecnologico. Nessuna evidenza di AI come attività corrente."
 }

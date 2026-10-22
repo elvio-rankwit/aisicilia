@@ -1,0 +1,29 @@
+{
+  "name": "Koexai",
+  "slug": "koexai",
+  "type": "startup",
+  "description": "Società di data science di Catania che sviluppa algoritmi e modelli su misura e li collega ai sistemi già in uso presso i clienti. Accanto ai progetti commerciali porta avanti linee di ricerca scientifica: analisi delle relazioni di causa-effetto tra variabili, studio delle supernove e simulazioni cosmologiche con tecniche di machine learning. Ha realizzato anche una piattaforma cloud per gestire il ciclo di vita dei modelli di intelligenza artificiale.",
+  "ai_areas": [
+    "machine learning",
+    "dati e analytics"
+  ],
+  "sectors_served": [
+    "istruzione e ricerca",
+    "trasversale"
+  ],
+  "province": "catania",
+  "city": "Catania",
+  "lat": 37.51913,
+  "lng": 15.0771,
+  "geo_precision": "indirizzo",
+  "website": "https://koexai.com/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://koexai.com/",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-22",
+  "verification_status": "verified",
+  "address": "Via Jose Maria Escriva 6, 95125 Catania CT"
+}

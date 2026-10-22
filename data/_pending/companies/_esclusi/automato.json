@@ -24,7 +24,7 @@
     "https://www.automatoai.it/chi-siamo.html",
     "https://startup.registroimprese.it"
   ],
-  "last_verified": "2026-10-21",
+  "last_verified": "2026-10-22",
   "verification_status": "pending",
-  "pending_reason": "Il sito non cita Siracusa o la Sicilia: indirizzo legale negli USA (Wyoming), marchio di OK Next LLC. AI non esclusiva (sito e CRM rivenduto). Sede operativa e centralità AI da verificare."
+  "excluded_reason": "Sito di OK Next LLC (Wyoming, USA), con indirizzo e EIN statunitensi: Siracusa e la Sicilia non compaiono. L'offerta (siti, CRM, dashboard, agenti conversazionali) è generalista e l'AI non è centrale. Sede operativa in Sicilia non verificabile."
 }

@@ -574,5 +574,53 @@
     "lng": 13.09511,
     "display_name": "Piazza Tenente Scaduto, Camporeale, Palermo, Sicilia, 90043, Italia",
     "precision": "indirizzo"
+  },
+  "addr:via cardinale dusmet 2, 95121 catania": {
+    "lat": 37.57203,
+    "lng": 15.03847,
+    "display_name": "Via Cardinale Benedetto Dusmet, Sciara, Mascalucia, Catania, Sicilia, 95030, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:viale africa 14, 95129 catania": {
+    "lat": 37.51589,
+    "lng": 15.105,
+    "display_name": "14, Viale Africa, Guardia, Picanello, Picanello-Ognina-Barriera-Canalicchio, Catania, Sicilia, 95129, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via josemaria escriva 6, catania": {
+    "lat": 37.51913,
+    "lng": 15.0771,
+    "display_name": "6, Via Josemaría Escrivá, Consolazione, Borgo, Borgo-Sanzio, Catania, Sicilia, 95123, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via josemaría escrivá, 6, 95125 catania": {
+    "lat": 37.51913,
+    "lng": 15.0771,
+    "display_name": "6, Via Josemaría Escrivá, Consolazione, Borgo, Borgo-Sanzio, Catania, Sicilia, 95123, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via josemaria escriva, catania": {
+    "lat": 37.51898,
+    "lng": 15.07679,
+    "display_name": "Via Josemaría Escrivá, Consolazione, Borgo, Borgo-Sanzio, Catania, Sicilia, 95123, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via libertà 128, isola delle femmine": {
+    "lat": 38.18281,
+    "lng": 13.24077,
+    "display_name": "128a, Via Libertà, Isola delle Femmine, Palermo, Sicilia, 90040, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:piazza ruggero settimo, palermo": {
+    "lat": 38.12478,
+    "lng": 13.35599,
+    "display_name": "Piazza Ruggero Settimo, VIII Circoscrizione, Palermo, Sicilia, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via ugo bassi 148, 98122 messina": {
+    "lat": 38.1863,
+    "lng": 15.5585,
+    "display_name": "Via Ugo Bassi, Maregrosso, IV Circoscrizione, Messina, Sicilia, 98122, Italia",
+    "precision": "indirizzo"
   }
 }

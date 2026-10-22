@@ -21,10 +21,12 @@
   "founded_year": 1998,
   "same_as": [],
   "source_urls": [
+    "https://ricca-it.com/",
     "https://forbes.it/2025/10/22/arianna-intelligenza-artificiale-lavora-collega-reale/",
     "https://en.ilsole24ore.com/art/rich-launches-arianna-ragusa-the-artificial-intelligence-that-protects-data-AHvGcX5C"
   ],
-  "last_verified": "2026-10-21",
+  "last_verified": "2026-10-22",
   "verification_status": "pending",
-  "pending_reason": "Sito ufficiale non individuato (nessun dominio citato dalla stampa); l'AI è un prodotto recente accanto a un'attività IT più ampia, quindi la centralità va verificata sul sito aziendale."
+  "pending_reason": "Rivisto il 22/10/2026: sito ufficiale individuato (ricca-it.com): Ricca IT S.r.l., Via Giovanni Leone snc, Ragusa. Arianna (AI generativa on-premise, lanciata a ottobre 2025) è confermata da stampa ma sul sito l'AI è una voce tra servizi cloud, datacenter, cybersicurezza e software. Centralità AI borderline.",
+  "website": "https://ricca-it.com/"
 }

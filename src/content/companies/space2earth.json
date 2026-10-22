@@ -1,0 +1,30 @@
+{
+  "name": "space2earth",
+  "slug": "space2earth",
+  "type": "startup",
+  "description": "Società benefit di Catania che analizza immagini satellitari, tra cui i dati Copernicus/Sentinel dell'ESA e quelli di fornitori commerciali, e le traduce in indicazioni per le decisioni di imprese ed enti. Il sito presenta la piattaforma come basata su AI. I servizi riguardano il monitoraggio ambientale, l'agricoltura di precisione con stima delle rese, l'analisi delle infrastrutture urbane e la valutazione del rischio di eventi naturali.",
+  "ai_areas": [
+    "dati e analytics"
+  ],
+  "sectors_served": [
+    "ambiente",
+    "agricoltura",
+    "pubblica amministrazione"
+  ],
+  "province": "catania",
+  "city": "Catania",
+  "lat": 37.51589,
+  "lng": 15.105,
+  "geo_precision": "indirizzo",
+  "website": "https://www.space2earth.it/",
+  "is_innovative_startup": true,
+  "same_as": [],
+  "source_urls": [
+    "https://www.space2earth.it/",
+    "https://startup.registroimprese.it"
+  ],
+  "last_verified": "2026-10-22",
+  "verification_status": "verified",
+  "address": "Viale Africa 14, 95129 Catania CT",
+  "founded_year": 2024
+}

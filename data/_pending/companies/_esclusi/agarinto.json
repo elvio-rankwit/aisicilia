@@ -24,7 +24,7 @@
     "https://www.agarinto.it/contatti",
     "https://startup.registroimprese.it"
   ],
-  "last_verified": "2026-10-21",
+  "last_verified": "2026-10-22",
   "verification_status": "pending",
-  "pending_reason": "Agenzia/software house con servizi molto ampi (web, social, 3D, video, eventi): l'AI è una delle quattro aree tecniche, non l'unico focus. Da valutare se il peso di IntoAI/IntoTwin basta a includerla."
+  "excluded_reason": "Agenzia/software house generalista (e-commerce e siti, app e CRM, contenuti social, SEO, stampa 3D): l'AI è uno dei sei servizi del sito, IntoAI/IntoTwin compaiono solo in un banner e non hanno scheda. AI non centrale."
 }

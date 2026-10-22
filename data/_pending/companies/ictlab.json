@@ -21,7 +21,7 @@
     "https://www.ictlab.srl/",
     "https://iplab.dmi.unict.it/about/"
   ],
-  "last_verified": "2026-10-21",
+  "last_verified": "2026-10-22",
   "verification_status": "pending",
-  "pending_reason": "L'AI non è dichiarata esplicitamente sul sito (solo machine vision e analisi multimediale per digital forensics); decidere se il criterio di centralità AI è soddisfatto."
+  "pending_reason": "Rivisto il 22/10/2026: spin-off UniCT con sede in Viale Andrea Doria 6, Catania confermata. Il sito parla di «visione artificiale» ma divide l'attività con la digital forensics e non cita AI o machine learning. Centralità AI borderline."
 }

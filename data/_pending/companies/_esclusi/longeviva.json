@@ -20,7 +20,7 @@
   "source_urls": [
     "https://www.longeviva.it"
   ],
-  "last_verified": "2026-10-21",
+  "last_verified": "2026-10-22",
   "verification_status": "pending",
-  "pending_reason": "Il sito non usa il termine intelligenza artificiale né descrive modelli o funzioni AI: centralità dell'AI non dimostrata (solo riferimento a AI Act e a strumenti supervisionati). Nessuna seconda fonte."
+  "excluded_reason": "Il sito (rivisto il 22/10/2026) descrive una piattaforma per professionisti della salute per impostare obiettivi e monitorare i pazienti, senza mai presentare funzioni o modelli di intelligenza artificiale (solo riferimenti a AI Act e a strumenti supervisionati). AI non centrale."
 }

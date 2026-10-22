@@ -23,7 +23,7 @@
     "https://www.hippocraticum.ai/about",
     "https://startup.registroimprese.it"
   ],
-  "last_verified": "2026-10-21",
+  "last_verified": "2026-10-22",
   "verification_status": "pending",
-  "pending_reason": "Il sito indica come sede Torino (Politecnico di Torino, Corso Castelfidardo 30/a); Catania risulta solo come comune dell'iscrizione al registro. Sede operativa in Sicilia da verificare."
+  "pending_reason": "Rivisto il 22/10/2026: AI centrale (assistente clinico con LLM proprietari), ma home e about indicano come unica sede il Politecnico di Torino; Catania compare solo come comune di iscrizione al registro (giugno 2024). Sede operativa in Sicilia non dimostrata."
 }
