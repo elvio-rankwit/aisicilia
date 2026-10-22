@@ -562,5 +562,17 @@
     "lng": 15.16576,
     "display_name": "13, Piazza Europa, Santa Maria la Scala, Acireale, Catania, Sicilia, 95024, Italia",
     "precision": "indirizzo"
+  },
+  "addr:piazza camporeale, palermo": {
+    "lat": 38.12013,
+    "lng": 13.3404,
+    "display_name": "Piazza Camporeale, Piazza Principe di Camporeale, Olivuzza, Uditore, V Circoscrizione, Palermo, Sicilia, 90137, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:piazza di camporeale 6, 90133 palermo": {
+    "lat": 37.8946,
+    "lng": 13.09511,
+    "display_name": "Piazza Tenente Scaduto, Camporeale, Palermo, Sicilia, 90043, Italia",
+    "precision": "indirizzo"
   }
 }
