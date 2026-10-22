@@ -1,3 +1,6 @@
+# NON IN USO (D-031): richiede ANTHROPIC_API_KEY (API a consumo), che l'utente ha scelto di non usare.
+# Gli aggiornamenti dei dati si fanno in una sessione Claude Code con gli agenti di .claude/agents/ (vedi docs/automation.md).
+# Il file resta come riferimento: non ha schedule attivo e, senza la chiave, l'avvio manuale fallisce.
 # Aggiornamento mensile della directory aziende con Claude Code headless (agente directory-researcher) e PR da approvare.
 # STATO: schedule SPENTO, avvio manuale attivo (workflow_dispatch). Per attivarlo togli il commento al blocco `schedule`.
 # Secret richiesto: ANTHROPIC_API_KEY. Variabili opzionali: CLAUDE_MODEL (default sonnet), MAX_TURNS (default 40).

@@ -89,3 +89,23 @@ Segue D-007: la CI costruisce una seconda volta `dist/` con `PUBLIC_SITE_MODE=pr
 ## Versioni delle action
 
 `actions/checkout@v7`, `actions/setup-node@v7`, `actions/upload-artifact@v7`, `actions/github-script@v9`, `browser-actions/setup-chrome@v2`, `peter-evans/create-pull-request@v8`, `cloudflare/wrangler-action@v4`, `anthropics/claude-code-action@v1`. Tutte a versione maggiore, nessun `@main`. Wrangler è fissato alla serie 4 (`wrangler@4` nel passo di creazione progetto; l'action usa Wrangler 4 di default).
+
+## Senza API a consumo (scelta dell'utente, D-031)
+
+Il progetto non usa `ANTHROPIC_API_KEY`. Cosa resta automatico, gratis:
+
+| Workflow | Quando | Cosa fa |
+|---|---|---|
+| `ci.yml` | a ogni push e PR | validazione, build, Lighthouse a 100 |
+| `deploy.yml` | a ogni push su `main` | pubblica su Cloudflare Pages |
+| `rebuild.yml` | ogni notte (01:15 ora italiana d'estate) | ricostruisce il sito: gli eventi passati vanno in archivio |
+| `linkcheck.yml` | ogni mercoledì | controlla i link e apre una issue "Link rotti" se ne trova |
+
+`update-events.yml` e `update-directory.yml` restano nel repo come riferimento ma non sono in uso.
+
+### Aggiornare i dati a mano (con l'abbonamento Claude, senza API)
+Apri una sessione di Claude Code sul repository e incolla uno di questi messaggi. Gli agenti in `.claude/agents/` vengono caricati in automatico.
+
+- **Eventi (ogni 2–3 settimane):** "Usa l'agente events-researcher in due istanze (ovest: PA, TP, AG, CL, EN; est: CT, ME, SR, RG) per cercare nuovi eventi dei prossimi 6 mesi e ricontrollare i pending, poi valida, fai commit e push."
+- **Directory (ogni 1–2 mesi):** "Usa l'agente directory-researcher per ricontrollare siti e fonti delle aziende pubblicate (link morti, aziende chiuse → pending) e i record in pending, poi valida, fai commit e push."
+- **Registro startup (quando scarichi un nuovo elenco da startup.registroimprese.it):** metti il CSV in `data/registro/`, poi: "Rigenera l'estratto Sicilia, lancia `node scripts/research/registro-prescreen.mjs` e fai verificare i nuovi candidati al directory-researcher."

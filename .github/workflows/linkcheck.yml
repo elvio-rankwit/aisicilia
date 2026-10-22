@@ -1,12 +1,12 @@
 # Controllo settimanale dei link: interni (validatore) ed esterni (scripts/linkcheck/external.mjs).
 # Se ci sono errori apre o aggiorna una sola issue "Link rotti"; senza errori chiude quella aperta.
-# STATO: schedule SPENTO, avvio manuale attivo (workflow_dispatch). Per attivarlo togli il commento al blocco `schedule`.
+# STATO: ATTIVO (D-031), ogni mercoledì. Non usa API a pagamento.
 name: Link check
 
 on:
   workflow_dispatch:
-  # schedule:
-  #   - cron: '31 6 * * 3' # ogni mercoledì, 06:31 UTC
+  schedule:
+    - cron: '31 6 * * 3' # ogni mercoledì, 06:31 UTC
 
 permissions:
   contents: read
