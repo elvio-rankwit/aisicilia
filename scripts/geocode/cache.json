@@ -634,5 +634,11 @@
     "lng": 13.39371,
     "display_name": "Via Alessandro Volta, Belmonte Mezzagno, Palermo, Sicilia, 90031, Italia",
     "precision": "indirizzo"
+  },
+  "addr:viale ermocrate, siracusa": {
+    "lat": 37.07109,
+    "lng": 15.26962,
+    "display_name": "Viale Ermocrate, Neapolis, Siracusa, Sicilia, 96100, Italia",
+    "precision": "indirizzo"
   }
 }

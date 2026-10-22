@@ -1,0 +1,32 @@
+{
+  "title": "Linux Day 2026 all'IIS Verona Trento di Messina",
+  "slug": "linux-day-ai-iis-verona-trento-messina-2026-10",
+  "description": "Pomeriggio dedicato al software libero nell'istituto tecnico di Messina, con dodici interventi tra storia ed etica di Linux, sovranità digitale, privacy e distribuzioni. L'ultima parte del programma riguarda l'intelligenza artificiale: l'effetto sul lavoro, un robot umanoide a cui l'AI ha dato nuova vita e un modello che non è un modello linguistico di grandi dimensioni. Nel corso dell'incontro è allestita una mostra di computer d'epoca. L'ingresso è libero e l'evento è trasmesso in diretta sul canale YouTube della scuola.",
+  "start_date": "2026-10-23",
+  "start_time": "15:15",
+  "end_time": "18:30",
+  "format": "in presenza",
+  "venue_name": "IIS Verona Trento",
+  "venue_address": "Via Ugo Bassi 148, 98122 Messina",
+  "city": "Messina",
+  "province": "messina",
+  "lat": 38.1863,
+  "lng": 15.5585,
+  "organizer": "IIS Verona Trento",
+  "event_url": "https://linuxday.veronatrento.it",
+  "price": "gratuito",
+  "audience": [
+    "tutti",
+    "studenti",
+    "sviluppatori"
+  ],
+  "topics": [
+    "open source",
+    "AI e lavoro",
+    "robotica"
+  ],
+  "source_url": "https://www.strettoweb.com/2026/10/linux-day-2026-a-messina-software-libero-intelligenza-artificiale-e-sovranita-digitale-alliis-verona-trento-di-messina/2164991/",
+  "status": "programmato",
+  "last_verified": "2026-10-22",
+  "verification_status": "verified"
+}

@@ -1,0 +1,28 @@
+{
+  "title": "Impresa Futuro, evento della Camera di Commercio di Messina",
+  "slug": "impresa-futuro-camera-commercio-messina-2026-11",
+  "description": "Appuntamento in evidenza sul sito della Camera di Commercio di Messina, fissato per il 18 novembre 2026 alle 9:30 nel Salone della Camera di Commercio. La pagina ufficiale riporta solo data, ora e luogo: non pubblica programma, temi, destinatari né modalità di iscrizione, quindi non è possibile stabilire se l'intelligenza artificiale sia tra gli argomenti trattati.",
+  "start_date": "2026-11-18",
+  "start_time": "09:30",
+  "format": "in presenza",
+  "venue_name": "Salone della Camera di Commercio di Messina",
+  "city": "Messina",
+  "province": "messina",
+  "lat": 38.19376,
+  "lng": 15.55421,
+  "organizer": "Camera di Commercio di Messina",
+  "organizer_url": "https://www.me.camcom.it",
+  "event_url": "https://www.me.camcom.it/notizie/impresa-futuro",
+  "price": "non indicato",
+  "audience": [
+    "imprese"
+  ],
+  "topics": [
+    "AI per le imprese"
+  ],
+  "source_url": "https://www.me.camcom.it/notizie/impresa-futuro",
+  "status": "programmato",
+  "last_verified": "2026-10-22",
+  "verification_status": "pending",
+  "pending_reason": "Ricontrollato il 22/10/2026: la pagina ufficiale non indica programma né temi, e non c'è alcun riferimento all'AI. Non incluso finché il programma non dichiara un blocco o un titolo sull'AI."
+}

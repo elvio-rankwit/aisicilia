@@ -1,0 +1,28 @@
+{
+  "title": "ICAISF 2026: conferenza IEEE su AI e tecnologie emergenti",
+  "slug": "icaisf-ai-tecnologie-emergenti-catania-2026-07",
+  "description": "Seconda conferenza internazionale IEEE su intelligenza artificiale e tecnologie emergenti per uno sviluppo sostenibile, ospitata dall'Università di Catania con l'Università Istinye. I lavori riguardano le innovazioni guidate dall'AI, lo sviluppo sostenibile, l'impatto della tecnologia sulla società e gli approcci interdisciplinari alle sfide globali. Si è svolta in modalità ibrida, in presenza a Catania e online. Il sito non indica sede precisa all'interno dell'ateneo né quote di iscrizione.",
+  "start_date": "2026-07-24",
+  "end_date": "2026-07-25",
+  "format": "ibrido",
+  "venue_name": "Università di Catania",
+  "city": "Catania",
+  "province": "catania",
+  "lat": 37.50236,
+  "lng": 15.08737,
+  "organizer": "Università di Catania e Istinye University",
+  "organizer_url": "https://www.icaisf.com",
+  "event_url": "https://www.icaisf.com",
+  "price": "non indicato",
+  "audience": [
+    "ricercatori"
+  ],
+  "topics": [
+    "AI e sostenibilità",
+    "machine learning"
+  ],
+  "source_url": "https://www.icaisf.com",
+  "status": "programmato",
+  "last_verified": "2026-10-22",
+  "verification_status": "verified"
+}
