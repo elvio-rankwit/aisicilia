@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHead from '../../components/PageHead.astro';
+import Prose from '../../components/Prose.astro';
 
 const m = {
   title: 'Informativa privacy di AI Sicilia',
@@ -7,12 +9,13 @@ const m = {
 };
 ---
 <BaseLayout seo={{ title: m.title, description: m.description, path: '/privacy/', breadcrumbs: [{ name: 'Privacy', path: '/privacy/' }] }}>
-  <div class="page-head">
-    <h1>Informativa privacy</h1>
-    <p class="answer">Questo sito non usa cookie né strumenti di analisi e non ti chiede di registrarti. I dati personali passano solo se compili un modulo. Qui sotto trovi chi li tratta, perché e come esercitare i tuoi diritti.</p>
-  </div>
+  <PageHead>
+    <Fragment slot="eyebrow">Privacy</Fragment>
+    <Fragment slot="title">Informativa <mark class="blk">privacy</mark></Fragment>
+    <p>Questo sito non usa cookie né strumenti di analisi e non ti chiede di registrarti. I dati personali passano solo se compili un modulo. Qui sotto trovi chi li tratta, perché e come esercitare i tuoi diritti.</p>
+  </PageHead>
 
-  <div class="prose">
+  <Prose>
     <section aria-labelledby="h-titolare">
       <h2 id="h-titolare" class="first">Titolare del trattamento</h2>
       <p>Il titolare del trattamento è <strong>Elvio Leonardi</strong>, con sede a Palermo, che ha ideato e gestisce il progetto in autonomia (vedi <a href="/chi-siamo/">Chi siamo</a>). Per scrivere al titolare: <a href="/contatti/">Contatti</a>.</p>
@@ -42,8 +45,5 @@ const m = {
       <h2 id="h-conservazione">Per quanto tempo</h2>
       <p>Conserviamo i dati dei moduli per il tempo necessario a rispondere e a gestire la richiesta, e comunque non oltre 12 mesi dalla sua chiusura. Poi li cancelliamo, sia dalla casella del titolare sia dall’archivio di Formspree. Le richieste di rimozione possono essere conservate più a lungo solo se servono a dimostrare di aver eseguito la rimozione.</p>
     </section>
-  </div>
+  </Prose>
 </BaseLayout>
-<style>
-  .first { margin-top: 0; }
-</style>

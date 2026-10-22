@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PromptCard from '../../components/PromptCard.astro';
-import PageStat from '../../components/PageStat.astro';
+import PageHead from '../../components/PageHead.astro';
 import EmptyState from '../../components/EmptyState.astro';
 import { formatDate, getPrompts, latestDate } from '../../lib/data';
 import { meta } from '../../lib/seo/meta';
@@ -25,24 +25,25 @@ const h1 = 'Prompt AI per settore, pronti da copiare';
     ],
   }}
 >
-  <div class="page-head">
-    <PageStat value={prompts.length} label="prompt" coords="8 settori" />
-    <h1>{h1}</h1>
-    {updated && <p class="muted updated">Aggiornato il <time datetime={updated.toISOString().slice(0, 10)}>{formatDate(updated)}</time></p>}
+  <PageHead>
+    <Fragment slot="eyebrow">Libreria prompt · {prompts.length} prompt in 8 settori</Fragment>
+    <Fragment slot="title">Prompt AI per settore, pronti da <mark class="blk">copiare</mark></Fragment>
     {prompts.length > 0 ? (
-      <p class="answer">{plural(prompts.length, 'prompt', 'prompt')} in 8 settori dell’economia siciliana, da copiare e adattare. Ognuno ha le variabili da compilare, un esempio, i limiti e la data dell’ultimo test. Non sono formule magiche: servono a far partire bene una conversazione con un assistente AI, il resto lo fa la tua competenza.</p>
+      <p>{plural(prompts.length, 'prompt', 'prompt')} in 8 settori dell’economia siciliana, da copiare e adattare. Ognuno ha le variabili da compilare, un esempio, i limiti e la data dell’ultimo test. Non sono formule magiche: servono a far partire bene una conversazione con un assistente AI, il resto lo fa la tua competenza.</p>
     ) : (
-      <p class="answer">La libreria è in preparazione: i prompt arrivano settore per settore, ognuno provato prima di essere pubblicato.</p>
+      <p>La libreria è in preparazione: i prompt arrivano settore per settore, ognuno provato prima di essere pubblicato.</p>
     )}
-  </div>
+    {updated && <p slot="meta" class="upd">Ultimo test: <time datetime={updated.toISOString().slice(0, 10)}>{formatDate(updated)}</time></p>}
+  </PageHead>
 
   <section class="section" aria-labelledby="h-settori">
-    <h2 id="h-settori">Scegli il tuo settore</h2>
+    <h2 id="h-settori" class="first">Scegli il tuo settore</h2>
     <ul class="grid">
       {bySector.map((s) => (
-        <li class="card">
+        <li class="card sec">
+          <p class="kicker">Settore</p>
           <h3><a href={`/prompt/${s.slug}/`} data-astro-prefetch>{s.label}</a></h3>
-          <p class="meta">{plural(s.items.length, 'prompt', 'prompt')}</p>
+          <p class="cnt"><b>{s.items.length}</b> prompt</p>
         </li>
       ))}
     </ul>
@@ -50,11 +51,11 @@ const h1 = 'Prompt AI per settore, pronti da copiare';
 
   <section class="section" aria-labelledby="h-uso">
     <h2 id="h-uso">Come si usa un prompt</h2>
-    <ol class="prose">
-      <li>Apri un prompt e copialo con il pulsante.</li>
-      <li>Sostituisci le parti tra graffe, come <code>{'{nome_struttura}'}</code>, con i tuoi dati.</li>
-      <li>Incollalo nello strumento che usi (ChatGPT, Claude, Gemini o un altro) e leggi la risposta con occhio critico.</li>
-      <li>Non inserire dati personali di clienti o dipendenti, e rileggi sempre il testo prima di usarlo.</li>
+    <ol class="steps">
+      <li><i aria-hidden="true">1</i><h3>Copia</h3><p>Apri un prompt e copialo con il pulsante.</p></li>
+      <li><i aria-hidden="true">2</i><h3>Adatta</h3><p>Sostituisci le parti tra graffe, come <code>{'{nome_struttura}'}</code>, con i tuoi dati.</p></li>
+      <li><i aria-hidden="true">3</i><h3>Incolla</h3><p>Usalo nello strumento che preferisci (ChatGPT, Claude, Gemini o un altro) e leggi la risposta con occhio critico.</p></li>
+      <li><i aria-hidden="true">4</i><h3>Proteggi i dati</h3><p>Non inserire dati personali di clienti o dipendenti, e rileggi sempre il testo prima di usarlo.</p></li>
     </ol>
   </section>
 
@@ -73,5 +74,21 @@ const h1 = 'Prompt AI per settore, pronti da copiare';
   </section>
 </BaseLayout>
 <style>
-  .sector { margin-top: var(--space-5); }
+  .first { margin-top: 0; }
+  .upd { margin: var(--space-4) 0 0; font-size: 15px; color: var(--muted); }
+  .sector { margin-top: var(--space-6); font-size: 20px; }
+  .sec { background: var(--grey); gap: 6px; }
+  .cnt { font-size: 15px; color: var(--muted); }
+  .cnt b { font: 800 28px/1 var(--display); letter-spacing: -0.05em; color: var(--brand); margin-right: 6px; }
+  .steps { display: grid; gap: var(--space-5); list-style: none; padding: 0; margin: 0; border-top: 3px solid var(--bd); counter-reset: none; }
+  .steps li { padding-top: var(--space-5); }
+  .steps i { display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 50%; background: var(--or); border: 1.5px solid var(--on-or); font: 800 15px var(--body); font-style: normal; color: var(--on-or); }
+  .steps h3 { margin: var(--space-4) 0 var(--space-2); font-size: 19px; }
+  .steps p { margin: 0; color: var(--muted); }
+  .steps code { color: var(--ink); }
+  @media (min-width: 52rem) {
+    .steps { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; }
+    .steps li { padding-right: 28px; margin-right: 28px; border-right: 1px solid var(--line); }
+    .steps li:last-child { border-right: 0; margin-right: 0; padding-right: 0; }
+  }
 </style>

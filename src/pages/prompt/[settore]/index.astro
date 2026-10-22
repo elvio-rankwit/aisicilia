@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHead from '../../../components/PageHead.astro';
 import PromptCard from '../../../components/PromptCard.astro';
 import ArticleCard from '../../../components/ArticleCard.astro';
 import EmptyState from '../../../components/EmptyState.astro';
@@ -32,18 +33,19 @@ const h1 = `Prompt AI per ${label.toLowerCase()}`;
     ],
   }}
 >
-  <div class="page-head">
-    <h1>{h1}</h1>
-    {updated && <p class="muted updated">Aggiornato il <time datetime={updated.toISOString().slice(0, 10)}>{formatDate(updated)}</time></p>}
+  <PageHead>
+    <Fragment slot="eyebrow"><a href="/prompt/">Libreria prompt</a> · {label}</Fragment>
+    <Fragment slot="title">Prompt <mark class="blk">AI</mark> per {label.toLowerCase()}</Fragment>
     {prompts.length > 0 ? (
-      <p class="answer">{plural(prompts.length, 'prompt pronto', 'prompt pronti')} per {label.toLowerCase()}. Ogni scheda indica a cosa serve, il livello, le variabili da compilare e le avvertenze. Copia, sostituisci i dati tra graffe e rileggi sempre il risultato prima di usarlo.</p>
+      <p>{plural(prompts.length, 'prompt pronto', 'prompt pronti')} per {label.toLowerCase()}. Ogni scheda indica a cosa serve, il livello, le variabili da compilare e le avvertenze. Copia, sostituisci i dati tra graffe e rileggi sempre il risultato prima di usarlo.</p>
     ) : (
-      <p class="answer">I prompt per {label.toLowerCase()} sono in preparazione. Ognuno viene provato prima di essere pubblicato.</p>
+      <p>I prompt per {label.toLowerCase()} sono in preparazione. Ognuno viene provato prima di essere pubblicato.</p>
     )}
-  </div>
+    {updated && <p slot="meta" class="upd">Ultimo test: <time datetime={updated.toISOString().slice(0, 10)}>{formatDate(updated)}</time></p>}
+  </PageHead>
 
   <section class="section" aria-labelledby="h-prompt">
-    <h2 id="h-prompt">I prompt per {label.toLowerCase()}</h2>
+    <h2 id="h-prompt" class="first">I prompt per {label.toLowerCase()}</h2>
     {prompts.length > 0 ? (
       <ul class="grid">{prompts.map((p) => <PromptCard prompt={p} />)}</ul>
     ) : (
@@ -61,5 +63,9 @@ const h1 = `Prompt AI per ${label.toLowerCase()}`;
     </section>
   )}
 
-  <p class="section"><a href="/prompt/">Tutti i settori della libreria</a></p>
+  <p class="section"><a class="more" href="/prompt/">Tutti i settori della libreria <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9m-3.5-4L12.5 8 8.5 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
 </BaseLayout>
+<style>
+  .first { margin-top: 0; }
+  .upd { margin: var(--space-4) 0 0; font-size: 15px; color: var(--muted); }
+</style>

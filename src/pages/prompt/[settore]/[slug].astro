@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHead from '../../../components/PageHead.astro';
+import Prose from '../../../components/Prose.astro';
 import CopyButton from '../../../components/CopyButton.astro';
 import PromptCard from '../../../components/PromptCard.astro';
 import ArticleCard from '../../../components/ArticleCard.astro';
@@ -33,63 +35,69 @@ const path = `/prompt/${d.sector}/${p.id}/`;
   }}
 >
   <article>
-    <header class="page-head">
-      <p class="eyebrow"><a href={`/prompt/${d.sector}/`}>{label}</a> · {cap(d.use_case)} · livello {d.level}</p>
-      <h1>{d.title}</h1>
-      <p class="answer"><strong>Cosa ottieni:</strong> {d.goal}</p>
-    </header>
+    <PageHead size="md">
+      <Fragment slot="eyebrow"><a href={`/prompt/${d.sector}/`}>{label}</a> · {cap(d.use_case)} · livello {d.level}</Fragment>
+      <Fragment slot="title">{d.title}</Fragment>
+      <p><strong>Cosa ottieni:</strong> {d.goal}</p>
+    </PageHead>
 
-    <section aria-labelledby="h-prompt">
-      <h2 id="h-prompt" class="first">Il prompt</h2>
-      <div class="term">
-        <div class="term-bar"><span class="label">Prompt · {label}</span><CopyButton target="prompt-text" /></div>
-      <pre class="prompt-box" id="prompt-text"><code>{parts.map((s) => (/^\{[a-z0-9_]+\}$/.test(s) ? <mark class="var">{s}</mark> : s))}</code></pre>
+    <div class="pr-layout">
+      <div class="pr-main">
+        <section aria-labelledby="h-prompt">
+          <h2 id="h-prompt" class="first">Il prompt</h2>
+          <div class="term" role="group" aria-label="Testo del prompt">
+            <div class="term-bar"><span>Prompt · {d.variables.length === 1 ? '1 variabile' : `${d.variables.length} variabili`}</span><CopyButton target="prompt-text" /></div>
+            <pre class="prompt-box" id="prompt-text"><code>{parts.map((s) => (/^\{[a-z0-9_]+\}$/.test(s) ? <mark class="var">{s}</mark> : s))}</code></pre>
+          </div>
+          <p class="muted note">Le parti evidenziate tra graffe sono le variabili: sostituiscile con i tuoi dati prima di inviare.</p>
+        </section>
+
+        <section class="section" aria-labelledby="h-variabili">
+          <h2 id="h-variabili">Variabili da compilare</h2>
+          <Prose class="wide">
+            <table>
+              <caption class="visually-hidden">Variabili del prompt, con descrizione ed esempio</caption>
+              <thead><tr><th scope="col">Variabile</th><th scope="col">Cosa inserire</th><th scope="col">Esempio</th></tr></thead>
+              <tbody>
+                {d.variables.map((v) => (
+                  <tr><th scope="row"><code>{`{${v.name}}`}</code></th><td>{v.description}</td><td>{v.example}</td></tr>
+                ))}
+              </tbody>
+            </table>
+          </Prose>
+        </section>
+
+        <section class="section" aria-labelledby="h-uso">
+          <h2 id="h-uso">Come usarlo</h2>
+          <Prose><p class="pl">{d.how_to_use}</p></Prose>
+        </section>
+
+        <section class="section" aria-labelledby="h-esempio">
+          <h2 id="h-esempio">Esempio di input</h2>
+          <pre class="example"><code>{d.example_input}</code></pre>
+          <h2 id="h-output">Cosa aspettarti</h2>
+          <Prose><p class="pl">{d.expected_output_description}</p></Prose>
+        </section>
       </div>
-      <p class="muted">Le parti evidenziate tra graffe sono le variabili: sostituiscile con i tuoi dati prima di inviare.</p>
-    </section>
 
-    <section aria-labelledby="h-limiti" class="callout warn limits">
-      <h2 id="h-limiti">Limiti e avvertenze</h2>
-      <p class="pl">{d.limits_and_warnings}</p>
-    </section>
+      <div class="pr-side">
+        <section class="limits" aria-labelledby="h-limiti">
+          <h2 id="h-limiti">Limiti e avvertenze</h2>
+          <p class="pl">{d.limits_and_warnings}</p>
+        </section>
 
-    <section class="section" aria-labelledby="h-variabili">
-      <h2 id="h-variabili">Variabili da compilare</h2>
-      <div class="table-wrap">
-        <table>
-          <caption class="visually-hidden">Variabili del prompt, con descrizione ed esempio</caption>
-          <thead><tr><th scope="col">Variabile</th><th scope="col">Cosa inserire</th><th scope="col">Esempio</th></tr></thead>
-          <tbody>
-            {d.variables.map((v) => (
-              <tr><th scope="row"><code>{`{${v.name}}`}</code></th><td>{v.description}</td><td>{v.example}</td></tr>
-            ))}
-          </tbody>
-        </table>
+        <section class="info" aria-labelledby="h-info">
+          <h2 id="h-info">Strumenti, livello e test</h2>
+          <dl class="facts">
+            <div><dt>Compatibile con</dt><dd>{d.compatible_tools.join(', ')}</dd></div>
+            <div><dt>Livello</dt><dd>{cap(d.level)}</dd></div>
+            <div><dt>Ultimo test</dt><dd><time datetime={d.tested_at.toISOString().slice(0, 10)}>{formatDate(d.tested_at)}</time></dd></div>
+            <div><dt>Note del test</dt><dd>{d.test_notes}</dd></div>
+          </dl>
+          <p class="muted small">Le risposte degli assistenti AI cambiano con i modelli: il test vale per la data indicata.</p>
+        </section>
       </div>
-    </section>
-
-    <section class="section prose" aria-labelledby="h-uso">
-      <h2 id="h-uso">Come usarlo</h2>
-      <p class="pl">{d.how_to_use}</p>
-    </section>
-
-    <section class="section prose" aria-labelledby="h-esempio">
-      <h2 id="h-esempio">Esempio di input</h2>
-      <pre class="example"><code>{d.example_input}</code></pre>
-      <h2 id="h-output">Cosa aspettarti</h2>
-      <p class="pl">{d.expected_output_description}</p>
-    </section>
-
-    <section class="section" aria-labelledby="h-info">
-      <h2 id="h-info">Strumenti, livello e test</h2>
-      <dl class="facts">
-        <div class="wide"><dt>Compatibile con</dt><dd>{d.compatible_tools.join(', ')}</dd></div>
-        <div><dt>Livello</dt><dd>{cap(d.level)}</dd></div>
-        <div><dt>Ultimo test</dt><dd><time datetime={d.tested_at.toISOString().slice(0, 10)}>{formatDate(d.tested_at)}</time></dd></div>
-        <div class="wide"><dt>Note del test</dt><dd>{d.test_notes}</dd></div>
-      </dl>
-      <p class="muted">Le risposte degli assistenti AI cambiano con i modelli: il test vale per la data indicata.</p>
-    </section>
+    </div>
   </article>
 
   {siblings.length > 0 && (
@@ -111,14 +119,32 @@ const path = `/prompt/${d.sector}/${p.id}/`;
 </BaseLayout>
 <style>
   .first { margin-top: 0; }
-  .term { max-width: var(--measure); margin-bottom: var(--space-4); background: var(--c-surface-2); border-radius: var(--radius); overflow: hidden; }
-  .term-bar { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); min-height: 56px; padding: var(--space-1) var(--space-3) var(--space-1) var(--space-5); border-bottom: 1px solid var(--c-border); }
-  .term-bar .label { margin: 0; }
-  .prompt-box { white-space: pre-wrap; overflow-wrap: anywhere; margin: 0; padding: var(--space-5); font-size: var(--fs-base); line-height: 1.65; color: var(--c-text); }
-  .example { white-space: pre-wrap; overflow-wrap: anywhere; margin: 0 0 var(--space-5); padding: var(--space-4) var(--space-5); background: var(--c-surface-2); border-radius: var(--radius); font-size: var(--fs-base); line-height: 1.65; }
-  .var { background: var(--c-accent-soft); color: var(--c-accent-strong); font-weight: 600; padding: 0 2px; border-radius: 4px; }
-  .limits { margin-top: var(--space-6); }
-  .limits h2 { margin-top: 0; font-size: var(--fs-lg); }
-  .prompt-box code { background: none; padding: 0; }
+  .pr-layout { display: grid; gap: var(--space-7); }
+  .pr-main, .pr-side { min-width: 0; }
+  @media (min-width: 64rem) {
+    .pr-layout { grid-template-columns: minmax(0, 1fr) 21rem; gap: var(--space-7); align-items: start; }
+    .pr-side { position: sticky; top: var(--space-5); }
+  }
+  .pr-main { max-width: 50rem; }
+  .pr-main h2 { margin-top: 0; font-size: clamp(22px, 2.3vw, 28px); }
+  .pr-main h2 + :global(.rd) { margin-top: 0; }
+
+  /* Terminale chiaro come nel mockup: bordo inchiostro, ombra blu, barra con il conteggio delle variabili */
+  .term { background: var(--card); border: 2px solid var(--bd); border-radius: var(--r-lg); overflow: hidden; box-shadow: 8px 8px 0 var(--brand); margin-bottom: var(--space-4); }
+  .term-bar { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); padding: 8px 10px 8px 20px; background: var(--brand-t); border-bottom: 2px solid var(--bd); font: 800 13px var(--body); letter-spacing: 0.1em; text-transform: uppercase; color: var(--brand-d); }
+  .prompt-box { margin: 0; padding: 22px 22px 24px; white-space: pre-wrap; overflow-wrap: anywhere; font: 400 15.5px/1.75 var(--mono); color: var(--ink); background: none; border: 0; }
+  .prompt-box code { background: none; padding: 0; font-size: inherit; }
+  .var { background: var(--or-t); color: var(--or-text); font-weight: 700; border-radius: 4px; padding: 1px 5px; box-shadow: inset 0 0 0 1px var(--or); }
+  .note { font-size: 15px; margin-top: var(--space-5); }
+  .small { font-size: 15px; margin: 0; }
+  .example { white-space: pre-wrap; overflow-wrap: anywhere; margin: 0 0 var(--space-6); padding: var(--space-4) var(--space-5); background: var(--grey); border: 1.5px solid var(--bd); border-radius: var(--r); font: 400 15px/1.65 var(--mono); }
+  .example code { background: none; padding: 0; font-size: inherit; }
   .pl { white-space: pre-line; }
+  .limits, .info { padding: var(--space-5); background: var(--card); border: 1.5px solid var(--bd); border-radius: var(--r-lg); margin-bottom: var(--space-5); }
+  .limits { background: var(--warn-bg); color: var(--warn-text); border-color: var(--warn-text); border-left-width: 8px; box-shadow: 6px 6px 0 var(--grey-2); }
+  .info { box-shadow: 6px 6px 0 var(--grey-2); }
+  .limits h2, .info h2 { margin: 0 0 var(--space-3); font-size: 18px; line-height: 1.3; letter-spacing: -0.02em; }
+  .limits p { margin: 0; line-height: 1.6; }
+  .info .facts { gap: var(--space-4); margin-bottom: var(--space-4); grid-template-columns: 1fr; }
+  .info dd { font-size: 16px; line-height: 1.5; }
 </style>

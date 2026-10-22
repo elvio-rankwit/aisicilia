@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHead from '../../components/PageHead.astro';
+import Prose from '../../components/Prose.astro';
 import { getCompanies, getUpcomingEvents } from '../../lib/data';
 import { PROVINCES, PROVINCE_SLUGS } from '../../lib/provinces';
 import { countByProvince } from '../../components/helpers';
@@ -13,12 +15,13 @@ const m = {
 };
 ---
 <BaseLayout seo={{ title: m.title, description: m.description, path: '/metodologia/', breadcrumbs: [{ name: 'Metodologia', path: '/metodologia/' }] }}>
-  <div class="page-head">
-    <h1>Come verifichiamo i dati</h1>
-    <p class="answer">Ogni azienda e ogni evento di AI Sicilia nasce da fonti pubbliche che abbiamo davvero consultato, e riporta la data dell’ultima verifica. Le descrizioni sono riscritte, non copiate. Niente dati personali, niente loghi di terzi. Qui spieghiamo come si decide cosa entra e cosa no.</p>
-  </div>
+  <PageHead>
+    <Fragment slot="eyebrow">Metodo</Fragment>
+    <Fragment slot="title">Come verifichiamo <mark class="blk">i dati</mark></Fragment>
+    <p>Ogni azienda e ogni evento di AI Sicilia nasce da fonti pubbliche che abbiamo davvero consultato, e riporta la data dell’ultima verifica. Le descrizioni sono riscritte, non copiate. Niente dati personali, niente loghi di terzi. Qui spieghiamo come si decide cosa entra e cosa no.</p>
+  </PageHead>
 
-  <div class="prose">
+  <Prose>
     <section aria-labelledby="h-fonti">
       <h2 id="h-fonti" class="first">Le fonti che usiamo</h2>
       <p>Partiamo da fonti pubbliche e ufficiali. Per le aziende: siti ufficiali delle realtà, registri pubblici come quello delle startup innovative, pagine istituzionali di università e centri di ricerca. Per gli eventi: le pagine degli organizzatori, le piattaforme pubbliche di iscrizione, i calendari di università, camere di commercio e associazioni.</p>
@@ -67,11 +70,11 @@ const m = {
       <h2 id="h-ai">Il ruolo dell’AI in questo progetto</h2>
       <p>Per fare ricerca e preparare le prime bozze usiamo agenti AI, con gli stessi metodi di cui parla la pagina <a href="/chi-siamo/">Chi siamo</a>. Le bozze non vanno online da sole: la verifica delle fonti e la responsabilità editoriale di ciò che pubblichiamo sono di Elvio Leonardi.</p>
     </section>
-  </div>
+  </Prose>
 
   <section class="section" aria-labelledby="h-numeri">
     <h2 id="h-numeri">I numeri di oggi, per provincia</h2>
-    <div class="table-wrap">
+    <Prose class="wide">
       <table>
         <caption>Aziende e eventi in programma, per provincia siciliana</caption>
         <thead><tr><th scope="col">Provincia</th><th scope="col">Ente</th><th scope="col" class="num">Aziende</th><th scope="col" class="num">Eventi in programma</th></tr></thead>
@@ -86,7 +89,7 @@ const m = {
           ))}
         </tbody>
       </table>
-    </div>
+    </Prose>
   </section>
 </BaseLayout>
 <style>

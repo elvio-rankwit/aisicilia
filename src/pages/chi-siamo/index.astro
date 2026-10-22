@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHead from '../../components/PageHead.astro';
+import Prose from '../../components/Prose.astro';
 import { profilePageNodes } from '../../lib/seo/jsonld';
 
 const m = {
@@ -10,17 +12,16 @@ const m = {
 <BaseLayout
   seo={{ title: m.title, description: m.description, path: '/chi-siamo/', type: 'profile', breadcrumbs: [{ name: 'Chi siamo', path: '/chi-siamo/' }], jsonld: profilePageNodes() }}
 >
-  <div class="page-head intro">
-    <div class="photo" role="group" aria-label="Foto di Elvio Leonardi, da inserire">
+  <PageHead>
+    <Fragment slot="eyebrow">Il progetto</Fragment>
+    <Fragment slot="title">Chi c’è dietro <mark class="blk">AI</mark> Sicilia</Fragment>
+    <p>Mi chiamo Elvio Leonardi, vivo e lavoro a Palermo e AI Sicilia è un progetto che ho ideato e che porto avanti da solo. Non c’è un ente alle spalle, né un’associazione o un’agenzia: ci sono io, il mio lavoro quotidiano con le imprese e una convinzione semplice. L’intelligenza artificiale serve davvero solo quando qualcuno la rende comprensibile e la porta dentro le aziende vere, quelle che hanno poco tempo e ancora meno voglia di slogan.</p>
+    <div slot="meta" class="photo" role="group" aria-label="Foto di Elvio Leonardi, da inserire">
       <span class="todo">[DA COMPLETARE: foto]</span>
     </div>
-    <div>
-      <h1>Chi c’è dietro AI Sicilia</h1>
-      <p class="answer">Mi chiamo Elvio Leonardi, vivo e lavoro a Palermo e AI Sicilia è un progetto che ho ideato e che porto avanti da solo. Non c’è un ente alle spalle, né un’associazione o un’agenzia: ci sono io, il mio lavoro quotidiano con le imprese e una convinzione semplice. L’intelligenza artificiale serve davvero solo quando qualcuno la rende comprensibile e la porta dentro le aziende vere, quelle che hanno poco tempo e ancora meno voglia di slogan.</p>
-    </div>
-  </div>
+  </PageHead>
 
-  <div class="prose">
+  <Prose>
     <p>Ho aperto questo portale perché in Sicilia mancava un punto di riferimento unico per l’AI: dove sono le aziende che ci lavorano, quali eventi si organizzano, da dove può partire un’impresa che vuole provarci. Le informazioni esistono, ma sono sparse tra siti di università, pagine di eventi, gruppi e articoli di giornale. Qui provo a metterle in ordine.</p>
 
     <section aria-labelledby="h-percorso">
@@ -61,7 +62,7 @@ const m = {
 
     <section aria-labelledby="h-contatti">
       <h2 id="h-contatti">Contatti</h2>
-      <dl class="facts">
+      <dl class="box facts">
         <dt>Email</dt>
         <dd><span class="todo">[DA COMPLETARE: email di contatto]</span></dd>
         <dt>LinkedIn</dt>
@@ -70,10 +71,13 @@ const m = {
         <dd><a href="/segnala/">Segnala un’azienda o un evento</a> · <a href="/rimozione/">Richiedi una modifica o una rimozione</a></dd>
       </dl>
     </section>
-  </div>
+  </Prose>
 </BaseLayout>
 <style>
-  .intro { display: grid; gap: var(--space-5); align-items: start; }
-  .photo { width: 160px; height: 160px; display: flex; align-items: center; justify-content: center; text-align: center; padding: var(--space-3); border: 2px dashed var(--c-border); border-radius: var(--radius-lg); background: var(--c-surface-2); font-size: var(--fs-sm); }
-  @media (min-width: 40rem) { .intro { grid-template-columns: 160px minmax(0, 1fr); } }
+  .photo { display: flex; align-items: center; justify-content: center; width: 160px; height: 160px; margin-top: var(--space-5); padding: var(--space-3); text-align: center; font-size: 14px; background: var(--grey); border: 1.5px dashed var(--bd); border-radius: var(--r-lg); box-shadow: 6px 6px 0 var(--grey-2); }
+  .facts { display: grid; grid-template-columns: 1fr; gap: 4px var(--space-5); max-width: none; }
+  .facts dt { margin-top: var(--space-3); }
+  .facts dt:first-child { margin-top: 0; }
+  .facts dd { margin: 0; font-size: 1.0625rem; }
+  @media (min-width: 40rem) { .facts { grid-template-columns: 9rem 1fr; } .facts dt, .facts dt:first-child { margin: 0; padding-top: 4px; } .facts dd { padding-bottom: var(--space-3); } }
 </style>

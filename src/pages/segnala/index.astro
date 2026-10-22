@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHead from '../../components/PageHead.astro';
+import Prose from '../../components/Prose.astro';
 import FormShell from '../../components/FormShell.astro';
 import { FORMS } from '../../lib/site';
 import { PROVINCES, PROVINCE_SLUGS } from '../../lib/provinces';
@@ -10,18 +12,19 @@ const m = {
 };
 ---
 <BaseLayout seo={{ title: m.title, description: m.description, path: '/segnala/', breadcrumbs: [{ name: 'Segnala', path: '/segnala/' }] }}>
-  <div class="page-head">
-    <h1>Segnala un’azienda o un evento</h1>
-    <p class="answer">Se conosci una realtà siciliana che lavora con l’intelligenza artificiale, o un evento sul tema, scrivicelo qui. Prima di pubblicare controlliamo le fonti: una segnalazione non basta, serve qualcosa di verificabile.</p>
-  </div>
+  <PageHead>
+    <Fragment slot="eyebrow">Contribuisci</Fragment>
+    <Fragment slot="title">Segnala un’azienda o un <mark class="blk">evento</mark></Fragment>
+    <p>Se conosci una realtà siciliana che lavora con l’intelligenza artificiale, o un evento sul tema, scrivicelo qui. Prima di pubblicare controlliamo le fonti: una segnalazione non basta, serve qualcosa di verificabile.</p>
+  </PageHead>
 
   <section aria-labelledby="h-criteri">
     <h2 id="h-criteri" class="first">Cosa pubblichiamo</h2>
-    <div class="prose">
+    <Prose>
       <p><strong>Aziende:</strong> sede operativa in Sicilia e intelligenza artificiale al centro del prodotto o del servizio, dichiarata sul sito o in una fonte pubblica. Chi usa anche ChatGPT, tra tanti strumenti, non rientra.</p>
       <p><strong>Eventi:</strong> in Sicilia, oppure online se li organizza una realtà siciliana.</p>
       <p>I dettagli sono nella pagina <a href="/metodologia/">Come verifichiamo i dati</a>. Pubblichiamo solo dati aziendali, mai dati di persone.</p>
-    </div>
+    </Prose>
   </section>
 
   <section class="section" aria-labelledby="h-form">

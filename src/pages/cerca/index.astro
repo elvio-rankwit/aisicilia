@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHead from '../../components/PageHead.astro';
 import SearchForm from '../../components/SearchForm.astro';
 
 const m = {
@@ -8,10 +9,11 @@ const m = {
 };
 ---
 <BaseLayout seo={{ title: m.title, description: m.description, path: '/cerca/', noindex: true, breadcrumbs: [{ name: 'Cerca', path: '/cerca/' }] }}>
-  <div class="page-head">
-    <h1>Cerca nel sito</h1>
-    <p class="lead">Aziende, eventi, guide e prompt. Scrivi una parola e premi invio.</p>
-  </div>
+  <PageHead>
+    <Fragment slot="eyebrow">Ricerca</Fragment>
+    <Fragment slot="title">Cerca nel <mark class="blk">sito</mark></Fragment>
+    <p>Aziende, eventi, guide e prompt. Scrivi una parola e premi invio. La ricerca gira nel tuo browser, senza cookie né tracciamento.</p>
+  </PageHead>
   <div id="search-box" class="box">
     <SearchForm />
     <noscript><p class="callout warn">La ricerca ha bisogno di JavaScript. Senza, puoi sfogliare le sezioni: <a href="/aziende/">Aziende</a>, <a href="/eventi/">Eventi</a>, <a href="/impara/">Impara</a>, <a href="/prompt/">Prompt</a>.</p></noscript>
@@ -20,10 +22,33 @@ const m = {
 </BaseLayout>
 <style>
   .box { min-height: 7rem; }
-  .results { min-height: 4rem; margin-top: var(--space-5);
-    --pagefind-ui-scale: 1; --pagefind-ui-primary: var(--c-primary); --pagefind-ui-text: var(--c-text); --pagefind-ui-background: var(--c-surface);
-    --pagefind-ui-border: var(--c-border-strong); --pagefind-ui-tag: var(--c-surface-2); --pagefind-ui-border-width: 1px; --pagefind-ui-border-radius: 8px;
-    --pagefind-ui-image-border-radius: 8px; --pagefind-ui-font: var(--font-sans); color: var(--c-text); }
+  .results { min-height: 4rem; margin-top: var(--space-5); color: var(--ink);
+    --pagefind-ui-scale: 1; --pagefind-ui-primary: var(--brand); --pagefind-ui-text: var(--ink); --pagefind-ui-background: var(--card);
+    --pagefind-ui-border: var(--bd); --pagefind-ui-tag: var(--grey-2); --pagefind-ui-border-width: 2px; --pagefind-ui-border-radius: 16px;
+    --pagefind-ui-image-border-radius: 8px; --pagefind-ui-font: var(--body); }
+  /* Interfaccia Pagefind nei colori v4, anche in scuro (tutto via token) */
+  .results :global(.pagefind-ui__form) { max-width: 40rem; }
+  .results :global(.pagefind-ui__search-input) { height: 58px; font: 500 17px var(--body); color: var(--ink); box-shadow: 6px 6px 0 var(--brand); transition: box-shadow var(--ease); }
+  .results :global(.pagefind-ui__search-input:focus) { box-shadow: 6px 6px 0 var(--or); outline: none; }
+  .results :global(.pagefind-ui__search-input:focus-visible) { outline: 3px solid var(--brand); outline-offset: 3px; }
+  .results :global(.pagefind-ui__search-input::placeholder) { color: var(--faint); opacity: 1; }
+  .results :global(.pagefind-ui__search-clear) { color: var(--brand-d); font: 700 15px var(--body); background: var(--card); border-radius: 10px; min-width: 44px; min-height: 44px; }
+  .results :global(.pagefind-ui__search-clear:focus-visible) { outline: 3px solid var(--brand); }
+  .results :global(.pagefind-ui__message) { color: var(--muted); font: 600 16px var(--body); }
+  .results :global(.pagefind-ui__results) { padding: 0; margin: 0; }
+  .results :global(.pagefind-ui__result) { max-width: 40rem; margin: 0 0 var(--space-5); padding: 22px 24px 24px; background: var(--card); border: 1.5px solid var(--bd); border-radius: var(--r-lg); box-shadow: 6px 6px 0 var(--grey-2); transition: transform 0.2s, box-shadow 0.2s; }
+  .results :global(.pagefind-ui__result:last-of-type) { border: 1.5px solid var(--bd); }
+  .results :global(.pagefind-ui__result:hover) { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--sh); }
+  .results :global(.pagefind-ui__result-inner) { margin-top: 0; }
+  .results :global(.pagefind-ui__result-title) { font: 700 18px/1.3 var(--display); letter-spacing: -0.02em; }
+  .results :global(.pagefind-ui__result-link) { color: var(--ink); text-decoration: none; }
+  .results :global(.pagefind-ui__result-link:hover) { text-decoration: underline; text-decoration-color: var(--or); text-decoration-thickness: 3px; text-underline-offset: 4px; }
+  .results :global(.pagefind-ui__result-excerpt) { margin-top: 10px; font: 400 16px/1.6 var(--body); color: var(--muted); }
+  .results :global(.pagefind-ui__result-excerpt mark) { all: unset; background: var(--or-t); color: var(--or-text); font-weight: 700; border-radius: 4px; padding: 0 3px; }
+  .results :global(.pagefind-ui__result-tag) { background: var(--grey-2); color: var(--ink); border-radius: 99px; padding: 2px 10px; font-size: 13px; font-weight: 700; }
+  .results :global(.pagefind-ui__button) { min-height: 48px; padding: 0 26px; background: var(--or); color: var(--on-or); border: 1.5px solid var(--on-or); border-radius: 12px; box-shadow: 3px 3px 0 var(--on-or); font: 800 16px var(--body); }
+  .results :global(.pagefind-ui__button:hover) { background: var(--or-h); color: var(--on-or); border-color: var(--on-or); }
+  .results :global(.pagefind-ui__button:focus-visible) { outline: 3px solid var(--brand); outline-offset: 3px; }
 </style>
 <script>
   // La UI di Pagefind (JS e CSS) si scarica solo qui e solo quando serve: ?q= nell'indirizzo, focus o invio nel campo.

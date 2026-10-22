@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHead from '../components/PageHead.astro';
 import SearchForm from '../components/SearchForm.astro';
 
 const sections = [
@@ -10,18 +11,22 @@ const sections = [
 ];
 ---
 <BaseLayout seo={{ title: 'Pagina non trovata', description: 'La pagina che cerchi non esiste o è stata spostata. Prova con la ricerca o vai a una delle sezioni di AI Sicilia.', path: '/404/', noindex: true }}>
-  <div class="page-head">
-    <h1>Questa pagina non c’è</h1>
-    <p class="lead">L’indirizzo potrebbe essere sbagliato, oppure la scheda è stata tolta. Prova a cercarla.</p>
-  </div>
+  <PageHead>
+    <Fragment slot="eyebrow">Errore 404</Fragment>
+    <Fragment slot="title">Questa pagina <mark class="blk">non c’è</mark></Fragment>
+    <p>L’indirizzo potrebbe essere sbagliato, oppure la scheda è stata tolta. Prova a cercarla.</p>
+  </PageHead>
   <SearchForm id="q404" label="Cerca nel sito" />
   <section class="section" aria-labelledby="h-sezioni">
     <h2 id="h-sezioni">Oppure vai in una sezione</h2>
     <ul class="grid">
       {sections.map((s) => (
-        <li class="card"><h3><a href={s.href}>{s.title}</a></h3><p>{s.text}</p></li>
+        <li class="card sec"><p class="kicker">Sezione</p><h3><a href={s.href}>{s.title}</a></h3><p class="desc">{s.text}</p></li>
       ))}
     </ul>
-    <p><a href="/">Torna alla home</a></p>
+    <p><a class="more" href="/">Torna alla home <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9m-3.5-4L12.5 8 8.5 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
   </section>
 </BaseLayout>
+<style>
+  .sec { background: var(--grey); }
+</style>

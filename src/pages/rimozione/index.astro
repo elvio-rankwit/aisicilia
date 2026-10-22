@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHead from '../../components/PageHead.astro';
+import Prose from '../../components/Prose.astro';
 import FormShell from '../../components/FormShell.astro';
 import { FORMS } from '../../lib/site';
 
@@ -9,18 +11,19 @@ const m = {
 };
 ---
 <BaseLayout seo={{ title: m.title, description: m.description, path: '/rimozione/', breadcrumbs: [{ name: 'Modifica o rimozione', path: '/rimozione/' }] }}>
-  <div class="page-head">
-    <h1>Richiedi modifica o rimozione</h1>
-    <p class="answer">Hai trovato un errore in una scheda, oppure vuoi che la tua azienda o il tuo evento non compaiano più? Compila il modulo: ti rispondiamo e correggiamo o togliamo la scheda.</p>
-  </div>
+  <PageHead>
+    <Fragment slot="eyebrow">Correzioni</Fragment>
+    <Fragment slot="title">Richiedi modifica o <mark class="blk">rimozione</mark></Fragment>
+    <p>Hai trovato un errore in una scheda, oppure vuoi che la tua azienda o il tuo evento non compaiano più? Compila il modulo: ti rispondiamo e correggiamo o togliamo la scheda.</p>
+  </PageHead>
 
   <section aria-labelledby="h-come">
     <h2 id="h-come" class="first">Come funziona</h2>
-    <div class="prose">
+    <Prose>
       <p>Pubblichiamo solo dati aziendali: nome, sito, sede, attività, con le fonti da cui li abbiamo presi. Non pubblichiamo dati di persone. Se ne trovi uno per errore, indicalo nel modulo e lo togliamo.</p>
       <p>Tempi di risposta: <span class="todo">[DA COMPLETARE: tempi di risposta]</span>.</p>
       <p>Per segnalare una realtà o un evento che manca, usa invece il modulo <a href="/segnala/">Segnala</a>.</p>
-    </div>
+    </Prose>
   </section>
 
   <section class="section" aria-labelledby="h-form">

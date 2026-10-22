@@ -1,20 +1,54 @@
 ---
 // Contenitore dei form (D-015): <form method="post"> nativo verso l'endpoint esterno.
 // Se l'endpoint manca, il form è disattivato e l'avviso è visibile.
+// Stile v4: label sempre visibili, campi con bordo inchiostro e ombra piena, stato disabilitato leggibile.
 interface Props { action: string; submitLabel: string; envName: string; label: string }
 const { action, submitLabel, envName, label } = Astro.props;
 const off = !action;
 ---
 {off && (
-  <div class="callout warn" role="status">
+  <div class="off" role="status">
     <p><strong>Modulo in attivazione.</strong> Non è ancora possibile inviare da qui: il servizio che riceve i messaggi non è stato collegato. Riprova tra qualche giorno, oppure guarda la pagina <a href="/contatti/">Contatti</a>.</p>
   </div>
 )}
 {off && <Fragment set:html={`<!-- TODO: impostare ${envName} (endpoint Formspree o simile) per attivare il form. Finché è vuota, il form resta disabilitato. -->`} />}
-<form class="form" method="post" action={off ? undefined : action} aria-label={label}>
+<form class:list={['fs', { disabled: off }]} method="post" action={off ? undefined : action} aria-label={label}>
   <fieldset disabled={off}>
     <slot />
     <div class="trap" aria-hidden="true"><label>Non compilare questo campo<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label></div>
-    <div><button type="submit" class="btn">{submitLabel}</button></div>
+    <div class="send"><button type="submit" class="go">{submitLabel}</button></div>
   </fieldset>
 </form>
+<style>
+  .off { max-width: 44rem; margin: 0 0 var(--space-5); padding: var(--space-4) var(--space-5); background: var(--warn-bg); color: var(--warn-text); border: 1.5px solid var(--warn-text); border-left-width: 8px; border-radius: var(--r); }
+  .off p { margin: 0; }
+  .off a { color: inherit; font-weight: 700; }
+  .fs { max-width: 44rem; padding: var(--space-5); background: var(--grey); border: 1.5px solid var(--bd); border-radius: var(--r-lg); box-shadow: 8px 8px 0 var(--grey-2); }
+  @media (min-width: 45.01rem) { .fs { padding: var(--space-6); } }
+  fieldset { display: grid; gap: var(--space-5); min-width: 0; margin: 0; padding: 0; border: 0; }
+  .fs :global(.field) { display: grid; gap: 8px; }
+  .fs :global(.field > label), .fs :global(.field > .label) { margin: 0; font: 700 16px/1.4 var(--body); letter-spacing: 0; text-transform: none; color: var(--ink); }
+  .fs :global(.field .hint) { font-size: 15px; line-height: 1.5; color: var(--muted); }
+  .fs :global(.field input:not([type='radio']):not([type='checkbox'])), .fs :global(.field select), .fs :global(.field textarea) {
+    width: 100%; min-height: 50px; padding: 10px 14px; color: var(--ink); background: var(--card); font: 500 17px/1.4 var(--body);
+    border: 2px solid var(--bd); border-radius: 12px; box-shadow: 4px 4px 0 var(--grey-2); transition: box-shadow var(--ease);
+  }
+  .fs :global(.field textarea) { min-height: 9rem; resize: vertical; }
+  .fs :global(.field input::placeholder) { color: var(--faint); opacity: 1; }
+  .fs :global(.field input:hover), .fs :global(.field select:hover), .fs :global(.field textarea:hover) { box-shadow: 4px 4px 0 var(--brand); }
+  .fs :global(.field input:focus-visible), .fs :global(.field select:focus-visible), .fs :global(.field textarea:focus-visible) { outline: 3px solid var(--brand); outline-offset: 2px; box-shadow: 4px 4px 0 var(--or); }
+  .fs :global(.choices) { display: flex; flex-wrap: wrap; gap: 10px; }
+  .fs :global(.choices label) { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 18px 0 14px; background: var(--card); border: 2px solid var(--bd); border-radius: 99px; font: 600 16px var(--body); cursor: pointer; }
+  .fs :global(.choices label:has(input:checked)) { background: var(--brand-t); box-shadow: 3px 3px 0 var(--or); }
+  .fs :global(.choices input) { width: 1.2rem; height: 1.2rem; margin: 0; accent-color: var(--brand-bg); }
+  .fs :global(.choices label:has(input:focus-visible)) { outline: 3px solid var(--brand); outline-offset: 2px; }
+  .fs :global(.choices input:focus-visible) { outline: none; }
+  .trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .go { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 28px; background: var(--or); color: var(--on-or); border: 1.5px solid var(--on-or); border-radius: 12px; box-shadow: 3px 3px 0 var(--on-or); font: 800 17px var(--body); cursor: pointer; transition: transform 0.15s, box-shadow 0.15s, background-color 0.2s; }
+  .go:hover { background: var(--or-h); transform: translate(1px, 1px); box-shadow: 2px 2px 0 var(--on-or); }
+  .go:focus-visible { outline-offset: 3px; }
+  /* Stato disabilitato: campi visibilmente spenti, senza ombra, testo ancora leggibile */
+  fieldset:disabled :global(.field input), fieldset:disabled :global(.field select), fieldset:disabled :global(.field textarea) { background: var(--grey-2); border-color: var(--line-2); border-style: dashed; box-shadow: none; color: var(--muted); cursor: not-allowed; }
+  fieldset:disabled :global(.choices label) { background: var(--grey-2); border-color: var(--line-2); border-style: dashed; color: var(--muted); cursor: not-allowed; }
+  fieldset:disabled .go { background: var(--grey-2); color: var(--muted); border: 1.5px dashed var(--line-2); box-shadow: none; cursor: not-allowed; transform: none; }
+</style>

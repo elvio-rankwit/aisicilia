@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHead from '../../components/PageHead.astro';
+import Prose from '../../components/Prose.astro';
 import FormShell from '../../components/FormShell.astro';
 import { FORMS } from '../../lib/site';
 
@@ -9,14 +11,15 @@ const m = {
 };
 ---
 <BaseLayout seo={{ title: m.title, description: m.description, path: '/contatti/', breadcrumbs: [{ name: 'Contatti', path: '/contatti/' }] }}>
-  <div class="page-head">
-    <h1>Contatti</h1>
-    <p class="answer">AI Sicilia è un progetto indipendente gestito da Elvio Leonardi. Per scrivere usa il modulo qui sotto o l’email. Per segnalare un’azienda o un evento, oppure per chiedere una correzione, ci sono due moduli dedicati.</p>
-  </div>
+  <PageHead>
+    <Fragment slot="eyebrow">Contatti</Fragment>
+    <Fragment slot="title"><mark class="blk">Contatti</mark></Fragment>
+    <p>AI Sicilia è un progetto indipendente gestito da Elvio Leonardi. Per scrivere usa il modulo qui sotto o l’email. Per segnalare un’azienda o un evento, oppure per chiedere una correzione, ci sono due moduli dedicati.</p>
+  </PageHead>
 
   <section aria-labelledby="h-dove">
     <h2 id="h-dove" class="first">Dove trovarci</h2>
-    <dl class="facts">
+    <Prose><dl class="box facts">
       <dt>Email</dt>
       <dd><span class="todo">[DA COMPLETARE: email di contatto]</span></dd>
       <dt>Segnalazioni</dt>
@@ -25,7 +28,7 @@ const m = {
       <dd><a href="/rimozione/">Richiedi modifica o rimozione</a></dd>
       <dt>Chi c’è dietro</dt>
       <dd><a href="/chi-siamo/">Chi siamo</a></dd>
-    </dl>
+    </dl></Prose>
   </section>
 
   <section class="section" aria-labelledby="h-form">
@@ -49,4 +52,9 @@ const m = {
 </BaseLayout>
 <style>
   .first { margin-top: 0; }
+  .facts { display: grid; grid-template-columns: 1fr; gap: 4px var(--space-5); max-width: none; }
+  .facts dt { margin-top: var(--space-3); }
+  .facts dt:first-child { margin-top: 0; }
+  .facts dd { margin: 0; font-size: 1.0625rem; }
+  @media (min-width: 40rem) { .facts { grid-template-columns: 9rem 1fr; } .facts dt, .facts dt:first-child { margin: 0; padding-top: 4px; } .facts dd { padding-bottom: var(--space-3); } }
 </style>

@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHead from '../../components/PageHead.astro';
+import Prose from '../../components/Prose.astro';
 
 const m = {
   title: 'Note legali di AI Sicilia',
@@ -7,12 +9,13 @@ const m = {
 };
 ---
 <BaseLayout seo={{ title: m.title, description: m.description, path: '/note-legali/', breadcrumbs: [{ name: 'Note legali', path: '/note-legali/' }] }}>
-  <div class="page-head">
-    <h1>Note legali</h1>
-    <p class="answer">AI Sicilia è un progetto indipendente, gestito da Elvio Leonardi. Raccoglie informazioni pubbliche su aziende ed eventi: non è un ente pubblico e non rappresenta le realtà che cita.</p>
-  </div>
+  <PageHead>
+    <Fragment slot="eyebrow">Informazioni legali</Fragment>
+    <Fragment slot="title">Note <mark class="blk">legali</mark></Fragment>
+    <p>AI Sicilia è un progetto indipendente, gestito da Elvio Leonardi. Raccoglie informazioni pubbliche su aziende ed eventi: non è un ente pubblico e non rappresenta le realtà che cita.</p>
+  </PageHead>
 
-  <div class="prose">
+  <Prose>
     <section aria-labelledby="h-natura">
       <h2 id="h-natura" class="first">Natura del progetto</h2>
       <p>Il portale non è un ente, un’associazione o un’agenzia. È un progetto personale e indipendente. Chi c’è dietro lo trovi in <a href="/chi-siamo/">Chi siamo</a>.</p>
@@ -39,8 +42,5 @@ const m = {
       <h2 id="h-correzioni">Correzioni e rimozioni</h2>
       <p>Se una scheda ti riguarda e vuoi correggerla o toglierla, usa il modulo <a href="/rimozione/">Richiedi modifica o rimozione</a>. Il metodo con cui raccogliamo i dati è descritto nella <a href="/metodologia/">metodologia</a>.</p>
     </section>
-  </div>
+  </Prose>
 </BaseLayout>
-<style>
-  .first { margin-top: 0; }
-</style>

@@ -6,12 +6,18 @@ const { class: cls } = Astro.props;
 ---
 <div class:list={['rd', cls]}><slot /></div>
 <style>
-  .rd { max-width: 40rem; font-size: 1.0625rem; line-height: 1.7; }
+  .rd { max-width: 35rem; font-size: 1.0625rem; line-height: 1.7; }
   @media (min-width: 48rem) { .rd { font-size: 1.125rem; } }
   .rd :global(p) { margin: 0 0 1.1em; }
   .rd :global(h2) { margin: var(--space-8) 0 var(--space-4); scroll-margin-top: var(--space-5); font-size: clamp(22px, 2.3vw, 30px); }
   .rd :global(h3) { margin: var(--space-6) 0 var(--space-3); scroll-margin-top: var(--space-5); font-size: clamp(18px, 1.7vw, 21px); }
-  .rd > :global(:first-child), .rd > :global(section:first-child > h2:first-child) { margin-top: 0; }
+  .rd :global(h2.first), .rd > :global(:first-child) { margin-top: 0; }
+  .rd.wide { max-width: 56rem; }
+  .rd.wide :global(table) { margin-top: 0; }
+  /* Guide: il testo resta a ~68 caratteri, tabelle e riquadri possono usare tutta la colonna */
+  .rd.guide { max-width: 46rem; }
+  .rd.guide > :global(:is(p, ul, ol, h2, h3, h4, blockquote)) { max-width: 35rem; }
+  .rd :global(.num) { text-align: right; font-variant-numeric: tabular-nums; }
   .rd :global(ul), .rd :global(ol) { padding-left: 1.4em; margin: 0 0 1.1em; }
   .rd :global(li) { margin-bottom: 0.5em; padding-left: 0.25em; }
   .rd :global(li::marker) { color: var(--or-text); font-weight: 700; }
@@ -40,7 +46,7 @@ const { class: cls } = Astro.props;
   .rd :global(thead th) { background: var(--brand-t); color: var(--ink); border-bottom: 1.5px solid var(--bd); font: 800 13px/1.4 var(--body); text-transform: uppercase; letter-spacing: 0.06em; }
   .rd :global(tbody tr:nth-child(even)) { background: var(--grey); }
   .rd :global(tbody tr:last-child > *) { border-bottom: 0; }
-  .rd :global(tbody th) { font-weight: 700; }
+  .rd :global(tbody th), .rd :global(tbody td:first-child) { font-weight: 700; }
 
   /* Riquadro generico */
   .rd :global(.box) { padding: var(--space-5); background: var(--card); border: 1.5px solid var(--bd); border-radius: var(--r-lg); box-shadow: 6px 6px 0 var(--grey-2); margin: 0 0 var(--space-5); }
