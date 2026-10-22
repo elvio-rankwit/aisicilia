@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Mockup C chiaro, Bricolage | AI Sicilia</title>
+<style>
+@font-face{font-family:"Bricolage Grotesque";font-style:normal;font-weight:200 800;font-stretch:75% 100%;font-display:swap;src:url(fonts/bricolage-grotesque-latin-standard-normal.woff2) format("woff2")}
+:root{
+  --bg:#FFFFFF; --grey:#F4F6F8; --grey-2:#EAEEF2;
+  --ink:#101418; --muted:#3A444E; --faint:#59656F;
+  --line:#DCE2E8; --line-2:#BFC9D3;
+  --brand:#0B5FA5; --brand-d:#084A82; --brand-t:#E6F0F9;
+  --or:#F07A1A; --or-h:#F68D38; --or-t:#FFEEDD; --or-text:#A84A00;
+  --teal:#0B6B75; --teal-t:#E0F1F2;
+  --r:14px; --r-lg:22px;
+  --f:"Bricolage Grotesque",system-ui,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--f);font-optical-sizing:auto;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible,.prov:focus-visible{outline:3px solid var(--brand);outline-offset:3px;border-radius:6px}
+.prov:focus-visible{outline:none}
+.prov:focus-visible path{stroke:var(--ink);stroke-width:2.4px}
+.num,.n,.stat b,.date b,.step i{font-variant-numeric:tabular-nums lining-nums}
+.wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+.eyebrow{display:flex;align-items:center;gap:10px;font:700 14px/1 var(--f);letter-spacing:.1em;text-transform:uppercase;color:var(--brand)}
+.eyebrow::before{content:"";width:12px;height:12px;background:var(--or);border-radius:3px;transform:rotate(45deg);flex:none}
+h1,h2,h3{font-family:var(--f);font-weight:800;font-stretch:100%;letter-spacing:-.025em;line-height:1.04}
+h2{font-size:clamp(36px,4.6vw,64px);line-height:1;letter-spacing:-.035em;text-wrap:balance}
+#h-pr{font-size:clamp(32px,3.6vw,50px);line-height:1.04;font-stretch:90%;font-weight:750}
+.sub{color:var(--muted);max-width:56ch;margin-top:16px;font-size:18px}
+
+/* header */
+.top{position:relative;z-index:10;border-bottom:1.5px solid var(--ink)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo{display:flex;align-items:center;gap:10px;font:800 26px/1 var(--f);letter-spacing:-.035em}
+.logo svg{flex:none}
+.logo span{color:var(--brand)}
+.nav{display:flex;align-items:center;gap:4px}
+.nav a{padding:10px 14px;border-radius:10px;color:var(--ink);font-weight:600;min-height:44px;display:flex;align-items:center}
+.nav a:hover{background:var(--brand-t);color:var(--brand-d)}
+.nav .btn-s{margin-left:12px;background:var(--or);color:var(--ink);font-weight:700;border:1.5px solid var(--ink);box-shadow:3px 3px 0 var(--ink);transition:transform .15s,box-shadow .15s}
+.nav .btn-s:hover{background:var(--or-h);color:var(--ink);transform:translate(1px,1px);box-shadow:2px 2px 0 var(--ink)}
+.menu{display:none;position:relative}
+.menu summary{list-style:none;cursor:pointer;min-height:44px;padding:0 18px;display:flex;align-items:center;border:1.5px solid var(--ink);border-radius:10px;font-weight:700;background:#fff}
+.menu summary::-webkit-details-marker{display:none}
+.menu .drop{position:absolute;right:0;top:54px;width:230px;background:#fff;border:1.5px solid var(--ink);border-radius:var(--r);padding:8px;display:grid;box-shadow:5px 5px 0 var(--ink)}
+.menu .drop a{padding:12px;border-radius:8px;font-weight:600}
+.menu .drop a:hover{background:var(--brand-t)}
+
+/* hero */
+.hero{position:relative;background:#fff;overflow:hidden;min-height:780px;
+  background-image:radial-gradient(circle at 1px 1px,#CBD4DD 1.2px,transparent 0);background-size:24px 24px}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#fff 0,#fff 30%,rgba(255,255,255,0) 52%);pointer-events:none}
+.hero .wrap{position:relative}
+.hero-map{position:absolute;right:max(12px,calc((100vw - 1360px)/2));top:46px;width:min(60vw,880px)}
+.sicily{display:block;width:100%;height:auto;overflow:visible}
+.prov path{stroke:#fff;stroke-width:1.6px;vector-effect:non-scaling-stroke;stroke-linejoin:round;transition:filter .2s}
+.prov{outline:none;cursor:pointer}
+.prov:hover path{filter:brightness(.88)}
+.prov:hover path,.prov:focus-visible path{stroke:var(--ink);stroke-width:2px}
+.co{fill:var(--or);stroke:#fff;stroke-width:.9;pointer-events:none;r:2.9px}
+.ev{fill:none;stroke:var(--teal);stroke-width:1.7;r:4.9px;pointer-events:none;filter:drop-shadow(0 0 1px #fff) drop-shadow(0 0 .6px #fff)}
+.pulse{fill:none;stroke:var(--teal);stroke-width:1;r:4.9px;transform-box:fill-box;transform-origin:center;animation:pulse 3.6s ease-out infinite;pointer-events:none}
+@keyframes pulse{0%{transform:scale(1);opacity:.8}100%{transform:scale(3.2);opacity:0}}
+.rw{fill:none;stroke:var(--ink);stroke-width:1.4;pointer-events:none;r:7px}
+.cap{fill:var(--ink);stroke:#fff;stroke-width:.6;pointer-events:none}
+.lab{font:700 8.6px var(--f);fill:var(--ink);pointer-events:none;paint-order:stroke;stroke:rgba(255,255,255,.75);stroke-width:2.4px;stroke-linejoin:round;letter-spacing:.01em}
+.lab.big{font-size:10.5px;font-weight:800}
+.lab .n{fill:var(--or-text);font-variant-numeric:tabular-nums;font-weight:800}
+.lab .n.z{fill:var(--faint)}
+.lab.rwl{fill:var(--ink);font-weight:800;font-size:7px;stroke:rgba(255,255,255,.9)}
+.hero-copy>*{position:relative;z-index:2}
+.hero-copy{position:relative;z-index:2;padding:70px 0 40px;max-width:640px}
+.hero h1{font-size:clamp(52px,7.4vw,108px);line-height:.92;letter-spacing:-.045em;margin:22px 0 26px;text-wrap:balance;font-weight:800}
+.hl{display:inline-block;background:var(--or);color:var(--ink);padding:0 .12em .04em;margin:0 .02em;border-radius:.14em;transform:rotate(-3deg);box-shadow:.06em .06em 0 var(--ink);border:.03em solid var(--ink)}
+.lead{font-size:21px;line-height:1.5;color:var(--ink);max-width:32ch}
+.lead b{font-weight:800;background:linear-gradient(transparent 62%,#FFD3A8 62%)}
+.search{margin-top:30px;display:flex;gap:0;background:#fff;border:2px solid var(--ink);border-radius:16px;padding:6px;max-width:540px;box-shadow:6px 6px 0 var(--brand)}
+.search label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.search input{flex:1;min-width:0;background:none;border:0;color:var(--ink);font:500 17px var(--f);padding:0 14px;min-height:50px}
+.search input::placeholder{color:var(--faint);opacity:1}
+.search input:focus-visible{outline:none}
+.search:focus-within{box-shadow:6px 6px 0 var(--or)}
+.search button{background:var(--or);color:var(--ink);font:800 17px var(--f);border:0;border-radius:11px;padding:0 26px;min-height:50px;cursor:pointer}
+.search button:hover{background:var(--or-h)}
+.hero-note{margin-top:20px;font-size:16px;color:var(--muted);max-width:46ch}
+.hero-note b{color:var(--ink);font-weight:700}
+.readout{position:absolute;z-index:3;left:110px;bottom:-34px;width:290px;background:#fff;border:2px solid var(--ink);border-radius:var(--r);padding:16px 18px;box-shadow:6px 6px 0 var(--ink)}
+.readout .k{font:700 12px/1 var(--f);letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.readout .v{font:800 28px/1.1 var(--f);margin-top:8px;letter-spacing:-.025em}
+.readout .d{margin-top:6px;color:var(--muted);font-size:16px;line-height:1.45}
+.readout .d b{color:var(--or-text);font-weight:800;font-variant-numeric:tabular-nums}
+.readout .d u{color:var(--teal);text-decoration:none;font-weight:800;font-variant-numeric:tabular-nums}
+.legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:20px;font-size:15px;color:var(--ink);font-weight:500}
+.legend span{display:flex;align-items:center;gap:8px}
+.legend i{width:12px;height:12px;border-radius:50%;display:inline-block}
+.legend .a{background:var(--or);box-shadow:0 0 0 1.5px #fff,0 0 0 2.5px var(--line-2)}
+.legend .e{border:2px solid var(--teal);width:15px;height:15px}
+.legend .r{border:2px solid var(--ink);width:16px;height:16px}
+
+/* barra numeri */
+.stats{background:var(--brand);color:#fff;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.stats ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
+.stat a{display:block;padding:36px 28px 38px;border-left:1.5px solid rgba(255,255,255,.28);height:100%;transition:background .2s}
+.stat:first-child a{border-left:0;padding-left:0}
+.stat a:hover{background:rgba(255,255,255,.08)}
+.stat .top-r{display:flex;align-items:center;justify-content:space-between;color:#fff;font:700 15px var(--f);letter-spacing:.08em;text-transform:uppercase}
+.stat b{display:block;font-size:clamp(64px,7.6vw,112px);line-height:.9;font-weight:800;letter-spacing:-.05em;margin:14px 0 16px;color:#fff;position:relative}
+.stat b::after{content:"";display:block;width:44px;height:6px;background:var(--or);border-radius:3px;margin-top:14px}
+.stat p{font-size:16px;line-height:1.5;color:#E6F0F9;max-width:30ch}
+.arr{transition:transform .2s}
+.btn .arr,.more .arr{color:currentColor}
+.stat a:hover .arr{transform:translateX(4px)}
+
+/* sezioni */
+section.s{background:#fff;padding:112px 0}
+section.s.alt{background:var(--grey);border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:48px;flex-wrap:wrap}
+.more{display:inline-flex;align-items:center;gap:8px;color:var(--brand-d);font-weight:700;min-height:44px;border-bottom:2px solid var(--or);padding-bottom:1px}
+.more:hover{color:var(--ink)}
+.grid2{display:grid;grid-template-columns:1.25fr 1fr;gap:28px;align-items:start}
+.card{background:#fff;border:1.5px solid var(--ink);border-radius:var(--r-lg);padding:30px;box-shadow:6px 6px 0 var(--grey-2)}
+.plist{list-style:none;padding:0}
+.prow{display:grid;grid-template-columns:160px 1fr 52px 84px;align-items:center;gap:14px;padding:13px 0;border-bottom:1px solid var(--line)}
+.prow:nth-last-child(2){border-bottom:0}
+.pn{font-weight:700;font-size:18px}
+.pn abbr{text-decoration:none;font:700 12px var(--f);color:var(--brand);margin-right:6px;letter-spacing:.08em}
+.bar{height:12px;border-radius:6px;background:var(--grey-2);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--or);border-radius:6px}
+.prow .num{text-align:right;font-weight:800;font-size:28px;letter-spacing:-.03em}
+.pe{font-size:15px;color:var(--teal);font-weight:600;text-align:right}
+.zeros{margin-top:14px;padding:18px;border:1.5px dashed var(--line-2);border-radius:var(--r);display:grid;gap:12px;background:var(--grey)}
+.zl{font:700 12px/1 var(--f);letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.zc{display:flex;flex-wrap:wrap;gap:8px}
+.zc .chip{color:var(--ink);background:#fff}
+.zc abbr{text-decoration:none;font:700 12px var(--f);color:var(--brand);margin-right:4px;letter-spacing:.06em}
+.zt{font-size:16px;color:var(--muted)}
+.zt a{color:var(--brand-d);font-weight:700;text-decoration:underline;text-decoration-color:var(--or);text-decoration-thickness:2px;text-underline-offset:3px}
+.feat{background:var(--brand);color:#fff;border:1.5px solid var(--ink);border-radius:var(--r-lg);padding:34px;position:relative;box-shadow:8px 8px 0 var(--ink)}
+.tag{display:inline-flex;align-items:center;gap:8px;font:800 12px/1 var(--f);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:var(--or);padding:8px 13px;border-radius:99px;border:1.5px solid var(--ink)}
+.feat h3{font-size:clamp(48px,5vw,72px);margin:22px 0 8px;letter-spacing:-.045em;line-height:.95}
+.feat .where{color:#E6F0F9;font-size:16px}
+.feat p.t{margin-top:18px;color:#fff;font-size:18px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.pill{font-size:14px;font-weight:600;color:var(--ink);background:#fff;border:1.5px solid var(--ink);padding:5px 12px;border-radius:99px}
+.feat .pill{border-color:#fff}
+.note{margin-top:24px;padding:14px 16px;border-left:4px solid var(--or);background:rgba(255,255,255,.12);border-radius:0 10px 10px 0;font-size:15.5px;line-height:1.5;color:#fff}
+.feat .foot{display:flex;gap:18px;align-items:center;justify-content:space-between;margin-top:24px;flex-wrap:wrap;font-size:15px;color:#E6F0F9}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 22px;border-radius:12px;font-weight:700;border:1.5px solid var(--ink);color:var(--ink);background:#fff;box-shadow:3px 3px 0 var(--ink);transition:transform .15s,box-shadow .15s,background .2s}
+.btn:hover{background:var(--brand-t);transform:translate(1px,1px);box-shadow:2px 2px 0 var(--ink)}
+.feat .btn{border-color:var(--ink)}
+.btn.p{background:var(--or)}
+.btn.p:hover{background:var(--or-h)}
+
+/* eventi */
+.evl{list-style:none;padding:0;border:1.5px solid var(--ink);border-radius:var(--r-lg);overflow:hidden;background:#fff;box-shadow:8px 8px 0 var(--teal)}
+.ev-row+.ev-row{border-top:1px solid var(--line)}
+.ev-row a{display:grid;grid-template-columns:140px 1fr auto;gap:22px;align-items:center;padding:20px 28px;transition:background .2s}
+.ev-row a:hover{background:var(--teal-t)}
+.date{display:flex;flex-direction:column;align-items:flex-start}
+.date b{white-space:nowrap;font-size:46px;line-height:.95;font-weight:800;letter-spacing:-.045em;color:var(--teal)}
+.date small{font:800 13px/1 var(--f);letter-spacing:.12em;text-transform:uppercase;color:var(--ink);margin-top:8px}
+.dash{padding:0 1px;color:var(--faint)}
+.evt{display:block;font:700 20px/1.3 var(--f);letter-spacing:-.015em}
+.evm{display:block;font-size:15.5px;color:var(--muted);margin-top:5px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.chip{font-size:14px;font-weight:500;color:var(--ink);border:1.5px solid var(--line-2);padding:4px 12px;border-radius:99px;white-space:nowrap}
+.chip.pv{font-weight:800;letter-spacing:.06em;border-color:var(--ink)}
+.chip.today{color:var(--ink);background:var(--or);border-color:var(--ink);font-weight:800}
+
+/* guide */
+.guides{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:22px}
+.g{display:flex;flex-direction:column;background:var(--grey);border:1.5px solid var(--ink);border-radius:var(--r-lg);padding:30px;transition:transform .2s,box-shadow .2s;min-height:320px}
+.g:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.g.big{background:var(--or)}
+.g .meta{display:flex;gap:10px;align-items:center;font-size:14px;color:var(--muted)}
+.g.big .meta{color:var(--ink)}
+.g .lv{font:800 12px/1 var(--f);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:#fff;border:1.5px solid var(--ink);padding:6px 10px;border-radius:99px}
+.g h3{font-size:25px;line-height:1.1;margin:20px 0 14px;letter-spacing:-.03em}
+.g.big h3{font-size:clamp(30px,3.2vw,42px);line-height:1.02;letter-spacing:-.04em}
+.g p{color:var(--muted);font-size:17px}
+.g.big p{color:var(--ink)}
+.g .bt{margin-top:auto;padding-top:24px;font-size:14.5px;color:var(--faint);font-weight:500}
+.g.big .bt{color:var(--ink)}
+
+/* prompt */
+.pgrid{display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:center}
+.pgrid .goal{margin-top:24px;font-size:19px;color:var(--ink)}
+.pgrid .warn{margin-top:20px;font-size:16px;color:var(--muted);padding-left:16px;border-left:4px solid var(--or)}
+.pgrid .meta{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px}
+.code{background:#fff;border:2px solid var(--ink);border-radius:var(--r-lg);overflow:hidden;box-shadow:10px 10px 0 var(--brand)}
+.code .bar2{display:flex;justify-content:space-between;align-items:center;padding:10px 12px 10px 22px;border-bottom:2px solid var(--ink);background:var(--brand-t);font:800 13px var(--f);color:var(--brand-d);letter-spacing:.1em}
+.copy{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:10px;border:1.5px solid var(--ink);background:#fff;color:var(--ink);font:700 15px var(--f);cursor:pointer}
+.copy:hover{background:var(--or)}
+.code pre{white-space:pre-wrap;font:400 15.5px/1.75 ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;padding:24px 24px 8px;color:var(--ink);position:relative}
+.code mark{background:var(--or-t);color:var(--or-text);font-weight:700;border-radius:4px;padding:1px 5px;box-shadow:inset 0 0 0 1px #F5C79C}
+.code .fade{height:70px;margin-top:-70px;position:relative;background:linear-gradient(rgba(255,255,255,0),#fff)}
+.code .more-l{padding:0 24px 22px;color:var(--faint);font-size:15px}
+
+/* fiducia */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:3px solid var(--ink)}
+.step{padding:30px 28px 8px 0;margin-right:28px;border-right:1px solid var(--line)}
+.step:last-child{border-right:0;margin-right:0}
+.step i{display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;background:var(--or);border:1.5px solid var(--ink);font-style:normal;font-weight:800;font-size:20px;color:var(--ink);letter-spacing:-.02em}
+.step h3{font-size:27px;margin:20px 0 12px;letter-spacing:-.035em}
+.step p{color:var(--muted);font-size:17px}
+.step p b{color:var(--ink);font-weight:700}
+.trust-foot{margin-top:44px;display:flex;gap:28px;justify-content:space-between;align-items:center;flex-wrap:wrap;padding:22px 26px;background:var(--brand-t);border:1.5px solid var(--ink);border-radius:var(--r)}
+.trust-foot p{color:var(--ink);font-size:17px;max-width:70ch}
+
+/* cta */
+.cta{background:var(--or);color:var(--ink);padding:112px 0;border-top:1.5px solid var(--ink);position:relative;overflow:hidden}
+.cta::before,.cta::after{content:"";position:absolute;border-radius:50%;pointer-events:none}
+.cta::before{width:520px;height:520px;right:-120px;top:-200px;border:2px solid var(--ink);opacity:.9}
+.cta::after{width:300px;height:300px;right:140px;bottom:-190px;background:#fff;opacity:.28}
+.cta .in{position:relative;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
+.cta .eyebrow{color:var(--ink)}
+.cta .eyebrow::before{background:var(--ink)}
+.cta h2{font-size:clamp(40px,5.6vw,80px);line-height:.96}
+.cta .l{margin-top:20px;color:var(--ink);max-width:46ch;font-size:21px}
+.cta .act{display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+.cta .btn.p{background:var(--ink);color:#fff;min-height:62px;font-size:20px;padding:0 34px;border-radius:16px;box-shadow:5px 5px 0 #fff;border-color:var(--ink)}
+.cta .btn.p:hover{background:#26303A;box-shadow:3px 3px 0 #fff}
+.cta .act span{color:var(--ink);font-size:16px;font-weight:500}
+
+/* footer */
+footer{background:var(--grey);border-top:1.5px solid var(--ink);padding:60px 0 38px;color:var(--muted);font-size:16px}
+.fg{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}
+footer h4{font:800 12px/1 var(--f);letter-spacing:.12em;text-transform:uppercase;color:var(--ink);margin-bottom:16px}
+footer ul{list-style:none;padding:0;display:grid;gap:2px}
+footer li a{display:inline-block;padding:8px 0;min-height:36px}
+footer li a:hover{color:var(--brand-d);text-decoration:underline;text-decoration-color:var(--or);text-decoration-thickness:2px;text-underline-offset:3px}
+footer .about{max-width:34ch;margin-top:14px}
+.fb{margin-top:44px;padding-top:22px;border-top:1px solid var(--line-2);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:15px;color:var(--faint)}
+
+@media (prefers-reduced-motion:reduce){.pulse{animation:none;opacity:0}html{scroll-behavior:auto}*{transition:none!important}}
+
+@media (max-width:1100px){
+  .hero{min-height:0}
+  .hero::before{display:none}
+  .hero-map{position:relative;right:auto;top:auto;width:auto;margin:0 -8px}
+  .hero-copy{max-width:700px;padding:48px 0 20px}
+  .readout{position:relative;left:auto;bottom:auto;width:auto;margin-top:12px;margin-right:6px}
+  .hero .wrap{padding-bottom:36px}
+  .grid2,.pgrid,.cta .in{grid-template-columns:1fr}
+  .pgrid{gap:40px}
+  .guides{grid-template-columns:1fr 1fr}
+  .guides .g.big{grid-column:1/-1}
+  .steps{grid-template-columns:1fr 1fr}
+  .step{border-right:0;margin-right:0;padding-right:20px}
+  .stats ul{grid-template-columns:1fr 1fr}
+  .stat a{border-left:0;border-top:1.5px solid rgba(255,255,255,.28);padding-left:0}
+  .stat:nth-child(-n+2) a{border-top:0}
+  .fg{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  .wrap{padding:0 20px}
+  .nav{display:none}
+  .menu{display:block}
+  .top .wrap{height:66px}
+  .logo{font-size:23px}
+  .hero{display:flex;flex-direction:column;padding-bottom:40px}
+  .hero>.wrap,.hero-copy{display:contents}
+  .hero-copy>*{margin-left:20px;margin-right:20px}
+  .hero-copy .eyebrow{order:1;margin-top:34px}
+  .hero h1{order:2;font-size:clamp(52px,16.4vw,70px);margin:18px 20px 18px}
+  .lead{order:3;margin-bottom:0;font-size:19px}
+  .hero-map{order:4;margin:8px -14px 0}
+  .search{order:5;margin-top:14px;flex-direction:column;padding:8px;gap:8px;box-shadow:5px 5px 0 var(--brand);margin-right:25px}
+  .search input{padding:0 12px}
+  .search button{width:100%}
+  .hero-note{order:6}
+  .legend{order:7}
+  .hero .wrap{padding-bottom:0}
+  .lab{font-size:11.5px;stroke-width:3.2px}
+  .lab.big{font-size:13.5px}
+  .lab:not(.big):not(.rwl){display:none}
+  .lab.rwl{font-size:10.5px}
+  .co{r:3.9px}
+  .ev{r:6.4px}
+  .pulse{r:6.4px}
+  .rw{r:9.5px}
+  .readout{display:none}
+  .stat a{padding:26px 14px 28px 0}
+  .stat:nth-child(even) a{padding-left:18px;border-left:1.5px solid rgba(255,255,255,.28)}
+  .stat b{font-size:64px}
+  .stat b::after{width:34px;height:5px;margin-top:10px}
+  .stat .top-r{font-size:13px}
+  .stat p{font-size:15px}
+  section.s{padding:68px 0}
+  .cta{padding:72px 0}
+  .head{margin-bottom:30px}
+  h2{font-size:38px}
+  #h-pr{font-size:32px}
+  .cta h2{font-size:44px}
+  .card,.feat,.g{padding:22px}
+  .card{box-shadow:4px 4px 0 var(--grey-2)}
+  .feat{box-shadow:5px 5px 0 var(--ink);margin-right:5px}
+  .prow{grid-template-columns:120px 1fr 38px;gap:10px}
+  .prow .pn{font-size:16px}
+  .prow .num{font-size:24px}
+  .pe{display:none}
+  .ev-row a{grid-template-columns:96px 1fr;gap:12px;padding:18px 18px}
+  .ev-row .chips{grid-column:2;justify-content:flex-start}
+  .evl{box-shadow:5px 5px 0 var(--teal);margin-right:5px}
+  .date b{font-size:34px}
+  .evt{font-size:18px}
+  .guides{grid-template-columns:1fr}
+  .g{min-height:0}
+  .g.big h3{font-size:31px}
+  .code{box-shadow:6px 6px 0 var(--brand);margin-right:6px}
+  .steps{grid-template-columns:1fr}
+  .step{border-bottom:1px solid var(--line);padding:26px 0}
+  .step:last-child{border-bottom:0}
+  .code pre{font-size:14px;padding:18px 16px 6px}
+  .feat h3{font-size:54px}
+  .fg{grid-template-columns:1fr 1fr;gap:28px}
+  .fg>div:first-child{grid-column:1/-1}
+  .cta::before{width:340px;height:340px;right:-140px;top:-150px}
+  .cta .btn.p{box-shadow:4px 4px 0 #fff}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="#"><svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect x="1" y="1" width="32" height="32" rx="9" fill="#0B5FA5" stroke="#101418" stroke-width="1.5"/><path d="M7 22l7-11 4 5.5 2.5-3.5L27 22" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="18" cy="16.5" r="3" fill="#F07A1A" stroke="#101418" stroke-width="1.2"/></svg>AI <span>Sicilia</span></a>
+  <nav class="nav" aria-label="Principale"><a href="#aziende">Aziende</a><a href="#eventi">Eventi</a><a href="#guide">Guide</a><a href="#prompt">Prompt</a><a class="btn-s" href="#segnala">Segnala</a></nav>
+  <details class="menu"><summary>Menu</summary><div class="drop"><a href="#aziende">Aziende</a><a href="#eventi">Eventi</a><a href="#guide">Guide</a><a href="#prompt">Prompt</a><a href="#segnala">Segnala</a></div></details>
+</div></header>
+
+<main>
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow">Mappa aggiornata al 22 ottobre 2026</p>
+      <h1 id="h1">Dove si fa <span class="hl">AI</span> in Sicilia</h1>
+      <p class="lead"><b>37 aziende</b> e <b>15 eventi</b> in programma, ognuno con le sue fonti. Cerca per nome, tema o provincia.</p>
+      <form class="search" role="search" onsubmit="return false"><label for="q">Cerca nel portale</label><input id="q" type="search" placeholder="Un'azienda, un tema, una provincia" autocomplete="off"><button type="submit">Cerca</button></form>
+      <p class="hero-note">Sulla mappa le aziende sono in <b>5 province su 9</b>. Agrigento, Caltanissetta, Enna e Ragusa sono ancora vuote.</p>
+      <div class="legend" aria-label="Legenda"><span><i class="a"></i>Azienda</span><span><i class="e"></i>Evento in programma</span><span><i class="r"></i>In evidenza</span></div>
+    </div>
+  </div>
+  <div class="hero-map"><svg viewBox="-4 -12 474 316" role="img" aria-labelledby="mt md" class="sicily"><title id="mt">Mappa della Sicilia con le aziende e gli eventi di AI Sicilia</title><desc id="md">37 aziende (punti arancioni) e 15 eventi in programma (cerchi turchesi), divisi nelle nove province.</desc>
+<g class="prov" tabindex="0" data-p="agrigento"><title>Agrigento: 0 aziende, 0 eventi in programma</title><path d="M189.7 150.8l.7 .1 2.2 .4 4-1.2 1 1.6 1.4 0 0 2-1.2 2.5 1.9 1.6 .1 1.4-.8 .4-3.5-1.1-1.2 2.2-1.5 0 .2 1.3-1.1 .7-4.7 1.1-2.7-.5-1 .8-.2 1.2 2 2 .1 7.2-4 4.9 3.6 .6 1.9 2.3 2.7 .4 1.7 1.2 2.7-1.6 3.9 1.2 3.8-.8-.3 1.1 1.3 2.9 3.8 .5 1.4 2-2.4 1.6-.4 2.1 4.6 3.6 3.6 .1 3.1 3 .5 1.9 2.2 .9 .7-.9 .6 .1-.3 2.1-1.9 1.7 .8 .9-1.1 1.9 1 1.5-2.5 1.2 .2 2.2 1 1.3-1.3-.5-.7 .6 2.8 4.3 1.9 .7 .6 6.3-5.9-.4-4.6 1.8-3.2-.2-3.8-1.7-2.4-3.2-1.9-1.3-7.6-.7-2.2-2.5-6.9-3.5-2.3-4.4-1.7-.6-2.8-3-1.9-.4-.1-1-2.1-2.2-2.4 .2-2.6-1-2.8 .6-1.5-1.1-1.7-.1-2-1-2.7-3.7-1.5-.4-3.9-3-2.9-.7-3.1-3.5-2.1-.4-1.6-3.7-4-4.8-2.1-.8-2.8-3.5-2.1-.7-1.9 .6-5.5-1.6-5.9 1.3-2.8-5.5-3.6-3.7-4.1-1.4-1.3 .4 .6 .2-1.1-.3-.4-.3 1.2-2.4 .9-6.4-2.9 .3 1.2-1.5-.7-.9 2.1-1.4 .4-2.3 4.2-4 0-.9 3-1 .5-1 .6 .9 1.2-.8 .2-.2 .2 .1 1.3 .3 2.1 3.6 3.4 2.6 4.5-1.2 2.5 1.8 4-.5 2.8 2.3-.2 4.2 3.8 3.5 2.9-4.2 2.6 .9 2-1.3 .6-1.6 2 .6 0 1.7-2.8 2.4 1.4 2.2-1.3 2.7 2 1.5-.1 3 1.9 1.7 4.4-2.3 .3-1.6-1.2-.3-1.1-3.5 .6-1.6 1.4-.7-1.8-4.4 1.3-1.1 1.4 .1 1.7 2.1 2.8-2.3 1.2 1.6 4.4-1.4 .4 1.6 1.4 1.1 4 .4 3.8-2.7 5.1-.3 1.9-1.5 .3-2.5 .7-.4 1.7-.4zM130.9 155.7l-1.7 .3 .2 2.2 1.2 0 2.6-1.1-1.3-1.3z" style="fill:#EDF0F3"/></g>
+<g class="prov" tabindex="0" data-p="caltanissetta"><title>Caltanissetta: 0 aziende, 0 eventi in programma</title><path d="M222.7 145.7l1 .1 .8 1.2 .9-.1 1 .7 .1 1.3-1.1 .4-.2 .5 1 1.4-.2 .4-2.6 .3-1.3 .9-1.4 1.6-1.5-.2-1.2-1.8 .1-2.2 .4-.3 1.6-.1 1.4 .2 0-1.1-1.3-.9 .7-2.1 .8-.7zM230.8 160l.3-.6 .2 .1 2.8 .5-.5 3.4-2.2 .9 .2 3.4-1.4 4.2 1.1 .7 .5 2.2 1.8 2.2-2.8 1.3-5.5 5.6-.8 .9 .1 2-1.6-.1 2.2 3.5-.6 .7 1.3 1.3-.2 1.7 .8 .2-.7 1.4 3.2 .6 1.4-1.2 .6 1.1 3.4 1.5 5-1.6 1.4-1.5 1.2 .1 2.4 .5 1.1 1.6 4.2 .6 0 3 3.7-.4 .1 0 0 .5 0 3.1 2.9-.9 .9 2.4-1.5 7.9 1.2 2.2 1.2 1.3 1.4 .2 2-1.6 4.3 6.8-2.1 5.1-2.1-.1-.3 .6 1.4 5.3 .1 .1-.3 .3-2.9 2.7-2.4 .7-2.5 2.5-2.9 .5-.2-.3-4-4.3-2.7-1.8-.7 .6 .5-.8-1-.8-3.2-1-5.9-3.3-9.4-2.4-4.2 .3-.2 .2-.6-6.3-1.9-.7-2.8-4.3 .7-.6 1.3 .5-1-1.3-.2-2.2 2.5-1.2-1-1.5 1.1-1.9-.8-.9 1.9-1.7 .3-2.1-.6-.1-.7 .9-2.2-.9-.5-1.9-3.1-3-3.6-.1-4.6-3.6 .4-2.1 2.4-1.6-1.4-2-3.8-.5-1.3-2.9 .3-1.1-3.8 .8-3.9-1.2-2.7 1.6-1.7-1.2-2.7-.4-1.9-2.3-3.6-.6 4-4.9-.1-7.2-2-2 .2-1.2 1-.8 2.7 .5 4.7-1.1 1.1-.7-.2-1.3 1.5 0 1.2-2.2 3.5 1.1 .8-.4-.1-1.4-1.9-1.6 1.2-2.5 0-2-1.4 0-1-1.6-4 1.2-2.2-.4-.7-.1 .2-.2 .9-2.5 3.4 .3 0-2.6 3.3-2.9 1 2.2 .2 3 5.9 2.8 1.6 3 1.2 .2-.5 5.1 3.2 1.5-.7 1.3 3.9 1.4 5.9-1.6 .8-.5-.7-2.3 .5-1.5 3.2-2.2 2 .5 2.8 2.3 1.8-.3 .3 2.2zM226.1 167.6l.3 1 .9 1.1 .8-.3-.2-1.1-.5-.7-1-.5z" style="fill:#EDF0F3"/></g>
+<g class="prov" tabindex="0" data-p="catania"><title>Catania: 17 aziende, 5 eventi in programma</title><path d="M346.6 134.7l-.6 .5-4.9 8.1 1.4 3.7-2 4.6 0 2.9-2.5 2.8 .2 7.4-1.1 .5-2.4 3.7-2.8 1.7 .2 .9-1.9 2.9 .1 2.3-.3-2.3-1.1 2.4 .5 15.6 0 .6-5.9-.5-.8-2.1-1.2 1.2-3-.6-3-1.6-1.5-2.5-2.7-1-2.8 .7-.7 2.1-3.9 1.6-.5 2.8-3 1-2.8 2.1-.3 1.1 1.2 .1 1.4 1.1 3.8-1.1 5.2 1.8-1.2 1.9 .3 1.3-2.6 1.1-1.1 2.3-3.6 .5-3.9 3.5 .9 2.5 2.1-.5 1.8 .8 .5 1.5 3.9-1.7 .8 .6-.1 2.4-3.6 3 1.1 2.2-.3 2.1-1.1 .7-3.3-.7-.7-.3-.8-.5-1.1-.5-.2 .9 1.9 3-2.7 1.8-2.2-.6-1.7 .6 .1-2.7-1.8-1.1-3.4 3.1-1.8-.7-1.1 .7-.8 2-2.2 .9-.9-1.6-4.5 5-2.2-.3-1.3-1 0-1.6-6.5 3.2-2.5-.6-.2 .3-.1-.1-1.4-5.3 .3-.6 2.1 .1 2.1-5.1-4.3-6.8-2 1.6-1.4-.2-1.2-1.3-1.2-2.2 1.5-7.9-.9-2.4-2.9 .9 0-3.1 0-.5 .1 0 3 1.2 1.8-.3 2.1 .8 .9 0 1.3-1.4 1.1 .2-.4-2.1-2.8-2.5 1.6-.3 .9-1.1 4.1 4.5 2.1 .5 1.3-2-2.9-3 2.4-.4 2.6-1.6 3 .4 1.3-.5 1-2.4-1.3-.9 .4-1.8 1.8-1.1 2-.2 1.4-1.4-.9-1.4-1.2 .2-2.5-2.1-3.5 .6-1.1-.5-1.8-1.6-.9-2.2 1.1-2.4-4.1-1.5 3.9-1.3 1.7-3.2 2 .3 2-1.2 1.3 1.7 4 0 .4-.8 3.8-2 1.6 .5 .9-.7 .1 1.3 .8 0 .8 1.3 2.8 1.7 2.3 2.9 .4-.6 .9 .9 1.4-.6 .1-2.8 .8-.6 .2-2.8-1.1-.9 3.8-3.7-.2-5.4-3.4-2.8 0-3 1-1.5-.5-3.3-4.7 3.4-1.8-.5-.6 1.1-.6-.2-.7-2.4 .4-2.4-1.4-1.2 3-2.9-1.9-2-.2-1.1 3-1.8-.5-3.2 .3-.5 2.2-.5 3.5 2.4 .5-.9-1.4-5.5-1.1-1.2-2-.8-2.1 2.6 0-7 2.2 .3 .8 1.5 1.1-2.1-2.2-1.5 .9-3.2 3.7-1.6 2.8 2.3 1.3-3.1 1 .5-.3 1.7 1.5 1.7 6.8-4.1 1.1 1.2 1.7 5.1 2.3 .7 .2 1.8 2.9-.8 3.5 .7 3.2-1.3 3.8-.3 2.1 1.6 2.2-.2 2.2 2.5 1.2 .1 3.6 3.2 2.6 5z" style="fill:rgba(11,95,165,0.60)"/></g>
+<g class="prov" tabindex="0" data-p="enna"><title>Enna: 0 aziende, 0 eventi in programma</title><path d="M227.5 169.8l-1.1-1.2-.3-1.1 .3-.4 1 .5 .5 .7 .2 1.1zM293.5 133.2l-.3 .5 .5 3.2-3 1.8 .2 1.1 1.9 2-3 2.9 1.4 1.2-.4 2.4 .7 2.4 .6 .2 .6-1.1 1.8 .5 4.7-3.4 .5 3.3-1 1.5 0 3 3.4 2.8 .2 5.4-3.8 3.7 1.1 .9-.2 2.8-.8 .6-.1 2.8-1.4 .6-.9-.9-.4 .6-2.3-2.9-2.8-1.7-.8-1.3-.8 0-.1-1.3-.9 .7-1.6-.5-3.8 2-.4 .8-4 0-1.3-1.7-2 1.2-2-.3-1.7 3.2-3.9 1.3 4.1 1.5-1.1 2.4 .9 2.2 1.8 1.6 1.1 .5 3.5-.6 2.5 2.1 1.2-.2 .9 1.4-1.4 1.4-2 .2-1.8 1.1-.4 1.8 1.3 .9-1 2.4-1.3 .5-3-.4-2.6 1.6-2.4 .4 2.9 3-1.3 2-2.1-.5-4.1-4.5-.9 1.1-1.6 .3 2.8 2.5 .4 2.1-1.1-.2-1.3 1.4-.9 0-2.1-.8-1.8 .3-3-1.2-.1 0-.1 0-3.7 .4 0-3-4.2-.6-1.1-1.6-2.4-.5-1.2-.1-1.4 1.5-5 1.6-3.4-1.5-.6-1.1-1.4 1.2-3.2-.6 .7-1.4-.8-.2 .2-1.7-1.3-1.3 .6-.7-2.2-3.5 1.6 .1-.1-2 .8-.9 5.5-5.6 2.8-1.3-1.8-2.2-.5-2.2-1.1-.7 1.4-4.2-.2-3.4 2.2-.9 .5-3.4-2.8-.5-.2-.1 .9-.3 2-2.5-.5-3.8 1.2-.8 1.7 .3 2.6-.9 2.9-2.2 2.2-.5 3.3-5.7-.4-2.8-2.1-1.4 .1-1.9-.9-.3 .8-1.6-.6-3.1 1.3-1.2 .4-.3 .5 0 4.3 .3 2.4-1.3 4.3-.5 1.5-2 2.3 1.8 3.3 1.2-.7 3.5 2.3 .7 1.7-1.8 1.4-3.5 2.8-1.1 1.8-2 1.8-.4 .4 2.6-1.6 1-.5 1.6 2 .8 2.6 2.9 4.9 .5 3.7 1.5 2.6-2.3z" style="fill:#EDF0F3"/></g>
+<g class="prov" tabindex="0" data-p="messina"><title>Messina: 5 aziende, 1 eventi in programma</title><path d="M346.8 134.3l-.2 .4-1.3-.7-2.6-5-3.6-3.2-1.2-.1-2.2-2.5-2.2 .2-2.1-1.6-3.8 .3-3.2 1.3-3.5-.7-2.9 .8-.2-1.8-2.3-.7-1.7-5.1-1.1-1.2-6.8 4.1-1.5-1.7 .3-1.7-1-.5-1.3 3.1-2.8-2.3-3.7 1.6-.9 3.2 2.2 1.5-1.1 2.1-.8-1.5-2.2-.3 0 7 2.1-2.6 2 .8 1.1 1.2 1.4 5.5-.5 .9-3.5-2.4-2.2 .5-3.7 .7-2.6 2.3-3.7-1.5-4.9-.5-2.6-2.9-2-.8 .5-1.6 1.6-1-.4-2.6-1.8 .4-1.8 2-2.8 1.1-1.4 3.5-1.7 1.8-2.3-.7 .7-3.5-3.3-1.2-2.3-1.8-1.5 2-4.3 .5-2.4 1.3-4.3-.3-.5 0 0-.2-1.2-4.6 .6-3.5 1.8-1.9-4 .2 .1-2.3-2.3-1.8-4.9-9.2 .5 .2 6.7 1.2 5.7 .1 3.3-1.5 3.5 .3 5.3-3.1 4.5 1 5.6-1.2 3.2-2.3 3 .1 3.7-2.2-.1 .6 .9 .1 1.3-.7 3.8-3.1 7.2-8.6 1.2 1.1 3.5 .5 9.7-2.3 2.6-2.7 2.7 1.6 3.4 3.6 7.6 .4 1.2 2.6 2.2 1.1 1.9-.1 7.7-4.2 3.9-4.2 3-7.5-.5-2.9-1.2-.6 1.4 .1 1.4 2.3-1.1 4.6 1.9 1.1 3.1 .3 6.1-1.4 8.3-3.4 9-6.9 2.5-.7 4.9 2.8 6.3 1.2 .2 .8-7.3 2.6-1.4 2.6-1 4.4 .9 0 0-.9 .8 .6-4.3 6.1-4 9.3-5.3 6.4-10.4 15.1-3.6 4.1-1 2 .6 1.2-3 2.2-.4 1 .6 .9zM315.9 53.4l.9 .9-.6 .7 .1 1 1.7 .3 1.7 1.8 .8 2.9-1.3 .9-1.5-.3-2.1-1.7-.8-.8-1-1.8 0-1.2 .6-.7 1.1-.3-.2-1.3zM316 41.5l.2 4.3 .5 .6 .9 0 .4 .3-.1 .6-1.7 .3-.1-.2-.7 .5 .2 1.9 .5 1.1-.3 1.2-.5 .4-1.2-.5-.1-.8-.7-1.4-2.2-.7-1.4-1.7 0-1 .5-3.2 .8-1 1.4-.6 .6 .3 1.4 .1zM254.4 37.5l.5 .6-.6 2.2-.5 .3-1.2-.2-.5-.9 .1-1.2 .8-.7zM274.1 33.4l2.4 .7 .5 1-.1 1.4 .6 .4 .6 0 .1 .4-.6 .3-1-.5-1.8 0-.7-.4-1.3-1.5-.1-.7 .4-1zM306.3 33.8l.6 .4-.1 1.2 .3 1.1-.6 1.2 .2 1.8-.4 .4-1.2 .2-.5-.2-2.2-1.5-2.3-.8-1-1 1.2-2.7 2.7 0 1.2 .3zM327.5 25.5l.5 .7-.2 1.3-1.3 .8-.7 0-.2-.5 .6-1.9zM342.8 4l1.8 .8 .4 .4-1.2 1.9-.4 1.4-1 .7-2.4-1.2-.7-1.2 .2-.7 1-.4 1.4-1.5z" style="fill:rgba(11,95,165,0.32)"/></g>
+<g class="prov" tabindex="0" data-p="palermo"><title>Palermo: 13 aziende, 9 eventi in programma</title><path d="M132.2 156.1l1 1.1-2.7 1.1-1.1-.1-.1-2.3 2.6-.1zM235.8 106.9l.3 .2 4.9 9.2 2.3 1.8-.1 2.3 4-.2-1.8 1.9-.6 3.5 1.2 4.6 0 .2-.4 .3-1.3 1.2 .6 3.1-.8 1.6 .9 .3-.1 1.9 2.1 1.4 .4 2.8-3.3 5.7-2.2 .5-2.9 2.2-2.6 .9-1.7-.3-1.2 .8 .5 3.8-2 2.5-.9 .3-.3 .6-.9 0-.3-2.2-1.8 .3-2.8-2.3-2-.5-3.2 2.2-.5 1.5 .7 2.3-.8 .5-5.9 1.6-3.9-1.4 .7-1.3-3.2-1.5 .5-5.1-1.2-.2-1.6-3-5.9-2.8-.2-3-1-2.2-3.3 2.9 0 2.6-3.4-.3-.9 2.5-.2 .2-3.8-1.6-1.7 .4-.7 .4-.3 2.5-1.9 1.5-5.1 .3-3.8 2.7-4-.4-1.4-1.1-.4-1.6-4.4 1.4-1.2-1.6-2.8 2.3-1.7-2.1-1.4-.1-1.3 1.1 1.8 4.4-1.4 .7-.6 1.6 1.1 3.5 1.2 .3-.3 1.6-4.4 2.3-1.9-1.7 .1-3-2-1.5 1.3-2.7-1.4-2.2 2.8-2.4 0-1.7-2-.6-.6 1.6-2 1.3-2.6-.9-2.9 4.2-3.8-3.5 .2-4.2-2.8-2.3-4 .5-2.5-1.8-4.5 1.2-3.4-2.6-2.1-3.6-1.3-.3-.2-.1 .2-.3 .6-.8 2.4-.4 1-1.4 1 1.1 3.9-1.9-2.6-2.2 .6-1.9 1.8-1.4-1.9-.6-2.5 1-8.7-1.7-.8-1.6-1.8-.5-.2-1.7 1.5-1.5-1.1-2.2-1.7-.5 .8-2.5 1.7 .9 3.8 0 .7-1.4 2.5 .8 1.8-1.6 .1-4.3 .8-1.6-1.3-1.4-1 .5-.1-1.4-2.3-1.9-.3-2.3-1.7-1.3-.8-2.7 .2 0 10-6-.4-3.3-2-3.3 2-.5-.1-.9 1.4-1.7-.6-1.6 2.7-2.2 5.6 .6 .4 1.9 2.9 .3 4.3-1.8 1.1-1.3-.3-1 3.4 .3 2.2-2.5 2-.9 1.3 1.7 .1 1.5 2.8 1.1 1 1.2 1.1 3.9-.7 1 .5 2.1-.6-.9-.6 .7 2.1 2.7 2.3 1.2 3.8 .7 6.3-1.7 .4-1.6 2.6 1.1 .9 4.4-.6 1.2 .9 1.6 10.9 7.5 7.3 1.5-1.9-.4 .8 1.6 3.5 1 5.4-.7 7.5-2.5 7.7-4.4 2.7-.7 1 .6 2.5-.4 1.7-1.2 4.4 3 4.7 .4 3.6-1.5zM220.7 146.8l-.5 1.2 1.3 .9 0 1.1-3-.1-.5 .7 0 1.8 1.4 1.9 1.3 .1 1.4-1.6 1.3-.9 2.6-.3 .2-.4-1-1.4 .2-.5 1.1-.4-.1-1.3-1-.7-.9 .1-.8-1.2-1.4-.2-.6-.4-.8 .7zM133 15.9l1.8 .9 .1 .7-2.6 2.1-2.1-.2-.1-.7 1.1-1.9z" style="fill:rgba(11,95,165,0.46)"/></g>
+<g class="prov" tabindex="0" data-p="ragusa"><title>Ragusa: 0 aziende, 0 eventi in programma</title><path d="M298 221.9l.8 .5 .2 .1 .6 .9-.7 1.4 1.9 .1 .7 4.2 2.4 2.6-1.9-.9-.7 1.8 1.4 .6 .7-.8 .2 2.1 1.6 1.3 3.2 5.1 .1 3.3 2 3.3 1.2 .5 1.9 4.1-.3 .4-3.2-2.8-4.4-4.6 0-2.2-2.4 .2 .2 3.4 2.7 .4 3.2 2.4-2 .8 .7 2.6 3.2 1.7 2.4 2.9-1.7 1.9-3.7-2.5-1.6-.3-1 1.8-.1 3.3-.6 .4 1.3 1.8 .1-.9 2-.4 1.6 1.4 2.2 0 1.9 1.3-.1 .8 1.7-.3 2.8 2.5 .7 2.5-.6 1.3 1 1.7 .5 4.6-.5 .1-2.3 1.2-1.7-.2-4.8-3.9-3.4-.9-3 .5-1.7 1.3-.1 .9-1.4-.8-3.7 1.7-.3-.9-2.1 0-1.1-1.2-5.7-.1-2-2.7-4.5-3.1-7.5-2.3-2.3 .3-1.7-.9-2.4 .1-3.3-3.8-1.9-7.2-2.7-5.2-7.7-11.4-.4-.3 2.9-.5 2.5-2.5 2.4-.7 2.9-2.7 .3-.3 .2-.3 2.5 .6 6.5-3.2 0 1.6 1.3 1 2.2 .3 4.5-5 .9 1.6 2.2-.9 .8-2 1.1-.7 1.8 .7 3.4-3.1 1.8 1.1-.1 2.7 1.7-.6 2.2 .6 2.7-1.8-1.9-3 .2-.9z" style="fill:#EDF0F3"/></g>
+<g class="prov" tabindex="0" data-p="siracusa"><title>Siracusa: 1 aziende, 0 eventi in programma</title><path d="M329.4 193l.1 .5 1.3 5.8 3.1 0 2.7 2.7 1.1-.5 1.8 1.4 .8-1.3 .9-.2 5.1 6.8-.9 1.2-1.6-1.4-.8 .5 .9 5.3-1.6-3.4-.4-2.9-1.6 1.5-1.2-.2 1 1.4-1 1.2-.1 2.2 .3 1.3 1.2 .7 .7 4 1.5 .5 1.3-1.2 1.1 1.6-2-.5-.3 2.9 4 2.8 3.6 0 .5 3.6-1 1.6 .8 .7-.3 .9-1.6-1.5-.9 1.9 1.1 2.3 1 .1 1.2-1.3 1.3 1 2.1 4.3-2.2-.2-1.4-1.5-3.3 1.6-.5 1 .5 1.1-1.3 .8 .5 .8-4.9 1.4-.8 1.3-2 1.1-1.4 2.7-1.8 1-1.9 6.6-1 0-1.5 2-1.8 9.7 2.2 4.1 .7 5.6 1.5 1.8-.5 2.6-1.7-.9-3.8 3.5-.9-1.5-1.4-.4-1.5-3.4-2.2-1.7-1.9-.2-.2 0-.5-4.6-1-1.7 .6-1.3-.7-2.5-2.8-2.5-1.7 .3 .1-.8-1.9-1.3-2.2 0-1.6-1.4-2 .4-.1 .9-1.3-1.8 .6-.4 .1-3.3 1-1.8 1.6 .3 3.7 2.5 1.7-1.9-2.4-2.9-3.2-1.7-.7-2.6 2-.8-3.2-2.4-2.7-.4-.2-3.4 2.4-.2 0 2.2 4.4 4.6 3.2 2.8 .3-.4-1.9-4.1-1.2-.5-2-3.3-.1-3.3-3.2-5.1-1.6-1.3-.2-2.1-.7 .8-1.4-.6 .7-1.8 1.9 .9-2.4-2.6-.7-4.2-1.9-.1 .7-1.4-.6-.9-.2-.1 .7 .3 3.3 .7 1.1-.7 .3-2.1-1.1-2.2 3.6-3 .1-2.4-.8-.6-3.9 1.7-.5-1.5-1.8-.8-2.1 .5-.9-2.5 3.9-3.5 3.6-.5 1.1-2.3 2.6-1.1-.3-1.3 1.2-1.9-5.2-1.8-3.8 1.1-1.4-1.1-1.2-.1 .3-1.1 2.8-2.1 3-1 .5-2.8 3.9-1.6 .7-2.1 2.8-.7 2.7 1 1.5 2.5 3 1.6 3 .6 1.2-1.2 .8 2.1z" style="fill:rgba(11,95,165,0.20)"/></g>
+<g class="prov" tabindex="0" data-p="trapani"><title>Trapani: 1 aziende, 0 eventi in programma</title><path d="M6.9 260.5l1.9 .5 .7 1.1 1 .5 1.5 .2 .2-.4 .7-.1 2.5 2.8 .9 .3 .4 .5 .5 2.1 0 2.4-.8 1.7-2 1.8-1.8 .2-1.8-.4-1-.9-1.1-2.5-1.6-1.1-.6-1.5-2.4-2.4 .1-3 .7-1.1 .7 .4 .3-.7zM58.4 121.9l0 .8-.8 .5 .4 2.8-.3 1 .3 1.7-.5 1.1-1-4.7-.8-1.9 1.6-.3zM43.3 115.3l.9 2.6 .6 .6 2.2-.7 .5 .3 .7 1.2 1.3 .4 .2 .5-.5 1.6-1.6-.2-1.4-1.6-2.9 .1-2.2 .5-.6-.6-.2-1.3-.6-1 .4-.9 1.3 .2zM18.1 110.5l.1 .2-.3 .4 .3 1.1 1.4 2.4 .4 1.3 1 .5-.9 .2-3.4-1.2-.5-.6-1.2-3.7-.4 .1-.1-.5 .1-.2 .9 0 2.3 .3zM46.1 106.9l.6 2.1 1.1 1.5-.1 .5-1.3 .6-1.2-.6-.7-1.6 .2-.8 .7-.2 .4-1.4zM112 104.4l0-.1 .8 2.7 1.7 1.3 .3 2.3 2.3 1.9 .1 1.4 1-.5 1.3 1.4-.8 1.6-.1 4.3-1.8 1.6-2.5-.8-.7 1.4-3.8 0-1.7-.9-.8 2.5 1.7 .5 1.1 2.2-1.5 1.5 .2 1.7 1.8 .5 .8 1.6 8.7 1.7 2.5-1 1.9 .6-1.8 1.4-.6 1.9 2.6 2.2-3.9 1.9-1-1.1-1 1.4-2.4 .4-.6 .8-.2 .3-.2 .2-1.2 .8-.6-.9-.5 1-3 1 0 .9-4.2 4-.4 2.3-2.1 1.4 .7 .9-1.2 1.5 2.9-.3-.9 6.4-1.2 2.4-.2 0-4-.8-7.6 .3-11.1 2.7-2.5-2.4-4.6-8.3-4.6-2.7-4.2 .3-4.4-5-.6-.8 0-5.4-2.3-4.7-2.3-2.6 1.6-1.7 .1 .7 2-.9 .7-1.5-.3-2.4 2.1-3.4-2.8-4.5 3.6-5.8 .5-1.7-.4-2.3 1.3-1.4 .4-2 .9 .1 0-.6-2.8-.3 2.9-.9 5-6 3.2 .5 4.6-1.7 1.8-2.1-.6-1.7 .4-.6 1.8-.2 1.1 1.1 2.1-.5 2.9-3.9-2.2-4.4 1.3-2.1 .6 0-.3 1.1 .7 .6 3-.5 .1 3.3 1.1 .5 1.2 2.1-.1 2.9 1.8 3.4 4.8 4.6 1.5 0 .2 1.8 1.1 .9 2.9 .6z" style="fill:rgba(11,95,165,0.20)"/></g>
+<g class="pts"><circle cx="329.7" cy="164.5" r="2.3" class="co"/><circle cx="377" cy="84.4" r="2.3" class="co"/><circle cx="153.8" cy="96.6" r="2.3" class="co"/><circle cx="150.6" cy="95.1" r="2.3" class="co"/><circle cx="150.6" cy="95.1" r="2.3" class="co"/><circle cx="329" cy="174.3" r="2.3" class="co"/><circle cx="329" cy="174.3" r="2.3" class="co"/><circle cx="148.9" cy="90.5" r="2.3" class="co"/><circle cx="146.7" cy="88.4" r="2.3" class="co"/><circle cx="329" cy="174.3" r="2.3" class="co"/><circle cx="329.4" cy="172.2" r="2.3" class="co"/><circle cx="377" cy="84.4" r="2.3" class="co"/><circle cx="329" cy="174.3" r="2.3" class="co"/><circle cx="329" cy="174.3" r="2.3" class="co"/><circle cx="377" cy="84.4" r="2.3" class="co"/><circle cx="328" cy="171.1" r="2.3" class="co"/><circle cx="151.2" cy="93.6" r="2.3" class="co"/><circle cx="328" cy="172.1" r="2.3" class="co"/><circle cx="150.6" cy="95.1" r="2.3" class="co"/><circle cx="150.3" cy="96" r="2.3" class="co"/><circle cx="150.3" cy="96" r="2.3" class="co"/><circle cx="330" cy="169.2" r="2.3" class="co"/><circle cx="316.8" cy="91.6" r="2.3" class="co"/><circle cx="66.8" cy="119.2" r="2.3" class="co"/><circle cx="328" cy="171.1" r="2.3" class="co"/><circle cx="127.2" cy="103.9" r="2.3" class="co"/><circle cx="327" cy="169.8" r="2.3" class="co"/><circle cx="150.3" cy="90.6" r="2.3" class="co"/><circle cx="331.5" cy="166.1" r="2.3" class="co"/><circle cx="150.3" cy="96" r="2.3" class="co"/><circle cx="147" cy="82.6" r="2.3" class="co"/><circle cx="371.7" cy="91.5" r="2.3" class="co"/><circle cx="330.8" cy="172.5" r="2.3" class="co"/><circle cx="333.7" cy="158.8" r="2.3" class="co"/><circle cx="328.2" cy="172.1" r="2.3" class="co"/><circle cx="332.3" cy="226.5" r="2.3" class="co"/><circle cx="329.6" cy="174.5" r="3.1" class="ev"/><circle cx="329.6" cy="174.5" r="3.1" class="pulse" style="animation-delay:0.00s"/><circle cx="151.3" cy="95" r="3.1" class="ev"/><circle cx="149.4" cy="94" r="3.1" class="ev"/><circle cx="150.8" cy="92" r="3.1" class="ev"/><circle cx="150.8" cy="92" r="3.1" class="pulse" style="animation-delay:1.11s"/><circle cx="377.4" cy="85.4" r="3.1" class="ev"/><circle cx="328.5" cy="173.5" r="3.1" class="ev"/><circle cx="150.3" cy="96" r="3.1" class="ev"/><circle cx="150.3" cy="96" r="3.1" class="pulse" style="animation-delay:2.22s"/><circle cx="327.5" cy="171.3" r="3.1" class="ev"/><circle cx="147" cy="86.1" r="3.1" class="ev"/><circle cx="329.8" cy="172.6" r="3.1" class="ev"/><circle cx="329.8" cy="172.6" r="3.1" class="pulse" style="animation-delay:3.33s"/><circle cx="152" cy="93.5" r="3.1" class="ev"/><circle cx="327.5" cy="171.3" r="3.1" class="ev"/><circle cx="151" cy="93.4" r="3.1" class="ev"/><circle cx="151" cy="93.4" r="3.1" class="pulse" style="animation-delay:4.44s"/><circle cx="151.1" cy="93.4" r="3.1" class="ev"/><circle cx="139.1" cy="85.8" r="3.1" class="ev"/><circle cx="335.3" cy="167.5" r="2.8" class="co"/><circle cx="335.3" cy="167.5" r="6" class="rw"/></g>
+<g class="labels"><circle cx="173.6" cy="199.1" r="1.5" class="cap"/><text x="173.6" y="210.1" text-anchor="middle" class="lab">Agrigento <tspan class="n z">0</tspan></text><circle cx="223.6" cy="175.9" r="1.5" class="cap"/><text x="218.6" y="179.9" text-anchor="end" class="lab">Caltanissetta <tspan class="n z">0</tspan></text><circle cx="329" cy="174.3" r="1.5" class="cap"/><text x="337" y="183.3" text-anchor="start" class="lab big">Catania <tspan class="n">17</tspan></text><circle cx="245.9" cy="165.9" r="1.5" class="cap"/><text x="251.9" y="162.9" text-anchor="start" class="lab">Enna <tspan class="n z">0</tspan></text><circle cx="377" cy="84.5" r="1.5" class="cap"/><text x="384" y="81.5" text-anchor="start" class="lab big">Messina <tspan class="n">5</tspan></text><circle cx="151.5" cy="94.5" r="1.5" class="cap"/><text x="157.5" y="89.5" text-anchor="start" class="lab big">Palermo <tspan class="n">13</tspan></text><circle cx="292.3" cy="249.3" r="1.5" class="cap"/><text x="292.3" y="260.3" text-anchor="middle" class="lab">Ragusa <tspan class="n z">0</tspan></text><circle cx="349.5" cy="229.8" r="1.5" class="cap"/><text x="356.5" y="234.8" text-anchor="start" class="lab">Siracusa <tspan class="n">1</tspan></text><circle cx="64.4" cy="107.2" r="1.5" class="cap"/><text x="58.400000000000006" y="103.2" text-anchor="end" class="lab">Trapani <tspan class="n">1</tspan></text><text x="344.3" y="160.5" class="lab rwl">RankWit</text></g></svg><div class="readout" id="ro" aria-live="polite"><div class="k">Provincia</div><div class="v" id="rov">Tutta la Sicilia</div><div class="d" id="rod"><b>37</b> aziende, <u>15</u> eventi in programma. Passa su una provincia.</div></div></div>
+</section>
+
+<div class="stats"><div class="wrap"><ul>
+  <li class="stat"><a href="#aziende"><span class="top-r">Aziende <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9m-3.5-4L12.5 8 8.5 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>37</b><p>22 startup, 9 centri di ricerca e 6 altre realtà.</p></a></li>
+  <li class="stat"><a href="#eventi"><span class="top-r">Eventi in programma <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9m-3.5-4L12.5 8 8.5 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>15</b><p>Da oggi al 16 dicembre. 9 a Palermo, 5 a Catania, 1 a Messina.</p></a></li>
+  <li class="stat"><a href="#guide"><span class="top-r">Guide <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9m-3.5-4L12.5 8 8.5 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>10</b><p>Per chi ha un'attività. Da 9 a 11 minuti di lettura.</p></a></li>
+  <li class="stat"><a href="#prompt"><span class="top-r">Prompt <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9m-3.5-4L12.5 8 8.5 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>48</b><p>Da incollare e adattare, in 8 settori. Ognuno dice dove sbaglia.</p></a></li>
+</ul></div></div>
+
+<section class="s" id="aziende" aria-labelledby="h-az"><div class="wrap">
+  <div class="head"><div><p class="eyebrow">Aziende</p><h2 id="h-az" style="margin-top:14px">Aziende per provincia</h2><p class="sub">Catania e Palermo hanno 30 schede su 37. Agrigento, Caltanissetta, Enna e Ragusa non ne hanno ancora.</p></div><a class="more" href="#">Tutte le 37 aziende <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9m-3.5-4L12.5 8 8.5 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+  <div class="grid2">
+    <div class="card"><ul class="plist" aria-label="Aziende e eventi per provincia"><li class="prow"><span class="pn"><abbr title="Catania">CT</abbr> Catania</span><span class="bar"><i style="width:100.0%"></i></span><span class="num">17</span><span class="pe">5 eventi</span></li><li class="prow"><span class="pn"><abbr title="Palermo">PA</abbr> Palermo</span><span class="bar"><i style="width:76.5%"></i></span><span class="num">13</span><span class="pe">9 eventi</span></li><li class="prow"><span class="pn"><abbr title="Messina">ME</abbr> Messina</span><span class="bar"><i style="width:29.4%"></i></span><span class="num">5</span><span class="pe">1 evento</span></li><li class="prow"><span class="pn"><abbr title="Siracusa">SR</abbr> Siracusa</span><span class="bar"><i style="width:5.9%"></i></span><span class="num">1</span><span class="pe">0 eventi</span></li><li class="prow"><span class="pn"><abbr title="Trapani">TP</abbr> Trapani</span><span class="bar"><i style="width:5.9%"></i></span><span class="num">1</span><span class="pe">0 eventi</span></li><li class="zeros"><span class="zl">Ancora a zero</span><span class="zc"><span class="chip"><abbr title="Agrigento">AG</abbr> Agrigento</span><span class="chip"><abbr title="Caltanissetta">CL</abbr> Caltanissetta</span><span class="chip"><abbr title="Enna">EN</abbr> Enna</span><span class="chip"><abbr title="Ragusa">RG</abbr> Ragusa</span></span><span class="zt">Nessuna scheda. Ne conosci una? <a href="#segnala">Segnalala.</a></span></li></ul></div>
+    <article class="feat" aria-labelledby="h-rw">
+      <span class="tag">In evidenza</span>
+      <h3 id="h-rw">RankWit</h3>
+      <p class="where">Aci Castello, provincia di Catania · startup</p>
+      <p class="t">Ogni giorno fa le domande dei viaggiatori a ChatGPT, Gemini, Claude, Perplexity e AI Overview. Poi conta quante volte compare ogni hotel o destinazione, rispetto ai concorrenti, e da quali fonti arrivano le risposte.</p>
+      <div class="pills"><span class="pill">AI generativa</span><span class="pill">Dati e analytics</span><span class="pill">Turismo e ospitalità</span></div>
+      <p class="note">Trasparenza: Elvio Leonardi, autore di AI Sicilia, collabora con RankWit come SEO &amp; AI Search Specialist. L'evidenza non cambia i criteri di ingresso, uguali per tutti.</p>
+      <div class="foot"><span>Verificata il 21 ottobre 2026</span><a class="btn" href="#">Apri la scheda <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9m-3.5-4L12.5 8 8.5 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+    </article>
+  </div>
+</div></section>
+
+<section class="s alt" id="eventi" aria-labelledby="h-ev"><div class="wrap">
+  <div class="head"><div><p class="eyebrow">Eventi</p><h2 id="h-ev" style="margin-top:14px">Prossimi eventi</h2><p class="sub">Tre si tengono oggi. Gli altri arrivano fino al 16 dicembre.</p></div><a class="more" href="#">Tutti i 15 eventi <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9m-3.5-4L12.5 8 8.5 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+  <ol class="evl"><li class="ev-row"><a href="#"><span class="date"><b>22<span class="dash">–</span>24</b><small>ott</small></span><span class="evmain"><span class="evt">ON Digital Innovation Congress 2026</span><span class="evm">Catania · in presenza · più giorni</span></span><span class="chips"><span class="chip today">Oggi</span><span class="chip pv">CT</span><span class="chip">Gratuito</span></span></a></li><li class="ev-row"><a href="#"><span class="date"><b>22</b><small>ott</small></span><span class="evmain"><span class="evt">Seminario: alfabetizzazione digitale all'intelligenza artificiale</span><span class="evm">Palermo · in presenza · ore 09:00</span></span><span class="chips"><span class="chip today">Oggi</span><span class="chip pv">PA</span><span class="chip">A pagamento</span></span></a></li><li class="ev-row"><a href="#"><span class="date"><b>22</b><small>ott</small></span><span class="evmain"><span class="evt">BIM e intelligenza artificiale: dal modello alla presentazione del progetto</span><span class="evm">Palermo · in presenza · ore 15:00</span></span><span class="chips"><span class="chip today">Oggi</span><span class="chip pv">PA</span><span class="chip">Prezzo non indicato</span></span></a></li><li class="ev-row"><a href="#"><span class="date"><b>23</b><small>ott</small></span><span class="evmain"><span class="evt">Seminario: sicurezza delle informazioni e intelligenza artificiale</span><span class="evm">Palermo · in presenza · ore 09:00</span></span><span class="chips"><span class="chip pv">PA</span><span class="chip">A pagamento</span></span></a></li><li class="ev-row"><a href="#"><span class="date"><b>23</b><small>ott</small></span><span class="evmain"><span class="evt">Linux Day 2026 all'IIS Verona Trento di Messina</span><span class="evm">Messina · in presenza · ore 15:15</span></span><span class="chips"><span class="chip pv">ME</span><span class="chip">Gratuito</span></span></a></li><li class="ev-row"><a href="#"><span class="date"><b>23</b><small>ott</small></span><span class="evmain"><span class="evt">Giustizia e intelligenza artificiale</span><span class="evm">Catania · in presenza · ore 15:30</span></span><span class="chips"><span class="chip pv">CT</span><span class="chip">Gratuito</span></span></a></li></ol>
+</div></section>
+
+<section class="s" id="guide" aria-labelledby="h-gu"><div class="wrap">
+  <div class="head"><div><p class="eyebrow">Guide</p><h2 id="h-gu" style="margin-top:14px">Guide per chi ha un'attività</h2><p class="sub">Scritte da Elvio Leonardi, con fonti ufficiali e la data dell'ultimo aggiornamento.</p></div><a class="more" href="#">Tutte le 10 guide <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9m-3.5-4L12.5 8 8.5 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+  <div class="guides">
+    <a class="g big" href="#"><span class="meta"><span class="lv">Intermedio</span>11 min di lettura</span><h3>Incentivi e finanziamenti per digitalizzazione e AI in Sicilia: cosa è aperto e cosa no</h3><p>Bandi e voucher, con lo stato di ogni misura e la data di verifica da fonti ufficiali. In più, come leggere un avviso.</p><span class="bt">Aggiornata il 22 ottobre 2026</span></a>
+    <a class="g" href="#"><span class="meta"><span class="lv">Base</span>9 min di lettura</span><h3>AI per le PMI siciliane: da dove cominciare, in pratica</h3><p>Scegli un compito, provalo per 2 settimane, conta i costi veri e tieni fuori i dati dei clienti.</p><span class="bt">Aggiornata il 22 ottobre 2026</span></a>
+    <a class="g" href="#"><span class="meta"><span class="lv">Base</span>9 min di lettura</span><h3>AI per hotel, B&amp;B e strutture ricettive: casi d'uso concreti</h3><p>Recensioni, messaggi agli ospiti in più lingue, schede camera e chatbot. Cosa fa l'AI e cosa resta a te.</p><span class="bt">Aggiornata il 22 ottobre 2026</span></a>
+  </div>
+</div></section>
+
+<section class="s alt" id="prompt" aria-labelledby="h-pr"><div class="wrap">
+  <div class="pgrid">
+    <div>
+      <p class="eyebrow">Prompt in vetrina</p>
+      <h2 id="h-pr" style="margin-top:14px">Rispondere a una recensione negativa su Booking senza mettersi sulla difensiva</h2>
+      <p class="goal">Una risposta pubblica di 80-120 parole, cordiale e basata solo sui fatti che hai verificato, da incollare sotto una recensione negativa.</p>
+      <p class="warn">Non incollare nome, cognome, email o dati di prenotazione dell'ospite. Nel test l'AI ha aggiunto una circostanza che non era tra i fatti: ora il prompt lo vieta.</p>
+      <div class="meta"><span class="pill">Ospitalità</span><span class="pill">Recensioni</span><span class="pill">Livello base</span><span class="pill">Testato il 21 ottobre 2026</span></div>
+      <p style="margin-top:26px"><a class="more" href="#">Altri 47 prompt <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9m-3.5-4L12.5 8 8.5 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
+    </div>
+    <div class="code" role="group" aria-label="Testo del prompt">
+      <div class="bar2"><span>PROMPT · 6 variabili</span><button class="copy" id="cp" type="button"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8" height="8" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M3 10.5V4a1 1 0 0 1 1-1h6.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span id="cpt">Copia</span></button></div>
+      <pre>Sei il responsabile dell'accoglienza di <mark>{nome_struttura}</mark>, una struttura ricettiva a <mark>{localita}</mark>. Devi scrivere la risposta pubblica a una recensione negativa lasciata su <mark>{piattaforma}</mark>.
+
+Recensione dell'ospite, testo integrale:
+<mark>{testo_recensione}</mark>
+
+Fatti che ho verificato io (non aggiungerne altri):
+<mark>{fatti_verificati}</mark></pre><div class="fade"></div><p class="more-l">Il testo completo è nella scheda.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="s" id="fiducia" aria-labelledby="h-fi"><div class="wrap">
+  <div class="head"><div><p class="eyebrow">Fiducia</p><h2 id="h-fi" style="margin-top:14px">Come verifichiamo i dati</h2><p class="sub">Una scheda va online solo se ogni dato risulta da una fonte che abbiamo aperto e letto.</p></div><a class="more" href="#">Leggi la metodologia <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9m-3.5-4L12.5 8 8.5 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+  <div class="steps">
+    <div class="step"><i>01</i><h3>Fonte aperta</h3><p>Sito ufficiale, registro pubblico, pagina dell'organizzatore. LinkedIn, Crunchbase e i siti che vietano di leggerli restano fuori.</p></div>
+    <div class="step"><i>02</i><h3>Testi riscritti</h3><p>Le descrizioni sono scritte da zero. Niente loghi di terzi, <b>nessun dato personale</b>: solo informazioni di imprese.</p></div>
+    <div class="step"><i>03</i><h3>Data di controllo</h3><p>Ogni scheda dice quando l'abbiamo verificata. Le ultime sono del <b>22 ottobre 2026</b>.</p></div>
+    <div class="step"><i>04</i><h3>Punto sulla mappa</h3><p>Con un indirizzo, il punto è lì: succede per <b>21 aziende su 37</b>. Senza, è il centro del comune e lo scriviamo.</p></div>
+  </div>
+  <div class="trust-foot"><p>Per cercare e preparare le bozze usiamo agenti AI. Verifica delle fonti e responsabilità di ciò che si pubblica restano a una persona.</p><a class="btn" href="#">Chiedi una modifica o la rimozione</a></div>
+</div></section>
+
+<section class="cta" id="segnala" aria-labelledby="h-cta"><div class="wrap in">
+  <div><p class="eyebrow">Segnala</p><h2 id="h-cta" style="margin-top:14px">Conosci un'azienda o un evento che non c'è?</h2><p class="l">Mandaci il link. Lo controlliamo su una fonte pubblica e, se regge, lo mettiamo sulla mappa.</p></div>
+  <div class="act"><a class="btn p" href="#">Segnala <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9m-3.5-4L12.5 8 8.5 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><span>Ci vogliono due minuti. Serve solo un indirizzo web.</span></div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="fg">
+    <div><a class="logo" href="#">AI <span>Sicilia</span></a><p class="about">Portale indipendente sull'intelligenza artificiale in Sicilia. Lo cura Elvio Leonardi.</p></div>
+    <div><h4>Esplora</h4><ul><li><a href="#">Aziende</a></li><li><a href="#">Eventi</a></li><li><a href="#">Guide</a></li><li><a href="#">Prompt</a></li></ul></div>
+    <div><h4>Progetto</h4><ul><li><a href="#">Metodologia</a></li><li><a href="#">Chi siamo</a></li><li><a href="#">Contatti</a></li><li><a href="#">Segnala</a></li></ul></div>
+    <div><h4>Dati e legale</h4><ul><li><a href="#">Richiedi rimozione</a></li><li><a href="#">Privacy</a></li><li><a href="#">Note legali</a></li></ul></div>
+  </div>
+  <div class="fb"><span>Confini delle province: ISTAT, 1 gennaio 2025, licenza CC BY 4.0.</span><span>Versione beta, non indicizzata.</span></div>
+</div></footer>
+
+<script>
+const P={"agrigento":{"n":"Agrigento","c":0,"e":0},"caltanissetta":{"n":"Caltanissetta","c":0,"e":0},"catania":{"n":"Catania","c":17,"e":5},"enna":{"n":"Enna","c":0,"e":0},"messina":{"n":"Messina","c":5,"e":1},"palermo":{"n":"Palermo","c":13,"e":9},"ragusa":{"n":"Ragusa","c":0,"e":0},"siracusa":{"n":"Siracusa","c":1,"e":0},"trapani":{"n":"Trapani","c":1,"e":0}};
+const ro=document.getElementById('rov'),rd=document.getElementById('rod'),all=rd.innerHTML,t0=ro.textContent;
+const show=p=>{const d=P[p];ro.textContent=d.n;rd.innerHTML=d.c?'<b>'+d.c+'</b> aziende, <u>'+d.e+'</u> eventi in programma.':'Nessuna azienda ancora, <u>'+d.e+'</u> eventi in programma.'};
+document.querySelectorAll('.prov').forEach(g=>{g.addEventListener('mouseenter',()=>show(g.dataset.p));g.addEventListener('focus',()=>show(g.dataset.p));g.addEventListener('mouseleave',()=>{ro.textContent=t0;rd.innerHTML=all})});
+document.getElementById('cp').addEventListener('click',e=>{const t=document.getElementById('cpt');t.textContent='Copiato';setTimeout(()=>t.textContent='Copia',1800)});
+</script>
+</body>
+</html>
