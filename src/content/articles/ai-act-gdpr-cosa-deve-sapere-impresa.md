@@ -39,7 +39,8 @@ sources:
     title: "Garante privacy, Trasferimento di dati personali all'estero, consultato il 22 ottobre 2026"
   - url: https://www.edpb.europa.eu/news/edpb-opinion-on-ai-models-gdpr-principles-support-responsible-ai_en
     title: "Comitato europeo per la protezione dei dati (EDPB), parere 28/2024 sui modelli di AI, consultato il 22 ottobre 2026"
-needs_human_review: true
+needs_human_review: false
+reviewed_at: 2026-10-22
 faq:
   - question: "Un'impresa che usa ChatGPT o Copilot deve rispettare l'AI Act?"
     answer: "Come utilizzatore (deployer) hai obblighi pochi e mirati: misure per l'alfabetizzazione del personale, nessuna pratica vietata, trasparenza nei casi previsti dall'art. 50. Gli obblighi più pesanti riguardano i fornitori e i sistemi ad alto rischio. Se non sei sicuro di dove ricade il tuo uso, chiedi al fornitore e a un professionista."

@@ -45,7 +45,8 @@ sources:
     title: "Camera di Commercio di Messina, sezione bandi e contributi (consultata il 22 ottobre 2026)"
   - url: https://www.paen.camcom.gov.it
     title: "Camera di Commercio di Palermo ed Enna, sito istituzionale (consultato il 22 ottobre 2026)"
-needs_human_review: true
+needs_human_review: false
+reviewed_at: 2026-10-22
 faq:
   - question: "Esiste un bando regionale aperto per la digitalizzazione delle imprese siciliane?"
     answer: "Il 22 ottobre 2026 non ne ho trovati. Gli avvisi Digit Imprese della Regione Siciliana (Azioni 1.2.2 e 1.1.2 del PR FESR 2021-2027) sono chiusi, e nell'elenco di Euroinfosicilia non compare un avviso per la digitalizzazione delle imprese. Ricontrolla ogni tanto: le aperture arrivano con poco preavviso."

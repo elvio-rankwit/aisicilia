@@ -29,7 +29,8 @@ sources:
     title: "CNDCEC, l'IA entra nel Codice deontologico dei commercialisti, consultato il 22 ottobre 2026"
   - url: https://data.consilium.europa.eu/doc/document/PE-30-2026-INIT/en/pdf
     title: "Consiglio dell'UE, PE-CONS 30/26, testo del Digital Omnibus on AI (nuovo art. 4 dell'AI Act), consultato il 22 ottobre 2026"
-needs_human_review: true
+needs_human_review: false
+reviewed_at: 2026-10-22
 faq:
   - question: "Posso incollare il contratto di un cliente in ChatGPT per riassumerlo?"
     answer: "Dipende dallo strumento e dal contratto col fornitore. Con un account gratuito o personale è meglio di no: non hai accordi sul trattamento dei dati e non controlli come vengono riusati. Con un piano aziendale, un accordo di trattamento firmato e i dati ridotti al minimo il rischio scende, ma la decisione va documentata."
