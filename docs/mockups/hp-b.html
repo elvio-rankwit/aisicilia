@@ -153,9 +153,10 @@ ul{margin:0;padding:0;list-style:none}
 .rw h3{font-size:clamp(30px,3.6vw,50px);font-weight:700;line-height:1.08;letter-spacing:-.02em;margin-top:14px}
 .rw .txt{margin-top:20px;font-size:18px;line-height:1.7;max-width:62ch}
 .rw .txt p+p{margin-top:.9em}
-.fact{margin-top:28px;border-top:1px solid var(--ink)}
-.fact div{display:grid;grid-template-columns:130px 1fr;gap:16px;padding:10px 0;border-bottom:1px solid var(--hair);font-size:16px}
-.fact dt{font:700 12.5px/1.8 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+.fact{margin-top:40px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);display:grid;grid-template-columns:repeat(5,auto);gap:0}
+.fact div{padding:16px 20px 18px;border-left:1px solid var(--hair);font-size:16px;line-height:1.45}
+.fact div:first-child{border-left:0;padding-left:0}
+.fact dt{margin-bottom:4px;font:700 12.5px/1.8 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
 .fact dd{margin:0}
 .disc{align-self:start;border:2px solid var(--ink);padding:26px 28px;background:#fff;position:relative}
 .disc::before{content:"";position:absolute;left:-2px;top:-2px;bottom:-2px;width:8px;background:var(--accent)}
@@ -258,6 +259,9 @@ footer .legal{margin-top:36px;padding-top:14px;border-top:1px solid var(--hair);
   .nums li:nth-child(n+3){border-top:1px solid var(--hair)}
   .nums li:nth-child(3) a{padding-left:0}
   .rw,.terr,.pp,.quoteband .wrap{grid-template-columns:1fr;gap:36px}
+  .fact{grid-template-columns:1fr 1fr}
+  .fact div:nth-child(odd){border-left:0;padding-left:0}
+  .fact div:nth-child(n+3){border-top:1px solid var(--hair)}
   .trust .cols{grid-template-columns:1fr 1fr;gap:32px}
   .cta .wrap{grid-template-columns:1fr}
   .g3{grid-template-columns:1fr;gap:28px}
@@ -268,21 +272,28 @@ footer .legal{margin-top:36px;padding-top:14px;border-top:1px solid var(--hair);
   body{font-size:17px}
   .sec{padding-top:44px}
   .mast{padding-top:20px}
-  .mast h1{font-size:19.5vw}
+  .mast h1{font-size:26.5vw}
   .strip .wrap{flex-direction:column}
-  .navbar a{padding:0 9px;font-size:13px;letter-spacing:.08em}
+  .navbar .wrap{justify-content:space-between;gap:0}
+  .navbar a{padding:0 4px;font-size:12.5px;letter-spacing:.05em}
+  .mapfig .plab{font-size:12px}
   .deck{margin-top:32px}
   .deck p{font-size:17px}
   .body2{column-count:1}
   .agenda .list{grid-template-columns:1fr}
-  .day{grid-template-columns:54px 1fr;gap:0 10px}
+  .day{grid-template-columns:1fr}
+  .daylab{flex-direction:row;align-items:baseline;gap:12px;margin-bottom:8px}
+  .dtxt{margin-top:0}
+  .day li:first-child{padding-top:0}
   .nums a{padding:20px 14px 22px 0}
   .nums li:nth-child(even) a{padding-left:16px}
   .nums li:nth-child(odd) a{padding-left:0}
   .nums .txt{font-size:14.5px}
   .quoteband blockquote{padding-top:44px}
   .quoteband blockquote::before{font-size:150px;top:-12px}
-  .fact div{grid-template-columns:1fr;gap:0}
+  .fact{grid-template-columns:1fr}
+  .fact div{border-left:0!important;padding-left:0!important;border-top:1px solid var(--hair)}
+  .fact div:first-child{border-top:0}
   .prov li{grid-template-columns:100px 1fr 40px;gap:10px}
   .pn{font-size:19px}
   .glist{grid-template-columns:1fr}
@@ -416,15 +427,15 @@ footer .legal{margin-top:36px;padding-top:14px;border-top:1px solid var(--hair);
         <p class="small">La scheda segue le stesse regole delle altre 37: descrizione riscritta, fonti consultate, data di verifica. La segnaliamo in evidenza e lo diciamo qui.</p>
         <a class="btn ghost" href="/aziende/rankwit/">Apri la scheda di RankWit</a>
       </aside>
-        <dl class="fact">
-          <div><dt>Tipo</dt><dd>Startup</dd></div>
-          <div><dt>Aree di AI</dt><dd>AI generativa, dati e analytics</dd></div>
-          <div><dt>Settore</dt><dd>Turismo e ospitalità</dd></div>
-          <div><dt>Fonti</dt><dd>Sito aziendale e Registro delle imprese</dd></div>
-          <div><dt>Verificata il</dt><dd><time datetime="2026-10-21">21 ottobre 2026</time></dd></div>
-        </dl>
       </div>
     </div>
+    <dl class="fact">
+      <div><dt>Tipo</dt><dd>Startup</dd></div>
+      <div><dt>Aree di AI</dt><dd>AI generativa, dati e analytics</dd></div>
+      <div><dt>Settore</dt><dd>Turismo e ospitalità</dd></div>
+      <div><dt>Fonti</dt><dd>Sito aziendale e Registro delle imprese</dd></div>
+      <div><dt>Verificata il</dt><dd><time datetime="2026-10-21">21 ottobre 2026</time></dd></div>
+    </dl>
   </section>
 
   <section class="sec wrap" aria-labelledby="terr-t">
