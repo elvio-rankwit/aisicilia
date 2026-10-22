@@ -1,0 +1,22 @@
+---
+// Intestazione di sezione v4: eyebrow, titolo Unbounded, sottotitolo e, a destra, un link (slot "more").
+interface Props { id: string; title: string; eyebrow?: string; sub?: string; level?: 2 | 3 }
+const { id, title, eyebrow, sub, level = 2 } = Astro.props;
+const H = `h${level}` as 'h2' | 'h3';
+---
+<div class="shead">
+  <div class="t">
+    {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+    <H id={id}>{title}</H>
+    {sub && <p class="sub">{sub}</p>}
+  </div>
+  <slot name="more" />
+</div>
+<style>
+  .shead { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px; margin-bottom: 28px; }
+  .t { min-width: 0; }
+  .shead :global(h2), .shead :global(h3) { margin: 0; font-size: clamp(24px, 2.9vw, 36px); line-height: 1.12; letter-spacing: -0.04em; hyphens: auto; }
+  .shead :global(.eyebrow) { margin-bottom: 12px; }
+  .sub { margin: 12px 0 0; font-size: 17px; }
+  @media (min-width: 45.01rem) { .shead { margin-bottom: 36px; } .sub { font-size: 18px; } }
+</style>

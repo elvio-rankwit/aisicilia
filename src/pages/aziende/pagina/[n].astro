@@ -1,6 +1,7 @@
 ---
 // Pagine successive della directory: si generano solo se le aziende sono più di 100 (D-014).
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import DirHero from '../../../components/DirHero.astro';
 import CompanyList from '../../../components/CompanyList.astro';
 import Pager from '../../../components/Pager.astro';
 import CtaSegnala from '../../../components/CtaSegnala.astro';
@@ -35,10 +36,11 @@ const h1 = `Aziende e startup AI in Sicilia, pagina ${n}`;
     ],
   }}
 >
-  <div class="page-head">
-    <h1>{h1}</h1>
-    <p class="lead">{companies.length} realtà in elenco, {LIST_PAGE_SIZE} per pagina. Torna alla <a href="/aziende/">mappa e alla tabella per provincia</a>.</p>
-  </div>
+  <DirHero eyebrow={`Directory · pagina ${n} di ${total}`}>
+    <Fragment slot="title">Aziende e startup <mark class="blk">AI</mark> in Sicilia, pagina {n}</Fragment>
+    <p>{companies.length} realtà in elenco, {LIST_PAGE_SIZE} per pagina. Questa è la pagina {n} di {total}.</p>
+    <p>Torna alla <a href="/aziende/">mappa e alla tabella per provincia</a>.</p>
+  </DirHero>
   <section aria-labelledby="h-elenco">
     <h2 id="h-elenco" class="visually-hidden">Elenco, pagina {n}</h2>
     <CompanyList companies={slice} id="elenco-aziende" />

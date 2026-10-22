@@ -4,15 +4,16 @@ import MapPreviewSlot from '../../../components/MapPreviewSlot.astro';
 import MapInteractiveSlot from '../../../components/MapInteractiveSlot.astro';
 import EventCard from '../../../components/EventCard.astro';
 import CompanyCard from '../../../components/CompanyCard.astro';
-import PageStat from '../../../components/PageStat.astro';
+import DirHero from '../../../components/DirHero.astro';
+import SecHead from '../../../components/SecHead.astro';
+import EmptyList from '../../../components/EmptyList.astro';
 import OtherProvinces from '../../../components/OtherProvinces.astro';
-import EmptyState from '../../../components/EmptyState.astro';
 import CtaSegnala from '../../../components/CtaSegnala.astro';
 import { getAllEvents, getCompanies, getUpcomingEvents } from '../../../lib/data';
 import { meta } from '../../../lib/seo/meta';
 import { collectionPageNodes, itemListNodes } from '../../../lib/seo/jsonld';
 import { PROVINCES, PROVINCE_SLUGS, type ProvinceSlug } from '../../../lib/provinces';
-import { countByProvince, dateRange, eventPoints, isScheduled, plural } from '../../../components/helpers';
+import { countByProvince, dateRange, eventPoints, isScheduled, joinIt, plural } from '../../../components/helpers';
 
 export function getStaticPaths() {
   return PROVINCE_SLUGS.map((provincia) => ({ params: { provincia } }));
@@ -29,6 +30,8 @@ const m = meta.eventsProvince(slug, scheduled.length);
 const path = `/eventi/provincia/${slug}/`;
 const h1 = `Eventi AI in provincia di ${prov.name}`;
 const first = events[0]?.data.start_date;
+const nOthers = PROVINCE_SLUGS.filter((p) => p !== slug && counts[p] > 0).sort((a, b) => counts[b] - counts[a]).slice(0, 3);
+const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
 ---
 <BaseLayout
   seo={{
@@ -41,46 +44,68 @@ const first = events[0]?.data.start_date;
     ],
   }}
 >
-  <div class="page-head">
-    <PageStat value={scheduled.length} label="eventi in programma" coords={PROVINCES[slug].ente} />
-    <h1>{h1}</h1>
+  <DirHero eyebrow={`Provincia · ${prov.ente}`} tone="teal">
+    <Fragment slot="title">Eventi <mark class="blk">AI</mark> in provincia di {prov.name}</Fragment>
     {events.length > 0 && first ? (
-      <p class="answer">In provincia di {prov.name} {scheduled.length === 1 ? 'c’è' : 'ci sono'} {plural(scheduled.length, 'evento in programma', 'eventi in programma')} sull’intelligenza artificiale, il primo il {dateRange(first)}. Su tutta la Sicilia sono {upcoming.filter(isScheduled).length}.</p>
+      <>
+        <p>In provincia di {prov.name} {scheduled.length === 1 ? 'c’è' : 'ci sono'} <b>{plural(scheduled.length, 'evento in programma', 'eventi in programma')}</b> sull’intelligenza artificiale, il primo il {dateRange(first)}.</p>
+        <p>Su tutta la Sicilia sono {upcoming.filter(isScheduled).length}.</p>
+      </>
     ) : (
-      <p class="answer">Nessun evento in programma a {prov.name} per ora. Ne conosci uno? <a href="/segnala/">Segnalalo</a>.</p>
+      <>
+        <p>Nessun evento in programma a {prov.name}, per ora.</p>
+        <p>Ne conosci uno? <a href="/segnala/">Segnalalo</a>: lo controlliamo sulla pagina dell’organizzatore.</p>
+      </>
     )}
-  </div>
+    <dl slot="after" class="figs">
+      <div><dt>in programma</dt><dd>{scheduled.length}</dd></div>
+      <div><dt>aziende in zona</dt><dd>{companies.length}</dd></div>
+      <div><dt>in tutta la Sicilia</dt><dd>{upcoming.filter(isScheduled).length}</dd></div>
+    </dl>
+    <Fragment slot="side">
+      <MapPreviewSlot variant="hero" counts={counts} mode="link" basePath="/eventi/provincia/" active={slug} label={`Eventi AI in provincia di ${prov.name}, evidenziata sulla mappa della Sicilia`} unit={['evento', 'eventi']} points={points} />
+      <ul class="legend" aria-label="Legenda della mappa">
+        <li><i class="e"></i>Evento con un luogo</li>
+        <li><i class="t"></i>Più eventi, blu più scuro</li>
+      </ul>
+    </Fragment>
+  </DirHero>
 
   <section class="section" aria-labelledby="h-elenco">
-    <h2 id="h-elenco">Prossimi eventi a {prov.name}</h2>
+    <SecHead id="h-elenco" eyebrow="Calendario" title={`Prossimi eventi a ${prov.name}`}>
+      <a slot="more" class="more" href="/eventi/">Tutta la Sicilia <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d={arrow} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+    </SecHead>
     {events.length > 0 ? (
       <ul class="grid">{events.map((e) => <EventCard event={e} />)}</ul>
     ) : (
-      <EmptyState text={`Nessun evento in programma a ${prov.name} per ora. Ne conosci uno? Segnalalo.`} ctaLabel="Segnala un evento" />
+      <EmptyList title={`Nessun evento a ${prov.name}, per ora`}>
+        <p>Il calendario si riempie quando un organizzatore pubblica una data.{nOthers.length > 0 && <> Intanto gli appuntamenti più vicini per numero sono a {joinIt(nOthers.map((p) => `${PROVINCES[p].name} (${counts[p]})`))}.</>} Ne conosci uno qui? Mandaci il link.</p>
+        <Fragment slot="actions"><a class="btn p" href="/segnala/">Segnala un evento</a><a class="btn" href="/eventi/">Calendario completo</a></Fragment>
+      </EmptyList>
     )}
   </section>
 
-  <section class="section" aria-labelledby="h-mappa">
-    <h2 id="h-mappa">Sulla mappa</h2>
-    {points.length > 0 ? (
+  {points.length > 0 && (
+    <section class="section" aria-labelledby="h-mappa">
+      <SecHead id="h-mappa" eyebrow="Mappa" title="Sulla mappa" sub="Compaiono gli eventi con un luogo. Quelli online non hanno un marker: li trovi nell’elenco." />
       <MapInteractiveSlot points={points} center={prov.center} zoom={prov.zoom} label={`Mappa degli eventi AI in provincia di ${prov.name}`} />
-    ) : (
-      <MapPreviewSlot counts={counts} mode="link" basePath="/eventi/provincia/" active={slug} label="Eventi AI per provincia siciliana" unit={['evento', 'eventi']} />
-    )}
-  </section>
+    </section>
+  )}
 
   <section class="section" aria-labelledby="h-aziende">
-    <div class="section-head">
-      <h2 id="h-aziende">Aziende AI di {prov.name}</h2>
-      <a href={`/aziende/provincia/${slug}/`}>Tutte le aziende a {prov.name}</a>
-    </div>
+    <SecHead id="h-aziende" eyebrow="Aziende" title={`Aziende AI di ${prov.name}`}>
+      <a slot="more" class="more" href={`/aziende/provincia/${slug}/`}>Tutte le aziende a {prov.name} <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d={arrow} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+    </SecHead>
     {companies.length > 0 ? (
       <ul class="grid">{companies.slice(0, 3).map((c) => <CompanyCard company={c} />)}</ul>
     ) : (
-      <EmptyState text={`Nessuna azienda AI a ${prov.name} in elenco per ora. Ne conosci una? Segnalala.`} ctaLabel="Segnala un’azienda" />
+      <EmptyList title={`Nessuna azienda a ${prov.name}, per ora`}>
+        <p>Non abbiamo ancora una scheda verificata in questa provincia. Ne conosci una? Mandaci il link al sito.</p>
+        <Fragment slot="actions"><a class="btn p" href="/segnala/">Segnala un’azienda</a><a class="btn" href="/aziende/">Tutte le aziende</a></Fragment>
+      </EmptyList>
     )}
   </section>
 
-  <OtherProvinces current={slug} counts={counts} basePath="/eventi/provincia/" label="Eventi nelle altre province" />
+  <OtherProvinces current={slug} counts={counts} basePath="/eventi/provincia/" label="Eventi nelle altre province" tone="teal" />
   <CtaSegnala text="Conosci un evento sull’AI in Sicilia? Segnalalo: lo controlliamo e lo aggiungiamo." label="Segnala un evento" />
 </BaseLayout>

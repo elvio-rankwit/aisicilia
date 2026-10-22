@@ -1,21 +1,22 @@
 ---
-// Tabella dati "per provincia": sempre le 9 righe, numeri a destra, barra proporzionale in pistacchio.
+// Tabella dati "per provincia" v4: sempre le 9 righe, barra proporzionale (arancia per le aziende, turchese per gli eventi), numero in Unbounded.
 import type { ProvinceSlug } from '../lib/provinces';
 import { PROVINCES, PROVINCE_SLUGS } from '../lib/provinces';
-interface Props { counts: Record<ProvinceSlug, number>; basePath: string; caption: string; header: string; unit?: [string, string]; showTotal?: boolean }
-const { counts, basePath, caption, header, showTotal = true } = Astro.props;
+interface Props { counts: Record<ProvinceSlug, number>; basePath: string; caption: string; header: string; unit?: [string, string]; showTotal?: boolean; tone?: 'or' | 'teal' }
+const { counts, basePath, caption, header, showTotal = true, tone = 'or' } = Astro.props;
 const total = PROVINCE_SLUGS.reduce((n, p) => n + counts[p], 0);
 const max = Math.max(1, ...PROVINCE_SLUGS.map((p) => counts[p]));
+const sorted = [...PROVINCE_SLUGS].sort((a, b) => counts[b] - counts[a] || PROVINCES[a].name.localeCompare(PROVINCES[b].name, 'it'));
 ---
-<div class="table-wrap">
+<div class:list={['ptable-wrap', tone]}>
   <table class="ptable">
-    <caption>{caption}</caption>
+    <caption class="visually-hidden">{caption}</caption>
     <thead><tr><th scope="col">Provincia</th><th scope="col" class="bar"><span class="visually-hidden">Proporzione</span></th><th scope="col" class="num">{header}</th></tr></thead>
     <tbody>
-      {PROVINCE_SLUGS.map((p) => (
-        <tr>
-          <th scope="row"><a href={`${basePath}${p}/`}><span class="sg">{PROVINCES[p].sigla}</span> {PROVINCES[p].name}</a></th>
-          <td class="bar" aria-hidden="true"><svg viewBox="0 0 100 8" preserveAspectRatio="none" width="100" height="8"><rect class="track" width="100" height="8" /><rect class="fill" width={(counts[p] / max) * 100} height="8" /></svg></td>
+      {sorted.map((p) => (
+        <tr class:list={{ zero: counts[p] === 0 }}>
+          <th scope="row"><a href={`${basePath}${p}/`}><abbr title={PROVINCES[p].name}>{PROVINCES[p].sigla}</abbr> {PROVINCES[p].name}</a></th>
+          <td class="bar" aria-hidden="true"><progress class="meter" max="100" value={Math.round((counts[p] / max) * 1000) / 10}></progress></td>
           <td class="num">{counts[p]}</td>
         </tr>
       ))}
@@ -24,14 +25,27 @@ const max = Math.max(1, ...PROVINCE_SLUGS.map((p) => counts[p]));
   </table>
 </div>
 <style>
-  tfoot th, tfoot td { font-weight: 600; border-top: 1px solid var(--c-border-strong); border-bottom: 0; background: none; }
-  .sg { display: inline-block; min-width: 2.2em; color: var(--c-text-muted); font-size: var(--fs-sm); font-weight: 600; }
-  .bar { width: 30%; padding-inline: var(--space-2); }
-  .bar svg { width: 100%; height: 8px; border-radius: 4px; overflow: hidden; }
-  .track { fill: var(--c-surface-2); }
-  .fill { fill: var(--c-data); }
-  tbody th a { text-decoration: none; font-weight: 500; }
-  tbody th a:hover { text-decoration: underline; }
-  th, td { padding-block: var(--space-2); vertical-align: middle; }
-  th a { display: inline-block; padding-block: var(--space-1); }
+  .ptable-wrap { --bar: var(--or); }
+  .teal { --bar: var(--teal); }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { padding: 11px 0; border-bottom: 1px solid var(--line); vertical-align: middle; background: none; }
+  tbody tr:nth-child(even) { background: none; }
+  thead th { padding-top: 0; border-bottom: 2px solid var(--bd); font: 800 12px/1.4 var(--body); letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); }
+  tbody th { font-size: 17px; font-weight: 700; white-space: nowrap; }
+  tbody th a { display: inline-flex; align-items: center; gap: 8px; min-height: 28px; color: var(--ink); text-decoration: none; }
+  tbody th a:hover { text-decoration: underline; text-decoration-color: var(--or); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+  abbr { min-width: 1.7em; font: 700 12px var(--body); letter-spacing: 0.08em; color: var(--brand); text-decoration: none; }
+  .bar { width: 32%; padding-inline: 14px; }
+  .meter { appearance: none; -webkit-appearance: none; display: block; width: 100%; height: 12px; border: 0; border-radius: 6px; background: var(--grey-2); overflow: hidden; }
+  .meter::-webkit-progress-bar { background: var(--grey-2); border-radius: 6px; }
+  .meter::-webkit-progress-value { background: var(--bar); border-radius: 6px; }
+  .meter::-moz-progress-bar { background: var(--bar); border-radius: 6px; }
+  .num { width: 3.2em; text-align: right; font: 700 19px var(--display); letter-spacing: -0.04em; font-variant-numeric: tabular-nums lining-nums; }
+  thead .num { font: 800 12px/1.4 var(--body); letter-spacing: 0.1em; }
+  .zero .num, .zero th a { color: var(--faint); }
+  .zero .num { font-weight: 500; }
+  tfoot th, tfoot td { padding-bottom: 0; border-bottom: 0; border-top: 2px solid var(--bd); font-weight: 800; }
+  tfoot th { font: 800 12px/1.4 var(--body); letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); }
+  tfoot td { color: var(--ink); }
+  @media (max-width: 24rem) { .bar { display: none; } }
 </style>

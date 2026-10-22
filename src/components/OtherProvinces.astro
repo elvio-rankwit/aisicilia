@@ -1,15 +1,29 @@
 ---
 import type { ProvinceSlug } from '../lib/provinces';
 import { PROVINCES, PROVINCE_SLUGS } from '../lib/provinces';
-interface Props { current: ProvinceSlug; counts: Record<ProvinceSlug, number>; basePath: string; label: string; level?: 2 | 3 }
-const { current, counts, basePath, label, level = 2 } = Astro.props;
+interface Props { current: ProvinceSlug; counts: Record<ProvinceSlug, number>; basePath: string; label: string; level?: 2 | 3; tone?: 'brand' | 'teal' }
+const { current, counts, basePath, label, level = 2, tone = 'brand' } = Astro.props;
 const H = `h${level}` as 'h2' | 'h3';
+const others = PROVINCE_SLUGS.filter((p) => p !== current).sort((a, b) => counts[b] - counts[a] || PROVINCES[a].name.localeCompare(PROVINCES[b].name, 'it'));
 ---
-<section class="section" aria-labelledby="altre-province">
+<section class:list={['others', tone]} aria-labelledby="altre-province">
   <H id="altre-province">{label}</H>
-  <ul class="link-list">
-    {PROVINCE_SLUGS.filter((p) => p !== current).map((p) => (
-      <li><a href={`${basePath}${p}/`}>{PROVINCES[p].name}<span class="n">{counts[p]}</span></a></li>
+  <ul>
+    {others.map((p) => (
+      <li class:list={{ zero: counts[p] === 0 }}><a href={`${basePath}${p}/`}><abbr title={PROVINCES[p].name}>{PROVINCES[p].sigla}</abbr><span class="nm">{PROVINCES[p].name}</span><span class="n">{counts[p]}</span></a></li>
     ))}
   </ul>
 </section>
+<style>
+  .others { margin-top: 72px; padding: 24px 20px; background: var(--grey); border: 1.5px solid var(--bd); border-radius: var(--r-lg); }
+  h2, h3 { margin: 0 0 20px; font-size: clamp(22px, 2.4vw, 28px); line-height: 1.15; letter-spacing: -0.04em; }
+  ul { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; }
+  a { display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 16px; background: var(--card); border: 1.5px solid var(--bd); border-radius: 12px; color: var(--ink); font-weight: 700; text-decoration: none; box-shadow: 3px 3px 0 var(--grey-2); transition: transform 0.15s, box-shadow 0.15s; }
+  a:hover { color: var(--ink); transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--sh); }
+  abbr { font: 700 12px var(--body); letter-spacing: 0.08em; color: var(--brand); text-decoration: none; }
+  .nm { flex: 1; min-width: 0; }
+  .n { font: 800 17px var(--display); letter-spacing: -0.04em; font-variant-numeric: tabular-nums lining-nums; color: var(--or-text); }
+  .teal .n { color: var(--teal); }
+  .zero .n { color: var(--faint); font-weight: 500; }
+  @media (min-width: 45.01rem) { .others { padding: 32px 36px 36px; } }
+</style>

@@ -5,16 +5,17 @@ import MapInteractiveSlot from '../../../components/MapInteractiveSlot.astro';
 import CompanyList from '../../../components/CompanyList.astro';
 import EventCard from '../../../components/EventCard.astro';
 import ArticleCard from '../../../components/ArticleCard.astro';
-import PageStat from '../../../components/PageStat.astro';
+import DirHero from '../../../components/DirHero.astro';
+import SecHead from '../../../components/SecHead.astro';
+import EmptyList from '../../../components/EmptyList.astro';
 import OtherProvinces from '../../../components/OtherProvinces.astro';
-import EmptyState from '../../../components/EmptyState.astro';
 import CtaSegnala from '../../../components/CtaSegnala.astro';
 import { formatDate, getAllEvents, getArticles, getCompanies, getUpcomingEvents, latestDate } from '../../../lib/data';
 import { sectorsForProvince, articlesForSector } from '../../../lib/related';
 import { meta } from '../../../lib/seo/meta';
 import { collectionPageNodes, itemListNodes } from '../../../lib/seo/jsonld';
 import { PROVINCES, PROVINCE_SLUGS, type ProvinceSlug } from '../../../lib/provinces';
-import { companyPoints, countByProvince, plural } from '../../../components/helpers';
+import { companyPoints, countByProvince, joinIt, plural } from '../../../components/helpers';
 
 export function getStaticPaths() {
   return PROVINCE_SLUGS.map((provincia) => ({ params: { provincia } }));
@@ -24,6 +25,7 @@ const prov = PROVINCES[slug];
 const [all, upcoming, articles, anyEvents] = await Promise.all([getCompanies(), getUpcomingEvents(), getArticles(), getAllEvents()]);
 const companies = all.filter((c) => c.data.province === slug);
 const counts = countByProvince(all);
+const upcomingHere = upcoming.filter((e) => e.data.province === slug).length;
 const events = upcoming.filter((e) => e.data.province === slug).slice(0, 3);
 const sectors = sectorsForProvince(slug, all, upcoming);
 const related = [...new Map(sectors.flatMap((s) => articlesForSector(s, articles, 2)).map((a) => [a.id, a])).values()].slice(0, 3);
@@ -31,6 +33,8 @@ const updated = latestDate(companies.map((c) => c.data.last_verified));
 const m = meta.companiesProvince(slug, companies.length);
 const path = `/aziende/provincia/${slug}/`;
 const h1 = `Aziende AI in provincia di ${prov.name}`;
+const nOthers = PROVINCE_SLUGS.filter((p) => p !== slug && counts[p] > 0).sort((a, b) => counts[b] - counts[a]).slice(0, 3);
+const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
 ---
 <BaseLayout
   seo={{
@@ -43,49 +47,72 @@ const h1 = `Aziende AI in provincia di ${prov.name}`;
     ],
   }}
 >
-  <div class="page-head">
-    <PageStat value={companies.length} label={companies.length === 1 ? 'azienda verificata' : 'aziende verificate'} coords={PROVINCES[slug].ente} />
-    <h1>{h1}</h1>
+  <DirHero eyebrow={`Provincia · ${prov.ente}`} id="h-top">
+    <Fragment slot="title">Aziende <mark class="blk">AI</mark> in provincia di {prov.name}</Fragment>
     {companies.length > 0 ? (
-      <p class="answer">In provincia di {prov.name} ({prov.ente.toLowerCase()}) abbiamo {plural(companies.length, 'realtà verificata', 'realtà verificate')} che lavorano con l’intelligenza artificiale, su {all.length} in tutta la Sicilia. Ultimo aggiornamento: {updated && formatDate(updated)}.</p>
+      <>
+        <p>In provincia di {prov.name} abbiamo <b>{plural(companies.length, 'realtà verificata', 'realtà verificate')}</b> che lavorano con l’intelligenza artificiale, su {all.length} in tutta la Sicilia.</p>
+        <p>Ultimo aggiornamento: {updated && formatDate(updated)}. Ogni scheda indica le fonti e la data di verifica.</p>
+      </>
     ) : (
-      <p class="answer">Nessuna azienda AI verificata in provincia di {prov.name} per ora. Su tutta la Sicilia le schede sono {all.length}. Ne conosci una che manca? Segnalala.</p>
+      <>
+        <p>Nessuna azienda AI verificata in provincia di {prov.name}, per ora. Su tutta la Sicilia le schede sono {all.length}.</p>
+        <p>Ne conosci una che manca? <a href="/segnala/">Segnalala</a>: la controlliamo sulle fonti pubbliche.</p>
+      </>
     )}
-  </div>
-
-  <section class="section" aria-labelledby="h-mappa">
-    <h2 id="h-mappa">Dove si trovano</h2>
-    {companies.length > 0 ? (
-      <MapInteractiveSlot points={companyPoints(companies)} center={prov.center} zoom={prov.zoom} label={`Mappa delle aziende AI in provincia di ${prov.name}`} />
-    ) : (
-      <MapPreviewSlot counts={counts} mode="link" basePath="/aziende/provincia/" active={slug} label="Aziende AI per provincia siciliana" />
-    )}
-  </section>
+    <dl slot="after" class="figs">
+      <div><dt>{companies.length === 1 ? 'azienda verificata' : 'aziende verificate'}</dt><dd>{companies.length}</dd></div>
+      <div><dt>{events.length === 1 ? 'evento in zona' : 'eventi in zona'}</dt><dd>{upcomingHere}</dd></div>
+      <div><dt>in tutta la Sicilia</dt><dd>{all.length}</dd></div>
+    </dl>
+    <Fragment slot="side">
+      <MapPreviewSlot variant="hero" counts={counts} mode="link" basePath="/aziende/provincia/" active={slug} label={`Aziende AI in provincia di ${prov.name}, evidenziata sulla mappa della Sicilia`} points={companies.map((c) => ({ lat: c.data.lat, lng: c.data.lng }))} />
+      <ul class="legend" aria-label="Legenda della mappa">
+        <li><i class="a"></i>Un punto per azienda</li>
+        <li><i class="t"></i>Più schede, blu più scuro</li>
+      </ul>
+    </Fragment>
+  </DirHero>
 
   <section class="section" aria-labelledby="h-elenco">
-    <h2 id="h-elenco">Le aziende di {prov.name}</h2>
+    <SecHead id="h-elenco" eyebrow="Elenco" title={`Le aziende di ${prov.name}`} />
     {companies.length > 0 ? (
       <CompanyList companies={companies} withProvinceFilter={false} />
     ) : (
-      <EmptyState text={`Nessuna azienda AI a ${prov.name} per ora. Ne conosci una? Segnalala.`} ctaLabel="Segnala un’azienda" />
+      <EmptyList title={`Nessuna scheda a ${prov.name}, per ora`}>
+        <p>Una provincia a zero non significa che non ci sia nessuno: significa che non abbiamo ancora trovato una realtà con fonti verificabili.{nOthers.length > 0 && <> Intanto le schede più vicine per numero sono a {joinIt(nOthers.map((p) => `${PROVINCES[p].name} (${counts[p]})`))}.</>}</p>
+        <Fragment slot="actions">
+          <a class="btn p" href="/segnala/">Segnala un’azienda</a>
+          <a class="btn" href="/aziende/">Tutte le aziende</a>
+        </Fragment>
+      </EmptyList>
     )}
   </section>
 
+  {companies.length > 0 && (
+    <section class="section" aria-labelledby="h-mappa">
+      <SecHead id="h-mappa" eyebrow="Mappa" title="Dove si trovano" sub="Il punto è l’indirizzo pubblico della sede, oppure il centro del comune quando l’indirizzo non c’è." />
+      <MapInteractiveSlot points={companyPoints(companies)} center={prov.center} zoom={prov.zoom} label={`Mappa delle aziende AI in provincia di ${prov.name}`} />
+    </section>
+  )}
+
   <section class="section" aria-labelledby="h-eventi">
-    <div class="section-head">
-      <h2 id="h-eventi">Eventi in zona</h2>
-      <a href={`/eventi/provincia/${slug}/`}>Tutti gli eventi a {prov.name}</a>
-    </div>
+    <SecHead id="h-eventi" eyebrow="Eventi" title="Eventi in zona">
+      <a slot="more" class="more" href={`/eventi/provincia/${slug}/`}>Tutti gli eventi a {prov.name} <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d={arrow} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+    </SecHead>
     {events.length > 0 ? (
       <ul class="grid">{events.map((e) => <EventCard event={e} />)}</ul>
     ) : (
-      <EmptyState text={`Nessun evento in programma a ${prov.name} per ora. Ne conosci uno? Segnalalo.`} />
+      <EmptyList title={`Nessun evento in programma a ${prov.name}`}>
+        <p>Quando ne arriva uno, lo trovi qui e nel calendario. Ne conosci uno? Mandaci il link alla pagina dell’organizzatore.</p>
+        <Fragment slot="actions"><a class="btn p" href="/segnala/">Segnala un evento</a><a class="btn" href="/eventi/">Calendario completo</a></Fragment>
+      </EmptyList>
     )}
   </section>
 
   {related.length > 0 && (
     <section class="section" aria-labelledby="h-guide">
-      <h2 id="h-guide">Guide per le imprese della zona</h2>
+      <SecHead id="h-guide" eyebrow="Guide" title="Guide per le imprese della zona" />
       <ul class="grid">{related.map((a) => <ArticleCard article={a} />)}</ul>
     </section>
   )}

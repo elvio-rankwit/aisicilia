@@ -4,9 +4,11 @@ import MapPreviewSlot from '../../components/MapPreviewSlot.astro';
 import MapInteractiveSlot from '../../components/MapInteractiveSlot.astro';
 import ProvinceTable from '../../components/ProvinceTable.astro';
 import EventCard from '../../components/EventCard.astro';
-import PageStat from '../../components/PageStat.astro';
+import DirHero from '../../components/DirHero.astro';
+import SecHead from '../../components/SecHead.astro';
+import Panel from '../../components/Panel.astro';
+import EmptyList from '../../components/EmptyList.astro';
 import ListFilters from '../../components/ListFilters.astro';
-import EmptyState from '../../components/EmptyState.astro';
 import CtaSegnala from '../../components/CtaSegnala.astro';
 import { getPastEvents, getUpcomingEvents } from '../../lib/data';
 import { meta } from '../../lib/seo/meta';
@@ -35,6 +37,8 @@ const fields = [
   { key: 'mese', label: 'Mese', options: months.map((k) => ({ value: k, label: cap(monthLabel(k)) })) },
 ].filter((f) => f.options.length > 1);
 
+const provincesWith = PROVINCE_SLUGS.filter((p) => counts[p] > 0).length;
+const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
 const m = meta.eventsIndex(scheduled.length);
 const h1 = 'Eventi AI in Sicilia';
 ---
@@ -48,56 +52,87 @@ const h1 = 'Eventi AI in Sicilia';
     ],
   }}
 >
-  <div class="page-head">
-    <PageStat value={scheduled.length} label="eventi in programma" coords="in 9 province" />
-    <h1>{h1}</h1>
+  <DirHero eyebrow={first && last ? `Calendario · fino al ${dateRange(last)}` : 'Calendario'} tone="teal">
+    <Fragment slot="title">Eventi <mark class="blk">AI</mark> in Sicilia</Fragment>
     {events.length > 0 && first && last ? (
-      <p class="answer">{plural(scheduled.length, 'evento in programma', 'eventi in programma')} sull’intelligenza artificiale in Sicilia, da {dateRange(first)} a {dateRange(last)}. Ogni scheda ha il link alla pagina dell’organizzatore, la fonte e la data di verifica. Quelli già svolti restano nell’<a href="/eventi/archivio/">archivio</a>.</p>
+      <>
+        <p><b>{plural(scheduled.length, 'evento in programma', 'eventi in programma')}</b> sull’intelligenza artificiale in Sicilia, da {dateRange(first)} a {dateRange(last)}.</p>
+        <p>Ogni scheda ha il link alla pagina dell’organizzatore, la fonte e la data di verifica. Quelli già svolti restano nell’<a href="/eventi/archivio/">archivio</a>.</p>
+      </>
     ) : (
-      <p class="answer">Nessun evento in programma per ora. Ne conosci uno? <a href="/segnala/">Segnalalo</a>. Intanto puoi guardare l’<a href="/eventi/archivio/">archivio degli eventi passati</a>.</p>
+      <>
+        <p>Nessun evento in programma per ora.</p>
+        <p>Ne conosci uno? <a href="/segnala/">Segnalalo</a>. Intanto puoi guardare l’<a href="/eventi/archivio/">archivio degli eventi passati</a>.</p>
+      </>
     )}
-  </div>
+    <dl slot="after" class="figs">
+      <div><dt>in programma</dt><dd>{scheduled.length}</dd></div>
+      <div><dt>province coperte</dt><dd>{provincesWith}<small> / 9</small></dd></div>
+      <div><dt>in archivio</dt><dd>{past.length}</dd></div>
+    </dl>
+    <Fragment slot="side">
+      <MapPreviewSlot variant="hero" counts={counts} mode="filter" basePath="/eventi/provincia/" label="Eventi AI per provincia siciliana" unit={['evento', 'eventi']} points={points} />
+      <ul class="legend" aria-label="Legenda della mappa">
+        <li><i class="e"></i>Evento con un luogo</li>
+        <li><i class="t"></i>Più eventi, blu più scuro</li>
+        <li class="js-only">Tocca una provincia per filtrare il calendario</li>
+      </ul>
+    </Fragment>
+  </DirHero>
 
   <section class="section" aria-labelledby="h-province">
-    <h2 id="h-province">Eventi per provincia</h2>
+    <SecHead id="h-province" eyebrow="Per provincia" title="Eventi per provincia" sub="Gli eventi online contano nella provincia di chi li organizza." />
     <div class="two">
-      <MapPreviewSlot counts={counts} mode="filter" basePath="/eventi/provincia/" label="Eventi AI per provincia siciliana" unit={['evento', 'eventi']} />
-      <ProvinceTable counts={counts} basePath="/eventi/provincia/" caption="Eventi AI in programma in Sicilia, per provincia" header="Eventi" />
+      <Panel tone="teal" title="Il conto per provincia" id="t-conto" level={3}>
+        <ProvinceTable counts={counts} basePath="/eventi/provincia/" caption="Eventi AI in programma in Sicilia, per provincia" header="Eventi" tone="teal" />
+      </Panel>
+      {points.length > 0 && (
+        <Panel bare label="Mappa interattiva degli eventi">
+          <MapInteractiveSlot points={points} label="Mappa degli eventi AI in Sicilia" height={480} />
+          <p class="note">Compaiono gli eventi con un luogo. Quelli online non hanno un marker: li trovi nel calendario.</p>
+        </Panel>
+      )}
     </div>
   </section>
 
-  {points.length > 0 && (
-    <section class="section" aria-labelledby="h-mappa">
-      <h2 id="h-mappa">Sulla mappa</h2>
-      <p class="muted">Compaiono gli eventi con un luogo. Quelli online non hanno un marker: li trovi nell’elenco.</p>
-      <MapInteractiveSlot points={points} label="Mappa degli eventi AI in Sicilia" />
-    </section>
-  )}
-
   <section class="section" aria-labelledby="h-calendario">
-    <h2 id="h-calendario">Calendario per mese</h2>
+    <SecHead id="h-calendario" eyebrow="Calendario" title="Calendario per mese" sub={events.length > 1 ? 'Filtra per provincia, formato, pubblico, prezzo o mese.' : undefined}>
+      <a slot="more" class="more" href="/eventi/archivio/">Archivio {past.length > 0 ? `(${plural(past.length, 'evento passato', 'eventi passati')})` : 'degli eventi passati'} <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d={arrow} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+    </SecHead>
     {events.length > 0 ? (
-      <>
+      <div class="cal">
         <ListFilters target="calendario" fields={fields} noun={['evento', 'eventi']} searchLabel="Cerca per titolo, città o organizzatore" />
         <div id="calendario">
           {byMonth.map((g) => (
             <section data-group aria-labelledby={`m-${g.key}`}>
-              <h3 id={`m-${g.key}`} class="month">{cap(g.label)}</h3>
+              <h3 id={`m-${g.key}`} class="month"><span>{cap(g.label)}</span><small>{plural(g.items.length, 'evento', 'eventi')}</small></h3>
               <ul class="grid">{g.items.map((e) => <EventCard event={e} level={4} />)}</ul>
             </section>
           ))}
         </div>
-      </>
+      </div>
     ) : (
-      <EmptyState text="Nessun evento in programma per ora. Ne conosci uno? Segnalalo." ctaLabel="Segnala un evento" />
+      <EmptyList title="Nessun evento in programma, per ora">
+        <p>Il calendario si riempie quando un organizzatore pubblica una data. Ne conosci uno? Mandaci il link alla pagina dell’evento. Intanto puoi consultare quelli già svolti.</p>
+        <Fragment slot="actions"><a class="btn p" href="/segnala/">Segnala un evento</a><a class="btn" href="/eventi/archivio/">Vai all’archivio</a></Fragment>
+      </EmptyList>
     )}
-    <p><a href="/eventi/archivio/">Vai all’archivio {past.length > 0 ? `(${plural(past.length, 'evento passato', 'eventi passati')})` : 'degli eventi passati'}</a></p>
   </section>
 
   <CtaSegnala text="Organizzi o conosci un evento sull’AI in Sicilia? Segnalalo: lo controlliamo e lo aggiungiamo al calendario." />
 </BaseLayout>
 <style>
-  .two { display: grid; gap: var(--space-6); align-items: start; }
-  @media (min-width: 56rem) { .two { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); } }
-  .month { margin: var(--space-7) 0 var(--space-4); font-size: var(--fs-lg); text-transform: capitalize; }
+  .two { display: grid; gap: 28px; align-items: start; }
+  .note { margin: 16px 0 0; font-size: 15.5px; color: var(--muted); }
+  .month { display: flex; align-items: baseline; gap: 14px; margin: 48px 0 24px; font-size: clamp(20px, 2.2vw, 26px); letter-spacing: -0.035em; }
+  .month::after { content: ''; order: 3; flex: 1; align-self: center; min-width: 24px; height: 0; border-top: 2px solid var(--teal); }
+  .month small { font: 700 14px var(--body); letter-spacing: 0; color: var(--teal); }
+  [data-group]:first-child .month { margin-top: 8px; }
+  .cal :global(.filters) { margin-bottom: 24px; padding: 20px; box-shadow: 5px 5px 0 var(--teal); }
+  .cal :global(.filters input[type='search']) { border: 2px solid var(--bd); border-radius: 14px; background: var(--bg); }
+  .cal :global(.filters .count) { font: 700 16px var(--body); }
+  .cal :global(.filters .empty) { padding: 14px 16px; background: var(--warn-bg); color: var(--warn-text); border-radius: var(--r); }
+  .cal :global(.filters .empty a) { color: inherit; font-weight: 700; }
+  @media (min-width: 45.01rem) { .cal :global(.filters) { padding: 28px; box-shadow: 8px 8px 0 var(--teal); } }
+  @media (min-width: 62rem) { .two { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; } }
 </style>

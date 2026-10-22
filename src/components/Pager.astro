@@ -5,7 +5,8 @@ const { base, current, total } = Astro.props;
 const href = (n: number) => (n === 1 ? base : `${base}pagina/${n}/`);
 ---
 {total > 1 && (
-  <nav aria-label="Pagine dell’elenco">
+  <nav class="pg" aria-label="Pagine dell’elenco">
+    <p class="of">Pagina {current} di {total}</p>
     <ul class="pager">
       {current > 1 && <li><a href={href(current - 1)} rel="prev">Precedente</a></li>}
       {Array.from({ length: total }, (_, i) => i + 1).map((n) => (
@@ -15,3 +16,11 @@ const href = (n: number) => (n === 1 ? base : `${base}pagina/${n}/`);
     </ul>
   </nav>
 )}
+<style>
+  .pg { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; margin: 40px 0 0; }
+  .of { margin: 0; font-weight: 600; color: var(--muted); }
+  .pager { margin: 0; }
+  .pager a, .pager span { border-color: var(--bd); box-shadow: 3px 3px 0 var(--grey-2); font-weight: 700; transition: transform 0.15s, box-shadow 0.15s, background-color 0.2s; }
+  .pager a:hover { background: var(--or); color: var(--on-or); transform: translate(1px, 1px); box-shadow: 2px 2px 0 var(--sh); }
+  .pager [aria-current='page'] { box-shadow: 3px 3px 0 var(--sh); }
+</style>

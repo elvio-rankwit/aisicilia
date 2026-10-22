@@ -19,9 +19,21 @@ const fields = [
   { key: 'settori', label: 'Settore servito', options: present(SECTORS_SERVED, (c) => c.data.sectors_served) },
 ].filter((f) => f.options.length > 1);
 ---
-{companies.length > 1 && <ListFilters target={id} fields={fields} noun={['realtà', 'realtà']} />}
-<div id={id}>
-  <ul class="grid">
-    {companies.map((c) => <CompanyCard company={c} level={level} />)}
-  </ul>
+<div class="cl">
+  {companies.length > 1 && <ListFilters target={id} fields={fields} noun={['realtà', 'realtà']} />}
+  <div id={id}>
+    <ul class="grid">
+      {companies.map((c) => <CompanyCard company={c} level={level} />)}
+    </ul>
+  </div>
 </div>
+<style>
+  /* Filtri nello stile del campo di ricerca del mockup: bordo netto, ombra piena blu. */
+  .cl :global(.filters) { margin-bottom: 32px; padding: 20px; box-shadow: 5px 5px 0 var(--brand-bg); border-color: var(--bd); }
+  .cl :global(.filters input[type='search']) { border: 2px solid var(--bd); border-radius: 14px; background: var(--bg); }
+  .cl :global(.filters .field select) { border-width: 1.5px; border-radius: 12px; }
+  .cl :global(.filters .count) { font: 700 16px var(--body); }
+  .cl :global(.filters .empty) { padding: 14px 16px; background: var(--warn-bg); color: var(--warn-text); border-radius: var(--r); }
+  .cl :global(.filters .empty a) { color: inherit; font-weight: 700; }
+  @media (min-width: 45.01rem) { .cl :global(.filters) { padding: 28px; box-shadow: 8px 8px 0 var(--brand-bg); } }
+</style>

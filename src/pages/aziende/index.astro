@@ -1,28 +1,39 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import DirHero from '../../components/DirHero.astro';
+import SecHead from '../../components/SecHead.astro';
+import Panel from '../../components/Panel.astro';
+import EmptyList from '../../components/EmptyList.astro';
 import MapPreviewSlot from '../../components/MapPreviewSlot.astro';
 import MapInteractiveSlot from '../../components/MapInteractiveSlot.astro';
 import ProvinceTable from '../../components/ProvinceTable.astro';
 import CompanyList from '../../components/CompanyList.astro';
-import PageStat from '../../components/PageStat.astro';
 import Pager from '../../components/Pager.astro';
-import EmptyState from '../../components/EmptyState.astro';
 import CtaSegnala from '../../components/CtaSegnala.astro';
 import { formatDate, getCompanies, latestDate } from '../../lib/data';
 import { meta } from '../../lib/seo/meta';
 import { collectionPageNodes, itemListNodes } from '../../lib/seo/jsonld';
-import { PROVINCE_SLUGS } from '../../lib/provinces';
-import { LIST_PAGE_SIZE, PAGINATE_OVER, companyPoints, countByProvince, plural } from '../../components/helpers';
+import { PROVINCES, PROVINCE_SLUGS } from '../../lib/provinces';
+import { LIST_PAGE_SIZE, PAGINATE_OVER, companyPoints, countByProvince, joinIt } from '../../components/helpers';
 
 const companies = await getCompanies();
-const paginated = companies.length > PAGINATE_OVER;
-const totalPages = paginated ? Math.ceil(companies.length / LIST_PAGE_SIZE) : 1;
+const n = companies.length;
+const paginated = n > PAGINATE_OVER;
+const totalPages = paginated ? Math.ceil(n / LIST_PAGE_SIZE) : 1;
 const shown = paginated ? companies.slice(0, LIST_PAGE_SIZE) : companies;
 const counts = countByProvince(companies);
-const provincesWith = PROVINCE_SLUGS.filter((p) => counts[p] > 0).length;
+const withData = PROVINCE_SLUGS.filter((p) => counts[p] > 0);
+const zeros = PROVINCE_SLUGS.filter((p) => counts[p] === 0);
+const provincesWith = withData.length;
 const updated = latestDate(companies.map((c) => c.data.last_verified));
-const m = meta.companiesIndex(companies.length);
+const nStartup = companies.filter((c) => c.data.is_innovative_startup === true).length;
+const m = meta.companiesIndex(n);
 const h1 = 'Aziende e startup AI in Sicilia';
+const top2 = [...withData].sort((a, b) => counts[b] - counts[a]).slice(0, 2);
+const provSub = n && top2.length === 2
+  ? `${joinIt(top2.map((p) => PROVINCES[p].name))} hanno ${counts[top2[0]] + counts[top2[1]]} schede su ${n}.` + (zeros.length ? ` ${joinIt(zeros.map((p) => PROVINCES[p].name))} non ne hanno ancora.` : '')
+  : 'Il conto delle schede, provincia per provincia.';
+const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
 ---
 <BaseLayout
   seo={{
@@ -34,46 +45,68 @@ const h1 = 'Aziende e startup AI in Sicilia';
     ],
   }}
 >
-  <div class="page-head">
-    <PageStat value={companies.length} label={companies.length === 1 ? 'realtà verificata' : 'realtà verificate'} coords="in 9 province" />
-    <h1>{h1}</h1>
-    {companies.length > 0 ? (
-      <p class="answer">{plural(companies.length, 'realtà siciliana lavora', 'realtà siciliane lavorano')} con l’intelligenza artificiale al centro del prodotto o del servizio, in {provincesWith} {provincesWith === 1 ? 'provincia' : 'province'} su 9. Ultimo aggiornamento dei dati: {updated && formatDate(updated)}. Ogni scheda indica le fonti e la data di verifica; i criteri di inclusione sono nella <a href="/metodologia/">metodologia</a>.</p>
+  <DirHero eyebrow={`Directory${updated ? ` · dati al ${formatDate(updated)}` : ''}`} id="h-top">
+    <Fragment slot="title">Aziende e startup <mark class="blk">AI</mark> in Sicilia</Fragment>
+    {n > 0 ? (
+      <>
+        <p><b>{n} {n === 1 ? 'realtà siciliana lavora' : 'realtà siciliane lavorano'}</b> con l’intelligenza artificiale al centro del prodotto o del servizio, in {provincesWith} {provincesWith === 1 ? 'provincia' : 'province'} su 9.</p>
+        <p>Ultimo aggiornamento dei dati: {updated && formatDate(updated)}. Ogni scheda indica le fonti e la data di verifica; i criteri di inclusione sono nella <a href="/metodologia/">metodologia</a>.</p>
+      </>
     ) : (
-      <p class="answer">La directory è in costruzione: per ora non ci sono schede verificate. Entrano solo le realtà con sede operativa in Sicilia e l’AI al centro del prodotto o del servizio, con fonti controllate (vedi la <a href="/metodologia/">metodologia</a>).</p>
+      <>
+        <p>La directory è in costruzione: per ora non ci sono schede verificate.</p>
+        <p>Entrano solo le realtà con sede operativa in Sicilia e l’AI al centro del prodotto o del servizio, con fonti controllate (vedi la <a href="/metodologia/">metodologia</a>).</p>
+      </>
     )}
-  </div>
+    <dl slot="after" class="figs">
+      <div><dt>{n === 1 ? 'realtà verificata' : 'realtà verificate'}</dt><dd>{n}</dd></div>
+      <div><dt>province coperte</dt><dd>{provincesWith}<small> / 9</small></dd></div>
+      {nStartup > 0 && <div><dt>{nStartup === 1 ? 'startup innovativa' : 'startup innovative'}</dt><dd>{nStartup}</dd></div>}
+    </dl>
+    <Fragment slot="side">
+      <MapPreviewSlot variant="hero" counts={counts} mode="filter" basePath="/aziende/provincia/" label="Aziende AI per provincia siciliana" points={companies.map((c) => ({ lat: c.data.lat, lng: c.data.lng }))} />
+      <ul class="legend" aria-label="Legenda della mappa">
+        <li><i class="a"></i>Un punto per azienda</li>
+        <li><i class="t"></i>Più schede, blu più scuro</li>
+        <li class="js-only">Tocca una provincia per filtrare l’elenco</li>
+      </ul>
+    </Fragment>
+  </DirHero>
 
   <section class="section" aria-labelledby="h-province">
-    <h2 id="h-province">Aziende per provincia</h2>
+    <SecHead id="h-province" eyebrow="Per provincia" title="Aziende per provincia" sub={provSub} />
     <div class="two">
-      <MapPreviewSlot counts={counts} mode="filter" basePath="/aziende/provincia/" label="Aziende AI per provincia siciliana" />
-      <ProvinceTable counts={counts} basePath="/aziende/provincia/" caption="Aziende AI in Sicilia, per provincia" header="Aziende" />
+      <Panel title="Il conto per provincia" id="t-conto" level={3}>
+        <ProvinceTable counts={counts} basePath="/aziende/provincia/" caption="Aziende AI in Sicilia, per provincia" header="Aziende" />
+      </Panel>
+      {n > 0 && (
+        <Panel bare label="Mappa interattiva delle aziende">
+          <MapInteractiveSlot points={companyPoints(companies)} label="Mappa delle aziende AI in Sicilia" height={480} />
+        </Panel>
+      )}
     </div>
   </section>
 
-  {companies.length > 0 && (
-    <section class="section" aria-labelledby="h-mappa">
-      <h2 id="h-mappa">Sulla mappa</h2>
-      <MapInteractiveSlot points={companyPoints(companies)} label="Mappa delle aziende AI in Sicilia" />
-    </section>
-  )}
-
   <section class="section" aria-labelledby="h-elenco">
-    <h2 id="h-elenco">Tutte le realtà</h2>
-    {companies.length > 0 ? (
+    <SecHead id="h-elenco" eyebrow="Elenco" title="Tutte le realtà" sub={n > 1 ? 'Filtra per provincia, tipo di realtà, ambito AI o settore servito.' : undefined}>
+      <a slot="more" class="more" href="/segnala/">Ne manca una? Segnalala <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d={arrow} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+    </SecHead>
+    {n > 0 ? (
       <>
         <CompanyList companies={shown} />
         <Pager base="/aziende/" current={1} total={totalPages} />
       </>
     ) : (
-      <EmptyState text="Nessuna azienda in elenco per ora. Ne conosci una? Segnalala." ctaLabel="Segnala un’azienda" />
+      <EmptyList title="Nessuna azienda in elenco, per ora">
+        <p>Ogni scheda entra solo dopo il controllo delle fonti. Ne conosci una che rispetta i criteri? Mandaci il link.</p>
+        <Fragment slot="actions"><a class="btn p" href="/segnala/">Segnala un’azienda</a><a class="btn" href="/metodologia/">Leggi i criteri</a></Fragment>
+      </EmptyList>
     )}
   </section>
 
   <CtaSegnala />
 </BaseLayout>
 <style>
-  .two { display: grid; gap: var(--space-6); align-items: start; }
-  @media (min-width: 56rem) { .two { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); } }
+  .two { display: grid; gap: 28px; align-items: start; }
+  @media (min-width: 62rem) { .two { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; } }
 </style>

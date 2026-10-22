@@ -1,8 +1,11 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import DirHero from '../../../components/DirHero.astro';
+import SecHead from '../../../components/SecHead.astro';
+import Panel from '../../../components/Panel.astro';
+import EmptyList from '../../../components/EmptyList.astro';
 import EventCard from '../../../components/EventCard.astro';
 import Pager from '../../../components/Pager.astro';
-import EmptyState from '../../../components/EmptyState.astro';
 import CtaSegnala from '../../../components/CtaSegnala.astro';
 import { getPastEvents } from '../../../lib/data';
 import { meta } from '../../../lib/seo/meta';
@@ -16,6 +19,7 @@ const shown = paginated ? past.slice(0, LIST_PAGE_SIZE) : past;
 const m = meta.eventsArchive(past.length);
 const h1 = 'Archivio degli eventi AI in Sicilia';
 const oldest = past[past.length - 1]?.data.start_date;
+const newest = past[0]?.data.end_date ?? past[0]?.data.start_date;
 ---
 <BaseLayout
   seo={{
@@ -27,24 +31,46 @@ const oldest = past[past.length - 1]?.data.start_date;
     ],
   }}
 >
-  <div class="page-head">
-    <h1>{h1}</h1>
+  <DirHero eyebrow="Eventi già svolti" tone="teal">
+    <Fragment slot="title">Archivio degli eventi <mark class="blk">AI</mark> in Sicilia</Fragment>
     {past.length > 0 && oldest ? (
-      <p class="answer">{past.length} {past.length === 1 ? 'evento già svolto' : 'eventi già svolti'} in Sicilia, dal più recente al più vecchio (il più vecchio è del {dateRange(oldest)}). Le schede restano online per consultare date, luoghi e organizzatori. Cerchi quello che deve ancora arrivare? Vai ai <a href="/eventi/">prossimi eventi</a>.</p>
+      <>
+        <p><b>{past.length} {past.length === 1 ? 'evento già svolto' : 'eventi già svolti'}</b> in Sicilia, dal più recente al più vecchio (il più vecchio è del {dateRange(oldest)}).</p>
+        <p>Le schede restano online per consultare date, luoghi e organizzatori. Cerchi quello che deve ancora arrivare? Vai ai <a href="/eventi/">prossimi eventi</a>.</p>
+      </>
     ) : (
-      <p class="answer">L’archivio è vuoto: nessun evento è ancora concluso. Gli eventi passati finiscono qui in automatico. Guarda i <a href="/eventi/">prossimi eventi</a>.</p>
+      <>
+        <p>L’archivio è vuoto: nessun evento è ancora concluso.</p>
+        <p>Gli eventi passati finiscono qui in automatico. Guarda i <a href="/eventi/">prossimi eventi</a>.</p>
+      </>
     )}
-  </div>
-  <section aria-labelledby="h-archivio">
-    <h2 id="h-archivio" class="visually-hidden">Eventi passati</h2>
+    <Fragment slot="side">
+      <Panel tone="teal" label="Riepilogo dell’archivio">
+        <p class="k">In archivio</p>
+        <p class="v">{past.length}</p>
+        <p class="d">{past.length > 0 && oldest && newest ? <>{past.length === 1 ? 'evento concluso' : 'eventi conclusi'}, tra il {dateRange(oldest)} e il {dateRange(newest)}.</> : 'Nessun evento concluso, per ora.'}</p>
+        <a class="more" href="/eventi/">Vai ai prossimi eventi <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9m-3.5-4L12.5 8 8.5 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+      </Panel>
+    </Fragment>
+  </DirHero>
+  <section class="section" aria-labelledby="h-archivio">
+    <SecHead id="h-archivio" eyebrow="Archivio" title="Eventi passati" sub={shown.length > 0 ? 'I più recenti per primi.' : undefined} />
     {shown.length > 0 ? (
       <>
         <ul class="grid">{shown.map((e) => <EventCard event={e} />)}</ul>
         <Pager base="/eventi/archivio/" current={1} total={total} />
       </>
     ) : (
-      <EmptyState text="Nessun evento concluso per ora." cta={false} />
+      <EmptyList title="Nessun evento concluso, per ora">
+        <p>Quando un evento finisce, la sua scheda resta qui come memoria. Per il momento ci sono solo appuntamenti ancora da venire.</p>
+        <Fragment slot="actions"><a class="btn p" href="/eventi/">Guarda i prossimi eventi</a></Fragment>
+      </EmptyList>
     )}
   </section>
   <CtaSegnala text="Ti risulta un evento passato che manca? Segnalalo con il link alla pagina originale." label="Segnala un evento" />
 </BaseLayout>
+<style>
+  .k { margin: 0 0 10px; font: 800 12px/1 var(--body); letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); }
+  .v { margin: 0; font: 800 clamp(56px, 9vw, 96px)/1 var(--display); letter-spacing: -0.05em; font-variant-numeric: tabular-nums lining-nums; color: var(--teal); }
+  .d { margin: 14px 0 18px; max-width: 32ch; color: var(--muted); }
+</style>

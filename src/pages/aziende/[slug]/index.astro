@@ -1,16 +1,19 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import DirHero from '../../../components/DirHero.astro';
+import SecHead from '../../../components/SecHead.astro';
+import Panel from '../../../components/Panel.astro';
 import MapPreviewSlot from '../../../components/MapPreviewSlot.astro';
 import MapInteractiveSlot from '../../../components/MapInteractiveSlot.astro';
 import SourceBox from '../../../components/SourceBox.astro';
 import EventCard from '../../../components/EventCard.astro';
 import CompanyCard from '../../../components/CompanyCard.astro';
-import { formatDate, getCompanies, getUpcomingEvents } from '../../../lib/data';
+import { getCompanies, getUpcomingEvents } from '../../../lib/data';
 import { relatedCompanies } from '../../../lib/related';
 import { meta } from '../../../lib/seo/meta';
 import { companyNodes } from '../../../lib/seo/jsonld';
 import { PROVINCES } from '../../../lib/provinces';
-import { COMPANY_TYPE_ARTICLE, RESERVED_SLUGS, cleanName, companyPoints, countByProvince, hostOf, initials, toneOf } from '../../../components/helpers';
+import { COMPANY_TYPE_ARTICLE, RESERVED_SLUGS, cleanName, companyPoints, countByProvince, hostOf } from '../../../components/helpers';
 
 export async function getStaticPaths() {
   const companies = await getCompanies();
@@ -32,6 +35,7 @@ const answer = [
   `Settori serviti: ${d.sectors_served.slice(0, 3).join('; ')}${d.sectors_served.length > 3 ? `; altri ${d.sectors_served.length - 3}` : ''}.`,
   [d.founded_year ? `Anno di fondazione: ${d.founded_year}.` : '', d.is_innovative_startup === true ? 'Risulta tra le startup innovative.' : ''].filter(Boolean).join(' '),
 ].filter(Boolean).join(' ');
+const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
 ---
 <BaseLayout
   seo={{
@@ -42,75 +46,90 @@ const answer = [
   }}
 >
   <article>
-    <header class="page-head head">
-      <span class={`avatar tone-${toneOf(c.id)}`} aria-hidden="true">{initials(d.name)}</span>
-      <div>
-        <p class="eyebrow">{[d.type, prov.name].join(' · ')}{d.featured && <> · <b class="feat">In evidenza</b></>}</p>
-        <h1>{d.name}</h1>
-        <p class="lead">{d.city}, provincia di <a href={`/aziende/provincia/${d.province}/`}>{prov.name}</a></p>
-        {d.is_innovative_startup && <ul class="tags"><li><span class="badge accent">Startup innovativa</span></li></ul>}
+    <DirHero eyebrow={[d.type, prov.name].join(' · ')} compact>
+      <Fragment slot="title">{d.name}</Fragment>
+      <p>{d.city}, provincia di <a href={`/aziende/provincia/${d.province}/`}>{prov.name}</a></p>
+      {(d.is_innovative_startup || d.featured) && (
+        <ul class="tags">
+          {d.featured && <li><span class="tag">In evidenza</span></li>}
+          {d.is_innovative_startup && <li><span class="badge accent">Startup innovativa</span></li>}
+        </ul>
+      )}
+      <div slot="after" class="btns">
+        <a class="btn p" href={d.website} rel="noopener">Sito di {hostOf(d.website)} <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d={arrow} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+        <a class="btn ghost" href={`/rimozione/?scheda=${c.id}`}>Modifica o rimozione</a>
       </div>
-    </header>
+      <Fragment slot="side">
+        <MapPreviewSlot variant="hero" counts={countByProvince(all)} mode="link" basePath="/aziende/provincia/" active={d.province} label={`${cleanName(d.name)} in provincia di ${prov.name}`} points={[{ lat: d.lat, lng: d.lng }]} />
+        <ul class="legend" aria-label="Legenda della mappa"><li><i class="a"></i>{d.geo_precision === 'indirizzo' ? 'Sede, dall’indirizzo pubblico' : 'Centro del comune, non l’indirizzo'}</li></ul>
+      </Fragment>
+    </DirHero>
 
-    <p class="answer">{answer}</p>
-    {d.featured && d.disclosure && <p class="callout disclosure" role="note">{d.disclosure}</p>}
-    <div class="prose">
-      <p class="desc">{d.description}</p>
+    <div class="cols">
+      <div class="main">
+        <p class="answer">{answer}</p>
+        {d.featured && d.disclosure && (
+          <aside class="feat" aria-label="Nota di trasparenza">
+            <p class="ft">In evidenza · nota di trasparenza</p>
+            <p>{d.disclosure} L’evidenza non cambia i criteri di ingresso, uguali per tutti.</p>
+          </aside>
+        )}
+        <div class="prose"><p class="desc">{d.description}</p></div>
+
+        <Panel tone="brand" title="I dati in breve" id="h-dati" level={2}>
+          <dl class="data">
+            <div><dt>Sito</dt><dd><a class="ext" href={d.website} rel="noopener">{hostOf(d.website)}</a></dd></div>
+            <div><dt>Dove</dt><dd>{d.city} ({prov.sigla}){d.address ? `, ${d.address}` : ''}</dd></div>
+            {d.founded_year && <div><dt>Anno di fondazione</dt><dd>{d.founded_year}</dd></div>}
+            {d.is_innovative_startup === true && <div><dt>Startup innovativa</dt><dd>Sì, risulta nel registro ufficiale (vedi la fonte)</dd></div>}
+            <div class="wide"><dt>Ambiti AI</dt><dd><ul class="tags">{d.ai_areas.map((a) => <li class="chip">{a}</li>)}</ul></dd></div>
+            <div class="wide"><dt>Settori serviti</dt><dd><ul class="tags">{d.sectors_served.map((a) => <li class="chip">{cap(a)}</li>)}</ul></dd></div>
+          </dl>
+        </Panel>
+      </div>
+      <div class="side">
+        <SourceBox urls={d.source_urls} verified={d.last_verified} what="scheda" />
+        <p class="rm">Qualcosa è sbagliato o è cambiato? <a href={`/rimozione/?scheda=${c.id}`}>Richiedi modifica o rimozione di questa scheda</a>.</p>
+      </div>
     </div>
 
-    <section aria-labelledby="h-dati" class="section">
-      <h2 id="h-dati">I dati in breve</h2>
-      <dl class="facts">
-        <div><dt>Sito</dt><dd><a class="ext" href={d.website} rel="noopener">{hostOf(d.website)}</a></dd></div>
-        <div><dt>Dove</dt><dd>{d.city} ({prov.sigla}){d.address ? `, ${d.address}` : ''}</dd></div>
-        <div class="wide"><dt>Ambiti AI</dt><dd>{d.ai_areas.join(', ')}</dd></div>
-        <div class="wide"><dt>Settori serviti</dt><dd>{d.sectors_served.map(cap).join(', ')}</dd></div>
-        {d.founded_year && <div><dt>Anno di fondazione</dt><dd>{d.founded_year}</dd></div>}
-        {d.is_innovative_startup === true && <div><dt>Startup innovativa</dt><dd>Sì, risulta nel registro ufficiale (fonte qui sotto)</dd></div>}
-      </dl>
-    </section>
-
-    <SourceBox urls={d.source_urls} verified={d.last_verified} what="scheda" />
-    <p><a href={`/rimozione/?scheda=${c.id}`}>Richiedi modifica o rimozione di questa scheda</a></p>
-
     <section aria-labelledby="h-mappa" class="section">
-      <h2 id="h-mappa">Dove si trova</h2>
-      <p class="muted">{d.geo_precision === 'indirizzo' ? 'Posizione ricavata dall’indirizzo pubblico della sede.' : 'Posizione indicativa: centro del comune, non l’indirizzo esatto.'}</p>
-      <div class="two">
-        <MapPreviewSlot counts={countByProvince(all)} mode="link" basePath="/aziende/provincia/" active={d.province} label={`${cleanName(d.name)} in provincia di ${prov.name}`} points={[{ lat: d.lat, lng: d.lng }]} />
-        <MapInteractiveSlot points={companyPoints([c])} center={[d.lat, d.lng]} zoom={d.geo_precision === 'indirizzo' ? 14 : 11} height={320} label={`Mappa interattiva: ${cleanName(d.name)}`} />
-      </div>
+      <SecHead id="h-mappa" eyebrow="Mappa" title="Dove si trova" sub={d.geo_precision === 'indirizzo' ? 'Posizione ricavata dall’indirizzo pubblico della sede.' : 'Posizione indicativa: centro del comune, non l’indirizzo esatto.'} />
+      <MapInteractiveSlot points={companyPoints([c])} center={[d.lat, d.lng]} zoom={d.geo_precision === 'indirizzo' ? 14 : 11} height={360} label={`Mappa interattiva: ${cleanName(d.name)}`} />
     </section>
   </article>
 
   {related.length > 0 && (
     <section class="section" aria-labelledby="h-correlate">
-      <h2 id="h-correlate">Altre realtà simili</h2>
+      <SecHead id="h-correlate" eyebrow="Per confronto" title="Altre realtà simili" />
       <ul class="grid">{related.map((r) => <CompanyCard company={r} />)}</ul>
     </section>
   )}
 
   {events.length > 0 && (
     <section class="section" aria-labelledby="h-eventi">
-      <div class="section-head">
-        <h2 id="h-eventi">Eventi a {prov.name}</h2>
-        <a href={`/eventi/provincia/${d.province}/`}>Tutti gli eventi a {prov.name}</a>
-      </div>
+      <SecHead id="h-eventi" eyebrow="Eventi" title={`Eventi a ${prov.name}`}>
+        <a slot="more" class="more" href={`/eventi/provincia/${d.province}/`}>Tutti gli eventi a {prov.name} <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d={arrow} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+      </SecHead>
       <ul class="grid">{events.map((e) => <EventCard event={e} />)}</ul>
     </section>
   )}
 </BaseLayout>
 <style>
-  .head { display: flex; gap: var(--space-5); align-items: flex-start; }
-  .avatar { flex: none; display: none; align-items: center; justify-content: center; width: 80px; height: 80px; border-radius: var(--radius); font-family: var(--font-serif); font-weight: 600; font-size: 1.75rem; background: var(--c-primary-soft); color: var(--c-primary); }
-  @media (min-width: 30rem) { .avatar { display: inline-flex; } }
-  .tone-1 { background: var(--c-accent-soft); color: var(--c-accent-strong); }
-  .tone-2 { background: var(--c-surface-2); color: var(--c-text); }
-  .tone-3 { background: var(--c-data-soft); color: var(--c-data); }
-  .feat { font-weight: 600; color: var(--c-accent); }
-  .head .tags { margin-top: var(--space-3); }
-  .desc { font-size: var(--fs-md); line-height: var(--lh-read); }
-  .read { max-width: var(--measure); }
-  .two { display: grid; gap: var(--space-5); align-items: start; }
-  @media (min-width: 56rem) { .two { grid-template-columns: 1fr 1fr; } }
+  .cols { display: grid; gap: 8px 48px; align-items: start; }
+  .main { min-width: 0; }
+  .main .answer { margin-bottom: 28px; font-size: 18px; }
+  .desc { max-width: 42rem; font-size: 18px; line-height: 1.7; margin-bottom: 36px; }
+  .feat { max-width: 42rem; margin: 0 5px 32px 0; padding: 22px; background: var(--brand-bg); color: #fff; border: 1.5px solid var(--bd); border-radius: var(--r-lg); box-shadow: 5px 5px 0 var(--sh); }
+  .feat p { margin: 12px 0 0; padding-left: 16px; border-left: 4px solid var(--or); font-size: 16px; line-height: 1.55; color: #fff; }
+  .feat .ft { margin-top: 0; padding: 0; border: 0; font: 800 12px/1.4 var(--body); letter-spacing: 0.1em; text-transform: uppercase; color: #e6f0f9; }
+  .data { display: grid; gap: 22px 32px; margin: 0; max-width: none; }
+  .data > div { min-width: 0; }
+  .data dt { margin: 0 0 6px; font: 800 12px/1.4 var(--body); letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); }
+  .data dd { margin: 0; }
+  .side { min-width: 0; }
+  .side :global(.source-box) { max-width: none; margin-top: 0; }
+  .rm { margin: 0; padding: 0 4px; font-size: 15.5px; color: var(--muted); }
+  @media (min-width: 40rem) { .data { grid-template-columns: repeat(2, minmax(0, 1fr)); } .data .wide { grid-column: 1 / -1; } .feat { padding: 28px; box-shadow: 8px 8px 0 var(--sh); margin-right: 8px; } }
+  @media (min-width: 62rem) { .cols { grid-template-columns: minmax(0, 1fr) 24rem; } .side { position: sticky; top: 24px; } }
 </style>
