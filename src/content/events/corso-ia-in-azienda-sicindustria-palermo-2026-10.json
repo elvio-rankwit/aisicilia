@@ -1,0 +1,31 @@
+{
+  "title": "Intelligenza artificiale in azienda: orientarsi nello scenario, ripensare i processi",
+  "slug": "corso-ia-in-azienda-sicindustria-palermo-2026-10",
+  "description": "Corso in presenza di due giornate, dodici ore in tutto, rivolto alle imprese. La prima giornata, in aula, copre tendenze e casi d'uso per le PMI, un confronto tra strumenti di AI generativa, modelli in locale contro cloud, un'introduzione agli agenti, la governance con le regole dell'AI Act. La seconda è un laboratorio: si mappano i processi aziendali, si analizza un processo nello stato attuale e in quello desiderato e si sceglie un primo caso d'uso da riassumere in una scheda. Per ogni azienda sono previsti un profilo dirigenziale e uno tecnico od operativo.",
+  "start_date": "2026-10-19",
+  "end_date": "2026-10-20",
+  "start_time": "10:00",
+  "end_time": "17:00",
+  "format": "in presenza",
+  "venue_name": "Sede di Sicindustria",
+  "venue_address": "Via Alessandro Volta 44, Palermo",
+  "city": "Palermo",
+  "province": "palermo",
+  "lat": 38.1237,
+  "lng": 13.36568,
+  "organizer": "Sicindustria, con IT4LIA AI Factory",
+  "event_url": "https://enna.ance.it/2026/09/04/intelligenza-artificiale-in-azienda-orientarsi-nello-scenario-ripensare-i-processi/",
+  "price": "non indicato",
+  "audience": [
+    "imprese"
+  ],
+  "topics": [
+    "AI per le imprese",
+    "AI generativa",
+    "AI Act"
+  ],
+  "source_url": "https://enna.ance.it/2026/09/04/intelligenza-artificiale-in-azienda-orientarsi-nello-scenario-ripensare-i-processi/",
+  "status": "programmato",
+  "last_verified": "2026-10-22",
+  "verification_status": "verified"
+}

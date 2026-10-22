@@ -622,5 +622,17 @@
     "lng": 15.5585,
     "display_name": "Via Ugo Bassi, Maregrosso, IV Circoscrizione, Messina, Sicilia, 98122, Italia",
     "precision": "indirizzo"
+  },
+  "addr:via alessandro volta 44, 90139 palermo": {
+    "lat": 38.1237,
+    "lng": 13.36568,
+    "display_name": "Via Alessandro Volta, VIII Circoscrizione, Palermo, Sicilia, 90133, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via alessandro volta, palermo, palermo": {
+    "lat": 38.04602,
+    "lng": 13.39371,
+    "display_name": "Via Alessandro Volta, Belmonte Mezzagno, Palermo, Sicilia, 90031, Italia",
+    "precision": "indirizzo"
   }
 }

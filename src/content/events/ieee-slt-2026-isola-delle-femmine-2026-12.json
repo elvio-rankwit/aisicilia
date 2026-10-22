@@ -1,0 +1,31 @@
+{
+  "title": "IEEE Spoken Language Technology Workshop 2026 (SLT 2026)",
+  "slug": "ieee-slt-2026-isola-delle-femmine-2026-12",
+  "description": "Workshop scientifico internazionale sulle tecnologie del linguaggio parlato, promosso dall'IEEE Signal Processing Society e ospitato in provincia di Palermo. Il tema dell'edizione è la tecnologia vocale per il benessere sociale nell'era della privacy digitale. Il programma comprende sessioni poster, interventi su invito, tutorial su modelli di riconoscimento vocale e agenti vocali, sfide aperte alla comunità, una tavola rotonda e occasioni sociali. Si discute di come modelli di base e AI generativa cambiano il settore, con attenzione a privacy e affidabilità. La partecipazione è a pagamento, con quote più basse per studenti.",
+  "start_date": "2026-12-13",
+  "end_date": "2026-12-16",
+  "format": "in presenza",
+  "venue_name": "Hotel Saracen Sands",
+  "venue_address": "Via Libertà 128/A, Isola delle Femmine (PA)",
+  "city": "Isola delle Femmine",
+  "province": "palermo",
+  "lat": 38.18281,
+  "lng": 13.24077,
+  "organizer": "IEEE Signal Processing Society",
+  "organizer_url": "https://signalprocessingsociety.org/",
+  "event_url": "https://attend.ieee.org/slt-2026/",
+  "price": "a pagamento",
+  "audience": [
+    "ricercatori",
+    "sviluppatori"
+  ],
+  "topics": [
+    "AI generativa",
+    "voce e speech",
+    "AI per la ricerca"
+  ],
+  "source_url": "https://attend.ieee.org/slt-2026/",
+  "status": "programmato",
+  "last_verified": "2026-10-22",
+  "verification_status": "verified"
+}
