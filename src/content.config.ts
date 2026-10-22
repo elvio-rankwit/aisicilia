@@ -107,7 +107,7 @@ const articles = defineCollection({
     slug,
     description: z.string().min(70).max(155),
     /** Paragrafo di risposta diretta (2-3 frasi) mostrato in apertura. */
-    answer: z.string().min(120).max(450),
+    answer: z.string().min(120).max(550),
     sectors: z.array(z.enum([...PROMPT_SECTOR_SLUGS, 'tutti'])).min(1),
     level: z.enum(LEVELS),
     reading_time: z.number().int().min(1),
@@ -120,7 +120,7 @@ const articles = defineCollection({
     /** true = contenuto YMYL: NON pubblicato finché l'utente non lo approva (e lo porta a false). */
     needs_human_review: z.boolean(),
     reviewed_at: isoDate.optional(),
-    faq: z.array(z.object({ question: z.string().min(10), answer: z.string().min(40) })).min(3).max(5),
+    faq: z.array(z.object({ question: z.string().min(10), answer: z.string().min(40) })).min(3).max(8),
     related_prompts: z.array(z.string()).default([]),
   }),
 });

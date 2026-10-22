@@ -104,7 +104,10 @@ function validateContent() {
   for (const { file, data, body } of all.articles) {
     const where = rel(file);
     const words = body.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
-    if (words < 1200 || words > 2000) err(where, `lunghezza ${words} parole (richieste 1.200–2.000)`);
+    if (words < 1600 || words > 2600) err(where, `lunghezza ${words} parole (richieste 1.600–2.600, guide v2)`);
+    if (!/class="in-breve"/.test(body)) err(where, 'manca il box "In breve" (guide v2)');
+    if ((data.faq ?? []).length < 6) err(where, 'FAQ: servono 6–8 domande (guide v2)');
+    if (/—/.test(body)) err(where, 'trattino lungo nel testo (vietato dalla skill copywriter-umano)');
     if (!/class="in-pratica"/.test(body)) err(where, 'manca il box "In pratica"');
     if (!/\]\(\/prompt\//.test(body)) err(where, 'manca un link interno alla prompt library');
     if (!/\]\(\/(aziende|eventi)\//.test(body)) warn(where, 'nessun link interno a directory aziende o eventi');

@@ -181,5 +181,9 @@ a.ext::after { content: ' ↗' / ''; font-size: 0.85em; }
 .prose-body blockquote { border-left: 4px solid var(--c-border); padding-left: var(--space-4); color: var(--c-text-muted); }
 .prose-body aside.in-pratica { background: var(--c-data-soft); border-left: 4px solid var(--c-data); border-radius: var(--radius-sm); padding: var(--space-4) var(--space-4) 0; margin-block: var(--space-5); font-size: var(--fs-base); line-height: 1.65; }
 .prose-body aside.in-pratica > p:first-child > strong:first-child { font-family: var(--font-mono); font-weight: 500; font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.06em; color: var(--c-data); }
+.prose-body aside.in-breve { background: var(--c-surface-2); border-left: 4px solid var(--c-ochre); border-radius: var(--radius-sm); padding: var(--space-4) var(--space-4) 0; margin-block: var(--space-4) var(--space-6); }
+.prose-body aside.in-breve > p:first-child > strong:first-child { font-family: var(--font-mono); font-weight: 500; font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.06em; color: var(--c-text-muted); }
+.prose-body table { display: block; overflow-x: auto; margin-block: var(--space-5); font-size: var(--fs-sm); }
+.prose-body th { background: var(--c-surface-2); font-weight: 600; }
 .prose-body pre { overflow-x: auto; background: var(--c-surface-2); padding: var(--space-3); border-radius: var(--radius-sm); }
 [hidden] { display: none !important; }
