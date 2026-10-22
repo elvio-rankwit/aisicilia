@@ -6,7 +6,7 @@ interface Props { company: Company; level?: 2 | 3 | 4 }
 const { company: c, level = 3 } = Astro.props;
 const d = c.data;
 const H = `h${level}` as 'h2' | 'h3' | 'h4';
-const kicker = [PROVINCES[d.province].sigla, d.type.toUpperCase(), d.founded_year].filter(Boolean).join(' · ');
+const kicker = [d.type, PROVINCES[d.province].name].join(' · ');
 ---
 <li
   class:list={["card company", { featured: d.featured }]}
@@ -16,13 +16,10 @@ const kicker = [PROVINCES[d.province].sigla, d.type.toUpperCase(), d.founded_yea
   data-aree={d.ai_areas.map(slugify).join(' ')}
   data-settori={d.sectors_served.map(slugify).join(' ')}
 >
-  <p class="kicker">{kicker}{d.featured && <> · <b>IN EVIDENZA</b></>}</p>
+  <p class="kicker">{kicker}{d.featured && <> · <b>In evidenza</b></>}</p>
   <H><a href={`/aziende/${c.id}/`}>{d.name}</a></H>
+  <p class="desc">{clip(d.description, 220)}</p>
   <p class="meta">{d.city}{d.is_innovative_startup ? ' · startup innovativa' : ''}</p>
-  <p>{clip(d.description, 150)}</p>
-  <dl class="kv">
-    <dt>Ambiti</dt><dd>{d.ai_areas.slice(0, 3).join(', ')}{d.ai_areas.length > 3 ? ` +${d.ai_areas.length - 3}` : ''}</dd>
-    <dt>Settori</dt><dd>{d.sectors_served.slice(0, 2).join(', ')}{d.sectors_served.length > 2 ? ` +${d.sectors_served.length - 2}` : ''}</dd>
-  </dl>
+  <ul class="tags">{d.ai_areas.slice(0, 3).map((a) => <li class="chip">{a}</li>)}</ul>
   {d.featured && d.disclosure && <p class="disc">{d.disclosure}</p>}
 </li>

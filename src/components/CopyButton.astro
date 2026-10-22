@@ -10,7 +10,9 @@ const { target, label = 'Copia il prompt' } = Astro.props;
 </div>
 <style>
   .copy-row { display: flex; flex-direction: row-reverse; align-items: center; gap: var(--space-3); min-height: var(--tap); }
-  .copy-status { font-weight: 700; color: var(--c-data); font-size: var(--fs-sm); }
+  .copy-row .btn.ghost { min-height: var(--tap); padding-inline: var(--space-4); background: var(--c-surface); }
+  .copy-row .btn.ghost:hover { background: var(--c-primary-soft); }
+  .copy-status { font-weight: 600; color: var(--c-data); font-size: var(--fs-sm); }
 </style>
 <script>
   const btn = document.querySelector<HTMLButtonElement>('[data-copy-target]');

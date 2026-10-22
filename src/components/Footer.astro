@@ -1,30 +1,37 @@
 ---
 const year = new Date().getFullYear();
 ---
-<footer class="site-footer gridbg">
+<footer class="site-footer">
   <div class="container">
-    <p class="brand"><span class="mono">37°N 14°E</span> · AI Sicilia</p>
-    <nav aria-label="Piè di pagina">
-      <ul>
-        <li><a href="/chi-siamo/">Chi siamo</a></li>
-        <li><a href="/metodologia/">Come verifichiamo i dati</a></li>
-        <li><a href="/segnala/">Segnala un’azienda o un evento</a></li>
-        <li><a href="/rimozione/">Richiedi modifica o rimozione</a></li>
-        <li><a href="/contatti/">Contatti</a></li>
-        <li><a href="/privacy/">Privacy</a></li>
-        <li><a href="/note-legali/">Note legali</a></li>
-      </ul>
-    </nav>
+    <div class="top">
+      <div class="about">
+        <p class="brand">AI Sicilia</p>
+        <p class="tag">Aziende, eventi, guide e prompt sull’intelligenza artificiale in Sicilia. Un progetto indipendente, con le fonti sempre a vista.</p>
+      </div>
+      <nav aria-label="Piè di pagina">
+        <ul>
+          <li><a href="/chi-siamo/">Chi siamo</a></li>
+          <li><a href="/metodologia/">Come verifichiamo i dati</a></li>
+          <li><a href="/segnala/">Segnala un’azienda o un evento</a></li>
+          <li><a href="/rimozione/">Richiedi modifica o rimozione</a></li>
+          <li><a href="/contatti/">Contatti</a></li>
+          <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="/note-legali/">Note legali</a></li>
+        </ul>
+      </nav>
+    </div>
     <p class="small">© {year} AI Sicilia, progetto indipendente di <a href="/chi-siamo/">Elvio Leonardi</a>. Mappe © <a href="https://www.openstreetmap.org/copyright">contributori OpenStreetMap</a>.</p>
   </div>
 </footer>
 <style>
-  .site-footer { margin-top: var(--space-8); padding-block: var(--space-6); background-color: var(--c-lava); color: var(--c-on-lava); font-size: var(--fs-sm); border-top: 4px solid var(--c-ochre); }
-  .brand { margin: 0 0 var(--space-3); font-weight: 700; font-size: var(--fs-lg); letter-spacing: -0.02em; }
-  .brand .mono { color: var(--c-on-lava-muted); font-size: var(--fs-xs); font-weight: 500; }
-  ul { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-5); list-style: none; padding: 0; }
-  a { display: inline-block; padding-block: var(--space-2); color: var(--c-on-lava); text-underline-offset: 0.18em; }
-  a:hover { color: var(--c-lava-ochre); }
-  .small { margin: 0; color: var(--c-on-lava-muted); }
-  .small a { padding-block: 0; color: var(--c-on-lava); }
+  .site-footer { margin-top: var(--space-9); padding-block: var(--space-7); background: var(--c-surface-2); color: var(--c-text-muted); font-size: var(--fs-sm); }
+  .top { display: grid; gap: var(--space-6); margin-bottom: var(--space-6); }
+  @media (min-width: 48rem) { .top { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: var(--space-8); } }
+  .brand { margin: 0 0 var(--space-2); font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-lg); color: var(--c-text); }
+  .tag { margin: 0; max-width: 28rem; }
+  ul { display: grid; gap: 0 var(--space-5); grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); list-style: none; padding: 0; margin: 0; }
+  a { display: inline-block; padding-block: var(--space-2); color: var(--c-text); text-underline-offset: 0.2em; }
+  a:hover { color: var(--c-primary); }
+  .small { margin: 0; padding-top: var(--space-5); border-top: 1px solid var(--c-border); }
+  .small a { padding-block: 0; }
 </style>

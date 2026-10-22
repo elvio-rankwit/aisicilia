@@ -17,6 +17,7 @@ const labelOf = (u: string): string => {
 };
 ---
 <aside class="source-box" aria-labelledby="fonte-titolo">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z" /><path d="m8.5 12 2.5 2.5 4.5-5" /></svg>
   <H id="fonte-titolo">Fonte e ultima verifica</H>
   <p>Ultima verifica: <time datetime={verified.toISOString().slice(0, 10)}>{formatDate(verified)}</time>. {what === 'scheda' ? 'Le informazioni di questa scheda sono state riscritte da noi a partire dalle fonti qui sotto.' : 'Date, luogo e prezzo vanno controllati sul sito dell’organizzatore prima di partire.'}</p>
   <ul>

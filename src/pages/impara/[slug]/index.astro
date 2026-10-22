@@ -44,7 +44,7 @@ const sameDay = d.updated_at.getTime() === d.published_at.getTime();
 >
   <article>
     <header class="page-head">
-      <p class="eyebrow">{cap(d.level)} · {d.reading_time} min di lettura</p>
+      <p class="eyebrow">Guida · {cap(d.level)} · {d.reading_time} min di lettura</p>
       <h1>{d.title}</h1>
       <p class="answer">{d.answer}</p>
       <p class="byline muted">
@@ -54,40 +54,43 @@ const sameDay = d.updated_at.getTime() === d.published_at.getTime();
       </p>
     </header>
 
-    {toc.length > 1 && (
-      <nav class="toc" aria-labelledby="h-indice">
-        <h2 id="h-indice">In questa guida</h2>
-        <ol>
-          {toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}
+    <div class="art-layout">
+      {toc.length > 1 && (
+        <nav class="toc" aria-labelledby="h-indice">
+          <h2 id="h-indice">In questa guida</h2>
+          <ol>
+            {toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}
+          </ol>
+        </nav>
+      )}
+      <div class="art-main">
+      <div class="prose-body">{bodyHtml ? <Fragment set:html={bodyHtml} /> : <Content />}</div>
+
+      <section class="section" aria-labelledby="h-faq">
+        <h2 id="h-faq">Domande frequenti</h2>
+        <div class="faq prose">
+          {d.faq.map((f) => (
+            <details>
+              <summary>{f.question}</summary>
+              <p>{f.answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="h-fonti">
+        <h2 id="h-fonti">Fonti</h2>
+        <ol class="prose">
+          {d.sources.map((s) => <li><a class="ext" href={s.url} rel="noopener">{s.title}</a> <span class="muted">({hostOf(s.url)})</span></li>)}
         </ol>
-      </nav>
-    )}
+        <p class="muted">Gli strumenti citati sono esempi e valgono alla data di aggiornamento della guida.</p>
+      </section>
 
-    <div class="prose-body">{bodyHtml ? <Fragment set:html={bodyHtml} /> : <Content />}</div>
-
-    <section class="section" aria-labelledby="h-faq">
-      <h2 id="h-faq">Domande frequenti</h2>
-      <div class="faq prose">
-        {d.faq.map((f) => (
-          <details>
-            <summary>{f.question}</summary>
-            <p>{f.answer}</p>
-          </details>
-        ))}
+      <footer class="signature">
+        <p>Scritto da <a href="/chi-siamo/">Elvio Leonardi</a>, consulente SEO e GEO con base a Palermo. Hai un dubbio o una correzione? Trovi i contatti in <a href="/chi-siamo/">Chi siamo</a>.</p>
+      </footer>
       </div>
-    </section>
-
-    <section class="section" aria-labelledby="h-fonti">
-      <h2 id="h-fonti">Fonti</h2>
-      <ol class="prose">
-        {d.sources.map((s) => <li><a class="ext" href={s.url} rel="noopener">{s.title}</a> <span class="muted">({hostOf(s.url)})</span></li>)}
-      </ol>
-      <p class="muted">Gli strumenti citati sono esempi e valgono alla data di aggiornamento della guida.</p>
-    </section>
-
-    <footer class="signature">
-      <p>Scritto da <a href="/chi-siamo/">Elvio Leonardi</a>, consulente SEO e GEO con base a Palermo. Hai un dubbio o una correzione? Trovi i contatti in <a href="/chi-siamo/">Chi siamo</a>.</p>
-    </footer>
+    </div>
   </article>
 
   {prompts.length > 0 && (
@@ -125,14 +128,26 @@ const sameDay = d.updated_at.getTime() === d.published_at.getTime();
   )}
 </BaseLayout>
 <style>
-  .byline { font-family: var(--font-mono); font-weight: 500; font-size: var(--fs-xs); }
-  .byline a { font-weight: 500; }
-  .toc { background: var(--c-surface); border: 1px solid var(--c-border); border-top: 3px solid var(--c-ochre); border-radius: var(--radius); padding: var(--space-4); max-width: var(--measure); margin-bottom: var(--space-5); }
-  .toc h2 { font-family: var(--font-mono); font-weight: 500; font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.06em; color: var(--c-text-muted); margin: 0 0 var(--space-2); }
-  .toc ol { margin: 0; padding-left: var(--space-5); font-family: var(--font-mono); font-weight: 500; font-size: var(--fs-sm); }
-  .toc a { display: inline-block; padding-block: var(--space-1); }
-  details { border-bottom: 1px solid var(--c-border); padding-block: var(--space-2); }
-  summary { cursor: pointer; font-weight: 700; min-height: var(--tap); display: flex; align-items: center; }
-  details p { margin: 0 0 var(--space-3); }
-  .signature { margin-top: var(--space-6); padding-top: var(--space-4); border-top: 1px solid var(--c-border); max-width: var(--measure); }
+  .byline { font-size: var(--fs-sm); }
+  .art-layout { display: grid; gap: var(--space-6); }
+  .toc { background: var(--c-surface-2); border-radius: var(--radius); padding: var(--space-5); max-width: var(--measure); }
+  .toc h2 { font-family: var(--font-sans); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--c-text-muted); margin: 0 0 var(--space-2); line-height: 1.4; }
+  .toc ol { margin: 0; padding-left: var(--space-5); font-size: var(--fs-base); }
+  .toc li::marker { color: var(--c-text-muted); }
+  .toc a { display: block; padding-block: var(--space-1); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  @media (min-width: 75rem) {
+    .art-layout { grid-template-columns: minmax(0, var(--measure)) 16rem; justify-content: space-between; gap: var(--space-8); align-items: start; }
+    .toc { grid-column: 2; grid-row: 1; position: sticky; top: var(--space-5); background: none; padding: 0 0 0 var(--space-5); border-left: 2px solid var(--c-border); border-radius: 0; }
+    .art-main { grid-column: 1; grid-row: 1; }
+  }
+  .faq details { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--radius); padding: 0 var(--space-5); margin-bottom: var(--space-3); transition: border-color var(--ease); }
+  .faq details:hover, .faq details[open] { border-color: var(--c-border-strong); }
+  .faq summary { cursor: pointer; min-height: 56px; display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding-block: var(--space-3); list-style: none; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: ''; flex: none; width: 10px; height: 10px; border-right: 2px solid var(--c-text-muted); border-bottom: 2px solid var(--c-text-muted); transform: rotate(45deg); transition: transform var(--ease); margin-right: 4px; }
+  .faq details[open] summary::after { transform: rotate(-135deg); }
+  .faq details p { margin: 0 0 var(--space-4); line-height: var(--lh-read); }
+  .signature { margin-top: var(--space-8); padding-top: var(--space-5); border-top: 1px solid var(--c-border); color: var(--c-text-muted); }
+  .signature p { margin: 0; }
 </style>

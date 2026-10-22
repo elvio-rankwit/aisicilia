@@ -19,12 +19,9 @@ const place = d.format === 'online' ? `Online, organizza ${d.city}` : [d.venue_n
   data-prezzo={slugify(d.price)}
   data-mese={monthKey(d.start_date)}
 >
-  <p class="kicker"><time datetime={isoDay(d.start_date)}>{isoDay(d.start_date)}</time>{d.start_time ? ` ${d.start_time}` : ''} · {PROVINCES[d.province].sigla}{st.key !== 'programmato' && <> · <b>{st.label.toUpperCase()}</b></>}</p>
+  <p class="kicker"><time datetime={isoDay(d.start_date)}>{dateRange(d.start_date, d.end_date)}</time>{d.start_time ? ` · ${d.start_time}` : ''}{st.key !== 'programmato' && <> · <b>{st.label}</b></>}</p>
   <H><a href={`/eventi/${e.id}/`}>{d.title}</a></H>
-  <p>{clip(d.description, 110)}</p>
-  <dl class="kv">
-    <dt>Quando</dt><dd>{dateRange(d.start_date, d.end_date)}{time && `, ore ${time}`}</dd>
-    <dt>Dove</dt><dd>{place}</dd>
-    <dt>Formato</dt><dd>{cap(d.format)}, {d.price}</dd>
-  </dl>
+  <p class="desc">{clip(d.description, 200)}</p>
+  <p class="meta">{place} ({PROVINCES[d.province].sigla})</p>
+  <ul class="tags"><li class="chip">{cap(d.format)}</li><li class="chip">{cap(d.price)}</li></ul>
 </li>

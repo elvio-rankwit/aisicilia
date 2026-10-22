@@ -28,7 +28,7 @@ const h1 = 'Impara l’AI: guide pratiche per le imprese siciliane';
     ],
   }}
 >
-  <div class="page-head sheet">
+  <div class="page-head">
     <PageStat value={articles.length} label={articles.length === 1 ? 'guida' : 'guide'} coords="in ordine di lettura" />
     <h1>{h1}</h1>
     {updated && <p class="muted updated">Aggiornato il <time datetime={updated.toISOString().slice(0, 10)}>{formatDate(updated)}</time></p>}
@@ -75,7 +75,6 @@ const h1 = 'Impara l’AI: guide pratiche per le imprese siciliane';
 </BaseLayout>
 <style>
   .filter-nav { margin-bottom: var(--space-5); }
-  .label { margin: 0 0 var(--space-2); font-weight: 700; }
   .anchor { display: block; height: 0; scroll-margin-top: var(--space-4); }
 </style>
 <style is:global>

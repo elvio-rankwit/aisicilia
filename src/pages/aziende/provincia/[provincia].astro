@@ -43,8 +43,8 @@ const h1 = `Aziende AI in provincia di ${prov.name}`;
     ],
   }}
 >
-  <div class="page-head sheet">
-    <PageStat value={companies.length} label={companies.length === 1 ? 'azienda verificata' : 'aziende verificate'} coords={`${PROVINCES[slug].sigla} · ${Math.abs(PROVINCES[slug].center[0]).toFixed(2)}°N ${PROVINCES[slug].center[1].toFixed(2)}°E`} />
+  <div class="page-head">
+    <PageStat value={companies.length} label={companies.length === 1 ? 'azienda verificata' : 'aziende verificate'} coords={PROVINCES[slug].ente} />
     <h1>{h1}</h1>
     {companies.length > 0 ? (
       <p class="answer">In provincia di {prov.name} ({prov.ente.toLowerCase()}) abbiamo {plural(companies.length, 'realtà verificata', 'realtà verificate')} che lavorano con l’intelligenza artificiale, su {all.length} in tutta la Sicilia. Ultimo aggiornamento: {updated && formatDate(updated)}.</p>

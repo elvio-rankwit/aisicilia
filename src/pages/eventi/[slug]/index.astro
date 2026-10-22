@@ -78,21 +78,14 @@ const where = d.format === 'online'
     <section class="section" aria-labelledby="h-dettagli">
       <h2 id="h-dettagli">Quando, dove, quanto</h2>
       <dl class="facts">
-        <dt>Data</dt>
-        <dd>{dateRange(d.start_date, d.end_date)}{!d.end_date && ` (${weekdayOf(d.start_date)})`}</dd>
-        {time && <><dt>Orario</dt><dd>{time}</dd></>}
-        <dt>Formato</dt>
-        <dd>{cap(d.format)}</dd>
-        <dt>Luogo</dt>
-        <dd>{where} ({prov.sigla})</dd>
-        <dt>Organizzatore</dt>
-        <dd>{d.organizer_url ? <a class="ext" href={d.organizer_url} rel="noopener">{d.organizer}</a> : d.organizer}</dd>
-        <dt>Prezzo</dt>
-        <dd>{cap(d.price)}</dd>
-        <dt>Per chi</dt>
-        <dd>{d.audience.map(cap).join(', ')}</dd>
-        <dt>Temi</dt>
-        <dd>{d.topics.join(', ')}</dd>
+        <div><dt>Data</dt><dd>{dateRange(d.start_date, d.end_date)}{!d.end_date && ` (${weekdayOf(d.start_date)})`}</dd></div>
+        {time && <div><dt>Orario</dt><dd>{time}</dd></div>}
+        <div><dt>Formato</dt><dd>{cap(d.format)}</dd></div>
+        <div><dt>Prezzo</dt><dd>{cap(d.price)}</dd></div>
+        <div class="wide"><dt>Luogo</dt><dd>{where} ({prov.sigla})</dd></div>
+        <div class="wide"><dt>Organizzatore</dt><dd>{d.organizer_url ? <a class="ext" href={d.organizer_url} rel="noopener">{d.organizer}</a> : d.organizer}</dd></div>
+        <div class="wide"><dt>Per chi</dt><dd>{d.audience.map(cap).join(', ')}</dd></div>
+        <div class="wide"><dt>Temi</dt><dd>{d.topics.join(', ')}</dd></div>
       </dl>
       <div class="btn-row">
         <a class="btn" href={d.event_url} rel="noopener">Vai alla pagina dell’evento</a>
@@ -132,7 +125,7 @@ const where = d.format === 'online'
   )}
 </BaseLayout>
 <style>
-  .desc { font-size: var(--fs-lg); line-height: 1.6; }
-  .two { display: grid; gap: var(--space-4); align-items: start; }
+  .desc { font-size: var(--fs-md); line-height: var(--lh-read); }
+  .two { display: grid; gap: var(--space-5); align-items: start; }
   @media (min-width: 56rem) { .two { grid-template-columns: 1fr 1fr; } }
 </style>

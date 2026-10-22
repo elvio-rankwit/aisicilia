@@ -1,7 +1,7 @@
 ---
 import type { Article } from '../lib/data';
 import { PROMPT_SECTORS } from '../lib/taxonomies';
-import { clip } from './helpers';
+import { cap, clip } from './helpers';
 interface Props { article: Article; level?: 2 | 3 | 4 }
 const { article: a, level = 3 } = Astro.props;
 const d = a.data;
@@ -9,10 +9,9 @@ const H = `h${level}` as 'h2' | 'h3' | 'h4';
 const sectors = d.sectors.map((s) => (s === 'tutti' ? 'Tutti i settori' : PROMPT_SECTORS[s]));
 ---
 <li class="card article" data-id={a.id} data-settori={d.sectors.join(' ')} data-livello={d.level}>
-  <p class="kicker">{d.level.toUpperCase()} · {d.reading_time} MIN</p>
+  <p class="kicker">Guida · {d.reading_time} min di lettura</p>
   <H><a href={`/impara/${a.id}/`}>{d.title}</a></H>
-  <p>{clip(d.description, 140)}</p>
-  <dl class="kv">
-    <dt>Settori</dt><dd>{sectors.slice(0, 3).join(', ')}</dd>
-  </dl>
+  <p class="desc">{clip(d.description, 200)}</p>
+  <p class="meta">{sectors.slice(0, 2).join(', ')}{sectors.length > 2 ? ` +${sectors.length - 2}` : ''}</p>
+  <ul class="tags"><li class="chip">{cap(d.level)}</li></ul>
 </li>

@@ -48,8 +48,8 @@ const h1 = 'Eventi AI in Sicilia';
     ],
   }}
 >
-  <div class="page-head sheet">
-    <PageStat value={scheduled.length} label="eventi in programma" coords="37°N 14°E · 9 province" />
+  <div class="page-head">
+    <PageStat value={scheduled.length} label="eventi in programma" coords="in 9 province" />
     <h1>{h1}</h1>
     {events.length > 0 && first && last ? (
       <p class="answer">{plural(scheduled.length, 'evento in programma', 'eventi in programma')} sull’intelligenza artificiale in Sicilia, da {dateRange(first)} a {dateRange(last)}. Ogni scheda ha il link alla pagina dell’organizzatore, la fonte e la data di verifica. Quelli già svolti restano nell’<a href="/eventi/archivio/">archivio</a>.</p>
@@ -97,7 +97,7 @@ const h1 = 'Eventi AI in Sicilia';
   <CtaSegnala text="Organizzi o conosci un evento sull’AI in Sicilia? Segnalalo: lo controlliamo e lo aggiungiamo al calendario." />
 </BaseLayout>
 <style>
-  .two { display: grid; gap: var(--space-5); align-items: start; }
+  .two { display: grid; gap: var(--space-6); align-items: start; }
   @media (min-width: 56rem) { .two { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); } }
-  .month { margin-top: var(--space-5); font-size: var(--fs-xl); border-bottom: 2px solid var(--c-border); padding-bottom: var(--space-2); }
+  .month { margin: var(--space-7) 0 var(--space-4); font-size: var(--fs-lg); text-transform: capitalize; }
 </style>

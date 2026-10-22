@@ -59,7 +59,7 @@
   --gutter: 16px;
   --container: 72rem;
   --measure: 40rem; /* ≈ 75 caratteri a 18px: misura di lettura */
-  --radius-sm: 6px; --radius: 12px; --radius-lg: 16px; --radius-pill: 999px;
+  --radius-sm: 8px; --radius: 12px; --radius-lg: 16px; --radius-pill: 999px;
   --tap: 44px;
   --ease: 160ms ease-out;
   --shadow: none;

@@ -1,5 +1,5 @@
 ---
-// Tabella dati "per provincia": sempre le 9 righe, numeri in mono a destra, barra proporzionale in pistacchio.
+// Tabella dati "per provincia": sempre le 9 righe, numeri a destra, barra proporzionale in pistacchio.
 import type { ProvinceSlug } from '../lib/provinces';
 import { PROVINCES, PROVINCE_SLUGS } from '../lib/provinces';
 interface Props { counts: Record<ProvinceSlug, number>; basePath: string; caption: string; header: string; unit?: [string, string]; showTotal?: boolean }
@@ -14,7 +14,7 @@ const max = Math.max(1, ...PROVINCE_SLUGS.map((p) => counts[p]));
     <tbody>
       {PROVINCE_SLUGS.map((p) => (
         <tr>
-          <th scope="row"><a href={`${basePath}${p}/`}><span class="sg mono">{PROVINCES[p].sigla}</span> {PROVINCES[p].name}</a></th>
+          <th scope="row"><a href={`${basePath}${p}/`}><span class="sg">{PROVINCES[p].sigla}</span> {PROVINCES[p].name}</a></th>
           <td class="bar" aria-hidden="true"><svg viewBox="0 0 100 8" preserveAspectRatio="none" width="100" height="8"><rect class="track" width="100" height="8" /><rect class="fill" width={(counts[p] / max) * 100} height="8" /></svg></td>
           <td class="num">{counts[p]}</td>
         </tr>
@@ -24,11 +24,14 @@ const max = Math.max(1, ...PROVINCE_SLUGS.map((p) => counts[p]));
   </table>
 </div>
 <style>
-  tfoot th, tfoot td { font-weight: 700; border-top: 2px solid var(--c-text); border-bottom: 0; }
-  .sg { display: inline-block; min-width: 2.2em; color: var(--c-text-muted); font-size: var(--fs-xs); }
+  tfoot th, tfoot td { font-weight: 600; border-top: 1px solid var(--c-border-strong); border-bottom: 0; background: none; }
+  .sg { display: inline-block; min-width: 2.2em; color: var(--c-text-muted); font-size: var(--fs-sm); font-weight: 600; }
   .bar { width: 30%; padding-inline: var(--space-2); }
-  .bar svg { width: 100%; height: 8px; }
+  .bar svg { width: 100%; height: 8px; border-radius: 4px; overflow: hidden; }
   .track { fill: var(--c-surface-2); }
   .fill { fill: var(--c-data); }
-  thead .bar { border-bottom-color: var(--c-text); }
+  tbody th a { text-decoration: none; font-weight: 500; }
+  tbody th a:hover { text-decoration: underline; }
+  th, td { padding-block: var(--space-2); vertical-align: middle; }
+  th a { display: inline-block; padding-block: var(--space-1); }
 </style>

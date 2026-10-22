@@ -41,8 +41,8 @@ const first = events[0]?.data.start_date;
     ],
   }}
 >
-  <div class="page-head sheet">
-    <PageStat value={scheduled.length} label="eventi in programma" coords={`${PROVINCES[slug].sigla} · ${Math.abs(PROVINCES[slug].center[0]).toFixed(2)}°N ${PROVINCES[slug].center[1].toFixed(2)}°E`} />
+  <div class="page-head">
+    <PageStat value={scheduled.length} label="eventi in programma" coords={PROVINCES[slug].ente} />
     <h1>{h1}</h1>
     {events.length > 0 && first ? (
       <p class="answer">In provincia di {prov.name} {scheduled.length === 1 ? 'c’è' : 'ci sono'} {plural(scheduled.length, 'evento in programma', 'eventi in programma')} sull’intelligenza artificiale, il primo il {dateRange(first)}. Su tutta la Sicilia sono {upcoming.filter(isScheduled).length}.</p>

@@ -45,7 +45,7 @@ const answer = [
     <header class="page-head head">
       <span class={`avatar tone-${toneOf(c.id)}`} aria-hidden="true">{initials(d.name)}</span>
       <div>
-        <p class="eyebrow">{[prov.sigla, d.type.toUpperCase(), d.founded_year].filter(Boolean).join(' · ')}{d.featured && <> · <b class="feat">IN EVIDENZA</b></>}</p>
+        <p class="eyebrow">{[d.type, prov.name].join(' · ')}{d.featured && <> · <b class="feat">In evidenza</b></>}</p>
         <h1>{d.name}</h1>
         <p class="lead">{d.city}, provincia di <a href={`/aziende/provincia/${d.province}/`}>{prov.name}</a></p>
         {d.is_innovative_startup && <ul class="tags"><li><span class="badge accent">Startup innovativa</span></li></ul>}
@@ -61,16 +61,12 @@ const answer = [
     <section aria-labelledby="h-dati" class="section">
       <h2 id="h-dati">I dati in breve</h2>
       <dl class="facts">
-        <dt>Sito</dt>
-        <dd><a class="ext" href={d.website} rel="noopener">{hostOf(d.website)}</a></dd>
-        <dt>Dove</dt>
-        <dd>{d.city} ({prov.sigla}){d.address ? `, ${d.address}` : ''}</dd>
-        <dt>Ambiti AI</dt>
-        <dd>{d.ai_areas.join(', ')}</dd>
-        <dt>Settori serviti</dt>
-        <dd>{d.sectors_served.map(cap).join(', ')}</dd>
-        {d.founded_year && <><dt>Anno di fondazione</dt><dd>{d.founded_year}</dd></>}
-        {d.is_innovative_startup === true && <><dt>Startup innovativa</dt><dd>Sì, risulta nel registro ufficiale (fonte qui sotto)</dd></>}
+        <div><dt>Sito</dt><dd><a class="ext" href={d.website} rel="noopener">{hostOf(d.website)}</a></dd></div>
+        <div><dt>Dove</dt><dd>{d.city} ({prov.sigla}){d.address ? `, ${d.address}` : ''}</dd></div>
+        <div class="wide"><dt>Ambiti AI</dt><dd>{d.ai_areas.join(', ')}</dd></div>
+        <div class="wide"><dt>Settori serviti</dt><dd>{d.sectors_served.map(cap).join(', ')}</dd></div>
+        {d.founded_year && <div><dt>Anno di fondazione</dt><dd>{d.founded_year}</dd></div>}
+        {d.is_innovative_startup === true && <div><dt>Startup innovativa</dt><dd>Sì, risulta nel registro ufficiale (fonte qui sotto)</dd></div>}
       </dl>
     </section>
 
@@ -105,14 +101,16 @@ const answer = [
   )}
 </BaseLayout>
 <style>
-  .head { display: flex; gap: var(--space-4); align-items: flex-start; }
-  .avatar { flex: none; display: none; align-items: center; justify-content: center; width: 72px; height: 72px; border-radius: var(--radius); font-family: var(--font-mono); font-weight: 500; font-size: var(--fs-2xl); background: var(--c-primary-soft); color: var(--c-primary); }
+  .head { display: flex; gap: var(--space-5); align-items: flex-start; }
+  .avatar { flex: none; display: none; align-items: center; justify-content: center; width: 80px; height: 80px; border-radius: var(--radius); font-family: var(--font-serif); font-weight: 600; font-size: 1.75rem; background: var(--c-primary-soft); color: var(--c-primary); }
   @media (min-width: 30rem) { .avatar { display: inline-flex; } }
-  .tone-1 { background: var(--c-accent-soft); color: var(--c-accent); }
+  .tone-1 { background: var(--c-accent-soft); color: var(--c-accent-strong); }
   .tone-2 { background: var(--c-surface-2); color: var(--c-text); }
-  .tone-3 { background: var(--c-warning-bg); color: var(--c-warning-text); }
-  .feat { font-weight: 500; color: var(--c-accent); }
-  .desc { font-size: var(--fs-lg); line-height: 1.6; }
-  .two { display: grid; gap: var(--space-4); align-items: start; }
+  .tone-3 { background: var(--c-data-soft); color: var(--c-data); }
+  .feat { font-weight: 600; color: var(--c-accent); }
+  .head .tags { margin-top: var(--space-3); }
+  .desc { font-size: var(--fs-md); line-height: var(--lh-read); }
+  .read { max-width: var(--measure); }
+  .two { display: grid; gap: var(--space-5); align-items: start; }
   @media (min-width: 56rem) { .two { grid-template-columns: 1fr 1fr; } }
 </style>

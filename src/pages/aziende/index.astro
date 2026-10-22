@@ -34,8 +34,8 @@ const h1 = 'Aziende e startup AI in Sicilia';
     ],
   }}
 >
-  <div class="page-head sheet">
-    <PageStat value={companies.length} label={companies.length === 1 ? 'realtà verificata' : 'realtà verificate'} coords="37°N 14°E · 9 province" />
+  <div class="page-head">
+    <PageStat value={companies.length} label={companies.length === 1 ? 'realtà verificata' : 'realtà verificate'} coords="in 9 province" />
     <h1>{h1}</h1>
     {companies.length > 0 ? (
       <p class="answer">{plural(companies.length, 'realtà siciliana lavora', 'realtà siciliane lavorano')} con l’intelligenza artificiale al centro del prodotto o del servizio, in {provincesWith} {provincesWith === 1 ? 'provincia' : 'province'} su 9. Ultimo aggiornamento dei dati: {updated && formatDate(updated)}. Ogni scheda indica le fonti e la data di verifica; i criteri di inclusione sono nella <a href="/metodologia/">metodologia</a>.</p>
@@ -74,6 +74,6 @@ const h1 = 'Aziende e startup AI in Sicilia';
   <CtaSegnala />
 </BaseLayout>
 <style>
-  .two { display: grid; gap: var(--space-5); align-items: start; }
+  .two { display: grid; gap: var(--space-6); align-items: start; }
   @media (min-width: 56rem) { .two { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); } }
 </style>

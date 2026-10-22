@@ -8,10 +8,8 @@ const d = p.data;
 const H = `h${level}` as 'h2' | 'h3' | 'h4';
 ---
 <li class="card prompt" data-id={p.id}>
-  <p class="kicker">{PROMPT_SECTORS[d.sector].toUpperCase()} · {d.use_case.toUpperCase()}</p>
+  <p class="kicker">{PROMPT_SECTORS[d.sector]} · {d.use_case}</p>
   <H><a href={`/prompt/${d.sector}/${p.id}/`}>{d.title}</a></H>
-  <p>{clip(d.goal, 140)}</p>
-  <dl class="kv">
-    <dt>Livello</dt><dd>{d.level}</dd>
-  </dl>
+  <p class="desc">{clip(d.goal, 200)}</p>
+  <ul class="tags"><li class="chip">Livello {d.level}</li></ul>
 </li>
