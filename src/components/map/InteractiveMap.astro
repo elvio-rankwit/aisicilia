@@ -70,13 +70,13 @@ const json = JSON.stringify(points).replace(/</g, '\\u003c');
   .imap[data-h="480"] { --imap-h: 480px; }
   .imap[data-h="560"] { --imap-h: 560px; }
   .imap[data-h="640"] { --imap-h: 640px; }
-  .imap-stage { position: relative; height: calc(var(--imap-h) * 0.762); background: var(--c-surface-2); border: 1px solid var(--c-border); border-radius: var(--radius); overflow: hidden; }
+  .imap-stage { position: relative; height: calc(var(--imap-h) * 0.762); background: var(--grey); border: 1.5px solid var(--bd); border-radius: var(--r-lg); box-shadow: 6px 6px 0 var(--grey-2); overflow: hidden; background-image: radial-gradient(circle at 1px 1px, var(--dot) 1.2px, transparent 0); background-size: 24px 24px; }
   @media (min-width: 48rem) { .imap-stage { height: var(--imap-h); } }
   .imap-intro { position: absolute; inset: 0; display: grid; align-content: center; justify-items: center; gap: var(--space-3); padding: var(--space-4); text-align: center; }
   .imap-intro[hidden], .imap-canvas[hidden] { display: none; }
-  .imap-open { min-height: var(--tap); padding: var(--space-2) var(--space-5); font: 600 var(--fs-base) var(--font-sans); color: var(--c-on-primary); background: var(--c-primary); border: 0; border-radius: var(--radius-pill); cursor: pointer; }
-  .imap-open:hover { background: var(--c-primary-hover); }
+  .imap-open { min-height: 46px; padding: 0 22px; font: 700 var(--fs-base) var(--font-sans); color: var(--on-or); background: var(--or); border: 1.5px solid var(--on-or); border-radius: 12px; box-shadow: 3px 3px 0 var(--on-or); cursor: pointer; transition: transform 0.15s, box-shadow 0.15s, background-color 0.2s; }
+  .imap-open:hover { background: var(--or-h); transform: translate(1px, 1px); box-shadow: 2px 2px 0 var(--on-or); }
   .imap-open:disabled { opacity: 0.7; cursor: progress; }
-  .imap-hint { margin: 0; max-width: 28rem; font-size: var(--fs-sm); color: var(--c-text-muted); }
+  .imap-hint { margin: 0; max-width: 28rem; font-size: var(--fs-sm); color: var(--muted); }
   .imap-canvas { position: absolute; inset: 0; }
 </style>

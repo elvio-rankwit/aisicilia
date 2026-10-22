@@ -1,63 +1,112 @@
 ---
 // Anteprima SVG delle 9 province: zero JS di default, ogni provincia è un link.
 // mode="filter": con JS il clic non naviga ma emette `aisicilia:province-select` (script < 1 KB).
+// Stile v4 (mockup hp-c-finale): province in tinte di blu per intensità, zero in grigio, punti aziende arancia,
+// cerchi eventi turchese, etichette con i conteggi. La logica e gli eventi DOM restano quelli del contratto mappe.
 // Confini: ISTAT, unità territoriali sovracomunali generalizzate al 01/01/2025, CC BY 4.0.
 import { PROVINCES, PROVINCE_SLUGS, type ProvinceSlug } from '../../lib/provinces';
-import { PROVINCE_PATHS, VIEWBOX, VIEWBOX_W, VIEWBOX_H, project } from './provinces-paths';
+import { PROVINCE_PATHS, project } from './provinces-paths';
 
+interface Pt { lat: number; lng: number }
 interface Props {
   counts: Record<ProvinceSlug, number>;
   mode: 'link' | 'filter';
   basePath: '/aziende/provincia/' | '/eventi/provincia/';
   active?: ProvinceSlug;
   label: string;
-  points?: { lat: number; lng: number }[];
+  /** Punti da disegnare: aziende (arancia) nelle pagine aziende, eventi (cerchi turchesi) nelle pagine eventi. */
+  points?: Pt[];
+  /** Solo home: eventi in programma (cerchi turchesi), conteggi per provincia, scheda in evidenza. */
+  events?: (Pt & { today?: boolean })[];
+  eventCounts?: Record<ProvinceSlug, number>;
+  featured?: Pt & { name: string };
+  /** "hero": solo mappa (legenda e note le mette la pagina). "card": mappa, elenco dei conteggi e nota ISTAT. */
+  variant?: 'hero' | 'card';
 }
-const { counts, mode, basePath, active, label, points = [] } = Astro.props;
+const { counts, mode, basePath, active, label, points = [], events = [], eventCounts, featured, variant = 'card' } = Astro.props;
 
 const isCompanies = basePath === '/aziende/provincia/';
 const noun = (n: number) => (isCompanies ? (n === 1 ? 'azienda' : 'aziende') : n === 1 ? 'evento' : 'eventi');
-const dots = points.map((p) => project(p.lat, p.lng));
 const total = PROVINCE_SLUGS.reduce((s, slug) => s + (counts[slug] ?? 0), 0);
+const max = Math.max(1, ...PROVINCE_SLUGS.map((s) => counts[s] ?? 0));
+/** Fascia di intensità 0-4: 0 = nessun dato (grigio), 4 = il massimo. */
+const tier = (n: number) => { if (!n) return 0; const r = n / max; return r > 0.8 ? 4 : r > 0.4 ? 3 : r > 0.15 ? 2 : 1; };
+// Etichette: punto di ancoraggio, posizione e allineamento del testo (disegnate a mano sul contorno ISTAT).
+const LABELS: Record<ProvinceSlug, { cx: number; cy: number; x: number; y: number; a: 'start' | 'middle' | 'end' }> = {
+  agrigento: { cx: 173.6, cy: 199.1, x: 173.6, y: 210.1, a: 'middle' },
+  caltanissetta: { cx: 223.6, cy: 175.9, x: 218.6, y: 179.9, a: 'end' },
+  catania: { cx: 329, cy: 174.3, x: 337, y: 183.3, a: 'start' },
+  enna: { cx: 245.9, cy: 165.9, x: 251.9, y: 162.9, a: 'start' },
+  messina: { cx: 377, cy: 84.5, x: 384, y: 81.5, a: 'start' },
+  palermo: { cx: 151.5, cy: 94.5, x: 157.5, y: 89.5, a: 'start' },
+  ragusa: { cx: 292.3, cy: 249.3, x: 292.3, y: 260.3, a: 'middle' },
+  siracusa: { cx: 349.5, cy: 229.8, x: 356.5, y: 234.8, a: 'start' },
+  trapani: { cx: 64.4, cy: 107.2, x: 58.4, y: 103.2, a: 'end' },
+};
+const dots = points.map((p) => project(p.lat, p.lng));
+const evDots = events.map((p) => ({ xy: project(p.lat, p.lng), today: !!p.today }));
+let pulseN = 0;
+const ring = featured ? project(featured.lat, featured.lng) : null;
 ---
-<figure class="pmap" data-pmap={mode}>
-  <svg class="pmap-svg" viewBox={VIEWBOX} width={VIEWBOX_W} height={VIEWBOX_H} role="group" aria-label={label} focusable="false">
-    <g class="pmap-provinces">
+<figure class:list={['pmap', `v-${variant}`]} data-pmap={mode}>
+  <svg class="sicily" viewBox="-4 -12 474 316" width="474" height="316" role="group" aria-label={label} focusable="false">
+    <g>
       {PROVINCE_SLUGS.map((slug) => {
-        const p = PROVINCE_PATHS[slug];
         const n = counts[slug] ?? 0;
+        const e = eventCounts?.[slug];
         const current = active === slug;
+        const name = e === undefined ? `${PROVINCES[slug].name}: ${n} ${noun(n)}` : `${PROVINCES[slug].name}: ${n} ${n === 1 ? 'azienda' : 'aziende'}, ${e} ${e === 1 ? 'evento' : 'eventi'} in programma`;
         return (
-          <g>
-            <a
-              href={`${basePath}${slug}/`}
-              data-p={slug}
-              aria-label={`${PROVINCES[slug].name}: ${n} ${noun(n)}`}
-              aria-current={current ? (mode === 'link' ? 'page' : 'true') : undefined}
-            >
-              <path d={p.d} />
-              <text class="pmap-count" x={p.labelX} y={p.labelY + 11}>{n}</text>
-            </a>
-            {/* La sigla sta fuori dal link: il testo visibile del link è solo il conteggio, contenuto nel nome accessibile. */}
-            <text class="pmap-sigla" x={p.labelX} y={p.labelY - 4} aria-hidden="true">{PROVINCES[slug].sigla}</text>
-          </g>
+          <a
+            class={`prov i${tier(n)}`}
+            href={`${basePath}${slug}/`}
+            data-p={slug}
+            data-c={n}
+            data-e={e}
+            aria-label={name}
+            aria-current={current ? (mode === 'link' ? 'page' : 'true') : undefined}
+          >
+            <path d={PROVINCE_PATHS[slug].d} />
+          </a>
         );
       })}
     </g>
-    {dots.length > 0 && (
-      <g class="pmap-points" role="img" aria-label={`${dots.length} posizioni sulla mappa`}>
-        {dots.map(([x, y]) => <circle cx={x} cy={y} r="2.4" />)}
-      </g>
-    )}
+    <g class="pts" aria-hidden="true">
+      {isCompanies
+        ? dots.map(([x, y]) => <circle class="co" cx={x} cy={y} r="2.9" />)
+        : dots.map(([x, y]) => <circle class="ev" cx={x} cy={y} r="4.3" />)}
+      {evDots.map(({ xy: [x, y], today }) => (
+        <>
+          <circle class="ev" cx={x} cy={y} r="4.3" />
+          {today && <circle class={`pulse d${pulseN++ % 5}`} cx={x} cy={y} r="4.3" />}
+        </>
+      ))}
+      {ring && <circle class="rw" cx={ring[0]} cy={ring[1]} r="7" />}
+    </g>
+    <g class="labels" aria-hidden="true">
+      {PROVINCE_SLUGS.map((slug) => {
+        const l = LABELS[slug];
+        const n = counts[slug] ?? 0;
+        return (
+          <>
+            <circle class="cap" cx={l.cx} cy={l.cy} r="1.5" />
+            <text class:list={['lab', { big: n >= 5 }]} x={l.x} y={l.y} text-anchor={l.a}>{PROVINCES[slug].name} <tspan class:list={['n', { z: n === 0 }]}>{n}</tspan></text>
+          </>
+        );
+      })}
+      {ring && featured && <text class="lab rwl" x={ring[0] + 9} y={ring[1] - 7}>{featured.name}</text>}
+    </g>
   </svg>
-  <ul class="pmap-legend" aria-label={`${label}: conteggi per provincia`}>
-    {PROVINCE_SLUGS.map((slug) => (
-      <li><span>{PROVINCES[slug].name}</span> <strong>{counts[slug] ?? 0}</strong></li>
-    ))}
-  </ul>
-  <figcaption class="pmap-note">
-    {total} {noun(total)} in 9 province. Confini © ISTAT, licenza CC BY 4.0.
-  </figcaption>
+  {variant === 'card' && (
+    <ul class="legend" aria-label={`${label}: conteggi per provincia`}>
+      {PROVINCE_SLUGS.map((slug) => (
+        <li><span>{PROVINCES[slug].name}</span> <strong>{counts[slug] ?? 0}</strong></li>
+      ))}
+    </ul>
+    <figcaption class="note">
+      {total} {noun(total)} in 9 province. Confini © ISTAT, licenza CC BY 4.0.
+    </figcaption>
+  )}
 </figure>
 
 <script>
@@ -82,20 +131,43 @@ const total = PROVINCE_SLUGS.reduce((s, slug) => s + (counts[slug] ?? 0), 0);
 </script>
 
 <style>
-  .pmap { margin: 0; max-width: 32rem; margin-inline: auto; }
-  .pmap-svg { display: block; width: 100%; height: auto; overflow: visible; }
-  .pmap a { cursor: pointer; outline: none; }
-  .pmap path { fill: var(--c-map-land); stroke: var(--c-map-stroke); stroke-width: 0.8; stroke-linejoin: round; transition: fill 160ms ease-out; }
-  .pmap a:hover path { fill: var(--c-map-land-hover); }
-  .pmap a:focus-visible path { fill: var(--c-map-land-hover); stroke: var(--c-focus); stroke-width: 2.4; }
-  .pmap a[aria-current] path { fill: var(--c-map-active); }
-  .pmap text { fill: var(--c-text); text-anchor: middle; pointer-events: none; font-family: var(--font-sans); }
-  .pmap a[aria-current] text, .pmap a[aria-current] ~ .pmap-sigla { fill: var(--c-on-primary); }
-  .pmap-sigla { font-size: 10px; font-weight: 600; letter-spacing: 0.04em; }
-  .pmap-count { font-size: 15px; font-weight: 600; font-variant-numeric: tabular-nums; }
-  .pmap-points circle { fill: var(--c-accent); stroke: var(--c-surface); stroke-width: 0.8; pointer-events: none; }
-  .pmap-legend { list-style: none; margin: var(--space-3) 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr)); gap: var(--space-1) var(--space-4); font-size: var(--fs-sm); }
-  .pmap-legend li { display: flex; justify-content: space-between; gap: var(--space-2); border-bottom: 1px solid var(--c-border); padding-block: 2px; }
-  .pmap-note { margin-top: var(--space-2); font-size: var(--fs-xs); color: var(--c-text-muted); }
-  @media (prefers-reduced-motion: reduce) { .pmap path { transition: none; } }
+  .pmap { margin: 0; }
+  .v-card { max-width: 34rem; margin-inline: auto; }
+  .sicily { display: block; width: 100%; height: auto; overflow: visible; }
+  .prov { cursor: pointer; outline: none; }
+  .prov path { fill: var(--map-zero); stroke: var(--bg); stroke-width: 1.6px; vector-effect: non-scaling-stroke; stroke-linejoin: round; transition: filter 0.2s; }
+  .i1 path { fill: color-mix(in srgb, var(--map-tint) 20%, transparent); }
+  .i2 path { fill: color-mix(in srgb, var(--map-tint) 32%, transparent); }
+  .i3 path { fill: color-mix(in srgb, var(--map-tint) 46%, transparent); }
+  .i4 path { fill: color-mix(in srgb, var(--map-tint) 60%, transparent); }
+  .prov:hover path { filter: brightness(0.88); }
+  .prov:hover path, .prov:focus-visible path, .prov[aria-current] path { stroke: var(--ink); stroke-width: 2px; }
+  .prov:focus-visible path { stroke-width: 2.4px; }
+  .prov[aria-current] path { fill: color-mix(in srgb, var(--map-tint) 72%, transparent); }
+  .co { fill: var(--or); stroke: var(--bg); stroke-width: 0.9; pointer-events: none; }
+  .ev { fill: none; stroke: var(--teal); stroke-width: 1.7; pointer-events: none; filter: drop-shadow(0 0 1px var(--bg)) drop-shadow(0 0 0.6px var(--bg)); }
+  .pulse { fill: none; stroke: var(--teal); stroke-width: 1; transform-box: fill-box; transform-origin: center; animation: pulse 3.6s ease-out infinite; pointer-events: none; }
+  .d1 { animation-delay: 1.11s; } .d2 { animation-delay: 2.22s; } .d3 { animation-delay: 3.33s; } .d4 { animation-delay: 4.44s; }
+  @keyframes pulse { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(3.2); opacity: 0; } }
+  .rw { fill: none; stroke: var(--ink); stroke-width: 1.4; pointer-events: none; }
+  .cap { fill: var(--ink); stroke: var(--bg); stroke-width: 0.6; pointer-events: none; }
+  .lab { font: 700 8.6px var(--body); fill: var(--ink); pointer-events: none; paint-order: stroke; stroke: color-mix(in srgb, var(--bg) 78%, transparent); stroke-width: 2.4px; stroke-linejoin: round; letter-spacing: 0.01em; }
+  .lab.big { font-size: 10.5px; font-weight: 800; }
+  .lab .n { fill: var(--or-text); font-variant-numeric: tabular-nums; font-weight: 800; }
+  .lab .n.z { fill: var(--faint); }
+  .lab.rwl { font-size: 7px; font-weight: 800; stroke: color-mix(in srgb, var(--bg) 90%, transparent); }
+  .legend { display: grid; grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr)); gap: 2px 20px; list-style: none; margin: 12px 0 0; padding: 0; font-size: 15px; }
+  .legend li { display: flex; justify-content: space-between; gap: 8px; padding-block: 3px; border-bottom: 1px solid var(--line); }
+  .legend strong { font-family: var(--display); font-size: 0.95em; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+  .note { margin-top: 8px; font-size: 14px; color: var(--faint); }
+  @media (max-width: 45rem) {
+    .lab { font-size: 11.5px; stroke-width: 3.2px; }
+    .lab.big { font-size: 13.5px; }
+    .lab:not(.big):not(.rwl) { display: none; }
+    .lab.rwl { font-size: 10.5px; }
+    .co { r: 3.9px; }
+    .ev, .pulse { r: 6.4px; }
+    .rw { r: 9.5px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .pulse { animation: none; opacity: 0; } }
 </style>

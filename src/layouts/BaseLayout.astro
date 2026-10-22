@@ -17,7 +17,8 @@ const { seo } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="preload" href="/fonts/public-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/unbounded-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
     <SeoHead seo={seo} />
     <script is:inline>
       document.documentElement.classList.add('js');
@@ -29,10 +30,12 @@ const { seo } = Astro.props;
     <Header />
     <main id="main" data-pagefind-body={seo.noindex ? undefined : ''}>
       <slot name="hero" />
-      <div class="container">
-        {seo.breadcrumbs && seo.breadcrumbs.length > 0 && <Breadcrumbs items={seo.breadcrumbs} />}
-        <slot />
-      </div>
+      {(Astro.slots.has('default') || (seo.breadcrumbs && seo.breadcrumbs.length > 0)) && (
+        <div class="container page">
+          {seo.breadcrumbs && seo.breadcrumbs.length > 0 && <Breadcrumbs items={seo.breadcrumbs} />}
+          <slot />
+        </div>
+      )}
     </main>
     <Footer />
   </body>

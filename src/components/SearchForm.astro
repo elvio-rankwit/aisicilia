@@ -2,28 +2,29 @@
 interface Props { id?: string; label?: string; large?: boolean; placeholder?: string }
 const { id = 'q', label = 'Cerca aziende, eventi, guide e prompt', large = false, placeholder } = Astro.props;
 ---
-<form class:list={['search-form', { large }]} action="/cerca/" method="get" role="search" aria-label="Cerca nel sito">
+<form class:list={['search', { large }]} action="/cerca/" method="get" role="search" aria-label="Cerca nel sito">
   <label for={id} class:list={{ 'visually-hidden': large }}>{label}</label>
   <div class="row">
-    <div class="field-wrap">
-      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
-      <input id={id} name="q" type="search" autocomplete="off" enterkeyhint="search" placeholder={placeholder} />
-    </div>
-    <button type="submit" class="btn">Cerca</button>
+    <input id={id} name="q" type="search" autocomplete="off" enterkeyhint="search" placeholder={placeholder} />
+    <button type="submit">Cerca</button>
   </div>
 </form>
 <style>
-  .search-form { max-width: var(--measure); }
-  label { display: block; font-weight: 600; margin-bottom: var(--space-2); }
-  .row { display: flex; gap: var(--space-2); }
-  .field-wrap { position: relative; flex: 1; min-width: 0; color: var(--c-text-muted); }
-  .field-wrap svg { position: absolute; left: var(--space-4); top: 50%; transform: translateY(-50%); pointer-events: none; }
-  input { width: 100%; min-height: 48px; padding: var(--space-2) var(--space-4) var(--space-2) 3rem; color: var(--c-text); background: var(--c-surface); border: 1px solid var(--c-border-strong); border-radius: var(--radius-sm); transition: border-color var(--ease); }
-  input::placeholder { color: var(--c-text-muted); opacity: 1; }
-  input:hover { border-color: var(--c-primary); }
-  .btn { min-height: 48px; }
-  .large { max-width: 36rem; }
-  .large input { min-height: 56px; font-size: var(--fs-md); border-radius: var(--radius); }
-  .large .btn { min-height: 56px; padding-inline: var(--space-6); border-radius: var(--radius); }
-  @media (max-width: 30rem) { .large .btn { padding-inline: var(--space-4); } }
+  .search { max-width: var(--measure); }
+  label { display: block; margin-bottom: 8px; font-weight: 700; }
+  .row { display: flex; flex-direction: column; gap: 8px; padding: 8px; background: var(--card); border: 2px solid var(--bd); border-radius: 16px; box-shadow: 5px 5px 0 var(--brand); }
+  .row:focus-within { box-shadow: 5px 5px 0 var(--or); }
+  input { flex: 1; min-width: 0; min-height: 50px; padding: 0 12px; background: none; border: 0; color: var(--ink); font: 500 17px var(--body); }
+  input::placeholder { color: var(--faint); opacity: 1; }
+  input:focus-visible { outline: none; }
+  button { min-height: 50px; padding: 0 26px; background: var(--or); color: var(--on-or); border: 0; border-radius: 11px; font: 800 17px var(--body); cursor: pointer; }
+  button:hover { background: var(--or-h); }
+  button:focus-visible { outline-color: var(--ink); }
+  .large { max-width: 500px; margin-top: 14px; }
+  @media (min-width: 45.01rem) {
+    .row { flex-direction: row; gap: 0; padding: 6px; box-shadow: 6px 6px 0 var(--brand); }
+    .row:focus-within { box-shadow: 6px 6px 0 var(--or); }
+    input { padding: 0 14px; }
+    .large { margin-top: 30px; }
+  }
 </style>

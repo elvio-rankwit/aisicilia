@@ -1,8 +1,61 @@
 ---
-interface Props { text?: string; label?: string; tile?: boolean }
-const { tile = false, text = 'La tua azienda non c’è? Segnalala. Controlliamo le fonti e, se rispetta i criteri, la aggiungiamo.', label = 'Segnala un’azienda o un evento' } = Astro.props;
+// Invito a segnalare. Variante "box" (default): riquadro arancia per le pagine interne.
+// Variante "band": fascia a tutta larghezza della home, con titolo, testo e nota.
+interface Props { text?: string; label?: string; tile?: boolean; variant?: 'box' | 'band'; title?: string; note?: string }
+const {
+  variant = 'box', title = 'Conosci un’azienda o un evento che non c’è?', note = 'Ci vogliono due minuti. Serve solo un indirizzo web.',
+  text = variant === 'band' ? 'Mandaci il link. Lo controlliamo su una fonte pubblica e, se regge, lo mettiamo sulla mappa.' : 'La tua azienda non c’è? Segnalala. Controlliamo le fonti e, se rispetta i criteri, la aggiungiamo.',
+  label = variant === 'band' ? 'Segnala' : 'Segnala un’azienda o un evento',
+} = Astro.props;
+const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
 ---
-<aside class:list={["cta", { tile }]} aria-label="Segnalazioni">
-  <p>{text}</p>
-  <a class="btn" href="/segnala/">{label}</a>
-</aside>
+{variant === 'band' ? (
+  <section class="band" id="segnala" aria-labelledby="h-cta">
+    <div class="container in">
+      <div>
+        <p class="eyebrow">Segnala</p>
+        <h2 id="h-cta">{title}</h2>
+        <p class="l">{text}</p>
+      </div>
+      <div class="act">
+        <a class="big" href="/segnala/">{label} <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d={arrow} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+        <span>{note}</span>
+      </div>
+    </div>
+  </section>
+) : (
+  <aside class="box" aria-label="Segnalazioni">
+    <p>{text}</p>
+    <a class="btn" href="/segnala/">{label}</a>
+  </aside>
+)}
+<style>
+  .box { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; margin-top: var(--space-8); padding: 28px 30px; background: var(--or); color: var(--on-or); border: 1.5px solid var(--on-or); border-radius: var(--r-lg); box-shadow: 8px 8px 0 var(--sh); }
+  .box p { margin: 0; max-width: 36rem; font-size: 19px; font-weight: 600; line-height: 1.45; }
+  .box .btn { background: var(--on-or); color: #fff; border-color: var(--on-or); box-shadow: 3px 3px 0 #fff; }
+  .box .btn:hover { background: #26303a; color: #fff; }
+  .box :global(:focus-visible), .band :global(:focus-visible) { outline-color: var(--on-or); }
+
+  .band { position: relative; overflow: hidden; padding: 72px 0; background: var(--or); color: var(--on-or); border-top: 1.5px solid var(--on-or); }
+  .band::before, .band::after { content: ''; position: absolute; border-radius: 50%; pointer-events: none; }
+  .band::before { width: 340px; height: 340px; right: -230px; top: -250px; border: 2px solid var(--on-or); opacity: 0.9; }
+  .band::after { display: none; }
+  .in { position: relative; display: grid; gap: 40px; align-items: center; }
+  .band .eyebrow { color: var(--on-or); }
+  .band .eyebrow::before { background: var(--on-or); }
+  h2 { margin: 14px 0 0; font-size: 29px; line-height: 1.1; color: var(--on-or); }
+  .l { margin: 20px 0 0; max-width: 46ch; font-size: 19px; color: var(--on-or); }
+  .act { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+  .act span { font-size: 16px; font-weight: 500; color: var(--on-or); }
+  .big { display: inline-flex; align-items: center; gap: 8px; min-height: 62px; padding: 0 34px; background: #101418; color: #fff; border: 1.5px solid #101418; border-radius: 16px; font-size: 20px; font-weight: 700; text-decoration: none; box-shadow: 4px 4px 0 #fff; transition: transform 0.15s, box-shadow 0.15s, background-color 0.2s; }
+  .big:hover { background: #26303a; color: #fff; transform: translate(1px, 1px); box-shadow: 3px 3px 0 #fff; }
+  @media (min-width: 45.01rem) {
+    .band { padding: 112px 0; }
+    .band::before { width: 520px; height: 520px; right: -120px; top: -290px; }
+    .band::after { display: block; width: 300px; height: 300px; right: 140px; bottom: -190px; background: #fff; opacity: 0.28; }
+    h2 { font-size: clamp(30px, 3.9vw, 54px); }
+    .l { font-size: 21px; }
+    .big { box-shadow: 5px 5px 0 #fff; }
+  }
+  @media (min-width: 68.76rem) { .in { grid-template-columns: 1.7fr 1fr; } }
+</style>

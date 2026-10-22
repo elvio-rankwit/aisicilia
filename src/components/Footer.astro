@@ -1,37 +1,50 @@
 ---
-const year = new Date().getFullYear();
+import { IS_BETA as beta } from '../lib/site';
+const cols = [
+  { h: 'Esplora', links: [['/aziende/', 'Aziende'], ['/eventi/', 'Eventi'], ['/impara/', 'Guide'], ['/prompt/', 'Prompt'], ['/cerca/', 'Cerca']] },
+  { h: 'Progetto', links: [['/metodologia/', 'Metodologia'], ['/chi-siamo/', 'Chi siamo'], ['/contatti/', 'Contatti'], ['/segnala/', 'Segnala']] },
+  { h: 'Dati e legale', links: [['/rimozione/', 'Richiedi rimozione'], ['/privacy/', 'Privacy'], ['/note-legali/', 'Note legali']] },
+];
 ---
 <footer class="site-footer">
   <div class="container">
-    <div class="top">
+    <div class="fg">
       <div class="about">
-        <p class="brand">AI Sicilia</p>
-        <p class="tag">Aziende, eventi, guide e prompt sull’intelligenza artificiale in Sicilia. Un progetto indipendente, con le fonti sempre a vista.</p>
+        <a class="logo" href="/" aria-label="AI Sicilia, torna alla home">AI <b>Sicilia</b></a>
+        <p>Portale indipendente sull’intelligenza artificiale in Sicilia. Lo cura <a href="/chi-siamo/">Elvio Leonardi</a>.</p>
       </div>
-      <nav aria-label="Piè di pagina">
-        <ul>
-          <li><a href="/chi-siamo/">Chi siamo</a></li>
-          <li><a href="/metodologia/">Come verifichiamo i dati</a></li>
-          <li><a href="/segnala/">Segnala un’azienda o un evento</a></li>
-          <li><a href="/rimozione/">Richiedi modifica o rimozione</a></li>
-          <li><a href="/contatti/">Contatti</a></li>
-          <li><a href="/privacy/">Privacy</a></li>
-          <li><a href="/note-legali/">Note legali</a></li>
-        </ul>
-      </nav>
+      {cols.map((c) => (
+        <nav aria-label={c.h}>
+          <h2>{c.h}</h2>
+          <ul>{c.links.map(([href, label]) => <li><a href={href}>{label}</a></li>)}</ul>
+        </nav>
+      ))}
     </div>
-    <p class="small">© {year} AI Sicilia, progetto indipendente di <a href="/chi-siamo/">Elvio Leonardi</a>. Mappe © <a href="https://www.openstreetmap.org/copyright">contributori OpenStreetMap</a>.</p>
+    <div class="fb">
+      <span>Confini delle province: ISTAT, 1 gennaio 2025, licenza CC BY 4.0. Mappe interattive © <a href="https://www.openstreetmap.org/copyright">contributori OpenStreetMap</a>.</span>
+      {beta && <span>Versione beta, non indicizzata.</span>}
+    </div>
   </div>
 </footer>
 <style>
-  .site-footer { margin-top: var(--space-9); padding-block: var(--space-7); background: var(--c-surface-2); color: var(--c-text-muted); font-size: var(--fs-sm); }
-  .top { display: grid; gap: var(--space-6); margin-bottom: var(--space-6); }
-  @media (min-width: 48rem) { .top { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: var(--space-8); } }
-  .brand { margin: 0 0 var(--space-2); font-family: var(--font-serif); font-weight: 600; font-size: var(--fs-lg); color: var(--c-text); }
-  .tag { margin: 0; max-width: 28rem; }
-  ul { display: grid; gap: 0 var(--space-5); grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); list-style: none; padding: 0; margin: 0; }
-  a { display: inline-block; padding-block: var(--space-2); color: var(--c-text); text-underline-offset: 0.2em; }
-  a:hover { color: var(--c-primary); }
-  .small { margin: 0; padding-top: var(--space-5); border-top: 1px solid var(--c-border); }
-  .small a { padding-block: 0; }
+  .site-footer { padding: 60px 0 38px; background: var(--grey); border-top: 1.5px solid var(--bd); color: var(--muted); font-size: 16px; }
+  .fg { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .about { grid-column: 1 / -1; }
+  .logo { display: inline-flex; gap: 0.45em; font: 800 18px/1 var(--display); letter-spacing: -0.04em; color: var(--ink); text-decoration: none; }
+  .logo b { color: var(--brand); }
+  .about p { max-width: 34ch; margin: 14px 0 0; }
+  h2 { margin: 0 0 16px; font: 800 12px/1 var(--body); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); }
+  ul { display: grid; gap: 2px; list-style: none; padding: 0; margin: 0; }
+  li a { display: inline-block; min-height: 36px; padding: 8px 0; color: var(--muted); text-decoration: none; }
+  li a:hover { color: var(--brand-d); text-decoration: underline; text-decoration-color: var(--or); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+  .about a:not(.logo), .fb a { color: var(--ink); }
+  .fb { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; margin-top: 44px; padding-top: 22px; border-top: 1px solid var(--line-2); font-size: 15px; color: var(--faint); }
+  .fb a { color: var(--muted); }
+  @media (min-width: 45.01rem) {
+    .site-footer { margin-top: 0; }
+  }
+  @media (min-width: 68.76rem) {
+    .fg { grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; }
+    .about { grid-column: auto; }
+  }
 </style>

@@ -1,132 +1,101 @@
-/* Design tokens AI Sicilia v3: leggibilità prima di tutto (docs/specs/design-v3.md).
-   Contrasti verificati con script (light e dark): testo ≥ 4.5:1, bordi dei controlli ≥ 3:1.
-   Ogni colore si usa SOLO tramite queste variabili. */
+/* Design tokens AI Sicilia v4: valori presi dal mockup approvato (docs/mockups/hp-c-finale.html, D-035).
+   Ogni colore è una coppia light-dark(chiaro, scuro): il tema segue il sistema, oppure `data-theme` sull'<html>
+   (impostato dal toggle in Header). Contrasti AA verificati con scripts/contrast (testo ≥ 4.5:1, bordi dei controlli ≥ 3:1). */
 :root {
-  color-scheme: light;
-  /* Calce, carta, pietra */
-  --c-bg: #f8f6f1;
-  --c-surface: #ffffff;
-  --c-surface-2: #f1ede5;
-  --c-border: #e3ddd2;
-  --c-border-strong: #858a8f; /* bordi dei controlli (input, select): ≥ 3:1 */
-  --c-text: #2a2e33;
-  --c-text-muted: #5d6369;
-  /* Blu maiolica: link e azioni */
-  --c-primary: #235c80;
-  --c-primary-hover: #19445f;
-  --c-primary-soft: #e6eef4;
-  --c-on-primary: #ffffff;
-  /* Terracotta: date, "In evidenza", una CTA per pagina */
-  --c-accent: #a8532d;
-  --c-accent-soft: #f6e7dd;
-  --c-accent-strong: #8f4322;
-  --c-on-accent: #ffffff;
-  /* Pistacchio: conteggi e tag dati */
-  --c-data: #55672c;
-  --c-data-soft: #e9edda;
-  /* Ocra: solo decorativo, mai testo */
-  --c-ochre: #c79a45;
-  --c-ochre-strong: #8a6a2a; /* contorno dei punti sulla mappa */
-  /* Stati */
-  --c-warning-bg: #f6ecd0;
-  --c-warning-text: #5e4400;
-  --c-danger: #9b1c1c;
-  --c-danger-bg: #f8e4e0;
-  --c-focus: #235c80;
-  /* Mappa province (riempimenti SVG) */
-  --c-map-land: #ece6da;
-  --c-map-land-hover: #dbe6ee;
-  --c-map-stroke: #ffffff;
-  --c-map-active: #235c80;
+  color-scheme: light dark;
 
-  /* Tipografia: Public Sans (testo e interfaccia), Newsreader 600 (titoli). Niente monospazio. */
-  --font-sans: "Public Sans", "Public Sans Fallback", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  --font-serif: "Newsreader", "Newsreader Fallback", "Newsreader Fallback Times", Georgia, "Times New Roman", serif;
+  /* Superfici: bianco e grigio freddo */
+  --bg: light-dark(#ffffff, #0f1418);
+  --card: light-dark(#ffffff, #1a232b);
+  --grey: light-dark(#f4f6f8, #151d24);
+  --grey-2: light-dark(#eaeef2, #27323c);
+  /* Inchiostro: testo, bordi netti e ombre piene */
+  --ink: light-dark(#101418, #e9ecef);
+  --muted: light-dark(#3a444e, #b6c0c9);
+  --faint: light-dark(#59656f, #9aa6b0);
+  --bd: light-dark(#101418, #66747f);        /* bordo di card e controlli */
+  --sh: light-dark(#101418, #04070a);        /* ombra piena */
+  --line: light-dark(#dce2e8, #2b3640);
+  --line-2: light-dark(#bfc9d3, #475561);
+  /* Blu mare: testo/link (--brand) e riempimenti (--brand-bg, uguale nei due temi) */
+  --brand: light-dark(#0b5fa5, #7fbaf2);
+  --brand-d: light-dark(#084a82, #aad3f9);
+  --brand-t: light-dark(#e6f0f9, #14283a);
+  --brand-bg: #0b5fa5;
+  /* Arancia: invariata nei due temi, testo scuro sopra (--on-or) */
+  --or: #f07a1a;
+  --or-h: #f68d38;
+  --on-or: #101418;
+  --or-t: light-dark(#ffeedd, #3b2413);
+  --or-text: light-dark(#a84a00, #f6a967);
+  /* Turchese: eventi */
+  --teal: light-dark(#0b6b75, #5fc4cf);
+  --teal-t: light-dark(#e0f1f2, #12292d);
+  /* Mappa */
+  --map-zero: light-dark(#edf0f3, #1e2830);
+  --map-tint: light-dark(#0b5fa5, #5aa7ec);
+  --dot: light-dark(#cbd4dd, #26313b);
+  /* Stati */
+  --warn-bg: light-dark(#fff3d6, #3a2f12);
+  --warn-text: light-dark(#6b4200, #f6d98a);
+  --danger: light-dark(#9b1c1c, #f4a3a3);
+  --danger-bg: light-dark(#fbe6e2, #3b1c1c);
+
+  /* Tipografia: Unbounded (titoli, numeri), Figtree (tutto il resto). Fallback con metriche regolate (global.css). */
+  --display: "Unbounded", "Unbounded Fallback", Arial, system-ui, sans-serif;
+  --body: "Figtree", "Figtree Fallback", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  /* Forme */
+  --r: 14px;
+  --r-lg: 22px;
+  --tap: 44px;
+  --ease: 160ms ease-out;
+  --container: 1240px;
+  --measure: 40rem;
+
+  /* Alias dei nomi v3: le pagine interne non ancora ridisegnate (Fase 2) continuano a compilare con i colori nuovi. */
+  --c-bg: var(--bg);
+  --c-surface: var(--card);
+  --c-surface-2: var(--grey);
+  --c-border: var(--line);
+  --c-border-strong: var(--faint);
+  --c-text: var(--ink);
+  --c-text-muted: var(--muted);
+  --c-primary: var(--brand);
+  --c-primary-hover: var(--brand-d);
+  --c-primary-soft: var(--brand-t);
+  --c-on-primary: light-dark(#ffffff, #0b1218);
+  --c-accent: var(--or-text);
+  --c-accent-soft: var(--or-t);
+  --c-accent-strong: var(--or-text);
+  --c-on-accent: var(--on-or);
+  --c-data: var(--teal);
+  --c-data-soft: var(--teal-t);
+  --c-ochre: var(--or);
+  --c-ochre-strong: var(--or-text);
+  --c-warning-bg: var(--warn-bg);
+  --c-warning-text: var(--warn-text);
+  --c-danger: var(--danger);
+  --c-danger-bg: var(--danger-bg);
+  --c-focus: var(--brand);
+  --c-map-land: var(--map-zero);
+  --c-map-land-hover: var(--brand-t);
+  --c-map-stroke: var(--bg);
+  --c-map-active: var(--brand);
+  --font-sans: var(--body);
+  --font-serif: var(--display);
   --fs-xs: 0.8125rem;
   --fs-sm: 0.875rem;
   --fs-base: 1rem;
   --fs-md: 1.125rem;
   --fs-lg: 1.25rem;
-  --fs-xl: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
-  --fs-2xl: clamp(2rem, 1.4rem + 2.6vw, 3rem);
-  --lh-tight: 1.15;
   --lh-base: 1.6;
   --lh-read: 1.7;
-
-  /* Spazi (8, 12, 16, 24, 32, 48, 64, 96) e forme */
   --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
   --space-5: 1.5rem; --space-6: 2rem; --space-7: 3rem; --space-8: 4rem; --space-9: 6rem;
-  --gutter: 16px;
-  --container: 72rem;
-  --measure: 40rem; /* ≈ 75 caratteri a 18px: misura di lettura */
-  --radius-sm: 8px; --radius: 12px; --radius-lg: 16px; --radius-pill: 999px;
-  --tap: 44px;
-  --ease: 160ms ease-out;
-  --shadow: none;
+  --radius-sm: 10px; --radius: var(--r); --radius-lg: var(--r-lg); --radius-pill: 999px;
+  --shadow: 2px 2px 0 var(--sh);
 }
-
-:root[data-theme="dark"] {
-  color-scheme: dark;
-  --c-bg: #15191c;
-  --c-surface: #1c2125;
-  --c-surface-2: #232a2f;
-  --c-border: #2f373d;
-  --c-border-strong: #7b838a;
-  --c-text: #e6e1d8;
-  --c-text-muted: #a9aeb2;
-  --c-primary: #8ebbd8;
-  --c-primary-hover: #b3d1e5;
-  --c-primary-soft: #1f2f3a;
-  --c-on-primary: #10161a;
-  --c-accent: #e39b74;
-  --c-accent-soft: #33271f;
-  --c-accent-strong: #f0b08e;
-  --c-on-accent: #1b1410;
-  --c-data: #afc07e;
-  --c-data-soft: #262f1f;
-  --c-ochre: #d3b06c;
-  --c-ochre-strong: #d3b06c;
-  --c-warning-bg: #372f15;
-  --c-warning-text: #f5d98a;
-  --c-danger: #f3a0a0;
-  --c-danger-bg: #3a1c1c;
-  --c-focus: #8ebbd8;
-  --c-map-land: #262d32;
-  --c-map-land-hover: #2f4452;
-  --c-map-stroke: #15191c;
-  --c-map-active: #8ebbd8;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    color-scheme: dark;
-    --c-bg: #15191c;
-    --c-surface: #1c2125;
-    --c-surface-2: #232a2f;
-    --c-border: #2f373d;
-    --c-border-strong: #7b838a;
-    --c-text: #e6e1d8;
-    --c-text-muted: #a9aeb2;
-    --c-primary: #8ebbd8;
-    --c-primary-hover: #b3d1e5;
-    --c-primary-soft: #1f2f3a;
-    --c-on-primary: #10161a;
-    --c-accent: #e39b74;
-    --c-accent-soft: #33271f;
-    --c-accent-strong: #f0b08e;
-    --c-on-accent: #1b1410;
-    --c-data: #afc07e;
-    --c-data-soft: #262f1f;
-    --c-ochre: #d3b06c;
-    --c-ochre-strong: #d3b06c;
-    --c-warning-bg: #372f15;
-    --c-warning-text: #f5d98a;
-    --c-danger: #f3a0a0;
-    --c-danger-bg: #3a1c1c;
-    --c-focus: #8ebbd8;
-    --c-map-land: #262d32;
-    --c-map-land-hover: #2f4452;
-    --c-map-stroke: #15191c;
-    --c-map-active: #8ebbd8;
-  }
-}
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"] { color-scheme: dark; }

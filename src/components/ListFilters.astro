@@ -37,15 +37,15 @@ const { target, fields, searchLabel = 'Cerca per nome, città o parola chiave', 
   <p class="empty" data-empty hidden>Nessun risultato con questi filtri. Prova a toglierne qualcuno, oppure <a href="/segnala/">segnala ciò che manca</a>.</p>
 </form>
 <style>
-  .filters { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--radius); padding: var(--space-5); margin-bottom: var(--space-6); }
+  .filters { margin-bottom: var(--space-6); padding: 24px; background: var(--card); border: 1.5px solid var(--bd); border-radius: var(--r-lg); box-shadow: 6px 6px 0 var(--grey-2); }
   .grid-f { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); }
   .wide { grid-column: 1 / -1; }
-  .field > label { font-size: var(--fs-sm); }
-  .field select { appearance: none; padding-right: 2.5rem; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23858a8f' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.75rem center; background-size: 1.25rem; cursor: pointer; }
+  .field > label { font: 800 12px/1.4 var(--body); text-transform: uppercase; letter-spacing: 0.1em; color: var(--faint); }
+  .field select { appearance: none; padding-right: 2.5rem; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23808c97' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.75rem center; background-size: 1.25rem; cursor: pointer; }
   /* Stato attivo: un filtro con un valore scelto si distingue subito */
-  .field:has(select option:not([value=""]):checked) select { background-color: var(--c-primary-soft); border-color: var(--c-primary); color: var(--c-primary); font-weight: 600; }
+  .field:has(select option:not([value=""]):checked) select { background-color: var(--brand-t); border-color: var(--brand); color: var(--brand-d); font-weight: 700; }
   .bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2) var(--space-4); margin-top: var(--space-4); }
-  .count { margin: 0; font-weight: 600; min-height: 1.6em; }
+  .count { margin: 0; font-weight: 700; min-height: 1.6em; }
   .empty { margin: var(--space-4) 0 0; }
 </style>
 <script>

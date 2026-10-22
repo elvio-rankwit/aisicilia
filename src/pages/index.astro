@@ -1,141 +1,490 @@
 ---
+// Home v4: riproduce docs/mockups/hp-c-finale.html con dati reali (solo da src/lib/data.ts).
 import BaseLayout from '../layouts/BaseLayout.astro';
 import MapPreviewSlot from '../components/MapPreviewSlot.astro';
-import EventCard from '../components/EventCard.astro';
 import ArticleCard from '../components/ArticleCard.astro';
-import EmptyState from '../components/EmptyState.astro';
 import CtaSegnala from '../components/CtaSegnala.astro';
-import SiciliaDots from '../components/SiciliaDots.astro';
 import SearchForm from '../components/SearchForm.astro';
-import CompanyCard from '../components/CompanyCard.astro';
-import { getArticles, getCompanies, getPrompts, getUpcomingEvents } from '../lib/data';
+import { formatDate, getArticles, getCompanies, getPrompts, getUpcomingEvents, latestDate, today } from '../lib/data';
+import { PROVINCES, PROVINCE_SLUGS, type ProvinceSlug } from '../lib/provinces';
+import { PROMPT_SECTORS } from '../lib/taxonomies';
 import { meta } from '../lib/seo/meta';
-import { countByProvince, plural } from '../components/helpers';
+import { cap, clip, countByProvince, joinIt } from '../components/helpers';
 
 const [companies, events, articles, prompts] = await Promise.all([getCompanies(), getUpcomingEvents(), getArticles(), getPrompts()]);
-const counts = countByProvince(companies);
-const nextEvents = events.slice(0, 3);
-const featured = companies.filter((c) => c.data.featured).slice(0, 2);
-const latest = [...articles].sort((a, b) => b.data.published_at.getTime() - a.data.published_at.getTime()).slice(0, 3);
 const m = meta.home();
+const t0 = today().getTime();
+const lastDay = (e: (typeof events)[number]) => (e.data.end_date ?? e.data.start_date).getTime();
+const isToday = (e: (typeof events)[number]) => e.data.start_date.getTime() <= t0 && t0 <= lastDay(e);
 
-const quick = [
-  { href: '/aziende/', title: 'Aziende', n: companies.length, text: companies.length ? `${plural(companies.length, 'realtà siciliana', 'realtà siciliane')} con l’AI al centro del prodotto o del servizio.` : 'La directory è in costruzione: le prime schede arrivano a breve.' },
-  { href: '/eventi/', title: 'Eventi', n: events.length, text: events.length ? `${plural(events.length, 'evento in programma', 'eventi in programma')}, con date, luoghi e link per iscriversi.` : 'Nessun evento in programma per ora. Ne conosci uno? Segnalalo.' },
-  { href: '/impara/', title: 'Impara', n: articles.length, text: articles.length ? `${plural(articles.length, 'guida pratica', 'guide pratiche')} per capire cosa fa l’AI per un’impresa, cosa no e quanto costa.` : 'Le prime guide per le imprese sono in preparazione.' },
-  { href: '/prompt/', title: 'Prompt', n: prompts.length, text: prompts.length ? `${plural(prompts.length, 'prompt pronto', 'prompt pronti')} da copiare, divisi per settore, con esempi e avvertenze.` : 'La libreria di prompt è in preparazione.' },
+// Conteggi
+const counts = countByProvince(companies);
+const evCounts = countByProvince(events);
+const nC = companies.length;
+const nE = events.length;
+const sorted = [...PROVINCE_SLUGS].sort((a, b) => counts[b] - counts[a] || PROVINCES[a].name.localeCompare(PROVINCES[b].name, 'it'));
+const withData = sorted.filter((p) => counts[p] > 0);
+const zeros = sorted.filter((p) => counts[p] === 0);
+const maxC = Math.max(1, ...withData.map((p) => counts[p]));
+const names = (list: ProvinceSlug[]) => joinIt(list.map((p) => PROVINCES[p].name));
+const inCity = (name: string) => (/^[AE]/.test(name) ? 'ad' : 'a') + ' ' + name;
+const noun = (n: number, one: string, many: string) => (n === 1 ? one : many);
+
+// Date
+const dm = new Intl.DateTimeFormat('it-IT', { day: 'numeric', month: 'long', timeZone: 'UTC' });
+const mon = new Intl.DateTimeFormat('it-IT', { month: 'short', timeZone: 'UTC' });
+const day = new Intl.DateTimeFormat('it-IT', { day: 'numeric', timeZone: 'UTC' });
+const words = ['nessuno', 'uno', 'due', 'tre', 'quattro', 'cinque', 'sei', 'sette', 'otto', 'nove', 'dieci'];
+const updated = latestDate([...companies.map((c) => c.data.last_verified), ...events.map((e) => e.data.last_verified)]);
+const eventsEnd = events.length ? new Date(Math.max(...events.map(lastDay))) : undefined;
+const nToday = events.filter(isToday).length;
+
+// Hero
+const featured = companies.find((c) => c.data.featured);
+const mapEvents = events.filter((e) => e.data.lat !== undefined && e.data.lng !== undefined).map((e) => ({ lat: e.data.lat!, lng: e.data.lng!, today: isToday(e) }));
+
+// Barra dei numeri
+const nStartup = companies.filter((c) => c.data.type === 'startup').length;
+const nRicerca = companies.filter((c) => c.data.type === 'centro di ricerca').length;
+const nOther = nC - nStartup - nRicerca;
+const companiesText = nStartup && nRicerca
+  ? `${nStartup} ${noun(nStartup, 'startup', 'startup')}, ${nRicerca} ${noun(nRicerca, 'centro di ricerca', 'centri di ricerca')}` + (nOther ? ` e ${nOther} ${noun(nOther, 'altra realtà', 'altre realtà')}.` : '.')
+  : 'Realtà siciliane con l’AI al centro del prodotto o del servizio.';
+const evProv = [...PROVINCE_SLUGS].filter((p) => evCounts[p] > 0).sort((a, b) => evCounts[b] - evCounts[a] || PROVINCES[a].name.localeCompare(PROVINCES[b].name, 'it')).slice(0, 3);
+const eventsText = nE
+  ? `Da oggi al ${dm.format(eventsEnd!)}. ` + joinIt(evProv.map((p) => `${evCounts[p]} ${inCity(PROVINCES[p].name)}`)) + '.'
+  : 'Nessun evento in programma per ora.';
+const times = articles.map((a) => a.data.reading_time);
+const guidesText = articles.length ? `Per chi ha un’attività. Da ${Math.min(...times)} a ${Math.max(...times)} minuti di lettura.` : 'Le prime guide per le imprese sono in preparazione.';
+const noCompanyProvinces = zeros.length;
+const nSectors = new Set(prompts.map((p) => p.data.sector)).size;
+const promptsText = prompts.length ? `Da incollare e adattare, in ${nSectors} settori. Ognuno dice dove sbaglia.` : 'La libreria di prompt è in preparazione.';
+const stats = [
+  { href: '/aziende/', label: 'Aziende', n: nC, text: companiesText },
+  { href: '/eventi/', label: 'Eventi in programma', n: nE, text: eventsText },
+  { href: '/impara/', label: 'Guide', n: articles.length, text: guidesText },
+  { href: '/prompt/', label: 'Prompt', n: prompts.length, text: promptsText },
 ];
+
+// Sezione aziende
+const top2 = withData.slice(0, 2);
+const top2Sum = top2.reduce((s, p) => s + counts[p], 0);
+const companiesSub = nC
+  ? (top2.length === 2 ? `${names(top2)} hanno ${top2Sum} schede su ${nC}. ` : '') + (noCompanyProvinces ? `${names(zeros)} non ne hanno ancora.` : '')
+  : 'La directory è in costruzione.';
+// Testo di presentazione scelto dalla redazione per la scheda in evidenza; in mancanza, un estratto della descrizione.
+const TEASER: Record<string, string> = {
+  rankwit: 'Ogni giorno fa le domande dei viaggiatori a ChatGPT, Gemini, Claude, Perplexity e AI Overview. Poi conta quante volte compare ogni hotel o destinazione, rispetto ai concorrenti, e da quali fonti arrivano le risposte.',
+};
+const fd = featured?.data;
+
+// Eventi
+const timeOf = (e: (typeof events)[number]) => e.data.start_time ?? '';
+const rows = [...events].sort((a, b) => a.data.start_date.getTime() - b.data.start_date.getTime() || timeOf(a).localeCompare(timeOf(b))).slice(0, 6);
+const dateParts = (e: (typeof events)[number]) => {
+  const s = e.data.start_date;
+  const en = e.data.end_date;
+  if (!en || en.getTime() === s.getTime()) return { d: day.format(s), m: mon.format(s) };
+  const sameMonth = mon.format(s) === mon.format(en) && s.getUTCFullYear() === en.getUTCFullYear();
+  return { d: `${day.format(s)}–${day.format(en)}`, m: sameMonth ? mon.format(s) : `${mon.format(s)}–${mon.format(en)}` };
+};
+const price = (p: string) => (p === 'non indicato' ? 'Prezzo non indicato' : cap(p));
+const eventsSub = nE
+  ? (nToday ? `${cap(words[nToday] ?? String(nToday))} ${nToday === 1 ? 'si tiene' : 'si tengono'} oggi. Gli altri arrivano fino al ${dm.format(eventsEnd!)}.` : `Dal ${dm.format(events[0].data.start_date)} al ${dm.format(eventsEnd!)}.`)
+  : 'Nessun evento in programma per ora. Ne conosci uno? Segnalalo.';
+
+// Guide: tre scelte dalla redazione (la prima in grande), poi le più recenti se mancano
+const GUIDES = ['incentivi-finanziamenti-digitalizzazione-ai-sicilia', 'ai-pmi-siciliane-da-dove-cominciare', 'ai-hotel-bb-strutture-ricettive'];
+const picked = GUIDES.map((id) => articles.find((a) => a.id === id)).filter((a): a is NonNullable<typeof a> => !!a);
+const guides = [...picked, ...[...articles].sort((a, b) => b.data.updated_at.getTime() - a.data.updated_at.getTime()).filter((a) => !picked.includes(a))].slice(0, 3);
+
+// Prompt in vetrina
+const PROMPT = 'risposta-recensione-negativa-booking-ospitalita';
+const showcase = prompts.find((p) => p.id === PROMPT) ?? prompts[0];
+const pd = showcase?.data;
+const firstSentence = (s: string) => s.match(/^.+?[.!?](\s|$)/)?.[0].trim() ?? s;
+const warn = showcase ? (showcase.id === PROMPT ? 'Non incollare nome, cognome, email o dati di prenotazione dell’ospite. Nel test l’AI ha aggiunto una circostanza che non era tra i fatti: ora il prompt lo vieta.' : firstSentence(pd!.limits_and_warnings)) : '';
+const excerpt = pd ? pd.prompt_text.split('\n\n').slice(0, 3).join('\n\n') : '';
+const parts = excerpt.split(/(\{[a-z0-9_]+\})/g);
+
+// Fiducia
+const nAddress = companies.filter((c) => c.data.geo_precision === 'indirizzo').length;
+const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
 ---
 <BaseLayout seo={{ title: m.title, description: m.description, path: '/' }}>
   <section slot="hero" class="hero" aria-labelledby="h-hero">
-    <div class="container hero-in">
-      <div class="copy">
-        <p class="eyebrow">Progetto indipendente · Beta</p>
-        <h1 id="h-hero">L’intelligenza artificiale in Sicilia: chi la fa, dove, quando</h1>
-        <p class="answer">AI Sicilia raccoglie le aziende, gli eventi, le guide e i prompt sull’intelligenza artificiale in Sicilia. Ogni scheda ha le sue fonti e la data dell’ultima verifica, così sai da dove viene ogni dato. Il portale lo gestisce Elvio Leonardi, consulente SEO e GEO con base a Palermo.</p>
-        <SearchForm large id="q-home" label="Cerca aziende, eventi, guide e prompt" placeholder="Cerca nel sito" />
-        <p class="quick">
-          <a href="/aziende/" data-astro-prefetch>Esplora le aziende <span aria-hidden="true">→</span></a>
-          <a href="/eventi/" data-astro-prefetch>Prossimi eventi <span aria-hidden="true">→</span></a>
-        </p>
+    <div class="container">
+      <div class="hero-copy">
+        <p class="eyebrow">Mappa aggiornata al {updated ? formatDate(updated) : formatDate(new Date())}</p>
+        <h1 id="h-hero">Dove si fa <mark class="blk">AI</mark> in Sicilia</h1>
+        <p class="lead"><b>{nC} {noun(nC, 'azienda', 'aziende')}</b> e <b>{nE} {noun(nE, 'evento', 'eventi')}</b> in programma, ognuno con le sue fonti. Cerca per nome, tema o provincia.</p>
+        <SearchForm large id="q-home" label="Cerca nel portale" placeholder="Un’azienda, un tema, una provincia" />
+        <p class="hero-note">{nC ? <>Sulla mappa le aziende sono in <b>{withData.length} province su 9</b>.{noCompanyProvinces > 0 && <> {names(zeros)} {noCompanyProvinces === 1 ? 'è ancora vuota' : 'sono ancora vuote'}.</>}</> : 'La directory è in costruzione: le prime schede arrivano a breve.'}</p>
+        <div class="legend" role="group" aria-label="Legenda della mappa">
+          <span><i class="a"></i>Azienda</span><span><i class="e"></i>Evento in programma</span>{featured && <span><i class="r"></i>In evidenza</span>}
+        </div>
       </div>
-      <div class="map">
-        <SiciliaDots companies={companies.map((c) => c.data)} events={events.filter((e) => e.data.lat !== undefined).map((e) => ({ lat: e.data.lat!, lng: e.data.lng! }))} label="La Sicilia con le aziende e gli eventi del portale" />
+    </div>
+    <div class="hero-map">
+      <MapPreviewSlot variant="hero" counts={counts} eventCounts={evCounts} mode="link" basePath="/aziende/provincia/" label={`Mappa della Sicilia con ${nC} aziende e ${nE} eventi in programma, divisi per provincia`}
+        points={companies.map((c) => ({ lat: c.data.lat, lng: c.data.lng }))} events={mapEvents} featured={fd ? { lat: fd.lat, lng: fd.lng, name: fd.name } : undefined} />
+      <div class="readout" id="ro" aria-live="polite">
+        <div class="k">Provincia</div>
+        <div class="v" id="rov">Tutta la Sicilia</div>
+        <div class="d" id="rod"><b>{nC}</b> {noun(nC, 'azienda', 'aziende')}, <u>{nE}</u> {noun(nE, 'evento', 'eventi')} in programma. Passa su una provincia.</div>
       </div>
     </div>
   </section>
 
-  <section slot="hero" class="container numbers" aria-label="Accessi rapidi">
-    <ul>
-      {quick.map((q) => (
-        <li>
-          <a href={q.href} data-astro-prefetch>
-            <span class="num">{q.n}</span>
-            <h2>{q.title}</h2>
-            <p>{q.text}</p>
-          </a>
-        </li>
-      ))}
-    </ul>
+  <div slot="hero" class="stats">
+    <div class="container">
+      <ul>
+        {stats.map((s) => (
+          <li class="stat">
+            <a href={s.href} data-astro-prefetch>
+              <span class="top-r">{s.label} <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d={arrow} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+              <b>{s.n}</b>
+              <p>{s.text}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <section slot="hero" class="s" id="aziende" aria-labelledby="h-az">
+    <div class="container">
+      <div class="head">
+        <div><p class="eyebrow">Aziende</p><h2 id="h-az">Aziende per provincia</h2>{companiesSub && <p class="sub">{companiesSub}</p>}</div>
+        <a class="more" href="/aziende/" data-astro-prefetch>Tutte le {nC} aziende <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d={arrow} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+      </div>
+      <div class="grid2">
+        <div class="card pcard">
+          <ul class="plist" aria-label="Aziende ed eventi per provincia">
+            {withData.map((p) => (
+              <li class="prow">
+                <span class="pn"><abbr title={PROVINCES[p].name}>{PROVINCES[p].sigla}</abbr> <a href={`/aziende/provincia/${p}/`}>{PROVINCES[p].name}</a></span>
+                <progress class="bar" max="100" value={Math.round((counts[p] / maxC) * 1000) / 10} aria-hidden="true"></progress>
+                <span class="num">{counts[p]}</span>
+                <span class="pe">{evCounts[p]} {noun(evCounts[p], 'evento', 'eventi')}</span>
+              </li>
+            ))}
+            {zeros.length > 0 && (
+              <li class="zeros">
+                <span class="zl">Ancora a zero</span>
+                <span class="zc">{zeros.map((p) => <span class="chip"><abbr title={PROVINCES[p].name}>{PROVINCES[p].sigla}</abbr> {PROVINCES[p].name}</span>)}</span>
+                <span class="zt">Nessuna scheda. Ne conosci una? <a href="/segnala/">Segnalala.</a></span>
+              </li>
+            )}
+          </ul>
+        </div>
+        {featured && fd && (
+          <article class="feat" aria-labelledby="h-rw">
+            <span class="tag">In evidenza</span>
+            <h3 id="h-rw">{fd.name}</h3>
+            <p class="where">{fd.city}, provincia di {PROVINCES[fd.province].name} · {fd.type}</p>
+            <p class="t">{TEASER[featured.id] ?? clip(fd.description, 260)}</p>
+            <div class="pills">{[...fd.ai_areas, ...fd.sectors_served].slice(0, 3).map((a) => <span class="pill">{cap(a)}</span>)}</div>
+            {fd.disclosure && <p class="note">{fd.disclosure} L’evidenza non cambia i criteri di ingresso, uguali per tutti.</p>}
+            <div class="foot"><span>Verificata il {formatDate(fd.last_verified)}</span><a class="btn" href={`/aziende/${featured.id}/`} data-astro-prefetch>Apri la scheda <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d={arrow} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a></div>
+          </article>
+        )}
+      </div>
+    </div>
   </section>
 
-  {featured.length > 0 && (
-    <section class="section" aria-labelledby="h-evidenza">
-      <div class="section-head">
-        <h2 id="h-evidenza">In evidenza</h2>
-        <a href="/aziende/" data-astro-prefetch>Tutte le aziende</a>
+  <section slot="hero" class="s alt" id="eventi" aria-labelledby="h-ev">
+    <div class="container">
+      <div class="head">
+        <div><p class="eyebrow">Eventi</p><h2 id="h-ev">Prossimi eventi</h2><p class="sub">{eventsSub}</p></div>
+        <a class="more" href="/eventi/" data-astro-prefetch>Tutti i {nE} eventi <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d={arrow} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
       </div>
-      <ul class="grid">{featured.map((c) => <CompanyCard company={c} />)}</ul>
+      {rows.length > 0 && (
+        <ol class="evl">
+          {rows.map((e) => {
+            const dp = dateParts(e);
+            const place = e.data.format === 'online' ? `Online, organizza ${e.data.city}` : e.data.city;
+            const when = e.data.start_time ? `ore ${e.data.start_time}` : e.data.end_date && e.data.end_date.getTime() !== e.data.start_date.getTime() ? 'più giorni' : '';
+            return (
+              <li class="ev-row">
+                <a href={`/eventi/${e.id}/`} data-astro-prefetch>
+                  <span class="date"><b>{dp.d}</b><small>{dp.m}</small></span>
+                  <span class="evmain"><span class="evt">{e.data.title}</span><span class="evm">{[place, e.data.format, when].filter(Boolean).join(' · ')}</span></span>
+                  <span class="chips">{isToday(e) && <span class="chip today">Oggi</span>}<span class="chip pv">{PROVINCES[e.data.province].sigla}</span><span class="chip">{price(e.data.price)}</span></span>
+                </a>
+              </li>
+            );
+          })}
+        </ol>
+      )}
+    </div>
+  </section>
+
+  <section slot="hero" class="s" id="guide" aria-labelledby="h-gu">
+    <div class="container">
+      <div class="head">
+        <div><p class="eyebrow">Guide</p><h2 id="h-gu">Guide per chi ha un’attività</h2><p class="sub">Scritte da Elvio Leonardi, con fonti ufficiali e la data dell’ultimo aggiornamento.</p></div>
+        <a class="more" href="/impara/" data-astro-prefetch>Tutte le {articles.length} guide <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d={arrow} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+      </div>
+      {guides.length > 0 && <ul class="guides">{guides.map((a, i) => <ArticleCard article={a} big={i === 0} />)}</ul>}
+    </div>
+  </section>
+
+  {showcase && pd && (
+    <section slot="hero" class="s alt" id="prompt" aria-labelledby="h-pr">
+      <div class="container">
+        <div class="pgrid">
+          <div>
+            <p class="eyebrow">Prompt in vetrina</p>
+            <h2 id="h-pr">{pd.title}</h2>
+            <p class="goal">{pd.goal}</p>
+            <p class="warn">{warn}</p>
+            <div class="pmeta"><span class="pill">{PROMPT_SECTORS[pd.sector]}</span><span class="pill">{cap(pd.use_case)}</span><span class="pill">Livello {pd.level}</span><span class="pill">Testato il {formatDate(pd.tested_at)}</span></div>
+            <p class="plink"><a class="more" href="/prompt/" data-astro-prefetch>Altri {prompts.length - 1} prompt <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d={arrow} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a></p>
+          </div>
+          <div class="code" role="group" aria-label="Testo del prompt">
+            <div class="bar2">
+              <span>PROMPT · {pd.variables.length} {noun(pd.variables.length, 'variabile', 'variabili')}</span>
+              <button class="copy js-only inline" id="cp" type="button" data-text={pd.prompt_text}><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8" height="8" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.4" /><path d="M3 10.5V4a1 1 0 0 1 1-1h6.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" /></svg><span id="cpt" aria-live="polite">Copia</span></button>
+            </div>
+            <pre>{parts.map((s, i) => (i % 2 ? <mark>{s}</mark> : s))}</pre>
+            <div class="fade"></div>
+            <p class="more-l">Il testo completo è <a href={`/prompt/${pd.sector}/${showcase.id}/`}>nella scheda</a>.</p>
+          </div>
+        </div>
+      </div>
     </section>
   )}
 
-  <section class="section" aria-labelledby="h-eventi">
-    <div class="section-head">
-      <h2 id="h-eventi">Prossimi eventi</h2>
-      <a href="/eventi/" data-astro-prefetch>Tutti gli eventi</a>
-    </div>
-    {nextEvents.length ? (
-      <ul class="grid">{nextEvents.map((e) => <EventCard event={e} />)}</ul>
-    ) : (
-      <EmptyState text="Nessun evento in programma per ora. Ne conosci uno? Segnalalo." />
-    )}
-  </section>
-
-  <section class="section" aria-labelledby="h-mappa">
-    <div class="section-head">
-      <h2 id="h-mappa">Le aziende, provincia per provincia</h2>
-      <a href="/aziende/" data-astro-prefetch>Vai alla directory</a>
-    </div>
-    <MapPreviewSlot counts={counts} mode="link" basePath="/aziende/provincia/" label="Aziende AI per provincia siciliana" />
-  </section>
-
-  <section class="section trust" aria-labelledby="h-fiducia">
-    <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z" /><path d="m8.5 12 2.5 2.5 4.5-5" /></svg>
-    <div>
-      <h2 id="h-fiducia">Come verifichiamo i dati</h2>
-      <p>Ogni scheda rimanda alle fonti che abbiamo consultato e porta la data dell’ultima verifica. Le descrizioni le riscriviamo noi, senza copiare i testi altrui. Pubblichiamo solo dati aziendali: niente nomi di persone, niente contatti privati.</p>
-      <p><a href="/metodologia/">Leggi la metodologia</a></p>
+  <section slot="hero" class="s" id="fiducia" aria-labelledby="h-fi">
+    <div class="container">
+      <div class="head">
+        <div><p class="eyebrow">Fiducia</p><h2 id="h-fi">Come verifichiamo i dati</h2><p class="sub">Una scheda va online solo se ogni dato risulta da una fonte che abbiamo aperto e letto.</p></div>
+        <a class="more" href="/metodologia/" data-astro-prefetch>Leggi la metodologia <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d={arrow} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+      </div>
+      <ol class="steps">
+        <li class="step"><i>01</i><h3>Fonte aperta</h3><p>Sito ufficiale, registro pubblico, pagina dell’organizzatore. LinkedIn, Crunchbase e i siti che vietano di leggerli restano fuori.</p></li>
+        <li class="step"><i>02</i><h3>Testi riscritti</h3><p>Le descrizioni sono scritte da zero. Niente loghi di terzi, <b>nessun dato personale</b>: solo informazioni di imprese.</p></li>
+        <li class="step"><i>03</i><h3>Data di controllo</h3><p>Ogni scheda dice quando l’abbiamo verificata.{updated && <> Le ultime sono del <b>{formatDate(updated)}</b>.</>}</p></li>
+        <li class="step"><i>04</i><h3>Punto sulla mappa</h3><p>Con un indirizzo, il punto è lì: succede per <b>{nAddress} {noun(nAddress, 'azienda', 'aziende')} su {nC}</b>. Senza, è il centro del comune e lo scriviamo.</p></li>
+      </ol>
+      <div class="trust-foot"><p>Per cercare e preparare le bozze usiamo agenti AI. Verifica delle fonti e responsabilità di ciò che si pubblica restano a una persona.</p><a class="btn" href="/rimozione/" data-astro-prefetch>Chiedi una modifica o la rimozione</a></div>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="h-guide">
-    <div class="section-head">
-      <h2 id="h-guide">Ultime guide</h2>
-      <a href="/impara/" data-astro-prefetch>Tutte le guide</a>
-    </div>
-    {latest.length ? (
-      <ul class="grid">{latest.map((a) => <ArticleCard article={a} />)}</ul>
-    ) : (
-      <EmptyState text="Le prime guide sono in preparazione." cta={false} />
-    )}
-  </section>
-
-  <CtaSegnala text="Fai o conosci qualcosa di interessante sull’AI in Sicilia? Segnalalo: controlliamo le fonti e lo aggiungiamo se rispetta i criteri." />
+  <CtaSegnala slot="hero" variant="band" />
 </BaseLayout>
 <style>
-  .hero { padding-block: var(--space-6) var(--space-7); }
-  .hero-in { display: grid; gap: var(--space-7); align-items: center; }
-  @media (min-width: 56rem) { .hero { padding-block: var(--space-8) var(--space-8); } .hero-in { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: var(--space-8); } }
-  .hero h1 { margin-bottom: var(--space-4); max-width: 17em; }
-  .hero .answer { margin-bottom: var(--space-6); }
-  .quick { display: flex; flex-wrap: wrap; gap: 0 var(--space-5); margin: var(--space-3) 0 0; }
-  .quick a { display: inline-flex; align-items: center; gap: var(--space-2); min-height: var(--tap); font-weight: 600; text-decoration: none; }
-  .quick a:hover { text-decoration: underline; }
-  .map { max-width: 30rem; width: 100%; justify-self: center; }
-  .numbers ul { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fit, minmax(min(100%, 9.5rem), 1fr)); margin: 0; padding: 0; list-style: none; }
-  .numbers li { display: flex; }
-  .numbers ul { gap: var(--space-3); }
-    .numbers a { display: block; width: 100%; padding: var(--space-4); background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--radius); color: var(--c-text); text-decoration: none; transition: border-color var(--ease); }
-  .numbers a:hover { border-color: var(--c-primary); color: var(--c-text); }
-  .numbers .num { display: block; font-family: var(--font-serif); font-weight: 600; font-size: 2.5rem; line-height: 1; color: var(--c-primary); margin-bottom: var(--space-2); }
-  @media (min-width: 48rem) { .numbers ul { gap: var(--space-5); grid-template-columns: repeat(4, minmax(0, 1fr)); } .numbers a { padding: var(--space-5); } .numbers .num { font-size: 3rem; margin-bottom: var(--space-3); } }
-  .numbers h2 { margin: 0 0 var(--space-2); font-family: var(--font-sans); font-size: var(--fs-md); font-weight: 600; letter-spacing: 0; }
-  .numbers a:hover h2 { color: var(--c-primary); text-decoration: underline; }
-  .numbers p { margin: 0; font-size: var(--fs-sm); color: var(--c-text-muted); }
-  .trust { display: grid; gap: var(--space-5); padding: var(--space-6); background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--radius-lg); }
-  @media (min-width: 40rem) { .trust { grid-template-columns: auto minmax(0, 1fr); gap: var(--space-6); padding: var(--space-7); } }
-  .trust svg { color: var(--c-data); }
-  .trust h2 { margin: 0 0 var(--space-3); }
-  .trust p { max-width: var(--measure); }
-  .trust p:last-child { margin: 0; }
+  /* Hero */
+  .hero { position: relative; overflow: hidden; background-color: var(--bg); background-image: radial-gradient(circle at 1px 1px, var(--dot) 1.2px, transparent 0); background-size: 24px 24px; display: flex; flex-direction: column; padding-bottom: 40px; }
+  .hero > .container, .hero-copy { display: contents; }
+  .hero-copy > :global(*) { position: relative; z-index: 2; margin-inline: 20px; }
+  .hero-copy .eyebrow { order: 1; margin-top: 34px; margin-bottom: 0; }
+  h1 { order: 2; margin: 18px 20px; font-size: clamp(30px, 11.4vw, 50px); line-height: 1.1; letter-spacing: -0.05em; font-weight: 800; text-wrap: balance; }
+  .lead { order: 3; margin-bottom: 0; max-width: 32ch; font-size: 19px; font-weight: 500; line-height: 1.5; color: var(--ink); }
+  .lead b { font-weight: 800; background: linear-gradient(transparent 62%, color-mix(in srgb, var(--or) 38%, transparent) 62%); }
+  .hero-map { order: 4; position: relative; z-index: 1; margin: -34px 16px -6px -8px; }
+  .hero :global(.search) { order: 5; margin-right: 25px; }
+  .hero-note { order: 6; margin-top: 20px; margin-bottom: 0; max-width: 46ch; font-size: 16px; color: var(--muted); }
+  .hero-note b { color: var(--ink); font-weight: 700; }
+  .legend { order: 7; display: flex; flex-wrap: wrap; gap: 20px; margin-top: 20px; font-size: 15px; font-weight: 500; color: var(--ink); }
+  .legend span { display: flex; align-items: center; gap: 8px; }
+  .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 50%; }
+  .legend .a { background: var(--or); box-shadow: 0 0 0 1.5px var(--bg), 0 0 0 2.5px var(--line-2); }
+  .legend .e { width: 15px; height: 15px; border: 2px solid var(--teal); }
+  .legend .r { width: 16px; height: 16px; border: 2px solid var(--ink); }
+  .readout { display: none; }
+  .k { font: 700 12px/1 var(--body); letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); }
+  .v { margin-top: 10px; font: 700 20px/1.2 var(--display); letter-spacing: -0.04em; }
+  .d { margin-top: 6px; font-size: 16px; line-height: 1.45; color: var(--muted); }
+  .d :global(b), .d :global(u) { font-family: var(--display); font-size: 0.95em; font-weight: 800; text-decoration: none; font-variant-numeric: tabular-nums; }
+  .d :global(b) { color: var(--or-text); }
+  .d :global(u) { color: var(--teal); }
+
+  /* Barra dei numeri */
+  .stats { background: var(--brand-bg); color: #fff; border-block: 1.5px solid var(--bd); }
+  .stats ul { display: grid; grid-template-columns: 1fr 1fr; margin: 0; padding: 0; list-style: none; }
+  .stat a { display: block; height: 100%; padding: 26px 14px 28px 0; color: #fff; text-decoration: none; transition: background-color 0.2s; }
+  .stat:nth-child(even) a { padding-left: 18px; border-left: 1.5px solid rgba(255, 255, 255, 0.28); }
+  .stat:nth-child(n + 3) a { border-top: 1.5px solid rgba(255, 255, 255, 0.28); }
+  .stat a:hover { background: rgba(255, 255, 255, 0.08); color: #fff; }
+  .top-r { display: flex; align-items: flex-start; justify-content: space-between; min-height: 38px; font: 700 13px var(--body); letter-spacing: 0.08em; text-transform: uppercase; }
+  .stat b { position: relative; display: block; margin: 14px 0 16px; font: 800 42px/1 var(--display); letter-spacing: -0.05em; font-variant-numeric: tabular-nums lining-nums; }
+  .stat b::after { content: ''; display: block; width: 34px; height: 5px; margin-top: 10px; background: var(--or); border-radius: 3px; }
+  .stat p { max-width: 30ch; margin: 0; font-size: 15px; line-height: 1.5; color: #e6f0f9; }
+
+  /* Sezioni */
+  .s { padding: 68px 0; background: var(--bg); }
+  .s.alt { background: var(--grey); border-block: 1.5px solid var(--bd); }
+  .head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 30px; }
+  .head h2 { margin: 0; font-size: 26px; line-height: 1.1; letter-spacing: -0.04em; }
+  .grid2 { display: grid; gap: 28px; align-items: start; }
+  .pcard { height: auto; padding: 22px; box-shadow: 4px 4px 0 var(--grey-2); }
+  .pcard:hover { transform: none; box-shadow: 4px 4px 0 var(--grey-2); }
+  .plist { list-style: none; margin: 0; padding: 0; }
+  .prow { display: grid; grid-template-columns: 120px 1fr 38px; align-items: center; gap: 10px; padding: 13px 0; border-bottom: 1px solid var(--line); }
+  .pn { font-weight: 700; font-size: 16px; }
+  .pn a { color: var(--ink); text-decoration: none; }
+  .pn a:hover { text-decoration: underline; text-decoration-color: var(--or); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+  .pn abbr { margin-right: 6px; font: 700 12px var(--body); letter-spacing: 0.08em; color: var(--brand); text-decoration: none; }
+  .bar { appearance: none; -webkit-appearance: none; width: 100%; height: 12px; border: 0; border-radius: 6px; background: var(--grey-2); overflow: hidden; }
+  .bar::-webkit-progress-bar { background: var(--grey-2); border-radius: 6px; }
+  .bar::-webkit-progress-value { background: var(--or); border-radius: 6px; }
+  .bar::-moz-progress-bar { background: var(--or); border-radius: 6px; }
+  .num { text-align: right; font: 700 18px var(--display); letter-spacing: -0.04em; font-variant-numeric: tabular-nums lining-nums; }
+  .pe { display: none; font-size: 15px; font-weight: 600; text-align: right; color: var(--teal); }
+  .zeros { display: grid; gap: 12px; margin-top: 14px; padding: 18px; background: var(--grey); border: 1.5px dashed var(--line-2); border-radius: var(--r); }
+  .zl { font: 700 12px/1 var(--body); letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); }
+  .zc { display: flex; flex-wrap: wrap; gap: 8px; }
+  .zc .chip { background: var(--card); }
+  .zc abbr { margin-right: 4px; font: 700 12px var(--body); letter-spacing: 0.06em; color: var(--brand); text-decoration: none; }
+  .zt { font-size: 16px; color: var(--muted); }
+  .zt a { color: var(--brand-d); font-weight: 700; text-decoration: underline; text-decoration-color: var(--or); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+  .feat { position: relative; margin-right: 5px; padding: 22px; background: var(--brand-bg); color: #fff; border: 1.5px solid var(--bd); border-radius: var(--r-lg); box-shadow: 5px 5px 0 var(--sh); }
+  .feat h3 { margin: 22px 0 10px; font-size: 38px; line-height: 1.05; letter-spacing: -0.05em; color: #fff; }
+  .where { margin: 0; font-size: 16px; color: #e6f0f9; }
+  .feat .t { margin: 18px 0 0; font-size: 18px; color: #fff; }
+  .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .feat .pill { background: #fff; color: #101418; border-color: #fff; }
+  .note { margin: 24px 0 0; padding: 14px 16px; background: rgba(255, 255, 255, 0.12); border-left: 4px solid var(--or); border-radius: 0 10px 10px 0; font-size: 15.5px; line-height: 1.5; color: #fff; }
+  .foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; margin-top: 24px; font-size: 15px; color: #e6f0f9; }
+  .feat .btn { background: #fff; color: #101418; border-color: #101418; box-shadow: 3px 3px 0 #101418; }
+  .feat .btn:hover { background: #e6f0f9; color: #101418; }
+  .feat :global(:focus-visible) { outline-color: #fff; }
+
+  /* Eventi */
+  .evl { list-style: none; margin: 0 5px 0 0; padding: 0; overflow: hidden; background: var(--card); border: 1.5px solid var(--bd); border-radius: var(--r-lg); box-shadow: 5px 5px 0 var(--teal); }
+  .ev-row + .ev-row { border-top: 1px solid var(--line); }
+  .ev-row a { display: grid; grid-template-columns: 104px 1fr; gap: 12px; align-items: center; padding: 18px; color: var(--ink); text-decoration: none; transition: background-color 0.2s; }
+  .ev-row a:hover { background: var(--teal-t); color: var(--ink); }
+  .date { display: flex; flex-direction: column; align-items: flex-start; }
+  .date b { white-space: nowrap; font: 800 21px/1 var(--display); letter-spacing: -0.05em; color: var(--teal); font-variant-numeric: tabular-nums lining-nums; }
+  .date small { margin-top: 8px; font: 800 13px/1 var(--body); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); }
+  .evt { display: block; font: 700 18px/1.3 var(--body); letter-spacing: -0.015em; }
+  .evm { display: block; margin-top: 5px; font-size: 15.5px; color: var(--muted); }
+  .chips { grid-column: 2; display: flex; flex-wrap: wrap; gap: 8px; }
+
+  /* Guide */
+  .guides { display: grid; gap: 22px; margin: 0; padding: 0; list-style: none; }
+  .guides :global(.card) { min-height: 0; padding: 22px; }
+
+  /* Prompt */
+  .pgrid { display: grid; gap: 40px; align-items: center; }
+  .pgrid h2 { margin: 0; font-size: 22px; line-height: 1.2; font-weight: 700; letter-spacing: -0.035em; }
+  .goal { margin: 24px 0 0; font-size: 19px; color: var(--ink); }
+  .warn { margin: 20px 0 0; padding-left: 16px; font-size: 16px; color: var(--muted); border-left: 4px solid var(--or); }
+  .pmeta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
+  .plink { margin: 26px 0 0; }
+  .code { margin-right: 6px; overflow: hidden; background: var(--card); border: 2px solid var(--bd); border-radius: var(--r-lg); box-shadow: 6px 6px 0 var(--brand); }
+  .bar2 { display: flex; align-items: center; justify-content: space-between; padding: 10px 12px 10px 22px; background: var(--brand-t); border-bottom: 2px solid var(--bd); font: 800 13px var(--body); letter-spacing: 0.1em; color: var(--brand-d); }
+  .copy { display: inline-flex; align-items: center; gap: 8px; min-height: var(--tap); padding: 0 16px; background: var(--card); color: var(--ink); border: 1.5px solid var(--bd); border-radius: 10px; font: 700 15px var(--body); cursor: pointer; }
+  .copy:hover { background: var(--or); color: var(--on-or); }
+  pre { position: relative; margin: 0; padding: 18px 16px 8px; white-space: pre-wrap; font: 400 14px/1.75 var(--mono); color: var(--ink); }
+  pre mark { padding: 1px 5px; background: var(--or-t); color: var(--or-text); font-weight: 700; border-radius: 4px; box-shadow: inset 0 0 0 1px var(--or); }
+  .fade { position: relative; height: 70px; margin-top: -70px; background: linear-gradient(transparent, var(--card)); pointer-events: none; }
+  .more-l { margin: 0; padding: 0 24px 22px; font-size: 15px; color: var(--faint); }
+  .more-l a { color: var(--brand-d); font-weight: 700; }
+
+  /* Fiducia */
+  .steps { display: grid; margin: 0; padding: 0; list-style: none; border-top: 3px solid var(--bd); }
+  .step { padding: 26px 0; border-bottom: 1px solid var(--line); }
+  .step:last-child { border-bottom: 0; }
+  .step i { display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; background: var(--or); color: var(--on-or); border: 1.5px solid var(--on-or); border-radius: 50%; font: 800 14px var(--display); font-style: normal; }
+  .step h3 { margin: 20px 0 12px; font-size: 19px; line-height: 1.25; letter-spacing: -0.025em; font-weight: 700; }
+  .step p { margin: 0; font-size: 17px; color: var(--muted); }
+  .step p b { color: var(--ink); font-weight: 700; }
+  .trust-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 28px; margin-top: 44px; padding: 22px 26px; background: var(--brand-t); border: 1.5px solid var(--bd); border-radius: var(--r); }
+  .trust-foot p { flex: 1 1 420px; max-width: 70ch; margin: 0; font-size: 17px; color: var(--ink); }
+  .trust-foot .btn { width: 100%; padding: 10px 16px; line-height: 1.25; text-align: center; }
+
+  @media (min-width: 45.01rem) {
+    .hero { display: block; min-height: 0; padding-bottom: 36px; }
+    .hero > .container { display: block; position: relative; }
+    .hero-copy { display: block; position: relative; z-index: 2; max-width: 700px; padding: 48px 0 20px; }
+    .hero-copy > :global(*) { margin-inline: 0; }
+    .hero-copy .eyebrow { margin-top: 0; }
+    h1 { margin: 22px 0 26px; font-size: clamp(36px, 6vw, 66px); line-height: 1.08; }
+    .lead { font-size: 21px; }
+    .hero-map { margin: 0 -8px; }
+    .hero :global(.search) { margin-right: 0; }
+    .readout { display: block; position: relative; width: auto; margin: 12px 6px 0 0; padding: 16px 18px; background: var(--card); border: 2px solid var(--bd); border-radius: var(--r); box-shadow: 6px 6px 0 var(--sh); }
+    .head h2 { font-size: clamp(28px, 3.1vw, 44px); }
+    .s { padding: 112px 0; }
+    .head { margin-bottom: 48px; }
+    .pgrid h2 { font-size: clamp(24px, 2.3vw, 32px); }
+    .stats ul { grid-template-columns: repeat(2, 1fr); }
+    .prow { grid-template-columns: 160px 1fr 52px 84px; gap: 14px; }
+    .pn { font-size: 18px; }
+    .num { font-size: 20px; }
+    .feat h3 { font-size: clamp(34px, 3.6vw, 48px); }
+    .ev-row a { grid-template-columns: 140px 1fr auto; gap: 22px; padding: 20px 28px; }
+    .date b { font-size: 30px; }
+    .evt { font-size: 20px; }
+    .chips { grid-column: auto; justify-content: flex-end; }
+    .pe { display: block; }
+    .pcard { padding: 30px; }
+    .feat { padding: 34px; box-shadow: 8px 8px 0 var(--sh); margin-right: 0; }
+    .evl { margin-right: 0; box-shadow: 8px 8px 0 var(--teal); }
+    .guides { grid-template-columns: 1fr 1fr; }
+    .guides :global(.big) { grid-column: 1 / -1; }
+    .guides :global(.card) { min-height: 320px; padding: 30px; }
+    .code { margin-right: 0; box-shadow: 10px 10px 0 var(--brand); }
+    pre { padding: 24px 24px 8px; font-size: 15.5px; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .step { border-bottom: 0; padding: 30px 20px 8px 0; }
+    .trust-foot .btn { width: auto; padding: 0 22px; }
+    .stat a, .stat:nth-child(even) a { padding: 36px 28px 38px 0; border-left: 0; }
+    .top-r { font-size: 15px; min-height: 0; align-items: center; }
+    .stat b { font-size: clamp(40px, 6vw, 64px); }
+    .stat b::after { width: 44px; height: 6px; margin-top: 14px; }
+    .stat p { font-size: 16px; }
+  }
+  @media (min-width: 68.76rem) {
+    .hero { min-height: 720px; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, var(--bg) 0, var(--bg) 30%, transparent 52%); pointer-events: none; }
+    .hero-copy { max-width: 600px; padding: 64px 0 40px; }
+    h1 { font-size: clamp(36px, 4.6vw, 66px); }
+    .hero-map { position: absolute; right: max(12px, calc((100vw - 1360px) / 2)); top: 46px; width: min(56vw, 800px); margin: 0; }
+    .readout { position: absolute; z-index: 3; left: 70px; bottom: -96px; width: 290px; margin: 0; }
+    .hero-map :global(.sicily) { z-index: 1; }
+    .grid2 { grid-template-columns: 1.25fr 1fr; }
+    .stats ul { grid-template-columns: repeat(4, 1fr); }
+    .stat a, .stat:nth-child(even) a, .stat:nth-child(n + 3) a { padding: 36px 28px 38px; border-top: 0; border-left: 1.5px solid rgba(255, 255, 255, 0.28); }
+    .stat:first-child a { border-left: 0; padding-left: 0; }
+    .guides { grid-template-columns: 1.3fr 1fr 1fr; }
+    .guides :global(.big) { grid-column: auto; }
+    .pgrid { grid-template-columns: 1fr 1.2fr; gap: 56px; }
+    .steps { grid-template-columns: repeat(4, 1fr); }
+    .step { margin-right: 28px; padding-right: 28px; border-right: 1px solid var(--line); }
+    .step:last-child { margin-right: 0; border-right: 0; }
+  }
 </style>
+<script>
+  // Letture sulla mappa: passando (o con la tastiera) su una provincia la scheda "Provincia" mostra i suoi numeri.
+  const rv = document.getElementById('rov');
+  const rd = document.getElementById('rod');
+  if (rv && rd) {
+    const home = rd.innerHTML;
+    const t0 = rv.textContent;
+    const show = (a: Element) => {
+      const c = Number(a.getAttribute('data-c')), e = Number(a.getAttribute('data-e'));
+      rv.textContent = (a.getAttribute('aria-label') ?? '').split(':')[0];
+      rd.innerHTML = (c ? `<b>${c}</b> ${c === 1 ? 'azienda' : 'aziende'}, ` : 'Nessuna azienda ancora, ') + `<u>${e}</u> ${e === 1 ? 'evento' : 'eventi'} in programma.`;
+    };
+    document.querySelectorAll('.hero-map a[data-p]').forEach((a) => {
+      a.addEventListener('mouseenter', () => show(a));
+      a.addEventListener('focus', () => show(a));
+      a.addEventListener('mouseleave', () => { rv.textContent = t0; rd.innerHTML = home; });
+    });
+  }
+  // Copia il prompt completo negli appunti.
+  const cp = document.getElementById('cp');
+  const lab = document.getElementById('cpt');
+  if (cp && lab) {
+    cp.addEventListener('click', async () => {
+      const text = cp.getAttribute('data-text') ?? '';
+      try { await navigator.clipboard.writeText(text); lab.textContent = 'Copiato'; } catch { lab.textContent = 'Non riuscito'; }
+      setTimeout(() => { lab.textContent = 'Copia'; }, 1800);
+    });
+  }
+</script>

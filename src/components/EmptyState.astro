@@ -6,3 +6,8 @@ const { text, cta = true, ctaLabel = 'Segnalalo' } = Astro.props;
   <p>{text}</p>
   {cta && <p><a class="btn ghost" href="/segnala/">{ctaLabel}</a></p>}
 </div>
+<style>
+  .empty { padding: 28px; background: var(--grey); border: 1.5px dashed var(--line-2); border-radius: var(--r); margin-bottom: var(--space-4); }
+  .empty p { margin: 0 0 12px; color: var(--muted); }
+  .empty p:last-child { margin: 0; }
+</style>

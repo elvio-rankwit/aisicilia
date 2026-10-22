@@ -10,6 +10,10 @@ interface Props {
   active?: ProvinceSlug;
   label: string;
   points?: { lat: number; lng: number }[];
+  events?: { lat: number; lng: number; today?: boolean }[];
+  eventCounts?: Record<ProvinceSlug, number>;
+  featured?: { lat: number; lng: number; name: string };
+  variant?: 'hero' | 'card';
   unit?: [string, string];
 }
 const props = Astro.props;
@@ -18,7 +22,7 @@ const Preview = Object.values(mods)[0]?.default;
 const [one, many] = props.unit ?? ['azienda', 'aziende'];
 ---
 {Preview ? (
-  <Preview counts={props.counts} mode={props.mode} basePath={props.basePath} active={props.active} label={props.label} points={props.points} />
+  <Preview counts={props.counts} mode={props.mode} basePath={props.basePath} active={props.active} label={props.label} points={props.points} events={props.events} eventCounts={props.eventCounts} featured={props.featured} variant={props.variant} />
 ) : (
   <div class="map-ph" role="group" aria-label={props.label}>
     <!-- MAP: qui va <ProvinceMapPreview counts mode basePath active label /> di src/components/map/ (map-engineer) -->
@@ -30,7 +34,7 @@ const [one, many] = props.unit ?? ['azienda', 'aziende'];
   </div>
 )}
 <style>
-  .map-ph { aspect-ratio: 4 / 3; max-height: 28rem; width: 100%; padding: var(--space-3); background: var(--c-map-land); border-radius: var(--radius); overflow: auto; }
+  .map-ph { aspect-ratio: 4 / 3; max-height: 28rem; width: 100%; padding: var(--space-3); background: var(--map-zero); border: 1.5px dashed var(--line-2); border-radius: var(--r); overflow: auto; }
   .ph-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr)); gap: var(--space-1) var(--space-3); }
   .ph-list a { display: flex; justify-content: space-between; gap: var(--space-2); min-height: var(--tap); align-items: center; }
   .n { color: var(--c-text-muted); font-size: var(--fs-sm); }
