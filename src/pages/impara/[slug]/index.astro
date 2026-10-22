@@ -1,6 +1,8 @@
 ---
 import { render } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHead from '../../../components/PageHead.astro';
+import Prose from '../../../components/Prose.astro';
 import PromptCard from '../../../components/PromptCard.astro';
 import CompanyCard from '../../../components/CompanyCard.astro';
 import EventCard from '../../../components/EventCard.astro';
@@ -43,52 +45,57 @@ const sameDay = d.updated_at.getTime() === d.published_at.getTime();
   }}
 >
   <article>
-    <header class="page-head">
-      <p class="eyebrow">Guida · {cap(d.level)} · {d.reading_time} min di lettura</p>
-      <h1>{d.title}</h1>
-      <p class="answer">{d.answer}</p>
-      <p class="byline muted">
-        Di <a href="/chi-siamo/">Elvio Leonardi</a> ·
-        Pubblicato il <time datetime={d.published_at.toISOString().slice(0, 10)}>{formatDate(d.published_at)}</time>
-        {!sameDay && <> · <strong>Aggiornato il <time datetime={d.updated_at.toISOString().slice(0, 10)}>{formatDate(d.updated_at)}</time></strong></>}
+    <PageHead size="md">
+      <Fragment slot="eyebrow">Guida · {cap(d.level)} · {d.reading_time} min di lettura</Fragment>
+      <Fragment slot="title">{d.title}</Fragment>
+      <p>{d.answer}</p>
+      <p slot="meta" class="byline">
+        <span class="av" aria-hidden="true">EL</span>
+        <span>Di <a href="/chi-siamo/">Elvio Leonardi</a> · pubblicato il <time datetime={d.published_at.toISOString().slice(0, 10)}>{formatDate(d.published_at)}</time>{!sameDay && <> · <strong>aggiornato il <time datetime={d.updated_at.toISOString().slice(0, 10)}>{formatDate(d.updated_at)}</time></strong></>}</span>
       </p>
-    </header>
+    </PageHead>
 
     <div class="art-layout">
       {toc.length > 1 && (
         <nav class="toc" aria-labelledby="h-indice">
-          <h2 id="h-indice">In questa guida</h2>
+          <p class="label" id="h-indice">In questa guida</p>
           <ol>
             {toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}
           </ol>
         </nav>
       )}
       <div class="art-main">
-      <div class="prose-body">{bodyHtml ? <Fragment set:html={bodyHtml} /> : <Content />}</div>
+        <Prose class="guide">{bodyHtml ? <Fragment set:html={bodyHtml} /> : <Content />}</Prose>
 
-      <section class="section" aria-labelledby="h-faq">
-        <h2 id="h-faq">Domande frequenti</h2>
-        <div class="faq prose">
-          {d.faq.map((f) => (
-            <details>
-              <summary>{f.question}</summary>
-              <p>{f.answer}</p>
-            </details>
-          ))}
-        </div>
-      </section>
+        <section class="section" aria-labelledby="h-faq">
+          <h2 id="h-faq">Domande frequenti</h2>
+          <div class="faq">
+            {d.faq.map((f) => (
+              <details>
+                <summary>{f.question}</summary>
+                <p>{f.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
 
-      <section class="section" aria-labelledby="h-fonti">
-        <h2 id="h-fonti">Fonti</h2>
-        <ol class="prose">
-          {d.sources.map((s) => <li><a class="ext" href={s.url} rel="noopener">{s.title}</a> <span class="muted">({hostOf(s.url)})</span></li>)}
-        </ol>
-        <p class="muted">Gli strumenti citati sono esempi e valgono alla data di aggiornamento della guida.</p>
-      </section>
+        <section class="section" aria-labelledby="h-fonti">
+          <h2 id="h-fonti">Fonti</h2>
+          <Prose>
+            <ol class="src">
+              {d.sources.map((s) => <li><a class="ext" href={s.url} rel="noopener">{s.title}</a> <span class="muted">({hostOf(s.url)})</span></li>)}
+            </ol>
+            <p class="muted small">Gli strumenti citati sono esempi e valgono alla data di aggiornamento della guida.</p>
+          </Prose>
+        </section>
 
-      <footer class="signature">
-        <p>Scritto da <a href="/chi-siamo/">Elvio Leonardi</a>, consulente SEO e GEO con base a Palermo. Hai un dubbio o una correzione? Trovi i contatti in <a href="/chi-siamo/">Chi siamo</a>.</p>
-      </footer>
+        <footer class="signature">
+          <span class="av big" aria-hidden="true">EL</span>
+          <div>
+            <p class="label">L’autore</p>
+            <p><strong>Elvio Leonardi</strong>, consulente SEO e GEO con base a Palermo. Hai un dubbio o una correzione? Trovi i contatti in <a href="/chi-siamo/">Chi siamo</a>.</p>
+          </div>
+        </footer>
       </div>
     </div>
   </article>
@@ -128,26 +135,34 @@ const sameDay = d.updated_at.getTime() === d.published_at.getTime();
   )}
 </BaseLayout>
 <style>
-  .byline { font-size: var(--fs-sm); }
+  .byline { display: flex; align-items: center; gap: var(--space-3); margin: var(--space-4) 0 0; font-size: 15px; color: var(--muted); }
+  .ph :global(.byline) { font-size: 15px; }
+  .av { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: var(--or); border: 1.5px solid var(--on-or); color: var(--on-or); font: 800 13px/1 var(--body); letter-spacing: 0; }
+  .av.big { width: 56px; height: 56px; font-size: 16px; }
   .art-layout { display: grid; gap: var(--space-6); }
-  .toc { background: var(--c-surface-2); border-radius: var(--radius); padding: var(--space-5); max-width: var(--measure); }
-  .toc h2 { font-family: var(--font-sans); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--c-text-muted); margin: 0 0 var(--space-2); line-height: 1.4; }
-  .toc ol { margin: 0; padding-left: var(--space-5); font-size: var(--fs-base); }
-  .toc li::marker { color: var(--c-text-muted); }
-  .toc a { display: block; padding-block: var(--space-1); text-decoration: none; }
-  .toc a:hover { text-decoration: underline; }
+  .toc { padding: var(--space-4) var(--space-5); background: var(--grey); border: 1.5px solid var(--bd); border-radius: var(--r); max-width: 40rem; }
+  .toc .label { margin-bottom: var(--space-2); }
+  .toc ol { margin: 0; padding-left: 1.4em; font-size: 16px; line-height: 1.4; }
+  .toc li::marker { color: var(--or-text); font-weight: 800; }
+  .toc a { display: block; padding-block: 7px; color: var(--ink); text-decoration: none; }
+  .toc a:hover { color: var(--brand-d); text-decoration: underline; text-decoration-color: var(--or); text-decoration-thickness: 2px; }
   @media (min-width: 75rem) {
-    .art-layout { grid-template-columns: minmax(0, var(--measure)) 16rem; justify-content: space-between; gap: var(--space-8); align-items: start; }
-    .toc { grid-column: 2; grid-row: 1; position: sticky; top: var(--space-5); background: none; padding: 0 0 0 var(--space-5); border-left: 2px solid var(--c-border); border-radius: 0; }
-    .art-main { grid-column: 1; grid-row: 1; }
+    .art-layout { grid-template-columns: minmax(0, 40rem) 17rem; justify-content: space-between; gap: var(--space-8); align-items: start; }
+    .toc { grid-column: 2; grid-row: 1; position: sticky; top: var(--space-5); max-height: calc(100vh - 3rem); overflow-y: auto; }
+    .art-main { grid-column: 1; grid-row: 1; min-width: 0; }
   }
-  .faq details { background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--radius); padding: 0 var(--space-5); margin-bottom: var(--space-3); transition: border-color var(--ease); }
-  .faq details:hover, .faq details[open] { border-color: var(--c-border-strong); }
-  .faq summary { cursor: pointer; min-height: 56px; display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding-block: var(--space-3); list-style: none; }
+  .art-main > .section:first-of-type { margin-top: var(--space-8); }
+  .faq { display: grid; gap: var(--space-3); max-width: 40rem; }
+  .faq details { background: var(--card); border: 1.5px solid var(--bd); border-radius: var(--r); box-shadow: 4px 4px 0 var(--grey-2); transition: box-shadow var(--ease); }
+  .faq details[open] { box-shadow: 4px 4px 0 var(--or); }
+  .faq summary { cursor: pointer; min-height: 60px; display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding: var(--space-3) var(--space-5); list-style: none; font-size: 1.0625rem; line-height: 1.4; }
   .faq summary::-webkit-details-marker { display: none; }
-  .faq summary::after { content: ''; flex: none; width: 10px; height: 10px; border-right: 2px solid var(--c-text-muted); border-bottom: 2px solid var(--c-text-muted); transform: rotate(45deg); transition: transform var(--ease); margin-right: 4px; }
+  .faq summary::after { content: ''; flex: none; width: 11px; height: 11px; border-right: 3px solid var(--or); border-bottom: 3px solid var(--or); transform: rotate(45deg) translate(-2px, -2px); transition: transform var(--ease); }
   .faq details[open] summary::after { transform: rotate(-135deg); }
-  .faq details p { margin: 0 0 var(--space-4); line-height: var(--lh-read); }
-  .signature { margin-top: var(--space-8); padding-top: var(--space-5); border-top: 1px solid var(--c-border); color: var(--c-text-muted); }
-  .signature p { margin: 0; }
+  .faq details p { margin: 0; padding: 0 var(--space-5) var(--space-5); font-size: 1.0625rem; line-height: 1.7; }
+  .src { font-size: 1rem; line-height: 1.6; }
+  .small { font-size: 0.9375rem; }
+  .signature { display: flex; gap: var(--space-4); align-items: flex-start; margin-top: var(--space-8); padding: var(--space-5); max-width: 40rem; background: var(--grey); border: 1.5px solid var(--bd); border-radius: var(--r-lg); box-shadow: 6px 6px 0 var(--grey-2); }
+  .signature p { margin: 0; line-height: 1.6; }
+  .signature .label { margin-bottom: var(--space-1); }
 </style>

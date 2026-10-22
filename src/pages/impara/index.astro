@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
-import PageStat from '../../components/PageStat.astro';
+import PageHead from '../../components/PageHead.astro';
 import EmptyState from '../../components/EmptyState.astro';
 import { formatDate, getArticles, getPrompts, latestDate } from '../../lib/data';
 import { meta } from '../../lib/seo/meta';
@@ -28,20 +28,20 @@ const h1 = 'Impara l’AI: guide pratiche per le imprese siciliane';
     ],
   }}
 >
-  <div class="page-head">
-    <PageStat value={articles.length} label={articles.length === 1 ? 'guida' : 'guide'} coords="in ordine di lettura" />
-    <h1>{h1}</h1>
-    {updated && <p class="muted updated">Aggiornato il <time datetime={updated.toISOString().slice(0, 10)}>{formatDate(updated)}</time></p>}
+  <PageHead>
+    <Fragment slot="eyebrow">Impara · {plural(articles.length, 'guida', 'guide')}</Fragment>
+    <Fragment slot="title">Impara l’<mark class="blk">AI</mark>: guide pratiche per le imprese siciliane</Fragment>
     {articles.length > 0 ? (
-      <p class="answer">{plural(articles.length, 'guida', 'guide')} scritte per chi gestisce un’impresa: cosa può fare l’AI nel tuo lavoro, cosa non fa bene e quanto costa in tempo e denaro. Sono in ordine di lettura, dalla più semplice. Ogni guida ha le fonti e la data di aggiornamento. Se preferisci partire dalla pratica, ci sono i <a href="/prompt/">prompt pronti da copiare</a>{prompts.length > 0 && ` (${prompts.length})`}.</p>
+      <p>Guide scritte per chi gestisce un’impresa: cosa può fare l’AI nel tuo lavoro, cosa non fa bene e quanto costa in tempo e denaro. Sono in ordine di lettura, dalla più semplice. Ogni guida ha le fonti e la data di aggiornamento. Se preferisci partire dalla pratica, ci sono i <a href="/prompt/">prompt pronti da copiare</a>{prompts.length > 0 && ` (${prompts.length})`}.</p>
     ) : (
-      <p class="answer">Le prime guide sono in preparazione. Intanto puoi partire dalla pratica con i <a href="/prompt/">prompt pronti da copiare</a>.</p>
+      <p>Le prime guide sono in preparazione. Intanto puoi partire dalla pratica con i <a href="/prompt/">prompt pronti da copiare</a>.</p>
     )}
-  </div>
+    {updated && <p slot="meta" class="upd">Ultimo aggiornamento: <time datetime={updated.toISOString().slice(0, 10)}>{formatDate(updated)}</time></p>}
+  </PageHead>
 
   {articles.length > 0 ? (
     <section aria-labelledby="h-guide">
-      <h2 id="h-guide">Tutte le guide, in ordine di lettura</h2>
+      <h2 id="h-guide" class="first">Tutte le guide, in ordine di lettura</h2>
       {showFilters && (
         <nav class="filter-nav" aria-label="Filtra le guide per settore o livello">
           {sectors.length > 0 && (
@@ -74,7 +74,12 @@ const h1 = 'Impara l’AI: guide pratiche per le imprese siciliane';
   )}
 </BaseLayout>
 <style>
-  .filter-nav { margin-bottom: var(--space-5); }
+  .upd { margin: var(--space-4) 0 0; font-size: 15px; color: var(--muted); }
+  .first { margin-top: 0; }
+  .filter-nav { margin-bottom: var(--space-5); padding: var(--space-4) var(--space-5) var(--space-2); background: var(--grey); border: 1.5px solid var(--bd); border-radius: var(--r-lg); }
+  .filter-nav .label { margin-bottom: var(--space-2); }
+  .filter-nav p:last-child { margin: var(--space-2) 0 var(--space-3); font-size: 15px; }
+  .filter-nav .link-list { margin: 0 0 var(--space-3); }
   .anchor { display: block; height: 0; scroll-margin-top: var(--space-4); }
 </style>
 <style is:global>

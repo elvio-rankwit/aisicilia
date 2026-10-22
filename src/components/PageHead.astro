@@ -1,0 +1,22 @@
+---
+// Testata v4 delle pagine interne: eyebrow con il rombo, H1 Unbounded (con eventuale <mark class="blk">),
+// risposta diretta e, a piacere, una riga di dati sotto. Usata solo da impara, prompt e pagine istituzionali.
+interface Props { size?: 'lg' | 'md' }
+const { size = 'lg' } = Astro.props;
+---
+<header class="ph">
+  <p class="eyebrow"><slot name="eyebrow" /></p>
+  <h1 class:list={[size]}><slot name="title" /></h1>
+  <div class="ans"><slot /></div>
+  <slot name="meta" />
+</header>
+<style>
+  .ph { margin-block: var(--space-5) var(--space-7); }
+  .ph h1 { max-width: 19em; margin-bottom: var(--space-4); }
+  .ph h1.md { font-size: clamp(26px, 3.3vw, 40px); letter-spacing: -0.04em; max-width: 24em; }
+  .ans :global(p) { max-width: 46rem; margin: 0 0 var(--space-3); font-size: 1.1875rem; line-height: 1.6; color: var(--ink); }
+  .ans :global(p:last-child) { margin-bottom: 0; }
+  .ans :global(a) { font-weight: 600; }
+  .eyebrow :global(a) { color: inherit; text-decoration: none; border-bottom: 2px solid var(--or); }
+  .eyebrow :global(a:hover) { color: var(--ink); }
+</style>

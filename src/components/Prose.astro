@@ -1,0 +1,49 @@
+---
+// Colonna di lettura v4 per guide, prompt e pagine istituzionali: Figtree 18px, interlinea 1.7, misura di circa 68 caratteri.
+// Gli stili sono :global dentro .rd, così valgono anche per l'HTML che arriva dal Markdown.
+interface Props { class?: string }
+const { class: cls } = Astro.props;
+---
+<div class:list={['rd', cls]}><slot /></div>
+<style>
+  .rd { max-width: 40rem; font-size: 1.0625rem; line-height: 1.7; }
+  @media (min-width: 48rem) { .rd { font-size: 1.125rem; } }
+  .rd :global(p) { margin: 0 0 1.1em; }
+  .rd :global(h2) { margin: var(--space-8) 0 var(--space-4); scroll-margin-top: var(--space-5); font-size: clamp(22px, 2.3vw, 30px); }
+  .rd :global(h3) { margin: var(--space-6) 0 var(--space-3); scroll-margin-top: var(--space-5); font-size: clamp(18px, 1.7vw, 21px); }
+  .rd > :global(:first-child), .rd > :global(section:first-child > h2:first-child) { margin-top: 0; }
+  .rd :global(ul), .rd :global(ol) { padding-left: 1.4em; margin: 0 0 1.1em; }
+  .rd :global(li) { margin-bottom: 0.5em; padding-left: 0.25em; }
+  .rd :global(li::marker) { color: var(--or-text); font-weight: 700; }
+  .rd :global(a) { font-weight: 600; }
+  .rd :global(blockquote) { margin: 0 0 1.1em; padding: 0.2em 0 0.2em var(--space-4); border-left: 4px solid var(--or); color: var(--muted); }
+  .rd :global(hr) { margin-block: var(--space-6); }
+  .rd :global(strong) { font-weight: 700; }
+  .rd :global(code) { font-size: 0.88em; background: var(--grey-2); border-radius: 6px; padding: 0.1em 0.4em; }
+  .rd :global(pre) { overflow-x: auto; margin: 0 0 1.4em; padding: var(--space-4); background: var(--grey); border: 1.5px solid var(--bd); border-radius: 14px; font-size: 0.92rem; line-height: 1.6; }
+  .rd :global(pre code) { background: none; padding: 0; }
+
+  /* Riquadri "In breve" e "In pratica": come le card del mockup, bordo netto e ombra piena */
+  .rd :global(aside) { margin: var(--space-6) 0; padding: var(--space-5) var(--space-5) var(--space-2); background: var(--card); border: 1.5px solid var(--bd); border-radius: var(--r-lg); box-shadow: 6px 6px 0 var(--grey-2); font-size: 1rem; line-height: 1.65; }
+  .rd :global(aside > p:first-child > strong:first-child) { display: inline-block; font: 800 12px/1.4 var(--body); text-transform: uppercase; letter-spacing: 0.1em; }
+  .rd :global(aside > p:first-child > strong:first-child:last-child) { margin-bottom: 0; }
+  .rd :global(aside.in-breve) { background: var(--grey); border-left: 8px solid var(--or); margin-block: var(--space-4) var(--space-7); box-shadow: 6px 6px 0 var(--grey-2); }
+  .rd :global(aside.in-breve > p:first-child > strong:first-child) { color: var(--or-text); }
+  .rd :global(aside.in-pratica) { background: var(--brand-t); border-left: 8px solid var(--brand-bg); box-shadow: 6px 6px 0 var(--sh); }
+  .rd :global(aside.in-pratica > p:first-child > strong:first-child) { color: var(--brand-d); }
+  .rd :global(aside ul), .rd :global(aside ol) { margin-bottom: var(--space-4); }
+  .rd :global(aside p) { margin-bottom: var(--space-4); }
+
+  /* Tabelle leggibili: bordo netto, intestazione colorata, scorrimento solo dentro la tabella */
+  .rd :global(table) { display: block; width: 100%; overflow-x: auto; margin: var(--space-6) 0; border: 1.5px solid var(--bd); border-radius: 14px; font-size: 1rem; line-height: 1.5; border-collapse: separate; border-spacing: 0; background: var(--card); }
+  .rd :global(th), .rd :global(td) { padding: 12px 16px; min-width: 7.5rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+  .rd :global(thead th) { background: var(--brand-t); color: var(--ink); border-bottom: 1.5px solid var(--bd); font: 800 13px/1.4 var(--body); text-transform: uppercase; letter-spacing: 0.06em; }
+  .rd :global(tbody tr:nth-child(even)) { background: var(--grey); }
+  .rd :global(tbody tr:last-child > *) { border-bottom: 0; }
+  .rd :global(tbody th) { font-weight: 700; }
+
+  /* Riquadro generico */
+  .rd :global(.box) { padding: var(--space-5); background: var(--card); border: 1.5px solid var(--bd); border-radius: var(--r-lg); box-shadow: 6px 6px 0 var(--grey-2); margin: 0 0 var(--space-5); }
+  .rd :global(.box > :last-child) { margin-bottom: 0; }
+  .rd :global(.box dl) { margin: 0; }
+</style>

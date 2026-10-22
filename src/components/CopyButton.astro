@@ -2,29 +2,35 @@
 // Unica isola JS della pagina prompt: copia negli appunti con feedback in aria-live.
 // Senza JS il bottone non compare e il testo resta selezionabile.
 interface Props { target: string; label?: string }
-const { target, label = 'Copia il prompt' } = Astro.props;
+const { target, label = 'Copia' } = Astro.props;
 ---
 <div class="copy-row">
-  <button type="button" class="btn ghost js-only inline" data-copy-target={target} data-label={label}>{label}</button>
   <span class="copy-status" role="status" aria-live="polite" data-copy-status></span>
+  <button type="button" class="copy" data-copy-target={target} data-label={label}>
+    <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8" height="8" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M3 10.5V4a1 1 0 0 1 1-1h6.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    <span data-copy-text>{label}</span>
+  </button>
 </div>
 <style>
-  .copy-row { display: flex; flex-direction: row-reverse; align-items: center; gap: var(--space-3); min-height: var(--tap); }
-  .copy-row .btn.ghost { min-height: var(--tap); padding-inline: var(--space-4); background: var(--c-surface); }
-  .copy-row .btn.ghost:hover { background: var(--c-primary-soft); }
-  .copy-status { font-weight: 600; color: var(--c-data); font-size: var(--fs-sm); }
+  .copy-row { display: flex; align-items: center; justify-content: flex-end; gap: var(--space-3); min-height: var(--tap); }
+  .copy { display: none; align-items: center; gap: 8px; min-height: var(--tap); padding: 0 16px; border: 1.5px solid var(--bd); border-radius: 10px; background: var(--card); color: var(--ink); font: 700 15px var(--body); cursor: pointer; transition: background-color var(--ease); }
+  :global(.js) .copy { display: inline-flex; }
+  .copy:hover { background: var(--or); color: var(--on-or); border-color: var(--on-or); }
+  .copy:focus-visible { outline-offset: 2px; }
+  .copy-status { font: 700 14px var(--body); color: var(--teal); }
 </style>
 <script>
   const btn = document.querySelector<HTMLButtonElement>('[data-copy-target]');
+  const txt = btn?.querySelector<HTMLElement>('[data-copy-text]') ?? null;
   const status = document.querySelector<HTMLElement>('[data-copy-status]');
   const source = btn ? document.getElementById(btn.dataset.copyTarget ?? '') : null;
-  if (btn && status && source) {
+  if (btn && txt && status && source) {
     let timer = 0;
     const done = (ok: boolean) => {
-      status.textContent = ok ? 'Copiato' : 'Copia non riuscita: seleziona il testo e copialo a mano';
-      btn.textContent = ok ? 'Copiato' : btn.dataset.label ?? 'Copia';
+      status.textContent = ok ? 'Copiato' : 'Non riuscito: seleziona il testo e copialo a mano';
+      txt.textContent = ok ? 'Copiato' : btn.dataset.label ?? 'Copia';
       window.clearTimeout(timer);
-      timer = window.setTimeout(() => { btn.textContent = btn.dataset.label ?? 'Copia'; status.textContent = ''; }, 2500);
+      timer = window.setTimeout(() => { txt.textContent = btn.dataset.label ?? 'Copia'; status.textContent = ''; }, 2500);
     };
     btn.addEventListener('click', async () => {
       const text = source.textContent ?? '';
