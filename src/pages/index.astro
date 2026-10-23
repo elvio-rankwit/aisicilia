@@ -77,6 +77,10 @@ const TEASER: Record<string, string> = {
   rankwit: 'Ogni giorno fa le domande dei viaggiatori a ChatGPT, Gemini, Claude, Perplexity e AI Overview. Poi conta quante volte compare ogni hotel o destinazione, rispetto ai concorrenti, e da quali fonti arrivano le risposte.',
 };
 const fd = featured?.data;
+// Senza schede in evidenza, la colonna mostra le ultime realtà verificate (più recenti prima).
+const latest = [...companies]
+  .sort((a, b) => b.data.last_verified.getTime() - a.data.last_verified.getTime() || a.data.name.localeCompare(b.data.name, 'it'))
+  .slice(0, 5);
 
 // Eventi
 const timeOf = (e: (typeof events)[number]) => e.data.start_time ?? '';
@@ -185,9 +189,26 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
             <p class="where">{fd.city}, provincia di {PROVINCES[fd.province].name} · {fd.type}</p>
             <p class="t">{TEASER[featured.id] ?? clip(fd.description, 260)}</p>
             <div class="pills">{[...fd.ai_areas, ...fd.sectors_served].slice(0, 3).map((a) => <span class="pill">{cap(a)}</span>)}</div>
-            {fd.disclosure && <p class="note">{fd.disclosure} L’evidenza non cambia i criteri di ingresso, uguali per tutti.</p>}
+            {fd.disclosure && <p class="note">{fd.disclosure}</p>}
             <div class="foot"><span>Verificata il {formatDate(fd.last_verified)}</span><a class="btn" href={`/aziende/${featured.id}/`} data-astro-prefetch>Apri la scheda <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d={arrow} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a></div>
           </article>
+        )}
+        {!featured && latest.length > 0 && (
+          <div class="card lcard" aria-labelledby="h-latest">
+            <p class="eyebrow">Ultime verifiche</p>
+            <h3 id="h-latest">Appena controllate</h3>
+            <ul class="llist">
+              {latest.map((c) => (
+                <li>
+                  <a href={`/aziende/${c.id}/`} data-astro-prefetch>
+                    <span class="ln">{c.data.name}</span>
+                    <span class="lm">{c.data.city} · {c.data.type} · {formatDate(c.data.last_verified)}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <a class="more" href="/aziende/" data-astro-prefetch>Sfoglia tutte le schede <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d={arrow} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+          </div>
         )}
       </div>
     </div>
@@ -340,6 +361,14 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
   .zc abbr { margin-right: 4px; font: 700 12px var(--body); letter-spacing: 0.06em; color: var(--brand); text-decoration: none; }
   .zt { font-size: 16px; color: var(--muted); }
   .zt a { color: var(--brand-d); font-weight: 700; text-decoration: underline; text-decoration-color: var(--or); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+  .lcard { padding: 22px; }
+  .lcard h3 { margin: 10px 0 14px; font-size: 26px; letter-spacing: -0.04em; }
+  .llist { list-style: none; margin: 0 0 18px; padding: 0; }
+  .llist li { border-bottom: 1px solid var(--line); }
+  .llist a { display: grid; gap: 2px; padding: 12px 0; min-height: var(--tap); color: var(--ink); text-decoration: none; }
+  .llist a:hover .ln { color: var(--brand); }
+  .ln { font-weight: 700; font-size: 17px; }
+  .lm { font-size: 14px; color: var(--muted); }
   .feat { position: relative; margin-right: 5px; padding: 22px; background: var(--brand-bg); color: #fff; border: 1.5px solid var(--bd); border-radius: var(--r-lg); box-shadow: 5px 5px 0 var(--sh); }
   .feat h3 { margin: 22px 0 10px; font-size: 38px; line-height: 1.05; letter-spacing: -0.05em; color: #fff; }
   .where { margin: 0; font-size: 16px; color: #e6f0f9; }

@@ -68,10 +68,10 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
     <div class="cols">
       <div class="main">
         <p class="answer">{answer}</p>
-        {d.featured && d.disclosure && (
+        {d.disclosure && (
           <aside class="feat" aria-label="Nota di trasparenza">
-            <p class="ft">In evidenza · nota di trasparenza</p>
-            <p>{d.disclosure} L’evidenza non cambia i criteri di ingresso, uguali per tutti.</p>
+            <p class="ft">Nota di trasparenza</p>
+            <p>{d.disclosure}</p>
           </aside>
         )}
         <div class="prose"><p class="desc">{d.description}</p></div>
