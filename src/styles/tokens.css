@@ -1,8 +1,8 @@
 /* Design tokens AI Sicilia v4: valori presi dal mockup approvato (docs/mockups/hp-c-finale.html, D-035).
-   Ogni colore è una coppia light-dark(chiaro, scuro): il tema segue il sistema, oppure `data-theme` sull'<html>
-   (impostato dal toggle in Header). Contrasti AA verificati con scripts/contrast (testo ≥ 4.5:1, bordi dei controlli ≥ 3:1). */
+   Ogni colore è una coppia light-dark(chiaro, scuro). Tema chiaro di default (D-037); lo scuro si attiva solo
+   con `data-theme="dark"` sull'<html>, impostato dal toggle in Header. Contrasti AA verificati con scripts/contrast (testo ≥ 4.5:1, bordi dei controlli ≥ 3:1). */
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
 
   /* Superfici: bianco e grigio freddo */
   --bg: light-dark(#ffffff, #0f1418);
