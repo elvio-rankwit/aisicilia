@@ -272,7 +272,6 @@ export const profilePageNodes = (): JsonLdNode[] => {
         'Google Ads',
         'intelligenza artificiale',
         "marketing per l'ospitalità",
-        'analisi dati con Python',
       ],
       address: { '@type': 'PostalAddress', addressLocality: 'Palermo', addressRegion: 'PA', addressCountry: 'IT' },
       // Profili ufficiali (LinkedIn, ecc.): da completare quando l'utente li fornisce.
