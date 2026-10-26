@@ -12,6 +12,7 @@ body { margin: 0; background: var(--bg); color: var(--ink); font: 400 17px/1.6 v
 img, svg, picture { display: block; max-width: 100%; height: auto; }
 h1, h2, h3 { font-family: var(--display); font-weight: 800; letter-spacing: -0.035em; line-height: 1.12; margin: 0 0 var(--space-4); text-wrap: balance; }
 h1 { font-size: clamp(30px, 4.2vw, 52px); letter-spacing: -0.045em; line-height: 1.1; }
+@media (max-width: 23.75rem) { h1 { font-size: 26px; } }
 h2 { font-size: clamp(24px, 2.6vw, 34px); line-height: 1.15; letter-spacing: -0.04em; margin-top: var(--space-7); }
 h3 { font-size: clamp(18px, 1.6vw, 21px); line-height: 1.25; font-weight: 700; letter-spacing: -0.025em; margin-top: var(--space-6); }
 h4 { font-family: var(--body); font-size: 1rem; font-weight: 700; line-height: 1.35; margin: var(--space-5) 0 var(--space-2); }

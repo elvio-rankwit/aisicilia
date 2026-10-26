@@ -45,6 +45,8 @@ Lighthouse 100/100/100/100 mobile e desktop (mediana di 3, D-029). Poi:
 - CLS 0;
 - WCAG AA in chiaro e in scuro, focus visibile, target da 44px;
 - nessuno scroll orizzontale a 320px;
+- mai sillabazione automatica (`hyphens: auto`) né parole spezzate a metà: se un titolo non entra, si riduce il corpo (richiesta dell'utente);
+- niente didascalie di commento sotto i numeri o le mappe della home (richiesta dell'utente);
 - zero JS dove non serve.
 
 Contratti dati, SEO e mappe invariati. Nessun `<meta>` a mano.
