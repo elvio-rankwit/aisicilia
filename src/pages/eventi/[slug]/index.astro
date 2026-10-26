@@ -8,29 +8,36 @@ import MapInteractiveSlot from '../../../components/MapInteractiveSlot.astro';
 import SourceBox from '../../../components/SourceBox.astro';
 import EventCard from '../../../components/EventCard.astro';
 import CompanyCard from '../../../components/CompanyCard.astro';
-import { getAllEvents, getCompanies, getUpcomingEvents } from '../../../lib/data';
-import { relatedEvents } from '../../../lib/related';
+import ArticleCard from '../../../components/ArticleCard.astro';
+import { eventKey, eventPath, getArticles, getCompanies, getEventPages, getUpcomingEvents } from '../../../lib/data';
+import { guidesForEvent, relatedEvents } from '../../../lib/related';
 import { meta } from '../../../lib/seo/meta';
 import { eventNodes } from '../../../lib/seo/jsonld';
 import { PROVINCES } from '../../../lib/provinces';
 import { RESERVED_SLUGS, cap, countByProvince, joinIt, dateRange, eventPoints, eventStatus, timeRange, weekdayOf } from '../../../components/helpers';
 
 export async function getStaticPaths() {
-  const events = await getAllEvents();
-  return events.filter((e) => !RESERVED_SLUGS.includes(e.id)).map((e) => ({ params: { slug: e.id }, props: { id: e.id } }));
+  const pages = await getEventPages();
+  return pages.filter((p) => !RESERVED_SLUGS.includes(p.key)).map((p) => ({ params: { slug: p.key }, props: { key: p.key } }));
 }
-const all = await getAllEvents();
-const e = all.find((x) => x.id === Astro.props.id)!;
+// Una pagina per evento; gli eventi che si ripetono (D-039) mostrano l'edizione in evidenza e l'elenco delle altre.
+const page = (await getEventPages()).find((p) => p.key === Astro.props.key)!;
+const e = page.event;
 const d = e.data;
+const series = d.series_name;
+const year = d.start_date.getUTCFullYear();
+const others = page.editions.filter((x) => x.id !== e.id);
 const prov = PROVINCES[d.province];
 const st = eventStatus(e);
 const upcoming = await getUpcomingEvents();
-const related = relatedEvents(e, upcoming, 3);
+const related = relatedEvents(e, upcoming.filter((x) => eventKey(x) !== page.key), 3);
+const relatedLocal = related.length > 0 && related.every((x) => x.data.province === d.province);
+const guides = guidesForEvent(e, await getArticles(), 2);
 const companies = (await getCompanies()).filter((c) => c.data.province === d.province).slice(0, 3);
 const time = timeRange(d.start_time, d.end_time);
 const hasGeo = d.lat !== undefined && d.lng !== undefined;
 const m = meta.event(e);
-const path = `/eventi/${e.id}/`;
+const path = eventPath(e);
 const canAdd = !st.past && d.status !== 'annullato';
 const verb = d.status === 'annullato' ? 'era previsto' : st.past ? 'si è svolto' : d.status === 'rinviato' ? 'era previsto' : 'si svolge';
 const formatWhere = d.format === 'online'
@@ -54,19 +61,20 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
 <BaseLayout
   seo={{
     title: m.title, description: m.description, path,
-    breadcrumbs: [{ name: 'Eventi', path: '/eventi/' }, { name: prov.name, path: `/eventi/provincia/${d.province}/` }, { name: d.title, path }],
+    breadcrumbs: [{ name: 'Eventi', path: '/eventi/' }, { name: prov.name, path: `/eventi/provincia/${d.province}/` }, { name: series ?? d.title, path }],
     jsonld: eventNodes(e),
     modifiedAt: d.last_verified,
   }}
 >
   <article>
-    <DirHero eyebrow={`Evento · ${prov.name}`} tone="teal" compact>
-      <Fragment slot="title">{d.title}</Fragment>
+    <DirHero eyebrow={series ? `Evento · ${prov.name} · edizione ${year}` : `Evento · ${prov.name}`} tone="teal" compact>
+      <Fragment slot="title">{series ?? d.title}</Fragment>
+      {series && <p class="ed"><strong>{d.title}</strong></p>}
       <p><time datetime={d.start_date.toISOString().slice(0, 10)}>{dateRange(d.start_date, d.end_date)}</time>{time && ` · ore ${time}`} · {d.format === 'online' ? 'online' : d.city}</p>
       <ul class="tags"><li><span class={`badge ${st.tone}`}>{st.label}</span></li><li><span class="chip">{cap(d.format)}</span></li><li><span class="chip">{cap(d.price)}</span></li></ul>
       <div slot="after" class="btns">
         <a class="btn p" href={d.event_url} rel="noopener">Pagina dell’evento <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d={arrow} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
-        {canAdd && <a class="btn" href={`/eventi/${e.id}/evento.ics`} download>Aggiungi al calendario</a>}
+        {canAdd && <a class="btn" href={`${path}evento.ics`} download>Aggiungi al calendario</a>}
       </div>
       <Panel slot="side" tone="teal" label="Data dell’evento">
         <p class="tile"><b>{tileDay}</b><small>{tileMonth}</small></p>
@@ -75,7 +83,12 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
       </Panel>
     </DirHero>
 
-    {st.key === 'concluso' && (
+    {st.key === 'concluso' && series && (
+      <div class="callout" role="note">
+        <p><strong>Edizione {year} conclusa.</strong> La prossima non è ancora in calendario: la aggiungiamo quando l’organizzatore pubblica la data. Intanto trovi gli altri appuntamenti nell’<a href="/eventi/">elenco dei prossimi eventi</a>.</p>
+      </div>
+    )}
+    {st.key === 'concluso' && !series && (
       <div class="callout" role="note">
         <p><strong>Evento concluso.</strong> La scheda resta online come memoria. Gli eventi in programma sono nell’<a href="/eventi/">elenco dei prossimi eventi</a>; quelli già svolti, nell’<a href="/eventi/archivio/">archivio</a>.</p>
       </div>
@@ -123,11 +136,32 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
         </div>
       </section>
     )}
+    {others.length > 0 && (
+      <section class="section" aria-labelledby="h-edizioni">
+        <SecHead id="h-edizioni" eyebrow="Edizioni" title={st.past ? 'Edizioni precedenti' : 'Le altre edizioni'} />
+        <ul class="eds">
+          {others.map((x) => (
+            <li>
+              <b>{x.data.start_date.getUTCFullYear()}</b>
+              <span>{x.data.title} · {dateRange(x.data.start_date, x.data.end_date)}, {x.data.format === 'online' ? 'online' : x.data.city}</span>
+              <a class="ext" href={x.data.source_url} rel="noopener">Fonte</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
   </article>
+
+  {guides.length > 0 && (
+    <section class="section" aria-labelledby="h-guide">
+      <SecHead id="h-guide" eyebrow="Guide" title={st.past ? 'Guide sullo stesso tema' : 'Da leggere prima di andare'} />
+      <ul class="grid">{guides.map((a) => <ArticleCard article={a} />)}</ul>
+    </section>
+  )}
 
   {related.length > 0 && (
     <section class="section" aria-labelledby="h-correlati">
-      <SecHead id="h-correlati" eyebrow="Nel calendario" title="Altri eventi in programma" />
+      <SecHead id="h-correlati" eyebrow="Nel calendario" title={relatedLocal ? `Altri eventi in provincia di ${prov.name}` : 'Altri eventi in programma'} />
       <ul class="grid">{related.map((r) => <EventCard event={r} />)}</ul>
     </section>
   )}
@@ -142,6 +176,11 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
   )}
 </BaseLayout>
 <style>
+  .ed { margin-top: -4px; }
+  .eds { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; max-width: 48rem; }
+  .eds li { display: grid; grid-template-columns: 4.5rem 1fr; gap: 4px 16px; align-items: baseline; padding: 14px 18px; border: 1.5px solid var(--bd); border-radius: var(--r); }
+  .eds b { font: 800 20px/1 var(--display); color: var(--teal); }
+  .eds a { grid-column: 2; font-size: 15.5px; }
   .tile { margin: 0; display: flex; flex-direction: column; }
   .tile b { font: 800 clamp(44px, 7vw, 72px)/1 var(--display); letter-spacing: -0.05em; color: var(--teal); white-space: nowrap; font-variant-numeric: tabular-nums lining-nums; }
   .tile small { margin-top: 12px; font: 800 14px/1 var(--body); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); }

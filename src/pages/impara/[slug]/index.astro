@@ -8,7 +8,7 @@ import CompanyCard from '../../../components/CompanyCard.astro';
 import EventCard from '../../../components/EventCard.astro';
 import ArticleCard from '../../../components/ArticleCard.astro';
 import { formatDate, getArticles, getCompanies, getPrompts, getUpcomingEvents } from '../../../lib/data';
-import { nextArticle, promptsForArticle } from '../../../lib/related';
+import { eventsForArticle, nextArticle, promptsForArticle } from '../../../lib/related';
 import { meta } from '../../../lib/seo/meta';
 import { articleNodes } from '../../../lib/seo/jsonld';
 import { PROMPT_SECTORS, PROMPT_SECTOR_SLUGS } from '../../../lib/taxonomies';
@@ -31,7 +31,7 @@ const sectorKeys = d.sectors.includes('tutti') ? PROMPT_SECTOR_SLUGS : (d.sector
 const wanted = new Set(sectorKeys.flatMap((s) => SECTOR_TO_COMPANY_SECTORS[s] ?? []));
 const allCompanies = await getCompanies();
 const companies = (d.sectors.includes('tutti') ? [] : allCompanies.filter((c) => c.data.sectors_served.some((s) => wanted.has(s)))).slice(0, 3);
-const events = (await getUpcomingEvents()).slice(0, 2);
+const { events, matched } = eventsForArticle(a, await getUpcomingEvents(), 2);
 const m = meta.article(a);
 const path = `/impara/${a.id}/`;
 const sameDay = d.updated_at.getTime() === d.published_at.getTime();
@@ -120,7 +120,7 @@ const sameDay = d.updated_at.getTime() === d.published_at.getTime();
   {events.length > 0 && (
     <section class="section" aria-labelledby="h-eventi">
       <div class="section-head">
-        <h2 id="h-eventi">Prossimi eventi</h2>
+        <h2 id="h-eventi">{matched ? 'Eventi in programma su questo tema' : 'Prossimi eventi'}</h2>
         <a href="/eventi/">Tutti gli eventi</a>
       </div>
       <ul class="grid">{events.map((e) => <EventCard event={e} />)}</ul>

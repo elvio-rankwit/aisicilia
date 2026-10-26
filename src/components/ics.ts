@@ -1,5 +1,5 @@
 // Generatore di file iCalendar (RFC 5545) per un evento. Fuso Europe/Rome, UID stabile, CRLF, righe ≤ 75 ottetti.
-import type { Event } from '../lib/data';
+import { eventPath, type Event } from '../lib/data';
 
 const CRLF = '\r\n';
 const enc = new TextEncoder();
@@ -78,7 +78,7 @@ export function buildIcs(e: Event, siteUrl: string): string {
     d.start_time && !timed ? `Inizio alle ${d.start_time}${d.end_time ? `, fine alle ${d.end_time}` : ''}.` : '',
     `Organizza: ${d.organizer}.`,
     `Pagina dell'evento: ${d.event_url}`,
-    `Scheda su AI Sicilia: ${siteUrl}/eventi/${e.id}/`,
+    `Scheda su AI Sicilia: ${siteUrl}${eventPath(e)}`,
     'Controlla date e orari sul sito dell\'organizzatore prima di partire.',
   ].filter(Boolean);
   lines.push(`DESCRIPTION:${esc(d.description + '\n\n' + extra.join('\n'))}`);

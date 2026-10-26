@@ -38,9 +38,40 @@ export async function getUpcomingEvents(): Promise<Event[]> {
   return (await getAllEvents()).filter((e) => !isPast(e));
 }
 
+/** Finestra della pagina /eventi/prossimi/. */
+export const NEXT_DAYS = 30;
+
+/** Eventi in corso o che iniziano entro `days` giorni da oggi. */
+export async function getNextEvents(days = NEXT_DAYS): Promise<Event[]> {
+  const limit = today().getTime() + days * 86_400_000;
+  return (await getUpcomingEvents()).filter((e) => e.data.start_date.getTime() <= limit);
+}
+
 /** Archivio: dal più recente al più vecchio. */
 export async function getPastEvents(): Promise<Event[]> {
   return (await getAllEvents()).filter((e) => isPast(e)).reverse();
+}
+
+/** Gli eventi che si ripetono hanno una pagina stabile per tutte le edizioni (D-039): /eventi/<series>/. */
+export const eventKey = (e: Event): string => e.data.series ?? e.id;
+export const eventPath = (e: Event): string => `/eventi/${eventKey(e)}/`;
+
+export interface EventPage {
+  key: string;
+  /** Edizione in evidenza: la prossima in programma, altrimenti l'ultima svolta. */
+  event: Event;
+  /** Tutte le edizioni pubblicate, dalla più recente. */
+  editions: Event[];
+}
+
+export async function getEventPages(): Promise<EventPage[]> {
+  const groups = new Map<string, Event[]>();
+  for (const e of await getAllEvents()) groups.set(eventKey(e), [...(groups.get(eventKey(e)) ?? []), e]);
+  return [...groups.entries()].map(([key, list]) => ({
+    key,
+    event: list.find((e) => !isPast(e)) ?? list[list.length - 1],
+    editions: [...list].reverse(),
+  }));
 }
 
 /** Articoli visibili: quelli YMYL (needs_human_review: true) restano fuori finché non approvati. */

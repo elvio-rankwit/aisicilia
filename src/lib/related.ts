@@ -64,3 +64,47 @@ export function sectorsForProvince(p: ProvinceSlug, companies: Company[], events
   const fallback: PromptSector[] = ['ospitalita', 'agroalimentare-vino', 'ristorazione'];
   return [...new Set([...ranked, ...fallback])].slice(0, 3);
 }
+
+/**
+ * Eventi ↔ guide: per ogni guida, le parole che la legano a un evento. Il titolo, i temi e l'organizzatore
+ * dell'evento pesano più della descrizione. Le chiavi sono gli slug delle guide: se una guida cambia slug, va aggiornata qui.
+ */
+const GUIDE_MATCH: Record<string, RegExp> = {
+  'ai-act-gdpr-cosa-deve-sapere-impresa': /\bai act\b|gdpr|privacy|protezione dei dati|diritto|giurisdizion|giustizia|tutele|deontolog|licenziament|regolament/i,
+  'ai-studi-professionali-dati-clienti': /\bordine\b|ordini professionali|avvocat|commercialist|ingegner|architett|geometr|notai|consulenti del lavoro|studi professionali|crediti formativi/i,
+  'ai-hotel-bb-strutture-ricettive': /turism|ospitalit|albergh|hotel|strutture ricettive/i,
+  'ai-cantine-aziende-agroalimentari': /agroalimentar|\bvino\b|cantin|agricoltur|enolog/i,
+  'ai-ristoranti-bar-locali': /ristorazion|ristorant|\bbar\b|food/i,
+  'incentivi-finanziamenti-digitalizzazione-ai-sicilia': /startup|finanziament|incentiv|\bbandi\b|investitor|trasferimento tecnologico/i,
+  'automatizzare-attivita-ripetitive': /agenti|automazion|workflow|\brag\b|tool calling/i,
+  'scrivere-prompt-efficaci-senza-essere-tecnici': /\bprompt\b|ai generativa|alfabetizzazion|competenze digitali|uso consapevole/i,
+  'geo-farsi-trovare-chatgpt-gemini-perplexity': /marketing|\bseo\b|\bgeo\b|visibilit|motori di ricerca/i,
+  'ai-pmi-siciliane-da-dove-cominciare': /impres|aziend|\bpmi\b|business|trasformazione digitale/i,
+};
+const GUIDE_FALLBACK = 'ai-pmi-siciliane-da-dove-cominciare';
+
+const matchScore = (e: Event, re: RegExp) => {
+  const d = e.data;
+  const strong = [d.title, d.organizer, ...d.topics, ...d.audience].filter((s) => re.test(s)).length;
+  return strong * 3 + (re.test(d.description) ? 1 : 0);
+};
+
+/** Guide da leggere prima di un evento; se nessuna regola scatta, la guida introduttiva. */
+export function guidesForEvent(e: Event, articles: Article[], n = 2): Article[] {
+  const ranked = articles
+    .map((a) => ({ a, s: GUIDE_MATCH[a.id] ? matchScore(e, GUIDE_MATCH[a.id]) : 0 }))
+    .filter(({ s }) => s >= 3)
+    .sort((x, y) => y.s - x.s)
+    .map(({ a }) => a);
+  const fallback = articles.find((a) => a.id === GUIDE_FALLBACK);
+  return (ranked.length ? ranked : fallback ? [fallback] : []).slice(0, n);
+}
+
+/** Eventi in programma legati a una guida; se non bastano, i prossimi in calendario. */
+export function eventsForArticle(a: Article, upcoming: Event[], n = 2): { events: Event[]; matched: boolean } {
+  const re = GUIDE_MATCH[a.id];
+  const own = re ? upcoming.map((e) => ({ e, s: matchScore(e, re) })).filter(({ s }) => s >= 3).sort((x, y) => y.s - x.s).map(({ e }) => e) : [];
+  const ordered = own.slice(0, n).sort((x, y) => x.data.start_date.getTime() - y.data.start_date.getTime());
+  const events = [...ordered, ...upcoming.filter((e) => !ordered.includes(e))].slice(0, n);
+  return { events, matched: events.length > 0 && events.every((e) => ordered.includes(e)) };
+}

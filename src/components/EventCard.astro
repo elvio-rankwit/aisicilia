@@ -1,5 +1,5 @@
 ---
-import type { Event } from '../lib/data';
+import { eventPath, type Event } from '../lib/data';
 import { PROVINCES } from '../lib/provinces';
 import { cap, clip, dateRange, eventStatus, isoDay, monthKey, slugify, timeRange } from './helpers';
 interface Props { event: Event; level?: 2 | 3 | 4 }
@@ -20,7 +20,7 @@ const place = d.format === 'online' ? `Online, organizza ${d.city}` : [d.venue_n
   data-mese={monthKey(d.start_date)}
 >
   <p class="kicker"><time datetime={isoDay(d.start_date)}>{dateRange(d.start_date, d.end_date)}</time>{d.start_time ? ` · ${d.start_time}` : ''}{st.key !== 'programmato' && <> · <b>{st.label}</b></>}</p>
-  <H><a href={`/eventi/${e.id}/`}>{d.title}</a></H>
+  <H><a href={eventPath(e)}>{d.title}</a></H>
   <p class="desc">{clip(d.description, 200)}</p>
   <p class="meta">{place} ({PROVINCES[d.province].sigla})</p>
   <ul class="tags"><li class="chip">{cap(d.format)}</li><li class="chip">{cap(d.price)}</li></ul>

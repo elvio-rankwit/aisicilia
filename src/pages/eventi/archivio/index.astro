@@ -7,7 +7,7 @@ import EmptyList from '../../../components/EmptyList.astro';
 import EventCard from '../../../components/EventCard.astro';
 import Pager from '../../../components/Pager.astro';
 import CtaSegnala from '../../../components/CtaSegnala.astro';
-import { getPastEvents } from '../../../lib/data';
+import { eventPath, getPastEvents } from '../../../lib/data';
 import { meta } from '../../../lib/seo/meta';
 import { collectionPageNodes, itemListNodes } from '../../../lib/seo/jsonld';
 import { LIST_PAGE_SIZE, PAGINATE_OVER, dateRange } from '../../../components/helpers';
@@ -27,7 +27,7 @@ const newest = past[0]?.data.end_date ?? past[0]?.data.start_date;
     breadcrumbs: [{ name: 'Eventi', path: '/eventi/' }, { name: 'Archivio', path: '/eventi/archivio/' }],
     jsonld: [
       ...collectionPageNodes({ path: '/eventi/archivio/', name: h1, description: m.description }),
-      ...itemListNodes({ path: '/eventi/archivio/', name: h1, items: shown.map((e) => ({ url: `/eventi/${e.id}/`, name: e.data.title })) }),
+      ...itemListNodes({ path: '/eventi/archivio/', name: h1, items: shown.map((e) => ({ url: eventPath(e), name: e.data.title })) }),
     ],
   }}
 >

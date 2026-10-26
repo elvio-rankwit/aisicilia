@@ -2,7 +2,7 @@
 // Replica le rotte di src/pages/ usando le stesse funzioni di data.ts: se si aggiunge una rotta, va aggiunta qui
 // (la verifica `dist/` ↔ registro è nello script di controllo del report).
 import {
-  getAllEvents, getArticles, getCompanies, getPastEvents, getPrompts, getUpcomingEvents, latestDate,
+  getAllEvents, getArticles, getEventPages, getCompanies, getNextEvents, NEXT_DAYS, getPastEvents, getPrompts, getUpcomingEvents, latestDate,
 } from '../data';
 import { LIST_PAGE_SIZE, PAGINATE_OVER, RESERVED_SLUGS } from '../../components/helpers';
 import { PROVINCE_SLUGS, PROVINCES } from '../provinces';
@@ -46,6 +46,7 @@ async function build(): Promise<SitePage[]> {
     getCompanies(), getAllEvents(), getUpcomingEvents(), getPastEvents(), getArticles(), getPrompts(),
   ]);
   const pages: SitePage[] = [];
+  const next30 = await getNextEvents(NEXT_DAYS);
   const hasEvents = (p: string) => allEvents.some((e) => e.data.province === p);
   const hasCompanies = (p: string) => companies.some((c) => c.data.province === p);
   const add = (p: Omit<SitePage, 'path'> & { path: string }) => pages.push({ ...p, path: normalizePath(p.path) });
@@ -85,6 +86,8 @@ async function build(): Promise<SitePage[]> {
   // Eventi
   add({ path: '/eventi/', kind: 'hub', segment: 'pagine', indexable: true, lastmod: eDate(upcoming),
     og: { eyebrow: 'Eventi', title: 'Eventi AI in Sicilia', subtitle: 'Calendario per provincia, con mappa' } });
+  add({ path: '/eventi/prossimi/', kind: 'hub', segment: 'pagine', indexable: true, lastmod: eDate(next30),
+    og: { eyebrow: 'Eventi', title: 'Eventi AI in Sicilia nei prossimi 30 giorni', subtitle: 'Settimana per settimana' } });
   for (const p of PROVINCE_SLUGS) {
     const inProv = upcoming.filter((e) => e.data.province === p);
     add({ path: `/eventi/provincia/${p}/`, kind: 'province', segment: 'pagine', indexable: inProv.length > 0 || hasEvents(p) || hasCompanies(p), lastmod: eDate(inProv),
@@ -99,9 +102,9 @@ async function build(): Promise<SitePage[]> {
         og: { eyebrow: 'Eventi', title: `Archivio degli eventi AI in Sicilia, pagina ${n}` } });
     }
   }
-  for (const e of allEvents.filter((x) => !RESERVED_SLUGS.includes(x.id))) {
-    add({ path: `/eventi/${e.id}/`, kind: 'event', segment: 'eventi', indexable: true, lastmod: e.data.last_verified,
-      og: { eyebrow: `Evento · ${PROVINCES[e.data.province].name}`, title: e.data.title, subtitle: `${formatRange(e.data.start_date, e.data.end_date)} · ${e.data.format === 'online' ? 'online' : e.data.city}` } });
+  for (const { key, event: e, editions } of (await getEventPages()).filter((x) => !RESERVED_SLUGS.includes(x.key))) {
+    add({ path: `/eventi/${key}/`, kind: 'event', segment: 'eventi', indexable: true, lastmod: latestDate(editions.map((x) => x.data.last_verified)),
+      og: { eyebrow: `Evento · ${PROVINCES[e.data.province].name}`, title: e.data.series_name ?? e.data.title, subtitle: `${formatRange(e.data.start_date, e.data.end_date)} · ${e.data.format === 'online' ? 'online' : e.data.city}` } });
   }
 
   // Impara

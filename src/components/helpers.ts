@@ -1,7 +1,7 @@
 // Funzioni pure condivise dai componenti e dalle pagine (formati, etichette, slug dei filtri).
 // Non sta in src/lib/ (non è del frontend-builder): qui vive solo la presentazione.
 import type { Company, Event } from '../lib/data';
-import { isPast } from '../lib/data';
+import { eventPath, isPast } from '../lib/data';
 import { PROVINCES, PROVINCE_SLUGS, type ProvinceSlug } from '../lib/provinces';
 import { PROMPT_SECTORS, type PromptSector } from '../lib/taxonomies';
 
@@ -9,7 +9,7 @@ import { PROMPT_SECTORS, type PromptSector } from '../lib/taxonomies';
 export const LIST_PAGE_SIZE = 48;
 export const PAGINATE_OVER = 100;
 /** Slug che non possono essere usati come scheda perché collidono con rotte fisse. */
-export const RESERVED_SLUGS = ['provincia', 'pagina', 'archivio'];
+export const RESERVED_SLUGS = ['provincia', 'pagina', 'archivio', 'prossimi'];
 
 export const slugify = (s: string): string =>
   s.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
@@ -123,7 +123,7 @@ export const companyPoints = (list: Company[]): MapPoint[] =>
 export const eventPoints = (list: Event[]): MapPoint[] =>
   list.flatMap((e) =>
     e.data.lat !== undefined && e.data.lng !== undefined
-      ? [{ id: e.id, lat: e.data.lat, lng: e.data.lng, title: e.data.title, url: `/eventi/${e.id}/`, province: e.data.province, subtitle: `${dateRange(e.data.start_date, e.data.end_date)}, ${e.data.city}` }]
+      ? [{ id: e.id, lat: e.data.lat, lng: e.data.lng, title: e.data.title, url: eventPath(e), province: e.data.province, subtitle: `${dateRange(e.data.start_date, e.data.end_date)}, ${e.data.city}` }]
       : [],
   );
 

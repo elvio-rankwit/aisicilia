@@ -1,6 +1,8 @@
 {
   "title": "DevFest Catania 2026",
   "slug": "devfest-catania-2026-11",
+  "series": "devfest-catania",
+  "series_name": "DevFest Catania",
   "description": "Conferenza della community GDG Catania con programma costruito dalle community, tra i cui temi compaiono AI, web, cloud, mobile e Build with AI. La pagina GDG indica domenica 15 novembre 2026 al Palazzo della Cultura di Catania, con registrazione gratuita; un elenco esterno parla invece del 14-15 novembre. Al momento non risultano pubblicati track o sessioni.",
   "start_date": "2026-11-15",
   "format": "in presenza",

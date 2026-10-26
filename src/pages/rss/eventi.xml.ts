@@ -1,7 +1,7 @@
 // Feed RSS 2.0 dei prossimi eventi. La data di pubblicazione di ogni voce è l'ultima verifica della scheda.
 import rss from '@astrojs/rss';
 import type { APIRoute } from 'astro';
-import { getUpcomingEvents } from '../../lib/data';
+import { eventPath, getUpcomingEvents } from '../../lib/data';
 import { SITE } from '../../lib/site';
 import { FEEDS } from '../../lib/seo/config';
 import { meta } from '../../lib/seo/meta';
@@ -23,7 +23,7 @@ export const GET: APIRoute = async () => {
     ].join(''),
     items: events.map((e) => ({
       title: STATUS_PREFIX[e.data.status] + e.data.title,
-      link: `/eventi/${e.id}/`,
+      link: eventPath(e),
       // La description meta inizia già con data e luogo.
       description: meta.event(e).description,
       pubDate: e.data.last_verified,

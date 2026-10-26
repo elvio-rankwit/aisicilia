@@ -1,5 +1,5 @@
 // Contenuto di llms.txt (formato llmstxt.org) e llms-full.txt, generato in build dai dati. Identico in beta e production.
-import { getArticles, getCompanies, getPrompts, getUpcomingEvents, groupByProvince, latestDate } from '../data';
+import { eventPath, getArticles, getCompanies, getPrompts, getUpcomingEvents, groupByProvince, latestDate } from '../data';
 import { PROVINCE_SLUGS, PROVINCES } from '../provinces';
 import { PROMPT_SECTORS, PROMPT_SECTOR_SLUGS } from '../taxonomies';
 import { FEEDS } from './config';
@@ -122,7 +122,7 @@ export async function buildLlmsFull(): Promise<string> {
     if (d.status !== 'programmato') out.push(`- Stato: ${d.status}`);
     out.push(`- Pubblico: ${d.audience.join(', ')}`);
     out.push(`- Pagina dell'evento: ${d.event_url}`);
-    out.push(`- Scheda: ${abs(`/eventi/${e.id}/`)}`, `- Ultima verifica: ${formatDay(d.last_verified)}`, '');
+    out.push(`- Scheda: ${abs(eventPath(e))}`, `- Ultima verifica: ${formatDay(d.last_verified)}`, '');
   }
 
   out.push('## Guide', '');

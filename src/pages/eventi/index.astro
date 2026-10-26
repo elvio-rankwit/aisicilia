@@ -10,9 +10,9 @@ import Panel from '../../components/Panel.astro';
 import EmptyList from '../../components/EmptyList.astro';
 import ListFilters from '../../components/ListFilters.astro';
 import CtaSegnala from '../../components/CtaSegnala.astro';
-import { getPastEvents, getUpcomingEvents } from '../../lib/data';
+import { eventPath, getAllEvents, getNextEvents, getPastEvents, getUpcomingEvents } from '../../lib/data';
 import { meta } from '../../lib/seo/meta';
-import { collectionPageNodes, itemListNodes } from '../../lib/seo/jsonld';
+import { collectionPageNodes, faqPageNodes, itemListNodes } from '../../lib/seo/jsonld';
 import { PROVINCES, PROVINCE_SLUGS } from '../../lib/provinces';
 import { EVENT_AUDIENCES, EVENT_FORMATS, EVENT_PRICES } from '../../lib/taxonomies';
 import { cap, countByProvince, dateRange, eventPoints, isScheduled, monthKey, monthLabel, plural, slugify } from '../../components/helpers';
@@ -37,6 +37,35 @@ const fields = [
   { key: 'mese', label: 'Mese', options: months.map((k) => ({ value: k, label: cap(monthLabel(k)) })) },
 ].filter((f) => f.options.length > 1);
 
+// Domande sul calendario (D-039): risposte calcolate sui dati, così restano vere quando il calendario cambia.
+const all = await getAllEvents();
+const next30 = await getNextEvents();
+const perMonth = new Map<string, number>();
+for (const e of all) perMonth.set(monthKey(e.data.start_date), (perMonth.get(monthKey(e.data.start_date)) ?? 0) + 1);
+const busiest = [...perMonth.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).slice(0, 2);
+const firstMonth = [...perMonth.keys()].sort()[0];
+const summer = all.filter((e) => ['07', '08'].includes(monthKey(e.data.start_date).slice(5))).length;
+const free = events.filter((e) => e.data.price === 'gratuito').length;
+const online = events.filter((e) => e.data.format !== 'in presenza').length;
+const faq = [
+  all.length >= 10 && busiest.length === 2 && {
+    question: 'Quando ci sono più eventi sull’AI in Sicilia?',
+    answer: `Nel nostro calendario, che parte da ${monthLabel(firstMonth)}, i mesi più pieni sono ${monthLabel(busiest[0][0])} (${plural(busiest[0][1], 'evento', 'eventi')}) e ${monthLabel(busiest[1][0])} (${busiest[1][1]}). Buona parte degli appuntamenti sono convegni universitari e corsi degli ordini professionali, quindi seguono il loro anno di lavoro.${summer <= 3 ? ` D’estate il calendario quasi si ferma: tra luglio e agosto ne abbiamo contati ${summer}.` : ''}`,
+  },
+  {
+    question: 'Come è fatto questo calendario?',
+    answer: 'Ogni evento ha una scheda con data, luogo, prezzo, organizzatore e il link alla fonte: la pagina dell’università, dell’ordine, dell’associazione o di chi lo organizza. Una data entra solo quando una fonte ufficiale la conferma, e accanto c’è il giorno dell’ultimo controllo. Gli eventi che si ripetono ogni anno hanno una pagina fissa, con l’edizione in corso e quelle passate. Quelli conclusi passano in archivio da soli, la notte dopo l’ultima giornata.',
+  },
+  {
+    question: 'Come trovi l’evento giusto?',
+    answer: `Filtra per provincia, formato, pubblico, prezzo o mese, oppure cerca un nome nel campo di ricerca. Gli eventi online contano nella provincia di chi li organizza.${events.length ? ` Oggi ${free === 1 ? 'è gratuito 1 evento' : `sono gratuiti ${free} eventi`} su ${events.length} e ${online === 1 ? '1 si può seguire' : `${online} si possono seguire`} online.` : ''} Se sei iscritto a un ordine, guarda i convegni di ingegneri, architetti, geometri e avvocati: spesso danno crediti formativi, e quando la fonte lo dice lo trovi nella scheda.`,
+  },
+  {
+    question: 'Cosa fai dopo aver scelto?',
+    answer: 'Apri la pagina dell’organizzatore dal pulsante della scheda: lì ti iscrivi e trovi il programma aggiornato. Con «Aggiungi al calendario» scarichi il file per Google Calendar, Outlook o il calendario del telefono. Prima di partire ricontrolla data e luogo sulla pagina dell’organizzatore: i programmi cambiano, e noi ce ne accorgiamo solo al controllo successivo.',
+  },
+].filter((q): q is { question: string; answer: string } => !!q);
+
 const provincesWith = PROVINCE_SLUGS.filter((p) => counts[p] > 0).length;
 const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
 const m = meta.eventsIndex(scheduled.length);
@@ -48,7 +77,8 @@ const h1 = 'Eventi AI in Sicilia';
     breadcrumbs: [{ name: 'Eventi', path: '/eventi/' }],
     jsonld: [
       ...collectionPageNodes({ path: '/eventi/', name: h1, description: m.description }),
-      ...itemListNodes({ path: '/eventi/', name: h1, items: events.map((e) => ({ url: `/eventi/${e.id}/`, name: e.data.title })) }),
+      ...itemListNodes({ path: '/eventi/', name: h1, items: events.map((e) => ({ url: eventPath(e), name: e.data.title })) }),
+      ...faqPageNodes('/eventi/', faq),
     ],
   }}
 >
@@ -57,7 +87,7 @@ const h1 = 'Eventi AI in Sicilia';
     {events.length > 0 && first && last ? (
       <>
         <p><b>{plural(scheduled.length, 'evento in programma', 'eventi in programma')}</b> sull’intelligenza artificiale in Sicilia, da {dateRange(first)} a {dateRange(last)}.</p>
-        <p>Ogni evento rimanda alla pagina dell’organizzatore, con fonte e data di verifica. Quelli già svolti restano nell’<a href="/eventi/archivio/">archivio</a>.</p>
+        <p>Ogni evento rimanda alla pagina dell’organizzatore, con fonte e data di verifica. {next30.length > 0 ? <>Solo i prossimi 30 giorni, settimana per settimana: <a href="/eventi/prossimi/">{plural(next30.length, 'evento', 'eventi')}</a>.</> : <>I prossimi 30 giorni li trovi <a href="/eventi/prossimi/">settimana per settimana</a>.</>} Quelli già svolti restano nell’<a href="/eventi/archivio/">archivio</a>.</p>
       </>
     ) : (
       <>
@@ -119,10 +149,26 @@ const h1 = 'Eventi AI in Sicilia';
     )}
   </section>
 
+  <section class="section" aria-labelledby="h-faq">
+    <SecHead id="h-faq" eyebrow="Come funziona" title="Domande sul calendario" />
+    <div class="faq">
+      {faq.map((q, i) => (
+        <div>
+          <h3 id={`q-${i + 1}`}>{q.question}</h3>
+          <p>{q.answer}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
   <CtaSegnala text="Organizzi o conosci un evento sull’AI in Sicilia? Segnalalo: lo controlliamo e lo aggiungiamo al calendario." />
 </BaseLayout>
 <style>
   .two { display: grid; gap: 28px; align-items: start; }
+  .faq { display: grid; gap: 28px 48px; }
+  .faq h3 { margin: 0 0 10px; font-size: clamp(19px, 2vw, 22px); line-height: 1.25; letter-spacing: -0.03em; }
+  .faq p { margin: 0; max-width: 40rem; font-size: 17px; line-height: 1.7; }
+  @media (min-width: 62rem) { .faq { grid-template-columns: 1fr 1fr; } }
   .note { margin: 16px 0 0; font-size: 15.5px; color: var(--muted); }
   .month { display: flex; align-items: baseline; gap: 14px; margin: 48px 0 24px; font-size: clamp(20px, 2.2vw, 26px); letter-spacing: -0.035em; }
   .month::after { content: ''; order: 3; flex: 1; align-self: center; min-width: 24px; height: 0; border-top: 2px solid var(--teal); }

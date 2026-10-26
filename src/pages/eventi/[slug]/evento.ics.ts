@@ -1,17 +1,18 @@
 import type { APIRoute } from 'astro';
-import { getAllEvents } from '../../../lib/data';
+import { getEventPages } from '../../../lib/data';
 import { SITE } from '../../../lib/site';
 import { buildIcs } from '../../../components/ics';
 import { RESERVED_SLUGS } from '../../../components/helpers';
 
 export async function getStaticPaths() {
-  const events = await getAllEvents();
-  return events.filter((e) => !RESERVED_SLUGS.includes(e.id)).map((e) => ({ params: { slug: e.id }, props: { id: e.id } }));
+  const pages = await getEventPages();
+  return pages.filter((p) => !RESERVED_SLUGS.includes(p.key)).map((p) => ({ params: { slug: p.key }, props: { key: p.key } }));
 }
 
 export const GET: APIRoute = async ({ props }) => {
-  const event = (await getAllEvents()).find((e) => e.id === props.id)!;
+  // Per gli eventi che si ripetono, il file è quello dell'edizione in evidenza.
+  const event = (await getEventPages()).find((p) => p.key === props.key)!.event;
   return new Response(buildIcs(event, SITE.url), {
-    headers: { 'Content-Type': 'text/calendar; charset=utf-8', 'Content-Disposition': `attachment; filename="${event.id}.ics"` },
+    headers: { 'Content-Type': 'text/calendar; charset=utf-8', 'Content-Disposition': `attachment; filename="${props.key}.ics"` },
   });
 };

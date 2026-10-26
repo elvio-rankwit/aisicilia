@@ -67,6 +67,10 @@ const events = defineCollection({
     .object({
       title: z.string().min(5),
       slug,
+      /** Eventi che si ripetono (D-039): stesso `series` per tutte le edizioni, che condividono la pagina /eventi/<series>/. */
+      series: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/).refine((s) => !/-20\d\d(-\d\d)?$/.test(s), 'la serie non contiene anno o mese').optional(),
+      /** Nome stabile della serie, senza anno: è l'H1 della pagina. */
+      series_name: z.string().min(3).optional(),
       description: z.string().min(200).max(900),
       start_date: isoDate,
       end_date: isoDate.optional(),
@@ -93,6 +97,7 @@ const events = defineCollection({
       verification_status: verification,
     })
     .refine((e) => !e.end_date || e.end_date >= e.start_date, { message: 'end_date precedente a start_date' })
+    .refine((e) => !e.series === !e.series_name, { message: 'series e series_name vanno insieme' })
     .refine((e) => e.format === 'online' || (e.lat !== undefined && e.lng !== undefined), {
       message: 'eventi in presenza o ibridi richiedono lat/lng',
     }),

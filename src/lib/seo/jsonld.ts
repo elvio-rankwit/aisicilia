@@ -7,7 +7,7 @@
 //   indirizzo e geo vanno in `location: Place`, perché `geo` non è valido su Organization.
 // - Event: `geo` solo se c'è `venue_address` (le coordinate degli eventi possono essere al centro della città).
 // - Prompt: `CreativeWork` e non `HowTo`: HowTo non dà più rich result e i passaggi andrebbero ricavati da un paragrafo.
-import type { Article, Company, Event, Prompt } from '../data';
+import { eventPath, type Article, type Company, type Event, type Prompt } from '../data';
 import { PROVINCES } from '../provinces';
 import { PROMPT_SECTORS } from '../taxonomies';
 import { localIso, ymd } from './dates';
@@ -90,7 +90,7 @@ const EVENT_STATUS = {
 
 export const eventNodes = (e: Event): JsonLdNode[] => {
   const d = e.data;
-  const path = `/eventi/${e.id}/`;
+  const path = eventPath(e);
   const physical = d.format !== 'online';
   const online = d.format !== 'in presenza';
 
@@ -183,6 +183,17 @@ export const articleNodes = (a: Article): JsonLdNode[] => {
   };
   return [article, faq];
 };
+
+/** FAQPage per le pagine che non sono articoli (hub eventi, prossimi eventi). */
+export const faqPageNodes = (path: string, items: { question: string; answer: string }[]): JsonLdNode[] => [
+  {
+    '@type': 'FAQPage',
+    '@id': ID.faq(path),
+    inLanguage: IN_LANGUAGE,
+    isPartOf: { '@id': ID.webpage(path) },
+    mainEntity: items.map((q) => ({ '@type': 'Question', name: q.question, acceptedAnswer: { '@type': 'Answer', text: q.answer } })),
+  },
+];
 
 // ------------------------------------------------------------------ prompt
 export const promptNodes = (p: Prompt): JsonLdNode[] => {

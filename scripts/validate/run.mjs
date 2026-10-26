@@ -98,8 +98,17 @@ function validateContent() {
     if (data.verification_status !== 'verified') warn(where, 'record non verified: non sarà pubblicato (spostalo in data/_pending/)');
     if (data.geo_precision === 'indirizzo' && !data.address) err(where, 'geo_precision "indirizzo" senza address');
   }
+  // Serie (D-039): la pagina /eventi/<series>/ non deve collidere con lo slug di un altro evento o con una rotta fissa.
+  const eventSlugs = new Set(all.events.map((e) => e.data.slug));
+  const seriesNames = new Map();
   for (const { file, data } of all.events) {
     if (data.verification_status !== 'verified') warn(rel(file), 'evento non verified: non sarà pubblicato');
+    if (!data.series) continue;
+    if (eventSlugs.has(data.series)) err(rel(file), `series "${data.series}" uguale allo slug di un evento`);
+    if (['provincia', 'pagina', 'archivio', 'prossimi'].includes(data.series)) err(rel(file), `series "${data.series}" è una rotta riservata`);
+    const name = seriesNames.get(data.series);
+    if (name && name !== data.series_name) err(rel(file), `series_name diverso dalle altre edizioni ("${name}")`);
+    seriesNames.set(data.series, data.series_name);
   }
   for (const { file, data, body } of all.articles) {
     const where = rel(file);

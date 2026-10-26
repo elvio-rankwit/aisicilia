@@ -5,7 +5,7 @@ import DirHero from '../../../../components/DirHero.astro';
 import EventCard from '../../../../components/EventCard.astro';
 import Pager from '../../../../components/Pager.astro';
 import CtaSegnala from '../../../../components/CtaSegnala.astro';
-import { getPastEvents } from '../../../../lib/data';
+import { eventPath, getPastEvents } from '../../../../lib/data';
 import { meta } from '../../../../lib/seo/meta';
 import { collectionPageNodes, itemListNodes } from '../../../../lib/seo/jsonld';
 import { LIST_PAGE_SIZE, PAGINATE_OVER, pagedTitle } from '../../../../components/helpers';
@@ -32,7 +32,7 @@ const h1 = `Archivio degli eventi AI in Sicilia, pagina ${n}`;
     breadcrumbs: [{ name: 'Eventi', path: '/eventi/' }, { name: 'Archivio', path: '/eventi/archivio/' }, { name: `Pagina ${n}`, path }],
     jsonld: [
       ...collectionPageNodes({ path, name: h1, description: m.description }),
-      ...itemListNodes({ path, name: h1, items: slice.map((e) => ({ url: `/eventi/${e.id}/`, name: e.data.title })) }),
+      ...itemListNodes({ path, name: h1, items: slice.map((e) => ({ url: eventPath(e), name: e.data.title })) }),
     ],
   }}
 >

@@ -9,7 +9,7 @@ import SecHead from '../../../components/SecHead.astro';
 import EmptyList from '../../../components/EmptyList.astro';
 import OtherProvinces from '../../../components/OtherProvinces.astro';
 import CtaSegnala from '../../../components/CtaSegnala.astro';
-import { getAllEvents, getCompanies, getUpcomingEvents } from '../../../lib/data';
+import { eventPath, getAllEvents, getCompanies, getUpcomingEvents } from '../../../lib/data';
 import { meta } from '../../../lib/seo/meta';
 import { collectionPageNodes, itemListNodes } from '../../../lib/seo/jsonld';
 import { PROVINCES, PROVINCE_SLUGS, type ProvinceSlug } from '../../../lib/provinces';
@@ -40,7 +40,7 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
     breadcrumbs: [{ name: 'Eventi', path: '/eventi/' }, { name: prov.name, path }],
     jsonld: [
       ...collectionPageNodes({ path, name: h1, description: m.description }),
-      ...itemListNodes({ path, name: h1, items: events.map((e) => ({ url: `/eventi/${e.id}/`, name: e.data.title })) }),
+      ...itemListNodes({ path, name: h1, items: events.map((e) => ({ url: eventPath(e), name: e.data.title })) }),
     ],
   }}
 >

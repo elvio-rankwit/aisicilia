@@ -5,7 +5,7 @@ import MapPreviewSlot from '../components/MapPreviewSlot.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import CtaSegnala from '../components/CtaSegnala.astro';
 import SearchForm from '../components/SearchForm.astro';
-import { formatDate, getArticles, getCompanies, getPrompts, getUpcomingEvents, latestDate, today } from '../lib/data';
+import { eventPath, formatDate, getArticles, getCompanies, getPrompts, getUpcomingEvents, latestDate, today } from '../lib/data';
 import { PROVINCES, PROVINCE_SLUGS, type ProvinceSlug } from '../lib/provinces';
 import { PROMPT_SECTORS } from '../lib/taxonomies';
 import { meta } from '../lib/seo/meta';
@@ -228,7 +228,7 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
             const when = e.data.start_time ? `ore ${e.data.start_time}` : e.data.end_date && e.data.end_date.getTime() !== e.data.start_date.getTime() ? 'più giorni' : '';
             return (
               <li class="ev-row">
-                <a href={`/eventi/${e.id}/`} data-astro-prefetch>
+                <a href={eventPath(e)} data-astro-prefetch>
                   <span class="date"><b>{dp.d}</b><small>{dp.m}</small></span>
                   <span class="evmain"><span class="evt">{e.data.title}</span><span class="evm">{[place, e.data.format, when].filter(Boolean).join(' · ')}</span></span>
                   <span class="chips">{isToday(e) && <span class="chip today">Oggi</span>}<span class="chip pv">{PROVINCES[e.data.province].sigla}</span><span class="chip">{price(e.data.price)}</span></span>

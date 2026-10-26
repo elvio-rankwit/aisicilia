@@ -33,6 +33,7 @@ Se ti è stato assegnato un sottoinsieme di province, scrivi solo eventi di quel
 - `format`: `in presenza`, `online`, `ibrido`. Eventi in presenza/ibridi richiedono `lat`/`lng`: geocodifica l'indirizzo della sede con `node scripts/geocode/geocode.mjs "<indirizzo della sede>"`; se non geocodificabile, usa `--city` sul comune. Eventi online: niente coordinate.
 - `audience` e `price` solo dai valori in `src/lib/taxonomies.ts`. `topics`: 1–4 temi brevi in minuscolo, coerenti tra eventi ("AI generativa", "machine learning", "AI per il turismo", "AI Act", "dati"…): riusa le stesse etichette.
 - **Slug**: `<titolo-breve>-<citta>-<aaaa-mm>` (es. `workshop-ai-generativa-catania-2026-11`), minuscolo senza accenti. File `<slug>.json`.
+- **Serie** (D-039): se la fonte dice che l'evento si ripete ("seconda edizione", "nato nel 2019", nome con l'anno come "DevFest Catania 2026"), aggiungi `series` (slug senza anno, es. `devfest-catania`) e `series_name` (nome stabile senza anno, es. `DevFest Catania`). Per una nuova edizione di una serie già presente usa gli stessi due valori: le edizioni condividono la pagina `/eventi/<series>/`. Senza indizi di ricorrenza, niente serie.
 - `last_verified`: oggi. `verification_status`: `"verified"` solo se tutto è confermato.
 
 ## Regole comuni

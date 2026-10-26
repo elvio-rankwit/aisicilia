@@ -1,0 +1,155 @@
+---
+// Eventi dei prossimi 30 giorni, settimana per settimana (D-039). Si rigenera con la build notturna.
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import DirHero from '../../../components/DirHero.astro';
+import SecHead from '../../../components/SecHead.astro';
+import Panel from '../../../components/Panel.astro';
+import EventCard from '../../../components/EventCard.astro';
+import CtaSegnala from '../../../components/CtaSegnala.astro';
+import { NEXT_DAYS, eventPath, formatDate, getNextEvents, getUpcomingEvents, today } from '../../../lib/data';
+import { meta } from '../../../lib/seo/meta';
+import { collectionPageNodes, faqPageNodes, itemListNodes } from '../../../lib/seo/jsonld';
+import { PROVINCES, PROVINCE_SLUGS } from '../../../lib/provinces';
+import { countByProvince, hostOf, joinIt, plural } from '../../../components/helpers';
+
+const DAY = 86_400_000;
+const now = today();
+const until = new Date(now.getTime() + NEXT_DAYS * DAY);
+const events = await getNextEvents();
+const later = events.length ? [] : (await getUpcomingEvents()).slice(0, 3);
+
+// Settimane da lunedì a domenica: quella in corso, la prossima, il resto della finestra.
+const endOfWeek = new Date(now.getTime() + ((7 - now.getUTCDay()) % 7) * DAY);
+const endOfNext = new Date(endOfWeek.getTime() + 7 * DAY);
+const groups = [
+  { id: 'settimana', title: 'Questa settimana', items: events.filter((e) => e.data.start_date <= endOfWeek) },
+  { id: 'prossima', title: 'La settimana prossima', items: events.filter((e) => e.data.start_date > endOfWeek && e.data.start_date <= endOfNext) },
+  { id: 'dopo', title: `Fino al ${formatDate(until)}`, items: events.filter((e) => e.data.start_date > endOfNext) },
+].filter((g) => g.items.length > 0);
+
+const counts = countByProvince(events);
+const byProvince = PROVINCE_SLUGS.filter((p) => counts[p] > 0)
+  .sort((a, b) => counts[b] - counts[a])
+  .map((p) => `${counts[p]} in provincia di ${PROVINCES[p].name}`);
+const free = events.filter((e) => e.data.price === 'gratuito').length;
+const paid = events.filter((e) => e.data.price === 'a pagamento').length;
+const online = events.filter((e) => e.data.format !== 'in presenza').length;
+
+const faq = events.length
+  ? [
+      {
+        question: 'Quanti eventi sull’AI ci sono in Sicilia nei prossimi 30 giorni?',
+        answer: `Dal ${formatDate(now)} al ${formatDate(until)} il calendario ne ha ${events.length}: ${joinIt(byProvince)}. Contiamo solo gli eventi con una fonte ufficiale; quelli online stanno nella provincia di chi li organizza.`,
+      },
+      {
+        question: 'Ci sono eventi gratuiti?',
+        answer: `${free === 0 ? 'Nessuno è indicato come gratuito' : free === 1 ? '1 è gratuito' : `${free} sono gratuiti`}, ${paid === 0 ? 'nessuno è a pagamento' : `${paid} ${paid === 1 ? 'è' : 'sono'} a pagamento`}${free + paid < events.length ? ' e per gli altri l’organizzatore non indica il prezzo' : ''}. Spesso gratuito vuol dire comunque iscrizione obbligatoria e posti limitati: controlla sulla pagina dell’evento.`,
+      },
+      {
+        question: 'Si possono seguire online?',
+        answer: online === 0
+          ? 'Nei prossimi 30 giorni sono tutti in presenza. Gli eventi online, quando ci sono, hanno l’etichetta «online» o «ibrido» sulla scheda.'
+          : `${online === 1 ? '1 evento si può seguire' : `${online} eventi si possono seguire`} online: alcuni solo in streaming, altri anche in sala. Il link per collegarsi di solito arriva dall’organizzatore dopo l’iscrizione.`,
+      },
+    ]
+  : [];
+
+// Una riga per organizzatore, con la prima fonte usata.
+const sources = [...new Map([...events].reverse().map((e) => [e.data.organizer, e.data.source_url])).entries()].reverse().map(([org, url]) => [url, org]);
+const m = meta.eventsNext(events.length);
+const h1 = 'Eventi AI in Sicilia nei prossimi 30 giorni';
+const path = '/eventi/prossimi/';
+---
+<BaseLayout
+  seo={{
+    title: m.title, description: m.description, path,
+    breadcrumbs: [{ name: 'Eventi', path: '/eventi/' }, { name: 'Prossimi 30 giorni', path }],
+    jsonld: [
+      ...collectionPageNodes({ path, name: h1, description: m.description }),
+      ...itemListNodes({ path, name: h1, items: events.map((e) => ({ url: eventPath(e), name: e.data.title })) }),
+      ...(faq.length ? faqPageNodes(path, faq) : []),
+    ],
+  }}
+>
+  <DirHero eyebrow={`Aggiornato il ${formatDate(now)}`} tone="teal">
+    <Fragment slot="title">Eventi <mark class="blk">AI</mark> in Sicilia nei prossimi 30 giorni</Fragment>
+    {events.length > 0 ? (
+      <>
+        <p><b>{plural(events.length, 'evento', 'eventi')}</b> sull’intelligenza artificiale da oggi al {formatDate(until)}, divisi per settimana.</p>
+        <p>La pagina si aggiorna ogni notte: gli eventi conclusi escono da soli e quelli nuovi entrano appena li verifichiamo. Il calendario completo, con mappa e filtri, è nella pagina <a href="/eventi/">Eventi</a>.</p>
+      </>
+    ) : (
+      <>
+        <p>Nei prossimi 30 giorni non ci sono eventi sull’AI nel calendario.</p>
+        <p>{later.length > 0 ? 'Qui sotto trovi i primi in programma dopo.' : 'Il calendario è vuoto anche più avanti.'} Ne conosci uno? <a href="/segnala/">Segnalalo</a>.</p>
+      </>
+    )}
+    <Fragment slot="side">
+      <Panel tone="teal" label="Riepilogo dei prossimi 30 giorni">
+        <p class="k">Prossimi 30 giorni</p>
+        <p class="v">{events.length}</p>
+        <p class="d">{events.length > 0 ? <>{free === 1 ? '1 gratuito' : `${free} gratuiti`}, {online === 1 ? '1 online o ibrido' : `${online} online o ibridi`}.</> : 'Nessun evento in calendario, per ora.'}</p>
+        <a class="more" href="/eventi/">Tutto il calendario <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9m-3.5-4L12.5 8 8.5 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+      </Panel>
+    </Fragment>
+  </DirHero>
+
+  {groups.map((g) => (
+    <section class="section" aria-labelledby={`h-${g.id}`}>
+      <SecHead id={`h-${g.id}`} eyebrow={plural(g.items.length, 'evento', 'eventi')} title={g.title} />
+      <ul class="grid">{g.items.map((e) => <EventCard event={e} />)}</ul>
+    </section>
+  ))}
+
+  {later.length > 0 && (
+    <section class="section" aria-labelledby="h-dopo">
+      <SecHead id="h-dopo" eyebrow="Più avanti" title="I primi eventi dopo i 30 giorni" />
+      <ul class="grid">{later.map((e) => <EventCard event={e} />)}</ul>
+    </section>
+  )}
+
+  <section class="section" aria-labelledby="h-prima">
+    <SecHead id="h-prima" eyebrow="Prima di andare" title="Cosa controllare prima di partire" />
+    <div class="prose">
+      <p>Apri la pagina dell’organizzatore dal pulsante della scheda e controlla se serve l’iscrizione e se ci sono ancora posti. Molti convegni degli ordini professionali sono riservati agli iscritti, e capita che le prenotazioni chiudano giorni prima.</p>
+      <p>Orari e sale cambiano anche all’ultimo. Noi ricontrolliamo le schede, ma la pagina dell’organizzatore resta la fonte che fa fede. Se trovi una differenza, <a href="/rimozione/">scrivici</a> e la correggiamo.</p>
+    </div>
+  </section>
+
+  {faq.length > 0 && (
+    <section class="section" aria-labelledby="h-faq">
+      <SecHead id="h-faq" eyebrow="Domande" title="Domande frequenti" />
+      <div class="faq">
+        {faq.map((q, i) => (
+          <div>
+            <h3 id={`q-${i + 1}`}>{q.question}</h3>
+            <p>{q.answer}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
+  {sources.length > 0 && (
+    <section class="section" aria-labelledby="h-fonti">
+      <SecHead id="h-fonti" eyebrow="Fonti" title="Da dove vengono le date" sub="Le pagine degli organizzatori da cui abbiamo preso date e luoghi." />
+      <ul class="src">
+        {sources.map(([url, org]) => <li><a class="ext" href={url} rel="noopener">{org}</a> <small>{hostOf(url)}</small></li>)}
+      </ul>
+    </section>
+  )}
+
+  <CtaSegnala text="Organizzi un evento sull’AI in Sicilia nelle prossime settimane? Mandaci il link: lo controlliamo e lo aggiungiamo." label="Segnala un evento" />
+</BaseLayout>
+<style>
+  .k { margin: 0 0 10px; font: 800 12px/1 var(--body); letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); }
+  .v { margin: 0; font: 800 clamp(56px, 9vw, 96px)/1 var(--display); letter-spacing: -0.05em; font-variant-numeric: tabular-nums lining-nums; color: var(--teal); }
+  .d { margin: 14px 0 18px; max-width: 32ch; color: var(--muted); }
+  .prose p { max-width: 42rem; font-size: 17px; line-height: 1.7; }
+  .faq { display: grid; gap: 28px 48px; }
+  .faq h3 { margin: 0 0 10px; font-size: clamp(19px, 2vw, 22px); line-height: 1.25; letter-spacing: -0.03em; }
+  .faq p { margin: 0; max-width: 40rem; font-size: 17px; line-height: 1.7; }
+  .src { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; max-width: 48rem; }
+  .src small { margin-left: 6px; color: var(--muted); font-size: 14.5px; }
+  @media (min-width: 62rem) { .faq { grid-template-columns: repeat(3, 1fr); } }
+</style>

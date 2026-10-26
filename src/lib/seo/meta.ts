@@ -106,6 +106,14 @@ export const meta = {
         : `L'archivio degli eventi sull'AI in Sicilia: ${count(n, 'evento già svolto', 'eventi già svolti')}, con data, luogo, organizzatore e fonte.`,
   }),
 
+  eventsNext: (n: number): Meta => ({
+    title: 'Eventi AI in Sicilia nei prossimi 30 giorni',
+    description:
+      n === 0
+        ? "Nei prossimi 30 giorni non ci sono eventi sull'AI in Sicilia nel calendario. Qui trovi i primi in programma dopo e come segnalarne uno."
+        : `${count(n, 'evento', 'eventi')} sull'intelligenza artificiale in Sicilia nei prossimi 30 giorni, settimana per settimana, con prezzo, luogo e link per iscriversi.`,
+  }),
+
   event: (e: Event): Meta => {
     const d = e.data;
     const title = fitTitle([d.title, trimAtBoundary(d.title, T)], T);
