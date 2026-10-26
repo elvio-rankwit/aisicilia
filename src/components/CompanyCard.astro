@@ -2,6 +2,7 @@
 import type { Company } from '../lib/data';
 import { PROVINCES } from '../lib/provinces';
 import { clip, slugify } from './helpers';
+import Disclosure from './Disclosure.astro';
 interface Props { company: Company; level?: 2 | 3 | 4 }
 const { company: c, level = 3 } = Astro.props;
 const d = c.data;
@@ -21,5 +22,5 @@ const kicker = [d.type, PROVINCES[d.province].name].join(' · ');
   <p class="desc">{clip(d.description, 220)}</p>
   <p class="meta">{d.city}{d.is_innovative_startup ? ' · startup innovativa' : ''}</p>
   <ul class="tags">{d.ai_areas.slice(0, 3).map((a) => <li class="chip">{a}</li>)}</ul>
-  {d.featured && d.disclosure && <p class="disc">{d.disclosure}</p>}
+  {d.featured && d.disclosure && <p class="disc"><Disclosure company={c} /></p>}
 </li>

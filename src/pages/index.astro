@@ -10,6 +10,7 @@ import { PROVINCES, PROVINCE_SLUGS } from '../lib/provinces';
 import { PROMPT_SECTORS } from '../lib/taxonomies';
 import { meta } from '../lib/seo/meta';
 import { cap, clip, countByProvince } from '../components/helpers';
+import Disclosure from '../components/Disclosure.astro';
 
 const [companies, events, articles, prompts] = await Promise.all([getCompanies(), getUpcomingEvents(), getArticles(), getPrompts()]);
 const m = meta.home();
@@ -164,7 +165,7 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
             <p class="where">{fd.city}, provincia di {PROVINCES[fd.province].name} · {fd.type}</p>
             <p class="t">{TEASER[featured.id] ?? clip(fd.description, 260)}</p>
             <div class="pills">{[...fd.ai_areas, ...fd.sectors_served].slice(0, 3).map((a) => <span class="pill">{cap(a)}</span>)}</div>
-            {fd.disclosure && <p class="note">{fd.disclosure}</p>}
+            {fd.disclosure && <p class="note"><Disclosure company={featured} /></p>}
             <div class="foot"><span>Verificata il {formatDate(fd.last_verified)}</span><a class="btn" href={`/aziende/${featured.id}/`} data-astro-prefetch>Apri la scheda <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d={arrow} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a></div>
           </article>
         )}

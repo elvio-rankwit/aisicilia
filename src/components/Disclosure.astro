@@ -1,0 +1,9 @@
+---
+// Testo della nota di trasparenza di un'azienda, con il nome dell'azienda linkato al suo sito.
+// Solo contenuto inline: il <p> resta nella pagina, così gli stili della pagina valgono anche qui.
+import type { Company } from '../lib/data';
+interface Props { company: Company }
+const { disclosure = '', name, website } = Astro.props.company.data;
+const i = disclosure.indexOf(name);
+---
+{i < 0 ? disclosure : <>{disclosure.slice(0, i)}<a href={website} rel="noopener">{name}</a>{disclosure.slice(i + name.length)}</>}

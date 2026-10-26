@@ -5,6 +5,7 @@ import SecHead from '../../../components/SecHead.astro';
 import Panel from '../../../components/Panel.astro';
 import MapPreviewSlot from '../../../components/MapPreviewSlot.astro';
 import MapInteractiveSlot from '../../../components/MapInteractiveSlot.astro';
+import Disclosure from '../../../components/Disclosure.astro';
 import SourceBox from '../../../components/SourceBox.astro';
 import EventCard from '../../../components/EventCard.astro';
 import CompanyCard from '../../../components/CompanyCard.astro';
@@ -67,11 +68,12 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
 
     <div class="cols">
       <div class="main">
-        <p class="answer">{answer}</p>
+        {/* Il nome dell'azienda, all'inizio della risposta, porta al suo sito ufficiale. */}
+        <p class="answer">{answer.startsWith(d.name) ? <><a href={d.website} rel="noopener">{cleanName(d.name)}</a>{answer.slice(d.name.length)}</> : answer}</p>
         {d.disclosure && (
           <aside class="feat" aria-label="Nota di trasparenza">
             <p class="ft">Nota di trasparenza</p>
-            <p>{d.disclosure}</p>
+            <p><Disclosure company={c} /></p>
           </aside>
         )}
         <div class="prose"><p class="desc">{d.description}</p></div>
