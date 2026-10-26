@@ -3,6 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHead from '../../components/PageHead.astro';
 import Prose from '../../components/Prose.astro';
 import { profilePageNodes } from '../../lib/seo/jsonld';
+import Img from '../../components/Img.astro';
+import photo from '../../assets/images/elvio-leonardi.jpg';
 
 const m = {
   title: 'Chi c’è dietro AI Sicilia: Elvio Leonardi',
@@ -16,8 +18,8 @@ const m = {
     <Fragment slot="eyebrow">Il progetto</Fragment>
     <Fragment slot="title">Chi c’è dietro <mark class="blk">AI</mark> Sicilia</Fragment>
     <p>Mi chiamo Elvio Leonardi, vivo e lavoro a Palermo e AI Sicilia è un progetto che ho ideato e che porto avanti da solo. Non c’è un ente alle spalle, né un’associazione o un’agenzia: ci sono io, il mio lavoro quotidiano con le imprese e una convinzione semplice. L’intelligenza artificiale serve davvero solo quando qualcuno la rende comprensibile e la porta dentro le aziende vere, quelle che hanno poco tempo e ancora meno voglia di slogan.</p>
-    <div slot="meta" class="photo" role="group" aria-label="Foto di Elvio Leonardi, da inserire">
-      <span class="todo">[DA COMPLETARE: foto]</span>
+    <div slot="meta" class="photo">
+      <Img src={photo} alt="Elvio Leonardi, ideatore di AI Sicilia" widths={[240, 480, 720]} sizes="(min-width: 45rem) 240px, 200px" />
     </div>
   </PageHead>
 
@@ -64,9 +66,7 @@ const m = {
       <h2 id="h-contatti">Contatti</h2>
       <dl class="box facts">
         <dt>Email</dt>
-        <dd><span class="todo">[DA COMPLETARE: email di contatto]</span></dd>
-        <dt>LinkedIn</dt>
-        <dd><span class="todo">[DA COMPLETARE: link LinkedIn]</span></dd>
+        <dd><a href="mailto:info@aisicilia.it">info@aisicilia.it</a></dd>
         <dt>Moduli</dt>
         <dd><a href="/segnala/">Segnala un’azienda o un evento</a> · <a href="/rimozione/">Richiedi una modifica o una rimozione</a></dd>
       </dl>
@@ -74,7 +74,9 @@ const m = {
   </Prose>
 </BaseLayout>
 <style>
-  .photo { display: flex; align-items: center; justify-content: center; width: 160px; height: 160px; margin-top: var(--space-5); padding: var(--space-3); text-align: center; font-size: 14px; background: var(--grey); border: 1.5px dashed var(--bd); border-radius: var(--r-lg); box-shadow: 6px 6px 0 var(--grey-2); }
+  .photo { width: 200px; margin-top: var(--space-5); border: 1.5px solid var(--bd); border-radius: var(--r-lg); overflow: hidden; box-shadow: 6px 6px 0 var(--sh); background: #fff; }
+  .photo :global(img) { display: block; width: 100%; height: auto; }
+  @media (min-width: 45rem) { .photo { width: 240px; } }
   .facts { display: grid; grid-template-columns: 1fr; gap: 4px var(--space-5); max-width: none; }
   .facts dt { margin-top: var(--space-3); }
   .facts dt:first-child { margin-top: 0; }
