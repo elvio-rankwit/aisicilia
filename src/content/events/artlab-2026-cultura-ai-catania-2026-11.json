@@ -1,0 +1,31 @@
+{
+  "title": "ArtLab 2026 Catania: cultura, territori e organizzazioni culturali nell'era dell'AI",
+  "slug": "artlab-2026-cultura-ai-catania-2026-11",
+  "description": "Prima tappa del ciclo ArtLab 2026-2028 promosso da Fondazione Fitzcarraldo con partner catanesi e siciliani, in dialogo con il Comune e l'Università di Catania. Due giorni su musei, imprese culturali e rigenerazione dei territori, con un blocco dedicato all'AI: venerdì 6 novembre, dalle 11:00 alle 13:30, la sessione «Organizzazioni culturali nell'era dell'AI» affronta sfide, strumenti e approcci per chi lavora in musei, teatri e imprese creative. Partecipazione libera con registrazione online. Le altre sessioni, il 5 novembre al Palazzo della Cultura, trattano soprattutto di transizione digitale e partecipazione.",
+  "start_date": "2026-11-05",
+  "end_date": "2026-11-06",
+  "start_time": "14:30",
+  "format": "in presenza",
+  "venue_name": "Palazzo della Cultura e Monastero dei Benedettini di San Nicolò l'Arena",
+  "venue_address": "Piazza Dante Alighieri 32, 95124 Catania",
+  "city": "Catania",
+  "province": "catania",
+  "lat": 37.5037,
+  "lng": 15.08045,
+  "organizer": "Fondazione Fitzcarraldo, con Isola Catania Impresa Sociale e ANCI Sicilia",
+  "organizer_url": "https://artlab.fitzcarraldo.it/",
+  "event_url": "https://artlab.fitzcarraldo.it/tappa/catania/",
+  "price": "gratuito",
+  "audience": [
+    "professionisti",
+    "tutti"
+  ],
+  "topics": [
+    "AI per la cultura",
+    "trasformazione digitale"
+  ],
+  "source_url": "https://artlab.fitzcarraldo.it/programma/catania/",
+  "status": "programmato",
+  "last_verified": "2026-10-26",
+  "verification_status": "verified"
+}
