@@ -7,7 +7,7 @@
 //   indirizzo e geo vanno in `location: Place`, perché `geo` non è valido su Organization.
 // - Event: `geo` solo se c'è `venue_address` (le coordinate degli eventi possono essere al centro della città).
 // - Prompt: `CreativeWork` e non `HowTo`: HowTo non dà più rich result e i passaggi andrebbero ricavati da un paragrafo.
-import { eventPath, type Article, type Company, type Event, type Prompt } from '../data';
+import { eventPath, type Article, type Company, type Event, type Grant, type Prompt } from '../data';
 import { PROVINCES } from '../provinces';
 import { PROMPT_SECTORS } from '../taxonomies';
 import { localIso, ymd } from './dates';
@@ -146,6 +146,10 @@ export const eventNodes = (e: Event): JsonLdNode[] => {
   };
   return [node];
 };
+
+// ------------------------------------------------------------------ bandi (D-042)
+/** Stub dell'orchestratore: il seo-geo-engineer lo implementa (le pagine lo chiamano già). */
+export const grantNodes = (_g: Grant): JsonLdNode[] => [];
 
 // ------------------------------------------------------------------ articoli
 export const articleNodes = (a: Article): JsonLdNode[] => {

@@ -62,7 +62,7 @@ function validateContent() {
   }
 
   const today = new Date().toISOString().slice(0, 10);
-  const collections = ['companies', 'events', 'articles', 'prompts'];
+  const collections = ['companies', 'events', 'articles', 'prompts', 'grants'];
   const all = {};
   for (const c of collections) {
     const files = walk(join(ROOT, 'src/content', c), ['.json', '.md']);
@@ -86,7 +86,7 @@ function validateContent() {
         if (data[k] && String(data[k]).slice(0, 10) > today) err(where, `${k} nel futuro`);
       }
       // Testo pubblico per la lista nera
-      const publicText = [data.name, data.title, data.description, data.answer, data.goal, data.how_to_use,
+      const publicText = [data.name, data.title, data.description, data.answer, data.goal, data.how_to_use, data.ai_note,
         data.expected_output_description, data.limits_and_warnings,
         ...(data.faq ?? []).flatMap((q) => [q.question, q.answer]), body].filter(Boolean).join('\n');
       checkCopy(where, publicText);
@@ -128,6 +128,14 @@ function validateContent() {
       if (!all.prompts.some((x) => x.data.slug === p)) err(where, `related_prompts: prompt "${p}" inesistente`);
     }
   }
+  // Bandi (D-042): YMYL, si pubblicano solo dopo l'approvazione dell'utente.
+  for (const { file, data } of all.grants) {
+    const where = rel(file);
+    if (data.needs_human_review !== true && !data.reviewed_at) err(where, 'bando YMYL: needs_human_review deve essere true finché non approvato (reviewed_at)');
+    if (data.verification_status !== 'verified') warn(where, 'bando non verified: non sarà pubblicato (spostalo in data/_pending/grants/)');
+    if (data.reviewed_at && String(data.reviewed_at).slice(0, 10) > today) err(where, 'reviewed_at nel futuro');
+    if (data.reviewed_at && String(data.reviewed_at).slice(0, 10) < String(data.last_verified).slice(0, 10)) warn(where, 'approvato prima dell\'ultima verifica: va riapprovato');
+  }
   const perSector = {};
   for (const { file, data } of all.prompts) {
     const where = rel(file);
@@ -141,7 +149,7 @@ function validateContent() {
     for (const [s, n] of Object.entries(perSector)) if (n !== 6) warn(`prompts/${s}`, `${n} prompt (attesi 6)`);
   }
   const pending = walk(join(ROOT, 'data/_pending'), ['.json']).length;
-  console.log(`Contenuti: ${all.companies.length} aziende, ${all.events.length} eventi, ${all.articles.length} articoli, ${all.prompts.length} prompt, ${pending} record in _pending`);
+  console.log(`Contenuti: ${all.companies.length} aziende, ${all.events.length} eventi, ${all.articles.length} articoli, ${all.prompts.length} prompt, ${all.grants.length} bandi, ${pending} record in _pending`);
 
   // Microcopy nei componenti e nelle pagine (solo testo visibile, controllo indicativo)
   for (const f of walk(join(ROOT, 'src'), ['.astro', '.tsx'])) {

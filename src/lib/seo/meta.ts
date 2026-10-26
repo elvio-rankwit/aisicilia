@@ -2,7 +2,7 @@
 // Vincoli (li controlla `npm run validate`): title ≤ 60, description 70–155, entrambi unici nel sito,
 // entità principale all'inizio, tono da persona (niente "Scopri…", niente elenchi di keyword).
 // Casi limite gestiti: nomi lunghi (parentesi, virgole), 0 o 1 record, troncamento su parola o su frase.
-import type { Article, Company, Event, Prompt } from '../data';
+import type { Article, Company, Event, Grant, Prompt } from '../data';
 import { PROVINCES, type ProvinceSlug } from '../provinces';
 import { PROMPT_SECTORS, type PromptSector } from '../taxonomies';
 import { formatRange } from './dates';
@@ -124,6 +124,33 @@ export const meta = {
     return {
       title,
       description: padTo(prefix + summarize(d.description, D - prefix.length), [`Scheda con fonte e data di verifica.`]),
+    };
+  },
+
+  // Bandi (D-042). Stub dell'orchestratore: il seo-geo-engineer li rifinisce.
+  grantsIndex: (n: number): Meta => ({
+    title: 'Bandi e finanziamenti AI per imprese siciliane',
+    description:
+      n === 0
+        ? "Nessun bando per l'AI aperto alle imprese siciliane in questo momento. Qui trovi quelli chiusi e come prepararti al prossimo."
+        : `${count(n, 'bando aperto', 'bandi aperti')} per progetti di intelligenza artificiale di imprese e startup siciliane, con scadenze, importi e fonti ufficiali.`,
+  }),
+
+  grantsClosed: (n: number): Meta => ({
+    title: 'Bandi AI chiusi: archivio per le imprese siciliane',
+    description:
+      n === 0
+        ? "L'archivio dei bandi chiusi è vuoto per ora: un bando finisce qui il giorno dopo la scadenza o quando lo sportello chiude."
+        : `${count(n, 'bando chiuso', 'bandi chiusi')} per l'AI e il digitale in Sicilia, con ente, scadenza e fonte: utili per capire cosa tornerà.`,
+  }),
+
+  grant: (g: Grant): Meta => {
+    const d = g.data;
+    const title = fitTitle([d.title, trimAtBoundary(d.title, T)], T);
+    const prefix = `${d.issuer}. `;
+    return {
+      title,
+      description: padTo(prefix + summarize(d.description, D - prefix.length), [`Scheda con fonte ufficiale e data di verifica.`]),
     };
   },
 
