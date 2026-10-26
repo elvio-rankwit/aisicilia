@@ -92,7 +92,7 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
   {companies.length > 0 && (
     <section class="section" aria-labelledby="h-mappa">
       <SecHead id="h-mappa" eyebrow="Mappa" title="Dove si trovano" sub="Il punto è l’indirizzo pubblico della sede, oppure il centro del comune quando l’indirizzo non c’è." />
-      <MapInteractiveSlot points={companyPoints(companies)} center={prov.center} zoom={prov.zoom} label={`Mappa delle aziende AI in provincia di ${prov.name}`} />
+      <MapInteractiveSlot auto points={companyPoints(companies)} center={prov.center} zoom={prov.zoom} label={`Mappa delle aziende AI in provincia di ${prov.name}`} />
     </section>
   )}
 

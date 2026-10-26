@@ -7,14 +7,14 @@ const dist = path.join(__dirname, 'dist');
 const firstChild = (dir) => {
   const p = path.join(dist, dir);
   if (!fs.existsSync(p)) return null;
-  const skip = new Set(['provincia', 'pagina', 'archivio']);
+  const skip = new Set(['provincia', 'pagina', 'archivio', 'prossimi']);
   const sub = fs.readdirSync(p, { withFileTypes: true }).find((d) => d.isDirectory() && !skip.has(d.name) && fs.existsSync(path.join(p, d.name, 'index.html')));
   return sub ? `/${dir}/${sub.name}/` : null;
 };
 const promptSector = firstChild('prompt');
 const singlePrompt = promptSector ? firstChild(promptSector.slice(1, -1)) : null;
 const urls = [
-  '/', '/aziende/', firstChild('aziende'), '/aziende/provincia/palermo/', '/eventi/',
+  '/', '/aziende/', firstChild('aziende'), '/aziende/provincia/palermo/', '/eventi/', '/eventi/provincia/palermo/', '/eventi/prossimi/',
   firstChild('impara'), '/prompt/', singlePrompt, '/chi-siamo/',
 ].filter(Boolean).map((u) => `http://localhost${u}`);
 

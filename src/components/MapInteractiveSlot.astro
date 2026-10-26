@@ -3,13 +3,13 @@
 // altrimenti un contenitore a altezza fissa (CLS 0).
 import type { ProvinceSlug } from '../lib/provinces';
 interface Point { id: string; lat: number; lng: number; title: string; url: string; province: ProvinceSlug; subtitle?: string }
-interface Props { points: Point[]; center?: [number, number]; zoom?: number; height?: number; label: string }
+interface Props { points: Point[]; center?: [number, number]; zoom?: number; height?: number; label: string; auto?: boolean }
 const props = Astro.props;
 const mods = import.meta.glob<{ default: any }>('./map/InteractiveMap.astro', { eager: true });
 const MapComp = Object.values(mods)[0]?.default;
 ---
 {MapComp ? (
-  <MapComp points={props.points} center={props.center} zoom={props.zoom} height={props.height} label={props.label} />
+  <MapComp points={props.points} center={props.center} zoom={props.zoom} height={props.height} label={props.label} auto={props.auto} />
 ) : (
   <div class="map-ph" role="group" aria-label={props.label}>
     <!-- MAP: qui va <InteractiveMap points center zoom height label /> di src/components/map/ (map-engineer) -->

@@ -118,7 +118,7 @@ const h1 = 'Eventi AI in Sicilia';
       </Panel>
       {points.length > 0 && (
         <Panel bare label="Mappa interattiva degli eventi">
-          <MapInteractiveSlot points={points} label="Mappa degli eventi AI in Sicilia" height={480} />
+          <MapInteractiveSlot auto points={points} label="Mappa degli eventi AI in Sicilia" height={480} />
           <p class="note">Compaiono gli eventi con un luogo. Quelli online non hanno un punto sulla mappa: li trovi nel calendario.</p>
         </Panel>
       )}

@@ -3,7 +3,7 @@
 Portale sull'intelligenza artificiale in Sicilia: directory aziende ed eventi (con mappe), articoli per le imprese, prompt library. Progetto indipendente di Elvio Leonardi. Stato: **beta non indicizzata**.
 
 ## Stack
-Astro 7 statico · TypeScript · Content Collections + Zod (`src/content.config.ts`) · CSS con design tokens (`src/styles/tokens.css`) · Leaflet + OSM (solo a interazione) · Pagefind · Cloudflare Pages · GitHub Actions.
+Astro 7 statico · TypeScript · Content Collections + Zod (`src/content.config.ts`) · CSS con design tokens (`src/styles/tokens.css`) · Leaflet + OSM (a interazione; nelle directory aziende ed eventi quando entra nello schermo, D-040) · Pagefind · Cloudflare Pages · GitHub Actions.
 
 ## Comandi
 - `npm run dev` / `npm run dev:fixtures` (dati fittizi di `src/fixtures/`)

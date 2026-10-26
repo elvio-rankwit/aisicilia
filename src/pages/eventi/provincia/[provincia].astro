@@ -88,7 +88,7 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
   {points.length > 0 && (
     <section class="section" aria-labelledby="h-mappa">
       <SecHead id="h-mappa" eyebrow="Mappa" title="Sulla mappa" sub="Compaiono gli eventi con un luogo. Quelli online non hanno un punto sulla mappa: li trovi nell’elenco." />
-      <MapInteractiveSlot points={points} center={prov.center} zoom={prov.zoom} label={`Mappa degli eventi AI in provincia di ${prov.name}`} />
+      <MapInteractiveSlot auto points={points} center={prov.center} zoom={prov.zoom} label={`Mappa degli eventi AI in provincia di ${prov.name}`} />
     </section>
   )}
 

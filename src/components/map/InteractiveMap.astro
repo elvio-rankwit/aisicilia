@@ -1,7 +1,7 @@
 ---
 // Mappa interattiva Leaflet: al primo render solo un riquadro con il pulsante, zero byte di Leaflet.
-// Leaflet, markercluster e CSS partono con import() dinamico SOLO al clic (scelta: niente caricamento
-// all'ingresso nel viewport, per non toccare TBT/LCP). Vedi leaflet-map.ts.
+// Leaflet, markercluster e CSS partono con import() dinamico al clic oppure, con `auto` (D-040: pagine
+// Aziende ed Eventi), quando il riquadro entra nello schermo. Mai all'apertura della pagina. Vedi leaflet-map.ts.
 import type { ProvinceSlug } from '../../lib/provinces';
 
 interface Props {
@@ -10,8 +10,10 @@ interface Props {
   zoom?: number;
   height?: number;
   label: string;
+  /** Carica la mappa quando il riquadro diventa visibile, senza clic. */
+  auto?: boolean;
 }
-const { points, center, zoom, height = 420, label } = Astro.props;
+const { points, center, zoom, height = 420, label, auto = false } = Astro.props;
 
 // Niente style="..." (CSP): l'altezza è una delle misure predefinite del CSS, la più vicina a quella chiesta.
 const STEPS = [320, 360, 420, 480, 560, 640];
@@ -19,11 +21,11 @@ const h = STEPS.reduce((best, s) => (Math.abs(s - height) < Math.abs(best - heig
 // `<` escapato: il JSON sta dentro un <script> e non deve poter chiudere il tag.
 const json = JSON.stringify(points).replace(/</g, '\\u003c');
 ---
-<section class="imap" data-imap data-h={h} data-label={label} data-center={center?.join(',')} data-zoom={zoom} aria-label={label}>
+<section class="imap" data-imap data-h={h} data-label={label} data-center={center?.join(',')} data-zoom={zoom} data-auto={auto ? '' : undefined} aria-label={label}>
   <div class="imap-stage">
     <div class="imap-intro">
       <button type="button" class="imap-open js-only inline">Apri la mappa interattiva</button>
-      <p class="imap-hint">Il clic carica la mappa dai server di OpenStreetMap. L’elenco resta sempre consultabile.</p>
+      <p class="imap-hint">{auto ? 'Carico la mappa dai server di OpenStreetMap. L’elenco resta sempre consultabile.' : 'Il clic carica la mappa dai server di OpenStreetMap. L’elenco resta sempre consultabile.'}</p>
     </div>
     <div class="imap-canvas" hidden></div>
   </div>
@@ -32,7 +34,7 @@ const json = JSON.stringify(points).replace(/</g, '\\u003c');
 </section>
 
 <script>
-  // Isola minima: ricorda lo stato della lista e carica Leaflet solo al clic.
+  // Isola minima: ricorda lo stato della lista e carica Leaflet al clic o, con data-auto, quando il riquadro è visibile.
   type Api = { filter(ids: string[] | null): void; province(p: string | null): void };
   document.querySelectorAll<HTMLElement>('[data-imap]').forEach((root) => {
     const st = { visible: null as string[] | null, province: null as string | null };
@@ -47,7 +49,8 @@ const json = JSON.stringify(points).replace(/</g, '\\u003c');
       st.province = (e as CustomEvent<{ province: string | null }>).detail.province;
       api?.province(st.province);
     });
-    btn.addEventListener('click', async () => {
+    const load = async () => {
+      if (api || btn.disabled) return;
       btn.disabled = true;
       status.textContent = 'Carico la mappa…';
       try {
@@ -59,7 +62,16 @@ const json = JSON.stringify(points).replace(/</g, '\\u003c');
         btn.disabled = false;
         status.textContent = 'Non sono riuscito a caricare la mappa. Riprova, oppure usa l\'elenco.';
       }
-    });
+    };
+    btn.addEventListener('click', load);
+    // Con il risparmio dati attivo resta il clic.
+    const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData;
+    if ('auto' in root.dataset && !saveData && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        if (entries.some((x) => x.isIntersecting)) { io.disconnect(); load(); }
+      }, { rootMargin: '200px 0px' });
+      io.observe(root);
+    }
   });
 </script>
 
