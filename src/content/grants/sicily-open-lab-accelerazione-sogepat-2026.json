@@ -66,5 +66,6 @@
   ],
   "last_verified": "2026-10-26",
   "verification_status": "verified",
-  "needs_human_review": true
+  "needs_human_review": false,
+  "reviewed_at": "2026-10-26"
 }
