@@ -57,7 +57,7 @@ const h1 = 'Eventi AI in Sicilia';
     {events.length > 0 && first && last ? (
       <>
         <p><b>{plural(scheduled.length, 'evento in programma', 'eventi in programma')}</b> sull’intelligenza artificiale in Sicilia, da {dateRange(first)} a {dateRange(last)}.</p>
-        <p>Ogni scheda ha il link alla pagina dell’organizzatore, la fonte e la data di verifica. Quelli già svolti restano nell’<a href="/eventi/archivio/">archivio</a>.</p>
+        <p>Ogni evento rimanda alla pagina dell’organizzatore, con fonte e data di verifica. Quelli già svolti restano nell’<a href="/eventi/archivio/">archivio</a>.</p>
       </>
     ) : (
       <>
@@ -89,7 +89,7 @@ const h1 = 'Eventi AI in Sicilia';
       {points.length > 0 && (
         <Panel bare label="Mappa interattiva degli eventi">
           <MapInteractiveSlot points={points} label="Mappa degli eventi AI in Sicilia" height={480} />
-          <p class="note">Compaiono gli eventi con un luogo. Quelli online non hanno un marker: li trovi nel calendario.</p>
+          <p class="note">Compaiono gli eventi con un luogo. Quelli online non hanno un punto sulla mappa: li trovi nel calendario.</p>
         </Panel>
       )}
     </div>

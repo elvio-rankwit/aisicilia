@@ -51,12 +51,12 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
     <Fragment slot="title">Aziende <mark class="blk">AI</mark> in provincia di {prov.name}</Fragment>
     {companies.length > 0 ? (
       <>
-        <p>In provincia di {prov.name} abbiamo <b>{plural(companies.length, 'realtà verificata', 'realtà verificate')}</b> che lavorano con l’intelligenza artificiale, su {all.length} in tutta la Sicilia.</p>
-        <p>Ultimo aggiornamento: {updated && formatDate(updated)}. Ogni scheda indica le fonti e la data di verifica.</p>
+        <p>In provincia di {prov.name} abbiamo <b>{plural(companies.length, 'azienda verificata', 'aziende verificate')}</b> che lavorano con l’intelligenza artificiale, su {all.length} in tutta la Sicilia.</p>
+        <p>Ultimo aggiornamento: {updated && formatDate(updated)}. Fonti e data di verifica sono nella scheda di ogni azienda.</p>
       </>
     ) : (
       <>
-        <p>Nessuna azienda AI verificata in provincia di {prov.name}, per ora. Su tutta la Sicilia le schede sono {all.length}.</p>
+        <p>Nessuna azienda AI verificata in provincia di {prov.name}, per ora. In tutta la Sicilia ne abbiamo {all.length}.</p>
         <p>Ne conosci una che manca? <a href="/segnala/">Segnalala</a>: la controlliamo sulle fonti pubbliche.</p>
       </>
     )}
@@ -69,7 +69,7 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
       <MapPreviewSlot variant="hero" counts={counts} mode="link" basePath="/aziende/provincia/" active={slug} label={`Aziende AI in provincia di ${prov.name}, evidenziata sulla mappa della Sicilia`} points={companies.map((c) => ({ lat: c.data.lat, lng: c.data.lng }))} />
       <ul class="legend" aria-label="Legenda della mappa">
         <li><i class="a"></i>Un punto per azienda</li>
-        <li><i class="t"></i>Più schede, blu più scuro</li>
+        <li><i class="t"></i>Più aziende, blu più scuro</li>
       </ul>
     </Fragment>
   </DirHero>
@@ -79,8 +79,8 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
     {companies.length > 0 ? (
       <CompanyList companies={companies} withProvinceFilter={false} />
     ) : (
-      <EmptyList title={`Nessuna scheda a ${prov.name}, per ora`}>
-        <p>Una provincia a zero non significa che non ci sia nessuno: significa che non abbiamo ancora trovato una realtà con fonti verificabili.{nOthers.length > 0 && <> Intanto le schede più vicine per numero sono a {joinIt(nOthers.map((p) => `${PROVINCES[p].name} (${counts[p]})`))}.</>}</p>
+      <EmptyList title={`Nessuna azienda a ${prov.name}, per ora`}>
+        <p>Una provincia a zero vuol dire solo che non abbiamo ancora trovato un’azienda con fonti verificabili.{nOthers.length > 0 && <> Le province con più aziende sono {joinIt(nOthers.map((p) => `${PROVINCES[p].name} (${counts[p]})`))}.</>}</p>
         <Fragment slot="actions">
           <a class="btn p" href="/segnala/">Segnala un’azienda</a>
           <a class="btn" href="/aziende/">Tutte le aziende</a>

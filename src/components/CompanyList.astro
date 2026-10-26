@@ -14,13 +14,13 @@ const fields = [
   ...(withProvinceFilter
     ? [{ key: 'provincia', label: 'Provincia', options: PROVINCE_SLUGS.filter((p) => companies.some((c) => c.data.province === p)).map((p) => ({ value: p, label: PROVINCES[p].name })) }]
     : []),
-  { key: 'tipo', label: 'Tipo di realtà', options: present(COMPANY_TYPES, (c) => [c.data.type]) },
+  { key: 'tipo', label: 'Tipo', options: present(COMPANY_TYPES, (c) => [c.data.type]) },
   { key: 'aree', label: 'Ambito AI', options: present(AI_AREAS, (c) => c.data.ai_areas) },
   { key: 'settori', label: 'Settore servito', options: present(SECTORS_SERVED, (c) => c.data.sectors_served) },
 ].filter((f) => f.options.length > 1);
 ---
 <div class="cl">
-  {companies.length > 1 && <ListFilters target={id} fields={fields} noun={['realtà', 'realtà']} />}
+  {companies.length > 1 && <ListFilters target={id} fields={fields} noun={['azienda', 'aziende']} />}
   <div id={id}>
     <ul class="grid">
       {companies.map((c) => <CompanyCard company={c} level={level} />)}

@@ -21,7 +21,7 @@ const h1 = 'Impara l’AI: guide pratiche per le imprese siciliane';
 <BaseLayout
   seo={{
     title: m.title, description: m.description, path: '/impara/', modifiedAt: updated,
-    breadcrumbs: [{ name: 'Impara', path: '/impara/' }],
+    breadcrumbs: [{ name: 'Guide', path: '/impara/' }],
     jsonld: [
       ...collectionPageNodes({ path: '/impara/', name: h1, description: m.description }),
       ...itemListNodes({ path: '/impara/', name: h1, items: articles.map((a) => ({ url: `/impara/${a.id}/`, name: a.data.title })) }),

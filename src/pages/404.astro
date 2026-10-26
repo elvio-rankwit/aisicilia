@@ -6,7 +6,7 @@ import SearchForm from '../components/SearchForm.astro';
 const sections = [
   { href: '/aziende/', title: 'Aziende', text: 'Chi fa AI in Sicilia, provincia per provincia.' },
   { href: '/eventi/', title: 'Eventi', text: 'Gli appuntamenti in programma e l’archivio.' },
-  { href: '/impara/', title: 'Impara', text: 'Guide pratiche per le imprese.' },
+  { href: '/impara/', title: 'Guide', text: 'Guide pratiche per le imprese.' },
   { href: '/prompt/', title: 'Prompt', text: 'Prompt pronti da copiare, per settore.' },
 ];
 ---
@@ -14,7 +14,7 @@ const sections = [
   <PageHead>
     <Fragment slot="eyebrow">Errore 404</Fragment>
     <Fragment slot="title">Questa pagina <mark class="blk">non c’è</mark></Fragment>
-    <p>L’indirizzo potrebbe essere sbagliato, oppure la scheda è stata tolta. Prova a cercarla.</p>
+    <p>L’indirizzo potrebbe essere sbagliato, oppure la pagina è stata tolta. Prova a cercarla.</p>
   </PageHead>
   <SearchForm id="q404" label="Cerca nel sito" />
   <section class="section" aria-labelledby="h-sezioni">

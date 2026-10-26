@@ -79,7 +79,7 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
       <ul class="grid">{events.map((e) => <EventCard event={e} />)}</ul>
     ) : (
       <EmptyList title={`Nessun evento a ${prov.name}, per ora`}>
-        <p>Il calendario si riempie quando un organizzatore pubblica una data.{nOthers.length > 0 && <> Intanto gli appuntamenti più vicini per numero sono a {joinIt(nOthers.map((p) => `${PROVINCES[p].name} (${counts[p]})`))}.</>} Ne conosci uno qui? Mandaci il link.</p>
+        <p>Qui non c’è ancora nessuna data pubblicata.{nOthers.length > 0 && <> Le province con più eventi sono {joinIt(nOthers.map((p) => `${PROVINCES[p].name} (${counts[p]})`))}.</>} Ne conosci uno qui? Mandaci il link.</p>
         <Fragment slot="actions"><a class="btn p" href="/segnala/">Segnala un evento</a><a class="btn" href="/eventi/">Calendario completo</a></Fragment>
       </EmptyList>
     )}
@@ -87,7 +87,7 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
 
   {points.length > 0 && (
     <section class="section" aria-labelledby="h-mappa">
-      <SecHead id="h-mappa" eyebrow="Mappa" title="Sulla mappa" sub="Compaiono gli eventi con un luogo. Quelli online non hanno un marker: li trovi nell’elenco." />
+      <SecHead id="h-mappa" eyebrow="Mappa" title="Sulla mappa" sub="Compaiono gli eventi con un luogo. Quelli online non hanno un punto sulla mappa: li trovi nell’elenco." />
       <MapInteractiveSlot points={points} center={prov.center} zoom={prov.zoom} label={`Mappa degli eventi AI in provincia di ${prov.name}`} />
     </section>
   )}
@@ -100,7 +100,7 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
       <ul class="grid">{companies.slice(0, 3).map((c) => <CompanyCard company={c} />)}</ul>
     ) : (
       <EmptyList title={`Nessuna azienda a ${prov.name}, per ora`}>
-        <p>Non abbiamo ancora una scheda verificata in questa provincia. Ne conosci una? Mandaci il link al sito.</p>
+        <p>Non abbiamo ancora un’azienda verificata in questa provincia. Ne conosci una? Mandaci il link al sito.</p>
         <Fragment slot="actions"><a class="btn p" href="/segnala/">Segnala un’azienda</a><a class="btn" href="/aziende/">Tutte le aziende</a></Fragment>
       </EmptyList>
     )}

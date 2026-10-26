@@ -30,7 +30,7 @@ const m = meta.company(c);
 const path = `/aziende/${c.id}/`;
 const cap = (s: string) => s[0].toUpperCase() + s.slice(1);
 const answer = [
-  `${d.name} è ${COMPANY_TYPE_ARTICLE[d.type] ?? 'una realtà'} con sede a ${d.city}, in provincia di ${prov.name}.`,
+  `${d.name} è ${COMPANY_TYPE_ARTICLE[d.type] ?? 'un’azienda'} con sede a ${d.city}, in provincia di ${prov.name}.`,
   `Lavora su ${d.ai_areas.slice(0, 3).join(', ')}${d.ai_areas.length > 3 ? ` e altri ${d.ai_areas.length - 3} ambiti` : ''}.`,
   `Settori serviti: ${d.sectors_served.slice(0, 3).join('; ')}${d.sectors_served.length > 3 ? `; altri ${d.sectors_served.length - 3}` : ''}.`,
   [d.founded_year ? `Anno di fondazione: ${d.founded_year}.` : '', d.is_innovative_startup === true ? 'Risulta tra le startup innovative.' : ''].filter(Boolean).join(' '),
@@ -101,7 +101,7 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
 
   {related.length > 0 && (
     <section class="section" aria-labelledby="h-correlate">
-      <SecHead id="h-correlate" eyebrow="Per confronto" title="Altre realtà simili" />
+      <SecHead id="h-correlate" eyebrow="Per confronto" title="Altre aziende simili" />
       <ul class="grid">{related.map((r) => <CompanyCard company={r} />)}</ul>
     </section>
   )}

@@ -37,7 +37,7 @@ const h1 = `Prompt AI per ${label.toLowerCase()}`;
     <Fragment slot="eyebrow"><a href="/prompt/">Libreria prompt</a> · {label}</Fragment>
     <Fragment slot="title">Prompt <mark class="blk">AI</mark> per {label.toLowerCase()}</Fragment>
     {prompts.length > 0 ? (
-      <p>{plural(prompts.length, 'prompt pronto', 'prompt pronti')} per {label.toLowerCase()}. Ogni scheda indica a cosa serve, il livello, le variabili da compilare e le avvertenze. Copia, sostituisci i dati tra graffe e rileggi sempre il risultato prima di usarlo.</p>
+      <p>{plural(prompts.length, 'prompt pronto', 'prompt pronti')} per {label.toLowerCase()}. Ognuno dice a cosa serve, che livello richiede, quali variabili compilare e dove può sbagliare. Copia, sostituisci i dati tra graffe e rileggi sempre il risultato prima di usarlo.</p>
     ) : (
       <p>I prompt per {label.toLowerCase()} sono in preparazione. Ognuno viene provato prima di essere pubblicato.</p>
     )}

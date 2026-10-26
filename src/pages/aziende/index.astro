@@ -31,8 +31,8 @@ const m = meta.companiesIndex(n);
 const h1 = 'Aziende e startup AI in Sicilia';
 const top2 = [...withData].sort((a, b) => counts[b] - counts[a]).slice(0, 2);
 const provSub = n && top2.length === 2
-  ? `${joinIt(top2.map((p) => PROVINCES[p].name))} hanno ${counts[top2[0]] + counts[top2[1]]} schede su ${n}.` + (zeros.length ? ` ${joinIt(zeros.map((p) => PROVINCES[p].name))} non ne hanno ancora.` : '')
-  : 'Il conto delle schede, provincia per provincia.';
+  ? `${joinIt(top2.map((p) => PROVINCES[p].name))} hanno ${counts[top2[0]] + counts[top2[1]]} aziende su ${n}.` + (zeros.length ? ` ${joinIt(zeros.map((p) => PROVINCES[p].name))} non ne hanno ancora.` : '')
+  : 'Quante aziende ci sono in ogni provincia.';
 const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
 ---
 <BaseLayout
@@ -49,17 +49,17 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
     <Fragment slot="title">Aziende e startup <mark class="blk">AI</mark> in Sicilia</Fragment>
     {n > 0 ? (
       <>
-        <p><b>{n} {n === 1 ? 'realtà siciliana lavora' : 'realtà siciliane lavorano'}</b> con l’intelligenza artificiale al centro del prodotto o del servizio, in {provincesWith} {provincesWith === 1 ? 'provincia' : 'province'} su 9.</p>
+        <p><b>{n} {n === 1 ? 'azienda siciliana lavora' : 'aziende siciliane lavorano'}</b> con l’intelligenza artificiale al centro del prodotto o del servizio, in {provincesWith} {provincesWith === 1 ? 'provincia' : 'province'} su 9.</p>
         <p>Ultimo aggiornamento dei dati: {updated && formatDate(updated)}. Ogni scheda indica le fonti e la data di verifica; i criteri di inclusione sono nella <a href="/metodologia/">metodologia</a>.</p>
       </>
     ) : (
       <>
-        <p>La directory è in costruzione: per ora non ci sono schede verificate.</p>
-        <p>Entrano solo le realtà con sede operativa in Sicilia e l’AI al centro del prodotto o del servizio, con fonti controllate (vedi la <a href="/metodologia/">metodologia</a>).</p>
+        <p>La directory è in costruzione: per ora non ci sono aziende verificate.</p>
+        <p>Entrano solo le aziende con sede operativa in Sicilia e l’AI al centro del prodotto o del servizio, con fonti controllate (vedi la <a href="/metodologia/">metodologia</a>).</p>
       </>
     )}
     <dl slot="after" class="figs">
-      <div><dt>{n === 1 ? 'realtà verificata' : 'realtà verificate'}</dt><dd>{n}</dd></div>
+      <div><dt>{n === 1 ? 'azienda verificata' : 'aziende verificate'}</dt><dd>{n}</dd></div>
       <div><dt>province coperte</dt><dd>{provincesWith}<small> / 9</small></dd></div>
       {nStartup > 0 && <div><dt>{nStartup === 1 ? 'startup innovativa' : 'startup innovative'}</dt><dd>{nStartup}</dd></div>}
     </dl>
@@ -67,7 +67,7 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
       <MapPreviewSlot variant="hero" counts={counts} mode="filter" basePath="/aziende/provincia/" label="Aziende AI per provincia siciliana" points={companies.map((c) => ({ lat: c.data.lat, lng: c.data.lng }))} />
       <ul class="legend" aria-label="Legenda della mappa">
         <li><i class="a"></i>Un punto per azienda</li>
-        <li><i class="t"></i>Più schede, blu più scuro</li>
+        <li><i class="t"></i>Più aziende, blu più scuro</li>
         <li class="js-only">Tocca una provincia per filtrare l’elenco</li>
       </ul>
     </Fragment>
@@ -88,7 +88,7 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
   </section>
 
   <section class="section" aria-labelledby="h-elenco">
-    <SecHead id="h-elenco" eyebrow="Elenco" title="Tutte le realtà" sub={n > 1 ? 'Filtra per provincia, tipo di realtà, ambito AI o settore servito.' : undefined}>
+    <SecHead id="h-elenco" eyebrow="Elenco" title="Tutte le aziende" sub={n > 1 ? 'Filtra per provincia, tipo, ambito AI o settore servito.' : undefined}>
       <a slot="more" class="more" href="/segnala/">Ne manca una? Segnalala <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d={arrow} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
     </SecHead>
     {n > 0 ? (
@@ -98,7 +98,7 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
       </>
     ) : (
       <EmptyList title="Nessuna azienda in elenco, per ora">
-        <p>Ogni scheda entra solo dopo il controllo delle fonti. Ne conosci una che rispetta i criteri? Mandaci il link.</p>
+        <p>Un’azienda entra solo dopo il controllo delle fonti. Ne conosci una che rispetta i criteri? Mandaci il link.</p>
         <Fragment slot="actions"><a class="btn p" href="/segnala/">Segnala un’azienda</a><a class="btn" href="/metodologia/">Leggi i criteri</a></Fragment>
       </EmptyList>
     )}

@@ -39,7 +39,7 @@ const sameDay = d.updated_at.getTime() === d.published_at.getTime();
 <BaseLayout
   seo={{
     title: m.title, description: m.description, path, type: 'article',
-    breadcrumbs: [{ name: 'Impara', path: '/impara/' }, { name: d.title, path }],
+    breadcrumbs: [{ name: 'Guide', path: '/impara/' }, { name: d.title, path }],
     jsonld: articleNodes(a),
     publishedAt: d.published_at, modifiedAt: d.updated_at,
   }}
@@ -93,7 +93,7 @@ const sameDay = d.updated_at.getTime() === d.published_at.getTime();
           <span class="av big" aria-hidden="true">EL</span>
           <div>
             <p class="label">L’autore</p>
-            <p><strong>Elvio Leonardi</strong>, consulente SEO e GEO con base a Palermo. Hai un dubbio o una correzione? Trovi i contatti in <a href="/chi-siamo/">Chi siamo</a>.</p>
+            <p><strong>Elvio Leonardi</strong>, consulente SEO e GEO con base a Palermo. Hai un dubbio o una correzione? Scrivimi dalla pagina <a href="/contatti/">Contatti</a>.</p>
           </div>
         </footer>
       </div>
@@ -129,7 +129,7 @@ const sameDay = d.updated_at.getTime() === d.published_at.getTime();
 
   {next && (
     <section class="section" aria-labelledby="h-next">
-      <h2 id="h-next">Articolo successivo</h2>
+      <h2 id="h-next">Guida successiva</h2>
       <ul class="grid"><ArticleCard article={next} /></ul>
     </section>
   )}

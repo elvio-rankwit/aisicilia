@@ -26,10 +26,10 @@ const h1 = 'Prompt AI per settore, pronti da copiare';
   }}
 >
   <PageHead>
-    <Fragment slot="eyebrow">Libreria prompt · {prompts.length} prompt in 8 settori</Fragment>
+    <Fragment slot="eyebrow">Libreria prompt · {prompts.length} prompt in {bySector.length} settori</Fragment>
     <Fragment slot="title">Prompt AI per settore, pronti da <mark class="blk">copiare</mark></Fragment>
     {prompts.length > 0 ? (
-      <p>{plural(prompts.length, 'prompt', 'prompt')} in 8 settori dell’economia siciliana, da copiare e adattare. Ognuno ha le variabili da compilare, un esempio, i limiti e la data dell’ultimo test. Non sono formule magiche: servono a far partire bene una conversazione con un assistente AI, il resto lo fa la tua competenza.</p>
+      <p>{plural(prompts.length, 'prompt', 'prompt')} in {bySector.length} settori dell’economia siciliana, da copiare e adattare. Ognuno ha le variabili da compilare, un esempio, i limiti e la data dell’ultimo test. Servono a far partire bene una conversazione con un assistente AI, il resto lo fa la tua competenza.</p>
     ) : (
       <p>La libreria è in preparazione: i prompt arrivano settore per settore, ognuno provato prima di essere pubblicato.</p>
     )}

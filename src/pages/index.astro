@@ -48,8 +48,8 @@ const nStartup = companies.filter((c) => c.data.type === 'startup').length;
 const nRicerca = companies.filter((c) => c.data.type === 'centro di ricerca').length;
 const nOther = nC - nStartup - nRicerca;
 const companiesText = nStartup && nRicerca
-  ? `${nStartup} ${noun(nStartup, 'startup', 'startup')}, ${nRicerca} ${noun(nRicerca, 'centro di ricerca', 'centri di ricerca')}` + (nOther ? ` e ${nOther} ${noun(nOther, 'altra realtà', 'altre realtà')}.` : '.')
-  : 'Realtà siciliane con l’AI al centro del prodotto o del servizio.';
+  ? `${nStartup} ${noun(nStartup, 'startup', 'startup')}, ${nRicerca} ${noun(nRicerca, 'centro di ricerca', 'centri di ricerca')}` + (nOther ? ` e ${nOther} ${noun(nOther, 'altra azienda', 'altre aziende')}.` : '.')
+  : 'Aziende siciliane con l’AI al centro del prodotto o del servizio.';
 const evProv = [...PROVINCE_SLUGS].filter((p) => evCounts[p] > 0).sort((a, b) => evCounts[b] - evCounts[a] || PROVINCES[a].name.localeCompare(PROVINCES[b].name, 'it')).slice(0, 3);
 const eventsText = nE
   ? `Da oggi al ${dm.format(eventsEnd!)}. ` + joinIt(evProv.map((p) => `${evCounts[p]} ${inCity(PROVINCES[p].name)}`)) + '.'
@@ -70,7 +70,7 @@ const stats = [
 const top2 = withData.slice(0, 2);
 const top2Sum = top2.reduce((s, p) => s + counts[p], 0);
 const companiesSub = nC
-  ? (top2.length === 2 ? `${names(top2)} hanno ${top2Sum} schede su ${nC}. ` : '') + (noCompanyProvinces ? `${names(zeros)} non ne hanno ancora.` : '')
+  ? (top2.length === 2 ? `${names(top2)} hanno ${top2Sum} aziende su ${nC}. ` : '') + (noCompanyProvinces ? `${names(zeros)} non ne hanno ancora.` : '')
   : 'La directory è in costruzione.';
 // Testo di presentazione scelto dalla redazione per la scheda in evidenza; in mancanza, un estratto della descrizione.
 const TEASER: Record<string, string> = {
@@ -123,7 +123,7 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
         <h1 id="h-hero">Dove si fa <mark class="blk">AI</mark> in Sicilia</h1>
         <p class="lead"><b>{nC} {noun(nC, 'azienda', 'aziende')}</b> e <b>{nE} {noun(nE, 'evento', 'eventi')}</b> in programma, ognuno con le sue fonti. Cerca per nome, tema o provincia.</p>
         <SearchForm large id="q-home" label="Cerca nel portale" placeholder="Un’azienda, un tema, una provincia" />
-        <p class="hero-note">{nC ? <>Sulla mappa le aziende sono in <b>{withData.length} province su 9</b>.{noCompanyProvinces > 0 && <> {names(zeros)} {noCompanyProvinces === 1 ? 'è ancora vuota' : 'sono ancora vuote'}.</>}</> : 'La directory è in costruzione: le prime schede arrivano a breve.'}</p>
+        <p class="hero-note">{nC ? <>Sulla mappa le aziende sono in <b>{withData.length} province su 9</b>.{noCompanyProvinces > 0 && <> {names(zeros)} {noCompanyProvinces === 1 ? 'è ancora vuota' : 'sono ancora vuote'}.</>}</> : 'La directory è in costruzione: le prime aziende arrivano a breve.'}</p>
         <div class="legend" role="group" aria-label="Legenda della mappa">
           <span><i class="a"></i>Azienda</span><span><i class="e"></i>Evento in programma</span>{featured && <span><i class="r"></i>In evidenza</span>}
         </div>
@@ -177,7 +177,7 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
               <li class="zeros">
                 <span class="zl">Ancora a zero</span>
                 <span class="zc">{zeros.map((p) => <span class="chip"><abbr title={PROVINCES[p].name}>{PROVINCES[p].sigla}</abbr> {PROVINCES[p].name}</span>)}</span>
-                <span class="zt">Nessuna scheda. Ne conosci una? <a href="/segnala/">Segnalala.</a></span>
+                <span class="zt">Nessuna azienda. Ne conosci una? <a href="/segnala/">Segnalala.</a></span>
               </li>
             )}
           </ul>
@@ -207,7 +207,7 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
                 </li>
               ))}
             </ul>
-            <a class="more" href="/aziende/" data-astro-prefetch>Sfoglia tutte le schede <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d={arrow} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+            <a class="more" href="/aziende/" data-astro-prefetch>Sfoglia tutte le aziende<svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d={arrow} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
           </div>
         )}
       </div>

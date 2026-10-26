@@ -42,7 +42,7 @@ const answer = [
   `Lo organizza ${d.organizer} ed è pensato per ${joinIt(d.audience)}; si parla di ${joinIt(d.topics.slice(0, 3))}. ${priceText}`,
 ].join(' ');
 const where = d.format === 'online'
-  ? `Online, organizzato da una realtà di ${d.city}`
+  ? `Online, l’organizzatore è di ${d.city}`
   : [d.venue_name, d.venue_address, d.venue_address?.toLowerCase().includes(d.city.toLowerCase()) ? '' : d.city].filter(Boolean).join(', ');
 const dm = new Intl.DateTimeFormat('it-IT', { month: 'short', year: 'numeric', timeZone: 'UTC' });
 const dn = new Intl.DateTimeFormat('it-IT', { day: 'numeric', timeZone: 'UTC' });
