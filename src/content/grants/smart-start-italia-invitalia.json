@@ -1,0 +1,59 @@
+{
+  "title": "Smart&Start Italia",
+  "slug": "smart-start-italia-invitalia",
+  "issuer": "Invitalia (per il Ministero delle Imprese e del Made in Italy)",
+  "issuer_type": "Ministero o agenzia nazionale",
+  "scope": "nazionale",
+  "provinces": [],
+  "description": "Finanziamento a tasso zero per startup innovative di piccola dimensione, iscritte alla sezione speciale del Registro delle imprese e costituite da non più di 60 mesi, con un piano d'impresa ad alto contenuto tecnologico o legato all'economia digitale. Copre l'80% delle spese ammissibili, il 90% se la compagine è formata da donne o da giovani sotto i 36 anni, oppure include un dottore di ricerca impegnato all'estero. Per le startup del Centro-Sud, Sicilia compresa, una parte del finanziamento non va restituita (contributo a fondo perduto del 30%). La domanda si presenta online ed è esaminata in ordine di arrivo. Un decreto ministeriale del 13 luglio 2026 modifica le regole, con effetto dalla pubblicazione della circolare attuativa.",
+  "ai_fit": "AI tra le spese ammesse",
+  "ai_note": "Le FAQ ufficiali (domanda 2.a) indicano tra i piani ammessi quelli orientati all'economia digitale, con riferimento esplicito a intelligenza artificiale, blockchain e internet of things.",
+  "beneficiaries": [
+    "startup innovative"
+  ],
+  "aid_types": [
+    "finanziamento agevolato",
+    "fondo perduto"
+  ],
+  "max_amount": "spese ammissibili da 100.000 a 1.500.000 euro",
+  "aid_intensity": "finanziamento a tasso zero dell'80% delle spese (90% in alcuni casi); fondo perduto del 30% per il Centro-Sud",
+  "procedure": "a sportello",
+  "deadline_note": "Sportello senza scadenza e senza graduatorie: domande esaminate in ordine di arrivo",
+  "closed_early": false,
+  "official_url": "https://www.invitalia.it/incentivi-e-strumenti/smartstart-italia",
+  "documents": [
+    {
+      "url": "https://www.invitalia.it/sites/invitalia.it/files/2026-10/DM_smartstart%2013_07_2026.pdf",
+      "title": "Decreto ministeriale 13 luglio 2026, modifiche al regime Smart&Start"
+    },
+    {
+      "url": "https://www.invitalia.it/incentivi-e-strumenti/smartstart-italia/faq",
+      "title": "FAQ ufficiali Smart&Start Italia"
+    },
+    {
+      "url": "https://www.invitalia.it/incentivi-e-strumenti/smartstart-italia/normativa",
+      "title": "Normativa Smart&Start Italia"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.invitalia.it/incentivi-e-strumenti/smartstart-italia",
+      "title": "Invitalia, scheda Smart&Start Italia (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.invitalia.it/incentivi-e-strumenti/smartstart-italia/faq",
+      "title": "Invitalia, FAQ Smart&Start Italia (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.invitalia.it/incentivi-e-strumenti/smartstart-italia/normativa",
+      "title": "Invitalia, normativa Smart&Start Italia (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.invitalia.it/sites/invitalia.it/files/2026-10/DM_smartstart%2013_07_2026.pdf",
+      "title": "Ministero delle Imprese e del Made in Italy, decreto 13 luglio 2026 (PDF su invitalia.it) (consultato il 26 ottobre 2026)"
+    }
+  ],
+  "last_verified": "2026-10-26",
+  "verification_status": "verified",
+  "needs_human_review": true
+}

@@ -1,0 +1,42 @@
+{
+  "title": "Qanat, Polo Innovazione Mediterranea, programmi di incubazione e accelerazione",
+  "slug": "qanat-polo-innovazione-mediterranea-2026",
+  "issuer": "Polo di Innovazione Qanat (PwC Business Services, I3P e Develhope), PR FESR Sicilia 2021-2027",
+  "issuer_type": "Regione Siciliana",
+  "scope": "regionale",
+  "provinces": [],
+  "description": "Due percorsi del Polo Qanat, finanziato dal PR FESR Sicilia 2021-2027: incubazione di 11 mesi per aspiranti imprenditori e accelerazione di sei mesi, più tre di post-accelerazione, per micro, piccole e medie imprese costituite da non oltre 60 mesi. L'ambito tematico è l'agroalimentare, con uso trasversale di tecnologie digitali e intelligenza artificiale e possibili applicazioni in scienze della vita, ambiente ed energia. Formazione, mentoring, coaching, advisoring e networking con investitori, imprese e centri di ricerca. Il testo dell'avviso si ottiene solo dopo la registrazione sul sito.",
+  "ai_fit": "AI tra le spese ammesse",
+  "ai_note": "La pagina del Polo dichiara l'impiego trasversale delle tecnologie digitali e dell'Intelligenza Artificiale come tratto distintivo dei programmi, con focus agroalimentare. Non ho potuto leggere l'avviso.",
+  "beneficiaries": [
+    "startup innovative",
+    "nuove imprese",
+    "aspiranti imprenditori"
+  ],
+  "aid_types": [
+    "servizi e accompagnamento"
+  ],
+  "procedure": "call con scadenza",
+  "deadline_note": "Scadenza non verificata: la pagina dice «entro ottobre» e mostra un conto alla rovescia.",
+  "closed_early": false,
+  "official_url": "https://qanat.it/",
+  "documents": [],
+  "sources": [
+    {
+      "url": "https://qanat.it/",
+      "title": "Qanat, pagina del Polo con timeline e modulo di registrazione (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.regione.sicilia.it/la-regione-informa/open-innovation-sicilia-pubblicati-ulteriori-avvisi-selezione-soggetti-aderenti-ai-programmi-accelerazione-eo-incubazione-d-impresa",
+      "title": "Regione Siciliana, Dipartimento attività produttive, elenco degli avvisi dei Poli Open Innovation Sicilia (26 ottobre 2026) (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.regione.sicilia.it/la-regione-informa/avviso-pubblico-open-innovation-sicilia",
+      "title": "Regione Siciliana, Avviso pubblico Open Innovation Sicilia, Azione 1.1.3 PR FESR 2021-2027 (consultato il 26 ottobre 2026)"
+    }
+  ],
+  "last_verified": "2026-10-26",
+  "verification_status": "pending",
+  "needs_human_review": true,
+  "pending_reason": "L'avviso è scaricabile solo registrandosi con i propri dati sul sito del Polo, e non l'ho fatto (niente form o login). Mancano quindi scadenza certa, importi, requisiti e procedura. Il Polo compare nell'elenco della Regione del 26 ottobre 2026 (ambito agroalimentare). La pagina indica «entro il mese di ottobre» per l'invio delle candidature ma mostra anche un conto alla rovescia di circa 28 giorni, incoerente."
+}

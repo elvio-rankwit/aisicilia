@@ -3,16 +3,18 @@
 // (la verifica `dist/` ↔ registro è nello script di controllo del report).
 import {
   getAllEvents, getArticles, getEventPages, getCompanies, getNextEvents, NEXT_DAYS, getPastEvents, getPrompts, getUpcomingEvents, latestDate,
+  getClosedGrants, getOpenGrants, grantPath,
 } from '../data';
 import { LIST_PAGE_SIZE, PAGINATE_OVER, RESERVED_SLUGS } from '../../components/helpers';
 import { PROVINCE_SLUGS, PROVINCES } from '../provinces';
 import { PROMPT_SECTORS, PROMPT_SECTOR_SLUGS } from '../taxonomies';
 import type { SitemapSegment } from './config';
 import { formatRange } from './dates';
+import { grantIssuer, grantTitle, grantUpdated, grantWhen } from './grants';
 import { normalizePath } from './url';
 
 export type PageKind =
-  | 'home' | 'hub' | 'province' | 'list-page' | 'company' | 'event' | 'article' | 'prompt-sector' | 'prompt' | 'static';
+  | 'home' | 'hub' | 'province' | 'list-page' | 'company' | 'event' | 'article' | 'prompt-sector' | 'prompt' | 'grant' | 'static';
 
 export interface OgContent {
   /** Riga in piccolo sopra il titolo (sezione). */
@@ -33,6 +35,8 @@ export interface SitePage {
 }
 
 const cleanName = (s: string) => s.replace(/\[[^\]]*\]\s*/g, '').trim();
+/** Slug di un bando che collidono con la rotta fissa /bandi/chiusi/. */
+const GRANT_RESERVED = ['chiusi'];
 const cap = (s: string) => (s ? s[0].toUpperCase() + s.slice(1) : s);
 
 let cache: Promise<SitePage[]> | undefined;
@@ -42,8 +46,8 @@ export const getSitePages = (): Promise<SitePage[]> => (cache ??= build());
 export const allPagePaths = async (): Promise<string[]> => (await getSitePages()).map((p) => p.path);
 
 async function build(): Promise<SitePage[]> {
-  const [companies, allEvents, upcoming, past, articles, prompts] = await Promise.all([
-    getCompanies(), getAllEvents(), getUpcomingEvents(), getPastEvents(), getArticles(), getPrompts(),
+  const [companies, allEvents, upcoming, past, articles, prompts, openGrants, closedGrants] = await Promise.all([
+    getCompanies(), getAllEvents(), getUpcomingEvents(), getPastEvents(), getArticles(), getPrompts(), getOpenGrants(), getClosedGrants(),
   ]);
   const pages: SitePage[] = [];
   const next30 = await getNextEvents(NEXT_DAYS);
@@ -56,6 +60,7 @@ async function build(): Promise<SitePage[]> {
   const globalLast = latestDate([
     cDate(companies), eDate(allEvents),
     latestDate(articles.map((a) => a.data.updated_at)), latestDate(prompts.map((p) => p.data.tested_at)),
+    latestDate([...openGrants, ...closedGrants].map(grantUpdated)),
   ]);
 
   // Home
@@ -107,6 +112,16 @@ async function build(): Promise<SitePage[]> {
       og: { eyebrow: `Evento · ${PROVINCES[e.data.province].name}`, title: e.data.series_name ?? e.data.title, subtitle: `${formatRange(e.data.start_date, e.data.end_date)} · ${e.data.format === 'online' ? 'online' : e.data.city}` } });
   }
 
+  // Bandi (D-042): lastmod = ultima verifica o approvazione, se più recente. Il .ics di /bandi/<slug>/scadenza.ics non è una pagina: fuori registro.
+  add({ path: '/bandi/', kind: 'hub', segment: 'pagine', indexable: true, lastmod: latestDate(openGrants.map(grantUpdated)),
+    og: { eyebrow: 'Bandi', title: "Bandi AI per le imprese siciliane", subtitle: openGrants.length ? `${openGrants.length} ${openGrants.length === 1 ? 'aperto o in apertura' : 'aperti o in apertura'}, con scadenze e fonti` : 'Scadenze e fonti ufficiali' } });
+  add({ path: '/bandi/chiusi/', kind: 'hub', segment: 'pagine', indexable: true, lastmod: latestDate(closedGrants.map(grantUpdated)),
+    og: { eyebrow: 'Bandi', title: 'Archivio dei bandi AI chiusi', subtitle: 'Per capire cosa potrebbe tornare' } });
+  for (const g of [...openGrants, ...closedGrants].filter((x) => !GRANT_RESERVED.includes(x.id))) {
+    add({ path: grantPath(g), kind: 'grant', segment: 'bandi', indexable: true, lastmod: grantUpdated(g),
+      og: { eyebrow: `Bando · ${grantIssuer(g).length <= 32 ? grantIssuer(g) : g.data.issuer_type}`, title: grantTitle(g), subtitle: grantWhen(g) } });
+  }
+
   // Impara
   add({ path: '/impara/', kind: 'hub', segment: 'pagine', indexable: true, lastmod: latestDate(articles.map((a) => a.data.updated_at)),
     og: { eyebrow: 'Impara', title: "Impara l'AI: guide per le imprese siciliane", subtitle: 'Casi d’uso concreti, limiti e cosa fare subito' } });
@@ -132,15 +147,15 @@ async function build(): Promise<SitePage[]> {
   const staticPage = (path: string, title: string, subtitle: string, extra: Partial<SitePage> = {}) =>
     add({ path, kind: 'static', segment: 'pagine', indexable: true, og: { eyebrow: 'AI Sicilia', title, subtitle }, ...extra });
   staticPage('/chi-siamo/', 'Chi siamo: Elvio Leonardi e AI Sicilia', 'Consulente SEO e GEO a Palermo');
-  staticPage('/metodologia/', 'Come verifichiamo i dati', 'Fonti, criteri e date di verifica', { lastmod: latestDate([cDate(companies), eDate(allEvents)]) });
-  staticPage('/segnala/', "Segnala un'azienda o un evento", 'Controlliamo le fonti prima di pubblicare');
+  staticPage('/metodologia/', 'Come verifichiamo i dati', 'Fonti, criteri e date di verifica', { lastmod: latestDate([cDate(companies), eDate(allEvents), latestDate([...openGrants, ...closedGrants].map(grantUpdated))]) });
+  staticPage('/segnala/', "Segnala un'azienda, un evento o un bando", 'Controlliamo le fonti prima di pubblicare');
   staticPage('/rimozione/', 'Modifica o rimozione di una scheda', 'Pubblichiamo solo dati aziendali');
   staticPage('/rivendica/', 'Rivendica la scheda della tua azienda', 'Conferma o aggiorna i dati');
   staticPage('/badge/', 'Il badge «Presente su AI Sicilia»', 'Per il sito delle aziende in elenco');
   staticPage('/contatti/', 'Contatti', 'Scrivi ad AI Sicilia');
   staticPage('/privacy/', 'Informativa privacy', 'Nessun cookie, nessuno strumento di analisi');
   staticPage('/note-legali/', 'Note legali', 'Natura del progetto e responsabilità');
-  staticPage('/cerca/', 'Cerca nel sito', 'Aziende, eventi, guide e prompt', { indexable: false });
+  staticPage('/cerca/', 'Cerca nel sito', 'Aziende, eventi, bandi, guide e prompt', { indexable: false });
   add({ path: '/404/', kind: 'static', segment: 'pagine', indexable: false, og: { eyebrow: 'AI Sicilia', title: 'Pagina non trovata', subtitle: 'Prova con la ricerca' } });
 
   return pages;

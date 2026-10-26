@@ -11,6 +11,7 @@ export const ID = {
   image: (path: string) => `${abs(path)}#primaryimage`,
   company: (path: string) => `${abs(path)}#company`,
   event: (path: string) => `${abs(path)}#event`,
+  grant: (path: string) => `${abs(path)}#grant`,
   article: (path: string) => `${abs(path)}#article`,
   faq: (path: string) => `${abs(path)}#faq`,
   prompt: (path: string) => `${abs(path)}#prompt`,

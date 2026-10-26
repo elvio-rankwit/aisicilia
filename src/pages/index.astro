@@ -5,14 +5,14 @@ import MapPreviewSlot from '../components/MapPreviewSlot.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import CtaSegnala from '../components/CtaSegnala.astro';
 import SearchForm from '../components/SearchForm.astro';
-import { eventPath, formatDate, getArticles, getCompanies, getPrompts, getUpcomingEvents, latestDate, today } from '../lib/data';
+import { eventPath, formatDate, getArticles, getCompanies, getOpenGrants, getPrompts, getUpcomingEvents, grantStatus, latestDate, today } from '../lib/data';
 import { PROVINCES, PROVINCE_SLUGS } from '../lib/provinces';
 import { PROMPT_SECTORS } from '../lib/taxonomies';
 import { meta } from '../lib/seo/meta';
 import { cap, clip, countByProvince } from '../components/helpers';
 import Disclosure from '../components/Disclosure.astro';
 
-const [companies, events, articles, prompts] = await Promise.all([getCompanies(), getUpcomingEvents(), getArticles(), getPrompts()]);
+const [companies, events, articles, prompts, openGrants] = await Promise.all([getCompanies(), getUpcomingEvents(), getArticles(), getPrompts(), getOpenGrants()]);
 const m = meta.home();
 const t0 = today().getTime();
 const lastDay = (e: (typeof events)[number]) => (e.data.end_date ?? e.data.start_date).getTime();
@@ -43,9 +43,12 @@ const featured = companies.find((c) => c.data.featured);
 const mapEvents = events.filter((e) => e.data.lat !== undefined && e.data.lng !== undefined).map((e) => ({ lat: e.data.lat!, lng: e.data.lng!, today: isToday(e) }));
 
 // Barra dei numeri
+// «Bandi aperti» compare solo quando ce n'è almeno uno (D-042): con zero bandi la barra resta a quattro voci.
+const nB = openGrants.filter((g) => grantStatus(g) === 'aperto').length;
 const stats = [
   { href: '/aziende/', label: 'Aziende', n: nC },
   { href: '/eventi/', label: 'Eventi in programma', n: nE },
+  ...(nB > 0 ? [{ href: '/bandi/', label: nB === 1 ? 'Bando aperto' : 'Bandi aperti', n: nB }] : []),
   { href: '/impara/', label: 'Guide', n: articles.length },
   { href: '/prompt/', label: 'Prompt', n: prompts.length },
 ];
@@ -119,7 +122,7 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
 
   <div slot="hero" class="stats">
     <div class="container">
-      <ul>
+      <ul class:list={{ five: stats.length === 5 }}>
         {stats.map((s) => (
           <li class="stat">
             <a href={s.href} data-astro-prefetch>
@@ -304,6 +307,7 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
   .stat:nth-child(n + 3) a { border-top: 1.5px solid rgba(255, 255, 255, 0.28); }
   .stat a:hover { background: rgba(255, 255, 255, 0.08); color: #fff; }
   .top-r { display: flex; align-items: flex-start; justify-content: space-between; min-height: 38px; font: 700 13px var(--body); letter-spacing: 0.08em; text-transform: uppercase; }
+  .five .stat:last-child { grid-column: 1 / -1; }
   .stat b { position: relative; display: block; margin: 14px 0 0; font: 800 42px/1 var(--display); letter-spacing: -0.05em; font-variant-numeric: tabular-nums lining-nums; }
   .stat b::after { content: ''; display: block; width: 34px; height: 5px; margin-top: 10px; background: var(--or); border-radius: 3px; }
 
@@ -453,6 +457,12 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
     .stats ul { grid-template-columns: repeat(4, 1fr); }
     .stat a, .stat:nth-child(even) a, .stat:nth-child(n + 3) a { padding: 36px 28px 38px; border-top: 0; border-left: 1.5px solid rgba(255, 255, 255, 0.28); }
     .stat:first-child a { border-left: 0; padding-left: 0; }
+    /* Con i bandi le voci sono cinque: colonne più strette, etichette alte quanto basta per due righe, così i numeri restano allineati */
+    .stats ul.five { grid-template-columns: repeat(5, 1fr); }
+    .five .stat:last-child { grid-column: auto; }
+    .five .stat a, .five .stat:nth-child(even) a, .five .stat:nth-child(n + 3) a { padding: 36px 16px 38px 20px; }
+    .five .stat:first-child a { padding-left: 0; }
+    .five .top-r { min-height: 2.7em; align-items: flex-start; font-size: 14px; letter-spacing: 0.06em; }
     .guides { grid-template-columns: 1.3fr 1fr 1fr; }
     .guides :global(.big) { grid-column: auto; }
     .pgrid { grid-template-columns: 1fr 1.2fr; gap: 56px; }

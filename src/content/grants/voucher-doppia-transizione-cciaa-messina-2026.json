@@ -1,0 +1,57 @@
+{
+  "title": "Bando Voucher Doppia Transizione, anno 2026, Camera di Commercio di Messina",
+  "slug": "voucher-doppia-transizione-cciaa-messina-2026",
+  "issuer": "Camera di Commercio di Messina",
+  "issuer_type": "Camera di Commercio",
+  "scope": "provinciale",
+  "provinces": [
+    "messina"
+  ],
+  "description": "Voucher a fondo perduto per micro, piccole e medie imprese di tutti i settori con sede legale o unità locale in provincia di Messina, per tecnologie digitali, consulenza e formazione. Il voucher copre fino al 70% della spesa ammissibile, con tetto di 5.000 euro, investimento minimo di 2.000 euro e dotazione di 150.000 euro. Sono previsti 250 euro in più per rating di legalità o parità di genere. La domanda si compila su ReStart dall'8 luglio e si inviava dal 14 al 18 settembre 2026: lo sportello è chiuso e la scheda resta per archivio.",
+  "ai_fit": "AI tra le spese ammesse",
+  "ai_note": "L'articolo 7 del bando elenca l'intelligenza artificiale tra le tecnologie acquistabili con il voucher, insieme a cloud, cybersecurity e big data.",
+  "beneficiaries": [
+    "micro e piccole imprese",
+    "medie imprese"
+  ],
+  "aid_types": [
+    "voucher",
+    "fondo perduto"
+  ],
+  "budget": "150.000 euro",
+  "max_amount": "fino a 5.000 euro per impresa, più 250 euro di premialità",
+  "aid_intensity": "fino al 70% delle spese ammissibili",
+  "procedure": "a sportello",
+  "opens_at": "2026-09-14",
+  "deadline": "2026-09-18",
+  "deadline_time": "10:00",
+  "closed_early": false,
+  "official_url": "https://www.me.camcom.it/pid-punto-impresa-digitale/bandi-voucher/bando-doppia-transizione-anno-2026",
+  "documents": [
+    {
+      "url": "https://www.me.camcom.it/sites/default/files/contenuto_redazione/pagina_base/allegati/bando_pid_doppia_transizione_2026_cciaa_messina.pdf",
+      "title": "Testo del bando Doppia Transizione 2026"
+    },
+    {
+      "url": "https://www.me.camcom.it/sites/default/files/contenuto_redazione/pagina_base/allegati/36_-_bando_pid_2026_1.pdf",
+      "title": "Deliberazione di Giunta camerale n. 36 del 2026"
+    },
+    {
+      "url": "https://www.me.camcom.it/sites/default/files/contenuto_redazione/pagina_base/allegati/modulo_domanda_bando_doppia_transizione_2026.docx",
+      "title": "Modulo di domanda"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.me.camcom.it/pid-punto-impresa-digitale/bandi-voucher/bando-doppia-transizione-anno-2026",
+      "title": "Camera di Commercio di Messina, pagina del Bando Doppia Transizione 2026 (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.me.camcom.it/sites/default/files/contenuto_redazione/pagina_base/allegati/bando_pid_doppia_transizione_2026_cciaa_messina.pdf",
+      "title": "Camera di Commercio di Messina, testo del bando Doppia Transizione 2026 (consultato il 26 ottobre 2026)"
+    }
+  ],
+  "last_verified": "2026-10-26",
+  "verification_status": "verified",
+  "needs_human_review": true
+}

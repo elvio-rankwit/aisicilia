@@ -11,14 +11,14 @@ const cc = countByProvince(companies);
 const ec = countByProvince(events);
 const m = {
   title: 'Come verifichiamo i dati: la metodologia di AI Sicilia',
-  description: 'Da dove prendiamo aziende ed eventi, quali criteri usiamo per includerli, cosa vuol dire “verificato” e come chiedere una correzione.',
+  description: 'Da dove prendiamo aziende, eventi e bandi, quali criteri usiamo per includerli, cosa vuol dire “verificato” e come chiedere una correzione.',
 };
 ---
 <BaseLayout seo={{ title: m.title, description: m.description, path: '/metodologia/', breadcrumbs: [{ name: 'Metodologia', path: '/metodologia/' }] }}>
   <PageHead>
     <Fragment slot="eyebrow">Metodo</Fragment>
     <Fragment slot="title">Come verifichiamo <mark class="blk">i dati</mark></Fragment>
-    <p>Ogni azienda e ogni evento di AI Sicilia nasce da fonti pubbliche che abbiamo davvero consultato, e riporta la data dell’ultima verifica. Le descrizioni sono riscritte, non copiate. Niente dati personali, niente loghi di terzi.</p>
+    <p>Ogni azienda, ogni evento e ogni bando di AI Sicilia nasce da fonti pubbliche che abbiamo davvero consultato, e riporta la data dell’ultima verifica. Le descrizioni sono riscritte, non copiate. Niente dati personali, niente loghi di terzi.</p>
   </PageHead>
 
   <Prose>
@@ -38,6 +38,22 @@ const m = {
     <section aria-labelledby="h-eventi">
       <h2 id="h-eventi">Quali eventi entrano</h2>
       <p>Gli eventi sull’intelligenza artificiale che si svolgono in Sicilia, in presenza o in forma ibrida, e quelli online se li organizza un soggetto siciliano. Gli eventi online non hanno un punto sulla mappa. Un evento finito passa in archivio e resta consultabile.</p>
+    </section>
+
+    <section aria-labelledby="h-bandi">
+      <h2 id="h-bandi">Bandi e finanziamenti</h2>
+      <p>I bandi sono la parte più delicata del portale: una scadenza sbagliata fa perdere soldi a chi legge. Per questo seguono regole più strette di aziende ed eventi.</p>
+      <p>Un bando entra solo se valgono tutte e tre queste condizioni: lo possono chiedere imprese, startup o professionisti con sede o unità locale in Sicilia; c’entra con l’intelligenza artificiale; è aperto, oppure si apre in una data già pubblicata in un atto ufficiale. Ogni scheda dice come c’entra l’AI, con uno di tre livelli:</p>
+      <ul>
+        <li><strong>Dedicato all’AI</strong>: l’avviso riguarda esplicitamente l’intelligenza artificiale.</li>
+        <li><strong>AI tra le spese ammesse</strong>: il testo nomina l’AI tra le tecnologie, i progetti o le spese finanziabili.</li>
+        <li><strong>Innovazione digitale</strong>: è un bando più ampio, su digitale o innovazione, in cui un progetto di AI rientra senza forzature. Lo usiamo con parsimonia e la scheda spiega perché.</li>
+      </ul>
+      <p>Un bando senza nessuna AI plausibile, per esempio solo efficienza energetica o acquisto di attrezzature, resta fuori.</p>
+      <p>Le fonti sono solo ufficiali: il sito dell’ente che emette il bando o del soggetto che lo gestisce, la Gazzetta Ufficiale, il testo dell’avviso. Portali di aggregazione, blog e consulenti ci servono come pista per scoprire un bando, mai come fonte: ogni dato si controlla sull’avviso. Importi e percentuali sono riportati come li scrive l’ente, senza stime nostre.</p>
+      <p>Aperto, in apertura e chiuso non sono scritti a mano: si calcolano alla data di aggiornamento del sito, che si ricostruisce ogni notte. Un bando è aperto fino al giorno della scadenza compreso, e il giorno dopo passa nell’archivio: l’avviso può fissare un’ora, e la scheda la riporta. Uno sportello può chiudere prima se i fondi finiscono: lo segniamo solo quando lo dice la fonte ufficiale, quindi tra la chiusura e il nostro controllo può passare del tempo.</p>
+      <p>Ogni bando passa da una revisione umana prima di andare online: finché non è stato riletto e approvato da Elvio Leonardi, non compare sul sito. La scheda riporta la data dell’ultima verifica e, quando c’è, quella della revisione. I bandi chiusi restano online, in un <a href="/bandi/chiusi/">archivio</a>.</p>
+      <p>Le schede sono informative, non consulenza. Non prepariamo né presentiamo domande e non facciamo previsioni sugli esiti: non diciamo se un bando fa per te, quanto otterresti o se la domanda sarà accolta. Prima di spendere o di presentare domanda leggi l’avviso ufficiale e, se serve, chiedi al commercialista o all’ufficio incentivi della tua associazione di categoria. Se trovi un errore, usa il modulo di rimozione; se manca un bando, <a href="/segnala/">segnalalo</a>. L’elenco è in <a href="/bandi/">Bandi e finanziamenti</a>.</p>
     </section>
 
     <section aria-labelledby="h-verificato">

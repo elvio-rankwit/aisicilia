@@ -1,0 +1,31 @@
+---
+// Avvertenza dei bandi (YMYL, CLAUDE.md regola 8): sobria ma ben visibile. "full" per l'elenco, "short" per la scheda.
+// Con `guide` mostra il link alla guida sugli incentivi, solo se l'articolo è pubblicato (lo decide la pagina).
+interface Props { variant?: 'full' | 'short'; guide?: string }
+const { variant = 'full', guide } = Astro.props;
+---
+<aside class:list={['gn', variant]} aria-label="Avvertenza sui bandi">
+  <svg class="ico" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 11v5" /><path d="M12 7.6v.1" /></svg>
+  <div>
+    {variant === 'full' ? (
+      <>
+        <p class="t">Leggi l’avviso prima di spendere</p>
+        <p>Questa pagina informa e non sostituisce l’avviso. Date e condizioni sono quelle lette alla data di verifica di ogni scheda: l’ente può averle cambiate, e gli sportelli chiudono anche prima della scadenza, quando i fondi finiscono. <strong>Prima di comprare o firmare qualcosa, leggi l’avviso ufficiale.</strong> Se hai dubbi sul tuo caso, chiedi al commercialista o all’ufficio incentivi della tua associazione di categoria. Noi non facciamo consulenza e non presentiamo domande.{guide && <> Come si legge un avviso: <a href={guide}>la guida agli incentivi</a>.</>}</p>
+      </>
+    ) : (
+      <p><strong>Informazione, non consulenza.</strong> Date e condizioni sono quelle lette sulla fonte ufficiale alla data di verifica riportata nella scheda. L’ente può cambiarle, e uno sportello può chiudere prima se i fondi finiscono. Prima di spendere leggi l’avviso o chiedi al commercialista: se qualcosa non coincide, vale l’avviso.{guide && <> Come si legge un avviso: <a href={guide}>la guida</a>.</>}</p>
+    )}
+  </div>
+</aside>
+<style>
+  .gn { display: flex; gap: 16px; align-items: flex-start; max-width: 52rem; margin: 0 0 40px; padding: 18px 20px; background: var(--grey); border: 1.5px solid var(--bd); border-left: 8px solid var(--or); border-radius: var(--r); }
+  .gn.short { margin: 32px 0 0; max-width: 42rem; padding: 14px 16px; }
+  .ico { flex: none; margin-top: 2px; color: var(--or-text); }
+  .gn.short .ico { width: 24px; height: 24px; }
+  .gn p { margin: 0; font-size: 16.5px; line-height: 1.6; color: var(--muted); }
+  .gn.short p { font-size: 15.5px; }
+  .gn .t { margin-bottom: 4px; font: 700 17px/1.4 var(--display); letter-spacing: -0.02em; color: var(--ink); }
+  .gn strong { color: var(--ink); }
+  .gn a { font-weight: 700; }
+  .gn > div { min-width: 0; }
+</style>

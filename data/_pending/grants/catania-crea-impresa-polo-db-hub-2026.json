@@ -1,0 +1,60 @@
+{
+  "title": "Catania Crea Impresa, Open Innovation Hub Sicilia, avviso per accelerazione e incubazione",
+  "slug": "catania-crea-impresa-polo-db-hub-2026",
+  "issuer": "Polo di Innovazione DB Hub (DB Investimenti e Tigullio Digital, Paternò), PR FESR Sicilia 2021-2027",
+  "issuer_type": "Regione Siciliana",
+  "scope": "regionale",
+  "provinces": [],
+  "description": "Percorso integrato di 12 mesi con otto micro, piccole e medie imprese innovative già costituite (accelerazione) e dieci o dodici team di aspiranti imprenditori (incubazione), tra Paternò e Catania. Gli ambiti privilegiati sono economia del mare, energia, smart cities, scienze della vita, agroalimentare e ambiente. I servizi di accelerazione valgono 25.000 euro per impresa e sono fatturati dal Polo, che l'impresa deve pagare: la Regione rimborsa a posteriori, dopo il completamento del percorso. In de minimis fino a 30.000 euro per le imprese accelerate e 15.000 per quelle nate dall'incubazione.",
+  "ai_fit": "innovazione digitale",
+  "ai_note": "L'avviso nomina una «piattaforma AI con modelli Digital Twin» tra gli strumenti di validazione offerti dal Polo ai partecipanti. L'AI è uno strumento del programma, non un tema finanziato.",
+  "beneficiaries": [
+    "startup innovative",
+    "nuove imprese",
+    "aspiranti imprenditori"
+  ],
+  "aid_types": [
+    "servizi e accompagnamento",
+    "fondo perduto"
+  ],
+  "budget": "515.000 euro di agevolazioni",
+  "max_amount": "25.000 euro di servizi; de minimis fino a 30.000 euro (accelerazione) o 15.000 (incubazione)",
+  "aid_intensity": "100% dei costi dei servizi e delle spese ammesse, rimborsato a posteriori",
+  "procedure": "graduatoria",
+  "deadline": "2026-11-10",
+  "deadline_time": "12:00",
+  "closed_early": false,
+  "official_url": "https://cataniacreaimpresa.it/",
+  "documents": [
+    {
+      "url": "https://cataniacreaimpresa.it/assets/images/document/Avviso_pubblico_CCI.pdf",
+      "title": "Avviso pubblico per la selezione dei soggetti aderenti"
+    },
+    {
+      "url": "https://www.regione.sicilia.it/la-regione-informa/avviso-pubblico-open-innovation-sicilia",
+      "title": "Avviso madre Open Innovation Sicilia, DDG n. 1843 del 8 luglio 2025 (pagina della Regione con allegati e FAQ)"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://cataniacreaimpresa.it/",
+      "title": "Catania Crea Impresa, pagina del Polo con candidature aperte (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://cataniacreaimpresa.it/assets/images/document/Avviso_pubblico_CCI.pdf",
+      "title": "Catania Crea Impresa, testo dell'avviso pubblico (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.regione.sicilia.it/la-regione-informa/open-innovation-sicilia-pubblicati-ulteriori-avvisi-selezione-soggetti-aderenti-ai-programmi-accelerazione-eo-incubazione-d-impresa",
+      "title": "Regione Siciliana, Dipartimento attività produttive, elenco degli avvisi dei Poli Open Innovation Sicilia (26 ottobre 2026) (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.regione.sicilia.it/la-regione-informa/avviso-pubblico-open-innovation-sicilia",
+      "title": "Regione Siciliana, Avviso pubblico Open Innovation Sicilia, Azione 1.1.3 PR FESR 2021-2027 (consultato il 26 ottobre 2026)"
+    }
+  ],
+  "last_verified": "2026-10-26",
+  "verification_status": "pending",
+  "needs_human_review": true,
+  "pending_reason": "Fit AI dubbio: l'AI è solo uno strumento di validazione messo a disposizione dal Polo, non un tema o una spesa del programma. Data di apertura incoerente nell'avviso: dalle 12:00 del 15 ottobre all'articolo 7, dal 6 ottobre al comma 1-bis. Scadenza del 10 novembre 2026 ore 12:00 coerente in entrambi i punti."
+}

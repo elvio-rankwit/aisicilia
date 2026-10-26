@@ -1,0 +1,53 @@
+{
+  "title": "Servizi e calcolo IT4LIA AI Factory per startup e PMI (call italiane)",
+  "slug": "servizi-it4lia-ai-factory",
+  "issuer": "Consorzio IT4LIA AI Factory (Cineca e partner)",
+  "issuer_type": "altro ente pubblico",
+  "scope": "nazionale",
+  "provinces": [],
+  "description": "IT4LIA è l'AI Factory italiana, nella rete EuroHPC, con calcolo e servizi per startup, PMI, pubbliche amministrazioni e università. L'accesso è gratuito per i soggetti ammessi e avviene tramite call: si prenota un colloquio di valutazione di 30 minuti, poi si partecipa alla call di accesso per ore di calcolo su sistemi come Leonardo e per supporto di esperti. Le call italiane sono riservate a imprese e organizzazioni italiane o con base operativa in Italia; la call europea copre solo il calcolo EuroHPC. Il sito ufficiale non pubblica il testo di un bando.",
+  "ai_fit": "dedicato all'AI",
+  "ai_note": "IT4LIA offre servizi e ore di calcolo dedicati a progetti di AI: sviluppo e addestramento di modelli, RAG personalizzati, valutazione di conformità, dati sintetici.",
+  "beneficiaries": [
+    "micro e piccole imprese",
+    "medie imprese",
+    "nuove imprese",
+    "università e centri di ricerca"
+  ],
+  "aid_types": [
+    "servizi e accompagnamento"
+  ],
+  "aid_intensity": "accesso gratuito per startup e PMI ammissibili",
+  "procedure": "call con scadenza",
+  "deadline_note": "Servizi accessibili fino al 31 marzo 2028 secondo le FAQ; nessuna scadenza per singola call pubblicata.",
+  "closed_early": false,
+  "official_url": "https://it4lia-aifactory.eu/what-we-can-do-for-you/",
+  "documents": [
+    {
+      "url": "https://it4lia-aifactory.eu/faq/",
+      "title": "FAQ ufficiali IT4LIA AI Factory"
+    },
+    {
+      "url": "https://it4lia-aifactory.eu/all-services/",
+      "title": "Catalogo dei servizi IT4LIA AI Factory"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://it4lia-aifactory.eu/what-we-can-do-for-you/",
+      "title": "IT4LIA AI Factory, What we can do for you (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://it4lia-aifactory.eu/faq/",
+      "title": "IT4LIA AI Factory, FAQ (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://it4lia-aifactory.eu/all-services/",
+      "title": "IT4LIA AI Factory, All services (consultato il 26 ottobre 2026)"
+    }
+  ],
+  "last_verified": "2026-10-26",
+  "verification_status": "pending",
+  "needs_human_review": true,
+  "pending_reason": "Il sito ufficiale descrive accesso su appuntamento e «call italiane» ma non pubblica un bando o regolamento con date di apertura e chiusura: l'unica data è l'accesso «fino al 31 marzo 2028» nelle FAQ. Da chiedere al consorzio se le call italiane sono aperte e con quali requisiti."
+}

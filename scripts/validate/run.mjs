@@ -132,6 +132,7 @@ function validateContent() {
   for (const { file, data } of all.grants) {
     const where = rel(file);
     if (data.needs_human_review !== true && !data.reviewed_at) err(where, 'bando YMYL: needs_human_review deve essere true finché non approvato (reviewed_at)');
+    if (['chiusi', 'pagina', 'provincia'].includes(data.slug)) err(where, `slug "${data.slug}" è una rotta riservata di /bandi/`);
     if (data.verification_status !== 'verified') warn(where, 'bando non verified: non sarà pubblicato (spostalo in data/_pending/grants/)');
     if (data.reviewed_at && String(data.reviewed_at).slice(0, 10) > today) err(where, 'reviewed_at nel futuro');
     if (data.reviewed_at && String(data.reviewed_at).slice(0, 10) < String(data.last_verified).slice(0, 10)) warn(where, 'approvato prima dell\'ultima verifica: va riapprovato');

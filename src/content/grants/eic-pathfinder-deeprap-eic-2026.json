@@ -1,0 +1,49 @@
+{
+  "title": "EIC Pathfinder Challenge 2026, DeepRAP: Deep Reasoning, Abstraction & Planning",
+  "slug": "eic-pathfinder-deeprap-eic-2026",
+  "issuer": "Consiglio europeo per l'innovazione (EIC), Commissione europea",
+  "issuer_type": "Unione europea",
+  "scope": "europeo",
+  "provinces": [],
+  "closed_early": false,
+  "last_verified": "2026-10-26",
+  "needs_human_review": true,
+  "description": "Challenge dell'EIC Pathfinder 2026 dedicata all'intelligenza artificiale cognitiva affidabile: finanzia ricerca e innovazione su sistemi capaci di ragionamento, astrazione e pianificazione, spiegabili, conformi all'AI Act e addestrabili con risorse di calcolo limitate, fino a una dimostrazione a livello TRL 4. Possono candidarsi una singola entità (PMI e startup comprese; mid-cap e grandi imprese non possono presentarsi da sole) oppure un consorzio, con almeno due soggetti di Paesi diversi. Il contributo copre il 100% dei costi in somma forfettaria.",
+  "ai_fit": "dedicato all'AI",
+  "ai_note": "Il topic è dedicato per intero a sistemi di AI cognitiva affidabile (DeepRAP): ragionamento, astrazione e pianificazione, con requisiti di spiegabilità e conformità all'AI Act.",
+  "beneficiaries": [
+    "micro e piccole imprese",
+    "medie imprese",
+    "nuove imprese",
+    "università e centri di ricerca"
+  ],
+  "aid_types": [
+    "fondo perduto"
+  ],
+  "budget": "96 milioni di euro per le tre Challenge 2026",
+  "max_amount": "fino a 4 milioni di euro per progetto (di più se motivato)",
+  "aid_intensity": "100% dei costi ammissibili (somma forfettaria)",
+  "procedure": "call con scadenza",
+  "opens_at": "2026-07-22",
+  "deadline": "2026-10-28",
+  "deadline_time": "17:00",
+  "deadline_note": "Il programma di lavoro EIC 2026 prevede che la Commissione possa posticipare il termine fino a due mesi.",
+  "official_url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-EIC-2026-PATHFINDERCHALLENGES-01-03",
+  "documents": [
+    {
+      "url": "https://eic.ec.europa.eu/system/files/2025-11/EIC-Work-Programme-2026.pdf",
+      "title": "EIC Work Programme 2026 (sezione II.2.3, Challenge DeepRAP)"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-EIC-2026-PATHFINDERCHALLENGES-01-03",
+      "title": "Commissione europea, portale Funding & Tenders, topic HORIZON-EIC-2026-PATHFINDERCHALLENGES-01-03 (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://eic.ec.europa.eu/system/files/2025-11/EIC-Work-Programme-2026.pdf",
+      "title": "EIC, Work Programme 2026 (consultato il 26 ottobre 2026)"
+    }
+  ],
+  "verification_status": "verified"
+}

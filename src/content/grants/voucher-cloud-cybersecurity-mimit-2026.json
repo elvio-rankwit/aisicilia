@@ -1,0 +1,53 @@
+{
+  "title": "Voucher cloud e cybersecurity",
+  "slug": "voucher-cloud-cybersecurity-mimit-2026",
+  "issuer": "Ministero delle Imprese e del Made in Italy (con il supporto di Invitalia)",
+  "issuer_type": "Ministero o agenzia nazionale",
+  "scope": "nazionale",
+  "provinces": [],
+  "description": "Contributo a fondo perduto del 50% delle spese per servizi cloud e di sicurezza informatica, fino a 20.000 euro, per PMI e lavoratori autonomi di tutta Italia con una connessione di almeno 30 Mbps in download. Il piano di spesa parte da 4.000 euro e riguarda prodotti e servizi di fornitori presenti nell'elenco del ministero: cybersecurity, cloud IaaS e PaaS, software in cloud (SaaS) e servizi di supporto, questi ultimi fino al 30% del piano. Dei 150 milioni di dotazione, circa 71 milioni sono riservati a otto regioni del Sud, Sicilia compresa. La compilazione della domanda è aperta dal 20 ottobre; l'invio va dal 10 novembre 2026 al 20 gennaio 2027.",
+  "ai_fit": "AI tra le spese ammesse",
+  "ai_note": "L'articolo 4, comma 2, lettera d) del decreto direttoriale del 4 agosto 2026 include tra i servizi SaaS ammessi le soluzioni di produttività aziendale integrate con funzionalità di intelligenza artificiale.",
+  "beneficiaries": [
+    "micro e piccole imprese",
+    "medie imprese",
+    "liberi professionisti"
+  ],
+  "aid_types": [
+    "voucher",
+    "fondo perduto"
+  ],
+  "budget": "150 milioni di euro, di cui 71 milioni riservati al Sud",
+  "max_amount": "fino a 20.000 euro; spesa minima 4.000 euro",
+  "aid_intensity": "50% delle spese ammissibili",
+  "procedure": "a sportello",
+  "opens_at": "2026-11-10",
+  "deadline": "2027-01-20",
+  "deadline_time": "12:00",
+  "deadline_note": "Chiusura anticipata se le domande esauriscono le risorse; compilazione dal 20 ottobre 2026",
+  "closed_early": false,
+  "official_url": "https://www.invitalia.it/incentivi-e-strumenti/voucher-cloud-e-cybersecurity",
+  "documents": [
+    {
+      "url": "https://www.invitalia.it/sites/invitalia.it/files/2026-10/DD_Voucher_cloud_cybersecurity.pdf",
+      "title": "Decreto direttoriale 4 agosto 2026"
+    },
+    {
+      "url": "https://www.invitalia.it/sites/invitalia.it/files/2026-10/Allegato_n.1_Oneri%20Informativi_Voucher_cloud_cybersecurity.pdf",
+      "title": "Allegato 1, oneri informativi"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.invitalia.it/incentivi-e-strumenti/voucher-cloud-e-cybersecurity",
+      "title": "Invitalia, scheda Voucher cloud e cybersecurity (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.invitalia.it/sites/invitalia.it/files/2026-10/DD_Voucher_cloud_cybersecurity.pdf",
+      "title": "Ministero delle Imprese e del Made in Italy, decreto direttoriale 4 agosto 2026 (PDF su invitalia.it) (consultato il 26 ottobre 2026)"
+    }
+  ],
+  "last_verified": "2026-10-26",
+  "verification_status": "verified",
+  "needs_human_review": true
+}

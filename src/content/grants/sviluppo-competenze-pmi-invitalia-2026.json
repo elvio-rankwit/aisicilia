@@ -1,0 +1,61 @@
+{
+  "title": "Sviluppo competenze specialistiche delle PMI, secondo sportello",
+  "slug": "sviluppo-competenze-pmi-invitalia-2026",
+  "issuer": "Invitalia (per il Ministero delle Imprese e del Made in Italy)",
+  "issuer_type": "Ministero o agenzia nazionale",
+  "scope": "nazionale",
+  "provinces": [],
+  "description": "Contributo a fondo perduto, in regime de minimis, che copre il 50% del costo di servizi specialistici di formazione per i dipendenti delle piccole e medie imprese di Sicilia, Basilicata, Calabria, Campania, Molise, Puglia e Sardegna. I percorsi devono rientrare negli ambiti elencati nel decreto direttoriale, tra cui compare l'intelligenza artificiale, e mirano ad accrescere le competenze su innovazione tecnologica e transizione verde e digitale. Per i progetti integrati sovraregionali sono previste maggiorazioni del 20% per micro e piccole imprese e del 10% per le medie. Il secondo sportello accetta domande online dal 10 settembre al 21 dicembre 2026; chi ha già presentato domanda nel primo sportello non può accedere.",
+  "ai_fit": "AI tra le spese ammesse",
+  "ai_note": "L'allegato n. 1 del decreto direttoriale 26 gennaio 2026 elenca gli ambiti formativi ammessi e, tra le tecnologie digitali, include la voce 6.2 «Tecnologie di intelligenza artificiale».",
+  "beneficiaries": [
+    "micro e piccole imprese",
+    "medie imprese"
+  ],
+  "aid_types": [
+    "fondo perduto"
+  ],
+  "budget": "12.449.676 euro (secondo sportello)",
+  "aid_intensity": "50% delle spese ammissibili (de minimis); +20% micro e piccole, +10% medie nei progetti integrati sovraregionali",
+  "procedure": "graduatoria",
+  "opens_at": "2026-09-10",
+  "deadline": "2026-12-21",
+  "deadline_time": "12:00",
+  "closed_early": false,
+  "official_url": "https://www.invitalia.it/incentivi-e-strumenti/sviluppo-competenze-specialistiche-delle-pmi",
+  "documents": [
+    {
+      "url": "https://www.invitalia.it/sites/invitalia.it/files/2026-03/Sviluppo%20competenze-Decreto%20ministeriale%2004%20settembre%202025.pdf",
+      "title": "Decreto ministeriale 4 settembre 2025"
+    },
+    {
+      "url": "https://www.invitalia.it/sites/invitalia.it/files/2026-03/Sviluppo%20competenze-Decrto%20direttoriale%2026%20gennaio%202026.pdf",
+      "title": "Decreto direttoriale 26 gennaio 2026, con l'allegato n. 1 sugli ambiti formativi"
+    },
+    {
+      "url": "https://www.invitalia.it/sites/invitalia.it/files/2026-07/Decreto%20direttoriale%20n.%202095%20del%2013%20luglio%202026.pdf",
+      "title": "Decreto direttoriale n. 2095 del 13 luglio 2026, apertura del secondo sportello"
+    },
+    {
+      "url": "https://www.invitalia.it/sites/invitalia.it/files/2026-07/Decreto%20direttoriale%20del%2028%20luglio%202026.pdf",
+      "title": "Decreto direttoriale 28 luglio 2026, disposizioni sul secondo sportello"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.invitalia.it/incentivi-e-strumenti/sviluppo-competenze-specialistiche-delle-pmi",
+      "title": "Invitalia, scheda Sviluppo competenze specialistiche delle PMI (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.invitalia.it/sites/invitalia.it/files/2026-03/Sviluppo%20competenze-Decrto%20direttoriale%2026%20gennaio%202026.pdf",
+      "title": "Ministero delle Imprese e del Made in Italy, decreto direttoriale 26 gennaio 2026 (PDF su invitalia.it) (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.invitalia.it/sites/invitalia.it/files/2026-07/Decreto%20direttoriale%20n.%202095%20del%2013%20luglio%202026.pdf",
+      "title": "Ministero delle Imprese e del Made in Italy, decreto direttoriale n. 2095 del 13 luglio 2026 (PDF su invitalia.it) (consultato il 26 ottobre 2026)"
+    }
+  ],
+  "last_verified": "2026-10-26",
+  "verification_status": "verified",
+  "needs_human_review": true
+}

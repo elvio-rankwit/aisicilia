@@ -1,0 +1,68 @@
+{
+  "title": "S.E.M.E. Sicilian Ecosystem for Modern Entrepreneurship, avviso per accelerazione e incubazione",
+  "slug": "seme-accelerazione-incubazione-polo-baps-2026",
+  "issuer": "Polo di Innovazione S.E.M.E. (BAPS, Incubatore SEI e MEET, Ragusa), PR FESR Sicilia 2021-2027",
+  "issuer_type": "fondazione o soggetto privato",
+  "scope": "regionale",
+  "provinces": [],
+  "description": "Due percorsi finanziati dal PR FESR e gestiti dal Polo S.E.M.E. di Ragusa: accelerazione per nove micro, piccole e medie imprese innovative costituite da non oltre 60 mesi, e incubazione per dodici team di aspiranti imprenditori che diventeranno impresa in Sicilia. Il programma dura circa otto mesi, con formazione, mentoring, consulenza e networking. L'ambito prevalente è l'agroalimentare, ma sono ammessi tutti gli ambiti S3. Dopo il percorso c'è un contributo in de minimis, fino a 50.000 euro per le imprese accelerate e 30.000 per quelle nate dall'incubazione. Il programma è finanziato dal PR FESR Sicilia 2021-2027 (Azione 1.1.3, avviso regionale Open Innovation Sicilia): l'avviso è del Polo, che seleziona le imprese, e le agevolazioni sono concesse dalla Regione per il tramite del Polo.",
+  "ai_fit": "AI tra le spese ammesse",
+  "ai_note": "L'articolo 2 dell'avviso ammette tecnologie abilitanti come Intelligenza Artificiale, Internet of Things, big data, cloud e robotica, purché coerenti con le traiettorie del programma.",
+  "beneficiaries": [
+    "startup innovative",
+    "nuove imprese",
+    "aspiranti imprenditori"
+  ],
+  "aid_types": [
+    "servizi e accompagnamento",
+    "fondo perduto"
+  ],
+  "budget": "1.000.000 euro di progetto, di cui 780.000 euro di agevolazioni",
+  "max_amount": "fino a 50.000 euro de minimis (accelerazione) o 30.000 euro (incubazione)",
+  "aid_intensity": "100% dei costi dei servizi e delle spese ammesse, entro i massimali",
+  "procedure": "graduatoria",
+  "opens_at": "2026-10-16",
+  "deadline": "2026-11-15",
+  "deadline_time": "12:00",
+  "closed_early": false,
+  "official_url": "https://baps.it/sostenibilita/progetto-seme/",
+  "documents": [
+    {
+      "url": "https://baps.it/wp-content/uploads/Avviso_Pubblico_Progetto_SEME.pdf",
+      "title": "Avviso pubblico del Polo S.E.M.E. per la selezione dei soggetti aderenti"
+    },
+    {
+      "url": "https://baps.it/sostenibilita/progetto-seme/allegato-a-seme/",
+      "title": "Allegato A, modulo di manifestazione di interesse"
+    },
+    {
+      "url": "https://baps.it/sostenibilita/progetto-seme/allegato-c-seme/",
+      "title": "Allegato C, griglia di valutazione e punteggi"
+    },
+    {
+      "url": "https://www.regione.sicilia.it/la-regione-informa/avviso-pubblico-open-innovation-sicilia",
+      "title": "Avviso madre Open Innovation Sicilia, DDG n. 1843 del 8 luglio 2025 (pagina della Regione con allegati e FAQ)"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://baps.it/sostenibilita/progetto-seme/",
+      "title": "Progetto S.E.M.E., pagina del Polo sul sito di BAPS (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://baps.it/wp-content/uploads/Avviso_Pubblico_Progetto_SEME.pdf",
+      "title": "Progetto S.E.M.E., testo dell'avviso di selezione (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.regione.sicilia.it/la-regione-informa/pr-fesr-sicilia-20212027-azione-113-avviso-open-innovation-sicilia-approvazione-schema-avviso-selezione-soggetti-aderenti-ai-programmi-accelerazione-eo-incubazione-d-impresa",
+      "title": "Regione Siciliana, DDG n. 2457 del 31 agosto 2026, schema di avviso per i Poli (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.regione.sicilia.it/la-regione-informa/avviso-pubblico-open-innovation-sicilia",
+      "title": "Regione Siciliana, Avviso pubblico Open Innovation Sicilia, Azione 1.1.3 PR FESR 2021-2027 (consultato il 26 ottobre 2026)"
+    }
+  ],
+  "last_verified": "2026-10-26",
+  "verification_status": "verified",
+  "needs_human_review": true
+}

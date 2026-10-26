@@ -1,0 +1,51 @@
+{
+  "title": "Investimenti IA e Quantum Computing, Fondo 394/81",
+  "slug": "investimenti-ia-quantum-simest",
+  "issuer": "SIMEST (Gruppo CDP), Fondo 394/81",
+  "issuer_type": "altro ente pubblico",
+  "scope": "nazionale",
+  "provinces": [],
+  "description": "Finanziamento agevolato del Fondo 394/81, fondo pubblico gestito da SIMEST (Gruppo CDP), per imprese con vocazione internazionale che destinano tutte le risorse a investimenti, servizi e iniziative di intelligenza artificiale e quantum computing. Il tasso, fisso per tutta la durata, è una quota del tasso di riferimento, aggiornato ogni mese: la pagina SIMEST indica oggi lo 0,371%. La durata arriva a 8 anni (2 di preammortamento) e una quota fino al 10% dell'intervento, con tetto di 100.000 euro, è a fondo perduto. L'anticipo erogabile sale al 50%. Serve un fatturato export di almeno il 3% nell'ultimo esercizio, oppure almeno il 10% del fatturato verso imprese italiane esportatrici. La domanda si invia dal portale SIMEST e viene esaminata in ordine cronologico, nei limiti delle risorse del Fondo.",
+  "ai_fit": "dedicato all'AI",
+  "ai_note": "La circolare 4/394/2023 (aggiornamento del 15 settembre 2026) ha una sezione «Investimenti IA e Quantum Computing»: l'Allegato 2 elenca le spese in AI ammesse, tra cui cloud, licenze, API di modelli, sviluppo, dati e formazione.",
+  "beneficiaries": [
+    "micro e piccole imprese",
+    "medie imprese",
+    "grandi imprese"
+  ],
+  "aid_types": [
+    "finanziamento agevolato",
+    "fondo perduto"
+  ],
+  "budget": "riserva di 200 milioni di euro",
+  "max_amount": "il minore tra 35% dei ricavi medi e 500.000 euro (micro), 2,5 milioni (PMI), 5 milioni (altre imprese)",
+  "aid_intensity": "tasso agevolato (0,371% sulla pagina SIMEST, varia ogni mese); fondo perduto fino al 10% (massimo 100.000 euro)",
+  "procedure": "a sportello",
+  "opens_at": "2026-09-21",
+  "deadline_note": "Nessuna scadenza: domande in ordine cronologico fino a esaurimento del Fondo 394/81",
+  "closed_early": false,
+  "official_url": "https://www.simest.it/per-le-imprese/finanziamenti-agevolati/finanziamenti-agevolati-internazionalizzazione/transizione-digitale-o-ecologica/",
+  "documents": [
+    {
+      "url": "https://www.simest.it/app/uploads/2026/09/Circolare-4-394-2023-DE-25.09.2026.pdf",
+      "title": "Circolare operativa 4/394/2023, aggiornamento del 15 settembre 2026"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.simest.it/per-le-imprese/finanziamenti-agevolati/finanziamenti-agevolati-internazionalizzazione/transizione-digitale-o-ecologica/",
+      "title": "SIMEST, pagina Transizione digitale o ecologica (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.simest.it/app/uploads/2026/09/Circolare-4-394-2023-DE-25.09.2026.pdf",
+      "title": "SIMEST, circolare operativa 4/394/2023, aggiornamento del 15 settembre 2026 (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.simest.it/",
+      "title": "SIMEST, home page (consultato il 26 ottobre 2026)"
+    }
+  ],
+  "last_verified": "2026-10-26",
+  "verification_status": "verified",
+  "needs_human_review": true
+}

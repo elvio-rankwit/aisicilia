@@ -1,0 +1,70 @@
+{
+  "title": "Sicily Open Lab, avviso per la selezione delle imprese del programma di accelerazione",
+  "slug": "sicily-open-lab-accelerazione-sogepat-2026",
+  "issuer": "Polo di Innovazione Sicily Open Lab (SO.GE.PA.T. e SMARTME.IO, Messina), PR FESR Sicilia 2021-2027",
+  "issuer_type": "fondazione o soggetto privato",
+  "scope": "regionale",
+  "provinces": [],
+  "description": "Programma di accelerazione di 12 mesi per dieci micro, piccole e medie imprese innovative costituite da non oltre 60 mesi, con sede o unità operativa in Sicilia e un progetto nell'ambito Smart Cities & Communities della strategia regionale S3. Ogni impresa riceve 450 ore di servizi del valore di 45.000 euro: mentoring, validazione del modello di business, test e prototipazione nei laboratori di SMARTME.IO, consulenza legale e fiscale, contatti con investitori. L'aiuto copre il 100% dei costi e si liquida a saldo. Chi completa il percorso può ottenere fino a 40.000 euro in de minimis. Candidatura solo via PEC. Il programma è finanziato dal PR FESR Sicilia 2021-2027 (Azione 1.1.3, avviso regionale Open Innovation Sicilia): l'avviso è del Polo, che seleziona le imprese, e le agevolazioni sono concesse dalla Regione per il tramite del Polo.",
+  "ai_fit": "innovazione digitale",
+  "ai_note": "La seconda fase prevede prototipazione e test di soluzioni in ambito AIoT, automazione e data analytics, con i laboratori di SMARTME.IO, spin-off specializzato in AIoT. Non è un bando dedicato all'AI: un progetto AI ci sta se rientra in Smart Cities & Communities.",
+  "beneficiaries": [
+    "startup innovative",
+    "nuove imprese"
+  ],
+  "aid_types": [
+    "servizi e accompagnamento",
+    "fondo perduto"
+  ],
+  "budget": "850.000 euro per le imprese aderenti",
+  "max_amount": "45.000 euro di servizi per impresa, più fino a 40.000 euro in de minimis",
+  "aid_intensity": "100% dei costi dei servizi e delle spese di implementazione, liquidato a saldo",
+  "procedure": "graduatoria",
+  "deadline": "2026-11-23",
+  "deadline_time": "19:00",
+  "closed_early": false,
+  "official_url": "https://www.sicilyopenlab.it/",
+  "documents": [
+    {
+      "url": "https://www.me.camcom.it/sites/default/files/contenuto_redazione/notizie/file/avviso_selezione_soggetti_aderenti_sol.pdf",
+      "title": "Avviso di selezione dei soggetti aderenti a Sicily Open Lab"
+    },
+    {
+      "url": "https://www.me.camcom.it/sites/default/files/contenuto_redazione/notizie/file/allegati_a_b_modulo_partecipazione_avviso_sol.docx",
+      "title": "Allegati A e B, modulo di partecipazione"
+    },
+    {
+      "url": "https://www.me.camcom.it/sites/default/files/contenuto_redazione/notizie/file/allegato_c_scheda_valutazione.docx",
+      "title": "Allegato C, scheda di valutazione"
+    },
+    {
+      "url": "https://www.regione.sicilia.it/la-regione-informa/avviso-pubblico-open-innovation-sicilia",
+      "title": "Avviso madre Open Innovation Sicilia, DDG n. 1843 del 8 luglio 2025 (pagina della Regione con allegati e FAQ)"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.sicilyopenlab.it/",
+      "title": "Sicily Open Lab, sito del Polo con avviso e modulistica (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.me.camcom.it/notizie/sicily-open-lab-entro-23-novembre-presentazione-delle-domande",
+      "title": "Camera di Commercio di Messina, notizia su Sicily Open Lab (21 ottobre 2026) (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.me.camcom.it/sites/default/files/contenuto_redazione/notizie/file/avviso_selezione_soggetti_aderenti_sol.pdf",
+      "title": "Sicily Open Lab, testo dell'avviso di selezione (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.regione.sicilia.it/la-regione-informa/open-innovation-sicilia-pubblicati-ulteriori-avvisi-selezione-soggetti-aderenti-ai-programmi-accelerazione-eo-incubazione-d-impresa",
+      "title": "Regione Siciliana, Dipartimento attività produttive, elenco degli avvisi dei Poli Open Innovation Sicilia (26 ottobre 2026) (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.regione.sicilia.it/la-regione-informa/avviso-pubblico-open-innovation-sicilia",
+      "title": "Regione Siciliana, Avviso pubblico Open Innovation Sicilia, Azione 1.1.3 PR FESR 2021-2027 (consultato il 26 ottobre 2026)"
+    }
+  ],
+  "last_verified": "2026-10-26",
+  "verification_status": "verified",
+  "needs_human_review": true
+}

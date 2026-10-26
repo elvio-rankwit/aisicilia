@@ -1,0 +1,50 @@
+{
+  "title": "Iperammortamento 2026-2028 (Nuovo Piano Transizione 5.0)",
+  "slug": "iperammortamento-2026-gse",
+  "issuer": "Ministero delle Imprese e del Made in Italy (con il GSE)",
+  "issuer_type": "Ministero o agenzia nazionale",
+  "scope": "nazionale",
+  "provinces": [],
+  "description": "Maggiorazione del costo di acquisizione, ai soli fini delle quote di ammortamento e dei canoni di leasing, per gli investimenti in beni strumentali nuovi materiali e immateriali dei modelli Industria 4.0 (allegati IV e V della legge 199/2025), interconnessi ai sistemi aziendali, e in impianti per l'autoconsumo di energia rinnovabile. Vale per investimenti dal 1° gennaio 2026 al 30 settembre 2028. La maggiorazione è del 180% fino a 2,5 milioni di euro, del 100% fino a 10 milioni e del 50% fino a 20 milioni. L'accesso passa dalla piattaforma del GSE con tre comunicazioni (preventiva, conferma, completamento).",
+  "ai_fit": "AI tra le spese ammesse",
+  "ai_note": "Il beneficio copre i beni immateriali dell'allegato V; che l'elenco includa sistemi e modelli di intelligenza artificiale risulta da fonti secondarie, non da un testo ufficiale letto in questa verifica.",
+  "beneficiaries": [
+    "micro e piccole imprese",
+    "medie imprese",
+    "grandi imprese"
+  ],
+  "aid_types": [
+    "credito d'imposta"
+  ],
+  "max_amount": "investimenti agevolabili fino a 20 milioni di euro",
+  "aid_intensity": "maggiorazione del costo: 180% fino a 2,5 milioni, 100% fino a 10 milioni, 50% fino a 20 milioni",
+  "procedure": "a sportello",
+  "opens_at": "2026-06-12",
+  "deadline_note": "Investimenti dal 1° gennaio 2026 al 30 settembre 2028; completamento entro il 15 novembre 2028",
+  "closed_early": false,
+  "official_url": "https://www.gse.it/servizi-per-te/imprese/nuovo-piano-transizione-5-0/come-accedere",
+  "documents": [
+    {
+      "url": "https://www.gse.it/documenti_site/Documenti%20GSE/Servizi%20per%20te/Nuovo%20Piano%20Transizione%205.0/Guida%20piattaforma%20NPTR5.pdf",
+      "title": "Guida alla piattaforma Nuovo Piano Transizione 5.0, 15 ottobre 2026"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.gse.it/servizi-per-te/imprese/nuovo-piano-transizione-5-0/come-accedere",
+      "title": "GSE, Nuovo Piano Transizione 5.0, come accedere (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.gse.it/documenti_site/Documenti%20GSE/Servizi%20per%20te/Nuovo%20Piano%20Transizione%205.0/Guida%20piattaforma%20NPTR5.pdf",
+      "title": "GSE, guida alla piattaforma NPTR5 del 15 ottobre 2026 (PDF) (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://documenti.camera.it/leg19/dossier/pdf/ID0014evol2.pdf",
+      "title": "Camera dei deputati, dossier sulla legge di bilancio 2026, articolo 1, commi 427-436 (PDF) (consultato il 26 ottobre 2026)"
+    }
+  ],
+  "last_verified": "2026-10-26",
+  "verification_status": "pending",
+  "needs_human_review": true,
+  "pending_reason": "Sito MIMIT irraggiungibile: decreto attuativo MIMIT-MEF del 7 maggio 2026 e allegati IV e V non letti. Da verificare: elenco dell'allegato V e AI, vincolo di origine UE/SEE (nel testo di legge, eliminato secondo fonti secondarie dal DL 38/2026), stato della piattaforma. Il vocabolario aid_types non ha «maggiorazione dell'ammortamento»."
+}

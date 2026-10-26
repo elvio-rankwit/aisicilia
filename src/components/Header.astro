@@ -3,6 +3,7 @@ const path = Astro.url.pathname;
 const nav = [
   { href: '/aziende/', label: 'Aziende' },
   { href: '/eventi/', label: 'Eventi' },
+  { href: '/bandi/', label: 'Bandi' },
   { href: '/impara/', label: 'Guide' },
   { href: '/prompt/', label: 'Prompt' },
 ];
@@ -72,9 +73,12 @@ const nav = [
   @media (min-width: 45.01rem) {
     .bar { height: 76px; }
     .logo { font-size: 21px; }
+    .tools { margin-left: 8px; }
+  }
+  /* Cinque voci più Segnala non stanno nella barra sotto i 992px: fino a lì resta il menu a tendina. */
+  @media (min-width: 62rem) {
     .nav { display: flex; }
     .menu { display: none; }
-    .tools { margin-left: 8px; }
   }
 </style>
 <script>

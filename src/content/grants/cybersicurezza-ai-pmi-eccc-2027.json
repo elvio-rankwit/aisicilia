@@ -1,0 +1,53 @@
+{
+  "title": "Strengthening cybersecurity capacities of European SMEs with cybersecure AI-powered solutions (AI4SME)",
+  "slug": "cybersicurezza-ai-pmi-eccc-2027",
+  "issuer": "Centro europeo di competenza per la cybersicurezza (ECCC), Commissione europea",
+  "issuer_type": "Unione europea",
+  "scope": "europeo",
+  "provinces": [],
+  "closed_early": false,
+  "last_verified": "2026-10-26",
+  "needs_human_review": true,
+  "aid_types": [
+    "fondo perduto"
+  ],
+  "procedure": "call con scadenza",
+  "opens_at": "2026-09-01",
+  "deadline": "2027-01-14",
+  "deadline_time": "17:00",
+  "verification_status": "verified",
+  "description": "Topic della call Digital Europe sulla cybersicurezza che finanzia la diffusione di prodotti, strumenti e servizi di sicurezza informatica basati su AI pensati per le PMI, ad esempio un toolkit in cloud per valutare i rischi, rilevare minacce e segnalare e gestire gli incidenti. Il testo non impone un consorzio minimo e ammette un singolo candidato, ma i progetti attesi valgono da 3 a 5 milioni di euro di contributo UE e durano circa 36 mesi, quindi in pratica conviene una cordata. Partecipano solo soggetti stabiliti e controllati da Paesi ammessi, con dichiarazione di proprietà e controllo.",
+  "ai_fit": "dedicato all'AI",
+  "ai_note": "Il topic AI4SME riguarda strumenti di cybersicurezza basati su AI per le PMI, compreso l'uso di assistenti AI per la segnalazione degli incidenti e per l'automazione dei processi di sicurezza.",
+  "beneficiaries": [
+    "micro e piccole imprese",
+    "medie imprese",
+    "nuove imprese",
+    "università e centri di ricerca"
+  ],
+  "budget": "20 milioni di euro per il topic, circa 5 progetti",
+  "max_amount": "contributo UE atteso tra 3 e 5 milioni di euro per progetto",
+  "aid_intensity": "50%, 75% per le PMI",
+  "deadline_note": "Il budget della call dipende dall'adozione finale dell'emendamento al programma di lavoro Digital Europe 2025-2027.",
+  "official_url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/DIGITAL-ECCC-2027-DEPLOY-CYBER-11-AI4SME",
+  "documents": [
+    {
+      "url": "https://cybersecurity-centre.europa.eu/document/download/8e1d6074-95ed-4b23-8bd3-2ca42b096411_en?filename=Call%20Document%20%20DEP%2011.pdf",
+      "title": "Call document DEP 11 (testo della call, PDF)"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/DIGITAL-ECCC-2027-DEPLOY-CYBER-11-AI4SME",
+      "title": "Commissione europea, portale Funding & Tenders, topic DIGITAL-ECCC-2027-DEPLOY-CYBER-11-AI4SME (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://cybersecurity-centre.europa.eu/document/8e1d6074-95ed-4b23-8bd3-2ca42b096411_en",
+      "title": "ECCC, Call for proposals DIGITAL-ECCC-2027-DEPLOY-CYBER-11 (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://cybersecurity-centre.europa.eu/document/download/8e1d6074-95ed-4b23-8bd3-2ca42b096411_en?filename=Call%20Document%20%20DEP%2011.pdf",
+      "title": "ECCC, Call document DEP 11 (PDF) (consultato il 26 ottobre 2026)"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "title": "OASIS, programma di accelerazione Wonderwall, avviso di selezione delle imprese",
+  "slug": "oasis-wonderwall-accelerazione-polo-oasis-2026",
+  "issuer": "Polo di Innovazione OASIS (TQC, Innesta e CNA Palermo), PR FESR Sicilia 2021-2027",
+  "issuer_type": "fondazione o soggetto privato",
+  "scope": "regionale",
+  "provinces": [],
+  "description": "Programma di accelerazione di sei mesi per dieci micro, piccole e medie imprese e startup siciliane costituite da non oltre 60 mesi, con maturità tecnologica medio-alta e un progetto nell'ambito Smart Cities & Communities. Comprende 100 ore di formazione, 30 ore di mentorship individuale e 10 ore di consulenza tecnica, in modalità ibrida a Palermo e Messina, fino al Demo Day. I servizi valgono 20.000 euro per impresa. Fino a cinque imprese possono ottenere dopo il percorso un contributo in de minimis di 40.000 euro per attuare quanto appreso. Il programma è finanziato dal PR FESR Sicilia 2021-2027 (Azione 1.1.3, avviso regionale Open Innovation Sicilia): l'avviso è del Polo, che seleziona le imprese, e le agevolazioni sono concesse dalla Regione per il tramite del Polo.",
+  "ai_fit": "AI tra le spese ammesse",
+  "ai_note": "La formazione specialistica dell'articolo 2 include le tecnologie abilitanti «AI & data analytics», insieme a cloud-to-edge, IoT, cybersecurity e HPC. Il programma insiste su Smart Cities & Communities.",
+  "beneficiaries": [
+    "startup innovative",
+    "nuove imprese"
+  ],
+  "aid_types": [
+    "servizi e accompagnamento",
+    "fondo perduto"
+  ],
+  "budget": "400.000 euro (200.000 art. 28 RGE e 200.000 de minimis)",
+  "max_amount": "20.000 euro di servizi per impresa; 40.000 euro de minimis a 5 imprese",
+  "aid_intensity": "100% dei costi dei servizi e delle spese di implementazione, liquidato a saldo",
+  "procedure": "graduatoria",
+  "deadline": "2026-11-13",
+  "deadline_time": "12:00",
+  "closed_early": false,
+  "official_url": "https://www.oasishub.it/",
+  "documents": [
+    {
+      "url": "https://www.oasishub.it/assets/docs/bando-accelerazione-wonderwall.pdf",
+      "title": "Avviso Wonderwall, programma di accelerazione"
+    },
+    {
+      "url": "https://www.regione.sicilia.it/la-regione-informa/avviso-pubblico-open-innovation-sicilia",
+      "title": "Avviso madre Open Innovation Sicilia, DDG n. 1843 del 8 luglio 2025 (pagina della Regione con allegati e FAQ)"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.oasishub.it/",
+      "title": "OASIS, sito del Polo con le candidature per Wonderwall e Stand By Me (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.oasishub.it/assets/docs/bando-accelerazione-wonderwall.pdf",
+      "title": "OASIS, testo dell'avviso Wonderwall (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.regione.sicilia.it/la-regione-informa/open-innovation-sicilia-pubblicati-ulteriori-avvisi-selezione-soggetti-aderenti-ai-programmi-accelerazione-eo-incubazione-d-impresa",
+      "title": "Regione Siciliana, Dipartimento attività produttive, elenco degli avvisi dei Poli Open Innovation Sicilia (26 ottobre 2026) (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.regione.sicilia.it/la-regione-informa/avviso-pubblico-open-innovation-sicilia",
+      "title": "Regione Siciliana, Avviso pubblico Open Innovation Sicilia, Azione 1.1.3 PR FESR 2021-2027 (consultato il 26 ottobre 2026)"
+    }
+  ],
+  "last_verified": "2026-10-26",
+  "verification_status": "verified",
+  "needs_human_review": true
+}

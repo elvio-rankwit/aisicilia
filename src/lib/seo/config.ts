@@ -31,10 +31,11 @@ export const OG = { width: 1200, height: 630, maxBytes: 80 * 1024 } as const;
 export const FEEDS = [
   { path: '/rss/articoli.xml', title: 'AI Sicilia: guide e articoli' },
   { path: '/rss/eventi.xml', title: 'AI Sicilia: prossimi eventi sull’AI in Sicilia' },
+  { path: '/rss/bandi.xml', title: 'AI Sicilia: bandi e finanziamenti per l’AI' },
 ] as const;
 
 /** Nome del file sitemap (senza .xml) per ogni segmento. */
-export const SITEMAP_SEGMENTS = ['pagine', 'aziende', 'eventi', 'articoli', 'prompt'] as const;
+export const SITEMAP_SEGMENTS = ['pagine', 'aziende', 'eventi', 'bandi', 'articoli', 'prompt'] as const;
 export type SitemapSegment = (typeof SITEMAP_SEGMENTS)[number];
 
 export const SITEMAP_INDEX_PATH = '/sitemap-index.xml';

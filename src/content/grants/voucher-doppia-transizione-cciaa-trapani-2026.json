@@ -1,0 +1,53 @@
+{
+  "title": "Bando Doppia Transizione, anno 2026, Camera di Commercio di Trapani",
+  "slug": "voucher-doppia-transizione-cciaa-trapani-2026",
+  "issuer": "Camera di Commercio di Trapani",
+  "issuer_type": "Camera di Commercio",
+  "scope": "provinciale",
+  "provinces": [
+    "trapani"
+  ],
+  "description": "Voucher a fondo perduto per micro, piccole e medie imprese con sede legale o unità locale in provincia di Trapani, per acquistare tecnologie digitali e i servizi di consulenza e formazione collegati. L'investimento minimo è di 1.000 euro e il voucher copre fino al 70% della spesa, con tetto di 5.000 euro e una dotazione di 150.000 euro. Sono previsti 250 euro in più per rating di legalità o parità di genere. Le domande andavano inviate sulla piattaforma ReStart dal 15 luglio al 15 settembre 2026: lo sportello è chiuso e la scheda resta per archivio.",
+  "ai_fit": "AI tra le spese ammesse",
+  "ai_note": "L'articolo 7 elenca l'intelligenza artificiale tra le tecnologie le cui spese sono ammissibili, insieme a cloud, cybersecurity, big data e IoT.",
+  "beneficiaries": [
+    "micro e piccole imprese",
+    "medie imprese"
+  ],
+  "aid_types": [
+    "voucher",
+    "fondo perduto"
+  ],
+  "budget": "150.000 euro",
+  "max_amount": "fino a 5.000 euro per impresa, più 250 euro di premialità",
+  "aid_intensity": "fino al 70% delle spese ammissibili",
+  "procedure": "a sportello",
+  "opens_at": "2026-07-15",
+  "deadline": "2026-09-15",
+  "deadline_time": "23:59",
+  "closed_early": false,
+  "official_url": "https://www.tp.camcom.it/notizie/progetto-doppia-transizione-digitale-ed-ecologica-bando-doppia-transizione-anno-2026",
+  "documents": [
+    {
+      "url": "https://www.tp.camcom.it/sites/default/files/contenuto_redazione/notizie/file/16%20del%2023%20Giugno%202026-Allegato%20A%20Bando%202026%20DOPPIA%20TRANSIZIONE.-signed.pdf",
+      "title": "Allegato A, testo del bando Doppia Transizione 2026"
+    },
+    {
+      "url": "https://www.tp.camcom.it/sites/default/files/contenuto_redazione/notizie/file/16%20del%2023%20Giugno%202026-Allegato%20B%20Modulo%20di%20domanda.-signed.pdf",
+      "title": "Allegato B, modulo di domanda"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.tp.camcom.it/notizie/progetto-doppia-transizione-digitale-ed-ecologica-bando-doppia-transizione-anno-2026",
+      "title": "Camera di Commercio di Trapani, pagina del Bando Doppia Transizione 2026 (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.tp.camcom.it/sites/default/files/contenuto_redazione/notizie/file/16%20del%2023%20Giugno%202026-Allegato%20A%20Bando%202026%20DOPPIA%20TRANSIZIONE.-signed.pdf",
+      "title": "Camera di Commercio di Trapani, testo del bando Doppia Transizione 2026 (consultato il 26 ottobre 2026)"
+    }
+  ],
+  "last_verified": "2026-10-26",
+  "verification_status": "verified",
+  "needs_human_review": true
+}
