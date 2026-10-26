@@ -640,5 +640,47 @@
     "lng": 15.26962,
     "display_name": "Viale Ermocrate, Neapolis, Siracusa, Sicilia, 96100, Italia",
     "precision": "indirizzo"
+  },
+  "addr:via michele miraglia 20, palermo": {
+    "lat": 38.12625,
+    "lng": 13.36197,
+    "display_name": "Via Michele Miraglia, VIII Circoscrizione, Palermo, Sicilia, 90139, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via paolo gili 4, palermo": {
+    "lat": 38.1181,
+    "lng": 13.33852,
+    "display_name": "Cantieri Culturali alla Zisa, 4, Via Paolo Gili, Olivuzza, Uditore, V Circoscrizione, Palermo, Sicilia, 90137, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:viale delle scienze, edificio 8, palermo": {
+    "lat": 38.10455,
+    "lng": 13.34951,
+    "display_name": "Viale delle Scienze, Villaggio Santa Rosalia, IV Circoscrizione, Palermo, Sicilia, 90128, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:piazza dante alighieri 32, 95124 catania": {
+    "lat": 37.57613,
+    "lng": 15.07321,
+    "display_name": "Piazza Dante Alighieri, Tremestieri Etneo, Catania, Sicilia, 95030, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via etnea 8, 95124 catania": {
+    "lat": 37.50194,
+    "lng": 15.08771,
+    "display_name": "Museo Diocesano, 8, Via Etnea, Giudecca, Centro storico, Catania, Sicilia, 95131, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:monastero dei benedettini, piazza dante, catania": {
+    "lat": 37.5037,
+    "lng": 15.08045,
+    "display_name": "Monastero dei Benedettini, Piazza Dante, Antico Corso, Centro storico, Catania, Sicilia, 95124, Italia",
+    "precision": "indirizzo"
+  },
+  "addr:via vittorio emanuele ii 121, 95131 catania": {
+    "lat": 37.60778,
+    "lng": 15.10287,
+    "display_name": "121, Via Vittorio Emanuele Secondo, Viagrande, Catania, Sicilia, 95029, Italia",
+    "precision": "indirizzo"
   }
 }

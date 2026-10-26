@@ -1,0 +1,33 @@
+{
+  "title": "Digital Twin e medicina di precisione: dai modelli biologici all'intelligenza artificiale",
+  "slug": "digital-twin-medicina-precisione-iemest-palermo-2026-10",
+  "description": "Convegno in due giornate organizzato dall'istituto IEMEST di Palermo nell'ambito del progetto di ricerca D3 4 Health sui gemelli digitali del paziente. Il primo pomeriggio è dedicato ai modelli biologici e bioingegnerizzati, la mattina successiva a dati e intelligenza artificiale: IA multimodale, deep learning applicato alle immagini mediche, biomarcatori di imaging e modelli predittivi in oncologia, diabete e sclerosi multipla. Interventi di ricercatori di atenei e centri di ricerca italiani. È richiesta la registrazione tramite modulo online. In calendario l'8 e il 9 ottobre 2026.",
+  "start_date": "2026-10-08",
+  "end_date": "2026-10-09",
+  "start_time": "15:00",
+  "end_time": "13:00",
+  "format": "in presenza",
+  "venue_name": "IEMEST - Istituto Euro-Mediterraneo di Scienza e Tecnologia",
+  "venue_address": "Via Michele Miraglia 20, Palermo",
+  "city": "Palermo",
+  "province": "palermo",
+  "lat": 38.12625,
+  "lng": 13.36197,
+  "organizer": "IEMEST - Istituto Euro-Mediterraneo di Scienza e Tecnologia",
+  "organizer_url": "https://www.iemest.eu/",
+  "event_url": "https://www.iemest.eu/2026/09/25/convegno-digital-twin-e-medicina-di-precisione-dai-modelli-biologici-allintelligenza-artificiale-giovedi-8-e-venerdi-9-ottobre/",
+  "price": "non indicato",
+  "audience": [
+    "ricercatori",
+    "professionisti"
+  ],
+  "topics": [
+    "AI per la sanità",
+    "AI per la ricerca",
+    "machine learning"
+  ],
+  "source_url": "https://www.iemest.eu/2026/09/25/convegno-digital-twin-e-medicina-di-precisione-dai-modelli-biologici-allintelligenza-artificiale-giovedi-8-e-venerdi-9-ottobre/",
+  "status": "programmato",
+  "last_verified": "2026-10-26",
+  "verification_status": "verified"
+}
