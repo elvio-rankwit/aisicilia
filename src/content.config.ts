@@ -52,6 +52,8 @@ const companies = defineCollection({
     /** Profili ufficiali verificati (es. pagina su sito universitario). Usati per sameAs. */
     same_as: z.array(httpUrl).default([]),
     source_urls: z.array(httpUrl).min(1),
+    /** Data in cui l'azienda ha confermato i dati della scheda con il flusso /rivendica/ (D-041). */
+    claimed_at: isoDate.optional(),
     last_verified: isoDate,
     verification_status: verification,
     /** In evidenza: prima posizione negli elenchi (regionale e di provincia). Decisione editoriale dell'utente (D-025). */

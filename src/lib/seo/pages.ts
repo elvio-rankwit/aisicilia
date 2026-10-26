@@ -135,6 +135,8 @@ async function build(): Promise<SitePage[]> {
   staticPage('/metodologia/', 'Come verifichiamo i dati', 'Fonti, criteri e date di verifica', { lastmod: latestDate([cDate(companies), eDate(allEvents)]) });
   staticPage('/segnala/', "Segnala un'azienda o un evento", 'Controlliamo le fonti prima di pubblicare');
   staticPage('/rimozione/', 'Modifica o rimozione di una scheda', 'Pubblichiamo solo dati aziendali');
+  staticPage('/rivendica/', 'Rivendica la scheda della tua azienda', 'Conferma o aggiorna i dati');
+  staticPage('/badge/', 'Il badge «Presente su AI Sicilia»', 'Per il sito delle aziende in elenco');
   staticPage('/contatti/', 'Contatti', 'Scrivi ad AI Sicilia');
   staticPage('/privacy/', 'Informativa privacy', 'Nessun cookie, nessuno strumento di analisi');
   staticPage('/note-legali/', 'Note legali', 'Natura del progetto e responsabilità');

@@ -1,8 +1,8 @@
 ---
 import { formatDate } from '../lib/data';
 import { hostOf } from './helpers';
-interface Props { urls: string[]; verified: Date; what: 'scheda' | 'evento'; level?: 2 | 3 }
-const { urls, verified, what, level = 2 } = Astro.props;
+interface Props { urls: string[]; verified: Date; what: 'scheda' | 'evento'; level?: 2 | 3; claimed?: Date }
+const { urls, verified, what, level = 2, claimed } = Astro.props;
 const H = `h${level}` as 'h2' | 'h3';
 // Testo del link: host + percorso abbreviato, così fonti dello stesso dominio si distinguono.
 const labelOf = (u: string): string => {
@@ -20,6 +20,7 @@ const labelOf = (u: string): string => {
   <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z" /><path d="m8.5 12 2.5 2.5 4.5-5" /></svg>
   <H id="fonte-titolo">Fonte e ultima verifica</H>
   <p>Ultima verifica: <time datetime={verified.toISOString().slice(0, 10)}>{formatDate(verified)}</time>. {what === 'scheda' ? 'Le informazioni di questa scheda sono state riscritte da noi a partire dalle fonti qui sotto.' : 'Date, luogo e prezzo vanno controllati sul sito dell’organizzatore prima di partire.'}</p>
+  {claimed && <p class="claimed">Dati confermati dall’azienda il <time datetime={claimed.toISOString().slice(0, 10)}>{formatDate(claimed)}</time>.</p>}
   <ul>
     {[...new Set(urls)].map((u) => <li><a class="ext" href={u} rel="noopener">{labelOf(u)}</a></li>)}
   </ul>
@@ -34,4 +35,5 @@ const labelOf = (u: string): string => {
   li { margin-bottom: 4px; }
   time { font-weight: 700; color: var(--teal); }
   .source-box > :last-child { margin-bottom: 0; }
+  .claimed { font-weight: 700; color: var(--teal); }
 </style>

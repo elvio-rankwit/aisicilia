@@ -90,8 +90,11 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
         </Panel>
       </div>
       <div class="side">
-        <SourceBox urls={d.source_urls} verified={d.last_verified} what="scheda" />
-        <p class="rm">Qualcosa è sbagliato o è cambiato? <a href={`/rimozione/?scheda=${c.id}`}>Richiedi modifica o rimozione di questa scheda</a>.</p>
+        <SourceBox urls={d.source_urls} verified={d.last_verified} what="scheda" claimed={d.claimed_at} />
+        <p class="rm">{d.claimed_at
+          ? <>Lavori in {cleanName(d.name)} e qualcosa è cambiato? <a href={`/rivendica/?azienda=${c.id}`}>Aggiorna i dati</a>.</>
+          : <>Lavori in {cleanName(d.name)}? <a href={`/rivendica/?azienda=${c.id}`}>Rivendica la scheda</a> e conferma i dati.</>}</p>
+        <p class="rm">Qualcosa è sbagliato? <a href={`/rimozione/?scheda=${c.id}`}>Richiedi modifica o rimozione</a>.</p>
       </div>
     </div>
 
@@ -132,6 +135,7 @@ const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
   .side { min-width: 0; }
   .side :global(.source-box) { max-width: none; margin-top: 0; }
   .rm { margin: 0; padding: 0 4px; font-size: 15.5px; color: var(--muted); }
+  .rm + .rm { margin-top: 8px; }
   @media (min-width: 40rem) { .data { grid-template-columns: repeat(2, minmax(0, 1fr)); } .data .wide { grid-column: 1 / -1; } .feat { padding: 28px; box-shadow: 8px 8px 0 var(--sh); margin-right: 8px; } }
   @media (min-width: 62rem) { .cols { grid-template-columns: minmax(0, 1fr) 24rem; } .side { position: sticky; top: 24px; } }
 </style>

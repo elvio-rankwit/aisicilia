@@ -1,0 +1,106 @@
+---
+// Badge "Presente su AI Sicilia" (D-041): facoltativo, solo immagine SVG + link HTML alla scheda dell'azienda.
+// Nessuno script da incollare. Le immagini si generano con scripts/badge/make-badges.mjs.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHead from '../../components/PageHead.astro';
+import Prose from '../../components/Prose.astro';
+import CopyButton from '../../components/CopyButton.astro';
+import { getCompanies } from '../../lib/data';
+import { SITE } from '../../lib/site';
+import { cleanName } from '../../components/helpers';
+
+const companies = (await getCompanies()).sort((a, b) => cleanName(a.data.name).localeCompare(cleanName(b.data.name), 'it'));
+const img = (theme: string) => `${SITE.url}/badge/presente-su-ai-sicilia-${theme}.svg`;
+const code = (slug: string, theme: string) =>
+  `<a href="${SITE.url}/aziende/${slug}/"><img src="${img(theme)}" alt="Presente su AI Sicilia" width="196" height="64"></a>`;
+const m = {
+  title: 'Badge «Presente su AI Sicilia» per il sito della tua azienda',
+  description: 'Il badge da mettere sul sito delle aziende presenti su AI Sicilia: un’immagine e un link alla scheda, senza script. Codice pronto da copiare.',
+};
+---
+<BaseLayout seo={{ title: m.title, description: m.description, path: '/badge/', breadcrumbs: [{ name: 'Badge', path: '/badge/' }] }}>
+  <PageHead>
+    <Fragment slot="eyebrow">Per le aziende in elenco</Fragment>
+    <Fragment slot="title">Il badge «Presente su <mark class="blk">AI</mark> Sicilia»</Fragment>
+    <p>Se la tua azienda è nella directory, puoi mettere questo badge sul vostro sito. Porta chi lo clicca alla vostra scheda, con fonti e data di verifica.</p>
+  </PageHead>
+
+  <section aria-labelledby="h-versioni">
+    <h2 id="h-versioni" class="first">Due versioni</h2>
+    <div class="previews">
+      <figure class="pv light"><img src="/badge/presente-su-ai-sicilia-chiaro.svg" alt="Badge Presente su AI Sicilia, versione chiara" width="196" height="64" /><figcaption>Chiara, per fondi bianchi o chiari. <a href="/badge/presente-su-ai-sicilia-chiaro.svg" download>Scarica l’SVG</a></figcaption></figure>
+      <figure class="pv dark"><img src="/badge/presente-su-ai-sicilia-scuro.svg" alt="Badge Presente su AI Sicilia, versione scura" width="196" height="64" /><figcaption>Scura, per fondi scuri. <a href="/badge/presente-su-ai-sicilia-scuro.svg" download>Scarica l’SVG</a></figcaption></figure>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="h-codice">
+    <h2 id="h-codice">Il codice da incollare</h2>
+    <form class="pick" aria-label="Scegli azienda e versione del badge">
+      <div class="field">
+        <label for="b-azienda">La tua azienda</label>
+        <select id="b-azienda">
+          {companies.map((c, i) => <option value={c.id} selected={i === 0}>{cleanName(c.data.name)}</option>)}
+        </select>
+      </div>
+      <div class="field">
+        <label for="b-tema">Versione</label>
+        <select id="b-tema">
+          <option value="chiaro" selected>Chiara</option>
+          <option value="scuro">Scura</option>
+        </select>
+      </div>
+    </form>
+    <div class="term" role="group" aria-label="Codice HTML del badge">
+      <div class="term-bar"><span>HTML</span><CopyButton target="badge-code" /></div>
+      <pre class="code" id="badge-code" data-site={SITE.url}><code>{code(companies[0]?.id ?? 'nome-azienda', 'chiaro')}</code></pre>
+    </div>
+    <Prose>
+      <p>Incollalo nel footer o nella pagina «Chi siamo» del vostro sito. Se preferite non caricare l’immagine dai nostri server, scaricate l’SVG, caricatelo sul vostro sito e cambiate l’indirizzo dentro <code>src</code>.</p>
+    </Prose>
+  </section>
+
+  <section class="section" aria-labelledby="h-regole">
+    <h2 id="h-regole">Da sapere prima di metterlo</h2>
+    <Prose>
+      <p>Il badge è facoltativo. Non serve per entrare in elenco o restarci, e non cambia la posizione della scheda: l’ordine resta alfabetico.</p>
+      <p>È solo un’immagine con un link: niente script, niente cookie, nessun dato sui visitatori del vostro sito. Se l’immagine resta sui nostri server, il browser di chi visita la pagina la scarica da aisicilia.it come qualunque immagine.</p>
+      <p>Prima di metterlo, controllate che la scheda sia giusta. Potete confermare o aggiornare i dati dalla pagina <a href="/rivendica/">Rivendica la scheda</a>.</p>
+    </Prose>
+  </section>
+</BaseLayout>
+<style>
+  .first { margin-top: 0; }
+  .previews { display: grid; gap: 20px; }
+  .pv { margin: 0; display: grid; gap: 12px; justify-items: start; padding: 28px; border: 1.5px solid var(--bd); border-radius: var(--r-lg); }
+  .pv.light { background: #fff; color: #101418; }
+  .pv.dark { background: #0F1418; color: #E9ECEF; }
+  .pv.dark a { color: #9CCBF2; }
+  .pv.light a { color: #0B5FA5; }
+  .pv figcaption { font-size: 15.5px; }
+  .pick { display: grid; gap: 16px; max-width: 44rem; margin-bottom: 20px; }
+  .pick .field { display: grid; gap: 8px; }
+  .pick label { font: 700 16px/1.4 var(--body); }
+  .pick select { width: 100%; min-height: 50px; padding: 10px 14px; color: var(--ink); background: var(--card); font: 500 17px/1.4 var(--body); border: 2px solid var(--bd); border-radius: 12px; }
+  .term { max-width: 44rem; background: var(--card); border: 2px solid var(--bd); border-radius: var(--r-lg); overflow: hidden; box-shadow: 8px 8px 0 var(--brand); margin-bottom: var(--space-5); }
+  .term-bar { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); padding: 8px 10px 8px 20px; background: var(--brand-t); border-bottom: 2px solid var(--bd); font: 800 13px var(--body); letter-spacing: 0.1em; text-transform: uppercase; color: var(--brand-d); }
+  .code { margin: 0; padding: 20px 22px 22px; white-space: pre-wrap; overflow-wrap: anywhere; font: 400 15px/1.7 var(--mono); color: var(--ink); background: none; border: 0; }
+  .code code { background: none; padding: 0; font-size: inherit; }
+  @media (min-width: 40rem) { .previews { grid-template-columns: 1fr 1fr; } .pick { grid-template-columns: 2fr 1fr; } }
+</style>
+<script>
+  // Aggiorna il codice quando cambiano azienda o versione. Senza JS resta il codice della prima azienda.
+  const az = document.getElementById('b-azienda') as HTMLSelectElement | null;
+  const tema = document.getElementById('b-tema') as HTMLSelectElement | null;
+  const pre = document.getElementById('badge-code');
+  const out = pre?.querySelector('code');
+  const site = pre?.dataset.site ?? '';
+  const render = () => {
+    if (!az || !tema || !out) return;
+    out.textContent = `<a href="${site}/aziende/${az.value}/"><img src="${site}/badge/presente-su-ai-sicilia-${tema.value}.svg" alt="Presente su AI Sicilia" width="196" height="64"></a>`;
+  };
+  const wanted = new URLSearchParams(location.search).get('azienda');
+  if (az && wanted && [...az.options].some((o) => o.value === wanted)) az.value = wanted;
+  az?.addEventListener('change', render);
+  tema?.addEventListener('change', render);
+  render();
+</script>

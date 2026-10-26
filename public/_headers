@@ -24,6 +24,10 @@
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
 
+# Badge per i siti delle aziende (D-041): un giorno, così un ritocco al disegno arriva in fretta.
+/badge/*
+  Cache-Control: public, max-age=86400
+
 # Immagini Open Graph: una settimana.
 /og/*
   Cache-Control: public, max-age=604800

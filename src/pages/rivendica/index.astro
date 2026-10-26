@@ -1,0 +1,112 @@
+---
+// Rivendicazione di una scheda azienda (D-041): l'azienda conferma o aggiorna i dati. Verifica a mano,
+// con risposta da info@aisicilia.it all'email sul dominio aziendale. Nessun dato personale finisce sulla scheda.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHead from '../../components/PageHead.astro';
+import Prose from '../../components/Prose.astro';
+import FormShell from '../../components/FormShell.astro';
+import { getCompanies } from '../../lib/data';
+import { FORMS } from '../../lib/site';
+import { cleanName, hostOf } from '../../components/helpers';
+
+const companies = (await getCompanies()).sort((a, b) => cleanName(a.data.name).localeCompare(cleanName(b.data.name), 'it'));
+const m = {
+  title: 'Rivendica la scheda della tua azienda su AI Sicilia',
+  description: 'La tua azienda è nella directory di AI Sicilia? Conferma o aggiorna i dati della scheda: verifichiamo con un’email sul dominio aziendale, gratis.',
+};
+---
+<BaseLayout seo={{ title: m.title, description: m.description, path: '/rivendica/', breadcrumbs: [{ name: 'Rivendica la scheda', path: '/rivendica/' }] }}>
+  <PageHead>
+    <Fragment slot="eyebrow">Per le aziende in elenco</Fragment>
+    <Fragment slot="title">Rivendica la <mark class="blk">scheda</mark> della tua azienda</Fragment>
+    <p>Lavori in un’azienda che compare nella directory? Conferma che i dati sono giusti o dicci cosa è cambiato. Sulla scheda comparirà la data in cui li avete confermati.</p>
+  </PageHead>
+
+  <section aria-labelledby="h-come">
+    <h2 id="h-come" class="first">Come funziona</h2>
+    <Prose>
+      <ol>
+        <li>Compili il modulo con un indirizzo email sul dominio del sito aziendale: per esempio nome@azienda.it se il sito è azienda.it.</li>
+        <li>Ti scriviamo da info@aisicilia.it a quell’indirizzo. La tua risposta è la verifica.</li>
+        <li>Controlliamo le modifiche, aggiorniamo la scheda e aggiungiamo «Dati confermati dall’azienda» con la data.</li>
+        <li>Se vuoi, metti sul vostro sito il <a href="/badge/">badge «Presente su AI Sicilia»</a> con il link alla scheda.</li>
+      </ol>
+      <p>Rispondiamo entro 7 giorni. Rivendicare è gratis e non cambia la posizione della scheda negli elenchi: l’ordine resta alfabetico.</p>
+    </Prose>
+  </section>
+
+  <section class="section" aria-labelledby="h-cosa">
+    <h2 id="h-cosa">Cosa puoi cambiare</h2>
+    <Prose>
+      <p>I fatti: sede, sito, tipo di azienda, ambiti dell’AI su cui lavorate, settori a cui vi rivolgete, anno di fondazione, profili ufficiali. Per ogni modifica serve una fonte pubblica, anche solo una pagina del vostro sito.</p>
+      <p>La descrizione la scriviamo noi, a partire dalle fonti: puoi segnalarci cosa manca o cosa è superato, ma non pubblichiamo testi promozionali. Sulla scheda restano solo dati aziendali, mai nomi o contatti di persone. Se invece volete uscire dalla directory, usate il modulo di <a href="/rimozione/">rimozione</a>.</p>
+    </Prose>
+  </section>
+
+  <section class="section" aria-labelledby="h-form">
+    <h2 id="h-form">Il modulo</h2>
+    <FormShell action={FORMS.rivendica} envName="PUBLIC_FORM_RIVENDICA_URL" submitLabel="Invia la richiesta" label="Rivendicazione della scheda">
+      <input type="hidden" name="tipo" value="Rivendicazione scheda" />
+      <input type="hidden" name="_subject" value="Rivendicazione di una scheda azienda" />
+      <div class="field">
+        <label for="v-azienda">Azienda</label>
+        <select id="v-azienda" name="azienda" required>
+          <option value="">Scegli dall’elenco</option>
+          {companies.map((c) => <option value={c.id} data-dominio={hostOf(c.data.website)}>{cleanName(c.data.name)}</option>)}
+        </select>
+        <span class="hint">La tua azienda non c’è? Usa il modulo <a href="/segnala/">Segnala</a>.</span>
+      </div>
+      <div class="field">
+        <label for="v-nome">Nome e cognome</label>
+        <input id="v-nome" name="nome" type="text" required autocomplete="name" />
+      </div>
+      <div class="field">
+        <label for="v-ruolo">Il tuo ruolo in azienda</label>
+        <select id="v-ruolo" name="ruolo" required>
+          <option value="">Scegli</option>
+          <option value="titolare">Titolare, socio o legale rappresentante</option>
+          <option value="amministratore">Amministratore o direttore</option>
+          <option value="delegato">Dipendente o collaboratore incaricato</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="v-email">Email aziendale</label>
+        <input id="v-email" name="email" type="email" required autocomplete="email" />
+        <span class="hint" id="v-email-hint">Deve essere sul dominio del sito aziendale. Non viene pubblicata: serve solo per la verifica. Dettagli nell’<a href="/privacy/">informativa privacy</a>.</span>
+      </div>
+      <div class="field">
+        <label for="v-cosa">Cosa va aggiornato</label>
+        <textarea id="v-cosa" name="modifiche" required></textarea>
+        <span class="hint">Se è tutto giusto, scrivi «confermo i dati».</span>
+      </div>
+      <div class="field">
+        <label for="v-fonte">Fonte delle modifiche (facoltativa)</label>
+        <input id="v-fonte" name="fonte" type="url" inputmode="url" placeholder="https://" autocomplete="off" />
+        <span class="hint">Un link pubblico che conferma le modifiche: una pagina del vostro sito, un comunicato, il registro delle imprese.</span>
+      </div>
+      <div class="field">
+        <span class="label" id="v-novita">Altri contatti (facoltativo)</span>
+        <div class="choices" role="group" aria-labelledby="v-novita">
+          <label><input type="checkbox" name="novita" value="sì" /> Potete scrivermi per novità di AI Sicilia</label>
+        </div>
+      </div>
+    </FormShell>
+  </section>
+</BaseLayout>
+<style>
+  .first { margin-top: 0; }
+</style>
+<script>
+  // /rivendica/?azienda=<slug> preseleziona l'azienda; il suggerimento sull'email mostra il dominio atteso.
+  const select = document.getElementById('v-azienda') as HTMLSelectElement | null;
+  const hint = document.getElementById('v-email-hint');
+  const base = hint?.innerHTML ?? '';
+  const update = () => {
+    const dom = select?.selectedOptions[0]?.dataset.dominio;
+    if (hint) hint.innerHTML = dom ? `Deve finire con <b>@${dom.replace(/^www\./, '')}</b> (o un sottodominio). ${base.replace(/^Deve essere sul dominio del sito aziendale\. /, '')}` : base;
+  };
+  const wanted = new URLSearchParams(location.search).get('azienda');
+  if (select && wanted && /^[a-z0-9-]{1,120}$/.test(wanted) && [...select.options].some((o) => o.value === wanted)) select.value = wanted;
+  select?.addEventListener('change', update);
+  update();
+</script>

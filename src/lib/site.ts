@@ -23,6 +23,8 @@ export const FORMS = {
   segnala: import.meta.env.PUBLIC_FORM_SEGNALA_URL || 'https://formspree.io/f/mzeeppqo',
   rimozione: import.meta.env.PUBLIC_FORM_RIMOZIONE_URL || 'https://formspree.io/f/meaajjwd',
   contatti: import.meta.env.PUBLIC_FORM_CONTATTI_URL || 'https://formspree.io/f/xoeeaazz',
+  // Finché non c'è un modulo dedicato, le rivendicazioni arrivano sul modulo delle modifiche, con il campo "tipo".
+  rivendica: import.meta.env.PUBLIC_FORM_RIVENDICA_URL || 'https://formspree.io/f/meaajjwd',
 } as const;
 
 /** Elementi per pagina nelle liste paginate (aziende, eventi, archivio). */
