@@ -1,6 +1,6 @@
 # aisicilia.it — regole di progetto
 
-Portale sull'intelligenza artificiale in Sicilia: directory aziende ed eventi (con mappe), articoli per le imprese, prompt library. Progetto indipendente di Elvio Leonardi. Stato: **beta non indicizzata**.
+Portale sull'intelligenza artificiale in Sicilia: directory aziende ed eventi (con mappe), articoli per le imprese, prompt library. Progetto indipendente di Elvio Leonardi. Stato: **online e indicizzabile** dal 27/10/2026 (D-044).
 
 ## Stack
 Astro 7 statico · TypeScript · Content Collections + Zod (`src/content.config.ts`) · CSS con design tokens (`src/styles/tokens.css`) · Leaflet + OSM (a interazione; nelle directory aziende ed eventi quando entra nello schermo, D-040) · Pagefind · Cloudflare Pages · GitHub Actions.
@@ -16,7 +16,7 @@ Astro 7 statico · TypeScript · Content Collections + Zod (`src/content.config.
 2. **Solo dati aziendali**, nessun dato personale. Pagina `/rimozione/` obbligatoria.
 3. **Descrizioni riscritte**, mai copiate. Niente loghi di terzi.
 4. **Fonti rispettate**: niente scraping di LinkedIn/Crunchbase o siti che lo vietano; robots.txt; max 1 req/s per dominio. Geocoding solo con `scripts/geocode/geocode.mjs` (Nominatim, cache), coordinate salvate nei dati.
-5. **Beta non indicizzata**: tutto passa da `PUBLIC_SITE_MODE=beta|production`.
+5. **Indicizzazione**: tutto passa da `PUBLIC_SITE_MODE=beta|production`. Il deploy usa `production` (D-044); build locali e CI di validazione restano `beta` se non indicato.
 6. **Copy umano**: `docs/copy-rules.md` è vincolante; la lista nera è in `scripts/validate/blacklist.mjs`.
 7. **Lighthouse 100/100** in tutte le categorie, mobile e desktop. Zero JS di default, isole solo dove serve, mai `client:load` senza motivo in `docs/DECISIONS.md`. Budget: JS iniziale ≤ 30 KB gzip, CSS ≤ 20 KB gzip, CLS 0.
 8. **YMYL** (AI Act, GDPR, bandi): solo fonti ufficiali, data visibile, `needs_human_review: true` → esclusi dalla build finché l'utente non li approva.

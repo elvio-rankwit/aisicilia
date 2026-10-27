@@ -24,9 +24,9 @@ Il sito in production consente esplicitamente GPTBot, OAI-SearchBot, ClaudeBot, 
 - Cloudflare → `aisicilia.it` → **Security → Bots** (o **AI Crawl Control**): **disattiva "Block AI bots"**, se attivo.
 - **Manage robots.txt / Content signals**: se vuoi farti citare dalle AI, non impostare `ai-input=no`. `search=yes, ai-input=yes`; su `ai-train` decidi tu. Oppure disattiva la gestione di Cloudflare: il nostro `robots.txt` è già completo.
 
-## 5. Uscita dalla beta
-1. GitHub → `elvio-rankwit/aisicilia` → **Settings → Secrets and variables → Actions → Variables → New repository variable**: `PUBLIC_SITE_MODE` = `production`.
-2. GitHub → **Actions → Deploy → Run workflow** (oppure basta un push). In automatico:
+## 5. Uscita dalla beta (fatta il 27/10/2026, D-044)
+1. Il deploy costruisce in `production` di default; per tornare in beta: GitHub → **Settings → Secrets and variables → Actions → Variables** → `PUBLIC_SITE_MODE` = `beta`.
+2. A ogni deploy (push su `main`, ricostruzione notturna o **Actions → Deploy → Run workflow**):
    - sparisce il `noindex`, sia dal meta sia dall'header;
    - `robots.txt` diventa "Allow" con la sitemap;
    - si generano le sitemap;

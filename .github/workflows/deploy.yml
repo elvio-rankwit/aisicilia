@@ -52,10 +52,10 @@ jobs:
       - name: Installa le dipendenze
         run: npm ci
 
-      - name: Build (beta, o production se vars.PUBLIC_SITE_MODE = production)
+      - name: Build (production; beta solo se vars.PUBLIC_SITE_MODE = beta, D-044)
         run: npm run build
         env:
-          PUBLIC_SITE_MODE: ${{ vars.PUBLIC_SITE_MODE || 'beta' }}
+          PUBLIC_SITE_MODE: ${{ vars.PUBLIC_SITE_MODE || 'production' }}
           PUBLIC_FORM_SEGNALA_URL: ${{ vars.PUBLIC_FORM_SEGNALA_URL }}
           PUBLIC_FORM_RIMOZIONE_URL: ${{ vars.PUBLIC_FORM_RIMOZIONE_URL }}
           PUBLIC_FORM_CONTATTI_URL: ${{ vars.PUBLIC_FORM_CONTATTI_URL }}
