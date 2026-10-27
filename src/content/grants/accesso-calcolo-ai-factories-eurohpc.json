@@ -1,0 +1,65 @@
+{
+  "title": "Accesso gratuito al calcolo delle AI Factories EuroHPC per PMI e startup (Playground, Fast Lane, Large Scale)",
+  "slug": "accesso-calcolo-ai-factories-eurohpc",
+  "issuer": "EuroHPC Joint Undertaking",
+  "issuer_type": "Unione europea",
+  "scope": "europeo",
+  "provinces": [],
+  "closed_early": false,
+  "last_verified": "2026-10-26",
+  "needs_human_review": false,
+  "reviewed_at": "2026-10-26",
+  "description": "Le AI Factories europee mettono a disposizione calcolo ad alte prestazioni per l'AI, senza costi per PMI e startup che lo usano per attività di innovazione. Playground è per chi inizia: piccole assegnazioni da uno a tre mesi, valutate in ordine di arrivo entro due giorni lavorativi. Fast Lane arriva a 50.000 ore GPU per al massimo tre mesi, con risposta entro quattro giorni lavorativi. Large Scale supera le 50.000 ore GPU, fino a un anno, con valutazione tra pari e due cut-off al mese. Si domanda dal portale di accesso EuroHPC e l'AI Factory ospitante offre assistenza.",
+  "ai_fit": "dedicato all'AI",
+  "ai_note": "Le tre modalità della Industrial Innovation track sono riservate ad attività di AI, come addestramento e test di modelli, e sono aperte e gratuite per le PMI di AI, startup comprese.",
+  "beneficiaries": [
+    "micro e piccole imprese",
+    "medie imprese",
+    "nuove imprese"
+  ],
+  "aid_types": [
+    "servizi e accompagnamento"
+  ],
+  "max_amount": "Fast Lane: fino a 50.000 ore GPU; Large Scale: oltre 50.000 ore GPU",
+  "aid_intensity": "accesso gratuito per PMI e startup, per finalità di innovazione",
+  "procedure": "a sportello",
+  "deadline_note": "Chiamate sempre aperte, senza scadenza; per Large Scale ci sono due cut-off al mese.",
+  "official_url": "https://www.eurohpc-ju.europa.eu/ai-factories/ai-factories-access-calls_en",
+  "documents": [
+    {
+      "url": "https://www.eurohpc-ju.europa.eu/ai-factories/ai-factories-access-modes/playground-access-ai-factories_en",
+      "title": "Playground Access to AI factories (pagina della modalità)"
+    },
+    {
+      "url": "https://www.eurohpc-ju.europa.eu/ai-factories/ai-factories-access-modes/fast-lane-access-ai-factories_en",
+      "title": "Fast Lane Access to AI factories (pagina della modalità)"
+    },
+    {
+      "url": "https://www.eurohpc-ju.europa.eu/ai-factories/ai-factories-access-modes/large-scale-access-ai-factories_en",
+      "title": "Large Scale Access to AI factories (pagina della modalità)"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.eurohpc-ju.europa.eu/ai-factories/ai-factories-access-calls_en",
+      "title": "EuroHPC JU, AI Factories Access Calls, elenco delle call con stato (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.eurohpc-ju.europa.eu/ai-factories/ai-factories-access-modes_en",
+      "title": "EuroHPC JU, AI Factories Access Modes (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.eurohpc-ju.europa.eu/ai-factories/ai-factories-access-modes/playground-access-ai-factories_en",
+      "title": "EuroHPC JU, Playground Access to AI factories (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.eurohpc-ju.europa.eu/ai-factories/ai-factories-access-modes/fast-lane-access-ai-factories_en",
+      "title": "EuroHPC JU, Fast Lane Access to AI factories (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.eurohpc-ju.europa.eu/ai-factories/ai-factories-access-modes/large-scale-access-ai-factories_en",
+      "title": "EuroHPC JU, Large Scale Access to AI factories (consultato il 26 ottobre 2026)"
+    }
+  ],
+  "verification_status": "verified"
+}

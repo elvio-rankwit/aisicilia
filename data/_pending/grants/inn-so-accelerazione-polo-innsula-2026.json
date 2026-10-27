@@ -1,0 +1,63 @@
+{
+  "title": "INN-SO, avviso per la selezione di 15 startup al programma di accelerazione",
+  "slug": "inn-so-accelerazione-polo-innsula-2026",
+  "issuer": "Polo di Innovazione della Sicilia Occidentale INNsula (GATE REI, CRESM e Impact Hub, Partanna), PR FESR Sicilia 2021-2027",
+  "issuer_type": "Regione Siciliana",
+  "scope": "regionale",
+  "provinces": [],
+  "description": "Programma di accelerazione di quattro mesi, in modalità ibrida, per quindici startup innovative costituite da non oltre 60 mesi, con sede o unità operativa in Sicilia (anche da aprire). L'ambito prevalente è l'agroalimentare, con aperture a bioeconomia, energia, turismo e cultura. L'avviso riconosce 20.373 euro di servizi per impresa e prevede, dopo il percorso, un contributo in de minimis fino a 50.000 euro, definito dal piano di investimento. La pagina del Polo parla di servizi per 21.000 euro. Candidature via modulo online.",
+  "ai_fit": "innovazione digitale",
+  "ai_note": "La pagina del programma elenca «Droni, robotica, AI, sensoristica» tra gli ambiti di interesse (Smart Farming). Il testo dell'avviso non nomina l'AI e l'ambito prevalente è l'agroalimentare.",
+  "beneficiaries": [
+    "startup innovative",
+    "nuove imprese"
+  ],
+  "aid_types": [
+    "servizi e accompagnamento",
+    "fondo perduto"
+  ],
+  "budget": "609.345 euro di agevolazioni",
+  "max_amount": "20.373 euro di servizi per impresa, più fino a 50.000 euro de minimis",
+  "aid_intensity": "100% dei costi dei servizi e delle spese ammesse, entro i massimali",
+  "procedure": "graduatoria",
+  "deadline": "2026-11-15",
+  "deadline_time": "12:00",
+  "closed_early": false,
+  "official_url": "https://www.innsula.it/programma-di-accelerazione-inn-so/",
+  "documents": [
+    {
+      "url": "https://startup.gaterei.it/docs/avviso-inn-so.pdf",
+      "title": "Avviso per la selezione dei soggetti aderenti al programma INN-SO"
+    },
+    {
+      "url": "https://www.regione.sicilia.it/la-regione-informa/avviso-pubblico-open-innovation-sicilia",
+      "title": "Avviso madre Open Innovation Sicilia, DDG n. 1843 del 8 luglio 2025 (pagina della Regione con allegati e FAQ)"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.innsula.it/programma-di-accelerazione-inn-so/",
+      "title": "INNsula, pagina del programma di accelerazione INN-SO (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://startup.gaterei.it/programmi/sicilia-startup-landing",
+      "title": "GATE REI, pagina di candidatura al programma INN-SO (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://startup.gaterei.it/docs/avviso-inn-so.pdf",
+      "title": "INN-SO, testo dell'avviso di selezione (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.regione.sicilia.it/la-regione-informa/open-innovation-sicilia-pubblicati-ulteriori-avvisi-selezione-soggetti-aderenti-ai-programmi-accelerazione-eo-incubazione-d-impresa",
+      "title": "Regione Siciliana, Dipartimento attività produttive, elenco degli avvisi dei Poli Open Innovation Sicilia (26 ottobre 2026) (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.regione.sicilia.it/la-regione-informa/avviso-pubblico-open-innovation-sicilia",
+      "title": "Regione Siciliana, Avviso pubblico Open Innovation Sicilia, Azione 1.1.3 PR FESR 2021-2027 (consultato il 26 ottobre 2026)"
+    }
+  ],
+  "last_verified": "2026-10-26",
+  "verification_status": "pending",
+  "needs_human_review": true,
+  "pending_reason": "Fit AI dubbio: l'AI compare solo nella pagina del programma (elenco degli ambiti di interesse, Smart Farming), non nel testo dell'avviso, che indica come ambito prevalente l'agroalimentare. Importi dei servizi discordanti: 20.373 euro nell'avviso, 21.000 nella pagina del Polo. Date e beneficiari confermati dall'avviso."
+}

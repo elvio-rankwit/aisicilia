@@ -1,0 +1,33 @@
+{
+  "title": "[FITTIZIO] Voucher regionale per progetti di AI nelle piccole imprese",
+  "slug": "esempio-voucher-ai-imprese-regione",
+  "issuer": "[FITTIZIO] Dipartimento Attività Produttive di esempio",
+  "issuer_type": "Regione Siciliana",
+  "scope": "regionale",
+  "provinces": [],
+  "description": "Bando fittizio per lo sviluppo dell'interfaccia: finanzierebbe l'acquisto di servizi di intelligenza artificiale da parte di micro e piccole imprese con sede operativa in Sicilia, per esempio un assistente che risponde ai clienti o un sistema che legge e smista i documenti. Serve a provare la scheda di un bando aperto con scadenza vicina, il conto alla rovescia e il file per il calendario. Non esiste e non va pubblicato.",
+  "ai_fit": "dedicato all'AI",
+  "ai_note": "Fittizio: l'articolo 2 dell'avviso di esempio ammette solo progetti il cui obiettivo principale è l'uso di strumenti di intelligenza artificiale.",
+  "beneficiaries": ["micro e piccole imprese", "startup innovative"],
+  "aid_types": ["voucher", "fondo perduto"],
+  "budget": "2.000.000 euro",
+  "max_amount": "fino a 15.000 euro per impresa",
+  "aid_intensity": "70% delle spese ammissibili",
+  "procedure": "call con scadenza",
+  "opens_at": "2026-09-14",
+  "deadline": "2026-11-12",
+  "deadline_time": "14:00",
+  "official_url": "https://regione-esempio.example/bandi/voucher-ai",
+  "documents": [
+    { "url": "https://regione-esempio.example/bandi/voucher-ai/avviso.pdf", "title": "Avviso pubblico (PDF di esempio)" },
+    { "url": "https://regione-esempio.example/bandi/voucher-ai/faq", "title": "Domande frequenti ufficiali" }
+  ],
+  "sources": [
+    { "url": "https://regione-esempio.example/bandi/voucher-ai", "title": "Pagina ufficiale del bando (esempio)" },
+    { "url": "https://regione-esempio.example/bandi/voucher-ai/avviso.pdf", "title": "Testo dell'avviso (esempio)" }
+  ],
+  "last_verified": "2026-10-22",
+  "verification_status": "verified",
+  "needs_human_review": false,
+  "reviewed_at": "2026-10-23"
+}

@@ -1,0 +1,55 @@
+{
+  "title": "Resto al Sud 2.0",
+  "slug": "resto-al-sud-20-invitalia",
+  "issuer": "Invitalia (per il Ministero del Lavoro e delle Politiche Sociali)",
+  "issuer_type": "Ministero o agenzia nazionale",
+  "scope": "nazionale",
+  "provinces": [],
+  "description": "Incentivo per giovani tra i 18 e i 35 anni inattivi, inoccupati o disoccupati (anche del programma GOL e working poor) che avviano un'attività di industria, artigianato, servizi, commercio, turismo o libera professione in Sicilia e nelle altre regioni del Mezzogiorno. Sono previsti un voucher a fondo perduto fino a 40.000 euro (50.000 con maggiorazione) e, per programmi d'investimento fino a 120.000 euro, un contributo a fondo perduto del 75% (70% tra 120.000 e 200.000 euro). La domanda si presenta online ed è valutata entro 90 giorni in ordine cronologico, nei limiti della dotazione di 356,4 milioni di euro.",
+  "ai_fit": "innovazione digitale",
+  "ai_note": "Tra le spese ammissibili ci sono programmi informatici, licenze software, sviluppo di software, piattaforme e app: una nuova attività basata su AI vi rientra, ma il testo ufficiale non nomina l'intelligenza artificiale.",
+  "beneficiaries": [
+    "aspiranti imprenditori",
+    "nuove imprese",
+    "liberi professionisti"
+  ],
+  "aid_types": [
+    "fondo perduto"
+  ],
+  "budget": "356,4 milioni di euro",
+  "max_amount": "voucher fino a 40.000 euro (50.000 con maggiorazione); programmi fino a 200.000 euro",
+  "aid_intensity": "75% fino a 120.000 euro di programma; 70% da 120.000 a 200.000 euro",
+  "procedure": "a sportello",
+  "opens_at": "2025-10-15",
+  "deadline_note": "Nessuna scadenza: domande in ordine cronologico, nei limiti delle risorse disponibili",
+  "closed_early": false,
+  "official_url": "https://www.invitalia.it/incentivi-e-strumenti/resto-al-sud-20",
+  "documents": [
+    {
+      "url": "https://www.invitalia.it/incentivi-e-strumenti/resto-al-sud-20/normativa",
+      "title": "Normativa Resto al Sud 2.0"
+    },
+    {
+      "url": "https://www.invitalia.it/incentivi-e-strumenti/resto-al-sud-20/spese-ammissibili",
+      "title": "Spese ammissibili"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.invitalia.it/incentivi-e-strumenti/resto-al-sud-20",
+      "title": "Invitalia, scheda Resto al Sud 2.0 (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.invitalia.it/incentivi-e-strumenti/resto-al-sud-20/spese-ammissibili",
+      "title": "Invitalia, Resto al Sud 2.0, spese ammissibili (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.invitalia.it/incentivi-e-strumenti/resto-al-sud-20/agevolazioni",
+      "title": "Invitalia, Resto al Sud 2.0, agevolazioni (consultato il 26 ottobre 2026)"
+    }
+  ],
+  "last_verified": "2026-10-26",
+  "verification_status": "pending",
+  "needs_human_review": true,
+  "pending_reason": "Pertinenza AI generica: misura di autoimpiego per qualsiasi settore, il testo ufficiale non nomina l'intelligenza artificiale. Date, importi e beneficiari risultano dalle pagine Invitalia (stato Attivo dal 15/10/2025). Decide l'utente se includerla come «innovazione digitale»."
+}

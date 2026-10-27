@@ -1,5 +1,5 @@
 // Generatore di file iCalendar (RFC 5545) per un evento. Fuso Europe/Rome, UID stabile, CRLF, righe ≤ 75 ottetti.
-import { eventPath, type Event } from '../lib/data';
+import { eventPath, grantPath, type Event, type Grant } from '../lib/data';
 
 const CRLF = '\r\n';
 const enc = new TextEncoder();
@@ -87,6 +87,39 @@ export function buildIcs(e: Event, siteUrl: string): string {
   if (where) lines.push(`LOCATION:${esc(where)}`);
   lines.push(`URL:${d.event_url}`);
   lines.push(`STATUS:${d.status === 'annullato' ? 'CANCELLED' : 'CONFIRMED'}`);
+  lines.push('END:VEVENT', 'END:VCALENDAR');
+
+  return lines.map(fold).join(CRLF) + CRLF;
+}
+
+/** Promemoria della scadenza di un bando (solo bandi non chiusi con `deadline`): un evento sul giorno, ora italiana se la fonte la indica. */
+export function buildGrantIcs(g: Grant, siteUrl: string): string {
+  const d = g.data;
+  if (!d.deadline) throw new Error(`Il bando ${g.id} non ha una scadenza: niente file .ics`);
+  const lines: string[] = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//aisicilia.it//Bandi AI Sicilia//IT', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH', ...VTIMEZONE];
+
+  lines.push('BEGIN:VEVENT');
+  lines.push(`UID:${g.id}-scadenza@aisicilia.it`);
+  lines.push(`DTSTAMP:${ymd(d.last_verified)}T000000Z`);
+  if (d.deadline_time) {
+    lines.push(`DTSTART;TZID=Europe/Rome:${ymd(d.deadline)}T${hms(d.deadline_time)}`);
+  } else {
+    lines.push(`DTSTART;VALUE=DATE:${ymd(d.deadline)}`);
+    lines.push(`DTEND;VALUE=DATE:${ymd(addDays(d.deadline, 1))}`);
+  }
+  lines.push(`SUMMARY:${esc(`Scadenza bando: ${d.title}`)}`);
+  const extra = [
+    `Ente: ${d.issuer}.`,
+    d.deadline_time ? `Ultimo momento utile per la domanda: ore ${d.deadline_time}.` : '',
+    d.deadline_note ? `${d.deadline_note.replace(/[.\s]+$/, '')}.` : '',
+    `Pagina ufficiale del bando: ${d.official_url}`,
+    `Scheda su AI Sicilia: ${siteUrl}${grantPath(g)}`,
+    "L'ente può prorogare o chiudere prima: ricontrolla scadenza e requisiti sull'avviso ufficiale prima di presentare la domanda.",
+  ].filter(Boolean);
+  lines.push(`DESCRIPTION:${esc(extra.join('\n'))}`);
+  lines.push(`URL:${d.official_url}`);
+  lines.push('STATUS:CONFIRMED');
+  lines.push('BEGIN:VALARM', 'ACTION:DISPLAY', `DESCRIPTION:${esc(`Domani scade il bando: ${d.title}`)}`, 'TRIGGER:-P1D', 'END:VALARM');
   lines.push('END:VEVENT', 'END:VCALENDAR');
 
   return lines.map(fold).join(CRLF) + CRLF;

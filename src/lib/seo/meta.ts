@@ -2,11 +2,12 @@
 // Vincoli (li controlla `npm run validate`): title ≤ 60, description 70–155, entrambi unici nel sito,
 // entità principale all'inizio, tono da persona (niente "Scopri…", niente elenchi di keyword).
 // Casi limite gestiti: nomi lunghi (parentesi, virgole), 0 o 1 record, troncamento su parola o su frase.
-import type { Article, Company, Event, Prompt } from '../data';
+import type { Article, Company, Event, Grant, Prompt } from '../data';
 import { PROVINCES, type ProvinceSlug } from '../provinces';
 import { PROMPT_SECTORS, type PromptSector } from '../taxonomies';
 import { formatRange } from './dates';
-import { baseName, fitTitle, lowerFirst, padTo, shortName, summarize, trimAtBoundary } from './text';
+import { grantAid, grantAudience, grantIssuer, grantTitle, grantWhen } from './grants';
+import { baseName, clipWords, fitTitle, lowerFirst, padTo, shortName, summarize, trimAtBoundary } from './text';
 
 export interface Meta { title: string; description: string }
 
@@ -124,6 +125,58 @@ export const meta = {
     return {
       title,
       description: padTo(prefix + summarize(d.description, D - prefix.length), [`Scheda con fonte e data di verifica.`]),
+    };
+  },
+
+  // Bandi (D-042). Lo stato nelle description (scade, aperto, chiuso) è quello del giorno di build: la ricostruzione notturna lo aggiorna.
+  grantsIndex: (n: number): Meta => ({
+    title: 'Bandi AI per le imprese siciliane: aperti e in arrivo',
+    description:
+      n === 0
+        ? "Per ora nessun bando sull'AI aperto alle imprese siciliane. Quando ce n'è uno compare qui, con scadenza e fonte ufficiale; si aggiorna ogni notte."
+        : `${count(n, 'bando', 'bandi')} per progetti di intelligenza artificiale che le imprese siciliane possono chiedere ora o a breve, con scadenze, importi e fonti ufficiali.`,
+  }),
+
+  grantsClosed: (n: number): Meta => ({
+    title: 'Archivio dei bandi AI chiusi per le imprese siciliane',
+    description:
+      n === 0
+        ? "L'archivio dei bandi chiusi è vuoto per ora: un bando ci arriva il giorno dopo la scadenza, o quando lo sportello chiude per fondi esauriti."
+        : `${count(n, 'bando chiuso', 'bandi chiusi')} per l'AI e il digitale in Sicilia, con ente, data di chiusura e fonte. Servono a capire cosa potrebbe tornare.`,
+  }),
+
+  grant: (g: Grant): Meta => {
+    const d = g.data;
+    // Titolo: il nome del bando; se è troppo lungo si taglia prima di una preposizione, tenendo l'anno se c'è ("… anno 2026").
+    const name = grantTitle(g);
+    const issuer = grantIssuer(g);
+    const year = name.match(/\b(20\d{2})\s*$/)?.[1];
+    const cut = trimAtBoundary(name, T);
+    const short = year ? trimAtBoundary(name, T - 5) : '';
+    const withYear = year && !cut.includes(year) && !short.endsWith('…') ? [`${short} ${year}`] : [];
+    // Bandi omonimi di enti diversi (es. "Doppia Transizione 2026" di più Camere): l'ente in coda li distingue.
+    const tail = `, ${issuer.replace(/^Camera di Commercio( di| del)?/, 'CCIAA')}`;
+    const named = name.includes(issuer) ? [`${trimAtBoundary(name.replace(issuer, '').replace(/[,\s]+$/, ''), T - tail.length)}${tail}`] : [];
+    const title = fitTitle([name, ...named, ...withYear, cut], T);
+    // Description: ente e stato (o scadenza) subito, poi per chi è e che forma ha l'agevolazione.
+    const lead = `${issuer}: ${lowerFirst(grantWhen(g))}.`;
+    const forWhom = (max: number) => `${grantAid(g, 1)} per ${grantAudience(g, max)}.`;
+    const amount = d.max_amount ? ` Importo: ${d.max_amount.replace(/[.\s]+$/, '')}.` : '';
+    // Due topic della stessa call hanno ente, date e beneficiari uguali: senza un pezzo della descrizione
+    // del record la meta description verrebbe duplicata.
+    const own = (room: number) => (room > 40 ? ` ${summarize(d.description, room)}` : '');
+    const candidates = [
+      `${lead}${own(D - lead.length - 1)}`,
+      `${lead} ${forWhom(2)}${amount}`,
+      `${lead} ${forWhom(2)}`,
+      `${lead} ${forWhom(1)}`,
+      `${issuer}: ${lowerFirst(grantWhen(g))}. Per ${grantAudience(g, 1)}.`,
+    ];
+    const fit = candidates.find((c) => c.length <= D);
+    const description = fit ?? clipWords(candidates[candidates.length - 1], D);
+    return {
+      title,
+      description: padTo(description, [`Scheda con fonte ufficiale e data di verifica.`]),
     };
   },
 

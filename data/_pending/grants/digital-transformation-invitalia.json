@@ -1,0 +1,54 @@
+{
+  "title": "Digital transformation",
+  "slug": "digital-transformation-invitalia",
+  "issuer": "Invitalia (per il Ministero delle Imprese e del Made in Italy)",
+  "issuer_type": "Ministero o agenzia nazionale",
+  "scope": "nazionale",
+  "provinces": [],
+  "description": "Incentivo per progetti di trasformazione tecnologica e digitale dei processi produttivi di micro, piccole e medie imprese, anche in forma aggregata, con tecnologie avanzate dell'ambito Impresa 4.0. L'agevolazione copre il 50% dei costi ammissibili: il 10% come contributo e il 40% come finanziamento agevolato, rimborsabile in al massimo 7 anni. I progetti devono avere una spesa tra 50.000 e 500.000 euro e partire dopo la presentazione della domanda. La scheda Invitalia indica la misura come attiva dal 15 dicembre 2020, senza scadenza né dotazione residua.",
+  "ai_fit": "innovazione digitale",
+  "ai_note": "La scheda e le FAQ di Invitalia non nominano l'intelligenza artificiale: se rientri tra le tecnologie ammesse va letto nel decreto direttoriale del 9 giugno 2020, ospitato sul sito del MIMIT.",
+  "beneficiaries": [
+    "micro e piccole imprese",
+    "medie imprese"
+  ],
+  "aid_types": [
+    "finanziamento agevolato",
+    "fondo perduto"
+  ],
+  "max_amount": "progetti da 50.000 a 500.000 euro di spesa",
+  "aid_intensity": "50% dei costi: 10% contributo, 40% finanziamento agevolato",
+  "procedure": "a sportello",
+  "opens_at": "2020-12-15",
+  "deadline_note": "Scheda in stato Attivo senza scadenza né indicazione dei fondi residui: verificare con Invitalia",
+  "closed_early": false,
+  "official_url": "https://www.invitalia.it/incentivi-e-strumenti/digital-transformation",
+  "documents": [
+    {
+      "url": "https://www.invitalia.it/incentivi-e-strumenti/digital-transformation/faq",
+      "title": "FAQ Digital transformation"
+    },
+    {
+      "url": "https://www.invitalia.it/incentivi-e-strumenti/digital-transformation/normativa",
+      "title": "Normativa Digital transformation"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.invitalia.it/incentivi-e-strumenti/digital-transformation",
+      "title": "Invitalia, scheda Digital transformation (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.invitalia.it/incentivi-e-strumenti/digital-transformation/faq",
+      "title": "Invitalia, FAQ Digital transformation (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.invitalia.it/incentivi-e-strumenti/digital-transformation/normativa",
+      "title": "Invitalia, normativa Digital transformation (consultato il 26 ottobre 2026)"
+    }
+  ],
+  "last_verified": "2026-10-26",
+  "verification_status": "pending",
+  "needs_human_review": true,
+  "pending_reason": "Stato dello sportello non verificabile (scheda «Attivo» dal 2020, FAQ del 2020, nessuna indicazione dei fondi residui) e AI non nominata nelle pagine Invitalia. Il decreto direttoriale 9 giugno 2020 è sul sito MIMIT, irraggiungibile il 26/10/2026 (connessione interrotta)."
+}

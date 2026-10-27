@@ -6,11 +6,18 @@
 // - Company: sempre `Organization` (non `LocalBusiness`: i dati non dicono se l'indirizzo è una sede aperta al pubblico);
 //   indirizzo e geo vanno in `location: Place`, perché `geo` non è valido su Organization.
 // - Event: `geo` solo se c'è `venue_address` (le coordinate degli eventi possono essere al centro della città).
+// - Grant (bandi): `GovernmentService` se a emetterlo è un ente pubblico, `Service` se è una fondazione o un privato; dentro, `serviceOutput`
+//   con la agevolazione. Non `MonetaryGrant` come tipo della pagina: un MonetaryGrant è il contributo concesso a un beneficiario, non il bando
+//   che lo mette a disposizione; le agevolazioni non sono tutte contributi in denaro (garanzie, finanziamenti, crediti d'imposta, servizi);
+//   gli importi dei dati sono testo della fonte ("fino a 10.000 euro per impresa"), mai un numero certo, quindi `amount` non si emette mai;
+//   solo `Service` porta in modo valido `areaServed`, `audience` e una finestra di disponibilità (`hoursAvailable` con validFrom/validThrough).
+//   `serviceOutput` è `MonetaryGrant` solo se tutte le agevolazioni sono in denaro (fondo perduto, voucher, premio), altrimenti `Grant`.
 // - Prompt: `CreativeWork` e non `HowTo`: HowTo non dà più rich result e i passaggi andrebbero ricavati da un paragrafo.
-import { eventPath, type Article, type Company, type Event, type Prompt } from '../data';
+import { eventPath, grantPath, type Article, type Company, type Event, type Grant, type Prompt } from '../data';
 import { PROVINCES } from '../provinces';
 import { PROMPT_SECTORS } from '../taxonomies';
 import { localIso, ymd } from './dates';
+import { grantIssuer, grantTitle } from './grants';
 import { ID, IN_LANGUAGE } from './ids';
 import { abs, ogUrl } from './url';
 import { SITE } from '../site';
@@ -142,6 +149,67 @@ export const eventNodes = (e: Event): JsonLdNode[] => {
     url: d.event_url,
     image: [ogUrl(path)],
     inLanguage: IN_LANGUAGE,
+    mainEntityOfPage: { '@id': ID.webpage(path) },
+  };
+  return [node];
+};
+
+// ------------------------------------------------------------------ bandi (D-042)
+const MONETARY_AID = new Set<string>(['fondo perduto', 'voucher', 'premio in denaro']);
+const PUBLIC_ISSUERS = new Set<string>(['Regione Siciliana', 'Camera di Commercio', 'Ministero o agenzia nazionale', 'Unione europea', 'altro ente pubblico']);
+
+function grantArea(g: Grant): JsonLdNode | JsonLdNode[] {
+  const d = g.data;
+  const sicilia = { '@type': 'AdministrativeArea', name: 'Sicilia' };
+  if (d.scope === 'provinciale')
+    return d.provinces.map((p) => ({ '@type': 'AdministrativeArea', name: `Provincia di ${PROVINCES[p].name}`, containedInPlace: sicilia }));
+  if (d.scope === 'regionale') return sicilia;
+  if (d.scope === 'nazionale') return { '@type': 'Country', name: 'Italia' };
+  return { '@type': 'AdministrativeArea', name: 'Unione europea' };
+}
+
+export const grantNodes = (g: Grant): JsonLdNode[] => {
+  const d = g.data;
+  const path = grantPath(g);
+  const isPublic = PUBLIC_ISSUERS.has(d.issuer_type);
+  const funder: JsonLdNode = { '@type': isPublic ? 'GovernmentOrganization' : 'Organization', name: grantIssuer(g) };
+
+  // Finestra in cui si può presentare la domanda. Uno sportello chiuso prima della scadenza non dichiara una fine nel futuro.
+  const end = d.closed_early || !d.deadline ? undefined : localIso(d.deadline, d.deadline_time);
+  const window: JsonLdNode | undefined =
+    d.opens_at || end
+      ? { '@type': 'OpeningHoursSpecification', ...(d.opens_at ? { validFrom: ymd(d.opens_at) } : {}), ...(end ? { validThrough: end } : {}) }
+      : undefined;
+
+  // L'agevolazione: importi solo come testo della fonte, nella description (mai `amount`, che vuole un numero).
+  const terms = [
+    d.max_amount && `Importo: ${d.max_amount}`,
+    d.aid_intensity && `Intensità: ${d.aid_intensity}`,
+    d.budget && `Dotazione: ${d.budget}`,
+  ].filter(Boolean) as string[];
+  const monetary = d.aid_types.every((t) => MONETARY_AID.has(t));
+  const output: JsonLdNode = {
+    '@type': monetary ? 'MonetaryGrant' : 'Grant',
+    name: d.aid_types.join(', '),
+    ...(terms.length ? { description: `${terms.join('. ')}.` } : {}),
+    funder,
+  };
+
+  const node: JsonLdNode = {
+    '@type': isPublic ? 'GovernmentService' : 'Service',
+    '@id': ID.grant(path),
+    name: grantTitle(g),
+    description: d.description,
+    serviceType: `Bando: ${d.aid_types.join(', ')}`,
+    provider: funder,
+    areaServed: grantArea(g),
+    audience: d.beneficiaries.map((b) => ({ '@type': 'Audience', audienceType: b })),
+    serviceOutput: output,
+    ...(window ? { hoursAvailable: window } : {}),
+    // Pagina ufficiale del bando; il testo e gli allegati ufficiali sono "su" questo servizio.
+    url: d.official_url,
+    ...(d.documents.length ? { subjectOf: d.documents.map((x) => ({ '@type': 'CreativeWork', name: x.title, url: x.url })) } : {}),
+    image: [ogUrl(path)],
     mainEntityOfPage: { '@id': ID.webpage(path) },
   };
   return [node];

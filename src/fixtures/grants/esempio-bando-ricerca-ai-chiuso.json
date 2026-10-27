@@ -1,0 +1,30 @@
+{
+  "title": "[FITTIZIO] Bando europeo per progetti di ricerca applicata sull'AI",
+  "slug": "esempio-bando-ricerca-ai-chiuso",
+  "issuer": "[FITTIZIO] Programma europeo di esempio",
+  "issuer_type": "Unione europea",
+  "scope": "europeo",
+  "provinces": [],
+  "description": "Bando fittizio per lo sviluppo dell'interfaccia: avrebbe cofinanziato progetti di ricerca applicata sull'intelligenza artificiale presentati da università, centri di ricerca ed enti del terzo settore, con partner di almeno due paesi. La scadenza è passata, quindi la scheda mostra lo stato «Chiuso» e compare nell'archivio. Serve a provare l'avviso di bando chiuso e la pagina dell'archivio. Non esiste e non va pubblicato.",
+  "ai_fit": "dedicato all'AI",
+  "ai_note": "Fittizio: il testo dell'invito di esempio indica l'intelligenza artificiale come unico tema ammesso per questa edizione.",
+  "beneficiaries": ["università e centri di ricerca", "enti del terzo settore"],
+  "aid_types": ["fondo perduto"],
+  "budget": "12 milioni di euro",
+  "aid_intensity": "fino al 70% dei costi del progetto",
+  "procedure": "call con scadenza",
+  "opens_at": "2026-05-04",
+  "deadline": "2026-09-30",
+  "deadline_time": "17:00",
+  "official_url": "https://programma-esempio.example/inviti/ricerca-ai",
+  "documents": [
+    { "url": "https://programma-esempio.example/inviti/ricerca-ai/invito.pdf", "title": "Testo dell'invito (PDF di esempio)" }
+  ],
+  "sources": [
+    { "url": "https://programma-esempio.example/inviti/ricerca-ai", "title": "Pagina ufficiale dell'invito (esempio)" }
+  ],
+  "last_verified": "2026-10-15",
+  "verification_status": "verified",
+  "needs_human_review": false,
+  "reviewed_at": "2026-10-16"
+}

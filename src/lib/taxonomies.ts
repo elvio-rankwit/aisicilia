@@ -30,6 +30,27 @@ export const EVENT_STATUSES = ['programmato', 'annullato', 'rinviato', 'spostato
 
 export const LEVELS = ['base', 'intermedio', 'avanzato'] as const;
 
+// Bandi e finanziamenti (D-042)
+export const GRANT_ISSUER_TYPES = [
+  'Regione Siciliana', 'Camera di Commercio', 'Ministero o agenzia nazionale',
+  'Unione europea', 'altro ente pubblico', 'fondazione o soggetto privato',
+] as const;
+/** Territorio di validità: "provinciale" va con `provinces` compilato. */
+export const GRANT_SCOPES = ['provinciale', 'regionale', 'nazionale', 'europeo'] as const;
+export const GRANT_BENEFICIARIES = [
+  'micro e piccole imprese', 'medie imprese', 'grandi imprese', 'startup innovative',
+  'nuove imprese', 'aspiranti imprenditori', 'liberi professionisti',
+  'università e centri di ricerca', 'enti del terzo settore',
+] as const;
+export const GRANT_AID_TYPES = [
+  'fondo perduto', 'finanziamento agevolato', 'voucher', "credito d'imposta", 'garanzia',
+  'investimento in capitale', 'servizi e accompagnamento', 'premio in denaro',
+] as const;
+export const GRANT_PROCEDURES = ['a sportello', 'graduatoria', 'click day', 'call con scadenza'] as const;
+/** Quanto c'entra l'AI: criterio di inclusione dichiarato in /metodologia/. */
+export const GRANT_AI_FIT = ["dedicato all'AI", "AI tra le spese ammesse", 'innovazione digitale'] as const;
+export const GRANT_STATUSES = ['aperto', 'in apertura', 'chiuso'] as const;
+
 /** Gli 8 settori della prompt library (slug → etichetta). Usati anche per gli articoli. */
 export const PROMPT_SECTORS = {
   ospitalita: 'Ospitalità',

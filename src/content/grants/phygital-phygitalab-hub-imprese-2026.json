@@ -1,0 +1,59 @@
+{
+  "title": "PhygitaLab, acceleratore phygital per le PMI siciliane, avviso di selezione",
+  "slug": "phygital-phygitalab-hub-imprese-2026",
+  "issuer": "Polo di Innovazione PhygitaLab (Hub Imprese e BI-REX, Catania), PR FESR Sicilia 2021-2027",
+  "issuer_type": "fondazione o soggetto privato",
+  "scope": "regionale",
+  "provinces": [],
+  "description": "Programma di accelerazione di 12 mesi per dieci micro, piccole e medie imprese e startup costituite da non oltre 60 mesi, con sede o unità operativa in Sicilia, nell'ambito Smart Cities & Communities. Il percorso va dalla validazione del modello di business al Demo Day, con webinar, mentoring individuale e Investor Day. I servizi valgono 40.000 euro per impresa, riconosciuti come aiuto al 100% e liquidati a saldo se si completa il percorso. Dopo il programma si può chiedere un contributo in de minimis per attrezzature, licenze, tecnologie e consulenze. Il programma è finanziato dal PR FESR Sicilia 2021-2027 (Azione 1.1.3, avviso regionale Open Innovation Sicilia): l'avviso è del Polo, che seleziona le imprese, e le agevolazioni sono concesse dalla Regione per il tramite del Polo.",
+  "ai_fit": "AI tra le spese ammesse",
+  "ai_note": "L'articolo 2 descrive PhygitaLab come un programma che integra tecnologie phygital, intelligenza artificiale, smart devices, IoT e piattaforme open data, nell'ambito Smart Cities & Communities.",
+  "beneficiaries": [
+    "startup innovative",
+    "nuove imprese"
+  ],
+  "aid_types": [
+    "servizi e accompagnamento",
+    "fondo perduto"
+  ],
+  "budget": "1.000.000 euro",
+  "max_amount": "40.000 euro di servizi e 40.000 euro de minimis per impresa (50.000 per la pagina del Polo)",
+  "aid_intensity": "100% dei costi dei servizi e delle spese di implementazione, liquidato a saldo",
+  "procedure": "graduatoria",
+  "deadline": "2026-10-30",
+  "deadline_time": "12:00",
+  "closed_early": false,
+  "official_url": "https://phygitalab.eu/",
+  "documents": [
+    {
+      "url": "https://cdn.sanity.io/files/k9wy3ej7/production/2ec049db68dbed0a288bd9e252679f51824a4c73.pdf",
+      "title": "Avviso per la selezione dei soggetti aderenti al programma PhygitaLab"
+    },
+    {
+      "url": "https://www.regione.sicilia.it/la-regione-informa/avviso-pubblico-open-innovation-sicilia",
+      "title": "Avviso madre Open Innovation Sicilia, DDG n. 1843 del 8 luglio 2025 (pagina della Regione con allegati e FAQ)"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://phygitalab.eu/",
+      "title": "PhygitaLab, pagina del programma con candidature aperte (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://cdn.sanity.io/files/k9wy3ej7/production/2ec049db68dbed0a288bd9e252679f51824a4c73.pdf",
+      "title": "PhygitaLab, testo dell'avviso di selezione (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.regione.sicilia.it/la-regione-informa/open-innovation-sicilia-pubblicati-ulteriori-avvisi-selezione-soggetti-aderenti-ai-programmi-accelerazione-eo-incubazione-d-impresa",
+      "title": "Regione Siciliana, Dipartimento attività produttive, elenco degli avvisi dei Poli Open Innovation Sicilia (26 ottobre 2026) (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.regione.sicilia.it/la-regione-informa/avviso-pubblico-open-innovation-sicilia",
+      "title": "Regione Siciliana, Avviso pubblico Open Innovation Sicilia, Azione 1.1.3 PR FESR 2021-2027 (consultato il 26 ottobre 2026)"
+    }
+  ],
+  "last_verified": "2026-10-26",
+  "verification_status": "verified",
+  "needs_human_review": false,
+  "reviewed_at": "2026-10-26"
+}

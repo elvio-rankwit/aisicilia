@@ -1,0 +1,60 @@
+{
+  "title": "Open Innovation as a Service, avviso Futurea per accelerazione e incubazione",
+  "slug": "ois-open-innovation-as-a-service-futurea-2026",
+  "issuer": "Polo di Innovazione Futurea (Acireale), PR FESR Sicilia 2021-2027",
+  "issuer_type": "fondazione o soggetto privato",
+  "scope": "regionale",
+  "provinces": [],
+  "description": "Programma di 12 mesi con due percorsi: accelerazione per micro, piccole e medie imprese innovative costituite da non oltre 60 mesi (da sei a dieci imprese) e incubazione per aspiranti imprenditori (da tre a dieci team). Il programma è trasversale agli ambiti S3, con maggiore attenzione a turismo, cultura e beni culturali, ed è erogato in modalità ibrida ad Acireale. Le agevolazioni sono modeste: 5.000 euro di servizi e 9.000 euro in de minimis per impresa aderente, con dotazione di 200.000 euro. Valorizzate le candidature di spin-off universitari e di team con giovani under 36 o donne. Il programma è finanziato dal PR FESR Sicilia 2021-2027 (Azione 1.1.3, avviso regionale Open Innovation Sicilia): l'avviso è del Polo, che seleziona le imprese, e le agevolazioni sono concesse dalla Regione per il tramite del Polo.",
+  "ai_fit": "innovazione digitale",
+  "ai_note": "L'articolo 2 dà valore alle proposte che integrano tecnologie abilitanti, tecnologie digitali e intelligenza artificiale. L'AI è un elemento premiante, non l'oggetto del programma, che privilegia turismo e cultura.",
+  "beneficiaries": [
+    "startup innovative",
+    "nuove imprese",
+    "aspiranti imprenditori"
+  ],
+  "aid_types": [
+    "servizi e accompagnamento",
+    "fondo perduto"
+  ],
+  "budget": "200.000 euro di agevolazioni",
+  "max_amount": "5.000 euro di servizi e 9.000 euro de minimis per impresa aderente",
+  "aid_intensity": "100% dei costi dei servizi e delle spese ammesse, entro i massimali",
+  "procedure": "graduatoria",
+  "deadline": "2026-11-27",
+  "deadline_time": "10:00",
+  "closed_early": false,
+  "official_url": "https://www.futurea.it/it/ois-open-innovation-sicilia",
+  "documents": [
+    {
+      "url": "https://cdn.futurea-test.it/futurea/it/open-innovation-sicilia/avviso-per-mpmi-startup.pdf",
+      "title": "Avviso per MPMI e startup, programma OIS Open Innovation as a Service"
+    },
+    {
+      "url": "https://www.regione.sicilia.it/la-regione-informa/avviso-pubblico-open-innovation-sicilia",
+      "title": "Avviso madre Open Innovation Sicilia, DDG n. 1843 del 8 luglio 2025 (pagina della Regione con allegati e FAQ)"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.futurea.it/it/ois-open-innovation-sicilia",
+      "title": "Futurea, pagina del programma OIS Open Innovation Sicilia (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://cdn.futurea-test.it/futurea/it/open-innovation-sicilia/avviso-per-mpmi-startup.pdf",
+      "title": "Futurea, testo dell'avviso per MPMI e startup (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.regione.sicilia.it/la-regione-informa/open-innovation-sicilia-pubblicati-ulteriori-avvisi-selezione-soggetti-aderenti-ai-programmi-accelerazione-eo-incubazione-d-impresa",
+      "title": "Regione Siciliana, Dipartimento attività produttive, elenco degli avvisi dei Poli Open Innovation Sicilia (26 ottobre 2026) (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.regione.sicilia.it/la-regione-informa/avviso-pubblico-open-innovation-sicilia",
+      "title": "Regione Siciliana, Avviso pubblico Open Innovation Sicilia, Azione 1.1.3 PR FESR 2021-2027 (consultato il 26 ottobre 2026)"
+    }
+  ],
+  "last_verified": "2026-10-26",
+  "verification_status": "verified",
+  "needs_human_review": false,
+  "reviewed_at": "2026-10-26"
+}

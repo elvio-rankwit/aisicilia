@@ -1,0 +1,310 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DirHero from '../../components/DirHero.astro';
+import SecHead from '../../components/SecHead.astro';
+import EmptyList from '../../components/EmptyList.astro';
+import ListFilters from '../../components/ListFilters.astro';
+import GrantCard from '../../components/GrantCard.astro';
+import GrantNotice from '../../components/GrantNotice.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import CtaSegnala from '../../components/CtaSegnala.astro';
+import { daysLeft, formatDate, getAllGrants, getArticles, getClosedGrants, getOpenGrants, grantPath, grantStatus, latestDate, today } from '../../lib/data';
+import { meta } from '../../lib/seo/meta';
+import { collectionPageNodes, faqPageNodes, itemListNodes } from '../../lib/seo/jsonld';
+import { PROVINCES, PROVINCE_SLUGS } from '../../lib/provinces';
+import { GRANT_AI_FIT, GRANT_AID_TYPES, GRANT_BENEFICIARIES } from '../../lib/taxonomies';
+import { cap, plural, slugify } from '../../components/helpers';
+import { countdown, deadlineText, expiresWithin, joinList, territoryShort } from '../../components/grants';
+
+const GUIDE_ID = 'incentivi-finanziamenti-digitalizzazione-ai-sicilia';
+
+const open = await getOpenGrants();
+const closed = await getClosedGrants();
+const aperti = open.filter((g) => grantStatus(g) === 'aperto');
+const inApertura = open.filter((g) => grantStatus(g) === 'in apertura');
+const soon = aperti.filter((g) => expiresWithin(g));
+const next = aperti.find((g) => g.data.deadline);
+const firstOpening = inApertura.map((g) => g.data.opens_at!).sort((a, b) => a.getTime() - b.getTime())[0];
+const updated = latestDate((await getAllGrants()).map((g) => g.data.last_verified));
+const guideArticle = (await getArticles()).find((a) => a.id === GUIDE_ID);
+const guidePath = guideArticle ? `/impara/${guideArticle.id}/` : undefined;
+
+// Filtri: solo le voci che compaiono davvero nei bandi in elenco (e solo i filtri con almeno due scelte).
+const present = (all: readonly string[], pick: (g: (typeof open)[number]) => readonly string[]) =>
+  all.filter((v) => open.some((g) => pick(g).includes(v))).map((v) => ({ value: slugify(v), label: cap(v) }));
+const provincesIn = PROVINCE_SLUGS.filter((p) => open.some((g) => g.data.provinces.includes(p)));
+const hasEverywhere = open.some((g) => g.data.provinces.length === 0);
+const fields = [
+  { key: 'territorio', label: 'Territorio', options: [...(hasEverywhere ? [{ value: 'tutta-la-sicilia', label: 'Tutta la Sicilia' }] : []), ...provincesIn.map((p) => ({ value: p, label: PROVINCES[p].name }))] },
+  { key: 'beneficiari', label: 'Chi può chiedere', options: present(GRANT_BENEFICIARIES, (g) => g.data.beneficiaries) },
+  { key: 'agevolazione', label: 'Tipo di agevolazione', options: present(GRANT_AID_TYPES, (g) => g.data.aid_types) },
+  { key: 'ai', label: 'Rapporto con l’AI', options: present(GRANT_AI_FIT, (g) => [g.data.ai_fit]) },
+].filter((f) => f.options.length > 1);
+
+const groups = [
+  { id: 'aperti', title: 'Aperti ora', items: aperti },
+  { id: 'in-apertura', title: 'In apertura', items: inApertura },
+].filter((g) => g.items.length > 0);
+
+// Domande sui bandi (D-039, deck §1.10): risposte calcolate sui dati, così restano vere quando l'elenco cambia (anche a zero bandi).
+const now = formatDate(today());
+const nextLeft = next ? daysLeft(next)! : 0;
+const noDeadline = aperti.filter((g) => !g.data.deadline);
+const nElenco = open.length;
+const nChiusi = closed.length;
+const nChiusiAnticipo = closed.filter((g) => g.data.closed_early).length;
+const fit = (v: (typeof GRANT_AI_FIT)[number]) => open.filter((g) => g.data.ai_fit === v).length;
+const startups = open.filter((g) => g.data.beneficiaries.includes('startup innovative'));
+const tutta = open.filter((g) => g.data.provinces.length === 0);
+const provinciali = open.filter((g) => g.data.provinces.length > 0);
+const perProvincia = PROVINCE_SLUGS.map((p) => ({ p, n: provinciali.filter((g) => g.data.provinces.includes(p)).length })).filter((x) => x.n > 0).map((x) => `${PROVINCES[x.p].name} (${x.n})`);
+const nSportello = open.filter((g) => g.data.procedure === 'a sportello').length;
+const nFp = open.filter((g) => g.data.aid_types.includes('fondo perduto')).length;
+const nVoucher = open.filter((g) => g.data.aid_types.includes('voucher')).length;
+const nAgevolato = open.filter((g) => g.data.aid_types.includes('finanziamento agevolato')).length;
+const when = (g: (typeof open)[number], n: number) => {
+  const t = g.data.deadline_time ? ` alle ${g.data.deadline_time}` : '';
+  return n <= 0 ? `scade oggi${t}` : n === 1 ? `scade domani, il ${formatDate(g.data.deadline!)}${t}` : `scade il ${formatDate(g.data.deadline!)}${t}, tra ${n} giorni`;
+};
+const aiLevels = [
+  [fit("dedicato all'AI"), 'Uno è dedicato all’AI.', `${fit("dedicato all'AI")} sono dedicati all’AI.`],
+  [fit('AI tra le spese ammesse'), 'Uno nomina l’AI tra le spese ammesse.', `${fit('AI tra le spese ammesse')} nominano l’AI tra le spese ammesse.`],
+  [fit('innovazione digitale'), 'Uno finanzia progetti di innovazione digitale in cui un progetto di AI può rientrare.', `${fit('innovazione digitale')} finanziano progetti di innovazione digitale in cui un progetto di AI può rientrare.`],
+].filter((x) => (x[0] as number) > 0).map((x) => ((x[0] as number) === 1 ? x[1] : x[2]));
+const archivioAnticipo = nChiusiAnticipo > 0 ? ` In archivio, ${nChiusiAnticipo} ${nChiusiAnticipo === 1 ? 'ha chiuso' : 'hanno chiuso'} prima della data prevista.` : '';
+const d6 = nElenco === 0
+  ? `Al ${now} nel nostro elenco non ci sono bandi aperti o in apertura.${archivioAnticipo} Per questo la scadenza scritta è un limite massimo, non una garanzia.`
+  : nSportello === 0
+    ? `Al ${now} nessun bando aperto è a sportello, quindi il rischio è basso, ma una proroga o una modifica restano possibili: controlla l’avviso.`
+    : `Al ${now} ${nSportello} dei ${nElenco} bandi dell’elenco ${nSportello === 1 ? 'è a sportello' : 'sono a sportello'}.${archivioAnticipo} Per questo la scadenza scritta è un limite massimo, non una garanzia.`;
+const faq = [
+  {
+    question: 'Quanti bandi per l’AI sono aperti oggi in Sicilia?',
+    answer: nElenco > 0
+      ? `${aperti.length > 0 ? `Al ${now} ne risult${aperti.length === 1 ? 'a 1 aperto' : `ano ${aperti.length} aperti`}${inApertura.length > 0 ? ` e ${inApertura.length} in apertura` : ''}.` : `Al ${now} nessuno è ancora aperto, ma ${inApertura.length} ${inApertura.length === 1 ? 'ha già una data di apertura' : 'hanno già una data di apertura'}.`} ${aiLevels.join(' ')} Il numero cambia in fretta, perché gli sportelli chiudono anche prima della scadenza: ogni bando riporta la data in cui l’abbiamo verificato.`
+      : `Al ${now} nessuno: nel nostro elenco non c’è un bando aperto o in apertura.${nChiusi > 0 ? ` I ${nChiusi} chiusi sono nell’archivio, e alcuni potrebbero tornare.` : ''}`,
+  },
+  {
+    question: 'Qual è il prossimo bando in scadenza?',
+    answer: next
+      ? `Al ${now} è «${next.data.title}», di ${next.data.issuer}: ${when(next, nextLeft)}.${next.data.procedure === 'a sportello' ? ' È a sportello: conta l’ordine di arrivo e può chiudere prima, se i fondi finiscono.' : ''}${soon.length >= 2 ? (soon.length === 2 ? ' Un altro scade entro 30 giorni.' : ` Altri ${soon.length - 1} scadono entro 30 giorni.`) : ''}`
+      : aperti.length > 0
+        ? `Al ${now} nessun bando aperto ha una data finale. Sono sportelli che chiudono quando finiscono i fondi, quindi non c’è un giorno da segnare: conviene presentare la domanda appena hai i documenti pronti.`
+        : `Al ${now} non ci sono bandi aperti, quindi nessuna scadenza in vista. Le prossime aperture, se annunciate, compaiono in cima all’elenco con la data di apertura.`,
+  },
+  {
+    question: 'Ci sono bandi per startup innovative?',
+    answer: startups.length > 0
+      ? `Al ${now} ${startups.length} ${startups.length === 1 ? 'bando dell’elenco è rivolto' : 'bandi dell’elenco sono rivolti'} anche alle startup innovative: ${joinList(startups.map((g) => g.data.title))}. Nella scheda trovi i requisiti: spesso contano l’iscrizione alla sezione speciale del Registro delle imprese e da quanto tempo esiste l’impresa.`
+      : `Al ${now} nessun bando aperto o in apertura indica le startup innovative tra i beneficiari. Se stai per costituire un’impresa, guarda anche quelli per nuove imprese e aspiranti imprenditori: il filtro «Chi può chiedere» li separa.`,
+  },
+  {
+    question: 'Ci sono bandi della mia provincia?',
+    answer: provinciali.length > 0
+      ? `Dipende da dove hai la sede. ${tutta.length > 0 ? `${tutta.length} ${tutta.length === 1 ? 'bando vale' : 'bandi valgono'} per tutta la Sicilia, o oltre.` : 'Nessun bando vale per tutta la Sicilia.'} ${provinciali.length} ${provinciali.length === 1 ? 'vale' : 'valgono'} solo in alcune province, di solito perché li emette una Camera di Commercio: ${joinList(perProvincia)}. Scegli la provincia nel filtro e vedi i suoi bandi e quelli validi per tutti. Se la tua Camera non compare, oggi può non avere un bando aperto, oppure non l’abbiamo ancora trovato: chiedi al Punto Impresa Digitale.`
+      : nElenco > 0
+        ? `Al ${now} tutti i bandi dell’elenco valgono per tutta la Sicilia: nessuno è limitato a una sola provincia. Le Camere di Commercio pubblicano spesso bandi propri per il territorio: se la tua non compare, chiedi al Punto Impresa Digitale.`
+        : `Al ${now} nel nostro elenco non ci sono bandi aperti o in apertura, quindi nessuno è limitato a una provincia. Le Camere di Commercio pubblicano spesso bandi propri per il territorio: se la tua non compare, chiedi al Punto Impresa Digitale.`,
+  },
+  {
+    question: 'Ogni quanto aggiornate l’elenco?',
+    answer: `Il sito si ricostruisce ogni notte e lo stato di ogni bando (aperto, in apertura, chiuso) si ricalcola da solo sulle date, quindi un bando scaduto non resta tra gli aperti. I dati dei bandi, cioè importi, condizioni e scadenze, li ricontrolliamo sulla fonte ufficiale e a ogni scheda scriviamo la data dell’ultimo controllo${updated ? `: la più recente è del ${formatDate(updated)}` : ''}. Se un ente proroga o chiude lo sportello, lo scopriamo al controllo successivo: per questo l’avviso ufficiale resta la fonte che fa fede.`,
+  },
+  {
+    question: 'Un bando può chiudere prima della scadenza?',
+    answer: `Succede con gli sportelli: le domande si valutano in ordine di arrivo e, quando i fondi sono finiti, l’ente chiude. ${d6}`,
+  },
+  {
+    question: 'Quali bandi sono a fondo perduto?',
+    answer: nElenco === 0
+      ? `Al ${now} nel nostro elenco non ci sono bandi aperti o in apertura. Fondo perduto vuol dire che quella parte non la restituisci. Copre comunque solo una percentuale delle spese, e l’importo massimo e la percentuale sono scritti nella scheda di ogni bando.`
+      : nFp === 0
+        ? `Al ${now} nessun bando dell’elenco è a fondo perduto: gli aiuti sono voucher, finanziamenti e altre forme. Le trovi nella scheda, alla voce «Agevolazione».`
+        : `Al ${now} ${nFp} dei ${nElenco} bandi dell’elenco ${nFp === 1 ? 'è' : 'sono'} a fondo perduto${nVoucher > 0 ? `, ${nVoucher} ${nVoucher === 1 ? 'è un voucher' : 'sono voucher'}` : ''}${nAgevolato > 0 ? ` e ${nAgevolato} ${nAgevolato === 1 ? 'è un finanziamento agevolato' : 'sono finanziamenti agevolati'}` : ''}. I conti si sovrappongono, perché un bando può combinare più forme di aiuto. Fondo perduto vuol dire che quella parte non la restituisci. Copre comunque solo una percentuale delle spese, e l’importo massimo e la percentuale sono scritti nella scheda.`,
+  },
+  {
+    question: 'Cosa vuol dire «rapporto con l’AI»?',
+    answer: `È il criterio con cui scegliamo i bandi. «Dedicato all’AI»: l’avviso riguarda esplicitamente l’intelligenza artificiale${nElenco ? ` (${fit("dedicato all'AI")} oggi)` : ''}. «AI tra le spese ammesse»: il testo nomina l’AI tra le tecnologie, i progetti o le spese finanziabili${nElenco ? ` (${fit('AI tra le spese ammesse')})` : ''}. «Innovazione digitale»: il bando non è pensato per l’AI, finanzia progetti digitali o di innovazione e un progetto di AI ci sta senza forzature${nElenco ? ` (${fit('innovazione digitale')})` : ''}. In quest’ultimo caso chiedi all’ente, per iscritto, se la tua spesa è ammessa.`,
+  },
+  {
+    question: 'Posso comprare adesso e chiedere il contributo dopo?',
+    answer: 'Quasi mai conviene. In molti avvisi le spese contano solo se sostenute dopo una certa data, spesso quella di pubblicazione dell’avviso o di presentazione della domanda. Una fattura precedente può restare fuori dal contributo. Cerca la data nell’avviso prima di firmare ordini o contratti.',
+  },
+  {
+    question: 'Serve un consulente per presentare la domanda?',
+    answer: 'Dipende. Aiuta quando l’avviso richiede firma digitale, PEC, rendicontazione e verifica dei limiti de minimis. Diffida di chi garantisce il contributo o chiede una percentuale prima di aver letto l’avviso con te. Per i dubbi sul tuo caso, rivolgiti al commercialista o all’ufficio incentivi della tua associazione di categoria.',
+  },
+];
+
+const STEPS = [
+  ['Chi può partecipare.', 'Dimensione dell’impresa, sede o unità locale in Sicilia, da quanto sei iscritto al Registro delle imprese. Se un requisito manca, è inutile andare avanti.'],
+  ['Cosa finanzia.', 'Cerca l’elenco delle spese ammesse e quello delle escluse. Controlla se l’AI è nominata: se non lo è, chiedi all’ente per iscritto se la tua spesa rientra, prima di acquistare.'],
+  ['Da quando contano le spese.', 'In molti avvisi vale solo ciò che spendi dopo una certa data, come la pubblicazione dell’avviso o l’invio della domanda. Un ordine firmato prima può restare fuori. Finché non sai la data, non firmare.'],
+  ['Forma dell’aiuto e importo.', 'Fondo perduto, finanziamento agevolato, voucher, credito d’imposta. Guarda l’importo massimo e la percentuale sulle spese: il resto lo paghi tu, e in molti casi il contributo arriva dopo che hai speso e rendicontato.'],
+  ['De minimis.', 'È il regime degli aiuti di importo limitato: ogni impresa ha un tetto agli aiuti ricevuti in 3 esercizi, e un nuovo contributo ne consuma una parte. Chiedi al commercialista quanti ne hai già avuti.'],
+  ['Sportello o graduatoria.', 'A sportello conta l’ordine di arrivo e si può chiudere in un giorno, se i fondi sono pochi. Con la graduatoria si valuta dopo la scadenza: non serve correre, serve un progetto che prenda punti. Il click day si apre a un’ora precisa e vince chi invia prima.'],
+  ['Cosa preparare prima.', 'Firma digitale, PEC, SPID o un’altra identità digitale se la piattaforma la chiede, visura camerale aggiornata, preventivi dei fornitori, DURC regolare se richiesto. Parti da ciò che dipende da altri: preventivi e documenti di terzi.'],
+];
+
+const m = meta.grantsIndex(open.length);
+const h1 = 'Bandi e finanziamenti per l’AI in Sicilia';
+const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
+const dayF = new Intl.DateTimeFormat('it-IT', { day: 'numeric', timeZone: 'UTC' });
+const monF = new Intl.DateTimeFormat('it-IT', { month: 'short', timeZone: 'UTC' });
+---
+<BaseLayout
+  seo={{
+    title: m.title, description: m.description, path: '/bandi/',
+    breadcrumbs: [{ name: 'Bandi', path: '/bandi/' }],
+    modifiedAt: updated,
+    jsonld: [
+      ...collectionPageNodes({ path: '/bandi/', name: h1, description: m.description }),
+      ...itemListNodes({ path: '/bandi/', name: h1, items: open.map((g) => ({ url: grantPath(g), name: g.data.title })) }),
+      ...faqPageNodes('/bandi/', faq),
+    ],
+  }}
+>
+  <DirHero eyebrow={updated ? `Bandi · dati al ${formatDate(updated)}` : 'Bandi e finanziamenti'}>
+    <Fragment slot="title">Bandi e finanziamenti per l’<mark class="blk">AI</mark> in Sicilia</Fragment>
+    {open.length > 0 ? (
+      <>
+        <p>{aperti.length > 0 ? (
+          <>
+            <b>{plural(aperti.length, 'bando aperto', 'bandi aperti')}</b>{inApertura.length > 0 && <> e {inApertura.length} in apertura</>} per chi ha una sede in Sicilia e un progetto di AI da finanziare.{' '}
+            {soon.length === 1 && <>Uno scade entro 30 giorni, il {formatDate(next!.data.deadline!)}.</>}
+            {soon.length >= 2 && <>{soon.length} scadono entro 30 giorni, il primo il {formatDate(next!.data.deadline!)}.</>}
+            {soon.length === 0 && next && <>Nessuno scade entro 30 giorni: il primo chiude il {formatDate(next.data.deadline!)}.</>}
+            {!next && <>Sono sportelli senza data finale: chiudono quando finiscono i fondi.</>}
+          </>
+        ) : (
+          <>Oggi nessun bando è aperto, ma {inApertura.length} {inApertura.length === 1 ? 'ha già una data di apertura' : 'hanno già una data di apertura'}: il primo apre il {formatDate(firstOpening!)}.</>
+        )}</p>
+        <p>Ogni scheda rimanda all’avviso ufficiale e dice quando l’abbiamo controllato. I bandi chiusi restano nell’<a href="/bandi/chiusi/">archivio</a>{closed.length > 0 && ` (${closed.length})`}; i criteri con cui scegliamo sono nella <a href="/metodologia/#h-bandi">metodologia</a>.</p>
+      </>
+    ) : (
+      <>
+        <p>Oggi nel nostro elenco non c’è nessun bando aperto o in apertura.</p>
+        <p>Intanto puoi guardare l’<a href="/bandi/chiusi/">archivio dei bandi chiusi</a>: serve a capire quali tornano e cosa preparare prima. Ne conosci uno aperto? <a href="/segnala/">Segnalalo</a>.</p>
+      </>
+    )}
+    <Fragment slot="after">
+      {open.length + closed.length > 0 && (
+        <dl class="figs">
+          <div><dt>aperti</dt><dd>{aperti.length}</dd></div>
+          {inApertura.length > 0 && <div><dt>in apertura</dt><dd>{inApertura.length}</dd></div>}
+          <div><dt>scadono entro 30 giorni</dt><dd>{soon.length}</dd></div>
+          <div><dt>in archivio</dt><dd>{closed.length}</dd></div>
+        </dl>
+      )}
+    </Fragment>
+    <div slot="side" class="sidebox"><GrantNotice guide={guidePath} /></div>
+  </DirHero>
+
+  {soon.length > 0 && (
+    <section class="section" aria-labelledby="h-scadenza">
+      <SecHead id="h-scadenza" eyebrow="Prossime scadenze" title="In scadenza nei prossimi 30 giorni" sub="Prima chi scade prima. Uno sportello può chiudere anche prima della data indicata." />
+      <ol class="soon">
+        {soon.map((g) => (
+          <li>
+            <a href={grantPath(g)} data-astro-prefetch>
+              <span class="date"><b>{dayF.format(g.data.deadline!)}</b><small>{monF.format(g.data.deadline!)}</small></span>
+              <span class="what"><span class="t">{g.data.title}</span><span class="m">{g.data.issuer} · {territoryShort(g)}{g.data.deadline_time ? ` · entro le ${g.data.deadline_time}` : ''}</span></span>
+              <span class="chips"><span class="chip today">{cap(countdown(daysLeft(g)!))}</span></span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </section>
+  )}
+
+  <section class="section" aria-labelledby="h-elenco">
+    <SecHead id="h-elenco" eyebrow="Elenco" title="Bandi aperti e in apertura" sub={open.length > 1 ? 'Filtra per territorio, chi può chiedere, tipo di agevolazione o rapporto con l’AI. Scegliendo una provincia vedi anche i bandi validi in tutta la Sicilia. In fondo, gli sportelli senza una data finale: chiudono quando finiscono i fondi.' : undefined}>
+      <a slot="more" class="more" href="/bandi/chiusi/">Archivio {closed.length > 0 ? `(${plural(closed.length, 'bando chiuso', 'bandi chiusi')})` : 'dei bandi chiusi'} <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d={arrow} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+    </SecHead>
+    {open.length > 0 ? (
+      <div class="lst">
+        <ListFilters target="bandi" fields={fields} noun={['bando', 'bandi']} searchLabel="Cerca per titolo, ente o parola chiave" />
+        <div id="bandi">
+          {groups.map((g) => (
+            <section data-group aria-labelledby={`g-${g.id}`}>
+              <h3 id={`g-${g.id}`} class="grp"><span>{g.title}</span><small>{g.items.length}</small></h3>
+              <ul class="grid">{g.items.map((x) => <GrantCard grant={x} level={4} />)}</ul>
+            </section>
+          ))}
+        </div>
+      </div>
+    ) : (
+      <EmptyList title="Nessun bando aperto, per ora">
+        <p>Nel nostro elenco oggi non c’è nessun bando aperto o in apertura. Succede: gli avvisi escono a ondate e alcuni si esauriscono in fretta. L’archivio dice quali sono già passati e quali potrebbero tornare. Se ne conosci uno aperto, mandaci il link alla pagina dell’ente.</p>
+        <Fragment slot="actions"><a class="btn p" href="/segnala/">Segnala un bando</a><a class="btn" href="/bandi/chiusi/">Vai all’archivio</a></Fragment>
+      </EmptyList>
+    )}
+  </section>
+
+  <section class="section" id="come-leggere" aria-labelledby="h-come">
+    <SecHead id="h-come" eyebrow="Prima di partire" title="Come leggere un bando in 10 minuti" sub="Leggilo nell’ordine in cui un avviso può escluderti: così capisci presto se puoi andare avanti." />
+    <div class="check">
+      <ol class="steps">
+        {STEPS.map(([t, x]) => <li><strong>{t}</strong> {x}</li>)}
+      </ol>
+      <p class="close">Se un punto resta oscuro, scrivi all’ente prima di comprare. Una risposta scritta ti serve anche dopo, quando rendiconti.</p>
+    </div>
+    {guideArticle && <ul class="grid one"><ArticleCard article={guideArticle} /></ul>}
+  </section>
+
+  <section class="section" aria-labelledby="h-faq">
+    <SecHead id="h-faq" eyebrow="Domande" title="Domande sui bandi" />
+    <div class="faq">
+      {faq.map((q, i) => (
+        <div>
+          <h3 id={`q-${i + 1}`}>{q.question}</h3>
+          <p>{q.answer}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <CtaSegnala text="Conosci un bando che manca? Mandaci il link alla pagina dell’ente: lo controlliamo sulla fonte ufficiale e, se un progetto di AI ci può stare, lo aggiungiamo." label="Segnala un bando" />
+</BaseLayout>
+<style>
+  .sidebox :global(.gn) { margin: 0; max-width: none; }
+  .soon { list-style: none; margin: 0 5px 0 0; padding: 0; overflow: hidden; background: var(--card); border: 1.5px solid var(--bd); border-radius: var(--r-lg); box-shadow: 5px 5px 0 var(--or); }
+  .soon li + li { border-top: 1px solid var(--line); }
+  .soon a { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 12px; align-items: center; padding: 18px; color: var(--ink); text-decoration: none; transition: background-color 0.2s; }
+  .soon a:hover { background: var(--or-t); color: var(--ink); }
+  .date { display: flex; flex-direction: column; align-items: flex-start; }
+  .date b { font: 800 26px/1 var(--display); letter-spacing: -0.05em; color: var(--or-text); font-variant-numeric: tabular-nums lining-nums; }
+  .date small { margin-top: 8px; font: 800 13px/1 var(--body); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); }
+  .t { display: block; font: 700 18px/1.3 var(--body); letter-spacing: -0.015em; }
+  .m { display: block; margin-top: 5px; font-size: 15.5px; color: var(--muted); }
+  .chips { grid-column: 2; display: flex; flex-wrap: wrap; gap: 8px; }
+  .grp { display: flex; align-items: baseline; gap: 14px; margin: 48px 0 24px; font-size: clamp(20px, 2.2vw, 26px); letter-spacing: -0.035em; }
+  .grp::after { content: ''; order: 3; flex: 1; align-self: center; min-width: 24px; height: 0; border-top: 2px solid var(--or); }
+  .grp small { font: 700 14px var(--body); letter-spacing: 0; color: var(--or-text); }
+  [data-group]:first-child .grp { margin-top: 8px; }
+  .grid.one { grid-template-columns: minmax(0, 36rem); }
+  .lst :global(.filters) { margin-bottom: 24px; padding: 20px; box-shadow: 5px 5px 0 var(--or); }
+  .lst :global(.filters input[type='search']) { border: 2px solid var(--bd); border-radius: 14px; background: var(--bg); }
+  .lst :global(.filters .count) { font: 700 16px var(--body); }
+  .lst :global(.filters .empty) { padding: 14px 16px; background: var(--warn-bg); color: var(--warn-text); border-radius: var(--r); }
+  .lst :global(.filters .empty a) { color: inherit; font-weight: 700; }
+  .check { max-width: 52rem; padding: 22px 20px; background: var(--card); border: 1.5px solid var(--bd); border-radius: var(--r-lg); box-shadow: 5px 5px 0 var(--or); }
+  .steps { counter-reset: st; list-style: none; margin: 0; padding: 0; display: grid; gap: 20px; }
+  .steps li { counter-increment: st; position: relative; padding-left: 52px; min-height: 40px; font-size: 17px; line-height: 1.6; }
+  .steps li::before { content: counter(st); position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: var(--or); color: var(--on-or); border: 1.5px solid var(--on-or); border-radius: 50%; font: 800 14px var(--display); }
+  .steps strong { display: block; font: 700 17px/1.4 var(--display); letter-spacing: -0.02em; }
+  .close { margin: 24px 0 0; padding-top: 18px; border-top: 1px solid var(--line); font-weight: 600; }
+  .check + .grid { margin-top: 32px; }
+  .faq { display: grid; gap: 28px 48px; }
+  .faq h3 { margin: 0 0 10px; font-size: clamp(19px, 2vw, 22px); line-height: 1.25; letter-spacing: -0.03em; }
+  .faq p { margin: 0; max-width: 40rem; font-size: 17px; line-height: 1.7; }
+  @media (min-width: 45.01rem) {
+    .check { padding: 32px 36px; box-shadow: 8px 8px 0 var(--or); }
+    .lst :global(.filters) { padding: 28px; box-shadow: 8px 8px 0 var(--or); }
+    .soon { margin-right: 0; box-shadow: 8px 8px 0 var(--or); }
+    .soon a { grid-template-columns: 110px minmax(0, 1fr) auto; gap: 22px; padding: 20px 28px; }
+    .date b { font-size: 32px; }
+    .chips { grid-column: auto; justify-content: flex-end; }
+  }
+  @media (min-width: 62rem) { .faq { grid-template-columns: 1fr 1fr; } }
+</style>

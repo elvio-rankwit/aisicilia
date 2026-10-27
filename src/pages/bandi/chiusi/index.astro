@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import DirHero from '../../../components/DirHero.astro';
+import SecHead from '../../../components/SecHead.astro';
+import Panel from '../../../components/Panel.astro';
+import EmptyList from '../../../components/EmptyList.astro';
+import GrantCard from '../../../components/GrantCard.astro';
+import CtaSegnala from '../../../components/CtaSegnala.astro';
+import { formatDate, getClosedGrants, getOpenGrants, grantPath, latestDate } from '../../../lib/data';
+import { meta } from '../../../lib/seo/meta';
+import { collectionPageNodes, itemListNodes } from '../../../lib/seo/jsonld';
+import { plural } from '../../../components/helpers';
+
+const closed = await getClosedGrants();
+const open = await getOpenGrants();
+const m = meta.grantsClosed(closed.length);
+const h1 = 'Archivio dei bandi AI chiusi';
+const updated = latestDate(closed.map((g) => g.data.last_verified));
+// L'archivio va dal più recente: l'ultimo chiuso è il primo della lista.
+const latest = closed[0];
+const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
+---
+<BaseLayout
+  seo={{
+    title: m.title, description: m.description, path: '/bandi/chiusi/',
+    breadcrumbs: [{ name: 'Bandi', path: '/bandi/' }, { name: 'Chiusi', path: '/bandi/chiusi/' }],
+    modifiedAt: updated,
+    jsonld: [
+      ...collectionPageNodes({ path: '/bandi/chiusi/', name: h1, description: m.description }),
+      ...itemListNodes({ path: '/bandi/chiusi/', name: h1, items: closed.map((g) => ({ url: grantPath(g), name: g.data.title })) }),
+    ],
+  }}
+>
+  <DirHero eyebrow="Bandi chiusi">
+    <Fragment slot="title">Archivio dei bandi <mark class="blk">AI</mark> chiusi</Fragment>
+    {closed.length > 0 ? (
+      <>
+        <p><b>{plural(closed.length, 'bando chiuso', 'bandi chiusi')}</b>, dal più recente. Non puoi più presentare domanda, ma conviene tenerli sotto mano: ci finiscono il giorno dopo la scadenza, o quando la fonte ufficiale dice che lo sportello è chiuso.</p>
+        <p>Alcuni bandi camerali, come i voucher digitali, vengono riproposti spesso, con regole simili ma mai uguali. Leggere l’edizione scorsa ti aiuta a capire cosa chiedono e cosa devi avere pronto (firma digitale, preventivi, visura) quando riapre. Quelli ancora aperti li trovi tra i <a href="/bandi/">bandi aperti e in apertura</a>.</p>
+      </>
+    ) : (
+      <>
+        <p>L’archivio è vuoto: nessun bando risulta ancora chiuso.</p>
+        <p>I bandi scaduti finiscono qui in automatico. Intanto guarda i <a href="/bandi/">bandi aperti e in apertura</a>.</p>
+      </>
+    )}
+    <Fragment slot="side">
+      <Panel tone="brand" label="Riepilogo dell’archivio">
+        <p class="k">In archivio</p>
+        <p class="v">{closed.length}</p>
+        <p class="d">{closed.length > 0 && latest ? <>{closed.length === 1 ? 'bando chiuso' : 'bandi chiusi'}. {latest.data.deadline ? `Il più recente è scaduto il ${formatDate(latest.data.deadline)}.` : 'Il più recente è uno sportello chiuso prima della scadenza.'}</> : 'Nessun bando chiuso, per ora.'}</p>
+        <a class="more" href="/bandi/">{open.length > 0 ? `Vai ai ${open.length} bandi in elenco` : 'Vai ai bandi aperti'} <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d={arrow} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+      </Panel>
+    </Fragment>
+  </DirHero>
+
+  <section class="section" aria-labelledby="h-archivio">
+    <SecHead id="h-archivio" eyebrow="Archivio" title="Bandi chiusi" sub={closed.length > 0 ? 'I più recenti per primi. Un bando chiuso non accetta più domande: controlla sul sito dell’ente se ne è uscita una nuova edizione.' : undefined} />
+    {closed.length > 0 ? (
+      <ul class="grid">{closed.map((g) => <GrantCard grant={g} />)}</ul>
+    ) : (
+      <EmptyList title="Nessun bando chiuso, per ora">
+        <p>Un bando arriva qui quando scade o quando l’ente chiude lo sportello. Per ora quelli che abbiamo sono tutti ancora aperti, o in apertura.</p>
+        <Fragment slot="actions"><a class="btn p" href="/bandi/">Guarda i bandi aperti</a></Fragment>
+      </EmptyList>
+    )}
+  </section>
+  <CtaSegnala text="Ti risulta che un bando sia tornato con una nuova edizione? Mandaci il link alla pagina ufficiale." label="Segnala un bando" />
+</BaseLayout>
+<style>
+  .k { margin: 0 0 10px; font: 800 12px/1 var(--body); letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); }
+  .v { margin: 0; font: 800 clamp(56px, 9vw, 96px)/1 var(--display); letter-spacing: -0.05em; font-variant-numeric: tabular-nums lining-nums; color: var(--brand); }
+  .d { margin: 14px 0 18px; max-width: 32ch; color: var(--muted); }
+</style>

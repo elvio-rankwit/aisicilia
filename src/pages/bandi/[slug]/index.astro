@@ -1,0 +1,187 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import DirHero from '../../../components/DirHero.astro';
+import SecHead from '../../../components/SecHead.astro';
+import Panel from '../../../components/Panel.astro';
+import SourceBox from '../../../components/SourceBox.astro';
+import GrantCard from '../../../components/GrantCard.astro';
+import GrantNotice from '../../../components/GrantNotice.astro';
+import { daysLeft, getAllGrants, getArticles, getOpenGrants, grantPath } from '../../../lib/data';
+import { meta } from '../../../lib/seo/meta';
+import { grantNodes } from '../../../lib/seo/jsonld';
+import { grantTitle, grantUpdated } from '../../../lib/seo/grants';
+import { cap, dateRange } from '../../../components/helpers';
+import { AI_FIT_NOTES, GRANT_RESERVED_SLUGS, PROCEDURE_NOTES, countdown, deadlineText, grantState, joinList, relatedGrants, territoryLong } from '../../../components/grants';
+
+export async function getStaticPaths() {
+  const grants = await getAllGrants();
+  return grants.filter((g) => !GRANT_RESERVED_SLUGS.includes(g.id)).map((g) => ({ params: { slug: g.id }, props: { id: g.id } }));
+}
+const g = (await getAllGrants()).find((x) => x.id === Astro.props.id)!;
+const d = g.data;
+const state = grantState(g);
+const closed = state.key === 'chiuso';
+const left = daysLeft(g);
+const when = deadlineText(g);
+const open = await getOpenGrants();
+const related = relatedGrants(g, open, 3);
+const guideArticle = (await getArticles()).find((a) => a.id === 'incentivi-finanziamenti-digitalizzazione-ai-sicilia');
+const guidePath = guideArticle ? `/impara/${guideArticle.id}/` : undefined;
+const m = meta.grant(g);
+const path = grantPath(g);
+const canAdd = !closed && !!d.deadline;
+const arrow = 'M3 8h9m-3.5-4L12.5 8 8.5 12';
+
+// Giorno e mese per la tessera della scadenza.
+const dayF = new Intl.DateTimeFormat('it-IT', { day: 'numeric', timeZone: 'UTC' });
+const monF = new Intl.DateTimeFormat('it-IT', { month: 'short', year: 'numeric', timeZone: 'UTC' });
+
+// Risposta diretta: solo fatti presenti nei dati, nessuna stima.
+const aid = joinList(d.aid_types);
+const deadlineSentence = closed
+  ? d.closed_early
+    ? 'Lo sportello è chiuso: la fonte ufficiale lo dà per chiuso prima della scadenza.'
+    : when ? `La scadenza era il ${when}.` : 'Le domande sono chiuse.'
+  : state.key === 'in-apertura'
+    ? `Le domande si aprono il ${dateRange(d.opens_at!)}${when ? ` e si chiudono il ${when}` : ''}.`
+    : when
+      ? `Si può chiedere fino al ${when}${left !== undefined ? ` (${countdown(left)})` : ''}.`
+      : `Non ha una data di scadenza: ${d.deadline_note?.toLowerCase() ?? 'controlla l’avviso'}.`;
+// «Bando di Commissione europea» non regge: l'ente va dopo i due punti, senza preposizione articolata.
+const answer = `Ente: ${d.issuer}. Possono chiedere ${joinList(d.beneficiaries)}. ${territoryLong(g)}. Agevolazione: ${aid}${d.max_amount ? `, ${d.max_amount}` : ''}. ${deadlineSentence}`;
+
+// Dati chiave (deck bandi §2.1). Importo e intensità mancanti si dichiarano, non si omettono.
+const proc = PROCEDURE_NOTES[d.procedure];
+const facts: { label: string; value: string; bold?: string; note?: string; wide?: boolean }[] = [
+  { label: 'Ente', value: d.issuer, note: cap(d.issuer_type), wide: true },
+  { label: 'Territorio', value: territoryLong(g), wide: true },
+  { label: 'Chi può chiedere', value: cap(joinList(d.beneficiaries)), wide: true },
+  { label: 'Agevolazione', value: cap(aid), wide: true },
+  ...(d.budget ? [{ label: 'Dotazione', value: d.budget }] : []),
+  { label: 'Importo massimo', value: d.max_amount ? cap(d.max_amount) : 'Non indicato nella fonte' },
+  { label: 'Intensità', value: d.aid_intensity ? cap(d.aid_intensity) : 'Non indicata nella fonte' },
+  { label: 'Procedura', value: '', bold: proc.label, note: proc.note },
+  { label: 'Apertura', value: d.opens_at ? dateRange(d.opens_at) : state.key === 'aperto' ? 'Già aperto' : 'Non indicata' },
+  ...(when ? [{ label: 'Scadenza', value: when, note: d.procedure === 'a sportello' && !closed ? 'Può chiudere prima, se i fondi finiscono.' : undefined }] : []),
+  ...(d.deadline_note ? [{ label: 'Nota sulla scadenza', value: d.deadline_note, wide: true }] : []),
+];
+const titles = Object.fromEntries(d.sources.map((s) => [s.url, s.title]));
+---
+<BaseLayout
+  seo={{
+    title: m.title, description: m.description, path,
+    breadcrumbs: [{ name: 'Bandi', path: '/bandi/' }, ...(closed ? [{ name: 'Chiusi', path: '/bandi/chiusi/' }] : []), { name: grantTitle(g), path }],
+    jsonld: grantNodes(g),
+    modifiedAt: grantUpdated(g),
+  }}
+>
+  <article>
+    <DirHero eyebrow={`Bando · ${d.issuer_type}`} compact>
+      <Fragment slot="title">{d.title}</Fragment>
+      <p>{d.issuer} · {territoryLong(g)}</p>
+      <ul class="tags"><li><span class:list={['badge', state.tone]}>{state.label}</span></li><li><span class="chip">{cap(d.ai_fit)}</span></li><li><span class="chip">{cap(d.procedure)}</span></li></ul>
+      <div slot="after" class="btns">
+        <a class="btn p" href={d.official_url} rel="noopener">{closed ? 'Pagina ufficiale del bando' : 'Vai all’avviso ufficiale'} <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d={arrow} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+        {canAdd && <a class="btn" href={`${path}scadenza.ics`} download>Aggiungi la scadenza al calendario</a>}
+      </div>
+      <Panel slot="side" tone="brand" label="Scadenza del bando">
+        {d.deadline ? (
+          <>
+            <p class="tile"><b>{dayF.format(d.deadline)}</b><small>{monF.format(d.deadline)}</small></p>
+            <p class="tmeta">{d.deadline_time ? `Entro le ${d.deadline_time}` : 'Scadenza'}{!closed && left !== undefined && <> · <strong>{countdown(left)}</strong></>}{closed && ' · passata'}</p>
+          </>
+        ) : (
+          <>
+            <p class="tile-note">{closed ? 'Sportello chiuso' : 'Senza data di scadenza'}</p>
+          </>
+        )}
+        {d.deadline_note && <p class="tmeta note">{d.deadline_note}</p>}
+        {state.key === 'in-apertura' && d.opens_at && <p class="tmeta">Le domande si aprono il {dateRange(d.opens_at)}</p>}
+      </Panel>
+    </DirHero>
+
+    {closed && (
+      <div class="callout" role="note">
+        <p><strong>Bando chiuso.</strong> {d.closed_early ? 'L’ente ha chiuso o sospeso lo sportello prima della scadenza prevista.' : 'Le domande non sono più aperte.'} Lo teniamo online perché alcuni bandi vengono riproposti e conoscere le condizioni dell’edizione scorsa aiuta a prepararsi. Non dare per scontato che le regole restino uguali: controlla sul sito dell’ente se è uscita una nuova edizione. Altri bandi nell’<a href="/bandi/">elenco dei bandi aperti</a>; quelli già chiusi, nell’<a href="/bandi/chiusi/">archivio</a>.</p>
+      </div>
+    )}
+
+    <div class="cols">
+      <div class="main">
+        <p class="answer">{answer}</p>
+        <div class="prose"><p class="desc">{d.description}</p></div>
+
+        <Panel tone="brand" title="Perché c’entra l’AI" id="h-ai" level={2}>
+          <p class="intro">Un bando entra nell’elenco solo se un progetto di AI può starci. Qui vedi in che modo, con il riferimento al testo ufficiale.</p>
+          <p class="fit"><strong>{AI_FIT_NOTES[d.ai_fit].label}</strong> {AI_FIT_NOTES[d.ai_fit].note}</p>
+          <p class="label">Cosa dice il testo</p>
+          <p class="ai">{d.ai_note}</p>
+        </Panel>
+
+        <Panel title="I dati chiave" id="h-dati" level={2}>
+          <dl class="data">
+            {facts.map((f) => <div class:list={{ wide: f.wide }}><dt>{f.label}</dt><dd>{f.bold && <strong>{f.bold}</strong>}{f.bold && f.note ? ' ' : ''}{f.value}{f.bold ? f.note : f.note && <span class="sub">{f.note}</span>}</dd></div>)}
+          </dl>
+        </Panel>
+
+        {d.documents.length > 0 && (
+          <section class="docs" aria-labelledby="h-doc">
+            <h2 id="h-doc">Documenti ufficiali</h2>
+            <ul>{d.documents.map((x) => <li><a class="ext" href={x.url} rel="noopener">{x.title}</a></li>)}</ul>
+          </section>
+        )}
+
+        <GrantNotice variant="short" guide={guidePath} />
+      </div>
+      <div class="side">
+        <SourceBox urls={d.sources.map((s) => s.url)} verified={d.last_verified} what="bando" reviewed={d.reviewed_at} titles={titles} />
+        <p class="rm">Qualcosa è sbagliato o è cambiato? <a href={`/rimozione/?scheda=bandi/${g.id}`}>Richiedi modifica o rimozione di questa scheda</a>.</p>
+      </div>
+    </div>
+  </article>
+
+  {related.length > 0 && (
+    <section class="section" aria-labelledby="h-correlati">
+      <SecHead id="h-correlati" eyebrow="Nell’elenco" title="Altri bandi aperti" sub="Aperti o in apertura, scelti per territorio o beneficiari simili.">
+        <a slot="more" class="more" href="/bandi/">Tutti i bandi aperti <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d={arrow} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+      </SecHead>
+      <ul class="grid">{related.map((r) => <GrantCard grant={r} />)}</ul>
+    </section>
+  )}
+</BaseLayout>
+<style>
+  .tile { margin: 0; display: flex; flex-direction: column; }
+  .tile b { font: 800 clamp(44px, 7vw, 72px)/1 var(--display); letter-spacing: -0.05em; color: var(--brand); white-space: nowrap; font-variant-numeric: tabular-nums lining-nums; }
+  .tile small { margin-top: 12px; font: 800 14px/1 var(--body); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); }
+  .tile-note { margin: 0; font: 800 clamp(24px, 3.4vw, 34px)/1.15 var(--display); letter-spacing: -0.04em; color: var(--brand); }
+  .tmeta { margin: 10px 0 0; font-size: 16px; font-weight: 500; color: var(--muted); }
+  .tmeta strong { color: var(--or-text); }
+  .tmeta + .tmeta { margin-top: 4px; }
+  .tmeta.note { font-weight: 600; color: var(--ink); }
+  .tags { margin-top: 16px; }
+  .cols { display: grid; gap: 8px 48px; align-items: start; }
+  .main { min-width: 0; }
+  .main .answer { margin-bottom: 20px; font-size: 18px; }
+  .desc { max-width: 42rem; font-size: 18px; line-height: 1.7; margin-bottom: 36px; }
+  .intro { margin: 0 0 16px; max-width: 40rem; color: var(--muted); }
+  .fit { margin: 0 0 18px; padding: 12px 16px; max-width: 40rem; background: var(--or-t); border-left: 6px solid var(--or); border-radius: 0 var(--r) var(--r) 0; font-size: 17px; line-height: 1.55; }
+  .fit strong { color: var(--or-text); }
+  .sub { display: block; margin-top: 4px; font-size: 15px; color: var(--muted); }
+  .ai { margin: 0; max-width: 40rem; font-size: 17.5px; line-height: 1.65; }
+  .main :global(.panel) { margin-bottom: 28px; }
+  .data { display: grid; gap: 22px 32px; margin: 0; max-width: none; }
+  .data > div { min-width: 0; }
+  .data dt { margin: 0 0 6px; font: 800 12px/1.4 var(--body); letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); }
+  .data dd { margin: 0; }
+  .docs { margin-top: 40px; }
+  .docs h2 { margin: 0 0 14px; font-size: clamp(20px, 2.2vw, 26px); letter-spacing: -0.035em; }
+  .docs ul { margin: 0; padding-left: 1.25rem; }
+  .docs li { margin-bottom: 8px; padding-left: 0.25rem; }
+  .docs li::marker { color: var(--or-text); }
+  .side { min-width: 0; margin-top: 40px; }
+  .side :global(.source-box) { max-width: none; margin-top: 0; }
+  .rm { margin: 0; padding: 0 4px; font-size: 15.5px; color: var(--muted); }
+  .callout { margin-bottom: 32px; max-width: 48rem; }
+  @media (min-width: 40rem) { .data { grid-template-columns: repeat(2, minmax(0, 1fr)); } .data .wide { grid-column: 1 / -1; } }
+  @media (min-width: 62rem) { .cols { grid-template-columns: minmax(0, 1fr) 24rem; } .side { position: sticky; top: 24px; margin-top: 0; } }
+</style>

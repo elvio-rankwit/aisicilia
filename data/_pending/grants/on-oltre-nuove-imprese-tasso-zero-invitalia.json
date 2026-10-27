@@ -1,0 +1,51 @@
+{
+  "title": "ON - Oltre Nuove imprese a tasso zero",
+  "slug": "on-oltre-nuove-imprese-tasso-zero-invitalia",
+  "issuer": "Invitalia (per il Ministero delle Imprese e del Made in Italy)",
+  "issuer_type": "Ministero o agenzia nazionale",
+  "scope": "nazionale",
+  "provinces": [],
+  "description": "Incentivo per creare e sviluppare imprese a prevalente partecipazione giovanile o femminile, costituende o costituite da non più di 60 mesi, in tutta Italia. Finanzia programmi fino a 1,5 milioni di euro per società costituite da non più di 36 mesi e fino a 3 milioni per quelle tra 36 e 60 mesi. Tra le spese ammesse figurano macchinari, programmi informatici e servizi ICT, brevetti e consulenze. Dal 1° luglio 2026, esaurite le risorse per il fondo perduto, le nuove domande ottengono solo il finanziamento a tasso zero, da rimborsare in 10 anni. Le domande si presentano online e sono esaminate in ordine cronologico, dopo due colloqui di valutazione.",
+  "ai_fit": "innovazione digitale",
+  "ai_note": "Tra le spese ammissibili ci sono programmi informatici e servizi ICT: una nuova impresa che sviluppa soluzioni di intelligenza artificiale vi rientra, ma il testo ufficiale non nomina l'AI.",
+  "beneficiaries": [
+    "nuove imprese"
+  ],
+  "aid_types": [
+    "finanziamento agevolato"
+  ],
+  "max_amount": "programmi fino a 1,5 milioni di euro (società fino a 36 mesi) o 3 milioni (da 36 a 60 mesi)",
+  "aid_intensity": "fino al 90% delle spese; dal 1° luglio 2026 solo finanziamento a tasso zero",
+  "procedure": "a sportello",
+  "deadline_note": "Nessuna scadenza: domande in ordine cronologico, a sportello e senza graduatorie",
+  "closed_early": false,
+  "official_url": "https://www.invitalia.it/incentivi-e-strumenti/nuove-imprese-tasso-zero/cose",
+  "documents": [
+    {
+      "url": "https://www.invitalia.it/news-media/news/oltre-nuove-imprese-tasso-zero-dal-1deg-luglio-2026-disponibile-solo-il-finanziamento-agevolato",
+      "title": "Avviso del 30 giugno 2026 sull'esaurimento del fondo perduto"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.invitalia.it/incentivi-e-strumenti/nuove-imprese-tasso-zero/cosa-si-puo-fare",
+      "title": "Invitalia, ON, cosa si può fare (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.invitalia.it/incentivi-e-strumenti/nuove-imprese-tasso-zero/agevolazioni",
+      "title": "Invitalia, ON, agevolazioni (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.invitalia.it/incentivi-e-strumenti/nuove-imprese-tasso-zero/presenta-la-domanda/come-si-presenta-la-domanda",
+      "title": "Invitalia, ON, come si presenta la domanda (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.invitalia.it/news-media/news/oltre-nuove-imprese-tasso-zero-dal-1deg-luglio-2026-disponibile-solo-il-finanziamento-agevolato",
+      "title": "Invitalia, avviso del 30 giugno 2026 (consultato il 26 ottobre 2026)"
+    }
+  ],
+  "last_verified": "2026-10-26",
+  "verification_status": "pending",
+  "needs_human_review": true,
+  "pending_reason": "Pertinenza AI generica: misura per nuove imprese di qualsiasi settore, il testo ufficiale non nomina l'AI. Il requisito di partecipazione giovanile (18-35) o femminile e le percentuali dopo il 1° luglio 2026 vanno riverificati sul testo del decreto, non letto per intero."
+}

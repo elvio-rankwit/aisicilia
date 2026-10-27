@@ -1,0 +1,29 @@
+{
+  "title": "[FITTIZIO] Credito d'imposta per l'innovazione digitale delle imprese",
+  "slug": "esempio-credito-imposta-innovazione",
+  "issuer": "[FITTIZIO] Ministero di esempio",
+  "issuer_type": "Ministero o agenzia nazionale",
+  "scope": "nazionale",
+  "provinces": [],
+  "description": "Bando fittizio per lo sviluppo dell'interfaccia: riconoscerebbe un credito d'imposta sulle spese di digitalizzazione delle imprese, tra cui software, formazione del personale e strumenti basati sull'intelligenza artificiale. Le domande si aprono in una data futura, quindi la scheda mostra lo stato «In apertura». Serve a provare l'etichetta di apertura e l'elenco dei bandi non ancora aperti. Non esiste e non va pubblicato.",
+  "ai_fit": "AI tra le spese ammesse",
+  "ai_note": "Fittizio: la tabella delle spese ammesse dell'avviso di esempio include i software di intelligenza artificiale accanto ad altri strumenti digitali.",
+  "beneficiaries": ["micro e piccole imprese", "medie imprese"],
+  "aid_types": ["credito d'imposta"],
+  "budget": "50 milioni di euro",
+  "aid_intensity": "40% delle spese ammissibili",
+  "procedure": "graduatoria",
+  "opens_at": "2026-12-01",
+  "deadline": "2027-02-26",
+  "official_url": "https://ministero-esempio.example/incentivi/credito-digitale",
+  "documents": [
+    { "url": "https://ministero-esempio.example/incentivi/credito-digitale/decreto.pdf", "title": "Decreto di attuazione (PDF di esempio)" }
+  ],
+  "sources": [
+    { "url": "https://ministero-esempio.example/incentivi/credito-digitale", "title": "Pagina ufficiale dell'incentivo (esempio)" }
+  ],
+  "last_verified": "2026-10-20",
+  "verification_status": "verified",
+  "needs_human_review": false,
+  "reviewed_at": "2026-10-21"
+}

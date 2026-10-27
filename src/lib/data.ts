@@ -2,12 +2,14 @@
 // qui stanno le regole editoriali (solo record verificati, YMYL nascosti, eventi passati in archivio).
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { PROVINCE_SLUGS, type ProvinceSlug } from './provinces';
-import { PROMPT_SECTOR_SLUGS, type PromptSector } from './taxonomies';
+import { GRANT_STATUSES, PROMPT_SECTOR_SLUGS, type PromptSector } from './taxonomies';
 
 export type Company = CollectionEntry<'companies'>;
 export type Event = CollectionEntry<'events'>;
 export type Article = CollectionEntry<'articles'>;
 export type Prompt = CollectionEntry<'prompts'>;
+export type Grant = CollectionEntry<'grants'>;
+export type GrantStatus = (typeof GRANT_STATUSES)[number];
 
 const collator = new Intl.Collator('it', { sensitivity: 'base' });
 
@@ -91,6 +93,42 @@ export async function getPrompts(): Promise<Prompt[]> {
 
 export async function getPromptsBySector(sector: PromptSector): Promise<Prompt[]> {
   return (await getPrompts()).filter((p) => p.data.sector === sector);
+}
+
+// ------------------------------------------------------------------ bandi (D-042)
+/** Bandi pubblicabili: verificati e approvati dall'utente (YMYL). */
+export async function getAllGrants(): Promise<Grant[]> {
+  return getCollection('grants', (g) => g.data.verification_status === 'verified' && !g.data.needs_human_review);
+}
+
+/** Stato alla data di build: il giorno della scadenza il bando è ancora aperto. */
+export function grantStatus(g: Grant, ref = today()): GrantStatus {
+  const d = g.data;
+  if (d.closed_early || (d.deadline && d.deadline.getTime() < ref.getTime())) return 'chiuso';
+  if (d.opens_at && d.opens_at.getTime() > ref.getTime()) return 'in apertura';
+  return 'aperto';
+}
+
+/** Giorni alla scadenza (0 = scade oggi); undefined per gli sportelli senza scadenza. */
+export function daysLeft(g: Grant, ref = today()): number | undefined {
+  return g.data.deadline ? Math.round((g.data.deadline.getTime() - ref.getTime()) / 86_400_000) : undefined;
+}
+
+export const grantPath = (g: Grant): string => `/bandi/${g.id}/`;
+
+/** Aperti e in apertura: prima chi scade prima, in fondo gli sportelli senza scadenza. */
+export async function getOpenGrants(): Promise<Grant[]> {
+  const far = Number.MAX_SAFE_INTEGER;
+  return (await getAllGrants())
+    .filter((g) => grantStatus(g) !== 'chiuso')
+    .sort((a, b) => (a.data.deadline?.getTime() ?? far) - (b.data.deadline?.getTime() ?? far) || collator.compare(a.data.title, b.data.title));
+}
+
+/** Chiusi: dal più recente. */
+export async function getClosedGrants(): Promise<Grant[]> {
+  return (await getAllGrants())
+    .filter((g) => grantStatus(g) === 'chiuso')
+    .sort((a, b) => (b.data.deadline?.getTime() ?? 0) - (a.data.deadline?.getTime() ?? 0));
 }
 
 export function groupByProvince<T extends { data: { province: ProvinceSlug } }>(items: T[]) {

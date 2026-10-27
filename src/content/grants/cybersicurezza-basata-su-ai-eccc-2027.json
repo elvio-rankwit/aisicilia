@@ -1,0 +1,54 @@
+{
+  "title": "Cybersecure tools, technologies and services relying on AI (DIGITAL-ECCC-2027-DEPLOY-CYBER-11-CYBERAI)",
+  "slug": "cybersicurezza-basata-su-ai-eccc-2027",
+  "issuer": "Centro europeo di competenza per la cybersicurezza (ECCC), Commissione europea",
+  "issuer_type": "Unione europea",
+  "scope": "europeo",
+  "provinces": [],
+  "closed_early": false,
+  "last_verified": "2026-10-26",
+  "needs_human_review": false,
+  "reviewed_at": "2026-10-26",
+  "aid_types": [
+    "fondo perduto"
+  ],
+  "procedure": "call con scadenza",
+  "opens_at": "2026-09-01",
+  "deadline": "2027-01-14",
+  "deadline_time": "17:00",
+  "verification_status": "verified",
+  "description": "Topic della stessa call ECCC per sviluppare e mettere in servizio strumenti di cybersicurezza basati su AI, anche generativa: analisi dell'intelligence sulle minacce, rilevamento di vulnerabilità e attacchi, ripristino dopo gli incidenti, protezione dei sistemi di AI stessi. Sono benvenuti fornitori di strumenti e servizi, anche in consorzio con Cyber Hub nazionali o transfrontalieri; i risultati andranno in licenza ad autorità e CSIRT a condizioni di mercato favorevoli. Nessun consorzio minimo, ma i progetti attesi valgono 3-5 milioni di euro di contributo UE. Restrizioni di sicurezza sui Paesi di controllo.",
+  "ai_fit": "dedicato all'AI",
+  "ai_note": "Il topic CYBERAI riguarda strumenti, tecnologie e servizi di cybersicurezza basati su AI, intelligenza artificiale generativa compresa, e la sicurezza dei sistemi di AI.",
+  "beneficiaries": [
+    "micro e piccole imprese",
+    "medie imprese",
+    "grandi imprese",
+    "università e centri di ricerca"
+  ],
+  "budget": "15 milioni di euro per il topic, circa 4 progetti",
+  "max_amount": "contributo UE atteso tra 3 e 5 milioni di euro per progetto",
+  "aid_intensity": "50% dei costi ammissibili",
+  "deadline_note": "Il budget della call dipende dall'adozione finale dell'emendamento al programma di lavoro Digital Europe 2025-2027.",
+  "official_url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/DIGITAL-ECCC-2027-DEPLOY-CYBER-11-CYBERAI",
+  "documents": [
+    {
+      "url": "https://cybersecurity-centre.europa.eu/document/download/8e1d6074-95ed-4b23-8bd3-2ca42b096411_en?filename=Call%20Document%20%20DEP%2011.pdf",
+      "title": "Call document DEP 11 (testo della call, PDF)"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/DIGITAL-ECCC-2027-DEPLOY-CYBER-11-CYBERAI",
+      "title": "Commissione europea, portale Funding & Tenders, topic DIGITAL-ECCC-2027-DEPLOY-CYBER-11-CYBERAI (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://cybersecurity-centre.europa.eu/document/8e1d6074-95ed-4b23-8bd3-2ca42b096411_en",
+      "title": "ECCC, Call for proposals DIGITAL-ECCC-2027-DEPLOY-CYBER-11 (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://cybersecurity-centre.europa.eu/document/download/8e1d6074-95ed-4b23-8bd3-2ca42b096411_en?filename=Call%20Document%20%20DEP%2011.pdf",
+      "title": "ECCC, Call document DEP 11 (PDF) (consultato il 26 ottobre 2026)"
+    }
+  ]
+}

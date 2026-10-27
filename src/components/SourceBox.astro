@@ -1,8 +1,14 @@
 ---
 import { formatDate } from '../lib/data';
 import { hostOf } from './helpers';
-interface Props { urls: string[]; verified: Date; what: 'scheda' | 'evento'; level?: 2 | 3; claimed?: Date }
-const { urls, verified, what, level = 2, claimed } = Astro.props;
+interface Props {
+  urls: string[]; verified: Date; what: 'scheda' | 'evento' | 'bando'; level?: 2 | 3; claimed?: Date;
+  /** Bandi: data della revisione umana prima della pubblicazione. */
+  reviewed?: Date;
+  /** Titoli delle fonti per url: se presenti, sostituiscono l'indirizzo abbreviato come testo del link. */
+  titles?: Record<string, string>;
+}
+const { urls, verified, what, level = 2, claimed, reviewed, titles = {} } = Astro.props;
 const H = `h${level}` as 'h2' | 'h3';
 // Testo del link: host + percorso abbreviato, così fonti dello stesso dominio si distinguono.
 const labelOf = (u: string): string => {
@@ -19,10 +25,11 @@ const labelOf = (u: string): string => {
 <aside class="source-box" aria-labelledby="fonte-titolo">
   <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z" /><path d="m8.5 12 2.5 2.5 4.5-5" /></svg>
   <H id="fonte-titolo">Fonte e ultima verifica</H>
-  <p>Ultima verifica: <time datetime={verified.toISOString().slice(0, 10)}>{formatDate(verified)}</time>. {what === 'scheda' ? 'Le informazioni di questa scheda sono state riscritte da noi a partire dalle fonti qui sotto.' : 'Date, luogo e prezzo vanno controllati sul sito dell’organizzatore prima di partire.'}</p>
+  <p>Ultima verifica: <time datetime={verified.toISOString().slice(0, 10)}>{formatDate(verified)}</time>. {what === 'scheda' ? 'Le informazioni di questa scheda sono state riscritte da noi a partire dalle fonti qui sotto.' : what === 'bando' ? 'Scadenza, importi e requisiti sono ripresi dalle fonti ufficiali qui sotto e riscritti da noi. Prima di presentare la domanda controllali sull’avviso.' : 'Date, luogo e prezzo vanno controllati sul sito dell’organizzatore prima di partire.'}</p>
+  {reviewed && <p>Scheda riletta da una persona, prima della pubblicazione, il <time datetime={reviewed.toISOString().slice(0, 10)}>{formatDate(reviewed)}</time>.</p>}
   {claimed && <p class="claimed">Dati confermati dall’azienda il <time datetime={claimed.toISOString().slice(0, 10)}>{formatDate(claimed)}</time>.</p>}
   <ul>
-    {[...new Set(urls)].map((u) => <li><a class="ext" href={u} rel="noopener">{labelOf(u)}</a></li>)}
+    {[...new Set(urls)].map((u) => <li><a class="ext" href={u} rel="noopener">{titles[u] ?? labelOf(u)}</a></li>)}
   </ul>
   <p>Qualcosa non torna? <a href="/metodologia/">Come verifichiamo i dati</a>.</p>
 </aside>

@@ -1,0 +1,44 @@
+{
+  "title": "Bando Polaris+",
+  "slug": "polaris-plus-fondo-repubblica-digitale-2026",
+  "issuer": "Fondo per la Repubblica Digitale Impresa Sociale",
+  "issuer_type": "fondazione o soggetto privato",
+  "scope": "nazionale",
+  "provinces": [],
+  "description": "Bando per progetti di formazione e orientamento sulle materie STEM e ICT rivolti a studenti delle scuole secondarie di primo e secondo grado. Le proposte arrivano da partenariati di tre-otto soggetti guidati da enti privati senza scopo di lucro o del Terzo Settore, con almeno tre scuole coinvolte. La dotazione è di 25 milioni di euro, di cui 11 milioni per le regioni del Sud e delle Isole, Sicilia compresa. Ogni progetto può chiedere un contributo da 800.000 a 3 milioni di euro. Le candidature si inviano online sulla piattaforma Re@dy entro le 13:00 del 21 gennaio 2027.",
+  "ai_fit": "innovazione digitale",
+  "ai_note": "Il testo cita l'intelligenza artificiale solo in una nota che elenca, a titolo di esempio, gli ambiti STEM della formazione (tra le tecnologie, insieme a sviluppo software e data science).",
+  "beneficiaries": [
+    "enti del terzo settore"
+  ],
+  "aid_types": [
+    "fondo perduto"
+  ],
+  "budget": "25 milioni di euro (11 milioni per Sud e Isole)",
+  "max_amount": "contributo da 800.000 a 3 milioni di euro per progetto",
+  "procedure": "call con scadenza",
+  "deadline": "2027-01-21",
+  "deadline_time": "13:00",
+  "closed_early": false,
+  "official_url": "https://www.fondorepubblicadigitale.it/bandi/bando-polaris-2",
+  "documents": [
+    {
+      "url": "https://www.fondorepubblicadigitale.it/wp-content/uploads/2026/09/Polaris_Bando.pdf",
+      "title": "Testo del bando Polaris+"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.fondorepubblicadigitale.it/bandi/bando-polaris-2",
+      "title": "Fondo per la Repubblica Digitale, pagina del bando Polaris+ (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.fondorepubblicadigitale.it/wp-content/uploads/2026/09/Polaris_Bando.pdf",
+      "title": "Fondo per la Repubblica Digitale, testo del bando Polaris+ (PDF) (consultato il 26 ottobre 2026)"
+    }
+  ],
+  "last_verified": "2026-10-26",
+  "verification_status": "pending",
+  "needs_human_review": true,
+  "pending_reason": "Pertinenza AI marginale: l'AI compare solo in una nota esemplificativa sugli ambiti STEM e i destinatari sono scuole e enti non profit, non imprese. Decide l'utente se tenerlo come «innovazione digitale»."
+}

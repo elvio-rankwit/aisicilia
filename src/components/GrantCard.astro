@@ -1,0 +1,43 @@
+---
+// Scheda di un bando (D-042): titolo, ente, stato, scadenza, territorio, agevolazione, importo massimo. Niente loghi.
+// Come EventCard: un solo link, sul titolo. Gli attributi data-* servono ai filtri della lista.
+import { grantPath, type Grant } from '../lib/data';
+import { cap } from './helpers';
+import { deadlineLine, grantState, territoryShort, territoryTokens, tokens } from './grants';
+interface Props { grant: Grant; level?: 2 | 3 | 4 }
+const { grant: g, level = 3 } = Astro.props;
+const d = g.data;
+const H = `h${level}` as 'h2' | 'h3' | 'h4';
+const state = grantState(g);
+const dl = deadlineLine(g);
+const aid = cap(d.aid_types.join(', '));
+---
+<li
+  class:list={['card', 'grant', { closed: state.key === 'chiuso' }]}
+  data-id={g.id}
+  data-territorio={territoryTokens(g)}
+  data-beneficiari={tokens(d.beneficiaries)}
+  data-agevolazione={tokens(d.aid_types)}
+  data-ai={tokens([d.ai_fit])}
+>
+  <p class="top"><span class:list={['badge', state.tone]}>{state.label}</span>{dl.urgent && dl.left && <span class="chip today">{cap(dl.left)}</span>}</p>
+  <H><a href={grantPath(g)}>{d.title}</a></H>
+  <p class="meta"><b>{d.issuer}</b></p>
+  <dl class="f">
+    {dl.text && <div><dt>Scadenza</dt><dd>{dl.text}{dl.left && !dl.urgent && <span class="left"> · {dl.left}</span>}</dd></div>}
+    <div><dt>Territorio</dt><dd>{territoryShort(g)}</dd></div>
+    <div><dt>Agevolazione</dt><dd>{aid}{d.max_amount && <>, {d.max_amount}</>}</dd></div>
+  </dl>
+  <ul class="tags"><li class="chip">{cap(d.ai_fit)}</li></ul>
+</li>
+<style>
+  .top { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+  .grant :global(.chip.today) { font-size: 13px; padding: 2px 10px; }
+  .f { display: grid; gap: 8px; margin: 6px 0 0; font-size: 15.5px; line-height: 1.5; }
+  .f > div { min-width: 0; }
+  .f dt { display: inline; margin-right: 8px; font: 800 11.5px/1.5 var(--body); letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); }
+  .f dd { display: inline; margin: 0; }
+  .left { color: var(--or-text); font-weight: 700; }
+  .closed { background: var(--grey); }
+  .closed:hover { background: var(--card); }
+</style>

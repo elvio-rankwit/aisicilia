@@ -1,0 +1,59 @@
+{
+  "title": "OASIS, programma di incubazione Stand By Me, avviso di selezione dei team",
+  "slug": "oasis-stand-by-me-incubazione-polo-oasis-2026",
+  "issuer": "Polo di Innovazione OASIS (TQC, Innesta e CNA Palermo), PR FESR Sicilia 2021-2027",
+  "issuer_type": "fondazione o soggetto privato",
+  "scope": "regionale",
+  "provinces": [],
+  "description": "Programma di incubazione di sei mesi per aspiranti imprenditori e team non ancora costituiti in impresa, residenti in Sicilia o pronti a trasferirsi, con un'idea nell'ambito Smart Cities & Communities della strategia S3 (oppure un team con almeno il 50% di under 36 o donne). Il percorso va dal modello di business alla costituzione della startup, con mentorship, supporto legale e fiscale, formazione e test tecnici. Alle imprese costituite in esito al programma è riconosciuto un ristoro dei costi in de minimis, 15.000 euro ciascuna, entro un massimo di 30.000. Il programma è finanziato dal PR FESR Sicilia 2021-2027 (Azione 1.1.3, avviso regionale Open Innovation Sicilia): l'avviso è del Polo, che seleziona le imprese, e le agevolazioni sono concesse dalla Regione per il tramite del Polo.",
+  "ai_fit": "innovazione digitale",
+  "ai_note": "Tra gli obiettivi dell'articolo 2 c'è la diffusione delle tecnologie abilitanti (AI, IoT/edge, cybersecurity, HPC). Non finanzia l'AI in quanto tale: un'idea AI ci sta se rientra in Smart Cities & Communities.",
+  "beneficiaries": [
+    "aspiranti imprenditori",
+    "nuove imprese"
+  ],
+  "aid_types": [
+    "servizi e accompagnamento",
+    "fondo perduto"
+  ],
+  "budget": "150.000 euro",
+  "max_amount": "15.000 euro per impresa costituita (massimo 30.000 euro)",
+  "aid_intensity": "100% dei costi di incubazione, entro il massimale",
+  "procedure": "graduatoria",
+  "deadline": "2026-11-13",
+  "deadline_time": "12:00",
+  "closed_early": false,
+  "official_url": "https://www.oasishub.it/",
+  "documents": [
+    {
+      "url": "https://www.oasishub.it/assets/docs/bando-incubazione-stand-by-me.pdf",
+      "title": "Avviso Stand By Me, programma di incubazione"
+    },
+    {
+      "url": "https://www.regione.sicilia.it/la-regione-informa/avviso-pubblico-open-innovation-sicilia",
+      "title": "Avviso madre Open Innovation Sicilia, DDG n. 1843 del 8 luglio 2025 (pagina della Regione con allegati e FAQ)"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.oasishub.it/",
+      "title": "OASIS, sito del Polo con le candidature per Wonderwall e Stand By Me (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.oasishub.it/assets/docs/bando-incubazione-stand-by-me.pdf",
+      "title": "OASIS, testo dell'avviso Stand By Me (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.regione.sicilia.it/la-regione-informa/open-innovation-sicilia-pubblicati-ulteriori-avvisi-selezione-soggetti-aderenti-ai-programmi-accelerazione-eo-incubazione-d-impresa",
+      "title": "Regione Siciliana, Dipartimento attività produttive, elenco degli avvisi dei Poli Open Innovation Sicilia (26 ottobre 2026) (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.regione.sicilia.it/la-regione-informa/avviso-pubblico-open-innovation-sicilia",
+      "title": "Regione Siciliana, Avviso pubblico Open Innovation Sicilia, Azione 1.1.3 PR FESR 2021-2027 (consultato il 26 ottobre 2026)"
+    }
+  ],
+  "last_verified": "2026-10-26",
+  "verification_status": "verified",
+  "needs_human_review": false,
+  "reviewed_at": "2026-10-26"
+}

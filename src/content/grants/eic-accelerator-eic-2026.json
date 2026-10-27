@@ -1,0 +1,57 @@
+{
+  "title": "EIC Accelerator 2026",
+  "slug": "eic-accelerator-eic-2026",
+  "issuer": "Consiglio europeo per l'innovazione (EIC), Commissione europea",
+  "issuer_type": "Unione europea",
+  "scope": "europeo",
+  "provinces": [],
+  "closed_early": false,
+  "last_verified": "2026-10-26",
+  "needs_human_review": false,
+  "reviewed_at": "2026-10-26",
+  "description": "Strumento dell'EIC per PMI e startup con tecnologie avanzate già validate in laboratorio e in ambiente rilevante (almeno TRL 5 completato). Finanzia lo sviluppo e la crescita con una componente a fondo perduto, un investimento in capitale dell'EIC Fund o entrambi in forma mista. L'impresa si candida da sola, senza consorzio: prima invia una candidatura breve, valutata a distanza, poi chi viene invitato presenta la proposta completa a uno dei cut-off, con colloquio finale davanti a una giuria. Il canale Open non pone limiti di settore tecnologico.",
+  "ai_fit": "innovazione digitale",
+  "ai_note": "Il canale Open accetta proposte in qualsiasi campo tecnologico: una startup o PMI siciliana che sviluppa AI avanzata, con prototipo già validato, può candidarsi senza forzature.",
+  "beneficiaries": [
+    "micro e piccole imprese",
+    "medie imprese",
+    "nuove imprese"
+  ],
+  "aid_types": [
+    "fondo perduto",
+    "investimento in capitale"
+  ],
+  "max_amount": "contributo a fondo perduto sotto 2,5 milioni di euro; investimento da 1 a 10 milioni di euro",
+  "aid_intensity": "fino al 70% dei costi ammissibili (componente a fondo perduto)",
+  "procedure": "call con scadenza",
+  "opens_at": "2025-11-06",
+  "deadline": "2026-11-04",
+  "deadline_time": "17:00",
+  "deadline_note": "Il 4/11/2026 è l'ultimo cut-off 2026, solo per chi ha già un GO alla candidatura breve; la call breve 2026 chiude lo stesso giorno, quella 2027 apre a novembre.",
+  "official_url": "https://eic.ec.europa.eu/eic-funding-opportunities/eic-accelerator_en",
+  "documents": [
+    {
+      "url": "https://eic.ec.europa.eu/system/files/2025-11/EIC-Work-Programme-2026.pdf",
+      "title": "EIC Work Programme 2026 (sezione EIC Accelerator)"
+    },
+    {
+      "url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-EIC-2026-ACCELERATOR-01",
+      "title": "Scheda del topic HORIZON-EIC-2026-ACCELERATOR-01 sul portale Funding & Tenders"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://eic.ec.europa.eu/eic-funding-opportunities/eic-accelerator_en",
+      "title": "EIC, pagina EIC Accelerator (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://eic.ec.europa.eu/system/files/2025-11/EIC-Work-Programme-2026.pdf",
+      "title": "EIC, Work Programme 2026 (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-EIC-2026-ACCELERATOR-01",
+      "title": "Commissione europea, portale Funding & Tenders, topic HORIZON-EIC-2026-ACCELERATOR-01 (consultato il 26 ottobre 2026)"
+    }
+  ],
+  "verification_status": "verified"
+}

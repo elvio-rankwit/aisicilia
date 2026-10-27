@@ -1,0 +1,69 @@
+{
+  "title": "Bando Doppia Transizione Digitale ed Ecologica, regime de minimis, anno 2026",
+  "slug": "voucher-doppia-transizione-cciaa-sud-est-2026",
+  "issuer": "Camera di Commercio del Sud Est Sicilia",
+  "issuer_type": "Camera di Commercio",
+  "scope": "provinciale",
+  "provinces": [
+    "catania",
+    "ragusa",
+    "siracusa"
+  ],
+  "description": "Voucher a fondo perduto per micro, piccole e medie imprese con sede legale o unità locale a Catania, Ragusa o Siracusa. Il progetto vale almeno 5.000 euro di spese ammissibili, divise a metà tra acquisto di tecnologie e servizi di consulenza e formazione. Il voucher copre fino al 70% della spesa, con tetto di 10.000 euro, più 250 euro per chi ha il rating di legalità o la certificazione di parità di genere. La domanda parte solo dalla piattaforma ReStart di InfoCamere, con firma digitale, ed è valutata in ordine cronologico.",
+  "ai_fit": "AI tra le spese ammesse",
+  "ai_note": "L'articolo 7, comma 2, lettera d, elenca l'intelligenza artificiale tra le tecnologie acquistabili, accanto a cloud, cybersecurity e big data. La formazione ammessa deve riguardare le stesse tecnologie.",
+  "beneficiaries": [
+    "micro e piccole imprese",
+    "medie imprese"
+  ],
+  "aid_types": [
+    "voucher",
+    "fondo perduto"
+  ],
+  "budget": "1.000.000 euro",
+  "max_amount": "fino a 10.000 euro per impresa, più 250 euro di premialità",
+  "aid_intensity": "fino al 70% delle spese ammissibili",
+  "procedure": "a sportello",
+  "opens_at": "2026-07-15",
+  "deadline": "2026-10-31",
+  "deadline_time": "21:00",
+  "deadline_note": "La Camera può chiudere prima se le risorse si esauriscono (art. 3, comma 8).",
+  "closed_early": false,
+  "official_url": "https://ctrgsr.camcom.gov.it/it/blog/bando-doppia-transizione-digitale-ed-ecologica-regime-de-minimis-anno-2026",
+  "documents": [
+    {
+      "url": "https://ctrgsr.camcom.gov.it/sites/default/files/PID/53%20All.%20BANDO%20DOPPIA%20TRANSIZIONE%20REGIME%20DE%20MINIMIS%20ANNO%202026.pdf",
+      "title": "Testo del bando Doppia Transizione 2026"
+    },
+    {
+      "url": "https://ctrgsr.camcom.gov.it/sites/default/files/PID/53%20DELIBERA%20approvazione%20bando%20DOPPIA%20TRANSIZIONE%20digitale%20ed%20ecologica.%20Regime%20de%20minimis.%20Anno%202026.pdf",
+      "title": "Delibera n. 53 del 2 luglio 2026 di approvazione del bando"
+    },
+    {
+      "url": "https://ctrgsr.camcom.gov.it/sites/default/files/PID/53%20All.%20Modulo%20Domanda.pdf",
+      "title": "Modulo di domanda"
+    },
+    {
+      "url": "https://ctrgsr.camcom.gov.it/sites/default/files/PID/PID_2025/Guida%20beneficiario%20(1).pdf",
+      "title": "Guida beneficiario alla presentazione delle domande su ReStart"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://ctrgsr.camcom.gov.it/it/blog/bando-doppia-transizione-digitale-ed-ecologica-regime-de-minimis-anno-2026",
+      "title": "Camera di Commercio del Sud Est Sicilia, pagina del bando Doppia Transizione 2026 (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://ctrgsr.camcom.gov.it/voucher-digitali",
+      "title": "Camera di Commercio del Sud Est Sicilia, pagina Voucher Digitali (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://ctrgsr.camcom.gov.it/sites/default/files/PID/53%20All.%20BANDO%20DOPPIA%20TRANSIZIONE%20REGIME%20DE%20MINIMIS%20ANNO%202026.pdf",
+      "title": "Camera di Commercio del Sud Est Sicilia, testo del bando Doppia Transizione 2026 (consultato il 26 ottobre 2026)"
+    }
+  ],
+  "last_verified": "2026-10-26",
+  "verification_status": "verified",
+  "needs_human_review": false,
+  "reviewed_at": "2026-10-26"
+}

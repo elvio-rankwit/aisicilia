@@ -7,15 +7,15 @@ import { FORMS } from '../../lib/site';
 import { PROVINCES, PROVINCE_SLUGS } from '../../lib/provinces';
 
 const m = {
-  title: 'Segnala un’azienda o un evento AI in Sicilia',
-  description: 'Conosci un’azienda o un evento sull’intelligenza artificiale in Sicilia che manca? Segnalalo: controlliamo le fonti e lo aggiungiamo se rispetta i criteri.',
+  title: 'Segnala un’azienda, un evento o un bando AI in Sicilia',
+  description: 'Conosci un’azienda, un evento o un bando sull’AI in Sicilia che manca? Segnalalo: controlliamo le fonti e lo aggiungiamo se rispetta i criteri.',
 };
 ---
 <BaseLayout seo={{ title: m.title, description: m.description, path: '/segnala/', breadcrumbs: [{ name: 'Segnala', path: '/segnala/' }] }}>
   <PageHead>
     <Fragment slot="eyebrow">Contribuisci</Fragment>
-    <Fragment slot="title">Segnala un’azienda o un <mark class="blk">evento</mark></Fragment>
-    <p>Se conosci un’azienda siciliana che lavora con l’intelligenza artificiale, o un evento sul tema, scrivicelo qui. Prima di pubblicare controlliamo le fonti: la segnalazione da sola non basta, ci vuole qualcosa di verificabile.</p>
+    <Fragment slot="title">Segnala un’azienda, un evento o un <mark class="blk">bando</mark></Fragment>
+    <p>Se conosci un’azienda siciliana che lavora con l’intelligenza artificiale, un evento sul tema o un bando che finanzia progetti di AI, scrivicelo qui. Prima di pubblicare controlliamo le fonti: la segnalazione da sola non basta, ci vuole qualcosa di verificabile.</p>
   </PageHead>
 
   <section aria-labelledby="h-criteri">
@@ -23,22 +23,24 @@ const m = {
     <Prose>
       <p><strong>Aziende:</strong> sede operativa in Sicilia e intelligenza artificiale al centro del prodotto o del servizio, dichiarata sul sito o in una fonte pubblica. Chi usa anche ChatGPT, tra tanti strumenti, non rientra.</p>
       <p><strong>Eventi:</strong> in Sicilia, oppure online se li organizza un soggetto siciliano.</p>
+      <p><strong>Bandi:</strong> pubblicati da un ente pubblico o da un soggetto che li gestisce, accessibili a chi ha sede in Sicilia e con l’AI tra i temi o tra le spese ammesse. Ci serve il link alla pagina ufficiale dell’ente: un bando trovato solo su un blog, su un portale o in un post non basta.</p>
       <p>I dettagli sono nella pagina <a href="/metodologia/">Come verifichiamo i dati</a>. Pubblichiamo solo dati aziendali, mai dati di persone.</p>
     </Prose>
   </section>
 
   <section class="section" aria-labelledby="h-form">
     <h2 id="h-form">Il modulo</h2>
-    <FormShell action={FORMS.segnala} envName="PUBLIC_FORM_SEGNALA_URL" submitLabel="Invia la segnalazione" label="Segnala azienda o evento">
+    <FormShell action={FORMS.segnala} envName="PUBLIC_FORM_SEGNALA_URL" submitLabel="Invia la segnalazione" label="Segnala azienda, evento o bando">
       <div class="field">
         <span class="label" id="l-tipo">Cosa vuoi segnalare</span>
         <div class="choices" role="radiogroup" aria-labelledby="l-tipo">
           <label><input type="radio" name="tipo" value="azienda" checked /> Un’azienda</label>
           <label><input type="radio" name="tipo" value="evento" /> Un evento</label>
+          <label><input type="radio" name="tipo" value="bando" /> Un bando</label>
         </div>
       </div>
       <div class="field">
-        <label for="s-nome">Nome dell’azienda o titolo dell’evento</label>
+        <label for="s-nome">Nome dell’azienda, titolo dell’evento o del bando</label>
         <input id="s-nome" name="nome" type="text" required autocomplete="off" />
       </div>
       <div class="field">
@@ -51,18 +53,19 @@ const m = {
           <option value="">Scegli</option>
           {PROVINCE_SLUGS.map((p) => <option value={p}>{PROVINCES[p].name}</option>)}
           <option value="online">Evento online</option>
+          <option value="tutta-la-sicilia">Bando valido in tutta la Sicilia</option>
           <option value="non-so">Non lo so</option>
         </select>
       </div>
       <div class="field">
         <label for="s-perche">Che cosa c’entra l’AI</label>
         <textarea id="s-perche" name="perche" required></textarea>
-        <span class="hint">Poche righe: cosa fa con l’AI, o di cosa parla l’evento.</span>
+        <span class="hint">Poche righe: cosa fa con l’AI, di cosa parla l’evento o cosa finanzia il bando.</span>
       </div>
       <div class="field">
         <label for="s-fonte">Dove l’hai letto</label>
         <input id="s-fonte" name="fonte" type="text" autocomplete="off" />
-        <span class="hint">Un link o il nome di una fonte pubblica (sito ufficiale, registro, pagina dell’organizzatore).</span>
+        <span class="hint">Un link o il nome di una fonte pubblica (sito ufficiale, registro, pagina dell’organizzatore, pagina ufficiale del bando). Per un bando, scrivi anche la scadenza se la conosci: la controlliamo noi sull’avviso.</span>
       </div>
       <div class="field">
         <label for="s-email">La tua email (facoltativa)</label>

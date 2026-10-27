@@ -7,7 +7,8 @@ import { z } from 'astro/zod';
 import { PROVINCE_SLUGS, SICILY_BBOX } from './lib/provinces';
 import {
   AI_AREAS, COMPANY_TYPES, COMPATIBLE_TOOLS, EVENT_AUDIENCES, EVENT_FORMATS,
-  EVENT_PRICES, EVENT_STATUSES, LEVELS, PROMPT_SECTOR_SLUGS, PROMPT_USE_CASES,
+  EVENT_PRICES, EVENT_STATUSES, GRANT_AI_FIT, GRANT_AID_TYPES, GRANT_BENEFICIARIES,
+  GRANT_ISSUER_TYPES, GRANT_PROCEDURES, GRANT_SCOPES, LEVELS, PROMPT_SECTOR_SLUGS, PROMPT_USE_CASES,
   SECTORS_SERVED,
 } from './lib/taxonomies';
 
@@ -162,4 +163,59 @@ const prompts = defineCollection({
   }),
 });
 
-export const collections = { companies, events, articles, prompts };
+// Bandi e finanziamenti (D-042). YMYL: needs_human_review true finché l'utente non li approva.
+// Lo stato (aperto / in apertura / chiuso) non si scrive: lo calcola `grantStatus` in src/lib/data.ts.
+const grants = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: base('grants'), generateId: bySlug }),
+  schema: z
+    .object({
+      /** Nome ufficiale del bando, come nell'avviso. */
+      title: z.string().min(5).max(140),
+      slug,
+      /** Ente che emette il bando (es. "Camera di Commercio del Sud Est Sicilia", "Invitalia"). */
+      issuer: z.string().min(2),
+      issuer_type: z.enum(GRANT_ISSUER_TYPES),
+      scope: z.enum(GRANT_SCOPES),
+      /** Province ammesse se il bando vale solo per una parte della Sicilia. Vuoto = tutta la Sicilia. */
+      provinces: z.array(province).default([]),
+      /** Riscritta con parole proprie: cosa finanzia, a chi serve, in che modo. */
+      description: z.string().min(300).max(900),
+      ai_fit: z.enum(GRANT_AI_FIT),
+      /** Perché il bando c'entra con l'AI, con il riferimento al testo (articolo o allegato). */
+      ai_note: z.string().min(60).max(400),
+      beneficiaries: z.array(z.enum(GRANT_BENEFICIARIES)).min(1),
+      aid_types: z.array(z.enum(GRANT_AID_TYPES)).min(1),
+      /** Testo breve dalla fonte, es. "300.000 euro". */
+      budget: z.string().min(3).max(80).optional(),
+      /** Es. "fino a 10.000 euro per impresa". */
+      max_amount: z.string().min(3).max(120).optional(),
+      /** Es. "50% delle spese ammissibili". */
+      aid_intensity: z.string().min(3).max(160).optional(),
+      procedure: z.enum(GRANT_PROCEDURES),
+      /** Prima data utile per presentare la domanda. */
+      opens_at: isoDate.optional(),
+      /** Ultimo giorno utile. Assente solo per gli sportelli senza scadenza (serve deadline_note). */
+      deadline: isoDate.optional(),
+      /** HH:MM, ora italiana. */
+      deadline_time: z.string().regex(/^([01]\d|2[0-3]):[0-5]\d$/).optional(),
+      /** Es. "fino a esaurimento delle risorse", "prossimo cut-off: 7 gennaio 2027". */
+      deadline_note: z.string().min(5).max(160).optional(),
+      /** true se la fonte dice che lo sportello è chiuso o sospeso prima della scadenza (fondi esauriti). */
+      closed_early: z.boolean().default(false),
+      /** Pagina ufficiale del bando (ente che lo emette o gestore). */
+      official_url: httpUrl,
+      /** Testo del bando, allegati, FAQ ufficiali. */
+      documents: z.array(z.object({ url: httpUrl, title: z.string().min(3) })).default([]),
+      sources: z.array(z.object({ url: httpUrl, title: z.string().min(3) })).min(1),
+      last_verified: isoDate,
+      verification_status: verification,
+      /** true = YMYL non ancora approvato: escluso dalla build. Per approvare: false + reviewed_at. */
+      needs_human_review: z.boolean(),
+      reviewed_at: isoDate.optional(),
+    })
+    .refine((g) => g.deadline || g.deadline_note, { message: 'senza deadline serve deadline_note' })
+    .refine((g) => !g.opens_at || !g.deadline || g.deadline >= g.opens_at, { message: 'deadline precedente a opens_at' })
+    .refine((g) => (g.scope === 'provinciale') === g.provinces.length > 0, { message: 'scope "provinciale" se e solo se provinces è compilato' }),
+});
+
+export const collections = { companies, events, articles, prompts, grants };

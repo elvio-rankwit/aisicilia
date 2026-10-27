@@ -1,0 +1,34 @@
+{
+  "title": "[FITTIZIO] Voucher camerale per la transizione digitale (tre province)",
+  "slug": "esempio-voucher-camera-sud-est",
+  "issuer": "[FITTIZIO] Camera di Commercio di esempio",
+  "issuer_type": "Camera di Commercio",
+  "scope": "provinciale",
+  "provinces": ["catania", "ragusa", "siracusa"],
+  "description": "Bando fittizio per lo sviluppo dell'interfaccia: una Camera di Commercio immaginaria rimborserebbe una parte delle spese di digitalizzazione delle imprese di tre province, compresi servizi di consulenza e strumenti di intelligenza artificiale. Le domande si presentano a sportello, in ordine cronologico. Serve a provare un bando valido solo per alcune province e il filtro per territorio. Non esiste e non va pubblicato.",
+  "ai_fit": "AI tra le spese ammesse",
+  "ai_note": "Fittizio: l'elenco delle spese ammesse dell'avviso di esempio comprende consulenza e software di intelligenza artificiale.",
+  "beneficiaries": ["micro e piccole imprese"],
+  "aid_types": ["voucher"],
+  "budget": "800.000 euro",
+  "max_amount": "fino a 10.000 euro per impresa",
+  "aid_intensity": "50% delle spese ammissibili",
+  "procedure": "a sportello",
+  "opens_at": "2026-09-01",
+  "deadline": "2026-12-18",
+  "deadline_time": "21:00",
+  "deadline_note": "Lo sportello può chiudere prima se i fondi si esauriscono",
+  "official_url": "https://camera-esempio.example/bandi/voucher-digitale",
+  "documents": [
+    { "url": "https://camera-esempio.example/bandi/voucher-digitale/bando.pdf", "title": "Testo del bando (PDF di esempio)" },
+    { "url": "https://camera-esempio.example/bandi/voucher-digitale/modulo.pdf", "title": "Modulo di domanda (PDF di esempio)" }
+  ],
+  "sources": [
+    { "url": "https://camera-esempio.example/bandi/voucher-digitale", "title": "Pagina ufficiale del bando (esempio)" },
+    { "url": "https://camera-esempio.example/bandi/voucher-digitale/bando.pdf", "title": "Testo del bando (esempio)" }
+  ],
+  "last_verified": "2026-10-24",
+  "verification_status": "verified",
+  "needs_human_review": false,
+  "reviewed_at": "2026-10-25"
+}

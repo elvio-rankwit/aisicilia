@@ -1,0 +1,54 @@
+{
+  "title": "Bando Voucher Doppia Transizione, anno 2026, Camera di Commercio di Agrigento",
+  "slug": "voucher-doppia-transizione-cciaa-agrigento-2026",
+  "issuer": "Camera di Commercio di Agrigento",
+  "issuer_type": "Camera di Commercio",
+  "scope": "provinciale",
+  "provinces": [
+    "agrigento"
+  ],
+  "description": "Voucher a fondo perduto per micro, piccole e medie imprese con sede legale o unità locale in provincia di Agrigento, per acquistare tecnologie digitali, consulenza e formazione. Il voucher copre fino al 70% della spesa, con tetto di 10.000 euro, investimento minimo di 3.000 euro e dotazione di 250.000 euro, più 250 euro di premialità per rating di legalità o parità di genere. Le domande si inviavano su ReStart, in ordine cronologico, dal 1 al 30 settembre 2026: lo sportello è chiuso e la scheda resta per archivio.",
+  "ai_fit": "AI tra le spese ammesse",
+  "ai_note": "L'elenco delle tecnologie ammissibili, all'articolo 7, include l'intelligenza artificiale accanto a cloud, cybersecurity, big data e robotica.",
+  "beneficiaries": [
+    "micro e piccole imprese",
+    "medie imprese"
+  ],
+  "aid_types": [
+    "voucher",
+    "fondo perduto"
+  ],
+  "budget": "250.000 euro",
+  "max_amount": "fino a 10.000 euro per impresa, più 250 euro di premialità",
+  "aid_intensity": "fino al 70% delle spese ammissibili",
+  "procedure": "a sportello",
+  "opens_at": "2026-09-01",
+  "deadline": "2026-09-30",
+  "deadline_time": "11:00",
+  "closed_early": false,
+  "official_url": "https://www.ag.camcom.it/servizio/bando-voucher-pid-2026/",
+  "documents": [
+    {
+      "url": "https://www.ag.camcom.it/wp-content/uploads/2026/07/2.CCIAA-AG-Bando-Doppia-Transizione_DEF.pdf",
+      "title": "Allegato A, testo del bando Doppia Transizione 2026"
+    },
+    {
+      "url": "https://www.ag.camcom.it/wp-content/uploads/2026/07/4.Modulo-di-domanda.pdf",
+      "title": "Allegato B, modulo di domanda"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.ag.camcom.it/servizio/bando-voucher-pid-2026/",
+      "title": "Camera di Commercio di Agrigento, pagina del Bando voucher PID 2026 (consultato il 26 ottobre 2026)"
+    },
+    {
+      "url": "https://www.ag.camcom.it/wp-content/uploads/2026/07/2.CCIAA-AG-Bando-Doppia-Transizione_DEF.pdf",
+      "title": "Camera di Commercio di Agrigento, testo del bando Doppia Transizione 2026 (consultato il 26 ottobre 2026)"
+    }
+  ],
+  "last_verified": "2026-10-26",
+  "verification_status": "verified",
+  "needs_human_review": false,
+  "reviewed_at": "2026-10-26"
+}
